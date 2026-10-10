@@ -1704,6 +1704,18 @@ function doodle() {
         '<div class="ddacts"><a href="#ev=' + e.k + '" data-dact="cal" data-ek="' + k + '">' + bi('ในปฏิทิน', 'Calendar') + '</a>' + (map ? '<a class="q" href="' + map + '" data-dact="map" data-ek="' + k + '">' + bi('แผนที่', 'Map') + '</a>' : '') + '</div></div>';
     }
     box.innerHTML = h;
+    label(e);
+  }
+  /* the picture's words for a screen reader: what the stage draws (data/curated/doodle_alt.json) and the
+     event on its banner; words() runs when the event or the hour changes, so the label follows */
+  var ALT = null;
+  function label(e) {
+    if (!ALT) ALT = fetch(LIVE + 'front/doodle_alt.json').then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; });
+    ALT.then(function (A) {
+      var a = (x && x.e ? A[ddSetOf(x).split(':')[0]] : null) || ['', ''], th = x && x.row && x.row.th, en = (x && x.row && x.row.en) || (e && e.t) || '';
+      cv.setAttribute('aria-label', 'ภาพวาด' + (a[0] ? ': ' + a[0] : 'ของวันนี้') + (e ? ' · ป้าย: ' + (th || en) : '') +
+        ' / Drawing' + (a[1] ? ': ' + a[1] : ' for today') + (e ? '; banner: ' + en : ''));
+    });
   }
   /* one tap: believed at once, sent to the readers' rain gauge (obs_layer.py) with where we think they are */
   box.addEventListener('click', function (ev) {

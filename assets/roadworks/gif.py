@@ -115,8 +115,8 @@ def frame(f):
 frames = [frame(f) for f in range(8)]
 def save(frs, path, scale):
     fr = [im.resize((W*scale, H*scale), Image.NEAREST) for im in frs]
-    fr[0].save(path, save_all=True, append_images=fr[1:], duration=130, loop=0,
-               optimize=False, disposal=1)
+    fr[0].save(path, save_all=True, append_images=fr[1:], duration=130, loop=3,
+               optimize=False, disposal=1)   # four plays, about 4 s, then it rests: motion past 5 s needs a pause (WCAG 2.2.2)
 save(frames, OUT + '/construction.gif', 1)
 save(frames, OUT + '/construction@2x.gif', 2)
 frames[0].convert('RGB').save(OUT + '/construction.png', optimize=True)

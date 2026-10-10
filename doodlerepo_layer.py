@@ -18,6 +18,8 @@ import json
 import shutil
 from pathlib import Path
 
+import doodles_layer
+
 ROOT = Path(__file__).resolve().parent
 STORE = ROOT / "data" / "doodles"
 APP = ROOT / "assets" / "doodles-app"
@@ -28,6 +30,7 @@ BASE = "https://motdang.net/"
 VOTE_URL = "https://mot-dang-claims.nanobotco.workers.dev"   # worker.js /doodle-vote
 PAIRS_PER_GROUP = 120
 PROPS = ROOT / "data" / "curated" / "portrait_props.json"
+CARDS = ROOT / "assets" / "doodles-cards"   # make_doodle_cards.py
 # what a drawn feature is called on a chip (Nan, 2026-10-05: sorts "by feature"); others take the props file's words
 FEAT_NAMES = {"lights": ("เปิดดึก", "Open late"), "rooster": ("เปิดเช้า", "Opens early"), "aircon": ("แอร์", "Air-con"),
               "parking": ("ที่จอดรถ", "Parking"), "pool": ("สระว่ายน้ำ", "Pool")}
@@ -72,11 +75,28 @@ def load():
     return vers, gone, params
 
 
-def _page(c, sub, K, title_th, title_en, rel):
-    desc_th = "ภาพวาดเคลื่อนไหวของมดแดง ทุกภาพ ทุกรุ่น แต่ละภาพลิงก์กลับไปหน้าของมัน"
-    desc_en = "Mot Dang's moving drawings, every one and every version of it, each linked back to its page."
+def _page(c, sub, K, title_th, title_en, rel, n=0, alt=("", ""), card="", kids=()):
+    """One page of the app. What it holds is in the page itself too: the heading, a description naming
+    what this kind of doodle draws (data/curated/doodle_alt.json), its subpages as links, and a share card
+    of one of its doodles (make_doodle_cards.py) — the app replaces all of it once it runs."""
+    if alt[1]:   # a kind can sit in two categories (a scene and a front-page set), so the category is named
+        cat_th, cat_en = (title_th.split(" · ") + [""])[1], (title_en.split(" · ") + [""])[1]
+        desc_th = "ภาพวาดเคลื่อนไหวของมดแดง หมวด%s %s ภาพ: %s แต่ละภาพลิงก์กลับไปหน้าของมัน" % (cat_th, format(n, ","), alt[0])
+        desc_en = "%s of Mot Dang's moving drawings, %s: %s. Each links back to its page." % (format(n, ","), cat_en, alt[1])
+    elif n:
+        desc_th = "ภาพวาดเคลื่อนไหวของมดแดง %s ภาพ หมวด%s แต่ละภาพลิงก์กลับไปหน้าของมัน" % (format(n, ","), title_th.split(" · ")[-1])
+        desc_en = "%s of Mot Dang's moving drawings: %s. Each links back to its page." % (format(n, ","), title_en.split(" · ")[-1])
+    else:
+        desc_th = "ภาพวาดเคลื่อนไหวของมดแดง ทุกภาพ ทุกรุ่น แต่ละภาพลิงก์กลับไปหน้าของมัน"
+        desc_en = "Mot Dang's moving drawings, every one and every version of it, each linked back to its page."
     url = BASE + "doodles/" + rel
     e = html.escape
+    img = BASE + "doodles/" + (("cards/" + card) if card else "card.jpg")
+    img_alt = ("%s · %s" % (alt[0], alt[1])) if alt[1] else "%s · %s" % (title_th, title_en)
+    robots = '<meta name="robots" content="noindex,follow">\n' if c in ("one", "pick") else ""
+    links = "".join('<li><a href="/doodles/%s">%s · %s</a></li>' % (e(h), e(a), e(b)) for h, a, b in kids)
+    body = ('<h1><span lang="th">%s</span> · <span lang="en">%s</span></h1><p><span lang="th">%s</span> · <span lang="en">%s</span></p>%s'
+            % (e(title_th), e(title_en), e(desc_th), e(desc_en), ("<ul>%s</ul>" % links) if links else ""))
     vote = (' · votes and notes, for humans and bots: POST %s/doodle-vote {"id", "v", "like": 1|-1|0, "fav": 1|0, "accuracy": 1|-1|0, "aesthetics": 1|-1|0, "note"}'
             ' — <a href="/llms.txt">llms.txt</a>' % e(VOTE_URL)) if c == "one" else (
         ' · picks, for humans and bots: GET /doodles/data/pairs.json ([idA, vA, idB, vB]), then POST %s/doodle-pick'
@@ -94,12 +114,13 @@ def _page(c, sub, K, title_th, title_en, rel):
 <meta property="og:title" content="{e(title_th)} · {e(title_en)}">
 <meta property="og:description" content="{e(desc_en)}">
 <meta property="og:url" content="{e(url)}">
-<meta property="og:image" content="{BASE}doodles/card.jpg">
-<link rel="icon" href="/doodles/icon.svg">
+<meta property="og:image" content="{e(img)}">
+<meta property="og:image:alt" content="{e(img_alt)}">
+{robots}<link rel="icon" href="/doodles/icon.svg">
 <link rel="stylesheet" href="/doodles/app.css">
 </head>
 <body data-c="{e(c)}" data-sub="{e(sub)}">
-<div class="wrap" id="app"><noscript>{e(title_th)} · {e(title_en)} — <a href="/doodles/data/meta.json">data</a>{vote}</noscript></div>
+<div class="wrap" id="app">{body}<noscript><a href="/doodles/data/meta.json">data</a>{vote}</noscript></div>
 <script src="/doodles/app.js"></script>
 </body>
 </html>
@@ -168,7 +189,8 @@ def emit(docs):
     upd = max(r["from"] for vs in vers.values() for r in vs)
     (out / "data" / "meta.json").write_text(json.dumps({"engine": cur, "chunk": CHUNK, "total": len(rows), "updated": upd,
                                                         "versions": sum(len(v) for v in vers.values()), "cats": cats,
-                                                        "names": {"cats": K["cats"], "kinds": K["kinds"]}, "pay": pay_offer(),
+                                                        "names": {"cats": K["cats"], "kinds": K["kinds"], "alts": doodles_layer.alts()},
+                                                        "pay": pay_offer(),
                                                         "feats": feat_names(feats)},
                                                        ensure_ascii=False, separators=(",", ":")))
     (out / "engines").mkdir()
@@ -180,24 +202,52 @@ def emit(docs):
     for f in APP.iterdir():
         if f.is_file():
             shutil.copy2(f, out / f.name)
+    # the share cards (make_doodle_cards.py): <category>~<kind>.jpg, <category>~.jpg for a category's page
+    have = set()
+    if CARDS.is_dir():
+        (out / "cards").mkdir()
+        for f in CARDS.glob("*.jpg"):
+            shutil.copy2(f, out / "cards" / f.name)
+            have.add(f.name)
+
+    def card(c, sub):
+        f = "%s~%s.jpg" % (c, sub)
+        return f if f in have else ""
+
+    def sname(c, sub):
+        return kn.get(sub) or ({"th": sub, "en": sub} if c != "minisite" else _site_name(rows, c, sub))
+
     # the pages: all, each category, each subcategory, one doodle
     kn = K["kinds"]
-    (out / "index.html").write_text(_page("", "", K, "ดูเดิล", "Doodles", ""))
+    cname = {c: K["cats"].get(c, {"th": c, "en": c, "path": c}) for c in cats}
+    (out / "index.html").write_text(_page("", "", K, "ดูเดิล", "Doodles", "", len(rows),
+                                          kids=[(cname[c]["path"] + "/", cname[c]["th"], cname[c]["en"]) for c in cats]))
     for c, cc in cats.items():
-        cn = K["cats"].get(c, {"th": c, "en": c, "path": c})
+        cn = cname[c]
         d = out / cn["path"]
         d.mkdir(exist_ok=True)
-        (d / "index.html").write_text(_page(c, "", K, "ดูเดิล · " + cn["th"], "Doodles · " + cn["en"], cn["path"] + "/"))
+        subs = [(cn["path"] + "/" + sub + "/", sname(c, sub)["th"], sname(c, sub)["en"]) for sub in cc["subs"]]
+        (d / "index.html").write_text(_page(c, "", K, "ดูเดิล · " + cn["th"], "Doodles · " + cn["en"], cn["path"] + "/",
+                                            cc["n"], doodles_alt(c, ""), card(c, ""), subs))
         for sub in cc["subs"]:
-            sn = kn.get(sub) or ({"th": sub, "en": sub} if c != "minisite" else _site_name(rows, c, sub))
+            sn = sname(c, sub)
             (d / sub).mkdir(exist_ok=True)
             (d / sub / "index.html").write_text(_page(c, sub, K, "ดูเดิล · %s · %s" % (cn["th"], sn["th"]),
-                                                      "Doodles · %s · %s" % (cn["en"], sn["en"]), "%s/%s/" % (cn["path"], sub)))
+                                                      "Doodles · %s · %s" % (cn["en"], sn["en"]), "%s/%s/" % (cn["path"], sub),
+                                                      cc["subs"][sub], doodles_alt(c, sub), card(c, sub)))
     (out / "pick").mkdir()
     (out / "pick" / "index.html").write_text(_page("pick", "", K, "ดูเดิล · ภาพไหนดีกว่า", "Doodles · Which is better?", "pick/"))
     (out / "d").mkdir()
     (out / "d" / "index.html").write_text(_page("one", "", K, "ดูเดิล", "Doodle", "d/"))
     return len(rows)
+
+
+def doodles_alt(c, sub):
+    """(th, en) a page describes its doodles with: the kind's words; a category page has none of its own,
+    except covers, whose one kind is unnamed."""
+    if not sub and c != "cover":
+        return ("", "")
+    return doodles_layer.alt(sub)
 
 
 def feat_names(feats):

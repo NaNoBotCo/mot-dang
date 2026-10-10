@@ -1,0 +1,433 @@
+{
+  "about": "What each kind of doodle shows, for screen readers and image search (Nan, 2026-10-10: \"We have a ton of doodles that need labeling\"). One entry per drawing kind: a place portrait set, a scene, a front-page set, a minisite drawing. doodles_layer.py, doodlerepo_layer.py, front_layer.py and the browser scripts compose a doodle's label from it plus the doodle's own name. tests/test_alt_text.py fails a build that publishes a kind missing here. Written from the drawings as rendered 2026-10-10. A place portrait varies from place to place, so a kind that draws places names the building and what showed in every one checked; when a kind's drawing changes, its words change with it.",
+  "alts": {
+    "": {
+      "th": "คู่เต้นละตินใต้ไฟประดับ ด้านหลังเป็นวัด ประตูท่าแพ และแม่น้ำปิง",
+      "en": "couples dancing a Latin night under string lights, with wats, Tha Phae Gate and the Ping behind"
+    },
+    "agent": {
+      "th": "หน้าสำนักงานนายหน้าอสังหาฯ พร้อมป้ายชื่อ",
+      "en": "an estate agent's office with its sign"
+    },
+    "akha": {
+      "th": "หมู่บ้านอาข่า บ้านหลังคามุงจากมีไม้ไขว้บนจั่ว ชาวบ้าน และโน้ตดนตรีลอยขึ้น",
+      "en": "an Akha village: thatched houses with crossed roof horns, villagers, music notes rising"
+    },
+    "akha-swing": {
+      "th": "ประเพณีโล้ชิงช้าอาข่า ชิงช้าเสาสูง ชาวบ้านใส่หมวกและชุดดำแดงยืนรอบ",
+      "en": "the Akha swing festival: a tall pole swing with villagers in black and red headdresses around it"
+    },
+    "all-factored": {
+      "th": "ห้องขันโตกล้านนาใต้หลังคาสองชั้น คนถือไฟฉายเดินส่องแขกทีละคน แล้วโคมทั้งห้องสว่างพร้อมกัน",
+      "en": "a Lanna khantok hall under a two-tier roof: a waiter with a torch walks the rows one guest at a time, then every lantern lights at once"
+    },
+    "alley": {
+      "th": "ตรอกตลาดคึกคักใต้ธงราว แผงขายสองข้าง คนเดินจับจ่าย อาคารพาณิชย์ด้านหลัง",
+      "en": "a busy market alley under strings of flags, stalls on both sides and shoppers walking through"
+    },
+    "apartment": {
+      "th": "ตึกอพาร์ตเมนต์มีระเบียงพร้อมป้ายชื่อ มอเตอร์ไซค์และรถอยู่บนถนนหน้าตึก",
+      "en": "an apartment block with balconies and its sign, motorbikes and cars on the road out front"
+    },
+    "bag-knots": {
+      "th": "ตลาดล้านนาใต้ศาลาไม้ แม่ค้ากำลังมัดปากถุงแกง",
+      "en": "a Lanna market under an open timber pavilion, where a vendor ties bags of curry shut"
+    },
+    "bakery": {
+      "th": "ร้านขนมพร้อมป้ายชื่อ",
+      "en": "a bakery with its sign"
+    },
+    "ball": {
+      "th": "คนเล่นลูกบอลบนสนามริมแม่น้ำ",
+      "en": "players passing a ball on a riverside field"
+    },
+    "ban-sabai": {
+      "th": "หมู่บ้านบ้านหลังเล็กหลังคาแดงล้อมรอบสระน้ำกลมสีฟ้า มีต้นไม้แทรก",
+      "en": "a village of small red-roofed houses around a round blue pool, with trees between them"
+    },
+    "band": {
+      "th": "วงดนตรีเล่นบนเวที เงาหัวผู้ชมด้านล่าง โน้ตดนตรีลอยขึ้น",
+      "en": "a band playing on a stage, the crowd's heads in silhouette below, music notes rising"
+    },
+    "bank": {
+      "th": "สาขาธนาคารพร้อมป้ายชื่อ มีตู้เอทีเอ็มข้างประตู",
+      "en": "a bank branch with its sign and an ATM by the door"
+    },
+    "bar": {
+      "th": "บาร์ป้ายไฟ มีไฟประดับขึงด้านหน้า",
+      "en": "a bar with a lit sign and lights strung outside"
+    },
+    "bayeux-tapestry": {
+      "th": "ดาวหางพาดผ่านฟ้า คนสองคนในชุดม่อฮ่อมชี้ขึ้นไปดู",
+      "en": "a comet crossing the sky while two people in indigo mo hom point up at it"
+    },
+    "beautyclinic": {
+      "th": "คลินิกความงามพร้อมป้ายชื่อ",
+      "en": "a beauty clinic with its sign"
+    },
+    "busstop": {
+      "th": "ป้ายรถริมถนน มีรถบัสหรือรถสองแถวจอดรับ",
+      "en": "a bus stop by the road, a bus or songthaew pulling up"
+    },
+    "cafe": {
+      "th": "ร้านกาแฟพร้อมป้ายชื่อ มีต้นไม้รอบร้าน",
+      "en": "a café with its sign and plants around it"
+    },
+    "calm": {
+      "th": "ผู้คนนั่งขัดสมาธิเป็นแถวหน้าแถวเทียน วัดเรืองแสงอยู่ด้านหลัง",
+      "en": "people sitting cross-legged in rows before a line of candles, a temple glowing behind"
+    },
+    "clinic": {
+      "th": "คลินิกพร้อมป้ายชื่อ สายไฟพาดเลียบถนน",
+      "en": "a clinic with its sign, power lines along the street"
+    },
+    "clocktower": {
+      "th": "หอนาฬิกาสีทองของเชียงรายตั้งสูงกลางวงเวียน มีคนเดินผ่าน",
+      "en": "Chiang Rai's golden clock tower rising from its roundabout, people walking past"
+    },
+    "clothes": {
+      "th": "ร้านเสื้อผ้าพร้อมป้ายชื่อ",
+      "en": "a clothes shop with its sign"
+    },
+    "cny": {
+      "th": "ตรุษจีน โคมแดงขึงข้ามถนนหน้าตึกแถว มีเชิดสิงโตสีแดง",
+      "en": "Chinese New Year: red lanterns strung across a street of shophouses and a red lion dance"
+    },
+    "community": {
+      "th": "ศาลาหรือที่ประชุมของชุมชนพร้อมป้ายชื่อ",
+      "en": "a community hall or meeting place with its sign"
+    },
+    "condo": {
+      "th": "อาคารคอนโดพร้อมป้ายชื่อ มีรถอยู่บนถนน",
+      "en": "a condominium building with its sign, cars on the road"
+    },
+    "convenience": {
+      "th": "ร้านสะดวกซื้อพร้อมป้ายชื่อ สายไฟพาดเหนือหัว",
+      "en": "a convenience store with its sign, power lines overhead"
+    },
+    "cooking": {
+      "th": "โรงเรียนสอนทำอาหารพร้อมป้ายชื่อ",
+      "en": "a cooking school with its sign"
+    },
+    "crafts": {
+      "th": "ร้านหัตถกรรมพร้อมป้ายชื่อ",
+      "en": "a craft shop with its sign"
+    },
+    "dance": {
+      "th": "แถวนักเต้นก้าวเท้าบนลานสีชมพูริมแม่น้ำ",
+      "en": "a line of dancers stepping across a pink floor by the river"
+    },
+    "dentist": {
+      "th": "คลินิกทันตกรรมพร้อมป้ายชื่อ",
+      "en": "a dental clinic with its sign"
+    },
+    "dorm": {
+      "th": "ตึกหอพักหน้าต่างเรียงแถวพร้อมป้ายชื่อ มีมอเตอร์ไซค์อยู่หน้าตึก",
+      "en": "a dormitory block with rows of windows and its sign, motorbikes out front"
+    },
+    "elephants": {
+      "th": "ปางช้างพร้อมป้ายชื่อ มีช้างอยู่ข้างป้าย",
+      "en": "an elephant camp with its sign and elephants beside it"
+    },
+    "expedite": {
+      "th": "ศาลเจ้าสีแดงทองหลายชั้นตั้งอยู่ริมถนน",
+      "en": "a red and gold tiered shrine standing by the road"
+    },
+    "feast": {
+      "th": "ศาลาหลังคาแดง ผู้คนนั่งรอบโต๊ะยาวที่มีอาหารวางเต็ม",
+      "en": "an open hall under a red roof, people seated along a long table of dishes"
+    },
+    "film": {
+      "th": "จอหนังกลางแปลงฉายภาพภูเขาและพระอาทิตย์สีแดง เงาเก้าอี้ผู้ชมเรียงแถวด้านหน้า",
+      "en": "an outdoor screen showing hills and a red sun, rows of seats in silhouette in front"
+    },
+    "fixit": {
+      "th": "ร้านซ่อมพร้อมป้ายชื่อ",
+      "en": "a repair shop with its sign"
+    },
+    "flowers": {
+      "th": "ขบวนแห่ดอกไม้ รถบุปผชาติรูปช้าง วงโยธวาทิตและนักฟ้อนเดินนำหน้า",
+      "en": "a flower parade: an elephant-shaped float, a marching band and dancers walking ahead"
+    },
+    "food": {
+      "th": "โรงอาหารใต้หลังคาแดง ป้ายบอกชื่ออาหารแต่ละชาติ แม่ครัวยืนหลังเคาน์เตอร์ มีจานอาหารวางเรียง",
+      "en": "a food hall under a red roof, a sign naming the cuisine, cooks behind the counter and dishes laid out"
+    },
+    "freshmarket": {
+      "th": "ตลาดมีหลังคาพร้อมป้ายชื่อ",
+      "en": "a covered market with its sign"
+    },
+    "fuel": {
+      "th": "ปั๊มน้ำมันพร้อมป้ายชื่อ",
+      "en": "a petrol station with its sign"
+    },
+    "garage": {
+      "th": "อู่ซ่อมรถพร้อมป้ายชื่อ",
+      "en": "a garage with its sign"
+    },
+    "gov": {
+      "th": "สถานที่ราชการพร้อมป้ายชื่อ",
+      "en": "a government office with its sign"
+    },
+    "guesthouse": {
+      "th": "เกสต์เฮาส์พร้อมป้ายชื่อ",
+      "en": "a guesthouse with its sign"
+    },
+    "gym": {
+      "th": "ยิมหรือสนามกีฬาในร่มพร้อมป้ายชื่อ",
+      "en": "a gym or sports hall with its sign"
+    },
+    "handicraft": {
+      "th": "โรงหัตถกรรมหลังคามุงจาก มีตะกร้าและเสื่อสานวางโชว์",
+      "en": "a thatched craft workshop with woven baskets and mats on display"
+    },
+    "healthstation": {
+      "th": "โรงพยาบาลส่งเสริมสุขภาพตำบล อาคารชั้นเดียวพร้อมป้ายชื่อ",
+      "en": "a subdistrict health station: a single-storey building with its sign"
+    },
+    "hospital": {
+      "th": "โรงพยาบาลหรือคลินิกพร้อมป้ายชื่อ",
+      "en": "a hospital or clinic building with its sign"
+    },
+    "hostel": {
+      "th": "โฮสเทลพร้อมป้ายชื่อ",
+      "en": "a hostel with its sign"
+    },
+    "hotel": {
+      "th": "โรงแรมพร้อมป้ายชื่อ",
+      "en": "a hotel with its sign"
+    },
+    "hotspring": {
+      "th": "บ่อน้ำพุร้อน ไอน้ำพุ่งขึ้น มีบ่อแช่ริมน้ำ คนนั่งแช่เท้า",
+      "en": "a hot spring: a steaming jet and pools by the water, bathers soaking their feet"
+    },
+    "lanna-house": {
+      "th": "บ้านไม้ล้านนามีกาแลบนจั่ว โครงไม้กำลังยกขึ้นและช่างกำลังทำงาน",
+      "en": "a Lanna timber house with kalae horns on its gable, a frame being raised and builders at work"
+    },
+    "latin": {
+      "th": "คู่เต้นละตินหกคู่ใต้ไฟประดับ ด้านหลังเป็นวัด ประตูท่าแพ แม่น้ำปิง และสะพานเหล็ก",
+      "en": "six couples dancing a Latin night under string lights, with wats, Tha Phae Gate, the Ping and the Iron Bridge behind"
+    },
+    "laundry": {
+      "th": "ร้านซักผ้าพร้อมป้ายชื่อ",
+      "en": "a laundry with its sign"
+    },
+    "learn": {
+      "th": "ห้องเรียนกลางแจ้ง กระดานดำเขียนตัวเลขด้วยชอล์ก นักเรียนยืนหน้ากระดาน",
+      "en": "an outdoor class: a blackboard of chalked sums with students standing in front"
+    },
+    "mall": {
+      "th": "ห้างสรรพสินค้าพร้อมป้ายชื่อ",
+      "en": "a shopping mall with its sign"
+    },
+    "market": {
+      "th": "แผงตลาดเรียงใต้ร่มหลากสี คนเดินเลือกซื้อ",
+      "en": "a row of market stalls under coloured umbrellas, shoppers browsing"
+    },
+    "massage": {
+      "th": "ร้านนวดพร้อมป้ายชื่อ",
+      "en": "a massage shop with its sign"
+    },
+    "melodies-and-motifs": {
+      "th": "ขอบหมวกอาข่าประดับปุ่มเงิน ลูกปัด และเหรียญแกว่งไปมา กับหมู่บ้านอาข่าที่มีโน้ตดนตรีลอยขึ้น",
+      "en": "an Akha headdress of silver studs, beads and coins swinging, and an Akha village with music notes rising"
+    },
+    "moat": {
+      "th": "คูเมืองเชียงใหม่ที่ประตูหรือแจ่งกำแพงเมือง กำแพงอิฐแดง น้ำพุกลางคู ระลอกน้ำและต้นไม้ ชื่อสถานที่บนป้าย",
+      "en": "Chiang Mai's moat at a gate or corner of the old city wall: red brick, a fountain in the water, ripples and trees, the place named on a sign"
+    },
+    "moobaan": {
+      "th": "ประตูหมู่บ้านจัดสรรพร้อมป้ายชื่อ มีบ้านอยู่ด้านหลัง",
+      "en": "a housing estate's gate with its sign, houses behind"
+    },
+    "muaythai": {
+      "th": "ค่ายหรือเวทีมวยไทยพร้อมป้ายชื่อ",
+      "en": "a Muay Thai gym or ring with its sign"
+    },
+    "noodle": {
+      "th": "ร้านก๋วยเตี๋ยวพร้อมป้ายชื่อ มีชามก๋วยเตี๋ยว",
+      "en": "a noodle shop with its sign and bowls of noodles"
+    },
+    "office": {
+      "th": "สำนักงานพร้อมป้ายชื่อ",
+      "en": "an office with its sign"
+    },
+    "optician": {
+      "th": "ร้านแว่นตาพร้อมป้ายชื่อ",
+      "en": "an optician's with its sign"
+    },
+    "park": {
+      "th": "สวนสาธารณะพร้อมป้ายชื่อ มีบ่อน้ำและต้นไม้",
+      "en": "a park with its sign, a pond and trees"
+    },
+    "parking": {
+      "th": "ลานจอดรถพร้อมป้ายชื่อ มีรถจอดเรียง",
+      "en": "a car park with its sign and cars parked in a row"
+    },
+    "pets": {
+      "th": "ร้านสัตว์เลี้ยงหรือคลินิกสัตว์พร้อมป้ายชื่อ",
+      "en": "a pet shop or vet with its sign"
+    },
+    "pharmacy": {
+      "th": "ร้านขายยาพร้อมป้ายชื่อ",
+      "en": "a pharmacy with its sign"
+    },
+    "post": {
+      "th": "ที่ทำการไปรษณีย์พร้อมป้ายชื่อ",
+      "en": "a post office with its sign"
+    },
+    "printing": {
+      "th": "ร้านพิมพ์พร้อมป้ายชื่อ",
+      "en": "a print shop with its sign"
+    },
+    "rental": {
+      "th": "ร้านให้เช่าพร้อมป้ายชื่อ",
+      "en": "a rental shop with its sign"
+    },
+    "restaurant": {
+      "th": "ร้านอาหารพร้อมป้ายชื่อ",
+      "en": "a restaurant with its sign"
+    },
+    "robots": {
+      "th": "หุ่นยนต์กับนักเต้นหน้าป้ายใหญ่สีแดงลายวงล้อสีทอง มีโน้ตดนตรีลอย",
+      "en": "a robot and a dancer before a big red board patterned with a golden wheel, music notes floating"
+    },
+    "rooftop": {
+      "th": "บาร์บนดาดฟ้าตึกโรงแรมสูงเหนือเมือง มีหลังคาทรงล้านนาอยู่บนยอด",
+      "en": "a rooftop bar on a tall hotel tower above the city, a Lanna roof on top"
+    },
+    "run": {
+      "th": "นักวิ่งและนักเดินป่าบนเส้นทางริมแม่น้ำ",
+      "en": "runners and hikers on a riverside trail"
+    },
+    "sakyant": {
+      "th": "ศาลาสักยันต์ อาจารย์กำลังสักให้คนที่นั่งอยู่ มียันต์บนแผ่นกลมสีทอง",
+      "en": "a sak yant pavilion: a master tattooing a seated man, a yantra on a round gold board"
+    },
+    "salon": {
+      "th": "ร้านทำผมพร้อมป้ายชื่อ",
+      "en": "a hair salon with its sign"
+    },
+    "school": {
+      "th": "อาคารเรียนพร้อมป้ายชื่อ",
+      "en": "a school building with its sign"
+    },
+    "secondhand": {
+      "th": "ร้านของมือสองพร้อมป้ายชื่อ",
+      "en": "a secondhand shop with its sign"
+    },
+    "social": {
+      "th": "ผู้คนพบปะพูดคุยใต้ธงราวหลากสีริมแม่น้ำ",
+      "en": "people meeting and talking under strings of coloured bunting by the river"
+    },
+    "songkran": {
+      "th": "สงกรานต์ ผู้คนสาดน้ำด้วยขันและปืนฉีดน้ำบนถนนหน้าตึกแถว มีรถกระบะบรรทุกถังน้ำ",
+      "en": "Songkran: people splashing water from bowls and water guns on a street of shophouses, a pickup carrying a water tank"
+    },
+    "stork-billgap": {
+      "th": "หัวนกปากห่างระยะใกล้ ปากกำลังแงะหอยเชอรี่ มีเส้นวัดบอกช่องห่างของปาก",
+      "en": "an Asian openbill's head in close-up, its bill working an apple snail, a dimension line marking the gap"
+    },
+    "stork-frieze": {
+      "th": "ภาพสลักผนังวิหารอียิปต์โบราณ นกกระสาปากอานและอักษรเฮียโรกลิฟเลื่อนไปทางข้าง",
+      "en": "an ancient Egyptian temple frieze: carved saddle-billed storks and hieroglyphs scrolling sideways"
+    },
+    "stork-map": {
+      "th": "แผนที่กระดาษยุโรปและแอฟริกา มีนกกระสาบินตามเส้นทางอพยพ",
+      "en": "a paper map of Europe and Africa with a stork flying the migration route"
+    },
+    "stork-moon": {
+      "th": "ดวงจันทร์ดวงใหญ่สีซีดมีหลุมบนผิว บนฟ้ากลางคืนสีม่วง นกบินผ่าน",
+      "en": "a huge pale cratered moon in a violet night sky, birds flying across it"
+    },
+    "stork-openbill": {
+      "th": "นกปากห่างสองตัวเกาะบนตอปาล์มที่มีเถาวัลย์พัน ตัวหนึ่งตีปาก อีกตัวไซ้ขน",
+      "en": "two Asian openbills on vine-wrapped palm trunks, one clattering its bill, the other preening"
+    },
+    "stork-popup": {
+      "th": "โรงละครกระดาษป๊อปอัป กำแพงปราสาทบนเวที อันติโกเนยืนอยู่ระหว่างม่านแดง",
+      "en": "a pop-up paper theatre: a castle wall on stage and Antigone standing between red curtains"
+    },
+    "stork-rooftops": {
+      "th": "นกกระสาขาวทำรังบนหลังคากระเบื้องแดง อีกตัวบินอยู่เหนือหลังคา",
+      "en": "white storks nesting on red-tiled rooftops, another flying overhead"
+    },
+    "stork-shadow": {
+      "th": "หนังเงาเรื่องสุนัขจิ้งจอกกับนกกระสา เงาดำของทั้งสองที่โต๊ะ หน้าแสงสีส้ม",
+      "en": "The Fox and the Stork as a shadow play: black silhouettes of the two at a table against an orange glow"
+    },
+    "stork-tally": {
+      "th": "รอยขีดชอล์กนับทีละห้าบนกระดานชนวน นับนกกระสาที่มีลูกศรติดตัวซึ่งพบในเยอรมนี",
+      "en": "chalk tally marks in fives on a slate, counting the arrow-storks found in Germany"
+    },
+    "stork-theories": {
+      "th": "นกกระสาไปไหนในฤดูหนาวตามที่คนเคยเชื่อ ริบบิ้นกระดาษพาดผ่านแผ่นสีน้ำเงินกลางคืน นกกระสาบินตาม มีการ์ดที่แต่ละจุด",
+      "en": "where storks go in winter, as people once believed: a paper ribbon across a night-blue sheet, a stork flying along it, a card at each stop"
+    },
+    "stork-title": {
+      "th": "ภาพเปิดเรื่อง ตัวอักษรกระดาษตัดคำว่า STORKS วางลงทีละตัว นกกระสาขาวร่อนลงบนตัว S",
+      "en": "a title card: cut-paper letters spelling STORKS laid down one by one, a white stork landing on the S"
+    },
+    "stork-woodcut": {
+      "th": "ภาพพิมพ์แกะไม้เก่า ปี 1555 นกหลบอยู่ใต้น้ำแข็งของทะเลสาบ ต้นไม้ไร้ใบริมฝั่ง",
+      "en": "an old woodcut, 1555: birds huddled under the ice of a frozen lake, bare trees on the shore"
+    },
+    "streetfood": {
+      "th": "ร้านอาหารริมทางพร้อมป้ายชื่อ",
+      "en": "a street-food stall with its sign"
+    },
+    "studio": {
+      "th": "ชั้นเรียนศิลปะใต้หลังคาผ้าสีม่วง ขาตั้งภาพมีภาพวาด ผู้คนกำลังวาดรูป",
+      "en": "an art class under a purple canopy: easels with paintings and people painting"
+    },
+    "takbat": {
+      "th": "ตักบาตร พระสงฆ์ห่มจีวรเดินเรียงแถว ญาติโยมคุกเข่าใส่บาตร",
+      "en": "an alms round: monks in saffron robes walking in line, people kneeling to offer food"
+    },
+    "tattoo": {
+      "th": "ร้านสักป้ายไฟ",
+      "en": "a tattoo studio with a lit sign"
+    },
+    "tours": {
+      "th": "สำนักงานทัวร์พร้อมป้ายชื่อ",
+      "en": "a tour office with its sign"
+    },
+    "training": {
+      "th": "โรงเรียนหรือสถาบันฝึกอบรมพร้อมป้ายชื่อ",
+      "en": "a school or training centre with its sign"
+    },
+    "tuktuk": {
+      "th": "รถตุ๊กตุ๊กจอดเรียงข้างอาคารสีแดง คนขับยืนรอ",
+      "en": "tuk-tuks lined up beside a red building, a driver waiting"
+    },
+    "umbrella": {
+      "th": "โรงทำร่ม ร่มกระดาษวาดลายตากเรียงแถว คนปั่นจักรยานผ่านบ้านไม้",
+      "en": "an umbrella workshop: painted paper umbrellas drying in rows, a cyclist riding past a wooden house"
+    },
+    "university": {
+      "th": "อาคารมหาวิทยาลัยหน้าต่างเรียงแถวพร้อมป้ายชื่อ",
+      "en": "a university building with rows of windows and its sign"
+    },
+    "walking-street": {
+      "th": "ถนนคนเดิน แผงขายของใต้ไฟประดับ ฝูงคนเดินและนักดนตรีเปิดหมวก",
+      "en": "a walking street: stalls under strings of lights, crowds and a busker"
+    },
+    "warp-and-weft": {
+      "th": "กี่กำลังทอผ้าไหมเขมรทีละเส้นพุ่ง กระสวยวิ่งผ่านเส้นยืน บนผ้าเป็นลายวัว ดอกไม้ และดาว",
+      "en": "a loom weaving a Khmer silk shawl one weft thread at a time, the shuttle crossing the warp; cattle, flowers and stars in the cloth"
+    },
+    "weights": {
+      "th": "การประกวดเพาะกายบนเวทีมืด นักกล้ามโพสท่าใต้สปอตไลต์ระหว่างม่านแดง มีถ้วยรางวัลด้านหน้า",
+      "en": "a bodybuilding contest on a dark stage: figures posing under spotlights between red curtains, trophies at the front"
+    },
+    "yipeng": {
+      "th": "ยี่เป็ง กระทงลอยในแม่น้ำและโคมลอยขึ้นฟ้า ผู้คนปล่อยจากริมฝั่ง",
+      "en": "Yi Peng: krathongs on the river and lanterns rising into the sky, people launching them from the bank"
+    },
+    "yoga": {
+      "th": "ชั้นเรียนโยคะบนเสื่อริมแม่น้ำใต้แสงแดด",
+      "en": "a yoga class on mats by the river in the sun"
+    }
+  }
+}

@@ -85,10 +85,17 @@ function paint(cv, set, place, ms) {
 addEventListener('mddoodler', function () {
   PAINTED.forEach(function (p) { if (p.cv.isConnected) paint(p.cv, p.set, p.place, p.ms); });
 });
+/* what each kind of drawing shows (data/curated/doodle_alt.json, written to front/ by doodles_layer.py) */
+var ALT = null;
+function alts() {
+  if (!ALT) ALT = fetch(BASE + 'doodle_alt.json').then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; });
+  return ALT;
+}
 function drawInto(box, set, rec, ms) {
   var cv = el('canvas'); cv.setAttribute('role', 'img');
-  var nm = rec.nameTh || rec.name || '';
-  cv.setAttribute('aria-label', t('ภาพวาด ' + nm, 'Drawing of ' + (rec.nameEn || nm)));
+  var nm = rec.nameTh || rec.name || '', en = rec.nameEn || nm;
+  cv.setAttribute('aria-label', t('ภาพวาด ' + nm, 'Drawing of ' + en));
+  alts().then(function (A) { var a = A[set]; if (a && a[0]) cv.setAttribute('aria-label', t('ภาพวาด ' + nm + ': ' + a[0], 'Drawing of ' + en + ': ' + a[1])); });
   box.appendChild(cv);
   var place = facts(rec), p = { cv: cv, set: set, place: place, ms: ms };
   PAINTED.push(p);

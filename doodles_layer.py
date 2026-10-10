@@ -110,9 +110,30 @@ def figure(kind, r, att, cls="doodlefig", bi=None):
             + script(r))
 
 
+_ALT = None
+
+
+def alt(kind):
+    """(th, en): what a kind of doodle shows, from data/curated/doodle_alt.json; ("", "") if unnamed."""
+    global _ALT
+    if _ALT is None:
+        f = ROOT / "data/curated/doodle_alt.json"
+        _ALT = json.loads(f.read_text()).get("alts", {}) if f.exists() else {}
+    a = _ALT.get(kind) or {}
+    return a.get("th", ""), a.get("en", "")
+
+
+def alts():
+    """{kind: [th, en]} for the browser scripts (front/doodle_alt.json)."""
+    alt("")
+    return {k: [v.get("th", ""), v.get("en", "")] for k, v in _ALT.items()}
+
+
 def copy(docs):
     d = Path(docs) / "front"
     (d / "doodles").mkdir(parents=True, exist_ok=True)
+    # what each kind of drawing shows, for findpeek.js and front.js to label their canvases
+    (d / "doodle_alt.json").write_text(json.dumps(alts(), ensure_ascii=False, separators=(",", ":")))
     front = ROOT / "assets/front"
     # findpeek.js: the peek card and drawn thumbnails on /find and the shelves (Nan, 2026-10-04)
     for js in ["skyline.js", "doodles.js", "portrait.js", "findpeek.js"] + sorted(p.name for p in front.glob("doodler*.js")):
@@ -226,13 +247,30 @@ PORTRAIT_WORDS = {
 }
 
 
+def portrait_label(nm_th, nm_en, scene, props=()):
+    """(th, en) for a place portrait: the place's name, what the scene draws, and the props its tags add."""
+    a = alt(scene)
+    w = PORTRAIT_WORDS.get(scene)
+    if a[0]:   # the scene's words name the trade, so the name stands alone
+        th, en = "ภาพวาด %s: %s" % (nm_th, a[0]), "Drawing of %s: %s" % (nm_en, a[1])
+    elif w:
+        th, en = "ภาพวาด%s %s" % (w[0], nm_th), "Drawing of %s, %s" % (nm_en, w[1])
+    else:
+        th, en = "ภาพวาด %s" % nm_th, "Drawing of %s" % nm_en
+    pw = [_PROPS[k] for k in (props or ()) if k in (_PROPS or {})]
+    if pw:
+        th += " · วาดเพิ่ม: " + " · ".join(p.get("th", "") for p in pw)
+        en += ". Also drawn: " + " · ".join(p.get("en", "") for p in pw)
+    return th, en
+
+
 def portrait(r, scene, rel, att, bi=None, tags=None):
     """The place drawn from its own facts by the auto-doodler (assets/front/portrait.js), for a
     page with no photograph of it. The words say it is a drawing."""
     nm = r.get("nameTh") or r.get("name") or ""
-    w = PORTRAIT_WORDS.get(scene)
-    label = ("ภาพวาด%s %s" % (w[0], nm), "Drawing of %s, %s" % (nm, w[1])) if w else ("ภาพวาด %s" % nm, "Drawing of %s" % nm)
-    facts = json.dumps(place_facts(r, tags, scene), ensure_ascii=False, separators=(",", ":"))
+    pf = place_facts(r, tags, scene)
+    label = portrait_label(nm, r.get("nameEn") or nm, scene, pf.get("props"))
+    facts = json.dumps(pf, ensure_ascii=False, separators=(",", ":"))
     cap = bi("ภาพวาด", "Drawing") if bi else "ภาพวาด · Drawing"
     return (f'<figure class="portrait" style="margin:0"><canvas class="mdportrait" data-set="{att(scene)}" data-p="{att(facts)}" '
             f'role="img" aria-label="{att(label[0] + " / " + label[1])}" '

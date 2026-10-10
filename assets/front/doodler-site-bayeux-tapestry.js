@@ -1,6 +1,6 @@
 (function () {
 'use strict';
-var SKY = window.MDSKY; if (!SKY || window.MDDOODLER) return;
+var SKY = window.MDSKY; if (!SKY || !window.MDDOODLER) return;
 var D = window.MDDOODLER, K = D.kit;
 
 function clamp(t) { return t < 0 ? 0 : t > 1 ? 1 : t; }

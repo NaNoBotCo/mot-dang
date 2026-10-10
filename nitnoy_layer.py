@@ -495,13 +495,27 @@ def emit(g, data, frame):
             legend,
             underlay,
             bi(method_th, method_en),
-            ('<h2>%s</h2><figure style="margin:0">'
+            # the film loops; a reader can stop it, and a phone set to reduce motion gets the
+            # poster from the start (WCAG 2.2.2: motion past five seconds needs a pause)
+            ('<h2>%s</h2><figure style="margin:0" id="nnfilm"><picture>'
+             '<source srcset="nitnoy_poster.png" media="(prefers-reduced-motion: reduce)">'
              '<img src="nitnoy.gif" alt="%s" loading="lazy" '
              'style="width:100%%;max-width:36rem;border-radius:14px;'
-             'box-shadow:0 8px 30px #0004">'
+             'box-shadow:0 8px 30px #0004"></picture>'
+             '<p><button type="button" class="nnpause" aria-pressed="false">'
+             '<span class="nnp">%s</span><span class="nnr">%s</span></button></p>'
+             '<style>.nnpause[aria-pressed=true] .nnp,.nnpause[aria-pressed=false] .nnr{display:none}</style>'
+             '<script>(function(){var f=document.getElementById("nnfilm"),b=f.querySelector(".nnpause"),'
+             'i=f.querySelector("img"),s=f.querySelector("source");'
+             'function set(p){b.setAttribute("aria-pressed",p?"true":"false");s.media=p?"all":"not all";'
+             'i.src=p?"nitnoy_poster.png":"nitnoy.gif";}'
+             'if(matchMedia("(prefers-reduced-motion: reduce)").matches)set(true);'
+             'b.addEventListener("click",function(){set(b.getAttribute("aria-pressed")!=="true");});})();</script>'
              '<figcaption class="tinynote">%s</figcaption></figure>'
              % (bi("หนึ่งวันเสาร์ในหกวินาที", "One Saturday in six seconds"),
-                "แผนที่โคมไฟของเมืองเชียงใหม่ ขยับทีละครึ่งชั่วโมงครบ 24 ชั่วโมง",
+                "แผนที่โคมไฟของเมืองเชียงใหม่ ขยับทีละครึ่งชั่วโมงครบ 24 ชั่วโมง · "
+                "Chiang Mai's lamp map, moving half an hour at a time through 24 hours",
+                bi("หยุด", "Pause"), bi("เล่นต่อ", "Play"),
                 bi("วาดจากไฟล์ข้อมูลเดียวกับแผนที่ข้างบน ทีละครึ่งชั่วโมง "
                    "— เซฟไปแชร์ได้เลย",
                    "Drawn from the same data file as the map above, one "

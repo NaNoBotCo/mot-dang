@@ -22,6 +22,12 @@
     if (c === 'minisite' && row) return { th: row.t[0], en: row.t[1] };
     var k = NM.kinds[s]; return k || { th: s.replace(/-/g, ' '), en: s.replace(/-/g, ' ') };
   }
+  /* a doodle's words for a screen reader: its name, and what its kind draws (meta.json names.alts, from
+     data/curated/doodle_alt.json) */
+  function lab(c, s, t) {
+    var a = (NM.alts || {})[s || ''] || ['', ''], th = t[0] || t[1] || '', en = t[1] || t[0] || '';
+    return 'ภาพวาด ' + th + (a[0] ? ': ' + a[0] : '') + ' / Drawing of ' + en + (a[1] ? ': ' + a[1] : '');
+  }
   function fnv(s) { var h = 2166136261; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
   function bucket(id) { return ('00' + (fnv(id) % 1024).toString(16)).slice(-3); }
   function engine(h) {
@@ -154,7 +160,7 @@
       var D = bk && bk[id];
       if (!D) { shell('<h1>' + bi('ไม่พบดูเดิลนี้', 'No such doodle') + '</h1><p><a href="/doodles/">' + bi('ดูเดิลทั้งหมด', 'All doodles') + '</a></p>'); return; }
       var V = D.vs.filter(function (x) { return x.v === want; })[0] || D.vs[D.vs.length - 1], r = rec(id, D.c, V.p);
-      if (bare) { H.classList.add('bare'); APP.innerHTML = '<canvas id="big"></canvas>'; }
+      if (bare) { H.classList.add('bare'); APP.innerHTML = '<canvas id="big" role="img" aria-label="' + esc(lab(D.c, D.s, D.t)) + '"></canvas>'; }
       else {
         var cn = catName(D.c), kn = D.s ? kindName(D.c, D.s, { t: D.t }) : null, url = location.origin + '/doodles/d/?id=' + encodeURIComponent(id) + (want ? '&v=' + want : '');
         var p = V.p || {}, extra = '';
@@ -165,7 +171,7 @@
         shell('<p class="crumb"><a href="/doodles/">' + bi('ดูเดิล', 'Doodles') + '</a> › <a href="/doodles/' + cn.path + '/">' + bi(cn.th, cn.en) + '</a>' +
           (kn ? ' › <a href="/doodles/' + cn.path + '/' + esc(D.s) + '/">' + bi(esc(kn.th), esc(kn.en)) + '</a>' : '') + '</p>' +
           '<h1>' + bi(esc(D.t[0]), esc(D.t[1])) + '</h1>' +
-          '<canvas id="big" class="big" role="img" aria-label="' + esc(D.t[1] || D.t[0]) + '"></canvas>' +
+          '<canvas id="big" class="big" role="img" aria-label="' + esc(lab(D.c, D.s, D.t)) + '"></canvas>' +
           '<div class="meta"><time>' + day(D.d) + '</time>' + (status ? ' · <b class="st">' + status + '</b>' : '') + extra +
           (D.h ? '<a class="go" href="' + esc(D.h) + '">' + bi('ไปที่หน้าของมัน', 'Where it lives') + ' →</a>' : '') + '</div>' +
           (V === D.vs[D.vs.length - 1] && !D.g ? '<div class="vote" id="vote"></div>' : '') +
@@ -297,8 +303,8 @@
   function card(row, i) {
     var cn = catName(row.c), kn = row.s ? kindName(row.c, row.s, row) : null, href = '/doodles/d/?id=' + encodeURIComponent(row.id);
     var st = row.pl ? '<b class="st">' + bi('วางแผนไว้', 'planned') + '</b>' : row.g ? '<b class="st">' + bi('ออกไปแล้ว', 'left') + '</b>' : '';
-    var media = row.e ? '<iframe loading="lazy" src="' + href + '&frame=1" title="' + esc(row.t[1] || row.t[0]) + '"></iframe>'
-      : '<canvas data-i="' + i + '" role="img" aria-label="' + esc(row.t[1] || row.t[0]) + '"></canvas>';
+    var media = row.e ? '<iframe loading="lazy" src="' + href + '&frame=1" title="' + esc(lab(row.c, row.s, row.t)) + '"></iframe>'
+      : '<canvas data-i="' + i + '" role="img" aria-label="' + esc(lab(row.c, row.s, row.t)) + '"></canvas>';
     return '<article class="c-' + row.c + '"><a class="pic" href="' + href + '">' + media + '</a><div class="meta">' +
       '<time>' + day(row.d) + '</time>' + (st ? ' · ' + st : '') + (row.n > 1 ? ' · <span class="nv">' + bi(row.n + ' รุ่น', row.n + ' versions') + '</span>' : '') +
       '<h2><a href="' + href + '">' + bi(esc(row.t[0]), esc(row.t[1] || row.t[0])) + '</a></h2>' +

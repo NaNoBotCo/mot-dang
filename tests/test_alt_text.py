@@ -3,7 +3,7 @@
 
     python3 tests/test_alt_text.py
 
-Run after build.py. Three checks:
+Run after build.py. Four checks:
 
 1. Every `<img>` carries an `alt` attribute. An image with no alt at all is
    read out as its filename, which on this site means a base64 data URI.
@@ -17,6 +17,10 @@ Run after build.py. Three checks:
 sibling and writes `role='img'` in single quotes; a regex looking only for
 `role="img"` skipped it silently and reported it as labelled. A checker that
 misses things quietly is worse than no checker.
+
+4. Every kind of doodle in /doodles/ has words in data/curated/doodle_alt.json.
+   The doodles are canvas, labelled in the browser from that file, so a page
+   scan cannot see a missing one.
 
 This does not judge whether a description is *good* — no test can. It catches
 the absent and the empty-calorie, which is what regressed before.
@@ -90,6 +94,24 @@ def main():
             if lm and flatten(lm.group(2)) in GENERIC:
                 generic.append((rel, lm.group(2)[:70]))
 
+    # 4. Every kind of doodle the gallery publishes has words for what it
+    #    draws. The doodles are canvas, so their labels are composed in the
+    #    browser from data/curated/doodle_alt.json; a kind missing there is
+    #    labelled with its name alone.
+    import json
+    meta = DOCS / "doodles" / "data" / "meta.json"
+    alts = json.loads((ROOT / "data" / "curated" / "doodle_alt.json").read_text())["alts"]
+    unnamed = []
+    if meta.exists():
+        cats = json.loads(meta.read_text()).get("cats", {})
+        kinds = {""} if "cover" in cats else set()
+        for c in cats.values():
+            kinds.update(c.get("subs", {}))
+        unnamed = sorted(k for k in kinds if not (alts.get(k) or {}).get("en"))
+    print("doodle kinds unnamed %d" % len(unnamed))
+    for k in unnamed[:10]:
+        print("  UNNAMED doodle kind  %s  (add it to data/curated/doodle_alt.json)" % (k or "(cover)"))
+
     print("files scanned        %s" % f"{len(files):,}")
     print("<img> tags           %s" % f"{n_img:,}")
     print("svg role=img         %s" % f"{n_svg:,}")
@@ -104,7 +126,7 @@ def main():
         if len(rows) > 10:
             print("  ... and %d more" % (len(rows) - 10))
 
-    if no_alt or unlabelled or generic:
+    if no_alt or unlabelled or generic or unnamed:
         print("FAIL")
         return 1
     print("PASS")

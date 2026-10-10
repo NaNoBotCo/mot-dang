@@ -18379,6 +18379,13 @@ def _short_artist(s):
     return s if len(s) <= 110 else s[:107].rstrip(" ,.;") + "…"
 
 
+def _cred_alt(p):
+    """A credited picture's alt: what it shows, from its record's own description (Thai first when
+    there is one), so the thumbnail reads as more than the filename beside it."""
+    d = " · ".join(x for x in ((p.get("description_th") or "").strip(), (p.get("description") or "").strip()) if x)
+    return d if len(d) <= 220 else d[:217].rstrip(" ,.;") + "…"
+
+
 def pictures_page():
     """Credit, in one place, for every picture the site's furniture uses.
 
@@ -18396,7 +18403,7 @@ def pictures_page():
         slug = p["slug"]
         where = ", ".join(p.get("topic", [])) or "—"
         rows.append(
-            f'<tr><td><img src="{band_pic_file(p)}" alt="" loading="lazy" '
+            f'<tr><td><img src="{band_pic_file(p)}" alt="{esc(_cred_alt(p))}" loading="lazy" '
             f'width="120" height="80" class="credshot"></td>'
             # A photograph of a place links to that place's own page, read off
             # PLACE_HREF so it is the filename the page was actually written to.
