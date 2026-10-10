@@ -30,6 +30,7 @@ Where it goes: page() writes `{ICON_SPRITE}` once per page; add `{glyphs.SPRITE}
 beside it. Nothing here runs a build.
 """
 
+import functools
 import re
 
 # ── the drawings ─────────────────────────────────────────────────────────────
@@ -255,14 +256,24 @@ def icon(name, size=22, cls="rowicon", label=None):
 _VS = "\ufe0f"
 
 
+# Every key of EMOJI is one code point, so one pass of one character class
+# finds them all. Until 2026-10-10 this sorted the 168-entry table and searched
+# the text once per entry, for every text node of every page: 2,600 of a
+# 5,678-second build on motdang-build.
+_EMOJI_ONE = re.compile("[" + "".join(re.escape(e) for e in EMOJI) + "]")
+assert all(len(e) == 1 for e in EMOJI), "a multi-character emoji key needs an alternation, not a class"
+
+
+@functools.lru_cache(maxsize=None)
+def _icon_once(g, size, cls):
+    return icon(g, size, cls)
+
+
 def emoji_to_icon(text, size=22, cls="rowicon"):
     """Swap every emoji this table knows for its glyph. For chrome strings
     only — never run it over a record's own name or a reader's words."""
     out = text.replace(_VS, "")
-    for e, g in sorted(EMOJI.items(), key=lambda kv: -len(kv[0])):
-        if e in out:
-            out = out.replace(e, icon(g, size, cls))
-    return out
+    return _EMOJI_ONE.sub(lambda m: _icon_once(EMOJI[m.group(0)], size, cls), out)
 
 
 # The page-level sweep. Visible text nodes only: not <script>, <style>,
@@ -286,7 +297,8 @@ def sweep_html(html, size=18, cls="rowicon"):
             continue
         if i % 3 == 2:
             continue
-        out.append(_TEXT.sub(lambda m: ">" + emoji_to_icon(m.group(1), size, cls) + "<", part))
+        out.append(_TEXT.sub(lambda m: (">" + emoji_to_icon(m.group(1), size, cls) + "<")
+                             if _ANY.search(m.group(1)) else m.group(0), part))
     return "".join(out)
 
 

@@ -21,8 +21,10 @@ costs nothing until it is scrolled to.
 
 bind(data, place_href) is called once per build, after PLACE_HREF.
 """
+import functools
 import json
 import math
+import os
 import re
 import zlib
 from collections import defaultdict
@@ -103,9 +105,15 @@ def picks():
     return list(load())
 
 
+@functools.lru_cache(maxsize=None)
+def _band_names():
+    d = ASSETS / "band"
+    return frozenset(os.listdir(d)) if d.is_dir() else frozenset()
+
+
 def _band(p):
-    b = ASSETS / "band" / (p["slug"] + ".jpg")
-    return ("band/" if b.exists() else "site/") + p["slug"] + ".jpg"
+    # One listing a process, not a stat per tile (2026-10-10).
+    return ("band/" if p["slug"] + ".jpg" in _band_names() else "site/") + p["slug"] + ".jpg"
 
 
 def _km(a1, o1, a2, o2):

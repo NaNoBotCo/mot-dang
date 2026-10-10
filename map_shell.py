@@ -44,6 +44,7 @@ before the tiles exist, and it is what the site falls back to if the bucket
 ever goes away.
 """
 
+import functools
 import json
 import zlib
 
@@ -80,7 +81,11 @@ MIN_ZOOM = 7.2
 VENDOR = ("maplibre-gl.css", "maplibre-gl.js", "pmtiles.js")
 
 
-def config():
+# Read once per process. page() asked for this file, and for the vendored
+# libraries below, on every page: about 500 of a 5,678-second build on
+# motdang-build, 2026-10-10.
+@functools.lru_cache(maxsize=None)
+def _config():
     p = ROOT / "data" / "basemap.json"
     if not p.exists():
         return {}
@@ -90,6 +95,11 @@ def config():
         return {}
 
 
+def config():
+    return dict(_config())
+
+
+@functools.lru_cache(maxsize=None)
 def enabled():
     """True only when there is a tile file to point at AND the vendored
     libraries are actually present. Both halves matter: a page that loads

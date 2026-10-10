@@ -45,6 +45,7 @@ being in the wrong place on a screen the size of a hand.
 """
 
 import datetime
+import functools
 import json
 from pathlib import Path
 
@@ -58,6 +59,12 @@ DEFAULT_ENDPOINT = "https://mot-dang-claims.nanobotco.workers.dev/alpha"
 
 def config():
     """The switch file, or {} when there is none."""
+    return dict(_config())
+
+
+# Read once per process: page() asked on every page (2026-10-10).
+@functools.lru_cache(maxsize=None)
+def _config():
     p = ROOT / "data" / "alpha.json"
     if not p.exists():
         return {}

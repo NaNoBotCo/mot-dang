@@ -1043,10 +1043,17 @@ def band_credit(name):
     return cut.rstrip(" ,;·-") + "…"
 
 
+_BAND_PLACE = None   # the names in assets/band/place/, listed once a process
+
+
 def band_place_file(rec_id):
     """The band's copy of a place's own photograph, or the full one."""
-    small = BAND_PIC_SRC / "place" / (rec_id + ".jpg")
-    if small.exists():
+    global _BAND_PLACE
+    if _BAND_PLACE is None:
+        # One listing, not a stat per place page (48 s of the build, 2026-10-10).
+        d = BAND_PIC_SRC / "place"
+        _BAND_PLACE = frozenset(os.listdir(d)) if d.is_dir() else frozenset()
+    if rec_id + ".jpg" in _BAND_PLACE:
         return "band/place/" + rec_id + ".jpg"
     name = PHOTO_FILES.get(rec_id)
     return ("photos/" + name) if name else ""
