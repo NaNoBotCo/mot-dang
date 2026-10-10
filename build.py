@@ -22920,6 +22920,7 @@ def build():
         build_widgets_page(EVENTS, data, moon_svg_markup))
     write_sky_json()
     write_today_json()
+    nownear_layer.write_json(DOCS)   # the strip's weather and air, read by JS
     if FORTUNE_DAYS:
         shutil.copyfile(ROOT / "data" / "fortune.json", DOCS / "data" / "fortune.json")
 

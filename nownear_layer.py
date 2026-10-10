@@ -41,6 +41,7 @@ day_items(); CSS and JS appended where style.css and md.js are written.
 tests/test_page_weight.py gates the result.
 """
 
+import json
 import datetime
 import re
 
@@ -182,20 +183,13 @@ def strip(r, path=""):
     A cell with nothing true to say drops; a stale file drops its cell rather
     than printing yesterday as today (the same guard widget_weather uses)."""
     import build as B
-    cells = []
-    wx = _pick(B.WEATHER_CITIES, path)
-    if wx and B.WEATHER_DATE >= B.BUILD_DATE and isinstance(wx.get("temp"), (int, float)):
-        icon, th, en = B.wmo(wx.get("code"))
-        # Drawn where a drawing exists (WO-77); the wmo table's emoji otherwise.
-        g = glyphs.EMOJI.get(icon.strip())
-        icon = glyphs.icon(g, 18) if g else icon
-        cells.append(f'<a class="nn nnwx" href="{r}widgets.html#w-weather" '
-                     f'aria-label="{B.att(B.bi_text(th, en))}">{icon} {wx["temp"]:.0f}°</a>')
-    air = _pick(B.AIR_PLACES, path)
-    if air and B.AIR_DATE >= B.BUILD_DATE and isinstance(air.get("pm25"), (int, float)):
-        band = air.get("band") or {}
-        cells.append(f'<a class="nn nnair" href="{r}widgets.html#w-air">'
-                     f'PM2.5 {air["pm25"]:.0f} {B.bi(band.get("th", ""), band.get("en", ""))}</a>')
+    # The readings themselves are filled in by JS from data/nownear.json
+    # (readings() below). Written into the page, a change in the sky rewrote
+    # every page of the site: on 2026-10-10 a round three hours after the last
+    # sent 79,500 changed files, and every one sampled differed only here.
+    cells = (f'<a class="nn nnwx" href="{r}widgets.html#w-weather" hidden></a>'
+             f'<span class="nnsep nnwxsep" hidden> · </span>'
+             f'<a class="nn nnair" href="{r}widgets.html#w-air" hidden></a>')
     # What is happening comes first: on a 375 px phone the line wraps, and
     # whatever is written last is read last. Every cell is deliberately terse —
     # the weather's own words live on its tile, and a cloud glyph beside 24°
@@ -228,11 +222,40 @@ def strip(r, path=""):
     # are not readings and have nothing to do with how fresh an air sensor is.
     # They are hidden by default and revealed by JS, so a line holding only
     # them costs no height until the browser has something to put there.
-    if not cells and not ev:
-        return (f'<p class="nownear" aria-label="{B.att(B.bi_text("ตอนนี้ · ใกล้ๆ", "now · near"))}">'
-                + plan + here + "</p>")
     return (f'<p class="nownear" aria-label="{B.att(B.bi_text("ตอนนี้ · ใกล้ๆ", "now · near"))}">'
-            + ev + '<span class="nnsep"> · </span>'.join(cells) + plan + here + "</p>")
+            + ev + cells + plan + here + "</p>")
+
+
+def readings():
+    """data/nownear.json: the weather and air cells for Chiang Mai pages ("cm")
+    and Chiang Rai pages ("cr"), as HTML, with the dates of the two readings.
+    The page shows a cell only while its reading's date is the reader's today
+    or later — the guard strip() kept against BUILD_DATE when it baked them.
+    Icons point at "#name"; the page's JS points them at its own icons.svg."""
+    import build as B
+    out = {"wxDate": B.WEATHER_DATE, "airDate": B.AIR_DATE}
+    for key, path in (("cm", ""), ("cr", "cr/")):
+        cell = {}
+        wx = _pick(B.WEATHER_CITIES, path)
+        if wx and isinstance(wx.get("temp"), (int, float)):
+            icon, th, en = B.wmo(wx.get("code"))
+            # Drawn where a drawing exists (WO-77); the wmo table's emoji otherwise.
+            g = glyphs.EMOJI.get(icon.strip())
+            icon = glyphs.icon(g, 18) if g else icon
+            # The page's sweep drew any emoji left over; this file has no sweep.
+            cell["wx"] = glyphs.emoji_to_icon(f'{icon} {wx["temp"]:.0f}°', 18)
+            cell["wxLabel"] = B.bi_text(th, en)
+        air = _pick(B.AIR_PLACES, path)
+        if air and isinstance(air.get("pm25"), (int, float)):
+            band = air.get("band") or {}
+            cell["air"] = f'PM2.5 {air["pm25"]:.0f} {B.bi(band.get("th", ""), band.get("en", ""))}'
+        out[key] = cell
+    return out
+
+
+def write_json(docs):
+    (docs / "data" / "nownear.json").write_text(
+        json.dumps(readings(), ensure_ascii=False, separators=(",", ":")))
 
 
 
@@ -352,6 +375,20 @@ var n=day&&day.events;
 if(!n){nnEmpty();return;}
 a.innerHTML='🎪 '+mdBi(n+' งานวันนี้',n+' on today');
 wrap.hidden=false;sep.hidden=!nnSep(wrap);nnEmpty();})();
+// Weather and air, read from data/nownear.json rather than written into every
+// page (nownear_layer.readings): Chiang Rai's reading on a page under cr/,
+// Chiang Mai's everywhere else, and a cell only while its reading is today's.
+(async function(){var wx=document.querySelector('.nnwx'),air=document.querySelector('.nnair');
+if(!wx&&!air)return;
+var d=await mdJSON('data/nownear.json');if(!d)return;
+var root=new URL(RROOT||'./',location.href).pathname;
+var c=d[location.pathname.slice(root.length).indexOf('cr/')===0?'cr':'cm']||{};
+function at(h){return h.replace(/href="#/g,'href="'+RROOT+'icons.svg#');}
+if(wx&&c.wx&&d.wxDate>=MD_TODAY){wx.innerHTML=at(c.wx);wx.setAttribute('aria-label',c.wxLabel||'');wx.hidden=false;}
+if(air&&c.air&&d.airDate>=MD_TODAY){air.innerHTML=at(c.air);air.hidden=false;}
+var s=document.querySelector('.nnwxsep');if(s)s.hidden=!(wx&&!wx.hidden&&air&&!air.hidden);
+var w=document.querySelector('.nnevwrap');if(w&&!w.hidden)w.querySelector('.nnevsep').hidden=!nnSep(w);
+nnEmpty();})();
 // 📍 ตรงนี้ — shown only where the browser already says granted. It is a link,
 // never a redirect and never a prompt: Nan's call, 2026-09-07. Where
 // navigator.permissions is missing the cell simply stays down and the reader

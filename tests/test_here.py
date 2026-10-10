@@ -96,14 +96,18 @@ try:
     _B.BUILD_DATE = "2026-09-07"
     bare = nownear_layer.strip("", "index.html")
     check("here.html" in bare, "📍 here.html is linked even with no weather, no air and no events")
-    check("nnsep" not in bare, "an empty line carries no stray separator")
+    check(not re.search(r'class="nnsep[^"]*"(?![^>]*\bhidden\b)', bare),
+          "an empty line carries no stray separator")
 
     # and the ordinary case still looks the way it did
     _B.WEATHER_DATE = _B.AIR_DATE = "2026-09-07"
     _B.WEATHER_CITIES = [{"temp": 24.0, "code": 61, "path": ""}]
     _B.AIR_PLACES = [{"pm25": 17.0, "band": {"th": "ดี", "en": "good"}, "path": ""}]
     full = nownear_layer.strip("", "index.html")
-    check("here.html" in full and "PM2.5" in full,
+    # The readings reach the line from data/nownear.json (nownear_layer.readings).
+    got = nownear_layer.readings().get("cm", {})
+    check("here.html" in full and "nnwx" in full and "nnair" in full
+          and "24°" in got.get("wx", "") and "PM2.5" in got.get("air", ""),
           "a full line still carries its readings and the chip")
 finally:
     for k, v in _saved.items():
