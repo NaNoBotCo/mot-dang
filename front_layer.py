@@ -945,6 +945,14 @@ def bake_events(docs, ix, counts):
     extras = ex.get("events", {})
     rows_add = [r for r in ex.get("add", []) if isinstance(r, dict) and r.get("uid") not in {e["uid"] for e in ev}]
     venue = venue_finder(ix["places"])
+    # each event's link from importers/event_links.py: the source's own if it answers, else the
+    # series' kept link, else the venue's site (rung "venue", shown as the venue's, not the event's).
+    # A file older than three days is not trusted to say a source link is dead: the source's stands.
+    lkf = ROOT / "data/event_links.json"
+    lk = _j(lkf) if lkf.exists() else {}
+    fresh = lk.get("generated", "") >= (dt.date.today() - dt.timedelta(days=3)).isoformat()
+    links = lk.get("links", {}) if fresh else {}
+    judged = set(lk.get("judged", [])) if fresh else set()
 
     today = dt.date.today()
     horizon = (today + dt.timedelta(days=56)).isoformat()   # the calendar pages a fortnight at a time
@@ -957,11 +965,15 @@ def bake_events(docs, ix, counts):
         text = (e.get("title", "") + " " + (e.get("description") or "")).lower()
         cat = next((c for c in CATS if re.search(c[3], text)), OTHER)
         v = venue(e.get("venue_name"), e.get("city") or "")
+        got = links.get(e["uid"])
+        url = got["url"] if got else ("" if e["uid"] in judged else e.get("url") or "")   # an event harvested after the run keeps its source's link
         row = {"k": _slug(e["title"]), "t": e["title"], "s": s, "e": e.get("end"), "ad": bool(e.get("all_day")),
-               "v": e.get("venue_name") or "", "cost": e.get("cost") or "", "url": e.get("url") or "",
+               "v": e.get("venue_name") or "", "cost": e.get("cost") or "", "url": url,
                "rec": bool(e.get("recurring")), "src": e.get("source") or "", "c": cat[0],
                # the calendar has two cities; a venue in a neighbouring province (Lamphun's) goes with Chiang Mai
                "city": "cr" if ((v or {}).get("province") or e.get("city")) == "cr" else "cm"}
+        if got and (got.get("kind") == "host" or got["rung"] == "venue"):
+            row["lk"] = "host"              # the page of whoever runs or hosts it, not of this event
         desc = re.sub(r"\s*·?\s*booking: \S+", "", e.get("description") or "").strip(" ·")
         if desc and not re.match(r"^(every \w+|\d{1,2} \w+ \d{4}) [\d:]*\s*·\s*at ", desc):
             row["d"] = desc[:600]
@@ -1001,7 +1013,7 @@ def bake_events(docs, ix, counts):
             if _km(v["lat"], v["lng"], a[2], a[3]) < 4:
                 row["ath"], row["aen"] = a[0], a[1]
         have = {"time": not row["ad"] and s[11:16] not in ("", "00:00"), "end": bool(row["e"]), "venue": bool(row["v"]),
-                "map": "la" in row, "cost": bool(row["cost"]), "link": bool(row["url"] or row.get("page")),
+                "map": "la" in row, "cost": bool(row["cost"]), "link": bool((row["url"] and row.get("lk") != "host") or row.get("page")),
                 "about": "d" in row, "picture": "img" in row}
         row["have"] = [k for k, ok in have.items() if ok]
         row["n"] = counts.get(row["k"], 0)
@@ -1213,6 +1225,7 @@ def bake(docs=None, thumbs=True, ask=True):
              "flights": bake_flights(docs), "roads": bake_roads(docs)}
     shutil.copy(ASSETS / "tiles.js", docs / "front/tiles.js")
     shutil.copy(ASSETS / "front.js", docs / "front/front.js")
+    shutil.copy(ASSETS / "wx.js", docs / "front/wx.js")
     doodles_layer.copy(docs)
     return ("front: %d lamps, %d specks · %d near photos (%d new thumbs) · %d minisites with pictures · "
             "%d events, %d at a known venue · %d with reader interest") % (
@@ -1231,7 +1244,7 @@ def stamp(t):
     """Each front-page script's own hash in its address. sw.js answers a script from its cache first, so an
     unstamped address hands a returning phone yesterday's script beside today's page (Nan's phone, 2026-10-03:
     the doodle and tiles blank until a second visit). One page carries these; the rest of the site does not."""
-    for js in ("skyline.js", "doodler.js", "doodles.js", "tiles.js", "front.js"):
+    for js in ("skyline.js", "doodler.js", "doodles.js", "tiles.js", "wx.js", "front.js"):
         f = ASSETS / js
         if f.exists():
             v = hashlib.md5(f.read_bytes()).hexdigest()[:8]

@@ -25,6 +25,7 @@ import os
 import re
 import socket
 import ssl
+import subprocess
 import sys
 import time
 import urllib.error
@@ -146,6 +147,24 @@ def fetch_chain(url, verify=True, max_hops=6):
     return current, 310, b"", hops
 
 
+def curl_chain(url):
+    """The same fetch through the system curl, for a TLS this Python cannot speak.
+    2026-10-10: this Mac's Python 3.9 is built on LibreSSL 2.8.3, which has no TLS 1.3;
+    onenimman.com and shutupwrite.com answered `tlsv1 alert protocol version` here and
+    200 to curl and to every browser. Returns (final_url, code, body) or None."""
+    try:
+        r = subprocess.run(["curl", "-sL", "--max-redirs", "6", "--max-time", str(TIMEOUT), "-A", UA,
+                            "-o", "-", "-w", "\n%{http_code} %{url_effective}", url],
+                           capture_output=True, timeout=TIMEOUT + 5)
+    except (OSError, subprocess.TimeoutExpired):
+        return None
+    body, _, tail = r.stdout.rpartition(b"\n")
+    code, _, final = tail.decode("utf-8", "ignore").partition(" ")
+    if r.returncode != 0 or not code.isdigit() or code == "000":
+        return None
+    return final or url, int(code), body[:120_000]
+
+
 def sniff(body):
     try:
         text = body.decode("utf-8", "ignore").lower()
@@ -169,7 +188,7 @@ def check(url):
     try:
         final, code, body, hops = fetch_chain(url)
     except urllib.error.URLError as e:
-        reason = e.reason
+        reason, answered = e.reason, False     # answered: a second try (or curl) got a reply to read below
         if isinstance(reason, ssl.SSLCertVerificationError) or isinstance(reason, ssl.SSLError):
             detail = str(getattr(reason, "verify_message", "") or reason)
             # A HANDSHAKE THAT WAS DROPPED IS NOT A CERTIFICATE THAT IS WRONG.
@@ -195,6 +214,11 @@ def check(url):
                     again = fetch_chain(url)
                 except Exception:
                     again = None
+            if again is None and not certish:
+                cc = curl_chain(url)                  # a TLS this Python lacks, not a fault of the site
+                if cc:
+                    again = (cc[0], cc[1], cc[2], [])
+                    v["via"] = "curl"
             if again is None:
                 # Is anything alive behind the bad certificate?
                 alive = False
@@ -208,14 +232,16 @@ def check(url):
             # The second try answered. Fall through to the ordinary reading of
             # what it said, which is where 403 becomes `walled`.
             final, code, body, hops = again
-        if isinstance(reason, socket.gaierror):
-            v.update(status="dns", detail=str(reason)[:200])
+            answered = True
+        if not answered:
+            if isinstance(reason, socket.gaierror):
+                v.update(status="dns", detail=str(reason)[:200])
+                return v
+            if isinstance(reason, socket.timeout):
+                v.update(status="timeout", detail="no response in %ds" % TIMEOUT)
+                return v
+            v.update(status="down", detail=str(reason)[:200])
             return v
-        if isinstance(reason, socket.timeout):
-            v.update(status="timeout", detail="no response in %ds" % TIMEOUT)
-            return v
-        v.update(status="down", detail=str(reason)[:200])
-        return v
     except socket.timeout:
         v.update(status="timeout", detail="no response in %ds" % TIMEOUT)
         return v

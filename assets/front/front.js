@@ -269,6 +269,8 @@ function icon(code) {                  /* drawn, not emoji: sun, cloud, rain, st
   return '<svg viewBox="0 0 48 52" width="48" height="52" aria-hidden="true">' + s + '</svg>';
 }
 function forecast() {
+  /* wx.js draws the three panels when it loaded (2026-10-10); these lines are its stand-in */
+  if (window.MDWX && MDWX.render(D.weather, D.air, where, spot())) return;
   var c = city(); if (!c) return;
   var hs = c.hours || [], k = hourKey(Date.now()), i0 = 0;
   for (var n = 0; n < hs.length; n++) if (hs[n][0] === k) i0 = n;
@@ -447,7 +449,7 @@ function evHtml(e, tier, day) {
     (e.cost ? '<dt>' + bi('ราคา', 'Price') + '</dt><dd>' + esc(e.cost) + '</dd>' : '') +
     '<dt>' + bi('ข้อมูล', 'Details') + '</dt><dd>' + e.have.length + '/8' + meter(e) + (missing.length ? ' · ' + bi('ยังขาด ' + missing.map(function (f) { return FIELD_TH[f]; }).join(' '), 'missing ' + missing.join(', ')) : '') + '</dd>' +
     '</dl><div class="acts">' +
-    (e.url || e.page ? '<a href="' + esc(e.page ? LIVE + e.page : e.url) + '" rel="noopener">' + bi('ดูต้นทาง', 'the source') + ' ↗</a>' : '') +
+    (e.url || e.page ? '<a href="' + esc(e.page ? LIVE + e.page : e.url) + '" rel="noopener">' + (e.lk === 'host' && !e.page ? bi('เจ้าภาพ', 'the host') : bi('ดูต้นทาง', 'the source')) + ' ↗</a>' : '') +
     (e.la != null ? '<a href="' + mapHref(e) + '" data-dact="map" data-ek="' + esc(evKey(e)) + '">' + bi('แผนที่', 'map') + '</a>' : '') +
     (e.ad ? '' : '<a download="' + e.k + '.ics" href="' + ics(e) + '">' + bi('ลงปฏิทิน', 'add to calendar') + '</a>') +
     '<button type="button" data-save="' + e.k + '" class="' + (ME.saved[e.k] ? 'on' : '') + '" aria-pressed="' + (ME.saved[e.k] ? 'true' : 'false') + '">' + bi('จำไว้', 'keep') + '</button>' +
@@ -2352,8 +2354,12 @@ Promise.all([j(LIVE + 'front/events.json').then(function (d) { D.events = d; }),
 j(LIVE + 'front/sites.json').then(function (d) { D.sites = d; sites(); }, function () { });
 
 j(LIVE + 'front/drawer.json').then(function (d) { D.drawer = d; drawer(); }, function () { });
-var rz; addEventListener('resize', function () { clearTimeout(rz); rz = setTimeout(forecast, 300); });
-setInterval(function () { j(LIVE + 'data/weather.json').then(function (d) { D.weather = d; sky.text(); }, function () { }); }, 600e3);
+/* a phone's address bar coming and going changes the height only; the panels redraw for a new width */
+var rz, rzW = innerWidth; addEventListener('resize', function () { if (innerWidth === rzW) return; rzW = innerWidth; clearTimeout(rz); rz = setTimeout(forecast, 300); });
+setInterval(function () {
+  Promise.all([j(LIVE + 'data/weather.json').then(function (d) { D.weather = d; }, function () { }),
+               j(LIVE + 'data/air.json').then(function (d) { D.air = d; }, function () { })]).then(function () { sky.text(); });
+}, 600e3);
 })();
 
 /* the city map: its first touch asks for the whole screen (Nan, 2026-10-02: "if you play

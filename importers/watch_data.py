@@ -64,6 +64,8 @@ CHECKS = [
                                                              ("gold", 1),
                                                              ("crypto", 1)]),
     ("events.json",         ["generated"],              3,  [("events", 1)]),
+    # each event's link, checked (importers/event_links.py); the build trusts it for three days
+    ("event_links.json",    ["generated"],              3,  [("judged", 1)]),
     ("showtimes.json",      ["generated"],              3,  [("cinemas", 1)]),
     ("festival_dates.json", ["generated"],             10,  [("rows", 1)]),
     ("lottery.json",        ["draw.date", "generated"], 35, [("draw", 1)]),
@@ -85,6 +87,7 @@ FETCHERS = {
     "cleanrooms.json":     (["importers/fetch_cleanrooms.py"], 1800),
     "finance.json":        (["importers/make_finance.py"], 300),
     "events.json":         (["importers/harvest_events.py", "--refetch"], 1800),
+    "event_links.json":    (["importers/event_links.py"], 900),
     "showtimes.json":      (["importers/make_showtimes.py"], 600),
     "festival_dates.json": (["importers/harvest_festivals.py"], 900),
     "lottery.json":        (["importers/make_lottery.py"], 300),
