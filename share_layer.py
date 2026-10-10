@@ -56,7 +56,7 @@ function code(bytes){var b=bytes,s='',i;
   for(i=0;i<8;i++)s+=AL.charAt(b[i]&31);return s;}
 function parse(s){var m=CODE_RE.exec(String(s||''));return m?{code:m[1],ch:m[2]||''}:null;}
 /* the channel rides in the link as one or two letters after the code */
-var CH={native:'n',line:'l',whatsapp:'w',mail:'m',copy:'c',facebook:'f',messenger:'g',telegram:'t',x:'x',picture:'p',qr:'q',row:'r'};
+var CH={native:'n',line:'l',whatsapp:'w',mail:'m',copy:'c',facebook:'f',messenger:'g',telegram:'t',x:'x',picture:'p',qr:'q',row:'r',instagram:'i'};
 var CHNAME={};Object.keys(CH).forEach(function(k){CHNAME[CH[k]]=k;});
 function ours(host,here){return /(^|\.)motdang\.net$/.test(host)||(!!here&&host===here);}
 function tagUrl(u,c,ch,here){
@@ -243,7 +243,7 @@ function nativeShare(d,what){
   return navigator.share(d).then(function(){tell('native-done',{d:what});},
     function(e){tell(e&&e.name==='AbortError'?'native-cancel':'native-fail',{d:what});});}
 function shareOut(t,file,what,u){
-  t=tagged(t,'native');tell('channel',{d:'native'});
+  t=tagged(t,'native');tell('channel',{d:'native'});if(u)u=K.tagUrl(u,CODE||fresh(),'n',HERE);
   if(APP){try{APP.share(t);}catch(e){}return;}
   if(file)file.then(function(f){var d={text:t,files:[f]};if(u)d.url=u;
       return navigator.canShare&&navigator.canShare(d)?nativeShare(d,what||'file'):nativeShare(u?{text:t,url:u}:{text:t},what);}).catch(function(){});
@@ -277,9 +277,11 @@ function open(mode){return wrap&&!wrap.hidden&&body.dataset.mode===mode;}
 
 /* LINE, the phone's own share sheet, copy. The message is read at tap time
    from the sheet's textarea, or data-ls-text when there is none. */
-function sendRow(text, ll, addr, name){
-  var u=ll?'https://www.google.com/maps/search/?api=1&query='+ll:'';
+function sendRow(text, ll, addr, name, o){
+  o=o||{};
+  var u=o.url||(ll?'https://www.google.com/maps/search/?api=1&query='+ll:'');
   var d_url=u?' data-ls-url="'+E(u)+'"':'';
+  if(o.ntext)d_url+=' data-ls-ntext="'+E(o.ntext)+'"';
   var d_ll=ll?' data-ls-ll="'+E(ll)+'"':'';
   var d_addr=addr?' data-ls-addr="'+E(addr)+'"':'';
   var d_name=name?' data-ls-name="'+E(name)+'"':'';
@@ -295,18 +297,20 @@ function sendRow(text, ll, addr, name){
     (canShare()?'<button type="button" class="ls-b" data-ls-native>'+I('i-share')+B('แชร์','Share')+'</button>':'')+
     '<a class="ls-b ls-line" href="'+E(lineHref(text))+'" target="_blank" rel="noopener">'+I('i-chat')+'LINE</a>'+
     '<a class="ls-b ls-wa" href="'+E(waHref(text))+'" target="_blank" rel="noopener">'+I('i-chat')+'WhatsApp</a>'+
+    '<button type="button" class="ls-b ls-ig" data-ls-ig>'+I('i-camera')+'Instagram</button>'+
+    '<a class="ls-b ls-tg" href="'+E(o.link?K.tgHref(o.link,text):K.tgHref(text))+'" target="_blank" rel="noopener">'+I('i-chat')+'Telegram</a>'+
     '<a class="ls-b ls-mail" href="'+E(mailHref(text))+'">'+I('i-mail')+B('อีเมล','Email')+'</a>'+
     '<button type="button" class="ls-b" data-ls-copy>'+I('i-link')+B('คัดลอกข้อความ','Copy text')+'</button>'+
-    (ll?'<button type="button" class="ls-b" data-ls-copy-ll>'+I('i-link')+B('คัดลอกพิกัด','Copy coordinates')+'</button>':'')+
-    (addr?'<button type="button" class="ls-b" data-ls-copy-addr>'+I('i-link')+B('คัดลอกที่อยู่','Copy address')+'</button>':'')+
-    (ll?'<a class="ls-b ls-alt" href="'+grab+'" rel="nofollow noopener">'+I('i-ride')+B('เรียก Grab ไปหา','Ride there · Grab')+'</a>':'')+
-    (ll?'<a class="ls-b ls-alt" href="'+geo+'">'+I('i-ride')+B('เปิดแอปแผนที่ / เรียกจ้าง','Geo URI / Apps')+'</a>':'')+
-    (ll?'<a class="ls-b ls-alt" href="'+apple+'" rel="noopener" target="_blank">'+I('i-map')+B('Apple Maps','Apple Maps')+'</a>':'')+
-    (ll?'<a class="ls-b ls-alt" href="'+E(u)+'" rel="noopener" target="_blank">'+I('i-map')+B('เปิดใน Google Maps','Open in Google Maps')+'</a>':'')+
+    (ll&&!o.noOpen?'<button type="button" class="ls-b" data-ls-copy-ll>'+I('i-link')+B('คัดลอกพิกัด','Copy coordinates')+'</button>':'')+
+    (addr&&!o.noOpen?'<button type="button" class="ls-b" data-ls-copy-addr>'+I('i-link')+B('คัดลอกที่อยู่','Copy address')+'</button>':'')+
+    (ll&&!o.noOpen?'<a class="ls-b ls-alt" href="'+grab+'" rel="nofollow noopener">'+I('i-ride')+B('เรียก Grab ไปหา','Ride there · Grab')+'</a>':'')+
+    (ll&&!o.noOpen?'<a class="ls-b ls-alt" href="'+geo+'">'+I('i-ride')+B('เปิดแอปแผนที่ / เรียกจ้าง','Geo URI / Apps')+'</a>':'')+
+    (ll&&!o.noOpen?'<a class="ls-b ls-alt" href="'+apple+'" rel="noopener" target="_blank">'+I('i-map')+B('Apple Maps','Apple Maps')+'</a>':'')+
+    (ll&&!o.noOpen?'<a class="ls-b ls-alt" href="'+E(u)+'" rel="noopener" target="_blank">'+I('i-map')+B('เปิดใน Google Maps','Open in Google Maps')+'</a>':'')+
     '</div>';}
 /* keep the channel links in step with the composed message (the picker edits it live). */
 function setSendHrefs(t){
-  var m={'.ls-line':lineHref(t),'.ls-wa':waHref(t),'.ls-mail':mailHref(t)};
+  var m={'.ls-line':lineHref(t),'.ls-wa':waHref(t),'.ls-mail':mailHref(t),'.ls-tg':K.tgHref(t)};
   Object.keys(m).forEach(function(s){var a=body&&body.querySelector(s);if(a)a.href=m[s];});}
 function msgOf(el){var box=el.closest('.ls-body'),ta=box&&box.querySelector('.ls-msg');
   if(ta)return ta.value;var s=el.closest('.ls-send');return s?s.getAttribute('data-ls-text'):'';}
@@ -318,7 +322,8 @@ function copy(t,btn){
 function old(t){var a=D.createElement('textarea');a.value=t;a.setAttribute('readonly','');a.style.position='fixed';a.style.opacity='0';
   D.body.appendChild(a);a.select();try{D.execCommand('copy');}catch(e){}a.remove();}
 D.addEventListener('click',function(e){
-  var b=e.target.closest&&e.target.closest('[data-ls-copy],[data-ls-copy-ll],[data-ls-copy-addr],[data-ls-native],[data-ls-share]');if(!b)return;
+  var b=e.target.closest&&e.target.closest('[data-ls-copy],[data-ls-copy-ll],[data-ls-copy-addr],[data-ls-native],[data-ls-share],[data-ls-ig],[data-ls-cp]');if(!b)return;
+  if(b.hasAttribute('data-ls-cp')){tell('channel',{d:'copy-'+(b.getAttribute('data-ls-k')||'v')});copy(b.getAttribute('data-ls-cp'),b);return;}
   if(b.hasAttribute('data-ls-share')){e.preventDefault();fresh();
     var u=b.getAttribute('data-ls-share'),t=b.getAttribute('data-ls-t')||'',k=/\/(cm|cr)\/p\/([a-z0-9-]+)\.html/.exec(u);
     tell('option',{d:'row',k:k?k[1]+':'+k[2]:''});
@@ -328,6 +333,15 @@ D.addEventListener('click',function(e){
   if(b.hasAttribute('data-ls-copy')){tell('channel',{d:'copy'});copy(tagged(t,'copy'),b);return;}
   if(b.hasAttribute('data-ls-copy-ll')){tell('channel',{d:'copy-ll'});copy(p.getAttribute('data-ls-ll'),b);return;}
   if(b.hasAttribute('data-ls-copy-addr')){tell('channel',{d:'copy-addr'});copy(p.getAttribute('data-ls-addr'),b);return;}
+  /* Instagram has no web link that carries a message: the phone's own sheet lists it; elsewhere the
+     message is copied and the Instagram inbox opened, to paste it into the chat */
+  if(b.hasAttribute('data-ls-ig')){
+    if(canShare()){var nt0=p&&p.getAttribute('data-ls-ntext');tell('option',{d:'instagram'});shareOut(nt0||t,null,'instagram',nt0?u:null);return;}
+    tell('channel',{d:'instagram'});copy(tagged(t,'instagram'),null);
+    b.innerHTML=I('i-check')+B('คัดลอกแล้ว วางในแชต','Copied, paste it in the chat');
+    window.open('https://www.instagram.com/direct/inbox/','_blank','noopener');return;}
+  var nt=p&&p.getAttribute('data-ls-ntext');
+  if(nt){shareOut(nt,null,'point',u);return;}
   shareOut(t,pickFile(),open('pick')?'part':'page',u);});
 /* Any share link on a page — the sheet's own LINE, WhatsApp and email, the
    place page's share row (build.py share_block), a result row's LINE — has
@@ -411,8 +425,62 @@ function now(e){var b=e.currentTarget,out=body.querySelector('.ls-out');busy(b,t
     var ll=c.latitude.toFixed(6)+','+c.longitude.toFixed(6);
     body.querySelectorAll('.ls-big').forEach(function(x){x.hidden=true;});
     out.innerHTML='<p class="ls-ok">'+B('ได้ตำแหน่งแล้ว ±'+a+' ม. เวลา '+hm(t),'Got it, ±'+a+' m, '+hm(t))+'</p>'+sendRow(text, ll);
+    point(out,{lat:c.latitude,lng:c.longitude,link:link,th:'ฉันอยู่ตรงนี้ เมื่อ '+hm(t),en:'I am here, as of '+hm(t)});
     var f=out.querySelector('.ls-b');if(f)f.focus();},
   function(code){busy(b,false);out.innerHTML=whyNot(code);});}
+
+/* ---- a point, said every way (Nan, 2026-10-10: "share location to work well with any
+   mapping function ... stripped coordinates and geocoded addresses ... Google short codes and
+   other handy ways to describe where a place is"). /whereis.js (whereis_layer.py) answers;
+   until it does, or if it cannot, the plain send row above stays as it was. */
+var WQ=null;
+function needWhere(){if(window.MDWHERE)return Promise.resolve(window.MDWHERE);
+  return WQ||(WQ=new Promise(function(ok){var s=D.createElement('script');s.src='/whereis.js';s.async=true;
+    s.onload=function(){ok(window.MDWHERE||null);};s.onerror=function(){WQ=null;ok(null);};D.head.appendChild(s);}));}
+function cpRow(k,th,en,v){return v?'<li><b>'+B(th,en)+'</b><code>'+E(v)+'</code><button type="button" class="ls-a" data-ls-cp="'+E(v)+'" data-ls-k="'+k+'">'+I('i-link',16)+B('คัดลอก','Copy')+'</button></li>':'';}
+function point(out,o){
+  var lat=+o.lat,lng=+o.lng;if(!isFinite(lat)||!isFinite(lng))return;
+  needWhere().then(function(W){if(!W)return null;return W.describe(lat,lng,{name:o.name||'',gpid:o.gpid||''});}).then(function(d){
+    if(!d||!out.isConnected)return;
+    var lg=D.documentElement.getAttribute('data-lang')||'th',W=window.MDWHERE,lines=(W.pairs?W.pairs(d,o.name):[]).map(function(x){return B(E(x.th),E(x.en));});
+    if(d.addr){lines.push(E(d.addr.th));lines.push(E(d.addr.en));}
+    var text=window.MDWHERE.message(d,{th:o.th,en:o.en,name:o.name,link:o.link});
+    var ntext=window.MDWHERE.message(d,{th:o.th,en:o.en,name:o.name});
+    var more=(d.codes||[]).filter(function(c){return c.kind!=='decimal'&&c.kind!=='pluscode'&&c.kind!=='pluscode_short';});
+    var h=(lines.length?'<div class="ls-where">'+lines.map(function(x){return '<p>'+x+'</p>';}).join('')+'</div>':'')+
+      '<ul class="ls-codes">'+
+        cpRow('ll','พิกัด','Coordinates',d.plain)+
+        cpRow('plus','พลัสโค้ด (Google)','Plus Code (Google)',d.plusShort||d.plus)+
+        (d.addr?cpRow('addr','ที่อยู่','Address',lg==='en'?d.addr.en:d.addr.th):'')+
+        (d.addr?cpRow('addr2','ที่อยู่ (อีกภาษา)','Address, other language',lg==='en'?d.addr.th:d.addr.en):'')+
+        (d.plusShort?cpRow('plusfull','พลัสโค้ดเต็ม','Full Plus Code',d.plus):'')+
+        cpRow('msg','ทั้งหมดข้างบน','All of the above',text)+
+      '</ul>'+
+      (more.length?'<details class="ls-more"><summary>'+B('รูปแบบพิกัดอื่น','More coordinate formats')+'</summary><ul class="ls-codes">'+
+        more.map(function(c){return cpRow(c.kind,c.th,c.en,c.text);}).join('')+'</ul></details>':'')+
+      '<h3 class="ls-h3">'+B('เปิดในแอปแผนที่','Open in a map app')+'</h3><div class="ls-acts">'+
+        d.links.map(function(k){return '<a class="ls-a'+(k.id==='grab'?' ls-grab':'')+'" href="'+E(k.href)+'"'+(/^https?:/.test(k.href)?' target="_blank" rel="noopener'+(k.id==='grab'?' nofollow':'')+'"':'')+'>'+I(k.id==='grab'?'i-ride':'i-map',16)+B(k.th,k.en)+'</a>';}).join('')+'</div>'+
+      '<h3 class="ls-h3">'+B('ส่ง','Send')+'</h3>'+sendRow(text,d.ll6,d.addr?d.addr.th:'',o.name||'',{url:o.link||'',ntext:o.link?ntext:'',link:o.link||'',noOpen:1})+
+      (d.addr&&d.attribution?'<p class="ls-note">'+E(d.attribution)+'</p>':'');
+    var old=out.querySelector('.ls-send');if(old)old.remove();
+    var box=D.createElement('div');box.className='ls-point';box.innerHTML=h;out.appendChild(box);
+  });}
+/* any map on the site: MDSHAREPOINT(lat, lng, {name, link, th, en}) opens the sheet on that point.
+   Inside a frame (the front page's doodle map) the page around it opens it, so the sheet has the
+   whole screen. */
+function sharePoint(lat,lng,o){
+  o=o||{};
+  try{if(window.parent!==window&&window.parent.MDSHAREPOINT&&window.parent.location.origin===location.origin)return window.parent.MDSHAREPOINT(lat,lng,o);}catch(e){}
+  fresh();tell('option',{d:o.kind||'point'});
+  var ll=(+lat).toFixed(6)+','+(+lng).toFixed(6),link=o.link||'https://motdang.net/map.html?go='+ll;
+  var head={th:o.th||(o.name?'':'ตรงนี้'),en:o.en||(o.name?'':'This spot')};
+  sheet('<h2>'+(o.name?E(o.name):B('ส่งตำแหน่งนี้','Send this spot'))+'</h2><div class="ls-out" aria-live="polite"></div>','point');
+  var out=body.querySelector('.ls-out'),t=[head.th&&head.en?head.th+' · '+head.en:'',o.name||'',ll,link].filter(Boolean).join('\n');
+  out.innerHTML=sendRow(t,ll,'',o.name||'');
+  point(out,{lat:lat,lng:lng,name:o.name,link:link,th:head.th,en:head.en,gpid:o.gpid||''});}
+window.MDSHAREPOINT=sharePoint;
+/* the same panel, in a page of its own (/live.html draws it under the shared pin) */
+window.MDPOINTPANEL=function(el,o){if(!el)return;el.innerHTML='';point(el,o||{});};
 
 function startLive(e){var b=e.currentTarget,out=body.querySelector('.ls-out');busy(b,true);out.innerHTML='';
   where(function(c){
@@ -469,13 +537,14 @@ function liveSheet(){
   var ll = last ? last.latitude.toFixed(6) + ',' + last.longitude.toFixed(6) : '';
   sheet('<h2>'+B('ตำแหน่งสด','Live location')+'</h2><p class="ls-stat">'+status()+'</p>'+
     (watch==null&&!L.app?'<button type="button" class="ls-big" data-ls-resume>'+I('i-live',26)+'<span><b>'+B('ส่งต่อ','Resume')+'</b></span></button>':'')+
-    sendRow(liveText(), ll)+
+    '<div class="ls-livept">'+sendRow(liveText(), ll)+'</div>'+
     '<p class="ls-note">'+(L.app?B('แอปมดแดงส่งต่อแม้ล็อกจอ หยุดได้จากที่นี่หรือจากแถบแจ้งเตือน',
       'The Mot Dang app keeps sending with the screen locked. Stop it here or from the notification.')
      :B('มือถือส่งตำแหน่งขณะเปิดหน้ามดแดงอยู่ ถ้าล็อกจอหรือปิดเบราว์เซอร์ หมุดจะหยุดที่ตำแหน่งล่าสุด',
       'Your phone sends while a Mot Dang page is open. Lock the screen or close the browser and the pin stays at the last place sent.'))+'</p>'+
     '<button type="button" class="ls-stop" data-ls-stop>'+I('i-x')+B('หยุดส่ง','Stop sharing')+'</button>','live');
   body.querySelector('[data-ls-stop]').addEventListener('click',function(){stop(false);});
+  if(last)point(body.querySelector('.ls-livept'),{lat:last.latitude,lng:last.longitude,link:liveLink(),th:'ตำแหน่งสดของฉัน ถึง '+hm(L.until),en:'My live location until '+hm(L.until)});
   var r=body.querySelector('[data-ls-resume]');
   if(r)r.addEventListener('click',function(){busy(r,true);where(function(c){last=c;run();push(true);liveSheet();},
     function(code){busy(r,false);r.insertAdjacentHTML('afterend',whyNot(code));});});}
@@ -645,7 +714,8 @@ function scan(){
   else{var m=main.querySelector('[data-mdmap][data-lat]');if(m){lat=+m.getAttribute('data-lat');lng=+m.getAttribute('data-lng');at=m;}}
   if(isFinite(lat)&&isFinite(lng)&&lat){at=at||main;
     add(at,'ll','พิกัด · Coordinates',lat.toFixed(6)+', '+lng.toFixed(6),false);
-    add(at,'gm','Google Maps','https://www.google.com/maps/search/?api=1&query='+lat.toFixed(6)+','+lng.toFixed(6),true);
+    var gpl=main.querySelector('a.gplace');
+    add(at,'gm','Google Maps',gpl?gpl.href:'https://www.google.com/maps/search/?api=1&query='+lat.toFixed(6)+','+lng.toFixed(6),true);
     add(at,'apple','Apple Maps','https://maps.apple.com/?ll='+lat.toFixed(6)+','+lng.toFixed(6)+'&q='+lat.toFixed(6)+','+lng.toFixed(6),false);
     add(at,'geo','แอปแผนที่ / Geo URI','geo:'+lat.toFixed(6)+','+lng.toFixed(6)+'?q='+lat.toFixed(6)+','+lng.toFixed(6),false);
     add(at,'dir','นำทาง · Directions','https://www.google.com/maps/dir/?api=1&destination='+lat.toFixed(6)+','+lng.toFixed(6),false);
@@ -750,6 +820,11 @@ var CSS='.ls-th+.ls-en::before{content:" · "}html.lang-th .ls-en,html.lang-en .
 '.ls-b{display:inline-flex;align-items:center;gap:.4rem;min-height:48px;padding:.4rem 1rem;border:0;border-radius:999px;background:#2a1e16;color:#fff;font:inherit;font-weight:600;text-decoration:none;cursor:pointer}'+
 '.ls-b.ls-line,.ls-a.ls-line{background:#06C755;color:#fff}'+
 '.ls-b.ls-wa{background:#25D366;color:#073b1e}.ls-b.ls-mail{background:#fff;color:#2a1e16;border:2px solid #2a1e16}'+
+'.ls-where{margin:.5rem 0;padding:.55rem .8rem;border-left:4px solid #C2401C;background:#faf3e4;border-radius:0 10px 10px 0}.ls-where p{margin:.15rem 0}'+
+'.ls-codes{list-style:none;margin:.5rem 0;padding:0}.ls-codes li{display:flex;flex-wrap:wrap;align-items:center;gap:.25rem .6rem;padding:.45rem 0;border-bottom:1px solid #eadfcb}'+
+'.ls-codes li b{flex:0 0 100%;font-size:.85rem;color:#5c4d38;font-weight:600}.ls-codes code{flex:1;min-width:0;font:600 1rem ui-monospace,Menlo,monospace;word-break:break-word;white-space:pre-wrap}'+
+'.ls-more summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:600}.ls-h3{font-size:1rem;margin:.9rem 0 .3rem}'+
+'.ls-b.ls-ig{background:#C13584;color:#fff}.ls-b.ls-tg{background:#229ED9;color:#fff}'+
 '.ls-ok{margin:.4rem 0 0;font-weight:600}.ls-err{color:#9a2a10}.ls-note{font-size:.88rem;color:#5c4d38}.ls-stat{font-weight:600}'+
 '.ls-stop{display:inline-flex;align-items:center;gap:.4rem;min-height:48px;padding:.4rem 1rem;border:2px solid #9a2a10;border-radius:999px;background:#fff;color:#9a2a10;font:inherit;font-weight:700;cursor:pointer}'+
 '.ls-grp{margin:0 0 .55rem;border:1px solid #eadfcb;border-radius:12px;overflow:hidden;background:#fff}'+
@@ -1165,6 +1240,10 @@ VIEW_JS = r"""/* /live.html — a shared position, drawn and followed (share_lay
 (function(){
 var q=new URLSearchParams(location.search),P=q.get('p'),ID=q.get('l'),D=document;
 var box=D.getElementById('livemap'),st=D.getElementById('livestat'),acts=D.getElementById('liveacts');
+/* its own small helpers: this script runs before md.js has defined any */
+var E=window.E||function(x){return String(x==null?'':x).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});};
+var I=window.I||function(id,n){n=n||20;var h=D.documentElement.getAttribute('data-icons')||'/icons.svg';
+  return '<svg class="lsi" width="'+n+'" height="'+n+'" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="'+E(h)+'#'+id+'"></use></svg>';};
 var map=null,cur=null,first=true,timer=null;
 function pad(n){return (n<10?'0':'')+n;}
 function hm(t){var d=new Date(t);return pad(d.getHours())+':'+pad(d.getMinutes());}
@@ -1190,12 +1269,14 @@ function links(){
   var g='https://grab.onelink.me/2695613898?af_dp='+encodeURIComponent(dp)+'&af_web_dp='+encodeURIComponent('https://www.grab.com/th/transport/');
   acts.innerHTML='<a class="ls-b" href="https://www.google.com/maps/dir/?api=1&destination='+ll+'" rel="noopener">'+B('นำทาง','Directions')+'</a>'+
     '<a class="ls-b ls-grabb" href="'+g+'" rel="nofollow noopener">'+B('เรียก Grab ไปหา','Ride there · Grab')+'</a>'+
-    '<a class="ls-b ls-alt" href="https://www.google.com/maps/search/?api=1&query='+ll+'" rel="noopener">Google Maps</a>'+
-    '<a class="ls-b ls-alt" href="https://maps.apple.com/?ll='+ll+'&q='+ll+'" rel="noopener">Apple Maps</a>'+
-    '<a class="ls-b ls-alt" href="geo:'+ll+'?q='+ll+'">'+I('i-ride')+B('เปิดแอปแผนที่ / เรียกจ้าง','Geo URI / Apps')+'</a>'+
-    '<button type="button" class="ls-b copylink" data-url="'+ll+'" data-done="'+E(B("คัดลอกแล้ว","Copied"))+'">'+I('i-link')+B('คัดลอกพิกัด','Copy coordinates')+'</button>'+
-    '<a class="ls-b ls-alt" href="map.html?go='+ll+'">'+B('แผนที่มดแดง','Mot Dang map')+'</a>';}
+    '<button type="button" class="ls-b copylink" data-url="'+ll+'" data-done="'+E(B("คัดลอกแล้ว","Copied"))+'">'+I('i-link')+B('คัดลอกพิกัด','Copy coordinates')+'</button>';
+  /* the address, the codes, every map app (share_layer point panel); redrawn when the pin has moved 25 m */
+  if(window.MDPOINTPANEL&&where&&(!drawn||Math.abs(drawn.lat-cur.lat)*111320+Math.abs(drawn.lng-cur.lng)*104000>25)){
+    drawn={lat:cur.lat,lng:cur.lng};
+    MDPOINTPANEL(where,{lat:cur.lat,lng:cur.lng,link:location.href.split('#')[0],th:'ตำแหน่งที่ส่งมา',en:'A shared location'});}}
+var where=D.getElementById('livewhere'),drawn=null;
 function set(lat,lng,acc){cur={lat:lat,lng:lng,acc:acc};links();paint();}
+addEventListener('load',function(){if(cur&&!drawn)links();});
 if(window.MDMAP&&box)MDMAP.ready(box,function(m){map=m;paint();});
 else addEventListener('load',function(){if(window.MDMAP&&box)MDMAP.ready(box,function(m){map=m;paint();});});
 if(P){var p=P.split(',').map(Number);
@@ -1310,7 +1391,7 @@ def live_page(page, map_shell, bi, bi_text, esc):
             f'<div class="livebox"><p id="livestat" aria-live="polite"></p>'
             + map_shell.mount("livemap", "", prov="cm", zoom=14,
                               label=esc(bi_text("ตำแหน่งที่แชร์", "Shared location")))
-            + '<div id="liveacts"></div></div>'
+            + '<div id="liveacts"></div><div id="livewhere"></div></div>'
             f'<p class="tinynote">{bi("ส่งตำแหน่งของคุณเองได้จากปุ่ม ส่ง ที่มุมจอทุกหน้า", "Send your own from the Send button in the corner of any page.")}</p>'
             f'<style>{CSS}</style><script>{VIEW_JS}</script>')
     return page(bi_text("ตำแหน่งที่แชร์", "A shared location"), body, 0, path="live.html",

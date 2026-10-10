@@ -22923,6 +22923,11 @@ def build():
     # is reached by tapping, and asks for a position only through MDLOC.
     import here_layer
     print("  here:", here_layer.emit(globals(), data))
+    # ---- whereis.js: any point said every way — address, Plus Code, the map apps ----
+    # (Nan, 2026-10-10: share location "to work well with any mapping function").
+    # Read by the send sheet (share_layer), /live.html and the doodle maps.
+    import whereis_layer
+    print("  whereis:", whereis_layer.emit(globals(), data))
     (DOCS / "widgets.html").write_text(
         build_widgets_page(EVENTS, data, moon_svg_markup))
     write_sky_json()

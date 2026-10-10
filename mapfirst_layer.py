@@ -121,6 +121,8 @@ function mk(){
   document.body.appendChild(sheet);body=sheet.querySelector('.mfbody');
   sheet.querySelector('.mfx').addEventListener('click',close);
   sheet.addEventListener('click',function(e){
+    var sd=e.target.closest('.mfsend');
+    if(sd&&window.MDSHAREPOINT){window.MDSHAREPOINT(+sd.getAttribute('data-lat'),+sd.getAttribute('data-lng'),{name:sd.getAttribute('data-n')||'',kind:'map'});return;}
     var c=e.target.closest('.mfcopy');if(c)copy(c.getAttribute('data-c'),c);});
 }
 function open(html){
@@ -142,7 +144,9 @@ function copy(t,btn){
 
 /* ---- every way to say where a point is --------------------------------- */
 function coordsHtml(lat,lng,name,openIt){
-  var h='<details class="mfco"'+(openIt?' open':'')+'><summary>พิกัดทุกแบบ · Every coordinate system</summary>';
+  /* the site's send sheet (share_layer MDSHAREPOINT): the address, the Plus Code, every map app */
+  var h=window.MDSHAREPOINT?'<p><button type="button" class="mfcopy mfsend" data-lat="'+lat+'" data-lng="'+lng+'" data-n="'+E(name||'')+'">ส่งตำแหน่งนี้ · Send this spot</button></p>':'';
+  h+='<details class="mfco"'+(openIt?' open':'')+'><summary>พิกัดทุกแบบ · Every coordinate system</summary>';
   if(window.MDCOORDS){
     h+='<dl>'+MDCOORDS.format(lat,lng).map(function(x){return '<dt>'+E(x.th)+' · '+E(x.en)+'</dt><dd><code>'+
       E(x.text)+'</code><button type="button" class="mfcopy" data-c="'+E(x.text)+'">คัดลอก · Copy</button></dd>';}).join('')+'</dl>';

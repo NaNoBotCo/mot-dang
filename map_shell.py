@@ -871,7 +871,7 @@ var STREETS={
   'water':{'fill-color':'#9FCDF0'},'water-edge':{'line-color':'#9FCDF0'},
   'water-line':{'line-color':'#9FCDF0'},'moat-over':{'line-color':'#9FCDF0'},
   'buildings':{'fill-color':'#E3DFD7','fill-outline-color':'#D2CDC4'},
-  'roads-casing':{'line-color':'#C4BCAE'},
+  'roads-casing':{'line-color':'#9E9484'},   /* darker than first drawn: white roads on pale grey read faintly at city zoom for low vision (WO-105 38) */
   'roads-minor':{'line-color':'#FFFFFF'},
   'roads-major':{'line-color':'#FFFFFF'},
   'roads-primary':{'line-color':'#FFF0B8'},
@@ -1065,7 +1065,9 @@ window.MDMAP={
      map — is seen by none of the watchers above: sweep() runs on scroll and
      resize, the observers watch the boxes present at script time, and a box
      that was hidden measures zero. Whoever made the box asks for it here. */
-  mount:function(el){maybe(el);}
+  mount:function(el){maybe(el);},
+  /* Terrain or Streets on a box, for a page with its own look switch (the doodle maps) */
+  look:function(el,look){window.MDMAP.ready(el,function(m){applyLook(m,look);});}
 };
 
 /* The backstop. Passive so it never costs a frame of scroll. */
