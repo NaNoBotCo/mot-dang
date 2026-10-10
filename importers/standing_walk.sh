@@ -377,6 +377,18 @@ python3 make_shelf_cards.py || say "shelf cards kept — missing ones fall back 
 # it (importers/server_walk.sh). The laptop never writes docs.next/ — the
 # second 10 GB copy that filled this disk on 2026-10-05.
 if [[ -f cache/build-on-server ]]; then
+  # Commit builds wait for the code the live site already carries to be
+  # committed (Nan, 2026-10-10: "switch it on after they commit"); the noted
+  # lines are in cache/build-from-commit.pending.json (importers/build_code.py).
+  if [[ -f cache/build-from-commit.pending.json && ! -f cache/build-from-commit ]]; then
+    if WAITING=$(python3 importers/build_code.py pending check); then
+      touch cache/build-from-commit && rm -f cache/build-from-commit.pending.json
+      say "commit builds ON — the code they waited for is committed"
+      note "commit-builds-on" "pending code committed"
+    else
+      say "commit builds wait on: $WAITING"
+    fi
+  fi
   # A build.py that cannot be imported fails here in seconds, not after hours on
   # the server (2026-10-10). Built from a commit, the folder's build.py is not
   # the one that runs; the server's last good code covers a commit that fails.

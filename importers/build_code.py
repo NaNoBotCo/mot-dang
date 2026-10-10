@@ -4,6 +4,8 @@
     python3 importers/build_code.py pack <out.tar>        laptop: HEAD's code into a tar; prints the commit
     python3 importers/build_code.py overlay <tar> <repo>  server: the folder's code replaced by the tar's
     python3 importers/build_code.py left-out              code edited or added here and not committed
+    python3 importers/build_code.py pending save          note the uncommitted code lines of right now
+    python3 importers/build_code.py pending check         exit 0 once every noted line is committed
 
 Sessions edit this tree while the walk sends it, and a half-edited build.py or
 layer failed the build 58 times from 2026-09-20 to 10-05. On by
@@ -127,6 +129,52 @@ def left_out(root="."):
     return sorted(out)
 
 
+# Nan, 2026-10-10: switch commit builds on "after they commit" — after the
+# sessions whose uncommitted code the live site was built from commit it. The
+# walk checks each round (standing_walk.sh) and turns cache/build-from-commit on
+# when every line noted here is in HEAD. A file's lines count as committed when
+# each one appears in HEAD's copy, so later edits to the same file do not hold
+# it back. scratch_* files are not code anyone ships.
+PENDING = "cache/build-from-commit.pending.json"
+
+
+def _lines(text):
+    return sorted({ln.strip() for ln in text.splitlines() if len(ln.strip()) >= 4})
+
+
+def pending_save(root="."):
+    import json
+    noted = {}
+    for item in left_out(root):
+        what, rel = item.split(" ", 1)
+        if what == "deleted" or Path(rel).name.startswith("scratch_"):
+            continue
+        now = (Path(root) / rel).read_text(encoding="utf-8", errors="replace")
+        if what == "edited":
+            was = set(_lines(git("show", "HEAD:" + rel, root=root).decode("utf-8", "replace")))
+            noted[rel] = [ln for ln in _lines(now) if ln not in was]
+        else:
+            noted[rel] = _lines(now)
+    (Path(root) / PENDING).write_text(json.dumps(noted, ensure_ascii=False, indent=1))
+    return noted
+
+
+def pending_check(root="."):
+    """The files still waiting, each with how many of its noted lines HEAD lacks."""
+    import json
+    noted = json.loads((Path(root) / PENDING).read_text())
+    waiting = {}
+    for rel, lines in noted.items():
+        try:
+            head = set(_lines(git("show", "HEAD:" + rel, root=root).decode("utf-8", "replace")))
+        except subprocess.CalledProcessError:
+            head = set()
+        missing = [ln for ln in lines if ln not in head]
+        if missing:
+            waiting[rel] = len(missing)
+    return waiting
+
+
 def main(argv):
     if argv[:1] == ["pack"] and len(argv) == 2:
         print(pack(argv[1]))
@@ -136,6 +184,13 @@ def main(argv):
               % (n, len(gone), (": " + ", ".join(gone[:12])) if gone else ""))
     elif argv == ["left-out"]:
         print("\n".join(left_out()))
+    elif argv == ["pending", "save"]:
+        noted = pending_save()
+        print("%d files noted: %s" % (len(noted), ", ".join(sorted(noted))))
+    elif argv == ["pending", "check"]:
+        waiting = pending_check()
+        print(", ".join("%s (%d lines)" % kv for kv in sorted(waiting.items())))
+        sys.exit(1 if waiting else 0)
     else:
         sys.exit(__doc__)
 
