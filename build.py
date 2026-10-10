@@ -8866,6 +8866,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
  refine_layer.header(r, bi, att, svg_icon, logo_html, lang_html, nownear_layer.strip(r, path))}
 <div class="beadrule" aria-hidden="true"></div>
 <span id="content"></span>
+{f'<nav class="crumbs">{crumbs}</nav>' if crumbs else ''}
 {body}{subscribe_block() if hub and path != '' else ''}
 {refine_layer.home_footer(r, bi, att, BUILD_DATE, BE_BUILD, ASK_HOST if ask_enabled() else "") if path == "" else
  refine_layer.bare_footer(r, bi, emergency_foot, BUILD_DATE, BE_BUILD,

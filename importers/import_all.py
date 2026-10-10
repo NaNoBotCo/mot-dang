@@ -454,7 +454,15 @@ def apply_curated_merges(records):
         kr["sub"] = sorted(set(kr.get("sub") or []) | set(dr.get("sub") or []))
         for k in ("nameTh", "nameEn", "phone", "website", "hours", "address"):
             kr[k] = kr.get(k) or dr.get(k)
-        kr["attrs"] = {**(dr.get("attrs") or {}), **(kr.get("attrs") or {})}
+        # The kept record keeps its own pin, so the dropped record's account of
+        # how ITS pin was made (pinVia, pinUncertaintyM, ...) stays behind with
+        # it. Carried over, a postcode centroid's ±2,504 m was sitting on
+        # Overture's own coordinate, marked exact (tests/test_pins.py, 10/10).
+        d_attrs = dict(dr.get("attrs") or {})
+        if kr.get("lat") is not None:
+            for k in [k for k in d_attrs if k.startswith("pin")]:
+                del d_attrs[k]
+        kr["attrs"] = {**d_attrs, **(kr.get("attrs") or {})}
         kr["sources"] = (kr.get("sources") or []) + (dr.get("sources") or []) + [
             {"type": "curated", "ref": f"merged duplicate {drop_id}",
              "fetched": "", "via": "data/curated/merges.json"}]

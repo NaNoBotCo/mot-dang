@@ -22,11 +22,14 @@ STYLECHECK = Path.home() / ".claude" / "bin" / "stylecheck.py"
 SAMPLE_PER_PROVINCE = 40
 # (page, words) that match a pattern and are not the site promising anything.
 # Each carries why; add to this only with a reason a reader would accept.
+# stylecheck: allow-start — the list names the words it excuses
 NOT_A_PROMISE = [
     ("events.html", "We will"),          # organisers' own event descriptions, quoted
     ("asked.html", "never leaves"),      # "Some American paperwork never leaves the house" — remote notarization
     ("who.html", "no account"),          # "Mot Dang has no account on —" the impersonation list
+    ("add.html", "no account"),          # the same list, under the ways to reach the ants
 ]
+# stylecheck: allow-end
 
 
 def visible_text(page):

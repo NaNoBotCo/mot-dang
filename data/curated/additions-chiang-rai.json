@@ -3951,7 +3951,7 @@
   "nameEn": "Little One Hostel",
   "lat": 19.9060305,
   "lng": 99.8326165,
-  "geoPrecision": "exact",
+  "geoPrecision": "approx",
   "address": "869, 45 ซอยไทยวิวัฒน์ ตำบลเวียง อำเภอเมืองเชียงราย เชียงราย 57000 · 869, 45 Thai Viwat Alley, Wiang, Mueang Chiang Rai 57000",
   "phone": "+66622610168",
   "website": null,
