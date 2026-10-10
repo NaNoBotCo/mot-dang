@@ -333,12 +333,7 @@
  ],
  "_off_frame_notes": {
   "sites/dropshipping/index.html": "not a defect: the flow diagram's dots sit at (0,0) inside groups that place them",
-  "sites/dropshipping/th/index.html": "the Thai twin of the same diagram",
-  "field/san": "6b: the Field site's place-page template draws a map mount with no basemap script, so its 78 maps get no ground; fix in the field repo's template",
-  "field/scenes": "6b: same template defect, 567 scene pages"
+  "sites/dropshipping/th/index.html": "the Thai twin of the same diagram"
  },
- "no_ground": [
-  "field/san",
-  "field/scenes"
- ]
+ "no_ground": []
 }
