@@ -7,6 +7,9 @@ BUILD_TIMEOUT="${MD_BUILD_TIMEOUT:-180m}"
 # Unbuffered, so build.py's own lines reach the walk log as they happen. Buffered,
 # a build killed at its time limit left no line saying how far it got (2026-10-10).
 export PYTHONUNBUFFERED=1
+# The same bytes from the same inputs: str hash() is salted per process unless
+# this is pinned, and an event without a uid takes its .ics UID from it (build.py).
+export PYTHONHASHSEED=0
 if command -v timeout >/dev/null 2>&1; then
   timeout "$BUILD_TIMEOUT" python3 build.py || { say "BUILD FAILED (or timed out after $BUILD_TIMEOUT) — nothing published"; note "failed" "build.py"; exit 1 }
 else
