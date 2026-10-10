@@ -282,6 +282,123 @@ def parse_tribe(source_id, endpoint, refetch):
     return events, leads
 
 
+
+# ------------------------------------------------- Chiang Rai: dated in title
+# Chiang Rai has no iCal or Events Calendar feed that a plain fetch reaches
+# (checked 2026-10-10: the municipality renders client-side, tourismthailand.org
+# and the Biennale site answer a bot wall). Chiang Rai Focus, the province's
+# local news site, is a WordPress install whose posts API answers, and its press
+# posts about events open on the dates, "15–26 ต.ค.69 | …". The title is the
+# stated date; a post without that opening is not an event row and is skipped.
+THAI_MONTHS = {"ม.ค.": 1, "ก.พ.": 2, "มี.ค.": 3, "เม.ย.": 4, "พ.ค.": 5, "มิ.ย.": 6,
+               "ก.ค.": 7, "ส.ค.": 8, "ก.ย.": 9, "ต.ค.": 10, "พ.ย.": 11, "ธ.ค.": 12}
+_M = "|".join(re.escape(m) for m in THAI_MONTHS)
+_DASH = "[–—\\-]"
+_TD_RANGE = re.compile(r"^\s*(\d{1,2})\s*(%s)?\s*%s\s*(\d{1,2})\s*(%s)\s*(\d{2,4})\s*\|\s*(.+)$" % (_M, _DASH, _M))
+_TD_ONE = re.compile(r"^\s*(\d{1,2})\s*(%s)\s*(\d{2,4})\s*\|\s*(.+)$" % _M)
+
+
+def _be_year(y):
+    """'69' and '2569' are Buddhist-era years; '2026' is already Common Era."""
+    y = int(y)
+    if y < 100:
+        y += 2500
+    return y - 543 if y > 2400 else y
+
+
+def parse_title_dates(title):
+    """'15–26 ต.ค.69 | …' -> (start_iso, end_iso or None, rest). None if undated."""
+    title = _html(title)
+    m = _TD_RANGE.match(title)
+    try:
+        if m:
+            d1, m1, d2, m2, yr, rest = m.groups()
+            y = _be_year(yr)
+            end = date(y, THAI_MONTHS[m2], int(d2))
+            start = date(y, THAI_MONTHS[m1 or m2], int(d1))
+            return start.isoformat(), end.isoformat(), rest.strip()
+        m = _TD_ONE.match(title)
+        if m:
+            d1, m1, yr, rest = m.groups()
+            return date(_be_year(yr), THAI_MONTHS[m1], int(d1)).isoformat(), None, rest.strip()
+    except ValueError:
+        pass  # 31 ก.ย. and the like: not a date, so not a row
+    return None
+
+
+_VENUE_AT = re.compile(r"(?:^|\s)ณ\s*(?!วัน)([^\s][^\n]{2,70}?)\s*(?=อำเภอ|อ\.|จังหวัด|จ\.|ตำบล|ต\.|\(|\s{2,}|$|[,;])")
+
+
+def parse_wp_titledate(source_id, endpoint, refetch):
+    """WordPress posts API; keeps the posts whose title opens on a stated date."""
+    body, _ = cached(source_id, endpoint, refetch)
+    posts = json.loads(body)
+    if not isinstance(posts, list):
+        raise ValueError(f"{source_id}: expected a list of posts, got a bare {type(posts).__name__}")
+    events = []
+    for p in posts:
+        got = parse_title_dates((p.get("title") or {}).get("rendered"))
+        if not got:
+            continue
+        start, end, title = got
+        text = re.sub(r"\s+", " ", _html(re.sub(r"<[^>]+>", " ", (p.get("content") or {}).get("rendered") or "")))
+        v = _VENUE_AT.search(text)
+        venue = v.group(1).strip(" ,.") if v else ""
+        events.append({
+            "source": source_id,
+            "uid": f"{source_id}-{p.get('id')}",
+            "title": title,
+            "start": start + " 00:00:00",
+            "end": end,
+            "tz": "Asia/Bangkok",
+            "all_day": True,
+            "url": p.get("link", ""),
+            "cost": "",
+            "venue_name": venue,
+            "venue_from": "description" if venue else "",
+            "description": ("%s – %s" % (start, end) if end else start) + (" · ณ " + venue if venue else ""),
+            "city": "cr",
+        })
+    return events, []
+
+
+# ---------------------------------------------- Chiang Rai: standing weeklies
+CR_STANDING = os.path.join(ROOT, "data", "curated", "events_cr.json")
+
+
+def cr_standing_rows(today=None):
+    """Weekly and daily fixtures of Chiang Rai, from data/curated/events_cr.json.
+
+    Same discipline as read_newsletter's weekly section: a rule is not a date.
+    The file holds the rule, the page that states it and the day it was read;
+    each occurrence inside the rule's horizon is marked from_rule so it never
+    reads as an announced date. The window rolls with every harvest."""
+    if not os.path.exists(CR_STANDING):
+        return []
+    with open(CR_STANDING) as fh:
+        rules = json.load(fh).get("rules", [])
+    today = today or date.today()
+    out = []
+    for r in rules:
+        days = r["days"]            # weekday numbers, Monday 0
+        clock = r.get("time")       # "19:00" when every source agrees, else null
+        for i in range(int(r.get("horizon_days", 56))):
+            d = today + timedelta(days=i)
+            if d.weekday() not in days:
+                continue
+            out.append({
+                "uid": "cr-w-%s-%s" % (r["id"], d.isoformat()),
+                "start": "%s %s:00" % (d.isoformat(), clock or "00:00"),
+                "all_day": clock is None, "tz": "Asia/Bangkok", "end": None,
+                "title": r["title"], "description": r["description"],
+                "url": r["url"], "source": r["source"],
+                "venue_name": r.get("venue", ""), "venue_from": "title" if r.get("venue") else "",
+                "recurring": True, "weekday": d.weekday(),
+                "cost": r.get("cost"), "from_rule": True, "city": "cr",
+            })
+    return out
+
+
 # ------------------------------------------------------------------ shaping
 def mark_recurring(events):
     """A title appearing on the same weekday two-plus times is a weekly fixture.
@@ -363,7 +480,7 @@ def main():
     # each source is for; asking it is the fix.
     fetchable = [s for s in sources
                  if s.get("status") == "verified"
-                 and s.get("method") in ("ical", "json")
+                 and s.get("method") in ("ical", "json", "wp-titledate")
                  and "events" in (s.get("yields") or [])]
     print(f"🐜 {len(fetchable)} fetchable source(s) of {len(sources)} in the registry")
 
@@ -400,6 +517,15 @@ def main():
             except Exception as ex:
                 failures.append((s["id"], f"{type(ex).__name__}: {ex}"))
                 print(f"   FAIL   {s['id']}: {type(ex).__name__}: {ex}")
+        elif s["method"] == "wp-titledate":
+            try:
+                got, _ = parse_wp_titledate(s["id"], s["endpoint"], refetch)
+                events.extend(got)
+                ok_sources.append(s["id"])
+                print(f"   ok     {s['id']}: {len(got)} dated post(s)")
+            except Exception as ex:
+                failures.append((s["id"], f"{type(ex).__name__}: {ex}"))
+                print(f"   FAIL   {s['id']}: {type(ex).__name__}: {ex}")
 
     # The weekly newsletter is the one source that arrives as EMAIL, so it has
     # no endpoint to fetch: a human drops the issue's text into
@@ -425,6 +551,12 @@ def main():
     else:
         print(f"   none   {read_newsletter.SOURCE_ID}: no issue in "
               f"{read_newsletter.INCOMING}")
+
+    # Chiang Rai's standing weeklies: rules in data/curated/events_cr.json, each
+    # carrying the page that states it. A static file, so it is not a quorum source.
+    cr_rows = cr_standing_rows()
+    events.extend(cr_rows)
+    print(f"   rules  events_cr.json: {len(cr_rows)} occurrence(s) projected")
 
     events = mark_recurring(events)
     events.sort(key=lambda e: (e.get("start") or "", e.get("title") or ""))

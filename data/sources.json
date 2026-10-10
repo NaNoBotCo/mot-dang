@@ -618,6 +618,75 @@
    "venue_coverage": "n/a"
   },
   {
+   "id": "chiangraifocus-wp",
+   "name": "เชียงรายโฟกัส — Chiang Rai Focus, press posts dated in the title",
+   "kind": "media",
+   "url": "https://www.chiangraifocus.com/",
+   "endpoint": "https://www.chiangraifocus.com/wp-json/wp/v2/posts?per_page=50&_fields=id,date,link,title,content",
+   "method": "wp-titledate",
+   "yields": [
+    "events"
+   ],
+   "cadence": "weekly",
+   "status": "verified",
+   "verified_on": "2026-10-10",
+   "city": "cr",
+   "notes": "WordPress posts API, 50 posts a call, answers a plain fetch. A press post about an event opens its title on the date, '15–26 ต.ค.69 | …' (Buddhist-era year); harvest_events.parse_wp_titledate keeps those and skips every other post. Venue comes from the first 'ณ …' in the body. Rows carry city cr. Measured 2026-10-10: 2 of 50 posts open on a date (one still ahead: the EGAT weightlifting championships, 15–26 Oct, Chiang Rai convention centre). The same site posts the TAT Chiang Rai monthly event calendar as a poster image (46019); that is read by eye into data/curated/event_extras.json, there is no text to parse.",
+   "venue_coverage": "partial"
+  },
+  {
+   "id": "lovethailand-cr",
+   "name": "lovethailand.org — Chiang Rai market pages",
+   "kind": "guide",
+   "url": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/",
+   "status": "curated",
+   "verified_on": "2026-10-10",
+   "yields": [
+    "events"
+   ],
+   "cadence": "quarterly",
+   "notes": "Venue pages for the Chiang Rai Night Bazaar (566) and Saturday Walking Street (567) state open days and hours. Read by eye into data/curated/events_cr.json; not fetched by the harvest."
+  },
+  {
+   "id": "chiangraitimes-guide",
+   "name": "Chiang Rai Times — Chiang Rai guide",
+   "kind": "media",
+   "url": "https://www.chiangraitimes.com/chiang-rai-guide/",
+   "status": "curated",
+   "verified_on": "2026-10-10",
+   "yields": [
+    "events"
+   ],
+   "cadence": "quarterly",
+   "notes": "Guide pages for the evening markets and the clock tower show (times as reported, pages dated August 2026). Read by eye into data/curated/events_cr.json; not fetched by the harvest. The site's RSS feed (/feed/) is news, with no event dates."
+  },
+  {
+   "id": "tat-chiangrai-calendar",
+   "name": "ททท. สำนักงานเชียงราย — ปฏิทินกิจกรรมท่องเที่ยว จ.เชียงราย",
+   "kind": "government",
+   "url": "https://www.chiangraifocus.com/46019/",
+   "status": "curated",
+   "verified_on": "2026-10-10",
+   "yields": [
+    "events"
+   ],
+   "cadence": "monthly",
+   "notes": "TAT Chiang Rai's monthly event calendar, compiled 21 Sep 2026, published as a poster image on Chiang Rai Focus (jpg, no text layer). Read by eye into data/curated/event_extras.json add rows. Next month's poster is not out on 2026-10-10."
+  },
+  {
+   "id": "thaiholidayguide-cr",
+   "name": "Thai Holiday Guide — Chiang Rai events",
+   "kind": "guide",
+   "url": "https://www.thaiholidayguide.com/events/chiang-rai-lantern-festival/",
+   "status": "curated",
+   "verified_on": "2026-10-10",
+   "yields": [
+    "events"
+   ],
+   "cadence": "quarterly",
+   "notes": "Commercial guide; lists the Chiang Rai Lantern Festival 2026 as 24–25 November. Read by eye into data/curated/event_extras.json."
+  },
+  {
    "id": "cr-municipality",
    "name": "เทศบาลนครเชียงราย — Chiang Rai Municipality",
    "kind": "government",

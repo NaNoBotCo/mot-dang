@@ -58,6 +58,9 @@ PROMISE_OUT=$(python3 tests/test_no_assurances.py 2>&1) || { print -r -- "$PROMI
 # (tests/test_llms_counts.py; 2026-09-25 it said 431 toilets over a file of 537).
 LLMS_OUT=$(python3 tests/test_llms_counts.py 2>&1) || { print -r -- "$LLMS_OUT" | tail -10; say "⚠️  llms.txt advisory — a count there disagrees with its data file" }
 node tests/test_plan_routes.js     || { say "route tests FAILED — nothing published"; note "failed" "route tests"; exit 1 }
+# The front page's calendar reads every event with its own date code (tests/test_front_calendar.js;
+# 2026-10-10 an end given as a bare date threw there and the calendar went out without its days drawn).
+node tests/test_front_calendar.js  || { say "front calendar FAILED — nothing published"; note "failed" "front calendar"; exit 1 }
 # The 404 page's side-scroller. Hard, for one of its checks only: the game
 # must not take a keystroke from the search box, which is the whole job of
 # the page it sits on. Needs no build — it reads assets/soi_run.js.

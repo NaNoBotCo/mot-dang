@@ -166,6 +166,12 @@ function city() {
   var id = where.lat > 19.5 ? 'chiang-rai' : 'chiang-mai';
   return w.cities.filter(function (c) { return c.id === id; })[0] || w.cities[0];
 }
+/* the calendar's city's forecast (its switch, not where the reader is) */
+function calCity() {
+  var w = D.weather; if (!w) return null;
+  var id = MCITY === 'cr' ? 'chiang-rai' : 'chiang-mai';
+  return w.cities.filter(function (c) { return c.id === id; })[0] || city();
+}
 function hourKey(t) { return bkk(t).toISOString().slice(0, 13) + ':00'; }
 /* the nearest of make_weather.SPOTS (~11 km apart) when we know roughly where the reader is */
 function spot() {
@@ -442,7 +448,7 @@ function evHtml(e, tier, day) {
     '<dt>' + bi('ข้อมูล', 'Details') + '</dt><dd>' + e.have.length + '/8' + meter(e) + (missing.length ? ' · ' + bi('ยังขาด ' + missing.map(function (f) { return FIELD_TH[f]; }).join(' '), 'missing ' + missing.join(', ')) : '') + '</dd>' +
     '</dl><div class="acts">' +
     (e.url || e.page ? '<a href="' + esc(e.page ? LIVE + e.page : e.url) + '" rel="noopener">' + bi('ดูต้นทาง', 'the source') + ' ↗</a>' : '') +
-    (e.la != null ? '<a href="' + mapHref(e) + '">' + bi('แผนที่', 'map') + '</a>' : '') +
+    (e.la != null ? '<a href="' + mapHref(e) + '" data-dact="map" data-ek="' + esc(evKey(e)) + '">' + bi('แผนที่', 'map') + '</a>' : '') +
     (e.ad ? '' : '<a download="' + e.k + '.ics" href="' + ics(e) + '">' + bi('ลงปฏิทิน', 'add to calendar') + '</a>') +
     '<button type="button" data-save="' + e.k + '" class="' + (ME.saved[e.k] ? 'on' : '') + '" aria-pressed="' + (ME.saved[e.k] ? 'true' : 'false') + '">' + bi('จำไว้', 'keep') + '</button>' +
     '<button type="button" data-hide="' + e.k + '">' + bi('ไม่สนใจงานนี้', 'not for me') + '</button>' +
@@ -524,6 +530,9 @@ function arts(root, list) {
    The stage's calendar (the A/B with the map). Monday first; a cell's warmth is how much is on,
    its dots the kinds; wan phra wears a moon, a festival its name. A tap lists the day below. */
 var MSEL = null, MLIST = [], MVIEW = null, MF = { c: null }, MDAYS = [], MBY = {}, MALL = {}, MRUNS = [], MLIT = {}, CALAT = null, EVS = {};
+/* the fortnight shown (days after today, by fourteens) and its city; the city follows the map's switch, and the map follows it */
+var MOFF = 0, MMORE = false, MCITY = ((document.querySelector('#now .mapcity button[aria-pressed="true"]') || { dataset: {} }).dataset.city) || 'cm';
+var CITY_N = { cm: ['เชียงใหม่', 'Chiang Mai'], cr: ['เชียงราย', 'Chiang Rai'] };
 var WD_TH = ['จ', 'อ', 'พ', 'พฤ', 'ศ', 'ส', 'อา'], WD_EN = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
 function evKey(e) { return e.k + '|' + e.s; }
 function evOf(el) { return el && EVS[el.dataset.k + '|' + el.dataset.s]; }
@@ -548,30 +557,36 @@ var VIEWS = { now: ['ตอนนี้', 'Now'], tonight: ['คืนนี้'
 function month(how) {
   var E = D.events, g = $('mgrid'); if (!E || !g) return;
   how = how || {};
-  var now = Date.now(), today = ymd(now), t0 = at(today + ' 12:00:00'), days = [], by = {}, all = {}, runs = [], maxN = 1, maxC = 0, i;
+  var now = Date.now(), today = ymd(now), t0 = at(today + ' 12:00:00') + MOFF * 864e5, days = [], by = {}, all = {}, runs = [], maxN = 1, maxC = 0, i, endD = '', cityN = { cm: 0, cr: 0 };
   for (i = 0; i < 14; i++) days.push(ymd(t0 + i * 864e5));
   MDAYS = days;
-  E.events.forEach(function (e) { if (e.n > maxN) maxN = e.n; EVS[evKey(e)] = e; });
+  E.events.forEach(function (e) { if (e.n > maxN) maxN = e.n; EVS[evKey(e)] = e; if (span(e)[1] > now) cityN[e.city || 'cm'] = (cityN[e.city || 'cm'] || 0) + 1; });
   Object.keys(ME.cats).forEach(function (k) { if (ME.cats[k] > maxC) maxC = ME.cats[k]; });
   E.events.forEach(function (e) {
-    if (ME.hidden[e.k] || ME.hideCats[e.c]) return;
+    if (ME.hidden[e.k] || ME.hideCats[e.c] || (e.city || 'cm') !== MCITY) return;
     var s = span(e); if (s[1] <= now) return;
     score(e, maxN, maxC);
     if (s[1] - s[0] > 30 * 3600e3) { runs.push(e); return; }
-    var d = ymd(Math.max(s[0], now)); if (days.indexOf(d) < 0) return;
+    var d = ymd(Math.max(s[0], now)); if (d > endD) endD = d; if (days.indexOf(d) < 0) return;
     (all[d] = all[d] || []).push(e);
     if ((!MF.c || e.c === MF.c) && (MVIEW !== 'kept' || ME.saved[e.k])) (by[d] = by[d] || []).push(e);
   });
   MLIST = E.events; MBY = by; MALL = all; MRUNS = runs;
-  if (!MSEL || days.indexOf(MSEL) < 0) MSEL = (by[today] ? today : days.filter(function (d) { return by[d]; })[0]) || today;
+  MMORE = endD > days[13];
+  if (!MSEL || days.indexOf(MSEL) < 0) MSEL = (by[today] ? today : days.filter(function (d) { return by[d]; })[0]) || (days.indexOf(today) >= 0 ? today : days[0]);
   var fest = {};
   ((D.soon || {}).festivals || []).forEach(function (f) { days.forEach(function (d) { if (d >= f.d0 && d <= f.d1 && !fest[d]) fest[d] = f; }); });
   var top = Math.max.apply(null, days.map(function (d) { return (by[d] || []).length; }).concat([1]));
   var lead = (new Date(t0 + 7 * 3600e3).getUTCDay() + 6) % 7, last = days[days.length - 1];
-  var m0 = +today.slice(5, 7) - 1, m1 = +last.slice(5, 7) - 1, y = +last.slice(0, 4);
+  var m0 = +days[0].slice(5, 7) - 1, m1 = +last.slice(5, 7) - 1, y = +last.slice(0, 4);
   var tot = days.reduce(function (n, d) { return n + (by[d] || []).length; }, 0);
-  var h = '<div class="mh"><b>' + bi(MON_TH[m0] + (m1 !== m0 ? ' – ' + MON_TH[m1] : '') + ' ' + (y + 543), MON_EN[m0] + (m1 !== m0 ? ' – ' + MON_EN[m1] : '') + ' ' + y) + '</b>' +
-    '<small>' + bi('14 วัน · ' + tot + ' งาน', '14 days · ' + tot + ' events') + '</small></div>';
+  var h = '<div class="mtopbar"><div class="mh"><button type="button" class="mpg" data-mpage="-1"' + (MOFF ? '' : ' disabled') + ' aria-label="สองสัปดาห์ก่อน · the two weeks before">‹</button>' +
+    '<b>' + bi(MON_TH[m0] + (m1 !== m0 ? ' – ' + MON_TH[m1] : '') + ' ' + (y + 543), MON_EN[m0] + (m1 !== m0 ? ' – ' + MON_EN[m1] : '') + ' ' + y) + '</b>' +
+    '<small>' + bi(dates(days[0], last)[0] + ' · ' + tot + ' งาน', dates(days[0], last)[1] + ' · ' + tot + ' events') + '</small>' +
+    '<button type="button" class="mpg" data-mpage="1"' + (MMORE ? '' : ' disabled') + ' aria-label="สองสัปดาห์ถัดไป · the next two weeks">›</button></div>' +
+    '<span class="mcity" role="group" aria-label="เมือง · city">' + ['cm', 'cr'].map(function (c) {
+      return '<button type="button" data-mcity="' + c + '" aria-pressed="' + (MCITY === c) + '">' + bi(CITY_N[c][0], CITY_N[c][1]) + '<i class="badge-count">' + (cityN[c] || 0) + '</i></button>';
+    }).join('') + '</span></div>';
   /* quick picks and kinds: counts from the same fortnight */
   var cnt = {}, kinds = {};
   var byC = {}, byK = {};
@@ -586,7 +601,7 @@ function month(how) {
   }).join('') + '</div>';
   h += '<div class="wk" role="group" aria-label="14 วัน · 14 days">' + WD_TH.map(function (w, k) { return '<div class="wd" aria-hidden="true">' + bi(w, WD_EN[k]) + '</div>'; }).join('');
   /* the week's days already gone, crossed off; the last week filled out blank */
-  for (i = lead; i > 0; i--) h += '<span class="mc pad past" aria-hidden="true"><span class="mn">' + (+ymd(t0 - i * 864e5).slice(8)) + '</span></span>';
+  for (i = lead; i > 0; i--) h += '<span class="mc pad ' + (MOFF ? 'prev' : 'past') + '" aria-hidden="true"><span class="mn">' + (+ymd(t0 - i * 864e5).slice(8)) + '</span></span>';
   var inView = {}; if (MVIEW) viewList(MVIEW, now).forEach(function (p) { inView[p[0]] = 1; });
   days.forEach(function (d, k) {
     var evs = (by[d] || []).slice().sort(function (a, b) { return b.sc - a.sc; }), n = evs.length, dn = dayName(d), dow = (lead + k) % 7;
@@ -620,12 +635,12 @@ function month(how) {
   } else {
     var evs = (by[MSEL] || []).slice().sort(function (a, b) { return b.sc - a.sc; }), dn = dayName(MSEL), di = days.indexOf(MSEL);
     var onR = runs.filter(function (e) { var s = span(e); return ymd(s[0]) <= MSEL && ymd(s[1]) >= MSEL && (!MF.c || e.c === MF.c); });
-    o += '<div class="mdh"><button type="button" class="mnav" data-mstep="-1"' + (di <= 0 ? ' disabled' : '') + ' aria-label="วันก่อน · previous day">‹</button>' +
+    o += '<div class="mdh"><button type="button" class="mnav" data-mstep="-1"' + (di <= 0 && !MOFF ? ' disabled' : '') + ' aria-label="วันก่อน · previous day">‹</button>' +
       '<h3 class="dayh">' + (MSEL === today ? bi('วันนี้', 'Today') + ' <small>' + bi(dn[0], dn[1]) + '</small>' : bi(dn[0], dn[1])) + ' <small>' + evs.length + '</small></h3>' +
-      '<button type="button" class="mnav" data-mstep="1"' + (di >= days.length - 1 ? ' disabled' : '') + ' aria-label="วันถัดไป · next day">›</button></div>';
+      '<button type="button" class="mnav" data-mstep="1"' + (di >= days.length - 1 && !MMORE ? ' disabled' : '') + ' aria-label="วันถัดไป · next day">›</button></div>';
     o += '<canvas class="mdb" aria-hidden="true"></canvas>';
     if (fest[MSEL]) o += '<p class="bi">' + bi('เทศกาล: ' + esc(fest[MSEL].th), 'Festival: ' + esc(fest[MSEL].en || fest[MSEL].th)) + '</p>';
-    if (!evs.length) o += '<p>' + bi('ยังไม่มีงานในวันนี้ในปฏิทิน', 'Nothing in the calendar for this day yet') + '</p>';
+    if (!evs.length) o += '<p>' + (tot ? bi('ยังไม่มีงานในวันนี้ในปฏิทิน', 'Nothing in the calendar for this day yet') : bi('ยังไม่มีงานใน' + CITY_N[MCITY][0] + 'ช่วงนี้ในปฏิทิน', 'Nothing in ' + CITY_N[MCITY][1] + ' in the calendar for these two weeks yet')) + '</p>';
     evs.slice(0, TOPM).forEach(function (e) { o += row(e, MSEL); });
     if (evs.length > TOPM) o += '<details class="dmore"><summary>' + bi('อีก ' + (evs.length - TOPM) + ' งานวันนี้', (evs.length - TOPM) + ' more this day') + '</summary>' +
       evs.slice(TOPM).map(function (e) { return evHtml(e, 'row', MSEL); }).join('') + '</details>';
@@ -647,7 +662,8 @@ function markAt() {
 }
 function calAt(t) {
   CALAT = t;
-  if (t != null) { var d = ymd(t); if (MDAYS.indexOf(d) >= 0 && (d !== MSEL || MVIEW)) { MSEL = d; MVIEW = null; month(); return; } }
+  if (t != null) { var d = ymd(t); if (MDAYS.indexOf(d) < 0 && MOFF && daysTo(d) >= 0 && daysTo(d) < 14) { MOFF = 0; MSEL = d; MVIEW = null; month(); return; }
+    if (MDAYS.indexOf(d) >= 0 && (d !== MSEL || MVIEW)) { MSEL = d; MVIEW = null; month(); return; } }
   markAt();
 }
 /* THE FORTNIGHT, drawn (Nan, 2026-10-03: "doodle the hero calendar"). Each day is a paper-cut
@@ -657,7 +673,7 @@ function calAt(t) {
    forecast reaches, rain by the day's weather code (lightning at 95+) and haze by its PM2.5
    (the band's veil: (PM − 8) / 90, at most half). Moves while the grid is in view, still when the
    reader asks for less motion. */
-var MC = { cells: [], raf: 0, on: true, last: 0, gen: 0 };
+var MC = { cells: [], raf: 0, on: true, last: 0, gen: 0, fx: [] };
 function mcells(by) {
   var DD = window.MDDOODLER, g = $('mgrid'); if (!DD || !window.MDSKY || !g) return;
   var kinds = {}; ((D.ahead || {}).items || []).forEach(function (it) { if (it.id) kinds[it.id] = it.kind; });
@@ -711,24 +727,112 @@ function mcDraw(o, t) {
     if (!o.still || o.still.wx !== wx.key) {
       var s = document.createElement('canvas'); s.width = pw; s.height = ph; s.wx = wx.key;
       var k = s.getContext('2d'); k.setTransform(dpr, 0, 0, dpr, 0, 0); mcPaint(k, W, Hh, o, 4000, wx); o.still = s;
-    } else if (!wx.wet) return;                                       /* dry and drawn: nothing moves */
+    } else if (!wx.wet && !o.wide) return;                            /* dry and drawn: nothing moves */
     c.setTransform(1, 0, 0, 1, 0, 0); c.clearRect(0, 0, pw, ph); c.drawImage(o.still, 0, 0); c.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
   if (wx.wet) mcRain(c, W, Hh, o, REDUCED ? 4000 : t, wx);
+  if (o.wide) { if (MC.fx.length) fxDraw(c, MC.fx, W, Hh); mcClock(c, W, Hh, o); }
 }
+/* THE DAY'S PICTURE ANSWERS (Nan, 2026-10-10: every graphic does something when tapped). A tap throws up
+   the day's own things from the finger (notes for music, lanterns after dark, a festival's own drawing,
+   paper confetti by day); a sideways drag runs the day's hours across it, the sky and the scene lit for
+   that hour and the events on at that moment marked in the list. Opening an event draws its scene here. */
+var FXK = ['lantern', 'firework', 'umbrella', 'flower', 'water', 'cny'], HR0 = 5, HRS = 20;
+function fxKind(o) {
+  if (o.fk && FXK.indexOf(o.fk) >= 0) return o.fk;
+  var e = o.e, hr = o.hr != null ? o.hr : e && !e.ad ? startH(e) : 12;
+  if (e && (e.c === 'music' || e.c === 'dance')) return 'note';
+  if (hr >= 18.5 || hr < 6) return 'lantern';
+  if (e && (e.c === 'wellness' || e.c === 'faith' || e.c === 'family')) return 'flower';
+  return 'confetti';
+}
+function fxAdd(list, x, y, k, seed) {
+  list.push({ x: x, y: y, k: k, t0: performance.now(), r: rnd(seed >>> 0) });
+  if (list.length > 6) list.shift();
+}
+function fxDraw(c, list, W, Hh) {
+  var now = performance.now(), pal = Object.keys(CAT_PAPER).map(function (k) { return CAT_PAPER[k]; });
+  for (var i = list.length - 1; i >= 0; i--) {
+    var f = list[i], a = REDUCED ? 0.4 : (now - f.t0) / 2200;
+    if (a >= 1) { list.splice(i, 1); continue; }
+    if (!f.parts) { f.parts = []; for (var j = 0; j < (f.k === 'confetti' ? 18 : f.k === 'note' ? 7 : 4); j++) f.parts.push({ vx: f.r() - .5, vy: .55 + f.r() * .6, s: .7 + f.r() * .6, sp: (f.r() - .5) * 9, col: pal[(f.r() * pal.length) | 0] }); }
+    f.parts.forEach(function (p, j) {
+      var sz = Math.max(7, Hh * .09) * p.s, px, py;
+      c.save(); c.globalAlpha = Math.max(0, 1 - a * a);
+      if (f.k === 'confetti') { px = f.x + p.vx * W * .5 * a; py = f.y - p.vy * Hh * 1.1 * a + Hh * 1.3 * a * a; c.translate(px, py); c.rotate(p.sp * a); c.fillStyle = p.col; c.fillRect(-sz * .35, -sz * .16, sz * .7, sz * .32); }
+      else if (f.k === 'note') { px = f.x + p.vx * W * .18 + Math.sin(a * 9 + j) * sz * .8; py = f.y - Hh * .85 * a * p.vy * 1.3; c.fillStyle = p.col; c.font = '700 ' + Math.round(sz * 1.7) + 'px Mali, Sarabun, sans-serif'; c.textAlign = 'center'; c.fillText(j % 2 ? '\u266A' : '\u266B', px, py); }
+      else { px = f.x + p.vx * W * .22 * a; py = f.y - Hh * .9 * a * p.vy; glyph(c, f.k, px, py, sz * 1.2, now, p.s); }
+      c.restore();
+    });
+  }
+}
+function hhmm2(hr) { var m = Math.round(hr * 60) % 1440; return ('0' + Math.floor(m / 60)).slice(-2) + ':' + ('0' + m % 60).slice(-2); }
+function mcClock(c, W, Hh, o) {
+  var hr = o.hr != null ? o.hr : o.e && !o.e.ad ? startH(o.e) : null; if (hr == null) return;
+  var x = Math.max(0, Math.min(W, (hr - HR0) / HRS * W)), txt = o.hr != null ? hhmm2(hr) : '\u2039 ' + hhmm2(hr) + ' \u203A';
+  c.save(); c.font = '700 13px Mali, Sarabun, sans-serif';
+  var tw = c.measureText(txt).width + 14, cx = Math.max(6, Math.min(W - tw - 6, x - tw / 2));
+  if (o.hr != null) { c.strokeStyle = 'rgba(255,250,236,.75)'; c.setLineDash([4, 4]); c.lineWidth = 1.5; c.beginPath(); c.moveTo(x, 30); c.lineTo(x, Hh); c.stroke(); c.setLineDash([]); }
+  c.fillStyle = '#fffaf0'; c.strokeStyle = '#2b2118'; c.lineWidth = 1.5; c.beginPath();
+  if (c.roundRect) c.roundRect(cx, 7, tw, 21, 8); else c.rect(cx, 7, tw, 21);
+  c.fill(); c.stroke(); c.fillStyle = '#2b2118'; c.textBaseline = 'middle'; c.fillText(txt, cx + 7, 18);
+  c.restore();
+}
+function wideCell() { return MC.cells.filter(function (x) { return x.wide; })[0] || null; }
+function bannerRedraw() { var o = wideCell(); if (o) o.still = null; mcFrame(); }
+function tapBanner(cv, cx, cy) {
+  var o = wideCell(); if (!o) return;
+  var r = cv.getBoundingClientRect();
+  fxAdd(MC.fx, cx - r.left, cy - r.top, fxKind(o), hash(o.d + MC.fx.length + cx));
+  bannerRedraw();
+  if (REDUCED) setTimeout(function () { MC.fx.length = 0; bannerRedraw(); }, 1400);
+}
+function scrubAt(cv, cx) {
+  var o = wideCell(); if (!o) return;
+  var r = cv.getBoundingClientRect(), f = Math.max(0, Math.min(1, (cx - r.left) / Math.max(1, r.width)));
+  o.hr = Math.round((HR0 + f * HRS) * 4) / 4;
+  CALAT = at(o.d + ' 00:00:00') + o.hr * 36e5; markAt();
+  bannerRedraw();
+}
+(function () {
+  var md = $('mday'), S = null;
+  md.addEventListener('pointerdown', function (e) {
+    var cv = e.target.closest && e.target.closest('canvas.mdb'); if (!cv || (e.pointerType === 'mouse' && e.button)) return;
+    S = { x: e.clientX, y: e.clientY, cv: cv, moved: false, id: e.pointerId };
+  });
+  md.addEventListener('pointermove', function (e) {
+    if (!S || e.pointerId !== S.id) return;
+    var dx = e.clientX - S.x;
+    if (!S.moved && Math.abs(dx) > 8 && Math.abs(dx) > Math.abs(e.clientY - S.y)) { S.moved = true; try { S.cv.setPointerCapture(e.pointerId); } catch (x) { } }
+    if (S.moved) { e.preventDefault(); scrubAt(S.cv, e.clientX); }
+  });
+  md.addEventListener('pointerup', function (e) { if (!S) return; var s = S; S = null; if (!s.moved) tapBanner(s.cv, e.clientX, e.clientY); else engaged(); });
+  md.addEventListener('pointercancel', function () { S = null; });
+})();
+/* an event opened in the day's list: its scene drawn up top, at its hour */
+document.addEventListener('toggle', function (ev) {
+  var d = ev.target; if (!d.matches || !d.matches('#mday details.ev') || !d.open) return;
+  var e = evOf(d), o = wideCell(), DD = window.MDDOODLER; if (!e || !o || !DD) return;
+  o.e = e; o.set = DD.setOf(e); o.seed = hash(e.k + o.d); o.hr = e.ad ? null : startH(e);
+  var cv = o.cv; fxAdd(MC.fx, cv.clientWidth / 2, cv.clientHeight * .62, fxKind(o), hash(e.k));
+  bannerRedraw();
+  if (REDUCED) setTimeout(function () { MC.fx.length = 0; bannerRedraw(); }, 1400);
+}, true);
 function mcWx(d) {
-  var c = city(), a = air(), wd = null, ad = null;
+  var c = calCity(), a = D.air && (D.air.places.filter(function (p) { return p.id === (MCITY === 'cr' ? 'chiang-rai' : 'chiang-mai'); })[0] || air()), wd = null, ad = null;
   ((c && c.days) || []).forEach(function (x) { if (x.date === d) wd = x; });
   ((a && a.days) || []).forEach(function (x) { if (x.date === d) ad = x; });
   var pm = ad && ad.pm25 != null ? ad.pm25 : null;
   return { code: wd ? wd.code : null, wet: !!(wd && wd.code >= 51), storm: !!(wd && wd.code >= 95), pm: pm, key: (wd ? wd.code : '') + '|' + pm + '|' + (D.ridge ? 1 : 0) + '|' + MC.gen };
 }
 function mcPaint(c, W, Hh, o, t, wx) {
-  var SKY = window.MDSKY, DD = window.MDDOODLER, d = o.d, night = o.night, wet = wx.wet, i;
+  var SKY = window.MDSKY, DD = window.MDDOODLER, d = o.d, night = o.night, wet = wx.wet, i, dusk = false;
+  if (o.hr != null) { night = o.hr >= 18.75 || o.hr < 5.75; dusk = !night && (o.hr >= 17.5 || o.hr < 6.75); }
   var moon = D.sky && D.sky.days && D.sky.days[d] && D.sky.days[d].moon, wp = moon && moon.wan_phra;
   /* sky */
   var g = c.createLinearGradient(0, 0, 0, Hh);
   if (night) { g.addColorStop(0, wet ? '#1c1a2a' : '#120c26'); g.addColorStop(1, wet ? '#3a3448' : '#3a2350'); }
+  else if (dusk) { g.addColorStop(0, wet ? '#4a4660' : '#4b4a86'); g.addColorStop(1, wet ? '#c9a58a' : '#f2a65e'); }
   else { g.addColorStop(0, wet ? '#8fa0aa' : '#9cc6d8'); g.addColorStop(1, wet ? '#d6d2c4' : '#efe3c4'); }
   c.fillStyle = g; c.fillRect(0, 0, W, Hh);
   if (night) { var sr = rnd(o.seed); for (i = 0; i < 10; i++) { c.fillStyle = 'rgba(255,255,255,' + (0.3 + 0.3 * Math.sin(t / 700 + i * 2)) + ')'; c.fillRect(sr() * W, sr() * Hh * 0.45, 1, 1); } }
@@ -750,7 +854,7 @@ function mcPaint(c, W, Hh, o, t, wx) {
   pts.push([W + 4, Hh + 4], [-4, Hh + 4]);
   SKY.paper(c, function (q) { SKY.jag(q, pts, 31 + (o.col * 100 | 0), 1); }, night ? '#24352f' : '#3f6b52', 1);
   /* the event, by the doodler; an empty day keeps the land */
-  if (o.e) DD.scene(c, W, Hh, t, { set: o.set, seed: o.seed, night: night, phone: o.wide ? W < 640 : true, deck: Hh * 0.9, x0: o.wide ? W * 0.02 : -W * 0.35, x1: o.wide ? W * 0.98 : W * 1.35, label: '', title: '', now: at(d + ' ' + (String(o.e.s).slice(11, 16) || '12:00') + ':00') });
+  if (o.e) DD.scene(c, W, Hh, t, { set: o.set, seed: o.seed, night: night, phone: o.wide ? W < 640 : true, deck: Hh * 0.9, x0: o.wide ? W * 0.02 : -W * 0.35, x1: o.wide ? W * 0.98 : W * 1.35, label: '', title: '', now: o.hr != null ? at(d + ' 00:00:00') + o.hr * 36e5 : at(d + ' ' + (String(o.e.s).slice(11, 16) || '12:00') + ':00') });
   else { c.fillStyle = night ? '#1f3326' : '#4f7d4a'; c.fillRect(0, Hh * 0.9, W, Hh * 0.1); }
   /* a festival's own drawing */
   if (o.fest && o.fk) glyph(c, o.fk, W * 0.2, Hh * 0.3, Math.max(6, Hh * 0.16), t, (o.seed % 100) / 100);
@@ -943,7 +1047,10 @@ function aheadFrame(t) {
     AH.marks.push({ x: x, it: it });
   });
   /* the card pictures */
-  document.querySelectorAll('#ahcards .ahc').forEach(function (a, k) { scene(a.querySelector('canvas'), a.dataset.k, t, 101 + k * 7919); });
+  document.querySelectorAll('#ahcards .ahc').forEach(function (a, k) {
+    var cv = a.querySelector('canvas'); scene(cv, a.dataset.k, t, 101 + k * 7919);
+    var L = AH.fx && AH.fx[a.id]; if (L && L.length) { var cx = cv.getContext('2d'); cx.setTransform(DPR, 0, 0, DPR, 0, 0); fxDraw(cx, L, cv.clientWidth, cv.clientHeight); }
+  });
   if (AH.on && !REDUCED && H.getAttribute('data-stage') === 'cal') AH.raf = requestAnimationFrame(aheadFrame);
 }
 function stage(s, byHand) {
@@ -961,6 +1068,14 @@ $('flip').addEventListener('keydown', function (ev) {
   var s = H.getAttribute('data-stage') === 'cal' ? 'map' : 'cal'; stage(s, true); $('tab-' + s).focus();
 });
 $('ahead').addEventListener('click', function (ev) { if (ev.target.closest('a, canvas')) { tell('open', 'ab:ahead'); engaged(); } });
+$('ahead').addEventListener('click', function (ev) {
+  var cv = ev.target.closest && ev.target.closest('canvas.ahv'); if (!cv) return;
+  var a = cv.closest('.ahc'), r = cv.getBoundingClientRect(); AH.fx = AH.fx || {};
+  var L = AH.fx[a.id] = AH.fx[a.id] || [];
+  fxAdd(L, ev.clientX - r.left, ev.clientY - r.top, FXK.indexOf(a.dataset.k) >= 0 ? a.dataset.k : 'confetti', hash(a.id + L.length + ev.clientX));
+  if (REDUCED) { aheadFrame(4000); setTimeout(function () { L.length = 0; aheadFrame(4000); }, 1400); }
+  else if (!AH.raf) AH.raf = requestAnimationFrame(aheadFrame);
+});
 /* a day's cell unfolds into its list (2026-10-04, Nan: "expecting wondrous things to happen") */
 function toList() {
   var md = $('mday'); if (!md) return;
@@ -969,9 +1084,34 @@ function toList() {
 }
 function pickDay(d, anim, ox) { MSEL = d; MVIEW = null; month({ anim: anim, ox: ox }); }
 function dayStep(n) {
-  var i = MDAYS.indexOf(MSEL) + n; if (i < 0 || i >= MDAYS.length) return;
+  var i = MDAYS.indexOf(MSEL) + n;
+  if (i < 0 || i >= MDAYS.length) { pageStep(n > 0 ? 1 : -1, n > 0 ? 0 : 13); return; }
   pickDay(MDAYS[i], n > 0 ? 'slide-l' : 'slide-r'); engaged();
 }
+/* a fortnight on or back; `at` picks the day to land on (0 = its first, 13 = its last), else its busiest first */
+function pageStep(dir, at_) {
+  if ((dir < 0 && !MOFF) || (dir > 0 && !MMORE)) return false;
+  MOFF = Math.max(0, MOFF + 14 * dir); MVIEW = null; MLIT = {};
+  MSEL = at_ == null ? null : ymd(at(ymd(Date.now()) + ' 12:00:00') + (MOFF + at_) * 864e5);
+  month({ anim: dir > 0 ? 'slide-l' : 'slide-r' }); engaged(); return true;
+}
+/* the calendar's city; the map's switch is moved with it (and it with the map's) */
+function setCity(c, byHand) {
+  if (c !== 'cm' && c !== 'cr') return;
+  MCITY = c; MOFF = 0; MSEL = null; MLIT = {}; MVIEW = null;
+  month({ anim: 'unfold' });
+  if (!byHand) return;
+  try { sessionStorage.setItem('md-map-city', c); } catch (x) { }
+  var mb = document.querySelector('#now .mapcity button[data-city="' + c + '"]'), f = mapFrame();
+  if (!mb || mb.getAttribute('aria-pressed') === 'true') return;
+  if (f && f.getAttribute('src')) { mb.click(); return; }
+  document.querySelectorAll('#now .mapcity button').forEach(function (b) { b.setAttribute('aria-pressed', String(b === mb)); });
+  if (f) f.setAttribute('data-src', c === 'cr' ? '/sites/doodle-chiang-rai/?embed=1' : '/sites/doodle-map/?embed=1');
+}
+(function () {
+  var mc = document.querySelector('#now .mapcity'); if (!mc) return;
+  mc.addEventListener('click', function (e) { var b = e.target.closest('button[data-city]'); if (b && b.dataset.city !== MCITY) setCity(b.dataset.city, false); });
+})();
 $('month').addEventListener('click', function (ev) {
   var b = ev.target.closest('button'); if (!b) return;
   if (b.dataset.mday) {
@@ -985,6 +1125,8 @@ $('month').addEventListener('click', function (ev) {
   } else if (b.dataset.mcat) {
     ev.stopPropagation(); MF.c = MF.c === b.dataset.mcat ? null : b.dataset.mcat; month(); engaged();
   } else if (b.dataset.mstep) { ev.stopPropagation(); dayStep(+b.dataset.mstep); }
+  else if (b.dataset.mpage) { ev.stopPropagation(); pageStep(+b.dataset.mpage); }
+  else if (b.dataset.mcity) { ev.stopPropagation(); if (b.dataset.mcity !== MCITY) { setCity(b.dataset.mcity, true); engaged(); } }
 });
 /* arrows walk the fortnight's cells */
 $('mgrid').addEventListener('keydown', function (ev) {
@@ -996,7 +1138,7 @@ $('mgrid').addEventListener('keydown', function (ev) {
 /* a finger sweeps the list a day on */
 (function () {
   var md = $('mday'), p = null;
-  md.addEventListener('pointerdown', function (e) { if (e.pointerType !== 'mouse' && !MVIEW) p = [e.clientX, e.clientY]; });
+  md.addEventListener('pointerdown', function (e) { if (e.pointerType !== 'mouse' && !MVIEW && !(e.target.closest && e.target.closest('canvas.mdb'))) p = [e.clientX, e.clientY]; });
   md.addEventListener('pointerup', function (e) {
     if (!p) return; var dx = e.clientX - p[0], dy = e.clientY - p[1]; p = null;
     if (Math.abs(dx) > 60 && Math.abs(dx) > 2 * Math.abs(dy)) dayStep(dx < 0 ? 1 : -1);
@@ -1010,7 +1152,7 @@ $('mgrid').addEventListener('keydown', function (ev) {
   $('month').firstElementChild.appendChild(tip);
   var tm = 0, cur = null;
   function show(b) {
-    var d = b.dataset.mday, evs = (MBY[d] || []).slice().sort(function (a, c) { return at(a.s) - at(c.s); }), dn = dayName(d), w = null, cw = city();
+    var d = b.dataset.mday, evs = (MBY[d] || []).slice().sort(function (a, c) { return at(a.s) - at(c.s); }), dn = dayName(d), w = null, cw = calCity();
     ((cw && cw.days) || []).forEach(function (x) { if (x.date === d) w = x; });
     var sk = D.sky && D.sky.days && D.sky.days[d] && D.sky.days[d].moon, wm = w && WMO[w.code];
     var h = '<b>' + bi(dn[0], dn[1]) + '</b>' + (w ? '<div class="mpw">' + icon(w.code) + '<span>' + Math.round(w.max) + '° / ' + Math.round(w.min) + '°' + (wm ? ' · ' + bi(wm[0], wm[1].toLowerCase()) : '') + '</span></div>' : '') +
@@ -1160,8 +1302,10 @@ function shareEv(e, b) {
 }
 /* the fortnight, opened at an event: its day unfolds and the event opens in it */
 function openInFortnight(e) {
-  var d = ymd(Math.max(span(e)[0], Date.now()));
-  if (!$('month') || MDAYS.indexOf(d) < 0) { go('ev=' + e.k); return; }
+  var d = ymd(Math.max(span(e)[0], Date.now())), k = daysTo(d);
+  if (!$('month') || k < 0 || k >= 56) { go('ev=' + e.k); return; }
+  if ((e.city || 'cm') !== MCITY) setCity(e.city || 'cm', true);
+  MOFF = Math.floor(k / 14) * 14;
   if (H.getAttribute('data-stage') !== 'cal') stage('cal', true);
   if (MF.c && MF.c !== e.c) MF.c = null;
   pickDay(d, 'unfold');

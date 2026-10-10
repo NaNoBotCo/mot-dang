@@ -771,6 +771,149 @@ def _norm(s):
     return re.sub(r"[^0-9a-z฀-๿]+", "", s)
 
 
+VENUE_ALIASES = ROOT / "data" / "curated" / "venue_aliases.json"
+_VSTOP = {"the", "and", "of", "at", "in", "a", "an", "by", "for", "restaurant", "cafe", "café", "bar",
+          "hotel", "resort", "chiang", "mai", "chiangmai", "cnx", "cm"}
+# words a venue string or a place name may carry beyond the other without naming a different place
+_VEXTRA = {"studio", "spa", "campus", "center", "centre", "university", "international", "school", "club",
+           "education", "national"}
+_RAI = re.compile(r"\brai\b|เชียงราย")
+
+
+def _vkey(s):
+    """The key venue_aliases.json is written in (build.py's _vnorm)."""
+    s = "".join(ch if ch.isalnum() or ch.isspace() else " " for ch in (s or "").lower())
+    return " ".join(s.split())
+
+
+def _vtoks(s):
+    """Latin words of a name that identify it; Thai has no spaces to split on."""
+    s = (s or "").lower().replace("&", " and ")
+    return frozenset(t for t in re.findall(r"[^\W_]+", s) if t not in _VSTOP and not re.search(r"[฀-๿]", t))
+
+
+def _venue_forms(v):
+    """The venue string as the calendar's sources write it, then the parts that may name the place
+    on their own: before an address comma, before or after ' at ', before ' - ', outside brackets.
+    A part counts only when it has two words and 7 letters once 'Chiang Mai' and the like are cut, so 'Yoga at Wat Suan Dok' never
+    offers the place called 'Yoga'."""
+    s = re.sub(r"\*+", "", v or "")
+    s = re.sub(r"^\s*venue\s*:\s*", "", s, flags=re.I).replace("@", " at ")
+    s = re.split(r"[  \r\n]", s.strip())[0].strip()
+    forms, seen = [s], {s}
+    bare = re.sub(r"\([^)]*\)", " ", s)
+    parts = [bare]
+    for b in (s, bare):
+        parts += [b.split(",")[0]] + re.split(r"\s+at\s+|\s+[-–|]\s+", b, flags=re.I)
+    for part in parts:
+        part = " ".join(part.split()).strip(" ,.-–|")
+        if part and part not in seen and len(part.split()) >= 2 and len(_norm(part)) >= 7:
+            seen.add(part)
+            forms.append(part)
+    return forms
+
+
+def venue_finder(places, aliases=None):
+    """venue(name, city) -> the place record an event's venue string names, or None.
+    A wrong pin is worse than none, so every step but the first is strict:
+      1 the hand-kept alias (data/curated/venue_aliases.json, the table build.py's match_venue reads);
+      2 the whole normalised name; 3 a prefix of 7+ letters; 4 the same on the parts of the string
+      (address tail, ' at ' halves); 5 a word-set match: all of the place's words are in the venue's
+      (2+ words, 8+ letters), or all of the venue's words are in the place's (3+ words), the words
+      over being few and plain (studio, campus, center...), and only onto a place with a real pin; two such places over 400 m apart = no match.
+    A Chiang Rai place is offered only when the venue says Rai or the row's city is cr."""
+    if aliases is None:
+        try:
+            aliases = _j(VENUE_ALIASES).get("aliases", {})
+        except (OSError, ValueError):
+            aliases = {}
+    by_id = {r["id"]: r for r in places}
+    names = collections.defaultdict(list)
+    sets = []                                   # (word set, place) for the word-set step
+    post = collections.defaultdict(list)
+    for r in places:
+        if r.get("lat") is None:
+            continue
+        for nm in {r.get("name"), r.get("nameEn")}:
+            k = _norm(nm)
+            if len(k) >= 4:
+                names[k].append(r)
+            ws = _vtoks(nm)
+            if len(ws) >= 2 and r.get("geoPrecision") in ("exact", "block"):
+                sets.append((ws, r))
+                for t in ws:
+                    post[t].append(len(sets) - 1)
+    keys = sorted(names, key=len, reverse=True)
+
+    def pick(hit, rai):
+        hit = [r for r in hit if (r["province"] == "cr") == rai] or None
+        return max(hit, key=lambda r: (r.get("antRank") or 0)) if hit else None
+
+    def by_alias(s):
+        a = aliases.get(_vkey(s))
+        r = by_id.get(a.get("place_id")) if isinstance(a, dict) else by_id.get(a) if a else None
+        # a place pinned only to its district centre is not a pin the alias may add
+        return r if r and r.get("lat") is not None and r.get("geoPrecision") in ("exact", "block") else None
+
+    def by_words(s, rai):
+        ws = _vtoks(s)
+        if len(ws) < 2:
+            return None
+        cand = {}
+        for t in ws:
+            for i in post.get(t, ()):
+                cand[i] = cand.get(i, 0) + 1
+        best = []
+        for i in cand:
+            pw, r = sets[i]
+            if (r["province"] == "cr") != rai:
+                continue
+            if pw <= ws:                      # the place's words all sit in the venue's string
+                more, ok = ws - pw, len("".join(pw)) >= 8
+            elif ws < pw:                     # the venue's words all sit in the place's name
+                more, ok = pw - ws, len(ws) >= 3
+            else:
+                continue
+            if ok and len(more) <= 2 and more <= _VEXTRA:
+                best.append((len(more), -(r.get("antRank") or 0), r))
+        if not best:
+            return None
+        near = [b for b in best if b[0] == min(x[0] for x in best)]
+        if any(_km(near[0][2]["lat"], near[0][2]["lng"], b[2]["lat"], b[2]["lng"]) > 0.4 for b in near[1:]):
+            return None
+        return min(near, key=lambda b: b[1])[2]
+
+    def venue(v, city=""):
+        rai = bool(_RAI.search((v or "").lower())) or city == "cr"
+        forms = _venue_forms(v)
+        r = by_alias(forms[0])
+        if r:
+            return r
+        k = _norm(forms[0])
+        if len(k) < 4:
+            return None
+        hit = names.get(k)
+        if not hit and len(k) >= 7:
+            near = [r for kk in keys if len(kk) >= 7 and (kk.startswith(k) or k.startswith(kk)) for r in names[kk]
+                    if (r["province"] == "cr") == rai]
+            if near and all(_km(near[0]["lat"], near[0]["lng"], r["lat"], r["lng"]) <= 0.4 for r in near):
+                hit = near
+        r = pick(hit, rai) if hit else None
+        if r:
+            return r
+        for f in forms[1:]:
+            r = by_alias(f) or (pick(names[_norm(f)], rai) if names.get(_norm(f)) else None)
+            if r:
+                return r
+        for f in forms:
+            r = by_words(f, rai)
+            if r:
+                return r
+        return None
+
+    return venue
+
+
 def _km(a, b, c, d):
     return math.hypot((c - a) * 111.32, (d - b) * 111.32 * math.cos(math.radians(a)))
 
@@ -801,36 +944,10 @@ def bake_events(docs, ix, counts):
     ex = _j(ROOT / "data/curated/event_extras.json")
     extras = ex.get("events", {})
     rows_add = [r for r in ex.get("add", []) if isinstance(r, dict) and r.get("uid") not in {e["uid"] for e in ev}]
-    # venues: a name index over the places, both scripts
-    names = collections.defaultdict(list)
-    for r in ix["places"]:
-        if r.get("lat") is None:
-            continue
-        for nm in (r.get("name"), r.get("nameEn")):
-            k = _norm(nm)
-            if len(k) >= 4:
-                names[k].append(r)
-    keys = sorted(names, key=len, reverse=True)
-
-    def venue(v):
-        k = _norm(v)
-        if len(k) < 4:
-            return None
-        hit = names.get(k)
-        if not hit and len(k) >= 7:
-            for kk in keys:
-                if len(kk) >= 7 and (kk.startswith(k) or k.startswith(kk)):
-                    hit = names[kk]
-                    break
-        if not hit:
-            return None
-        # the calendar's sources are Chiang Mai's; a Chiang Rai place counts only when the venue says so
-        rai = "rai" in (v or "").lower()
-        hit = [r for r in hit if (r["province"] == "cr") == rai] or None
-        return max(hit, key=lambda r: (r.get("antRank") or 0)) if hit else None
+    venue = venue_finder(ix["places"])
 
     today = dt.date.today()
-    horizon = (today + dt.timedelta(days=21)).isoformat()
+    horizon = (today + dt.timedelta(days=56)).isoformat()   # the calendar pages a fortnight at a time
     out, matched = [], 0
     for e in ev + rows_add:
         e = dict(e, **{k: v for k, v in extras.get(e["uid"], {}).items() if v})
@@ -839,10 +956,12 @@ def bake_events(docs, ix, counts):
             continue
         text = (e.get("title", "") + " " + (e.get("description") or "")).lower()
         cat = next((c for c in CATS if re.search(c[3], text)), OTHER)
-        v = venue(e.get("venue_name"))
+        v = venue(e.get("venue_name"), e.get("city") or "")
         row = {"k": _slug(e["title"]), "t": e["title"], "s": s, "e": e.get("end"), "ad": bool(e.get("all_day")),
                "v": e.get("venue_name") or "", "cost": e.get("cost") or "", "url": e.get("url") or "",
-               "rec": bool(e.get("recurring")), "src": e.get("source") or "", "c": cat[0]}
+               "rec": bool(e.get("recurring")), "src": e.get("source") or "", "c": cat[0],
+               # the calendar has two cities; a venue in a neighbouring province (Lamphun's) goes with Chiang Mai
+               "city": "cr" if ((v or {}).get("province") or e.get("city")) == "cr" else "cm"}
         desc = re.sub(r"\s*·?\s*booking: \S+", "", e.get("description") or "").strip(" ·")
         if desc and not re.match(r"^(every \w+|\d{1,2} \w+ \d{4}) [\d:]*\s*·\s*at ", desc):
             row["d"] = desc[:600]

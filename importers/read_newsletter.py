@@ -297,6 +297,13 @@ def contacts_of(text):
     }
 
 
+def event_url(c):
+    """The listing's own link: Meetup, Facebook, a website or form, then its Instagram, LINE or
+    WhatsApp. A map link locates the venue and is not the event's page, so it is not one."""
+    return (c["meetup"] + c["facebook"] + c["websites"] + c["forms"]
+            + c["instagram"] + c["line"] + c["whatsapp"] + [None])[0]
+
+
 def _dates(head, year, default_month):
     """'5 / 12 / 19 / 26' under 'September' -> [date, ...]. Ranges expand."""
     month = MONTHS.get((head[0] or "").lower().rstrip("."), default_month)
@@ -533,7 +540,7 @@ def read_issue(path, horizon_weeks=RULE_HORIZON_WEEKS):
         clock = pin["time"] if "time" in pin else _time_of(body)
         cost = pin["cost"] if "cost" in pin else _cost_of(body)
         c = lead_from(b, venue)
-        url = (c["meetup"] + c["facebook"] + c["websites"] + c["forms"] + [None])[0]
+        url = event_url(c)
         for d in days:
             clock_d = (pin.get("times") or {}).get(d.isoformat(), clock)
             start = "%s %s:00" % (d.isoformat(), clock_d or "00:00")
@@ -563,7 +570,7 @@ def read_issue(path, horizon_weeks=RULE_HORIZON_WEEKS):
           clock = pin["time"] if "time" in pin else _time_of(b)
           cost = pin["cost"] if "cost" in pin else _cost_of(b)
           c = lead_from(b, venue)
-          url = (c["meetup"] + c["facebook"] + c["websites"] + c["forms"] + [None])[0]
+          url = event_url(c)
           for on in pin.get("days") or [day]:
             wd = DAYS.index(on)
             first = issued + timedelta(days=(wd - issued.weekday()) % 7)
