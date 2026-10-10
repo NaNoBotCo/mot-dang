@@ -67,6 +67,16 @@ flock "$SSTATE/stage.lock" rsync -a --delete --exclude /docs/ --exclude /docs.ne
   || { say "copy from staging FAILED"; note "failed" "staging copy"; exit 1 }
 print -- "$HAND" > "$SSTATE/attempted"
 cd "$REPO" || exit 1
+
+# The laptop sent HEAD's code beside the folder (importers/build_code.py): it
+# replaces the folder's code, so a file a session is still editing is not
+# built. build_code.py itself is taken from the tar, not the folder.
+if [[ -f cache/build-code.tar ]]; then
+  tar -xOf cache/build-code.tar importers/build_code.py > "$SSTATE/build_code.py" \
+    && python3 "$SSTATE/build_code.py" overlay cache/build-code.tar "$REPO" \
+    || { say "could not put the committed code in place"; note "failed" "code overlay"; exit 1 }
+  say "code from commit $(git get-tar-commit-id < cache/build-code.tar | cut -c1-10)"
+fi
 TODAY=$(date +%F)
 
 # Live is what the bucket holds, listed at publish time by the same call

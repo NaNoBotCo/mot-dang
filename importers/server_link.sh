@@ -31,6 +31,22 @@ hand_to_server() {
   "${SSH[@]}" "$SERVER" "mkdir -p $STAGE $SSTATE" || return 1
   # What is live, as far as this Mac knows: the server checks its build against it.
   (cd docs && find . -type f ! -path './tiles/*' | sed 's#^\./##' | sort) | gzip > cache/docs-list.txt.gz
+  # The code of HEAD rides beside the folder; the server puts it over the
+  # folder's code (importers/build_code.py). Without the flag the folder's own
+  # code is built, as before.
+  if [[ -f cache/build-from-commit ]]; then
+    local commit left
+    commit=$(python3 importers/build_code.py pack cache/build-code.tar) \
+      || { say "could not pack the committed code"; return 1 }
+    left=$(python3 importers/build_code.py left-out 2>/dev/null)
+    say "code from commit ${commit:0:10}"
+    if [[ -n "$left" ]]; then
+      say "  not committed, so not built ($(print -- "$left" | grep -c .)):"
+      print -- "$left" | head -12 | while read -r l; do say "    $l"; done
+    fi
+  else
+    rm -f cache/build-code.tar
+  fi
   rsync -a --delete --partial $RSYNC_IDLE "${HANDOFF_EXCLUDES[@]}" -e "${SSH[*]}" \
     --rsync-path="flock $SSTATE/stage.lock rsync" ./ "$SERVER:$STAGE/" || return 1
   "${SSH[@]}" "$SERVER" "flock $SSTATE/stage.lock sh -c 'echo $id > $STAGE/.handoff'" || return 1

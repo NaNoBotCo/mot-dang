@@ -378,9 +378,12 @@ python3 make_shelf_cards.py || say "shelf cards kept — missing ones fall back 
 # second 10 GB copy that filled this disk on 2026-10-05.
 if [[ -f cache/build-on-server ]]; then
   # A build.py that cannot be imported fails here in seconds, not after hours on
-  # the server (2026-10-10).
-  python3 -c "import build" >/dev/null \
-    || { say "build.py does not import — nothing sent"; note "failed" "build.py import"; exit 1 }
+  # the server (2026-10-10). Built from a commit, the folder's build.py is not
+  # the one that runs; the server's last good code covers a commit that fails.
+  if [[ ! -f cache/build-from-commit ]]; then
+    python3 -c "import build" >/dev/null \
+      || { say "build.py does not import — nothing sent"; note "failed" "build.py import"; exit 1 }
+  fi
   hand_to_server || { say "hand-off to the server FAILED — nothing sent"; note "failed" "hand-off"; exit 1 }
   python3 importers/walk_fingerprint.py write "$STAMP" \
     || say "⚠️  could not record the fingerprint — next round sends again"
