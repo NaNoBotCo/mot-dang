@@ -4,6 +4,9 @@
 # Needs say, note, remember_gate_fail and TOWER from the caller; sets COUNT.
 
 BUILD_TIMEOUT="${MD_BUILD_TIMEOUT:-180m}"
+# Unbuffered, so build.py's own lines reach the walk log as they happen. Buffered,
+# a build killed at its time limit left no line saying how far it got (2026-10-10).
+export PYTHONUNBUFFERED=1
 if command -v timeout >/dev/null 2>&1; then
   timeout "$BUILD_TIMEOUT" python3 build.py || { say "BUILD FAILED (or timed out after $BUILD_TIMEOUT) — nothing published"; note "failed" "build.py"; exit 1 }
 else

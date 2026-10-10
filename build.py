@@ -13515,6 +13515,27 @@ MOAT_CROSSING_IDS = [
 ]
 
 
+_MOAT_PINS = None
+
+
+def _moat_pins():
+    """{id: record} for the moat's four corners and five gates, read once.
+
+    _moat_ring() runs at import and _moat_crossings() on every shelf map, and
+    each used to parse the whole of data/canonical/cm.json to pick out these
+    nine records. At 140 MB (2026-10-10) that was 1.4 s a call on the Mac and
+    90% of a build's time on motdang-build, where no build finished inside its
+    180 minutes from 2026-10-05 on.
+    """
+    global _MOAT_PINS
+    if _MOAT_PINS is None:
+        path = ROOT / "data" / "canonical" / "cm.json"
+        want = set(MOAT_CORNER_IDS.values()) | set(MOAT_CROSSING_IDS)
+        _MOAT_PINS = ({r["id"]: r for r in json.loads(path.read_text()) if r["id"] in want}
+                      if path.exists() else {})
+    return _MOAT_PINS
+
+
 def _moat_ring():
     """The moat as the quadrilateral of its four แจ่ง corners.
 
@@ -13527,10 +13548,7 @@ def _moat_ring():
     reporting a crossing at all. The corners bound the water; the gates are
     where you get over it. Two different questions, two different geometries.
     """
-    path = ROOT / "data" / "canonical" / "cm.json"
-    if not path.exists():
-        return None
-    by_id = {r["id"]: r for r in json.loads(path.read_text())}
+    by_id = _moat_pins()
     pts = [by_id.get(MOAT_CORNER_IDS[k]) for k in ("nw", "ne", "se", "sw")]
     if not all(p and p.get("lat") is not None for p in pts):
         return None
@@ -13549,10 +13567,7 @@ def _moat_crossings():
     function from memory. (Today there are none: all nine are on record. If
     that changes, the answer is an import, not a literal.)
     """
-    path = ROOT / "data" / "canonical" / "cm.json"
-    if not path.exists():
-        return []
-    by_id = {r["id"]: r for r in json.loads(path.read_text())}
+    by_id = _moat_pins()
     corners = set(MOAT_CORNER_IDS.values())
     out = []
     for i in MOAT_CROSSING_IDS:
@@ -24133,6 +24148,9 @@ coordinates, channels and ant rank, no markup to strip. {len(all_recs):,} lines.
 
 
 if __name__ == "__main__":
+    if os.environ.get("MD_PROFILE"):
+        import build_sampler  # where the time goes (build_sampler.py)
+        build_sampler.start(os.environ["MD_PROFILE"])
     build()
     if _UNKNOWN_CATS:
         for keys, ids in sorted(_UNKNOWN_CATS.items()):

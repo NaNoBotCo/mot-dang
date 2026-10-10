@@ -19,6 +19,7 @@ LOG="$HOME/motdang-server-walk.log"
 TOWER=/nonexistent
 export MD_JOBS=${MD_JOBS:-1}
 export MD_BUILD_TIMEOUT=${MD_BUILD_TIMEOUT:-180m}
+export MD_PROFILE=${MD_PROFILE:-$SSTATE/build-profile.json}   # build_sampler.py
 MISSING_CEILING=500   # 2026-10-05: an 11-hour-old source would have deleted 1,977 live files
 
 mkdir -p "$SSTATE"
@@ -73,11 +74,32 @@ print -- "$HAND" > "$SSTATE/attempted"
 cd "$REPO" || exit 1
 TODAY=$(date +%F)
 
+# Live is what the bucket holds, listed at publish time by the same call
+# deploy.py's deletion preview makes (publish/safety.py). Until 2026-10-10 the
+# list came from the laptop's own docs/, which stops matching the bucket once
+# the laptop no longer builds: that day it carried 1,340 place pages the live
+# site answers 404 for, enough to refuse any build.
 pre_deploy() {
-  local list=cache/docs-list.txt.gz n
-  [[ -f "$list" ]] || { say "no file list from the laptop — publishing on the gates alone"; return 0 }
-  (cd docs && find . -type f ! -path './tiles/*' | sed 's#^\./##' | sort) > "$SSTATE/built.txt"
-  gzip -dc "$list" | comm -23 - "$SSTATE/built.txt" > "$SSTATE/missing.txt"
+  local n rc
+  python3 - "$SSTATE/missing.txt" <<'PY'
+import sys
+sys.path.insert(0, "publish")
+try:
+    import deploy, safety
+    gone = safety.deletions_preview("R2:%s" % deploy.BUCKET,
+                                    deploy.rclone_env(deploy.creds()), deploy.run)
+except BaseException as e:
+    print("bucket listing failed: %r" % (e,))
+    sys.exit(2)
+with open(sys.argv[1], "w") as fh:
+    fh.write("".join(k + "\n" for k in gone))
+PY
+  rc=$?
+  if (( rc != 0 )); then
+    say "REFUSING — could not list the live bucket to compare against"
+    note "failed" "bucket listing"
+    return 1
+  fi
   n=$(wc -l < "$SSTATE/missing.txt")
   say "$n live file(s) not in this build"
   if (( n > MISSING_CEILING )); then
