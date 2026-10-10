@@ -21,7 +21,11 @@ HARD — fails the gate
   4. a curated map register off its own ground: a hot spring outside its
      province, the indigo route outside its country, the Tawai village
      outside Chiang Mai
-  5. a drawn pin outside its SVG frame (top-level pages + a sample of the rest)
+  5. a drawn pin outside its SVG frame: every top-level page, every page of a
+     site built in another repo and copied in from assets/<name>/ (the loop,
+     muay-thai, roads, field, sites/…), and a fixed sample of the generated
+     place and tag pages, which come from a few templates. Decorative art
+     (aria-hidden) is not a map and is skipped.
   6. a basemap mount centred outside map_shell's fence
   7. a served GeoJSON point outside the fence ([lng, lat] order, so a swap
      lands in the sea and fails here)
@@ -30,7 +34,7 @@ HARD — fails the gate
      Mai on a cr one) still pinned within CITY_KM of its own city centre —
      derive.apply_pin_doubt marks those needs-pin
 
-Checks 2 and 3 ratchet. The rows standing on the day the gate went in are in
+Checks 2, 3, 5 and 6b ratchet (5 keyed by page, 6b by folder). The rows standing on the day the gate went in are in
 tests/map_sanity_known.json and are printed, not failed; a NEW row fails. A
 known row that clears is reported so the file can shrink.
 
@@ -51,6 +55,8 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 DOCS = Path(os.environ.get("MD_DOCS") or (ROOT / "docs"))
 KNOWN = ROOT / "tests" / "map_sanity_known.json"
+OFF_FRAME = {}   # check 5's rows, for --write-baseline
+NO_GROUND = {}   # check 6b's rows (by folder), for --write-baseline
 
 import regional_ground as rg  # noqa: E402
 
@@ -123,6 +129,7 @@ def ratchet(name, found, known, fmt):
 def main():
     write = "--write-baseline" in sys.argv
     known = json.loads(KNOWN.read_text()) if KNOWN.exists() and not write else {}
+    known_notes = (json.loads(KNOWN.read_text()) if KNOWN.exists() else {}).get("_off_frame_notes", {})
     g = rg.load()
     recs = []
     for prov in ("cm", "cr"):
@@ -208,16 +215,27 @@ def main():
         check("docs/ built", False)
     else:
         pages = sorted(DOCS.glob("*.html"))
-        rest = list(DOCS.glob("*/*.html")) + list(DOCS.glob("*/*/*.html"))
+        # A site built in another repo is hand-drawn page by page, so a sample
+        # misses its one bad map: until 2026-10-10 this was a random 400 of
+        # ~100,000 pages drawn from an unsorted listing, which caught the loop's
+        # off-frame stops on one host and not on the other. Those sites are
+        # read whole; the generated pages are sampled from a sorted list, so
+        # every host checks the same pages.
+        imported = set()
+        for a in sorted((ROOT / "assets").iterdir()):
+            if a.is_dir() and (DOCS / a.name).is_dir() and any(a.rglob("*.html")):
+                imported.update((DOCS / a.name).rglob("*.html"))
+        rest = sorted(set(DOCS.glob("*/*.html")) | set(DOCS.glob("*/*/*.html")))
+        rest = [f for f in rest if f not in imported]
         random.seed(len(rest))
-        pages += random.sample(rest, min(SAMPLE, len(rest)))
+        pages += sorted(imported) + random.sample(rest, min(SAMPLE, len(rest)))
         svg_rx = re.compile(r"<svg\b([^>]*)>(.*?)</svg>", re.S)
         vb_rx = re.compile(r'viewBox="\s*([-\d.]+)[ ,]+([-\d.]+)[ ,]+([-\d.]+)[ ,]+([-\d.]+)"')
         pin_rx = re.compile(r'<circle\b[^>]*?\bcx="([-\d.]+)"[^>]*?\bcy="([-\d.]+)"'
                             r'|data-mdpin="([-\d.]+),([-\d.]+)"')
         mount_rx = re.compile(r'data-mdmap="[^"]*"[^>]*?data-lat="([-\d.]+)" data-lng="([-\d.]+)"')
         draw_rx = re.compile(r'<div class="mdmap-draw">')
-        n_svg, off, bad_mount, naked, no_ground = 0, [], [], [], []
+        n_svg, off, bad_mount, naked, no_ground = 0, {}, [], [], []
         import map_shell
         enabled = map_shell.enabled()
         (mw, ms), (me, mn) = map_shell.config().get("bounds") or map_shell.BOUNDS
@@ -239,7 +257,7 @@ def main():
                 if not vb:
                     continue
                 x0, y0, w, h = map(float, vb.groups())
-                if w < 100:
+                if w < 100 or 'aria-hidden="true"' in m.group(1):
                     continue
                 n_svg += 1
                 body = m.group(2)
@@ -248,7 +266,7 @@ def main():
                 for c in pin_rx.finditer(body):
                     x, y = float(c.group(1) or c.group(3)), float(c.group(2) or c.group(4))
                     if not (x0 - 2 <= x <= x0 + w + 2 and y0 - 2 <= y <= y0 + h + 2):
-                        off.append(f"{f.relative_to(DOCS)} ({x:.0f},{y:.0f}) in {w:.0f}x{h:.0f}")
+                        off.setdefault(str(f.relative_to(DOCS)), f"({x:.0f},{y:.0f}) in {w:.0f}x{h:.0f}")
             for m in mount_rx.finditer(s):
                 la, ln = float(m.group(1)), float(m.group(2))
                 if not (ms <= la <= mn and mw <= ln <= me):
@@ -260,16 +278,25 @@ def main():
             # first tap, so the filename appearing anywhere in the page is enough.
             if enabled and 'data-mdmap="1"' in s and "maplibre-gl.js" not in s:
                 no_ground.append(str(f.relative_to(DOCS)))
-        check(f"pins inside the frame ({n_svg} drawings on {len(pages)} pages)",
-              not off, "; ".join(off[:5]))
+        print(f"  ({n_svg} drawings on {len(pages)} pages, {len(imported)} of them from sites built elsewhere)")
+        ratchet("pins inside the frame", off, known.get("off_frame", []),
+                lambda k, d: f"{k} {d}")
+        OFF_FRAME.update(off)
         print("6 · basemap mounts")
         check("every mount centred inside the fence", not bad_mount, "; ".join(bad_mount[:5]))
         print("6b · a basemap under every drawn map")
         check("no drawn map outside a mount (a map that can never get ground)",
               not naked, "; ".join(naked[:5]))
         if enabled:
-            check("every mounted map ships its basemap script",
-                  not no_ground, "; ".join(no_ground[:5]))
+            # Keyed by folder: one template draws a folder, so a missing script
+            # is a template's fault, not a page's. Ratchets like 2, 3 and 5.
+            by_dir = {}
+            for g_ in no_ground:
+                by_dir.setdefault("/".join(g_.split("/")[:2]), []).append(g_)
+            no_ground_rows = {d: f"{len(v)} page(s), e.g. {v[0]}" for d, v in by_dir.items()}
+            ratchet("every mounted map ships its basemap script", no_ground_rows,
+                    known.get("no_ground", []), lambda k, d: f"{k}: {d}")
+            NO_GROUND.update(no_ground_rows)
         else:
             print("  note  basemap disabled (data/basemap.json has no url) — the drawn "
                   "SVG alone is the intended fallback, so script presence is not gated")
@@ -362,6 +389,9 @@ def main():
                        "`python3 tests/test_map_sanity.py --write-baseline`.",
             "outside_province": sorted(far_prov),
             "far_from_street": sorted(far_street),
+            "off_frame": sorted(OFF_FRAME),
+            "no_ground": sorted(NO_GROUND),
+            "_off_frame_notes": known_notes,
         }, ensure_ascii=False, indent=1) + "\n")
         print(f"\nwrote {KNOWN.relative_to(ROOT)} — {len(far_prov)} outside province, "
               f"{len(far_street)} far from their street")
