@@ -111,3 +111,10 @@ docs/markets/
 #   cd ../the-plan && SITE_URL=https://motdang.net/the-plan OUT=../mot-dang/assets/the-plan python3 tools/build.py
 assets/the-plan/
 docs/the-plan/
+
+# The canonical catalogue: cm.json is 140 MB, cr.json 55 MB, over GitHub's 100 MB
+# per-file limit. Both are rebuilt by importers/import_all.py from cache/ and
+# data/curated/, and the server receives them with the rest of the tree on each
+# hand-off (importers/server_link.sh). lpn.json is small and stays tracked.
+data/canonical/cm.json
+data/canonical/cr.json
