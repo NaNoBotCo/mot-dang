@@ -18,7 +18,10 @@ SSTATE=/srv/state
 LOG="$HOME/motdang-server-walk.log"
 TOWER=/nonexistent
 export MD_JOBS=${MD_JOBS:-1}
-export MD_BUILD_TIMEOUT=${MD_BUILD_TIMEOUT:-180m}
+# 360 minutes: a full build was 170 minutes of one Mac core on 2026-09-10, and
+# this host has two shared cores and 3.8 GB. The limit is there to end a hung
+# build; at 180 it also ended slow healthy ones, every round from 2026-10-05.
+export MD_BUILD_TIMEOUT=${MD_BUILD_TIMEOUT:-360m}
 export MD_PROFILE=${MD_PROFILE:-$SSTATE/build-profile.json}   # build_sampler.py
 MISSING_CEILING=500   # 2026-10-05: an 11-hour-old source would have deleted 1,977 live files
 
