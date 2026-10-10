@@ -285,6 +285,8 @@ var RN = null;                                          /* data/traffic_now.json
 function rnFresh() { return RN && RN.roads && RN.roads.length && Date.now() - Date.parse(RN.generated) < 2 * 3600e3; }
 function rnCol(x) { return x.closed ? '#ff4d6d' : x.ratio == null ? '#9aa4b2' : x.ratio >= 0.85 ? '#5fd18a' : x.ratio >= 0.6 ? '#f5a34a' : '#e5455a'; }
 function rnOf(r) { return rnFresh() ? RN.roads.filter(function (x) { return x.route === r.route && x.name === r.name; })[0] : null; }
+/* RNPICK: a measured stretch picked in the list or on the map; RHOUR: an hour picked on the strip (2026-10-10) */
+var RNPICK = null, RHOUR = null, RFLASH = 0;
 var RPICK = null, DEN = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], DTH = ['จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์', 'เสาร์', 'อาทิตย์'];
 /* TomTom's congestion for this weekday and hour, scaled by the month (the traffic page's own sum):
    c = week[dow][h] × month[m] ÷ year;  a 10-minute drive takes 10 × (1 + c/100) */
@@ -310,9 +312,14 @@ function drawRoads(k, T, t) {
   if (rnFresh()) RN.roads.forEach(function (x) {        /* the stretches TomTom measured this half hour, coloured by speed */
     if (!x.line || x.line.length < 2) return;
     k.lineCap = 'round'; k.lineJoin = 'round';
+    if (x === RNPICK) { k.strokeStyle = 'rgba(255,255,255,.9)'; k.lineWidth = RVIEW === 'city' ? 13 : 8; k.beginPath(); x.line.forEach(function (p, i) { var q = rxy(T, p); i ? k.lineTo(q[0], q[1]) : k.moveTo(q[0], q[1]); }); k.stroke(); }
     k.strokeStyle = 'rgba(8,10,16,.85)'; k.lineWidth = RVIEW === 'city' ? 7 : 4; k.beginPath(); x.line.forEach(function (p, i) { var q = rxy(T, p); i ? k.lineTo(q[0], q[1]) : k.moveTo(q[0], q[1]); }); k.stroke();
     k.strokeStyle = rnCol(x); k.lineWidth = RVIEW === 'city' ? 4 : 2.2; k.stroke();
   });
+  if (RNPICK && RNPICK.line && !REDUCED) {                /* a picked stretch answers with a ring */
+    var age = (performance.now() - RFLASH) / 900;
+    if (age < 1) { var mp = rxy(T, RNPICK.line[Math.floor(RNPICK.line.length / 2)]); k.strokeStyle = 'rgba(255,255,255,' + (1 - age) + ')'; k.lineWidth = 3; k.beginPath(); k.arc(mp[0], mp[1], 6 + age * 26, 0, 6.2832); k.stroke(); }
+  }
   var sec = t / 1000, now = cong(Date.now()), hf = now ? 1.45 / (1 + now.c / 100) : 1;   /* slower in the jammed hours */
   RD.roads.forEach(function (r) {                       /* the traffic on it */
     var col = GRADE[r.grade] || '#c8d0da', sp = (GSPEED[r.grade] || 0.6) * (RVIEW === 'city' ? 0.9 : 3.5) * hf;
@@ -339,6 +346,7 @@ function drawRoads(k, T, t) {
     var bh = (x.min - 9) / (mxm - 9) * (sh - 18), bx = 8 + i * bw, on = i === now.h;
     k.fillStyle = on ? '#ffc266' : x.c >= 60 ? '#e5455a' : x.c >= 35 ? '#f5a34a' : '#5fd18a';
     k.globalAlpha = on ? 1 : 0.75; k.fillRect(bx + 1, T.H - 14 - bh, bw - 2, bh); k.globalAlpha = 1;
+    if (i === RHOUR) { k.strokeStyle = '#fff'; k.lineWidth = 2; k.strokeRect(bx + 0.5, y0 + 2, bw - 1, sh - 16); }
     if (i % 6 === 0) { k.fillStyle = '#e6ecf5'; k.fillText(String(i).padStart(2, '0'), bx + bw / 2, T.H - 2); }
   });
 }
@@ -348,32 +356,60 @@ function roadsCap() {
   var h = '<div class="tchips" role="group" aria-label="มุมมอง · view">' + [['city', 'ในเมือง', 'City'], ['prov', 'ทั้งจังหวัด', 'Province']].map(function (v) {
     return '<button type="button" class="tchip" data-rview="' + v[0] + '" aria-pressed="' + (RVIEW === v[0]) + '">' + bi(v[1], v[2]) + '</button>'; }).join('') +
     '<span class="tlegend">' + 'ABCDEF'.split('').map(function (g) { return '<i style="background:' + GRADE[g] + '"></i>' + g; }).join(' ') + '</span></div>';
+  var list = '';
   if (rnFresh()) {
-    var ms = RN.roads.filter(function (x) { return x.ratio != null; }), slow = ms.slice().sort(function (a, b) { return a.ratio - b.ratio; })[0];
-    var avg = ms.reduce(function (s2, x) { return s2 + x.ratio; }, 0) / Math.max(1, ms.length), when = RN.generated.slice(11, 16);
-    h += '<p class="tline">' + bi('วัดเมื่อ ' + when + ' ถนนสายหลัก ' + ms.length + ' สาย วิ่งได้ ' + Math.round(avg * 100) + '% ของความเร็วตอนถนนโล่ง',
-      'Measured at ' + when + ': ' + ms.length + ' main roads running at ' + Math.round(avg * 100) + '% of free-flow speed') +
-      (slow ? '<br>' + bi('ช้าที่สุด ทางหลวง ' + esc(slow.route) + ' ' + esc(slow.name) + ' ' + slow.cur + ' กม./ชม. (ถนนโล่ง ' + slow.free + ')',
-        'slowest: Route ' + esc(slow.route) + ' ' + esc(slow.name) + ', ' + slow.cur + ' km/h (free flow ' + slow.free + ')') : '') + '</p>';
+    var ms = RN.roads.filter(function (x) { return x.ratio != null || x.closed; }), when = RN.generated.slice(11, 16);
+    var avg = ms.reduce(function (s2, x) { return s2 + (x.ratio || 0); }, 0) / Math.max(1, ms.length);
+    var st = ms.some(function (x) { return x.closed; }) ? ['มีถนนปิด', 'A road is closed', '#ff4d6d'] : avg >= 0.85 ? ['รถวิ่งคล่อง', 'Moving freely', '#5fd18a'] : avg >= 0.65 ? ['ช้าบางช่วง', 'Slow in places', '#f5a34a'] : ['ติดหลายช่วง', 'Jammed in places', '#e5455a'];
+    h += '<p class="tline rstat"><i style="background:' + st[2] + '"></i>' + bi(st[0], st[1]) + ' · ' + bi('วัดเมื่อ ' + when + ' ถนนสายหลัก ' + ms.length + ' สาย วิ่งได้ ' + Math.round(avg * 100) + '% ของความเร็วตอนถนนโล่ง',
+      'measured at ' + when + ', ' + ms.length + ' main roads at ' + Math.round(avg * 100) + '% of free-flow speed') + '</p>';
+    var rows = ms.slice().sort(function (a, b) { return (a.closed ? -1 : a.ratio) - (b.closed ? -1 : b.ratio); });
+    function row(x) {
+      var pc = x.closed ? 0 : Math.round(Math.min(1, x.ratio) * 100);
+      return '<button type="button" class="rnrow" data-rn="' + RN.roads.indexOf(x) + '" aria-pressed="' + (x === RNPICK) + '"><span class="rnn">' + bi('ทล. ' + esc(x.route), 'Rt ' + esc(x.route)) + ' ' + esc(x.name) + '</span>' +
+        '<span class="rnb"><i style="width:' + Math.max(4, pc) + '%;background:' + rnCol(x) + '"></i></span><b>' + (x.closed ? bi('ปิด', 'closed') : x.cur + '<small>/' + x.free + '</small>') + '</b></button>';
+    }
+    list = '<div class="rnlist"><p class="rnh">' + bi('ถนนที่วัดได้ ช้าสุดก่อน · กม./ชม. ตอนนี้/ตอนโล่ง', 'Measured roads, slowest first · km/h now / free flow') + '</p>' + rows.slice(0, 4).map(row).join('') +
+      (rows.length > 4 ? '<details class="tmore"' + (RNPICK && rows.indexOf(RNPICK) >= 4 ? ' open' : '') + '><summary>' + bi('อีก ' + (rows.length - 4) + ' สาย', (rows.length - 4) + ' more') + '</summary>' + rows.slice(4).map(row).join('') + '</details>' : '') + '</div>';
   }
   var nw = cong(Date.now());
-  if (nw) h += '<p class="tline">' + bi('ปกติวัน' + DTH[nw.dow] + ' ' + String(nw.h).padStart(2, '0') + ':00 · ขับ 10 นาทีในเมืองใช้ราว ' + Math.round(nw.min) + ' นาที',
-    'Usually on ' + DEN[nw.dow] + ' at ' + String(nw.h).padStart(2, '0') + ':00 · a 10-minute drive in town takes about ' + Math.round(nw.min)) + '</p>';
+  if (nw) {
+    h += '<p class="tline">' + bi('ปกติวัน' + DTH[nw.dow] + ' ' + String(nw.h).padStart(2, '0') + ':00 · ขับ 10 นาทีในเมืองใช้ราว ' + Math.round(nw.min) + ' นาที',
+      'Usually on ' + DEN[nw.dow] + ' at ' + String(nw.h).padStart(2, '0') + ':00 · a 10-minute drive in town takes about ' + Math.round(nw.min)) + '</p>';
+    /* worth waiting? the next four waking hours, when one saves two minutes in ten */
+    var best = null;
+    for (var a = 1; a <= 4; a++) { var c2 = cong(Date.now() + a * 3600e3); if (c2.h >= 6 && c2.h <= 21 && (!best || c2.min < best.min)) best = c2; }
+    if (best && nw.h >= 6 && nw.min - best.min >= 2) h += '<p class="rlater">' + bi('ถ้าออกตอน ' + String(best.h).padStart(2, '0') + ':00 ปกติเหลือราว ' + Math.round(best.min) + ' นาที (ตอนนี้ ' + Math.round(nw.min) + ')',
+      'Leave at ' + String(best.h).padStart(2, '0') + ':00 and it is usually about ' + Math.round(best.min) + ' minutes (' + Math.round(nw.min) + ' now)') + '</p>';
+    if (RHOUR != null) {
+      var rh = cong(Date.now(), RHOUR);
+      h += '<p class="rlater on">' + bi('วัน' + DTH[rh.dow] + ' ' + String(RHOUR).padStart(2, '0') + ':00 ปกติ ขับ 10 นาทีใช้ราว ' + Math.round(rh.min) + ' นาที (รถติดกว่าตอนโล่ง ' + Math.round(rh.c) + '%)',
+        DEN[rh.dow] + ' ' + String(RHOUR).padStart(2, '0') + ':00 usually: a 10-minute drive takes about ' + Math.round(rh.min) + ' minutes (' + Math.round(rh.c) + '% over free flow)') + '</p>';
+    }
+  }
   h += '<p class="tpick"><b>' + bi('ทางหลวง ' + esc(r.route), 'Route ' + esc(r.route)) + ' ' + esc(r.name) + '</b><br>' +
     bi(n0(r.motor) + ' คันต่อวัน และรถจักรยานยนต์ ' + n0(r.moto) + ' คัน · รถหนัก ' + r.heavy + '% · ระดับ ' + (r.grade || '–'),
        n0(r.motor) + ' vehicles a day and ' + n0(r.moto) + ' motorcycles · ' + r.heavy + '% heavy · grade ' + (r.grade || '–')) +
     (RPICK ? '' : ' · ' + bi('ถนนที่รถมากที่สุด', 'the busiest')) +
-    (rnOf(r) ? '<br>' + bi('วัดเมื่อ ' + RN.generated.slice(11, 16) + ': ' + rnOf(r).cur + ' กม./ชม. (ถนนโล่ง ' + rnOf(r).free + ')', 'measured at ' + RN.generated.slice(11, 16) + ': ' + rnOf(r).cur + ' km/h (free flow ' + rnOf(r).free + ')') : '') + '</p>';
+    (rnOf(r) ? '<br>' + bi('วัดเมื่อ ' + RN.generated.slice(11, 16) + ': ' + rnOf(r).cur + ' กม./ชม. (ถนนโล่ง ' + rnOf(r).free + ')', 'measured at ' + RN.generated.slice(11, 16) + ': ' + rnOf(r).cur + ' km/h (free flow ' + rnOf(r).free + ')') : '') + '</p>' + list;
   h += '<p class="tsrc">' + bi('จุดสี่เหลี่ยม = รถราว 2,000 คันต่อวัน จุดขาว = รถจักรยานยนต์ 2,000 คัน · ระดับ A คล่องตัวถึง F ติดขัด · วันเฉลี่ยของปี ' + yr + ' กรมทางหลวง',
-    'square = about 2,000 vehicles a day, white dot = 2,000 motorcycles · grade A free-flowing to F jammed · an average day, ' + (yr - 543) + ', Department of Highways') + ' · ' + bi('เส้นสีหนา = ความเร็วที่ TomTom วัดได้ทุกครึ่งชั่วโมง เขียวโล่ง ส้มช้า แดงติด · แถบชั่วโมงจาก TomTom Traffic Index 2025', 'thick coloured lines = speed TomTom measures every half hour, green clear, orange slow, red jammed · hour bars from the TomTom Traffic Index 2025') + ' · ' + bi('แตะถนนเพื่อดูตัวเลข', 'tap a road for its count') +
+    'square = about 2,000 vehicles a day, white dot = 2,000 motorcycles · grade A free-flowing to F jammed · an average day, ' + (yr - 543) + ', Department of Highways') + ' · ' + bi('เส้นสีหนา = ความเร็วที่ TomTom วัดได้ทุกครึ่งชั่วโมง เขียวโล่ง ส้มช้า แดงติด · แถบชั่วโมงจาก TomTom Traffic Index 2025', 'thick coloured lines = speed TomTom measures every half hour, green clear, orange slow, red jammed · hour bars from the TomTom Traffic Index 2025') + ' · ' + bi('แตะถนนเพื่อดูตัวเลข แตะแถบชั่วโมงเพื่อดูชั่วโมงนั้น', 'tap a road for its count, an hour bar for that hour') +
     ' · <a href="' + LIVE + 'traffic.html">' + bi('รถติด ทุกชั่วโมง ทุกถนน', 'Traffic by hour and road') + ' →</a></p>';
   cap('t-roads', h);
 }
 function roadsTap(px, py, T) {
   if (!RD) return;
-  var best = null, bd = 14;
+  if (RD.tomtom && py > T.H - 44) {                     /* the hour strip */
+    var hr = Math.floor((px - 8) / ((T.W - 16) / 24));
+    if (hr >= 0 && hr < 24) { RHOUR = RHOUR === hr ? null : hr; roadsCap(); if (ROADS) ROADS.paint(); }
+    return;
+  }
+  var best = null, bd = 14, bm = null, bmd = 12;
+  if (rnFresh()) RN.roads.forEach(function (x) { (x.line || []).forEach(function (p) { var q = rxy(T, p), d = Math.hypot(q[0] - px, q[1] - py); if (d < bmd) { bmd = d; bm = x; } }); });
   RD.roads.forEach(function (r) { r.segs.forEach(function (sg) { sg.ln.forEach(function (p) { var q = rxy(T, p), d = Math.hypot(q[0] - px, q[1] - py); if (d < bd) { bd = d; best = r; } }); }); });
-  RPICK = best; roadsCap(); if (REDUCED && ROADS) ROADS.paint();
+  RNPICK = bm || (best ? rnOf(best) : null) || null; RFLASH = performance.now();
+  if (bm && !best) best = RD.roads.filter(function (r) { return r.route === bm.route && r.name === bm.name; })[0] || null;
+  RPICK = best; roadsCap(); if (ROADS) ROADS.paint();
 }
 
 /* ======================================================================== FILMS
@@ -515,6 +551,15 @@ document.addEventListener('click', function (ev) {
   if (b.dataset.fmode) { FMODE = b.dataset.fmode; FPLANE = null; flightsCap(); if (FLIGHTS) FLIGHTS.paint(); }
   if (b.dataset.air) { FSEL = FSEL === b.dataset.air ? null : b.dataset.air; flightsCap(); if (FLIGHTS) FLIGHTS.paint(); }
   if (b.dataset.rview) { RVIEW = b.dataset.rview; RPICK = null; roadsCap(); if (ROADS) ROADS.paint(); }
+});
+document.addEventListener('click', function (ev) {      /* a measured road in the list: lit on the map */
+  var b = ev.target.closest && ev.target.closest('.rnrow'); if (!b || !RN) return;
+  var x = RN.roads[+b.dataset.rn]; if (!x) return;
+  RNPICK = RNPICK === x ? null : x; RFLASH = performance.now();
+  RPICK = RNPICK ? RD.roads.filter(function (r) { return r.route === x.route && r.name === x.name; })[0] || null : null;
+  if (RNPICK && RVIEW === 'city' && x.line && !x.line.some(function (p) { var bx = BOXES.city; return p[0] > bx[0] && p[0] < bx[2] && p[1] > bx[1] && p[1] < bx[3]; })) RVIEW = 'prov';
+  roadsCap(); if (ROADS) ROADS.paint();
+  var nb = document.querySelector('.rnrow[data-rn="' + b.dataset.rn + '"]'); if (nb) nb.focus();
 });
 new MutationObserver(function () { flightsCap(); roadsCap(); filmsCap(); lottoCap(); }).observe(H, { attributes: true, attributeFilter: ['class'] });
 setInterval(function () { if (FM) filmsCap(); }, 60e3);

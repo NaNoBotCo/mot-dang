@@ -30,6 +30,7 @@ every coordinate in one request.
 """
 import json
 import os
+import subprocess
 import sys
 import time
 import urllib.parse
@@ -87,17 +88,36 @@ def spots():
     return out
 
 
+def rain_cal():
+    """How often it rained at CNX / CEI when IFS gave each chance (data/curated/rain_calibration.json),
+    carried beside the forecast so the front page can say it; {} when the file is missing."""
+    try:
+        return json.loads((ROOT / "data" / "curated" / "rain_calibration.json").read_text())["bins"]
+    except (OSError, ValueError, KeyError):
+        return {}
+
+
+def _col(block, key):
+    """One column of an Open-Meteo block, padded with None when the field did not come back."""
+    return (block.get(key) or []) + [None] * len(block.get("time") or [])
+
+
 def main():
     qs = urllib.parse.urlencode({
         "latitude": ",".join(str(c[3]) for c in CITIES),
         "longitude": ",".join(str(c[4]) for c in CITIES),
-        "current": "temperature_2m,relative_humidity_2m,weather_code",
-        "daily": "temperature_2m_max,temperature_2m_min,weather_code",
-        # the next two days by the hour, for the front page's rain line (2026-09-26)
-        "hourly": "precipitation_probability,precipitation",
-        "forecast_hours": "48",
+        "current": ("temperature_2m,relative_humidity_2m,weather_code,apparent_temperature,"
+                    "wind_speed_10m,wind_direction_10m,wind_gusts_10m,uv_index,is_day,precipitation"),
+        "daily": ("temperature_2m_max,temperature_2m_min,weather_code,precipitation_sum,"
+                  "precipitation_probability_max,sunrise,sunset,uv_index_max,wind_speed_10m_max,"
+                  "wind_direction_10m_dominant"),
+        # the next three days by the hour: the rain line (2026-09-26), and the front
+        # page's hour chart, temperature and wind (2026-10-10)
+        "hourly": ("precipitation_probability,precipitation,temperature_2m,apparent_temperature,"
+                   "weather_code,wind_speed_10m,wind_direction_10m,uv_index,relative_humidity_2m"),
+        "forecast_hours": "72",
         "timezone": "auto",
-        "forecast_days": "4",
+        "forecast_days": "7",
     })
     url = "https://api.open-meteo.com/v1/forecast?" + qs
     req = urllib.request.Request(url, headers={"User-Agent": UA})
@@ -150,19 +170,36 @@ def main():
             "humidity": cur.get("relative_humidity_2m"),
             "code": cur.get("weather_code"),
             "observed": cur.get("time"),
+            "feels": cur.get("apparent_temperature"),
+            "wind": cur.get("wind_speed_10m"),
+            "wind_dir": cur.get("wind_direction_10m"),
+            "gust": cur.get("wind_gusts_10m"),
+            "uv": cur.get("uv_index"),
+            "is_day": cur.get("is_day"),
+            "rain_now": cur.get("precipitation"),
             "days": [
-                {"date": d, "max": mx, "min": mn, "code": cd}
-                for d, mx, mn, cd in zip(daily.get("time", [])[:4],
-                                         daily.get("temperature_2m_max", [])[:4],
-                                         daily.get("temperature_2m_min", [])[:4],
-                                         daily.get("weather_code", [])[:4])
+                {"date": d, "max": mx, "min": mn, "code": cd, "rain": rs, "prob": pp,
+                 "sunrise": sr, "sunset": ss, "uv": uv, "wind": wd, "wind_dir": wdd}
+                for d, mx, mn, cd, rs, pp, sr, ss, uv, wd, wdd in zip(
+                    daily.get("time", []), daily.get("temperature_2m_max", []),
+                    daily.get("temperature_2m_min", []), daily.get("weather_code", []),
+                    _col(daily, "precipitation_sum"), _col(daily, "precipitation_probability_max"),
+                    _col(daily, "sunrise"), _col(daily, "sunset"), _col(daily, "uv_index_max"),
+                    _col(daily, "wind_speed_10m_max"), _col(daily, "wind_direction_10m_dominant"))
             ],
-            # [local hour, % chance of rain, mm expected in that hour]
+            # [local hour, % chance of rain, mm expected in that hour] — the next 48, as before
             "hours": [
                 [t, p, mm]
-                for t, p, mm in zip(hourly.get("time", []),
+                for t, p, mm in zip(hourly.get("time", [])[:48],
                                     hourly.get("precipitation_probability", []),
                                     hourly.get("precipitation", []))
+            ],
+            # [local hour, °C, feels-like °C, WMO code, wind km/h, wind from °, UV, % humidity] — 72 hours
+            "hx": [
+                list(r) for r in zip(hourly.get("time", []), _col(hourly, "temperature_2m"),
+                                     _col(hourly, "apparent_temperature"), _col(hourly, "weather_code"),
+                                     _col(hourly, "wind_speed_10m"), _col(hourly, "wind_direction_10m"),
+                                     _col(hourly, "uv_index"), _col(hourly, "relative_humidity_2m"))
             ],
             "hours_ifs": [
                 [t, p, mm]
@@ -176,13 +213,24 @@ def main():
     ingest.write(OUT, {"generated": date.today().isoformat(),
                        "fetched": datetime.now(timezone.utc).isoformat(timespec="minutes"),
                        "source": "Open-Meteo (open-meteo.com), CC-BY 4.0",
-                       "cities": cities, "spots": spots()},
+                       "cities": cities, "spots": spots(), "rain_cal": rain_cal()},
                  count=len(cities), min_rows=3, label="weather.json")
     if "--publish" in sys.argv:
         (ROOT / "docs" / "data").mkdir(parents=True, exist_ok=True)
         (ROOT / "docs" / "data" / "weather.json").write_text(OUT.read_text())
+        files = ["data/weather.json"]
+        # The air rides the same hour (2026-10-10): the front page's air chart reads the next
+        # three days by the hour, and the walk alone refreshed it a few times a day.
+        air = ROOT / "data" / "air.json"
+        try:
+            subprocess.run([sys.executable, str(ROOT / "importers" / "make_air.py")], cwd=ROOT,
+                           timeout=180, check=True)
+            (ROOT / "docs" / "data" / "air.json").write_text(air.read_text())
+            files.append("data/air.json")
+        except Exception as e:
+            print("  weather: air left as it was:", e)
         os.chdir(ROOT)
-        os.execvp(sys.executable, [sys.executable, "publish/deploy.py", "--files", "data/weather.json", "--yes"])
+        os.execvp(sys.executable, [sys.executable, "publish/deploy.py", "--files", *files, "--yes"])
 
 
 if __name__ == "__main__":
