@@ -1,79 +1,69 @@
 MOT DANG — ONE CALENDAR, ONE CLOCK, ONE TIME MODEL
-Design for Nan, 2026-10-11. Baton 0002. Nothing here is built yet.
+Design for Nan, 2026-10-11, after a council of three critics (five rounds, agreed). Baton 0002.
+
+YOUR QUESTION: grid up top, list below — a great reason, or lazy iterative design?
+No reason. The list (#soon) was the calendar until the 2026-10-02 A/B put the drawn grid above it, and nothing retired the list.
 
 HER WORDS (2026-10-11)
-1) calendar illegible at phone width, non descriptive. 2) items in no particular order; the order should come from something we know about the reader. 3) plan-ahead and near-term events jumbled in one amorphous timeline; long-term calls to action (get a hotel, find a guide) differ from near-term ones (get a Grab, invite a friend). Redundant time data. The doodle clock: not cool, not correct, the same every day; it should change daily and be accurate, informative and interactive. Grid up top and list below on the front: lazy iterative design.
+1) calendar illegible at phone width, non descriptive. 2) items in no particular order; the order should come from something we know about the reader. 3) plan-ahead and near-term events jumbled in one amorphous timeline; long-term calls to action (get a hotel, find a guide) differ from near-term ones (get a Grab, invite a friend). Redundant time data. The doodle clock: not cool, not correct, the same every day; it should change daily and be accurate, informative and interactive.
 
-WHAT IS THERE NOW (preview of today's code, 375 px, 09:38 Sunday)
-- Grid: 7 columns of 45 px cells holding a day number and a picture. No titles, no counts. The first row is six crossed-out past days.
-- Day list under it: 15:00, 14:00–16:00, 19:30, all day, 17:00, 08:30. The sort is a score the reader cannot see. Distance prints twice on a row ("· ~2.1 km" and "~2.1 km away").
-- The clock: a 24-hour dial, midnight at the foot. At 09:38 the hour hand sits where a wall clock says 11. Tags for 06:30 and 08:30 events float on it after they have ended. Same look every day.
-- Events are listed in five places on the front: the clock's tags, the hero pager ("Today 12:30 · 1/9"), the fortnight list, the old #soon list, the #jump chips. Each computes "today" its own way. #soon drops an all-day event two hours after it starts; the fortnight keeps it to midnight. #big counts days in UTC; the ribbon counts in Bangkok time.
-- Festivals reach the front through two bakes of one file (soon.json, capped at 4, and ahead.json), each with its own date resolver; festivals.html has two more. Festival dates are kept in four files.
-- Date helpers: Thai month names defined about 40 times in about 30 files; Buddhist Era +543 written about 70 times; span() 4 times; the week-minute "open now" sum 3 times. front_layer bakes with the Mac's date, not Bangkok's.
-Full audit: this file's companion, notes/calendar-audit-2026-10-11.txt.
+DONE TODAY
+The clock reads like a wall clock: a 12-hour face, its ring the next 12 hours (light by day, dark by night, cut at sunrise and sunset), rain drops and event tags only for those hours, a tag gone once its event starts, near-black hands. Gears, ant, sun and moon, the date pop and taps stay. Commit 9f14bcf89e; it goes live with the next hand-off. tests/test_front_clock.js checks the hand at every 7th minute (205 wrong on the old dial).
+
+WHAT IS THERE NOW (375 px, 09:38 Sunday)
+- Grid: 45 px cells with a day number and a picture; no titles, no counts; the first row is six crossed-out past days.
+- Day list: 15:00, 14:00–16:00, 19:30, all day, 17:00, 08:30, sorted by a score the reader cannot see; distance printed twice on a row.
+- Events listed in five places on the front (clock tags, the doodle's 1/9 pager, the fortnight list, the old #soon list, the #jump chips), each with its own idea of "today". #soon drops an all-day event two hours after it starts; the fortnight keeps it to midnight.
+- Festivals reach the front through two bakes of one file (soon.json, capped at 4; ahead.json) with two date resolvers; festival dates are kept in four files.
+Full audit: notes/calendar-audit-2026-10-11.txt.
 
 THE DESIGN
 
-A. One calendar, three horizons
-The fortnight grid, its day list, the #ahead ribbon and the hero pager become one section, "When" (เมื่อไร). Three bands, each its own layout and its own actions:
+A. The calendar keeps its name, ปฏิทิน · Calendar. Three bands, each with its own layout and actions.
 
-NOW — on now and later today, until 03:00.
-- Layout: a list, one row per event, time first in large type, the whole title, the place, minutes away.
-- Order: what you can still make, soonest first. On now: "until 16:00". Starting: "in 40 min". An event already over leaves the band.
-- Actions on the row: Grab there; Invite (the phone's share sheet, LINE as its own button); Map.
+TODAY — from now to the end of today's night (a day ends at 03:00; one boundary for every band, the clock and the gates).
+- Rows: start time in large type, the whole title, the place, distance once. On now: "until 16:00". Over: gone.
+- Running now (a festival or show on for several days): one line at the top, "on until 13 Oct".
+- 5 rows, then "+ 22 more today".
+- Actions: Grab there; Invite (the phone's share sheet, and LINE); Map. A tap on the row opens the same card as now: source, map, keep, add to calendar, not for me, hide this kind.
 
-THIS WEEK — tomorrow to day 7.
-- Layout: a strip of 7 day chips across the top (weekday, date, count of events). The chip is the index; tapping it scrolls the list to that day. Under the strip, one block per day: a day header (weekday, date, wan phra or festival if any, the forecast in one glyph), then up to 5 rows, then "+ 12 more".
-- Order inside a day: by start time. The reader decides which 5 lead (see C).
-- Actions on the row: Keep; Add to calendar; Invite.
+NEXT 14 DAYS — tomorrow to day 14 (her fortnight).
+- The index: the grid, kept unless you let it go (fork 1). It starts on today (no crossed-out days) and shows each day's count at 375 px. A tap opens that one day under it (your 10-04 word), as now.
+- A day: header (weekday, date, wan phra or festival, the forecast glyph), its events in time order, 5 shown, "+ N more".
+- An all-day event sits on its own date only. A festival inside 14 days shows on its days and carries its plan actions with it.
+- Actions: Keep; Add to calendar; Invite.
 
-PLAN AHEAD — day 8 to about 7 months.
-- Layout: cards, one per festival, season or long run (an exhibition, a run of shows), with "in 44 days", the dates, one line on why to plan, and the picture.
-- Order: by date.
-- Actions on the card: Find a room (flies the map to the festival and switches on the map's own stay layer, the hotels motdang already lists); Add to calendar; the festival's page; Find a guide (a fork, below).
+PLAN AHEAD — day 15 to about 7 months.
+- Festivals, seasons and long runs as cards ("in 44 days", dates, one line on why to plan, the picture), by date.
+- Dated events past day 14 (CMU Chiang Mai Marathon 8 Nov, TEDxChiangMai 14 Nov) as a list by week under the cards.
+- Actions: Find a room (fork 4); Add to calendar; the festival's page; Find a guide (fork 3).
+- A shared #ev= link to any event opens the band that holds it.
 
-The grid goes. The week strip is the index for THIS WEEK; PLAN AHEAD needs none. A "Fortnight" or "Month" view can come back later as an index of the same list if she asks.
+B. Order. Inside every band, time order, so the reader can follow it. What we know about the reader picks which 5 lead each day, each with its reason ("kept", "you look at markets", "1.2 km"). Without history: nearest the city centre with a picture and a time. Fork 2 puts this to you.
 
-B. Legible at 375 px
-Every row carries the whole title (wraps, never cut), the time, the place, minutes away. Distance prints once. No 45 px cells. The week strip scrolls sideways if 7 chips do not fit. Tested at 375 and 1280 by the gate.
+C. One state. One filter bar (kinds, Kept, city), one selected day, one router (#ev=, #day=, #when=). The #soon list stays where it is (fork 5) but reads the same data and hands its links to the bands; the #jump chips count from the same data. One city switch for map, forecast and calendar.
 
-C. Order from what we know about the reader
-Signals the page already holds: where they are (md-here, 20 minutes); the time now; the city they picked (one switch, shared by map, forecast and calendar instead of three); what they open, keep and hide (md-cal); language.
-- NOW orders by time the reader can arrive: minutes to start, less travel time from md-here. Without a location it orders by start time.
-- THIS WEEK: each day shows the 5 that fit the reader best, in time order, each with its reason in one chip ("you keep markets", "1.2 km", "kept"). Without history the 5 are the nearest to the city centre with a picture and a time. "+ N more" opens the rest, in time order.
-- The score stays one function, read by every band; it no longer writes into the shared event objects.
+D. One time model.
+- JS: assets/front/when.js (Bangkok today, the 03:00 day boundary, ymd, span, month and weekday names EN/TH, B.E.); front.js, wx.js and tiles.js read it. It goes into front_layer's copy list and stamp(), and the publish gate test_front_calendar.js moves onto it with every check kept.
+- Python: thaitime.py, wrapping importers/thai_lunar.py (held to myhora by its test) and shelflife.today(); front_layer bakes with Bangkok's date instead of the Mac's.
+- Data: one bake, front/when.json (events, festivals, wan phra, long runs), ids equal to events.json's k so kept lists and shared links still work. Festival dates from festivals_layer.occurrence() (announced dates, then the rule); festival_calendar.json rows only where it gives none. soon.json and ahead.json stop being baked once nothing reads them. front.js falls back to events.json while when.json is absent.
+- The other date code copies (about 40 month tables, 70 B.E. sums, in about 30 files) stay out of this plan; a sweep can come to you later with its cost.
 
-D. One state
-One filter bar (Kind chips, Kept, city), one selected day, one URL form: #when=2026-10-14 and #ev=<id> both open the calendar band that holds them. Old #day= links keep working by redirect to the same place.
+E. The clock, later slice.
+- Colour on the rim by Thai weekday (Sunday red, Monday yellow, Tuesday pink, Wednesday green, Thursday orange, Friday blue, Saturday purple); the face stays light, the hands black (4.7:1 or better on all seven).
+- Tonight's moon in a window; a lotus on wan phra; the festival's emblem on a festival day.
+- Under the doodle, the hour in Thai beside English: บ่ายสองโมง · bai song mong · 2 in the afternoon.
+- Stays: gears and the Thai date pop (B.E., C.S., Lanna month), the ant, rain drops, sun and moon, turning the dial, tapping a tag.
 
-E. One time model
-- Python: one module, thaitime.py (Bangkok today, B.E., Thai and Lanna months, weekday colours, wan phra, a festival's dates from festivals.json). front_layer, festivals_layer and answers_layer move onto it first; the rest of the 30 files move in later slices.
-- JS: one module, assets/front/when.js (bkk(), ymd, span(), month and weekday names EN/TH, B.E.). front.js, wx.js and tiles.js read it.
-- Data: front_layer bakes one front/when.json — events, festivals, wan phra and moon days, long runs — dated in Bangkok time, each item {id, kind, start, end, allDay, city, ...}. The old events.json, soon.json and ahead.json stay baked until nothing reads them.
+HOW IT SHIPS
+- The new calendar shows only under ?cal=next until your word. The commit that drops the flag is the go-live, and the A/B's count restarts that day.
+- Each slice carries a check that fails on today's code first: when.js over the baked file (one band per event, all-day at 00:00, the 03:00 boundary, the phone's time zone), and a 375 px headless-Chrome pass on the Mac whose screenshots come to you.
+- Slices: 1 the time model and when.json; 2 the three bands under the flag; 3 order and reasons; 4 actions; 5 the clock's colour, moon and hour word (live, no flag: nothing removed).
 
-F. The clock (about 20% of the doodle, as she set on 2026-10-02)
-- Correct at a glance: a 12-hour face with hour and minute hands. Around it a thin 24-hour ring shades night and day from today's sunrise and sunset.
-- Thai time under the face, the word for the hour: ตีสาม, หกโมงเช้า, เที่ยง, บ่ายสองโมง, สี่โมงเย็น, สองทุ่ม. A tap on the word says it in English ("2 in the afternoon").
-- Changes daily: the face takes the Thai colour of the weekday (Sunday red, Monday yellow, Tuesday pink, Wednesday green, Thursday orange, Friday blue, Saturday purple). The moon in a window on the face shows tonight's phase; on wan phra a small lotus; on a festival day that festival's emblem.
-- Informative: marks on the ring for events still ahead today (at most 5, gone once they end); sunrise and sunset ticks.
-- Interactive: drag the hour hand to travel the day; the NOW band and the map follow (calAt, mapAt, as today). Tap a mark to open that event.
-
-G. #soon, the old list
-The new calendar does everything #soon does. Retiring #soon removes a section readers can reach: her word. Until then it stays, unchanged.
-
-SLICES (each behind the preview, each a commit, each through the gates)
-1. thaitime.py and when.js; front/when.json baked in Bangkok time; tests.
-2. The NOW, THIS WEEK and PLAN AHEAD bands in place of #month, #mday, #ahead and the hero pager; one filter state; legible at 375; the gate extended.
-3. Order and reasons (C).
-4. Actions: Grab, Invite, Keep, Add to calendar, Find a room; the guide only on her word.
-5. The clock.
-6. The other Python and JS copies of date code, in batches.
-
-FORKS FOR NAN
-1. Find a guide. No guide directory is on this disk. (a) motdang.net Co.'s helpers (Beer's per-job people): a business decision, a price per job, someone to answer. (b) A link to the Tourism Department's register of licensed guides: $0, the reader does the work. (c) No guide button. Worst case of (a): a reader books and nobody answers. If silent by 2026-10-18: (c).
-2. Find a room. (a) The map's own stay layer around the festival, $0. (b) A paid booking link through affiliate_layer: money, and a third party in the reader's path. If silent by 2026-10-18: (a).
-3. Invite. (a) The phone's share sheet plus a LINE button, $0. (b) Nothing new. If silent by 2026-10-18: (a).
-4. Visiting or living here. (a) Ask the reader once, two buttons. (b) Infer from what they open (flights, hotels). (c) Neither. If silent by 2026-10-18: (c); the bands do not depend on it.
-5. The grid. (a) Gone, the week strip replaces it. (b) Kept as a collapsible month index above the list. If silent by 2026-10-18: (a). Worst case of (a): a reader who liked the pictures in the cells loses them; the pictures move to the day headers.
-6. #soon. (a) Retire once she has seen the new one live. (b) Keep. No default; it stays until she says.
+FORKS FOR NAN (if silent by 2026-10-18, the default holds)
+1. Removals. The grid, the doodle's 1/9 pager (its events move to TODAY) and the #ahead ribbon (its festivals move to PLAN AHEAD). Each: keep, or let go. Default: keep each. Worst case of keeping: two ways into the same days stay on the page.
+2. Order. (a) Time order, the reader's fit picks the 5 shown per day, a reason on each. (b) Rows ordered by fit, a reason on each, times out of order. (c) Time order, all shown, a "for you" mark. Default (a). Worst case of (a): a reader with no history sees the nearest 5, not their 5. Worst case of (b): the complaint you made today, explained.
+3. Find a guide. No guide directory is on this disk. (a) A link to the Tourism Department's register of licensed guides, $0. (b) motdang.net Co.'s helpers (Beer's per-job people): a price per job, someone to answer. (c) No guide button. Default (c). Worst case of (c): your ask is not built. Worst case of (b): a reader books and nobody answers.
+4. Find a room. (a) The map opened on motdang's own hotel layer around the festival (5,875 in Chiang Mai, 2,238 in Chiang Rai), $0. (b) A paid booking link (affiliate_layer). Default (a). Worst case of (a): a map of places to stay that books none.
+5. The #soon list. (a) Retire it once you have seen the new calendar live. (b) Keep it. No default; it stays until you say.
+6. The A/B. (a) The new calendar becomes the calendar arm; the count restarts at go-live. (b) The calendar sits under the stage for everyone, the stage shows the map only, the A/B ends. Default (a).
