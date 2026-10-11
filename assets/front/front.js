@@ -640,12 +640,33 @@ function nxWeeks(evs, now) {
   });
   return h;
 }
-function nxAhead(evs, now) {
+/* MINISITES IN THE CALENDAR (Nan 2026-10-11: each minisite once; dated ones on their day, the rest under the map).
+   A dated minisite (sites.json on, or now) goes on its day: today, one of the 14, or later. One an event already
+   links to stays that event's; one tied to a festival card (MS_FEST) is a chip on that card. */
+var MS_FEST = { krathong: 'yi-peng-loi-krathong', 'khom-loi': 'yi-peng-loi-krathong' };
+function msHref(s) { return /^https?:/.test(s.href) ? s.href : LIVE + s.href; }
+function msCal(td, last) {
+  var out = { today: [], day: {}, later: [] }, urls = {};
+  if (!D.sites || MF.c || MVIEW === 'kept') return out;
+  (D.events ? D.events.events : []).forEach(function (e) { if (e.url) urls[e.url.replace(/^https?:\/\/[^/]+\//, '')] = 1; });
+  D.sites.forEach(function (s) {
+    if (!(s.on || s.now) || urls[s.href] || MS_FEST[s.id] || (s.u && s.u < td)) return;
+    var d = s.on && s.on > td ? s.on : td;
+    if (d === td) out.today.push(s); else if (d <= last) (out.day[d] = out.day[d] || []).push(s); else out.later.push(s);
+  });
+  return out;
+}
+function msRow(s) {
+  var on = s.on ? dates(s.on, s.on) : null;
+  return '<a class="nxms" href="' + esc(msHref(s)) + '"><img alt="" loading="lazy" decoding="async" src="' + LIVE + esc(s.img) + '"><span class="tt">' + bi(esc(s.th), esc(s.en)) + '</span>' +
+    '<small>' + bi('เว็บเล็ก' + (on ? ' · ' + on[0] : ''), 'minisite' + (on ? ' · ' + on[1] : '')) + '</small></a>';
+}
+function nxAhead(evs, now, msh) {
   var box = $('aheadwk'), ab = $('ahead'), CAP = 8;
   if (!box) { if (!ab) return; box = document.createElement('div'); box.id = 'aheadwk'; ab.parentNode.insertBefore(box, ab.nextSibling); }
-  if (!evs.length) { box.innerHTML = ''; return; }
+  if (!evs.length && !msh) { box.innerHTML = ''; return; }
   evs = nxSort(evs);
-  box.innerHTML = '<h4 class="nxsub">' + bi('งานหลังจากนั้น', 'Later events') + ' <small>' + evs.length + '</small></h4>' + nxWeeks(evs.slice(0, CAP), now) +
+  box.innerHTML = '<h4 class="nxsub">' + bi('งานหลังจากนั้น', 'Later events') + ' <small>' + evs.length + '</small></h4>' + (msh || '') + nxWeeks(evs.slice(0, CAP), now) +
     (evs.length > CAP ? '<details class="dmore"><summary>' + bi('อีก ' + (evs.length - CAP) + ' งาน', '+ ' + (evs.length - CAP) + ' more') + '</summary>' + nxWeeks(evs.slice(CAP), now) + '</details>' : '');
 }
 var NXAT = 0;
@@ -665,7 +686,7 @@ function calNext(how) {
     kinds[e.c] = (kinds[e.c] || 0) + 1; if (ME.saved[e.k]) nKept++;
   });
   var pool = all.filter(function (e) { return (!MF.c || e.c === MF.c) && (MVIEW !== 'kept' || ME.saved[e.k]); });
-  var tb = bandToday(pool, now), nb = bandNear(pool, now), ah = bandAhead(pool, now), days = nb.days, by = nb.by;
+  var tb = bandToday(pool, now), nb = bandNear(pool, now), ah = bandAhead(pool, now), days = nb.days, by = nb.by, ms = msCal(td, days[13]);
   MDAYS = days; MLIST = E.events;
   var tot = days.reduce(function (n, d) { return n + by[d].length; }, 0);
   /* the title, the city, the order, the filters: one state for all three bands */
@@ -685,6 +706,7 @@ function calNext(how) {
   h += '<section id="mtoday" aria-label="วันนี้ · today"><h3 class="nxh">' + bi('วันนี้', 'Today') + ' <small>' + bi(dn0[0], dn0[1]) + (n0 ? ' · ' + bi(n0 + ' งาน', n0 + ' events') : '') + '</small></h3>';
   h += tb.run.slice(0, 3).map(nxRun).join('');
   if (tb.run.length > 3) h += '<details class="dmore"><summary>' + bi('อีก ' + (tb.run.length - 3) + ' งานที่จัดอยู่', '+ ' + (tb.run.length - 3) + ' more on now') + '</summary>' + tb.run.slice(3).map(nxRun).join('') + '</details>';
+  h += ms.today.map(msRow).join('');
   if (!n0) h += '<p class="nxnone">' + bi('ไม่มีงานเหลือวันนี้', 'Nothing left on today') + '</p>';
   pk.top.forEach(function (e) { h += nxRow(e, 'today', now, ix++); });
   if (pk.rest.length) h += '<details class="dmore"><summary>' + bi('อีก ' + pk.rest.length + ' งานวันนี้', '+ ' + pk.rest.length + ' more today') + '</summary>' + pk.rest.map(function (e) { return nxRow(e, 'today', now); }).join('') + '</details>';
@@ -694,11 +716,12 @@ function calNext(how) {
   var dr = dates(days[0], days[13]), j = 0;
   o += '<h3 class="nxh">' + bi('14 วันถัดไป', 'Next 14 days') + ' <small>' + bi(dr[0] + ' · ' + tot + ' งาน', dr[1] + ' · ' + tot + ' events') + '</small></h3>';
   days.forEach(function (d) {
-    var evs = by[d], dn = dayName(d), mk = dayMarks(d), p2;
-    if (!evs.length && !mk.wan && !mk.fest.length) return;
+    var evs = by[d], dn = dayName(d), mk = dayMarks(d), msd = ms.day[d] || [], p2;
+    if (!evs.length && !mk.wan && !mk.fest.length && !msd.length) return;
     p2 = nxPick(evs, 3);
     o += '<h4 class="nxday" id="nxd-' + d + '" data-day="' + d + '">' + bi(dn[0], dn[1]) + (evs.length ? ' <small>' + bi(evs.length + ' งาน', evs.length + (evs.length === 1 ? ' event' : ' events')) + '</small>' : '') +
       (mk.wan ? ' <span class="nxmk">' + bi('วันพระ', 'wan phra') + '</span>' : '') + mk.fest.map(function (f) { return ' <span class="nxmk hot">' + bi(esc(f.th), esc(f.en || f.th)) + '</span>'; }).join('') + '</h4>';
+    o += msd.map(msRow).join('');
     p2.top.forEach(function (e) { o += nxRow(e, 'near', now, j++); });
     if (p2.rest.length) o += '<details class="dmore"><summary>' + bi('อีก ' + p2.rest.length + ' งาน', '+ ' + p2.rest.length + ' more') + '</summary>' + p2.rest.map(function (e) { return nxRow(e, 'near', now); }).join('') + '</details>';
   });
@@ -709,7 +732,7 @@ function calNext(how) {
   if (!REDUCED && how.anim) { void md.offsetWidth; md.classList.add(how.anim); }
   /* PLAN AHEAD: festival cards with their room and guide buttons, then later events */
   ahead();
-  nxAhead(ah, now);
+  nxAhead(ah, now, ms.later.map(msRow).join(''));
   markAt();
 }
 /* a shared #ev= or the clock's Calendar button: the band that holds the event opens it. False when no band holds it (over, hidden, too far). */
@@ -891,6 +914,7 @@ function ahead() {
       '<div class="ahd">' + bi(dd[0] + (smoke ? ' · หนักสุดราว ' + dates(x.peak, x.peak)[0] : x.usual ? ' · ตามปกติ' : ''), dd[1] + (smoke ? ' · worst around ' + dates(x.peak, x.peak)[1] : x.usual ? ' · usually' : '')) + '</div>' +
       '<p>' + bi(esc(x.lth), esc(x.len)) + '</p><div class="aha">' +
       (smoke ? '' : roomBtns() + guideBtns()) +
+      (D.sites || []).filter(function (s) { return x.id && MS_FEST[s.id] === x.id; }).map(function (s) { return '<a class="chip" href="' + esc(msHref(s)) + '">' + bi(esc(s.th), esc(s.en)) + ' →</a>'; }).join('') +
       '<a class="chip" download="' + (x.id || 'smoke') + '.ics" href="' + ics + '">' + (smoke ? bi('ลงปฏิทินวันหนีควัน', 'mark the getaway') : bi('ลงปฏิทิน', 'add to calendar')) + '</a>' +
       '<a class="chip" href="' + LIVE + x.page + '">' + (smoke ? bi('ฤดูหมอกควัน', 'The Smoky Season') : bi('ดูงาน', 'the festival')) + ' →</a></div>' +
       fb(smoke ? 'site:smoky-season' : 'festival:' + x.id) + '</div></article>';
@@ -2035,24 +2059,16 @@ document.addEventListener('click', function (ev) {
    orange starts at PM2.5 37.5) */
 function smoky(pm) { var md = new Date().toISOString().slice(5, 10); return pm >= 37.5 || (md >= '01-15' && md <= '04-30'); }
 
-/* ------------------------------------------------------------ MINISITES */
+/* ------------------------------------------------------------ MINISITES
+   Each once (Nan 2026-10-11): the dated ones in the calendar (msCal), the rest one row under the map */
 function sites() {
-  var S = D.sites; if (!S) return;
-  function day(d, M) { return (+d.slice(8)) + ' ' + M[+d.slice(5, 7) - 1]; }
-  function dt(s) {
-    if (s.on) return bi(day(s.on, MON_TH), day(s.on, MON_EN));
-    if (s.now && s.u) return bi('ถึง ' + day(s.u, MON_TH), 'until ' + day(s.u, MON_EN));
-    return s.d ? bi(day(s.d, MON_TH), day(s.d, MON_EN)) : '';
-  }
-  $('feed').innerHTML = S.map(function (s, i) {
-    var cls = (i === 0 ? 'post f' : i < 3 ? 'post w' : 'post') + (s.card ? ' card' : '');
-    var href = /^https?:/.test(s.href) ? s.href : LIVE + s.href;
-    return '<a class="' + cls + ' reveal" href="' + esc(href) + '"><img loading="' + (i < 3 ? 'eager' : 'lazy') + '" decoding="async" alt="" src="' + LIVE + esc(s.img) + '">' +
-      '<div class="c"><div class="dt">' + dt(s) + '</div><div class="tt">' + bi(esc(s.th), esc(s.en)) + '</div>' +
-      (i ? '<div class="ln">' + bi(esc(s.lth), esc(s.len)) + '</div>' : '') +
-      (s.by ? '<div class="by">' + esc(s.by) + '</div>' : '') + '</div></a>';
-  }).join('');
-  reveal();
+  var S = D.sites, box = $('msmap'); if (!S) return;
+  var rest = S.filter(function (s) { return !(s.on || s.now); });
+  if (box) box.innerHTML = '<h3>' + bi('เว็บเล็ก', 'Minisites') + ' <small>' + rest.length + '</small></h3><div class="msrow">' + rest.map(function (s, i) {
+    return '<a class="msc" href="' + esc(msHref(s)) + '"><img loading="' + (i < 4 ? 'eager' : 'lazy') + '" decoding="async" alt="" src="' + LIVE + esc(s.img) + '"><span>' + bi(esc(s.th), esc(s.en)) + '</span></a>';
+  }).join('') + '</div>';
+  if (D.events && $('mgrid') && $('mgrid').innerHTML) { try { month(); } catch (err) { console.error(err); } }
+  if (D.ahead) ahead();
 }
 
 /* ------------------------------------------------------------ THE DRAWER */

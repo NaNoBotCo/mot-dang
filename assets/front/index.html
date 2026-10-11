@@ -417,26 +417,23 @@ details.dmore>summary::-webkit-details-marker{display:none}
 #calmore button{background:none;border:1px solid var(--line);border-radius:999px;padding:.6rem 1.2rem;cursor:pointer;font-size:1rem}
 #calnote{font-size:.85rem;color:var(--mute);margin-top:1rem}
 
-/* MINISITES */
-#sites{padding:8svh 0 6svh}
-#feed{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:1.2rem}
-.post{grid-column:span 4;position:relative;border-radius:18px;overflow:hidden;background:var(--card);display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line)}
-.post.f{grid-column:span 12}
-.post.w{grid-column:span 6}
-.post img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
-.post.f img{aspect-ratio:21/9}
-.post .c{padding:.7rem .9rem 1rem}
-.post.f:not(.card) .c{position:absolute;left:0;right:0;bottom:0;padding:3.5rem 1.2rem 1.2rem;background:linear-gradient(transparent,rgba(0,0,0,.92))}
-.post .dt{font:700 .8rem var(--mono);color:var(--hot)}
-.post .tt{font-size:1.25rem;font-weight:800;line-height:1.25}
-.post.f .tt{font-size:clamp(1.6rem,5vw,2.6rem)}
-.post .tt .en{display:block;font-size:.72em;font-weight:600}
-html.lang-both .post .tt .en::before{content:none}
-.post .ln{font-size:.98rem;color:var(--mute);margin-top:.3rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.post.card img{aspect-ratio:1200/630}
-.post .by{font-size:.7rem;color:var(--mute);margin-top:.35rem}
-.post.f:not(.card) .by{color:rgba(255,255,255,.7)}
-@media (max-width:760px){.post,.post.w{grid-column:span 12}.post.f:not(.card) img{aspect-ratio:4/3}}
+/* MINISITES: the undated ones, one row under the map, map tab only (Nan 2026-10-11); the dated ones are in the calendar */
+#msmap{padding-top:.8rem;padding-bottom:1rem}
+html[data-stage=cal] #msmap{display:none}
+#msmap h3{margin:0 0 .45rem;font-size:1.05rem}
+#msmap h3 small{color:var(--mute);font-weight:600;margin-left:.3rem}
+.msrow{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:.4rem;scrollbar-width:thin}
+.msc{flex:0 0 9.5rem;scroll-snap-align:start;border-radius:12px;overflow:hidden;background:var(--card);border:1px solid var(--line);color:var(--ink);text-decoration:none}
+.msc img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:#1a1f28}
+.msc span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;padding:.35rem .5rem .45rem;font-weight:700;font-size:.85rem;line-height:1.25}
+html.lang-both .msc .bi>.en{display:none}
+#month .nxms{display:flex;align-items:center;gap:.6rem;margin:.5rem 0;padding:.3rem .7rem .3rem .3rem;background:var(--card);border:2px solid var(--ink);border-left:6px solid #c2185b;border-radius:8px 14px 10px 12px;box-shadow:3px 3px 0 var(--pen);color:var(--ink);text-decoration:none}
+#month .nxms img{width:3rem;height:3rem;object-fit:cover;border-radius:6px;flex:none}
+#month .nxms .tt{flex:1;font:700 1rem/1.25 var(--hand)}
+#month .nxms small{font:600 .8rem var(--hand);color:var(--mute);white-space:nowrap}
+html.lang-both #month .nxms .tt .en{display:block;margin:0;font-size:.85em}
+html.lang-both #month .nxms .tt .en::before{content:none}
+html.lang-both #month .nxms small .en{display:none}
 
 /* THE DRAWER */
 #drawer{margin:3svh auto 0;max-width:1180px;padding:0 18px 3rem}
@@ -531,6 +528,7 @@ html[data-contrast="more"] #veil{display:none}
     try{sessionStorage.setItem('md-map-city',b.dataset.city)}catch(x){}show(b.dataset.city,true)})})()</script>
   <noscript><iframe src="/sites/doodle-map/?embed=1" title="เชียงใหม่ วาดเล่น · Chiang Mai, Doodled"></iframe></noscript>
 </div>
+<div id="msmap" class="wrap" role="region" aria-label="เว็บเล็ก · minisites"></div>
 </section>
 <section id="doodle" aria-label="ตอนนี้ วันนี้ · now, today">
   <canvas id="doodc" role="img" aria-label="ภาพวาดของวันนี้ · today's drawing"></canvas>
@@ -545,10 +543,6 @@ html[data-contrast="more"] #veil{display:none}
     <div id="nearCap" class="wrap"></div>
   </div>
   <div class="strip" id="nearStrip"></div>
-</section>
-
-<section id="sites" aria-label="เว็บเล็ก · minisites">
-  <div class="wrap"><h2 class="reveal"><span class="th" lang="th">เว็บเล็ก</span><span class="en" lang="en">Minisites</span></h2><div id="feed"></div></div>
 </section>
 
 <details id="drawer">
