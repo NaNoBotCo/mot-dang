@@ -11,6 +11,13 @@ This picks every published place whose point is within 60 m of the moat's water
 API index the build has just written, and the map draws them all, before the
 view's own pick.
 
+Nan, 2026-10-11, later: "declutter the pins around the moat ... leaving mainly the well-known
+ones, spirit houses, big trees and shrines, and business listings that include either great
+details or a picture." So a place stays when it is a wat, sight or museum, a park or market
+by name, a spirit house, shrine or big tree (reach 120 m, approximate points allowed, as her
+own photos place them), or a business with a photo or four of phone, web, hours, LINE,
+facets, schedule. Order: landmarks and the sacred first, then photos, then details.
+
     rows: [id, lat, lng, thai name, latin name, page path, first category, photo 0/1, antRank,
            RTGS reading of a Thai-only name (build.name_roman) or ""]
 
@@ -25,6 +32,10 @@ ROOT = Path(__file__).resolve().parent
 LAND = ROOT / "assets" / "sites" / "city-live" / "data" / "land.json"
 BOX = (18.776, 18.800, 98.974, 98.998)          # map.js CFG.moat
 REACH = 60                                       # metres from the water's edge
+REACH_SACRED = 120
+KNOWN = {"sights", "wat", "museums-galleries"}
+SACRED = {"spirit-house", "shrine", "big-tree"}
+BY_NAME = re.compile(r"park|market|gate|สวน|ตลาด|กาด|ประตู", re.I)
 THAI = re.compile(r"[฀-๿]")
 THIN = re.compile(r" · [\d.,]+ ?(m|km|ม\.|กม\.) ")   # map.js thin(): a name made of a distance
 
@@ -57,12 +68,32 @@ def _dist(p, a, b, kx):
     return math.hypot(ax + u * dx, ay + u * dy)
 
 
+def _subs(r):
+    s = r.get("sub") or []
+    return s if isinstance(s, list) else [s]
+
+
+def tier(r, en, th):
+    """0 landmark or sacred, 1 photo, 2 well described, None left off"""
+    if SACRED & set(_subs(r)) or any(k in r["id"] for k in SACRED):
+        return 0
+    cats = set(r.get("cat") or [])
+    if cats & KNOWN or (cats & {"parks", "market"} and BY_NAME.search(en + " " + th)):
+        return 0
+    has = set(r.get("has") or [])
+    if "photo" in has:
+        return 1
+    if sum(k in has for k in ("phone", "web", "hours", "line")) + ("facets" in r) + ("sched" in r) >= 4:
+        return 2
+    return None
+
+
 def pick(places, land, roman=lambda r: ""):
     edges = moat_edges(land)
     if not edges:
         return []
     kx = 110574 * math.cos(math.radians(18.79))
-    pad = REACH / 110574 * 1.2
+    pad = REACH_SACRED / 110574 * 1.2
     rows = []
     for r in places:
         la, ln = r.get("lat"), r.get("lng")
@@ -70,21 +101,27 @@ def pick(places, land, roman=lambda r: ""):
             continue
         if not (BOX[0] - pad < la < BOX[1] + pad and BOX[2] - pad < ln < BOX[3] + pad):
             continue
-        if r.get("geoPrecision") not in ("exact", "block"):
-            continue
         name, en = (r.get("name") or "").strip(), (r.get("nameEn") or "").strip()
         if THIN.search(" " + en + " " + name + " "):
-            continue
-        if min(_dist((la, ln), a, b, kx) for a, b in edges) > REACH:
             continue
         th = name if THAI.search(name) else (r.get("nameTh") or "")
         if not en and not THAI.search(name):
             en = name
+        t = tier(r, en, th)
+        if t is None:
+            continue
+        sacred = t == 0 and bool(SACRED & set(_subs(r)) or any(k in r["id"] for k in SACRED))
+        if r.get("geoPrecision") not in (("exact", "block", "approx") if sacred else ("exact", "block")):
+            continue
+        if min(_dist((la, ln), a, b, kx) for a, b in edges) > (REACH_SACRED if sacred else REACH):
+            continue
         rows.append([r["id"], round(la, 6), round(ln, 6), th, en,
                      "/%s/p/%s.html" % (r["province"], r["slug"]),
                      (r.get("cat") or [""])[0], 1 if "photo" in (r.get("has") or []) else 0,
-                     r.get("antRank") or 0, "" if en else roman(r)])
-    rows.sort(key=lambda x: -x[8])
+                     r.get("antRank") or 0, "" if en else roman(r), t])
+    rows.sort(key=lambda x: (x[10], -x[8]))
+    for x in rows:
+        x.pop()
     return rows
 
 
