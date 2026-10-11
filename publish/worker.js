@@ -768,10 +768,25 @@ function loadGrid(env) {
   if (!GRID_P) {
     GRID_CHECKED = Date.now();
     GRID_P = (async () => {
+      /* a cold isolate takes meta from the colo cache, keyed by its etag */
+      const head = await env.SITE.head("api/v1/grid/meta.json");
+      if (!head) return null;                      // not deployed: the index answers
+      const key = (etag) => new Request("https://motdang.net/__grid/meta/" + encodeURIComponent(etag));
+      let cache = null;
+      try {
+        cache = caches.default;
+        const hit = await cache.match(key(head.httpEtag));
+        if (hit) { GRID_ETAG = head.httpEtag; return JSON.parse(await hit.text()); }
+      } catch { cache = null; }
       const obj = await env.SITE.get("api/v1/grid/meta.json");
-      if (!obj) return null;                       // not deployed: the index answers
+      if (!obj) return null;
       GRID_ETAG = obj.httpEtag;
-      return JSON.parse(await obj.text());
+      const text = await obj.text();
+      if (cache) {
+        try { await cache.put(key(obj.httpEtag), new Response(text, { headers: { "cache-control": "public, max-age=86400" } })); }
+        catch { /* the answer stands without the copy */ }
+      }
+      return JSON.parse(text);
     })().catch((e) => { GRID_P = null; GRID_ETAG = null; throw e; });
   }
   return GRID_P;
@@ -806,13 +821,20 @@ async function gridChunk(env, meta, c) {
 }
 
 /* The /places answer from the grid, or null when the index has to walk. */
-async function placesFromGrid(env, sp) {
+async function placesFromGrid(env, sp, timing) {
   if (!gridEligible(parseQuery(sp))) return null;
   try {
+    const t0 = Date.now();
+    const cold = !GRID_P;
     await revalidateGrid(env);
     const meta = await loadGrid(env);
     if (!meta) return null;
-    return await queryPlacesGrid(meta, (c) => gridChunk(env, meta, c), sp);
+    const t1 = Date.now();
+    let reads = 0;
+    const body = await queryPlacesGrid(meta, (c) => { reads++; return gridChunk(env, meta, c); }, sp);
+    timing.push(`meta;dur=${t1 - t0};desc=${cold ? "cold" : "held"}`,
+                `rows;dur=${Date.now() - t1};desc=${reads}chunks`);
+    return body;
   } catch (e) {
     console.error("/api/v1/places grid fault, walking the index", e && e.message);
     GRID_P = null; GRID_ETAG = null;
@@ -950,9 +972,11 @@ async function api(request, env, url, path, ctx) {
   }
 
   if (path === "/places") {
-    const body = await placesFromGrid(env, url.searchParams);
+    const timing = [];
+    const body = await placesFromGrid(env, url.searchParams, timing);
     if (body) {
       const res = apiJson(body);
+      res.headers.set("server-timing", timing.join(", "));
       if (cache && ckey) {
         try { ctx.waitUntil(cache.put(ckey, res.clone()).catch(() => {})); }
         catch { /* unfilled: the next asker computes it */ }
