@@ -59,6 +59,8 @@ OFF_FRAME = {}   # check 5's rows, for --write-baseline
 NO_GROUND = {}   # check 6b's rows (by folder), for --write-baseline
 
 import regional_ground as rg  # noqa: E402
+sys.path.insert(0, str(ROOT / "tools"))
+import holdback  # noqa: E402  a page or site held back this round is not read
 
 THAILAND = (5.5, 97.2, 20.6, 105.7)          # S, W, N, E
 FENCE = (17.0, 97.3, 20.5, 100.6)            # cm-cr.pmtiles extract
@@ -78,6 +80,7 @@ PIN_DOUBT_CASES = ("cm-ovt-8fbb1fff-4899-4d77-a6f9-80ba88cf8b44",   # Chiang Rai
                    "cm-ovt-fec3f686-4697-4625-8cd6-b74a3087b896")  # The Golden Triangle
 
 FAILED, ADVISE = [], []
+HELD_OK = set()   # failed labels whose every row is a page or site tools/holdback.py can hold
 
 
 def check(label, ok, detail=""):
@@ -124,6 +127,13 @@ def ratchet(name, found, known, fmt):
         print("        new  " + fmt(i, found[i]))
     if gone:
         print(f"        {len(gone)} known row(s) cleared — rerun with --write-baseline to shrink the list")
+    return new
+
+
+def hold(label, paths, why):
+    """Name a failed check's pages for tools/holdback.py (Nan, 2026-10-11)."""
+    if paths and holdback.propose(paths, "map sanity: " + why):
+        HELD_OK.add(label)
 
 
 def main():
@@ -229,6 +239,7 @@ def main():
         rest = [f for f in rest if f not in imported]
         random.seed(len(rest))
         pages += sorted(imported) + random.sample(rest, min(SAMPLE, len(rest)))
+        pages = [f for f in pages if not holdback.held(f.relative_to(DOCS).as_posix())]
         svg_rx = re.compile(r"<svg\b([^>]*)>(.*?)</svg>", re.S)
         vb_rx = re.compile(r'viewBox="\s*([-\d.]+)[ ,]+([-\d.]+)[ ,]+([-\d.]+)[ ,]+([-\d.]+)"')
         pin_rx = re.compile(r'<circle\b[^>]*?\bcx="([-\d.]+)"[^>]*?\bcy="([-\d.]+)"'
@@ -236,6 +247,7 @@ def main():
         mount_rx = re.compile(r'data-mdmap="[^"]*"[^>]*?data-lat="([-\d.]+)" data-lng="([-\d.]+)"')
         draw_rx = re.compile(r'<div class="mdmap-draw">')
         n_svg, off, bad_mount, naked, no_ground = 0, {}, [], [], []
+        mount_pages, naked_pages = set(), set()
         import map_shell
         enabled = map_shell.enabled()
         (mw, ms), (me, mn) = map_shell.config().get("bounds") or map_shell.BOUNDS
@@ -263,6 +275,7 @@ def main():
                 body = m.group(2)
                 if "data-mdpin" in body and not any(a <= m.start() < b for a, b in draws):
                     naked.append(f"{f.relative_to(DOCS)} ({w:.0f}x{h:.0f})")
+                    naked_pages.add(f.relative_to(DOCS).as_posix())
                 for c in pin_rx.finditer(body):
                     x, y = float(c.group(1) or c.group(3)), float(c.group(2) or c.group(4))
                     if not (x0 - 2 <= x <= x0 + w + 2 and y0 - 2 <= y <= y0 + h + 2):
@@ -271,6 +284,7 @@ def main():
                 la, ln = float(m.group(1)), float(m.group(2))
                 if not (ms <= la <= mn and mw <= ln <= me):
                     bad_mount.append(f"{f.relative_to(DOCS)} {la},{ln}")
+                    mount_pages.add(f.relative_to(DOCS).as_posix())
             # A mount present but the basemap script missing is the other half of
             # the same failure (build.page auto-injects map_shell.head on any body
             # holding a mount): the drawing renders and no tiles ever arrive over
@@ -279,14 +293,18 @@ def main():
             if enabled and 'data-mdmap="1"' in s and "maplibre-gl.js" not in s:
                 no_ground.append(str(f.relative_to(DOCS)))
         print(f"  ({n_svg} drawings on {len(pages)} pages, {len(imported)} of them from sites built elsewhere)")
-        ratchet("pins inside the frame", off, known.get("off_frame", []),
-                lambda k, d: f"{k} {d}")
+        hold("pins inside the frame: no new rows",
+             ratchet("pins inside the frame", off, known.get("off_frame", []),
+                     lambda k, d: f"{k} {d}"), "a pin off its frame")
         OFF_FRAME.update(off)
         print("6 · basemap mounts")
         check("every mount centred inside the fence", not bad_mount, "; ".join(bad_mount[:5]))
+        hold("every mount centred inside the fence", sorted(mount_pages), "a map centred off the fence")
         print("6b · a basemap under every drawn map")
         check("no drawn map outside a mount (a map that can never get ground)",
               not naked, "; ".join(naked[:5]))
+        hold("no drawn map outside a mount (a map that can never get ground)", sorted(naked_pages),
+             "a drawn map with no basemap mount")
         if enabled:
             # Keyed by folder: one template draws a folder, so a missing script
             # is a template's fault, not a page's. Ratchets like 2, 3 and 5.
@@ -294,8 +312,11 @@ def main():
             for g_ in no_ground:
                 by_dir.setdefault("/".join(g_.split("/")[:2]), []).append(g_)
             no_ground_rows = {d: f"{len(v)} page(s), e.g. {v[0]}" for d, v in by_dir.items()}
-            ratchet("every mounted map ships its basemap script", no_ground_rows,
-                    known.get("no_ground", []), lambda k, d: f"{k}: {d}")
+            hold("every mounted map ships its basemap script: no new rows",
+                 [d + "/" if not d.endswith(".html") else d for d in
+                  ratchet("every mounted map ships its basemap script", no_ground_rows,
+                          known.get("no_ground", []), lambda k, d: f"{k}: {d}")],
+                 "a map without its basemap script")
             NO_GROUND.update(no_ground_rows)
         else:
             print("  note  basemap disabled (data/basemap.json has no url) — the drawn "
@@ -399,6 +420,9 @@ def main():
     for a in ADVISE:
         print("  note  " + a)
     print()
+    for f in FAILED:
+        if f not in HELD_OK:
+            holdback.cannot(f)
     if FAILED:
         print(f"{len(FAILED)} failed:")
         for f in FAILED:

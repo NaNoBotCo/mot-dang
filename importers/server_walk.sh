@@ -23,6 +23,7 @@ export MD_JOBS=${MD_JOBS:-1}
 export MD_BUILD_TIMEOUT=${MD_BUILD_TIMEOUT:-360m}
 export MD_PROFILE=${MD_PROFILE:-$SSTATE/build-profile.json}   # build_sampler.py
 export MD_LAYER_STATE=${MD_LAYER_STATE:-$SSTATE/layers.json}   # layers.py: each layer's time, outputs, failures
+export MD_HOLD_BACK=${MD_HOLD_BACK:-$SSTATE/held-back.txt}     # tools/holdback.py: pages held at their live version
 MISSING_CEILING=500   # 2026-10-05: an 11-hour-old source would have deleted 1,977 live files
 
 mkdir -p "$SSTATE"
@@ -43,6 +44,12 @@ stand_down() { say "standing down — $1"; note "stood-down" "$1"; exit 0 }
 layer_note() {
   local f; f=$(python3 -c 'import json,sys; print(", ".join(json.load(open(sys.argv[1])).get("failed", [])))' "$MD_LAYER_STATE" 2>/dev/null)
   [[ -n "$f" ]] && { say "⚠️  layers that failed, their last good pages kept: $f"; note "layers-failed" "$f" }
+  return 0
+}
+# A page or site a gate failed on was held at its live version (tools/holdback.py).
+held_note() {
+  local h; h=$(python3 tools/holdback.py line 2>/dev/null)
+  [[ -n "$h" ]] && { say "⚠️  held back at their live version: $h"; note "held-back" "$h" }
   return 0
 }
 remember_gate_fail() { say "the gate failed on hand-off $HAND; the next hand-off builds again" }
@@ -135,9 +142,10 @@ pre_deploy() {
 import sys
 sys.path.insert(0, "publish")
 try:
-    import deploy, safety
+    import deploy, safety, holdback
     gone = safety.deletions_preview("R2:%s" % deploy.BUCKET,
                                     deploy.rclone_env(deploy.creds()), deploy.run)
+    gone = [k for k in gone if not holdback.held(k)]   # held: left as it is
 except BaseException as e:
     print("bucket listing failed: %r" % (e,))
     sys.exit(2)
@@ -193,6 +201,7 @@ if publish_once; then
   say "== published $HAND — $COUNT files"
   note "published" "$HAND $COUNT files"
   layer_note
+  held_note
   exit 0
 fi
 
@@ -217,6 +226,7 @@ if publish_once; then
   say "== published $HAND with the code of $GOOD — $COUNT files; the newer code failed: $WHY"
   note "published-last-good-code" "$HAND data, $GOOD code, $COUNT files; newer code failed: $WHY"
   layer_note
+  held_note
   exit 0
 fi
 note "failed" "the last good code failed too ($WHY)"

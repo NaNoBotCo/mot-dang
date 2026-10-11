@@ -85,6 +85,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import safety                                    # noqa: E402  (same directory)
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
+import holdback                                  # noqa: E402  pages held back this round
 
 ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
@@ -255,6 +257,9 @@ def gate(scope=None):
                  "bucket. Rebuild, then try again." % (f"{n:,}", f"{FLOOR:,}"))
     hits = subprocess.run(["grep", "-rl", "/Users/", str(root)],
                           capture_output=True, text=True).stdout.strip()
+    # A page held back this round (tools/holdback.py) is not uploaded.
+    hits = "\n".join(h for h in hits.splitlines()
+                     if not holdback.held(Path(h).relative_to(DOCS).as_posix()))
     if hits:
         sys.exit("REFUSING: local paths in the output —\n" +
                  "\n".join(hits.splitlines()[:5]))
@@ -709,18 +714,26 @@ def main():
     since, how = safety.source_time()
     young = safety.uploaded_since(dest, env, run, gone, since)
     keep_list = None
+    # Held back this round (tools/holdback.py, Nan 2026-10-11): a page or site
+    # a gate failed on keeps its live version — not uploaded, not deleted.
+    hold = holdback.excludes()
+    if hold:
+        note("  holding back %d page(s) or site(s) at their live version: %s"
+             % (len(hold), ", ".join(sorted(holdback.load()))))
+        gone = [k for k in gone if not holdback.held(k)]
     if young:
         note("  keeping %d live file(s) uploaded after this build's source "
              "(%s, %s): %s%s"
              % (len(young), since.isoformat(timespec="seconds"), how,
                 ", ".join(young[:5]), " …" if len(young) > 5 else ""))
-        keep_list = Path(tempfile.mkstemp(suffix=".txt")[1])
-        atexit.register(keep_list.unlink, missing_ok=True)
         # --exclude-from reads globs; escape so a key matches only itself.
-        keep_list.write_text("".join(
-            "/" + re.sub(r"([*?\[\]{}\\])", r"\\\1", k) + "\n" for k in young))
+        hold += ["/" + re.sub(r"([*?\[\]{}\\])", r"\\\1", k) for k in young]
         kept = set(young)
         gone = [k for k in gone if k not in kept]
+    if hold:
+        keep_list = Path(tempfile.mkstemp(suffix=".txt")[1])
+        atexit.register(keep_list.unlink, missing_ok=True)
+        keep_list.write_text("".join(g + "\n" for g in hold))
     ok, msg = safety.deletion_verdict(gone, prune=prune, prune_up_to=prune_up_to,
                                       tree_ok=tree_ok)
     if not ok:
