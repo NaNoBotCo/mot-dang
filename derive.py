@@ -1161,11 +1161,28 @@ def _unpin(record: dict, why: str) -> None:
         (record.get("provenance") or {}).pop(f, None)
 
 
+OTHER_COUNTRY = ROOT / "data" / "curated" / "other_country.json"
+
+
+def _other_country() -> dict:
+    """{id: where} for records a person has read as standing in another country.
+
+    data/curated/other_country.json, {"ids": {id: "Tachileik, Myanmar"}}. The Mae Sai crossing is
+    inside this repo's bounding boxes and the Natural Earth province edge is coarse, so Tachileik
+    pins read as Chiang Rai (2026-10-11: six Overture rows, a bank, a nursery and a car wash among
+    them). A reading here outranks the confidence tier, since a person made it."""
+    try:
+        return json.loads(OTHER_COUNTRY.read_text(encoding="utf-8")).get("ids") or {}
+    except (OSError, ValueError):
+        return {}
+
+
 def apply_pin_doubt(records: list, prov: str, counts: dict | None = None) -> int:
     """Mark needs-pin a pin its province, its name or its neighbours contradict."""
     c = counts if counts is not None else {}
     placed_by_hand = ("curated", "field")
     written = 0
+    abroad = _other_country()
 
     def flag(r, why):
         nonlocal written
@@ -1176,6 +1193,9 @@ def apply_pin_doubt(records: list, prov: str, counts: dict | None = None) -> int
 
     for r in records:
         if r.get("lat") is None or r.get("lng") is None:
+            continue
+        if r.get("id") in abroad and (r.get("geoPrecision") or "exact") != "needs-pin":
+            flag(r, "other-country: " + str(abroad[r["id"]]))
             continue
         if r.get("confidence") in placed_by_hand + ("crawled",):
             continue

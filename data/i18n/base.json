@@ -2338,5 +2338,10 @@
 "S2337": {"th": "จ่ายอะไร", "en": "what you pay"},
 "S2338": {"th": "ยังไม่ประกาศ", "en": "not yet announced"},
 "S2339": {"th": "หน้าผู้จัด", "en": "organizer page"},
-"S2340": {"th": "รอประกาศ", "en": "waiting on"}
+"S2340": {"th": "รอประกาศ", "en": "waiting on"},
+"S2341": {"th": "คนจากเมียนมา", "en": "People from Myanmar"},
+"S2342": {"th": "อาหารพม่า", "en": "Burmese food"},
+"S2343": {"th": "อาหารไทใหญ่", "en": "Shan food"},
+"S2344": {"th": "อาหารพม่า-ไทใหญ่", "en": "Burmese & Shan"},
+"S2345": {"th": "รองรับใคร", "en": "Who it serves"}
 }

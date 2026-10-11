@@ -72,7 +72,8 @@ for lang in il.LANGS:
 
 # advisory: how much of base.json is still written in the layers (the strings drift as pages change)
 src = ""
-for p in list(ROOT.glob("*.py")) + [ROOT / "data" / "categories.json", ROOT / "data" / "facets.json", ROOT / "data" / "tags.json"]:
+for p in list(ROOT.glob("*.py")) + [ROOT / "data" / "categories.json", ROOT / "data" / "facets.json", ROOT / "data" / "tags.json",
+                                                ROOT / "data" / "curated" / "tags_curated.json"]:
     try:
         src += p.read_text(encoding="utf-8") + "\n"
     except OSError:

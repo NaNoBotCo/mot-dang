@@ -3554,6 +3554,538 @@
      ]
     }
    ]
+  },
+  "myanmar": {
+   "th": "ตาข่ายเมียนมา — ไทใหญ่ พม่า และคนจากเมียนมาในเชียงใหม่และเชียงราย",
+   "en": "The Myanmar net — Shan, Burmese and other people from Myanmar in Chiang Mai and Chiang Rai",
+   "lede_th": "คนจากเมียนมาอยู่และทำงานทั่วเชียงใหม่และเชียงราย มีทั้งครอบครัวไทใหญ่ที่อยู่มาหลายชั่วคน และชาวพม่า คะฉิ่น กะเหรี่ยง มอญ ที่มาทำงาน เรียน หรือหนีภัย ตาข่ายนี้ร้อยที่ที่บอกเองว่ารับคนกลุ่มนี้ ได้แก่ร้านอาหารไทใหญ่และพม่า ตลาด วัดที่มีพระและโรงเรียนไทใหญ่หรือพม่า ศูนย์การเรียนรู้ หนังสือภาษาพม่า โรงพยาบาลที่บอกว่ามีล่าม มูลนิธิด้านสิทธิแรงงาน และสำนักงานที่ดูแลใบอนุญาตทำงาน เปิดหน้าไหนข้างล่างนี้ ก็เห็นที่อื่นทั้งหมด",
+   "lede_en": "People from Myanmar live and work across Chiang Mai and Chiang Rai: Shan (Tai Yai) families who have been here for generations, and Burmese, Kachin, Karen and Mon people who came to work, to study or because they had to leave home. This net strings together places that say they serve them or that they use: Shan and Burmese kitchens, markets, temples with Shan or Burmese monks and schools, learning centres, Burmese-language books, hospitals that state Burmese interpreters, a rights foundation, and the offices that handle work permits. Open any page below and it shows all the others.",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Wat_Pa_Pao,_Mueang_Chiang_Mai",
+     "label": "Wikipedia: Wat Pa Pao"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Wat_Ku_Tao",
+     "label": "Wikipedia: Wat Ku Tao"
+    },
+    {
+     "url": "https://www.lovethailand.org/travel/en/1-Chiang-Mai/11039-Wat-Sai-Moon-Myanmar.html",
+     "label": "Love Thailand: Wat Sai Moon Myanmar"
+    },
+    {
+     "url": "https://www.chiangmai-alacarte.com/blog/wat-san-pa-ko-the-shan-temple/",
+     "label": "Chiang Mai a la Carte: Wat San Pa Ko"
+    },
+    {
+     "url": "https://www.bangkokhospital.com/en/chiangmai/page/international-medical-services-bcm",
+     "label": "Bangkok Hospital Chiang Mai: International Medical Services"
+    },
+    {
+     "url": "https://www.chiangmairam.com/news_detail/835",
+     "label": "Chiangmai Ram Hospital: interpreter team"
+    },
+    {
+     "url": "https://www.bangkokhospital.com/en/chiangrai/page/international-1-bcr",
+     "label": "Bangkok Hospital Chiang Rai: International Medical Services"
+    },
+    {
+     "url": "https://www.doe.go.th/chiangmai",
+     "label": "กรมการจัดหางาน: สำนักงานจัดหางานจังหวัดเชียงใหม่"
+    },
+    {
+     "url": "https://chiangmai.labour.go.th/",
+     "label": "สำนักงานสวัสดิการและคุ้มครองแรงงานจังหวัดเชียงใหม่"
+    },
+    {
+     "url": "https://chiangrai.labour.go.th/",
+     "label": "สำนักงานสวัสดิการและคุ้มครองแรงงานจังหวัดเชียงราย"
+    },
+    {
+     "url": "https://www.mapfoundationcm.org/contact",
+     "label": "MAP Foundation: contact"
+    },
+    {
+     "url": "https://chiangmaivisadesk.com/migrant-workers/",
+     "label": "Chiang Mai Visa Desk: migrant workers"
+    },
+    {
+     "url": "https://www.happycow.net/reviews/memories-of-chiang-mai-497813",
+     "label": "HappyCow: Memories of Chiang Mai"
+    },
+    {
+     "url": "https://www.kldf-cnx.org",
+     "label": "Karen Leadership Development Program"
+    },
+    {
+     "url": "https://www.mapfoundationcm.org/",
+     "label": "MAP Foundation"
+    }
+   ],
+   "strands": [
+    {
+     "key": "tables",
+     "th": "โต๊ะอาหารไทใหญ่และพม่า",
+     "en": "Shan and Burmese tables",
+     "jewels": [
+      {
+       "id": "cm-curated-fb-shanlayfood",
+       "th": "ก๋วยเตี๋ยวไทใหญ่ และอาหารไทใหญ่-พม่า เริ่มจานละ 35 บาท",
+       "en": "Shan noodles and Shan and Burmese dishes from 35 baht"
+      },
+      {
+       "id": "cm-osm-node-12778850501",
+       "th": "อาหารไทใหญ่เจ: ข้าวแรมฟืน เต้าหู้",
+       "en": "Vegetarian Shan food: khao raem foen, tofu"
+      },
+      {
+       "id": "cm-ovt-1193a50c-41e7-44a1-a2b0-e0acf4221edb",
+       "th": "อาหารไทใหญ่เจ (ตามเพจร้าน)",
+       "en": "Vegan Shan food, from its Facebook page"
+      },
+      {
+       "id": "cm-ovt-233fd7c0-0e57-43d1-972d-275da5881a13",
+       "th": "ก๋วยเตี๋ยวไทใหญ่ และอาหารไทใหญ่-พม่า",
+       "en": "Shan noodles and Shan and Burmese dishes"
+      },
+      {
+       "id": "cm-ovt-4d52ad25-a546-429c-bdc4-73c6d742df2c",
+       "th": "อาหารไทใหญ่เชียงตุง: ข้าวซอยน้อย ข้าวแรมฟืน ก๋วยเตี๋ยว",
+       "en": "Tai Yai food from Kengtung: khao soi noi, khao raem foen, noodles"
+      },
+      {
+       "id": "cm-ovt-64193c4c-9f34-4bbd-9559-915acb6b9ab6",
+       "th": "ก๋วยเตี๋ยวไทใหญ่ ข้าวฟืนอุ่น",
+       "en": "Shan noodles and warm khao foen"
+      },
+      {
+       "id": "cm-ovt-99c6331d-c3b8-417e-8a95-7c7677ef1d13",
+       "th": "ร้านเล็กของครอบครัว อาหารไทใหญ่-พม่าส่วนมากเจ จานละ 40-50 บาท",
+       "en": "A small family eatery: mostly vegan Shan and Burmese food, 40 to 50 baht"
+      },
+      {
+       "id": "cm-ovt-b68e9ded-665a-4e21-aad8-be64d55d6e49",
+       "th": "ร้านอาหารไทใหญ่",
+       "en": "Tai Yai restaurant"
+      },
+      {
+       "id": "cm-ovt-e22e7968-2526-4225-9684-4d59852286df",
+       "th": "อาหารไทใหญ่ มีส่งในเมือง",
+       "en": "Tai Yai food, delivery inside the city"
+      },
+      {
+       "id": "cr-ovt-5b7a3037-c21a-4cc7-ab0a-20440701feea",
+       "th": "ข้าวซอยน้อย แป้งข้าวเจ้าแบบไทใหญ่ เปิดทุกวัน",
+       "en": "Khao soi noi, the Shan rice-flour sheet, open daily"
+      },
+      {
+       "id": "cr-ovt-f3236023-9fca-4206-9dea-62865e2142b5",
+       "th": "น้ำเงี้ยวสูตรไทใหญ่",
+       "en": "Nam ngiao noodles to a Shan recipe"
+      },
+      {
+       "id": "cm-osm-way-650706594",
+       "th": "อาหารพม่า: ยำใบชา แกงฮังเล ซุปปลา",
+       "en": "Burmese: tea leaf salad, hin lay curry, fish soup"
+      },
+      {
+       "id": "cm-osm-node-3057318301",
+       "th": "อาหารพม่าและไทใหญ่ ก๋วยเตี๋ยวไทใหญ่ ยำ แกง มีห้องสมุดพม่า",
+       "en": "Burmese and Shan dishes, Shan noodles, salads, curries; a Burmese library"
+      },
+      {
+       "id": "cm-osm-node-13580268501",
+       "th": "อาหารพม่า อินเดีย ไทย ยำใบชา",
+       "en": "Burmese, Indian and Thai dishes, tea leaf salad"
+      },
+      {
+       "id": "cm-osm-node-13981970601",
+       "th": "ร้านชาพม่าสไตล์สะกายง์ ยำและขนม ครอบครัวทำ",
+       "en": "Sagaing-style Burmese tea shop: salads and sweets, family-run"
+      },
+      {
+       "id": "cm-osm-node-3117930572",
+       "th": "จ๊าอู๋ ก๋วยเตี๋ยวน้ำพม่า",
+       "en": "Kyay-oh, Burmese noodle soup"
+      },
+      {
+       "id": "cm-osm-node-12608747501",
+       "th": "ข้าวแกงและก๋วยเตี๋ยวพม่า แม่เหียะ",
+       "en": "Burmese rice and curry, noodles, Mae Hia"
+      },
+      {
+       "id": "cm-ovt-0f514025-e13e-4ed8-889b-eae9256fed88",
+       "th": "ครัวอาหารเมียนมา มีส่ง",
+       "en": "Myanmar kitchen, with delivery"
+      },
+      {
+       "id": "cm-ovt-4ce2b609-bd73-4143-ac6d-2b02ec7b7d47",
+       "th": "ร้านอาหารพม่า จันทร์-เสาร์ 08:00-18:00 (เพจร้าน)",
+       "en": "Burmese restaurant, Monday to Saturday 08:00-18:00 per its page"
+      },
+      {
+       "id": "cm-ovt-5631d069-9061-4fc2-a420-28c01ee421b0",
+       "th": "ร้านอาหาร-บาร์ที่เพจเป็นภาษาพม่า",
+       "en": "A restaurant and bar whose page is in Burmese"
+      },
+      {
+       "id": "cm-ovt-662d6d1f-e425-4f1e-9f72-af13c2365b59",
+       "th": "อาหารพม่า ถนนต้นขาม 2",
+       "en": "Burmese cuisine, Ton Kham 2 Road"
+      },
+      {
+       "id": "cm-ovt-7e0f4cf3-d6d8-41be-a484-630d71b9f000",
+       "th": "อาหารพม่าและเจ ศรีดอนไชย",
+       "en": "Burmese and vegetarian, Sri Donchai Road"
+      },
+      {
+       "id": "cm-ovt-9297231a-5773-4050-bcfb-3d2971a7db3f",
+       "th": "อาหารพม่าแบบดั้งเดิม แถบมัณฑะเลย์",
+       "en": "Traditional Myanmar food, Mandalay-area dishes"
+      },
+      {
+       "id": "cm-ovt-c9088da5-ca33-4ec2-a1fa-6bc12551689c",
+       "th": "อาหารพม่าฮาลาล อาหารเช้า ข้าวเส้นแกง โรตี",
+       "en": "Halal Burmese breakfast and dishes: rice noodle curry, roti"
+      },
+      {
+       "id": "cm-ovt-c89718d4-b97e-4aca-9267-58742c3b19a9",
+       "th": "ร้านชาพม่า: ชาพม่า โมฮิงกา น่านจีทโอะ",
+       "en": "Burmese tea house: tea, mohinga, nan gyi thoke"
+      },
+      {
+       "id": "cm-ovt-e0ee53c4-c43a-4ef6-a016-47d925280be5",
+       "th": "ชานมพม่า อาหารเช้า โรตี ถนนช้างคลาน",
+       "en": "Burmese milk tea, breakfast, roti, Chang Khlan Road"
+      },
+      {
+       "id": "cm-ovt-ba5ebcc2-d27c-4224-8eb7-4dac93add274",
+       "th": "อาหารคะฉิ่น",
+       "en": "Kachin traditional food"
+      },
+      {
+       "id": "cm-ovt-d16cdaeb-ffc9-4eae-ac32-4214af99d3b5",
+       "th": "ร้านกาแฟที่ชื่อเขียนเป็นอักษรไทใหญ่และพม่า หางดง",
+       "en": "A coffee shop named in Shan and Burmese script, Hang Dong"
+      },
+      {
+       "id": "cm-osm-node-6041336985",
+       "th": "คาเฟ่เจ มีอาหารไทใหญ่-พม่า และช่วยผู้ลี้ภัยจากพม่า",
+       "en": "Vegan cafe with Shan and Burmese dishes; supports refugees from Burma"
+      },
+      {
+       "id": "cr-ovt-6d3708b4-8728-49c3-ad11-e4180f87572c",
+       "th": "กาแฟ ชา เค้ก อาหาร ใกล้ด่านแม่สาย (ฮาลาล)",
+       "en": "Coffee, tea, cakes and food near the Mae Sai border gate (halal)"
+      },
+      {
+       "id": "cm-curated-gatones-teashop",
+       "th": "ร้านชาและอาหารเช้าพม่า: โมฮิงกา น่านจีทโอะ ยำใบชา ชานมพม่า",
+       "en": "Burmese tea shop and breakfast: mohinga, nan gyi thoke, laphet thoke, Burmese milk tea, free green tea."
+      },
+      {
+       "id": "cm-curated-rangoon-food-house",
+       "th": "ร้านอาหารพม่าเล็ก ๆ: โมฮิงกา ข้าวซอยพม่า ไก่ทอดโรตี มีเมนูพิเศษวันหยุด",
+       "en": "Small Burmese rice-and-curry restaurant: mohinga, kauk swe noodles, kyar zan chat, chicken prata; weekend specials."
+      },
+      {
+       "id": "cm-curated-thai-yai-kitchen",
+       "th": "อาหารไทใหญ่แบบเชียงตุงและอาหารพม่า ชา-กาแฟพม่า ในศูนย์วัฒนธรรมเชียงใหม่",
+       "en": "Tai Yai (Kengtung) and Burmese food, Burmese tea and coffee; inside the Old Chiang Mai Cultural Center."
+      },
+      {
+       "id": "cm-curated-tai-yai-food-warorot",
+       "th": "ร้านอาหารไทใหญ่-พม่าในศูนย์อาหารตลาดวโรรส (กาดหลวง) มีเมนูมังสวิรัติ",
+       "en": "Burmese and Shan food stall in the food court of Warorot Market (Kad Luang); vegetarian options."
+      },
+      {
+       "id": "cm-curated-cherry-burmese-2",
+       "th": "สาขา 2 ของ Cherry Burmese: อาหารพม่า อินเดีย และไทย",
+       "en": "Second branch of Cherry Burmese: Burmese, Indian and Thai menus."
+      },
+      {
+       "id": "cm-curated-the-90s-burmese-tea-noodles",
+       "th": "ร้านชาและก๋วยเตี๋ยวพม่า มีอาหารไทใหญ่",
+       "en": "Burmese tea and noodle shop with Shan dishes and beef tripe noodle soup."
+      },
+      {
+       "id": "cm-curated-zinme-tea-house-umong",
+       "th": "สาขาที่สองของร้านชาซินเม่ ใกล้วัดอุโมงค์",
+       "en": "Second Zinme tea house, near Wat Umong: Burmese tea and food."
+      },
+      {
+       "id": "cm-curated-khao-gaeng-mandalay-hang-dong",
+       "th": "ร้านข้าวแกงพม่าสไตล์มัณฑะเลย์ มียำใบชาและชาให้ฟรีหลังอาหาร",
+       "en": "Burmese curry-and-rice shop; free tea leaf salad and tea after the meal."
+      },
+      {
+       "id": "cm-curated-may-kha-burmese",
+       "th": "ร้านอาหารพม่า ถนนเชียงใหม่-ดอยสะเก็ด",
+       "en": "Burmese restaurant on the Chiang Mai-Doi Saket road."
+      },
+      {
+       "id": "cm-curated-shan-noodle-shop-nong-pa-khrang",
+       "th": "ร้านก๋วยเตี๋ยวไทใหญ่เล็ก ๆ ใกล้แม็คโคร ถนนซุปเปอร์ไฮเวย์เชียงใหม่-ลำปาง",
+       "en": "Small family shop for Shan noodle soup, near Makro on the Lampang-Chiang Mai superhighway."
+      },
+      {
+       "id": "cr-curated-khao-raem-foen-pa-nang",
+       "th": "ข้าวแรมฟืนและข้าวซอยมะเขือเทศแบบไทใหญ่ ขายมากว่า 30 ปี ในแม่สาย",
+       "en": "Shan khao raem foen (rice-bean cake) and khao soi, 30+ years in Mae Sai."
+      },
+      {
+       "id": "cr-curated-phuen-khao-mae-sai",
+       "th": "ร้านอาหารไทใหญ่จากรัฐฉานตะวันออก: หมูอุ๊บ ยำใบชา แกงผักรวม",
+       "en": "Shan (eastern Shan State) restaurant: moo oop, tea leaf salad, stir-fried long beans, mixed vegetable curry."
+      },
+      {
+       "id": "cr-curated-khao-soi-noi-pa-pang-doi-tung",
+       "th": "ข้าวซอยน้อย (พิซซ่าไทยใหญ่) ทางก่อนขึ้นพระธาตุดอยตุง",
+       "en": "Khao soi noi (steamed rice-flour sheet with filling) on the old road toward Doi Tung."
+      },
+      {
+       "id": "cr-curated-thai-yai-restaurant-wat-huai-kiang",
+       "th": "ร้านอาหารไทใหญ่หน้าวัดห้วยเกี๋ยง เชียงแสน",
+       "en": "Tai Yai restaurant in front of Wat Huai Kiang, Chiang Saen."
+      },
+      {
+       "id": "cr-curated-papa-joe-chiang-rai",
+       "th": "ร้านอาหารพม่า ใกล้มหาวิทยาลัยแม่ฟ้าหลวง ตัวเมืองเชียงราย",
+       "en": "Myanmar restaurant near Mae Fah Luang University, Chiang Rai city."
+      },
+      {
+       "id": "cm-curated-khao-foen-lung-nui-fang",
+       "th": "ร้านของกินไทใหญ่ต้นหนุน อำเภอฝาง: ข้าวฟืนทอด ข้าวฟืนยำ ข้าวฟืนอุ่น",
+       "en": "Tai Yai food shop in Fang: fried and mixed khao foen, khao foen un, yam khao soi."
+      }
+     ]
+    },
+    {
+     "key": "temples",
+     "th": "วัดไทใหญ่และวัดพม่า",
+     "en": "Shan and Burmese temples",
+     "jewels": [
+      {
+       "id": "cm-osm-node-1445519696",
+       "th": "วัดไทใหญ่แห่งแรกของเชียงใหม่ สร้าง พ.ศ. 2426 มีโรงเรียนสอนภาษาไทใหญ่ พิพิธภัณฑ์ และปอยส่างลองทุกปี",
+       "en": "The first Shan temple in Chiang Mai, built 1883: a Shan-language school, a museum, Poy Sang Long each spring"
+      },
+      {
+       "id": "cm-osm-way-665826690",
+       "th": "วัดไทใหญ่ ปอยส่างลองใหญ่ที่สุดของเชียงใหม่ ข้างสนามกีฬา",
+       "en": "A Shan temple by the stadium; the larger of the city's two Poy Sang Long sites"
+      },
+      {
+       "id": "cm-osm-way-244650874",
+       "th": "วัดพม่าในเวียง เจ้าอาวาสเป็นชาวพม่า มีสอนภาษาพม่าให้เด็ก ถวายกฐินทุกปี",
+       "en": "A Burmese temple inside the old city with a Burmese abbot; Burmese lessons for children; a Kathina offering each year"
+      },
+      {
+       "id": "cr-ovt-fcf07288-f775-4148-8836-820663a6a51a",
+       "th": "วัดไทใหญ่ของเชียงราย ตั้ง พ.ศ. 2459 พระกลับมาจำพรรษาตั้งแต่ พ.ศ. 2556",
+       "en": "The Shan temple of Chiang Rai, founded 1916; monks back in residence since 2013"
+      },
+      {
+       "id": "cr-osm-node-12278753413",
+       "th": "วัดป่าใกล้สามเหลี่ยมทองคำ งานประจำปีมีพระและชาวไทใหญ่จากเมียนมามาร่วม",
+       "en": "Forest temple near the Golden Triangle; its annual event draws monks and Shan communities from Myanmar"
+      }
+     ]
+    },
+    {
+     "key": "built",
+     "th": "วัดที่คนพม่า ไทใหญ่ มอญ สร้าง",
+     "en": "Temples Burmese, Shan and Mon hands built",
+     "jewels": [
+      {
+       "id": "cm-osm-way-692146706",
+       "th": "วัดที่ครอบครัวปะโอและไทใหญ่สร้าง พ.ศ. 2380",
+       "en": "Built in 1837 by Pa-O and Shan families"
+      },
+      {
+       "id": "cm-osm-way-352321202",
+       "th": "เจดีย์แบบพม่า หอไตรปี 2386 สร้างโดยพ่อค้าไม้ชาวพม่า",
+       "en": "Burmese-style chedi and a library hall of 1843, built by Burmese timber merchants"
+      },
+      {
+       "id": "cm-osm-way-308548856",
+       "th": "เจดีย์แบบพม่า (จำลองชเวดากอง) สร้างโดยตระกูลพ่อค้าไม้ชาวพม่า",
+       "en": "A Burmese-style chedi, a small copy of the Shwedagon, funded by a Burmese teak family"
+      },
+      {
+       "id": "cm-osm-way-261336735",
+       "th": "ลายพม่าที่วิหารหลวงและเจดีย์ พ.ศ. 2441",
+       "en": "Burmese decoration on the hall and a chedi of 1898"
+      },
+      {
+       "id": "cm-osm-node-1445519685",
+       "th": "อุโบสถและสิงห์แบบพม่า นอกประตูช้างเผือก",
+       "en": "Burmese-influenced ordination hall and chinthe, outside Chang Phueak Gate"
+      },
+      {
+       "id": "cm-osm-way-406558246",
+       "th": "วัดริมเวียงที่กล่าวว่าเคยมีชุมชนมอญ",
+       "en": "An old-city-edge temple said to have served a Mon community"
+      },
+      {
+       "id": "cm-osm-node-2508210840",
+       "th": "วัดเวียงกุมกาม อาคารปัจจุบันสร้าง พ.ศ. 2451 โดยพ่อค้ามอญสัญชาติพม่า",
+       "en": "Wiang Kum Kam temple; present buildings of 1908 paid for by a Mon trader of Burmese nationality"
+      },
+      {
+       "id": "cr-osm-way-387050904",
+       "th": "วัดเงี้ยวของชาวไทใหญ่ในเวียงเชียงราย",
+       "en": "Called Wat Ngiao by the Tai Yai families who lived around it"
+      }
+     ]
+    },
+    {
+     "key": "books",
+     "th": "หนังสือ",
+     "en": "Books",
+     "jewels": [
+      {
+       "id": "cm-ovt-b56bac5f-bde8-4ac2-a58c-2df33e1008e2",
+       "th": "หนังสือภาษาพม่าและหนังสือเกี่ยวกับเมียนมา หลายพันเล่ม",
+       "en": "Myanmar-language books and English books on Myanmar"
+      }
+     ]
+    },
+    {
+     "key": "dress",
+     "th": "ชุดไทใหญ่",
+     "en": "Shan dress",
+     "jewels": [
+      {
+       "id": "cm-curated-saenwi-shan-dress",
+       "th": "ร้านตัดชุดไทยใหญ่ และซิ่นสำเร็จ",
+       "en": "Shan dress tailor and ready-made sarongs"
+      },
+      {
+       "id": "cm-ovt-d92f4d73-18b2-4d08-b9a3-94f7acb54bff",
+       "th": "ร้านตัดชุดไทยใหญ่",
+       "en": "Shan dress tailor"
+      }
+     ]
+    },
+    {
+     "key": "markets",
+     "th": "ตลาด",
+     "en": "Markets",
+     "jewels": [
+      {
+       "id": "cm-osm-node-13296932101",
+       "th": "ตลาดกลางคืนที่มีแผงอาหารพม่าและพื้นที่วัฒนธรรมพม่า เปิดตั้งแต่ 17:00",
+       "en": "A night market with Burmese food stalls and a Burmese-heritage space, open from 17:00"
+      },
+      {
+       "id": "cr-osm-way-1114786468",
+       "th": "ตลาดสายลมจอยที่ชายแดนแม่สาย ขายของจีนและพม่า (ตามหน้าของ Google ห่างจากหมุดนี้ 40 ม.)",
+       "en": "The Sai Lom Joy market at the Mae Sai border, selling Chinese and Burmese goods and snacks (a Google listing 40 m from this pin)"
+      }
+     ]
+    },
+    {
+     "key": "learn",
+     "th": "ศูนย์การเรียนรู้",
+     "en": "Learning centres",
+     "jewels": [
+      {
+       "id": "cm-ovt-d352e8cf-f9a6-4c4c-86a2-d520e4142ca2",
+       "th": "อบรมผู้นำเยาวชนกะเหรี่ยง ที่อยู่และเวลาเปิดอยู่บนเว็บของโครงการเอง",
+       "en": "Leadership training for Karen young people; address and hours on the programme's own site"
+      },
+      {
+       "id": "cm-ovt-e57e8c70-f155-48a8-9b82-a5fe72e46160",
+       "th": "ห้องสมุดหนังสือพม่าศึกษาในมหาวิทยาลัยเชียงใหม่ สำหรับนักศึกษาและนักวิจัย",
+       "en": "A library of Burma studies books at Chiang Mai University, for students and researchers"
+      }
+     ]
+    },
+    {
+     "key": "health",
+     "th": "โรงพยาบาลที่บอกว่ามีล่ามพม่า",
+     "en": "Hospitals that state Burmese interpreters",
+     "jewels": [
+      {
+       "id": "cm-osm-way-294031574",
+       "th": "ศูนย์บริการผู้ป่วยต่างชาติบอกว่ามีล่ามพม่า",
+       "en": "International Medical Services states Burmese interpreters"
+      },
+      {
+       "id": "cm-osm-way-257214959",
+       "th": "โรงพยาบาลแจ้งว่ามีทีมล่ามหลายภาษา รวมภาษาเมียนมา",
+       "en": "States an interpreter team that includes Myanmar"
+      },
+      {
+       "id": "cr-ovt-b71d5407-3a5c-4739-a2d0-8d608f740a5c",
+       "th": "ศูนย์บริการผู้ป่วยต่างชาติบอกว่ามีล่ามจีนและเมียนมา",
+       "en": "International Medical Services states Chinese and Myanmar interpreters"
+      }
+     ]
+    },
+    {
+     "key": "work",
+     "th": "งานและเอกสาร",
+     "en": "Work and papers",
+     "jewels": [
+      {
+       "id": "cm-ovt-4ea63d01-81d3-4655-847c-134aa48b249b",
+       "th": "ใบอนุญาตทำงานคนต่างด้าว MOU และบริการจุดเดียว",
+       "en": "Work permits for foreign workers, MOU, one-stop service"
+      },
+      {
+       "id": "cm-ovt-acd64a70-3fce-4864-8e42-fba266521276",
+       "th": "ศูนย์จดทะเบียนแรงงานต่างด้าวแบบเบ็ดเสร็จ (ข้อมูลปี 2562-2563 ยังไม่ยืนยันว่ายังเปิด)",
+       "en": "One-stop registration for foreign workers (a 2019 to 2020 notice; current status not confirmed)"
+      },
+      {
+       "id": "cm-ovt-f08a48f8-3b4b-474d-b329-a7f008672ab5",
+       "th": "ร้องเรียนค่าจ้างและสภาพการทำงาน คุ้มครองแรงงาน",
+       "en": "Complaints on pay and conditions; labour protection"
+      },
+      {
+       "id": "cr-ovt-09185e61-d614-4d67-9fed-0fedcded10c5",
+       "th": "ร้องเรียนและคุ้มครองแรงงาน เว็บไซต์มีเอกสารภาษาเมียนมา",
+       "en": "Complaints and labour protection; the site carries Myanmar-language material"
+      },
+      {
+       "id": "cr-osm-way-1023629218",
+       "th": "ศูนย์ราชการกระทรวงแรงงาน ที่ตั้งสำนักงานจัดหางานจังหวัดเชียงราย",
+       "en": "The Labour Ministry government centre, home of the Chiang Rai Employment Office"
+      },
+      {
+       "id": "cm-ovt-daac8674-2877-4eb4-87eb-e29de6201e23",
+       "th": "สถานกงสุลใหญ่เมียนมา: หนังสือเดินทาง เอกสารหาย แจ้งเกิด",
+       "en": "Myanmar Consulate-General: passports, lost papers, birth registration"
+      }
+     ]
+    },
+    {
+     "key": "rights",
+     "th": "มูลนิธิด้านสิทธิ",
+     "en": "Rights groups",
+     "jewels": [
+      {
+       "id": "cm-curated-map-foundation",
+       "th": "มูลนิธิช่วยเหลือแรงงานข้ามชาติจากเมียนมา ให้ข้อมูลสิทธิแรงงาน มีงานด้านสุขภาพและการศึกษา เอกสารเป็นภาษาพม่า ไทใหญ่ กะเหรี่ยง และไทย",
+       "en": "A foundation for migrant workers from Myanmar: labour rights information, health and education programmes; materials in Burmese, Shan, Karen and Thai"
+      }
+     ]
+    },
+    {
+     "key": "desk",
+     "th": "โต๊ะวีซ่า",
+     "en": "The desk",
+     "jewels": [
+      {
+       "id": "cm-curated-chiangmaivisadesk",
+       "th": "หน้าข้อมูลแรงงานเมียนมา ลาว กัมพูชา เวียดนาม เป็นภาษาไทย อังกฤษ และไทใหญ่",
+       "en": "Information page for workers from Myanmar, Laos, Cambodia and Vietnam, in English, Thai and Shan; a business, run by the people who publish Mot Dang"
+      }
+     ]
+    }
+   ]
   }
  }
 }

@@ -66,6 +66,14 @@
      }
     },
     {
+     "key": "myanmar",
+     "th": "อาหารพม่า-ไทใหญ่",
+     "en": "Burmese & Shan",
+     "match": {
+      "sub": "myanmar"
+     }
+    },
+    {
      "key": "japanese",
      "th": "อาหารญี่ปุ่น",
      "en": "Japanese",
