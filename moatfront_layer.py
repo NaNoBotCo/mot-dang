@@ -18,10 +18,18 @@ by name, a spirit house, shrine or big tree (reach 120 m, approximate points all
 own photos place them), or a business with a photo or four of phone, web, hours, LINE,
 facets, schedule. Order: landmarks and the sacred first, then photos, then details.
 
+Nan, 2026-10-12, of a Loi Kroh place page: "Need a lot more of roadside places labeled along
+loi kroh road in chang klan. Similar to the moat." "And chang klan road." "Garden restaurant,
+Alice's restaurant, Darling Bar not visible here. Lots of massage places and shops." So every
+published place within 30 m of Loi Kroh or Chang Klan Road (their lines in
+data/front_roads.json, from OpenStreetMap) goes in too, without the moat's declutter, after the
+moat's own, the sacred and photos first.
+
     rows: [id, lat, lng, thai name, latin name, page path, first category, photo 0/1, antRank,
            RTGS reading of a Thai-only name (build.name_roman) or ""]
 
-    python3 moatfront_layer.py      writes it from docs/api/v1/index.json
+    python3 moatfront_layer.py          writes it from docs/api/v1/index.json
+    python3 moatfront_layer.py roads    rewrites data/front_roads.json from cache/roads/
 """
 import json
 import math
@@ -30,6 +38,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 LAND = ROOT / "assets" / "sites" / "city-live" / "data" / "land.json"
+ROADS = ROOT / "data" / "front_roads.json"
+ROAD_NAMES = re.compile(r"^(ถนน)?(ลอยเคราะห์|ช้างคลาน)\s*$")
+REACH_ROAD = 30
 BOX = (18.776, 18.800, 98.974, 98.998)          # map.js CFG.moat
 REACH = 60                                       # metres from the water's edge
 REACH_SACRED = 120
@@ -125,14 +136,68 @@ def pick(places, land, roman=lambda r: ""):
     return rows
 
 
+def road_lines():
+    """the roads' OpenStreetMap ways from the road tiles: [[[lat, lng], ...], ...]"""
+    ways = {}
+    for f in sorted((ROOT / "cache" / "roads").glob("*.json")):
+        els = json.loads(f.read_text())["elements"]
+        nodes = {e["id"]: (e["lat"], e["lon"]) for e in els if e["type"] == "node"}
+        for e in els:
+            if e["type"] == "way" and ROAD_NAMES.match(e["tags"].get("name", "")) and e["id"] not in ways:
+                pts = [nodes.get(i) for i in e["nodes"]]
+                if all(pts):
+                    ways[e["id"]] = [[round(a, 7), round(b, 7)] for a, b in pts]
+    return list(ways.values())
+
+
+def pick_roads(places, lines, have, roman=lambda r: ""):
+    edges = [(tuple(w[i - 1]), tuple(w[i])) for w in lines for i in range(1, len(w))]
+    if not edges:
+        return []
+    kx = 110574 * math.cos(math.radians(18.79))
+    las = [p[0] for e in edges for p in e]
+    los = [p[1] for e in edges for p in e]
+    pad = REACH_SACRED / 110574 * 1.2
+    rows = []
+    for r in places:
+        la, ln = r.get("lat"), r.get("lng")
+        if la is None or ln is None or r.get("province") != "cm" or r["id"] in have:
+            continue
+        if not (min(las) - pad < la < max(las) + pad and min(los) - pad < ln < max(los) + pad):
+            continue
+        name, en = (r.get("name") or "").strip(), (r.get("nameEn") or "").strip()
+        if THIN.search(" " + en + " " + name + " "):
+            continue
+        th = name if THAI.search(name) else (r.get("nameTh") or "")
+        if not en and not THAI.search(name):
+            en = name
+        t = tier(r, en, th)
+        sacred = t == 0 and bool(SACRED & set(_subs(r)) or any(k in r["id"] for k in SACRED))
+        if r.get("geoPrecision") not in (("exact", "block", "approx") if sacred else ("exact", "block")):
+            continue
+        if min(_dist((la, ln), a, b, kx) for a, b in edges) > (REACH_SACRED if sacred else REACH_ROAD):
+            continue
+        rows.append([r["id"], round(la, 6), round(ln, 6), th, en,
+                     "/%s/p/%s.html" % (r["province"], r["slug"]),
+                     (r.get("cat") or [""])[0], 1 if "photo" in (r.get("has") or []) else 0,
+                     r.get("antRank") or 0, "" if en else roman(r), 3 if t is None else t])
+    rows.sort(key=lambda x: (x[10], -x[8]))
+    for x in rows:
+        x.pop()
+    return rows
+
+
 def write(docs, roman):
     docs = Path(docs)
     index = json.loads((docs / "api" / "v1" / "index.json").read_text())
     rows = pick(index["places"], json.loads(LAND.read_text()), roman)
+    n = len(rows)
+    lines = json.loads(ROADS.read_text()) if ROADS.exists() else []
+    rows += pick_roads(index["places"], lines, {x[0] for x in rows}, roman)
     out = docs / "sites" / "doodle-map" / "data" / "moat_front.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps({"rows": rows}, ensure_ascii=False, separators=(",", ":")))
-    return "%d places along the moat" % len(rows)
+    return "%d places along the moat, %d along Loi Kroh and Chang Klan" % (n, len(rows) - n)
 
 
 def emit(g):
@@ -142,5 +207,10 @@ def emit(g):
 if __name__ == "__main__":
     import sys
     sys.path.insert(0, str(ROOT))
-    import build
-    print(write(ROOT / "docs", build.name_roman))
+    if sys.argv[1:] == ["roads"]:
+        lines = road_lines()
+        ROADS.write_text(json.dumps(lines, separators=(",", ":")))
+        print("%d ways" % len(lines))
+    else:
+        import build
+        print(write(ROOT / "docs", build.name_roman))
