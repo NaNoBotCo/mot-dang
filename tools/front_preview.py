@@ -45,7 +45,7 @@ def front_html():
     tail = m.group(1).split(anchor, 1)[1] if anchor in m.group(1) else ""
     html = html[:m.start(1)] + lstyle.rstrip() + "\n" + tail + html[m.end(1):]
     # the stage, and the front's script tags, from the local page
-    for pat in (r'<section id="stage".*?</section>', r'(?:<script src="/front/[^"]+" defer></script>\s*)+'):
+    for pat in (r'<section id="stage".*?</section>', r'(?:<script src="/(?:front/[^"]+|feedback\.js)" defer></script>\s*)+'):
         lm, hm = re.search(pat, local, re.S), re.search(pat, html, re.S)
         if lm and hm and "{{" not in lm.group(0):
             html = html[:hm.start()] + lm.group(0) + html[hm.end():]
@@ -60,6 +60,8 @@ class H(http.server.BaseHTTPRequestHandler):
                 body, ct, st = front_html(), "text/html; charset=utf-8", 200
             elif bare.startswith("/front/") and bare.endswith(".js") and (ASSETS / bare[7:]).exists():
                 body, ct, st = (ASSETS / bare[7:]).read_bytes(), "application/javascript; charset=utf-8", 200
+            elif bare == "/feedback.js":
+                body, ct, st = (ROOT / "assets/feedback.js").read_bytes(), "application/javascript; charset=utf-8", 200
             elif BAKE and bare.startswith("/front/") and (BAKE / bare[1:]).exists():
                 body, ct, st = (BAKE / bare[1:]).read_bytes(), "application/json", 200
             elif bare.startswith("/fonts/mali"):

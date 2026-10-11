@@ -427,10 +427,12 @@ function score(e, maxN, maxC) {
   e.km = e.la != null ? km(where.lat, where.lng, e.la, e.lo) : null;
   var comp = e.have.length / 8, nr = e.km == null ? 0 : Math.max(0, 1 - e.km / 8);
   var agg = e.n ? Math.log(1 + e.n) / Math.log(1 + maxN) : 0;
-  var pers = (ME.cats[e.c] || 0) / (maxC || 1) + (ME.saved[e.k] ? 1.5 : 0) + (ME.venues[e.v] ? 0.5 : 0);
+  var thumb = 0; try { thumb = window.MDFB ? MDFB.mine('event:' + e.k) : 0; } catch (x) { }
+  var pers = (ME.cats[e.c] || 0) / (maxC || 1) + (ME.saved[e.k] ? 1.5 : 0) + (ME.venues[e.v] ? 0.5 : 0) + thumb;
   e.sc = comp + nr + 1.2 * agg + 1.5 * pers + (e.img ? 0.3 : 0) - (e.rec ? 0.15 : 0);
   e.why = [];
   if (ME.saved[e.k]) e.why.push(['hot', 'จำไว้แล้ว', 'saved']);
+  if (thumb > 0) e.why.push(['hot', 'คุณกดชอบ', 'you liked it']);
   if (e.km != null && e.km < 3) e.why.push(['', 'ใกล้ ' + far(e.km), farEn(e.km) + ' away', 'num']);
   if (e.n >= 3) e.why.push(['', 'คนเปิดดู ' + e.n + ' ครั้งเดือนนี้', 'opened ' + e.n + ' times this month']);
   if ((ME.cats[e.c] || 0) >= 2) e.why.push(['hot', 'คุณชอบ' + CATMAP[e.c].th, (CALNEXT ? 'you look at ' : 'you open ') + CATMAP[e.c].en.toLowerCase()]);
