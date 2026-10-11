@@ -25,6 +25,9 @@ published place within 30 m of Loi Kroh or Chang Klan Road (their lines in
 data/front_roads.json, from OpenStreetMap) goes in too, without the moat's declutter, after the
 moat's own, the sacred and photos first.
 
+Nan, the same night: "Similarly, give wararot, nimman, santhitam areas some love." So every
+published place inside AREAS goes in the same way.
+
     rows: [id, lat, lng, thai name, latin name, page path, first category, photo 0/1, antRank,
            RTGS reading of a Thai-only name (build.name_roman) or ""]
 
@@ -41,6 +44,11 @@ LAND = ROOT / "assets" / "sites" / "city-live" / "data" / "land.json"
 ROADS = ROOT / "data" / "front_roads.json"
 ROAD_NAMES = re.compile(r"^(ถนน)?(ลอยเคราะห์|ช้างคลาน)\s*$")
 REACH_ROAD = 30
+AREAS = {                                        # (south, north, west, east)
+    "warorot": (18.7878, 18.7935, 98.9960, 99.0030),     # Tha Phae Rd to Chang Moi, to the Ping
+    "nimman": (18.7940, 18.8030, 98.9630, 98.9725),      # Suthep Rd to Huay Kaew, Maya, the sois
+    "santitham": (18.7990, 18.8095, 98.9745, 98.9885),
+}
 BOX = (18.776, 18.800, 98.974, 98.998)          # map.js CFG.moat
 REACH = 60                                       # metres from the water's edge
 REACH_SACRED = 120
@@ -150,13 +158,16 @@ def road_lines():
     return list(ways.values())
 
 
+def _inside(la, ln):
+    return any(s < la < n and w < ln < e for s, n, w, e in AREAS.values())
+
+
 def pick_roads(places, lines, have, roman=lambda r: ""):
+    """the roads' places and the areas' places"""
     edges = [(tuple(w[i - 1]), tuple(w[i])) for w in lines for i in range(1, len(w))]
-    if not edges:
-        return []
     kx = 110574 * math.cos(math.radians(18.79))
-    las = [p[0] for e in edges for p in e]
-    los = [p[1] for e in edges for p in e]
+    las = [p[0] for e in edges for p in e] + [b[i] for b in AREAS.values() for i in (0, 1)]
+    los = [p[1] for e in edges for p in e] + [b[i] for b in AREAS.values() for i in (2, 3)]
     pad = REACH_SACRED / 110574 * 1.2
     rows = []
     for r in places:
@@ -175,7 +186,8 @@ def pick_roads(places, lines, have, roman=lambda r: ""):
         sacred = t == 0 and bool(SACRED & set(_subs(r)) or any(k in r["id"] for k in SACRED))
         if r.get("geoPrecision") not in (("exact", "block", "approx") if sacred else ("exact", "block")):
             continue
-        if min(_dist((la, ln), a, b, kx) for a, b in edges) > (REACH_SACRED if sacred else REACH_ROAD):
+        if not _inside(la, ln) and (not edges or min(_dist((la, ln), a, b, kx) for a, b in edges)
+                                    > (REACH_SACRED if sacred else REACH_ROAD)):
             continue
         rows.append([r["id"], round(la, 6), round(ln, 6), th, en,
                      "/%s/p/%s.html" % (r["province"], r["slug"]),
@@ -197,7 +209,7 @@ def write(docs, roman):
     out = docs / "sites" / "doodle-map" / "data" / "moat_front.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps({"rows": rows}, ensure_ascii=False, separators=(",", ":")))
-    return "%d places along the moat, %d along Loi Kroh and Chang Klan" % (n, len(rows) - n)
+    return "%d places along the moat, %d along Loi Kroh and Chang Klan and in Warorot, Nimman, Santitham" % (n, len(rows) - n)
 
 
 def emit(g):
