@@ -272,6 +272,13 @@ def _icon_once(g, size, cls):
 def emoji_to_icon(text, size=22, cls="rowicon"):
     """Swap every emoji this table knows for its glyph. For chrome strings
     only — never run it over a record's own name or a reader's words."""
+    return _swap(text, size, cls)
+
+
+# The same masthead and footer strings come through on every page; 190 s of the
+# place pages on 2026-10-11 were this swap.
+@functools.lru_cache(maxsize=1 << 16)
+def _swap(text, size, cls):
     out = text.replace(_VS, "")
     return _EMOJI_ONE.sub(lambda m: _icon_once(EMOJI[m.group(0)], size, cls), out)
 
@@ -284,21 +291,51 @@ _TEXT = re.compile(r">([^<]*)<")
 _ANY = re.compile("[" + "".join(re.escape(e) for e in sorted(EMOJI, key=len, reverse=True)) + _VS + "]")
 
 
+# _ANY scanned a whole page character by character, and the engine checks each
+# character above U+FFFF against all 169 entries: about half of the place-page
+# time on motdang-build (2026-10-10). _PRE matches a range instead, _CH keeps
+# the exact set, and only the text nodes holding one are rewritten, by the same
+# rule as _TEXT: from the first ">" after a "<" to the next "<", inside the part
+# between skipped blocks. Same output (fuzzed and 4,500 pages, 2026-10-11).
+_CH = frozenset("".join(EMOJI)) | frozenset(_VS)
+_HI = [ord(c) for c in _CH if ord(c) > 0xFFFF]
+_PRE = re.compile("[" + "".join(re.escape(c) for c in sorted(c for c in _CH if ord(c) <= 0xFFFF))
+                  + ("%s-%s" % (chr(min(_HI)), chr(max(_HI))) if _HI else "") + "]")
+
+
 def sweep_html(html, size=18, cls="rowicon"):
     """Every stock emoji in the page's text that has a glyph, drawn."""
-    if not _ANY.search(html):
+    hits = [m.start() for m in _PRE.finditer(html) if m.group() in _CH]
+    if not hits:
         return html
-    parts = _SKIP.split(html)
-    out = []
-    for i, part in enumerate(parts):
+    spans, k, at = [], 0, 0
+    for i, part in enumerate(_SKIP.split(html)):
         # split() with one capturing group yields text, match, group, text…
-        if i % 3 == 1:
-            out.append(part)
-            continue
         if i % 3 == 2:
             continue
-        out.append(_TEXT.sub(lambda m: (">" + emoji_to_icon(m.group(1), size, cls) + "<")
-                             if _ANY.search(m.group(1)) else m.group(0), part))
+        base, at = at, at + len(part)
+        if i % 3 == 1:
+            while k < len(hits) and hits[k] < at:
+                k += 1
+            continue
+        while k < len(hits) and hits[k] < at:
+            p = hits[k]
+            k += 1
+            lt = html.rfind("<", base, p)
+            gt = html.find(">", lt + 1 if lt >= 0 else base, at)
+            end = html.find("<", p, at)
+            if gt < 0 or gt > p or end < 0:
+                continue
+            if not spans or spans[-1][0] != gt:
+                spans.append((gt, end))
+    if not spans:
+        return html
+    out, last = [], 0
+    for gt, end in spans:
+        out.append(html[last:gt])
+        out.append(">" + emoji_to_icon(html[gt + 1:end], size, cls) + "<")
+        last = end + 1
+    out.append(html[last:])
     return "".join(out)
 
 
