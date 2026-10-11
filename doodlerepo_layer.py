@@ -49,15 +49,27 @@ def bucket(i):
     return "%03x" % (fnv(i) % 1024)
 
 
+def _rows(path):
+    """The rows of a .jsonl ledger. A line that does not parse is skipped and counted: on
+    2026-10-11 the hand-off copied ledger.jsonl mid-append and its torn last line failed the build."""
+    bad = 0
+    for line in path.read_text().split("\n"):
+        if not line.strip():
+            continue
+        try:
+            yield json.loads(line)
+        except ValueError:
+            bad += 1
+    if bad:
+        print("  ! %s: %d line(s) that do not parse, skipped" % (path.name, bad))
+
+
 def load():
     """(versions {id: [row]}, gone {id: date}, params {ph: p}) from the store."""
     vers, gone, params = {}, {}, {}
     led = STORE / "ledger.jsonl"
     if led.exists():
-        for line in led.read_text().split("\n"):
-            if not line.strip():
-                continue
-            r = json.loads(line)
+        for r in _rows(led):
             if "gone" in r:
                 gone[r["id"]] = r["gone"]
             elif "set" in r:   # new words around the same drawing (a planned day aired): no new version
@@ -68,10 +80,8 @@ def load():
                 gone.pop(r["id"], None)
     pf = STORE / "params.jsonl"
     if pf.exists():
-        for line in pf.read_text().split("\n"):
-            if line.strip():
-                r = json.loads(line)
-                params[r["ph"]] = r["p"]
+        for r in _rows(pf):
+            params[r["ph"]] = r["p"]
     return vers, gone, params
 
 

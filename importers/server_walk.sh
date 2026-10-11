@@ -62,9 +62,16 @@ fi
 
 exec 8>"$SSTATE/docs.lock"; flock 8
 say "== hand-off $HAND"
+# A data file the laptop sent while something was still writing it does not
+# parse; the working tree keeps last round's copy of it (tools/datacheck.py).
+HELD=()
+for f in ${(f)"$(flock "$SSTATE/stage.lock" python3 "$STAGE/tools/datacheck.py" "$STAGE" "$REPO" 2>/dev/null)"}; do
+  HELD+=(--exclude "/$f"); say "  held back, does not parse: $f"
+done
+(( ${#HELD} )) && note "data-held-back" "$(( ${#HELD} / 2 )) file(s) that do not parse"
 flock "$SSTATE/stage.lock" rsync -a --delete --exclude /docs/ --exclude /docs.next/ \
   --exclude /docs.prev/ --exclude /cache/build.lock --exclude /.handoff --exclude /.handoff-at \
-  "$STAGE/" "$REPO/" \
+  "${HELD[@]}" "$STAGE/" "$REPO/" \
   || { say "copy from staging FAILED"; note "failed" "staging copy"; exit 1 }
 print -- "$HAND" > "$SSTATE/attempted"
 # When the laptop began sending this source. deploy.py keeps live files
