@@ -1311,7 +1311,12 @@ def bake(docs=None, thumbs=True, ask=True):
 
 def render(home_ld="", lang_head="", lang_css="", lang_switch="", lang_js="", built=""):
     t = (ASSETS / "index.html").read_text()
-    for k, v in {"HOME_LD": home_ld, "LANG_HEAD": lang_head, "LANG_CSS": lang_css, "LANG_SWITCH": lang_switch,
+    # the rest of the site's ant (build.py LOGO_MARK, the same file) and its faces (assets/fonts/_faces.css)
+    logo = (ROOT / "assets/logo/motdang-mark.svg").read_text().replace(
+        '<svg ', '<svg class="logoant" aria-hidden="true" focusable="false" ', 1).replace(' role="img" aria-label="มดแดง Mot Dang"', '')
+    faces = ROOT / "assets/fonts/_faces.css"
+    faces = faces.read_text().strip().replace("url(fonts/", "url(/fonts/") if faces.exists() else ""
+    for k, v in {"LOGO": logo, "FACES": faces, "HOME_LD": home_ld, "LANG_HEAD": lang_head, "LANG_CSS": lang_css, "LANG_SWITCH": lang_switch,
                  "LANG_JS": lang_js, "BUILT": html.escape(built)}.items():
         t = t.replace("{{%s}}" % k, v)
     return stamp(t)
