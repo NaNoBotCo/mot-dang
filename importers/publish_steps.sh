@@ -61,6 +61,9 @@ node tests/test_plan_routes.js     || { say "route tests FAILED — nothing publ
 # The front page's calendar reads every event with its own date code (tests/test_front_calendar.js;
 # 2026-10-10 an end given as a bare date threw there and the calendar went out without its days drawn).
 node tests/test_front_calendar.js  || { say "front calendar FAILED — nothing published"; note "failed" "front calendar"; exit 1 }
+# Advisory: the doodle clock's hour hand reads like a wall clock (tests/test_front_clock.js;
+# until 2026-10-11 a 24-hour dial put 09:38 where a wall clock says 11).
+CLOCK_OUT=$(node tests/test_front_clock.js 2>&1) || { print -r -- "$CLOCK_OUT" | tail -6; say "⚠️  clock advisory — the doodle clock reads the wrong time" }
 # The 404 page's side-scroller. Hard, for one of its checks only: the game
 # must not take a keystroke from the search box, which is the whole job of
 # the page it sits on. Needs no build — it reads assets/soi_run.js.

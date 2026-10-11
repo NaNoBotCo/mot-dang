@@ -1442,16 +1442,19 @@ function doodleEvent() {
    whole doodle should be interactive"). Every part answers a tap: the stage and its
    banner open the event, a sight opens a card about it, the clock opens today's
    calendar, a tag on the clock opens that hour's event.
-   The clock: 24 hours, midnight at the foot, noon at the crown; day and night cut at
-   today's sunrise and sunset where the reader is; the sun or tonight's moon rides the
-   hour hand; the red ant walks the rim once a minute; blue drops are the rain hours;
+   The clock: a 12-hour face read like any wall clock (Nan, 2026-10-11: the 24-hour
+   dial "doesn't tell the correct time"); its ring is the next 12 hours from the hour
+   hand round, light by day and dark by night, cut at sunrise and sunset where the reader
+   is; the sun or tonight's moon rides the hour hand; the red ant walks the rim once a
+   minute; blue drops are the rain hours and tags the events still ahead, both within
+   those 12 hours;
    brass gears mesh behind at true ratios (12 teeth turn once a minute, 36 once in
    three, 20 once in 100 s). */
 var TH_DIG = '๐๑๒๓๔๕๖๗๘๙';
 function thd(s) { return String(s).replace(/\d/g, function (d) { return TH_DIG[d]; }); }
 function enMode() { return H.classList.contains('lang-en'); }
 function hourOf(t) { var b = bkk(t); return b.getUTCHours() + b.getUTCMinutes() / 60 + b.getUTCSeconds() / 3600; }
-function dialA(h) { return Math.PI / 2 + h / 24 * Math.PI * 2; }
+function dialA(h) { return -Math.PI / 2 + h / 12 * Math.PI * 2; }
 function sunTimes(t) {
   var d0 = at(ymd(t) + ' 00:00:00'), rise = null, set = null, prev = sunAlt(d0, where.lat, where.lng);
   for (var m = 4; m <= 1440; m += 4) {
@@ -1620,29 +1623,34 @@ function doodle() {
     var R = L.R, cx = L.cx, cy = L.cy, en = enMode(), i, a;
     paper(k, function (q) { circ(q, cx, cy, R * 1.13, 21); q.moveTo(cx + R * 0.99, cy); q.arc(cx, cy, R * 0.99, 0, 6.2832, true); }, '#c9973f', 2.2);
     paper(k, function (q) { circ(q, cx, cy, R, 22); }, '#f2e6c9', 1.6);
-    var rise = T.sun.rise ? hourOf(T.sun.rise) : 6, set = T.sun.set ? hourOf(T.sun.set) : 18;
-    paper(k, function (q) { q.beginPath(); q.arc(cx, cy, R * 0.94, dialA(set), dialA(rise + 24)); q.arc(cx, cy, R * 0.58, dialA(rise + 24), dialA(set), true); q.closePath(); }, '#2b2f63', 1);
-    paper(k, function (q) { q.beginPath(); q.arc(cx, cy, R * 0.94, dialA(rise), dialA(set)); q.arc(cx, cy, R * 0.58, dialA(set), dialA(rise), true); q.closePath(); }, '#f7d27a', 1);
-    k.fillStyle = 'rgba(60,35,10,.55)';
-    for (i = 0; i < 24; i++) { a = dialA(i); k.save(); k.translate(cx + Math.cos(a) * R, cy + Math.sin(a) * R); k.rotate(a); k.fillRect(0, -0.7, i % 6 ? R * 0.05 : R * 0.1, 1.4); k.restore(); }
-    k.font = '800 ' + Math.max(9, Math.round(R * 0.15)) + 'px ' + (en ? 'system-ui' : '"Sarabun",system-ui'); k.textAlign = 'center'; k.textBaseline = 'middle'; k.fillStyle = '#5a3b12';
-    for (i = 0; i < 24; i += 6) { a = dialA(i); k.fillText(en ? String(i) : thd(i), cx + Math.cos(a) * R * 0.44, cy + Math.sin(a) * R * 0.44); }
+    /* the ring: the next 12 hours, from the hour hand clockwise, cut at sunrise and sunset */
+    var rise = T.sun.rise ? hourOf(T.sun.rise) : 6, set = T.sun.set ? hourOf(T.sun.set) : 18, h0 = hourOf(T.now), cuts = [h0];
+    [rise, set].forEach(function (b) { for (var o = -24; o <= 24; o += 24) if (b + o > h0 && b + o < h0 + 12) cuts.push(b + o); });
+    cuts.sort(function (p, q) { return p - q; }); cuts.push(h0 + 12);
+    for (i = 0; i + 1 < cuts.length; i++) (function (u, v) {
+      var m = ((u + v) / 2) % 24, lit = m >= rise && m < set;
+      paper(k, function (q) { q.beginPath(); q.arc(cx, cy, R * 0.95, dialA(u), dialA(v)); q.arc(cx, cy, R * 0.79, dialA(v), dialA(u), true); q.closePath(); }, lit ? '#f7d27a' : '#2b2f63', 1);
+    })(cuts[i], cuts[i + 1]);
+    k.fillStyle = 'rgba(40,25,10,.7)';
+    for (i = 0; i < 12; i++) { a = dialA(i); k.save(); k.translate(cx + Math.cos(a) * R, cy + Math.sin(a) * R); k.rotate(a); k.fillRect(-(i % 3 ? R * 0.06 : R * 0.12), -0.9, i % 3 ? R * 0.06 : R * 0.12, 1.8); k.restore(); }
+    k.font = '800 ' + Math.max(10, Math.round(R * 0.2)) + 'px ' + (en ? 'system-ui' : '"Sarabun",system-ui'); k.textAlign = 'center'; k.textBaseline = 'middle'; k.fillStyle = '#24170a';
+    for (i = 0; i < 12; i += 3) { a = dialA(i); k.fillText(en ? String(i || 12) : thd(i || 12), cx + Math.cos(a) * R * 0.63, cy + Math.sin(a) * R * 0.63); }
     var hs = T.w ? T.w.hours || [] : [], k0 = hourKey(T.now); dropHits = [];
     hs.forEach(function (h) {
-      var t = Date.parse(h[0] + ':00+07:00'); if (t < T.now - 36e5 || t > T.now + 23 * 36e5 || !(h[1] >= 40 || h[2] >= 0.2)) return;
-      var aa = dialA(hourOf(t) + 0.5), s = R * (0.04 + 0.04 * Math.min(1, h[1] / 100)), dx = cx + Math.cos(aa) * R * 0.86, dy = cy + Math.sin(aa) * R * 0.86;
+      var t = Date.parse(h[0] + ':00+07:00'); if (t <= T.now - 36e5 || t > T.now + 11 * 36e5 || !(h[1] >= 40 || h[2] >= 0.2)) return;
+      var aa = dialA(hourOf(t) + 0.5), s = R * (0.035 + 0.035 * Math.min(1, h[1] / 100)), dx = cx + Math.cos(aa) * R * 0.87, dy = cy + Math.sin(aa) * R * 0.87;
       dropHits.push({ x: dx, y: dy, r: Math.max(11, s * 2.6), h: h, t: t });
       paper(k, function (q) { q.beginPath(); q.moveTo(dx, dy - s * 1.8); q.bezierCurveTo(dx + s * 1.2, dy - s * 0.3, dx + s, dy + s, dx, dy + s); q.bezierCurveTo(dx - s, dy + s, dx - s * 1.2, dy - s * 0.3, dx, dy - s * 1.8); q.closePath(); }, h[0] === k0 ? '#2f7fd6' : '#5aa6e8', 0.6);
     });
-    /* today's events: small tags on threads at their hours, the pick first */
+    /* events still ahead in the ring's 12 hours: small tags on threads at their hours, the pick first, then the soonest */
     tagHits = [];
     var E = (D.events && D.events.events) || [], pick = x && x.e;
-    var todays = E.filter(function (e) { return ymd(at(e.s)) === T.d && !e.ad && e.s.slice(11, 16) !== '00:00' && !ME.hidden[e.k] && !ME.hideCats[e.c]; });
-    todays.sort(function (a, b) { return (b === pick) - (a === pick) || (b.have.length - a.have.length) || at(a.s) - at(b.s); });
+    var todays = E.filter(function (e) { var s = at(e.s); return s > T.now && s < T.now + 12 * 36e5 && !e.ad && e.s.slice(11, 16) !== '00:00' && !ME.hidden[e.k] && !ME.hideCats[e.c]; });
+    todays.sort(function (a, b) { return (b === pick) - (a === pick) || at(a.s) - at(b.s); });
     var used = {}, placed = 0;
     todays.forEach(function (e) {
       if (placed >= (L.phone ? 3 : 5)) return;
-      var h = hourOf(at(e.s)), slot = Math.round(h); if (used[slot]) return; used[slot] = 1;
+      var h = hourOf(at(e.s)), near = Object.keys(used).some(function (u) { var d = Math.abs(u - h) % 12; return Math.min(d, 12 - d) < 1.1; }); if (near) return; used[h] = 1;
       var aa = dialA(h), rr = R * 1.42, tx = cx + Math.cos(aa) * rr, ty = cy + Math.sin(aa) * rr, tw = R * 0.62, th = R * 0.26;
       if (tx - tw / 2 < 2 || tx + tw / 2 > L.W - 2 || ty - th / 2 < 2) return;
       placed++;
@@ -1669,10 +1677,10 @@ function doodle() {
   }
   function hands(k) {
     var R = L.R, cx = L.cx, cy = L.cy, h = hourOf(T.now), a = dialA(h), b = bkk(T.now), mins = b.getUTCMinutes() + b.getUTCSeconds() / 60 + (AT != null ? 0 : (T.now % 1000) / 6e4);
-    var am = mins / 60 * 6.2832 - Math.PI / 2, sx = cx + Math.cos(a) * R * 0.66, sy = cy + Math.sin(a) * R * 0.66, w = Math.max(1.6, R * 0.03);
-    paper(k, function (q) { q.beginPath(); q.moveTo(cx + Math.cos(am + 1.57) * w, cy + Math.sin(am + 1.57) * w); q.lineTo(cx + Math.cos(am) * R * 0.95, cy + Math.sin(am) * R * 0.95); q.lineTo(cx + Math.cos(am - 1.57) * w, cy + Math.sin(am - 1.57) * w); q.closePath(); }, '#3b2a14', 2);
-    paper(k, function (q) { q.beginPath(); q.moveTo(cx + Math.cos(a + 1.57) * w * 1.8, cy + Math.sin(a + 1.57) * w * 1.8); q.lineTo(sx + Math.cos(a + 1.57) * w, sy + Math.sin(a + 1.57) * w); q.lineTo(sx + Math.cos(a - 1.57) * w, sy + Math.sin(a - 1.57) * w); q.lineTo(cx + Math.cos(a - 1.57) * w * 1.8, cy + Math.sin(a - 1.57) * w * 1.8); q.closePath(); }, '#9a6a22', 2.2);
-    var sr = R * 0.16 * (AT != null ? 1.18 : 1);
+    var am = mins / 60 * 6.2832 - Math.PI / 2, sx = cx + Math.cos(a) * R * 0.5, sy = cy + Math.sin(a) * R * 0.5, w = Math.max(1.6, R * 0.03);
+    paper(k, function (q) { q.beginPath(); q.moveTo(cx + Math.cos(am + 1.57) * w, cy + Math.sin(am + 1.57) * w); q.lineTo(cx + Math.cos(am) * R * 0.92, cy + Math.sin(am) * R * 0.92); q.lineTo(cx + Math.cos(am - 1.57) * w, cy + Math.sin(am - 1.57) * w); q.closePath(); }, '#3b2a14', 2);
+    paper(k, function (q) { q.beginPath(); q.moveTo(cx + Math.cos(a + 1.57) * w * 1.8, cy + Math.sin(a + 1.57) * w * 1.8); q.lineTo(sx + Math.cos(a + 1.57) * w, sy + Math.sin(a + 1.57) * w); q.lineTo(sx + Math.cos(a - 1.57) * w, sy + Math.sin(a - 1.57) * w); q.lineTo(cx + Math.cos(a - 1.57) * w * 1.8, cy + Math.sin(a - 1.57) * w * 1.8); q.closePath(); }, '#24170a', 2.2);
+    var sr = R * 0.13 * (AT != null ? 1.18 : 1);
     if (T.alt > -0.83) {
       var spin = Date.now() / 20000;
       paper(k, function (q) { q.beginPath(); for (var i = 0; i < 24; i++) { var rr = i % 2 ? sr : sr * 1.45, aa = spin + i / 24 * 6.2832; q.lineTo(sx + Math.cos(aa) * rr, sy + Math.sin(aa) * rr); } q.closePath(); }, '#f6a92c', 2.4);
@@ -2159,7 +2167,7 @@ function doodle() {
     if (!drag.moved) { drag.moved = true; clearTimeout(HOLD); shut(); clk.classList.add('turning'); HOV = null; engaged(); }
     var a = angOf(p), d = a - drag.last; if (d > Math.PI) d -= 2 * Math.PI; if (d < -Math.PI) d += 2 * Math.PI;
     drag.last = a; drag.acc += d;
-    setAt(Date.now() + drag.off0 + drag.acc / (2 * Math.PI) * 24 * 36e5);
+    setAt(Date.now() + drag.off0 + drag.acc / (2 * Math.PI) * 12 * 36e5);
   });
   clk.addEventListener('pointerup', function () {
     if (!drag) return; var d = drag; drag = null; clk.classList.remove('turning');
