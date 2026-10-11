@@ -2063,6 +2063,16 @@ html.lang-both .bi.stack>.en,.bilingual-stack .en-sub{margin-left:0;font-size:.7
    because `html.lang-en .th` is already hidden and `.en` already shown. */
 html.lang-both .dist .en{display:none}
 html.lang-both .u .en{display:none}
+/* Burmese and Shan (WO-112). The page wears lang-en as well as lang-my or lang-shn, so every rule above
+   that serves an English reader serves these two for any pair with no entry in the dictionary. A pair
+   assets/i18n.js has filled carries a third span, .tr, and gives up its English. Myanmar-block letters
+   come from the self-hosted Noto Sans Myanmar (a unicode-range face, fetched only when they appear),
+   then the system faces; Burmese has no spaces between words, so a long run may break anywhere. */
+.bi>.tr{display:none}
+html.lang-my .bi>.tr[lang=my],html.lang-shn .bi>.tr[lang=shn]{display:inline}
+html.lang-my .bi.hastr>.en,html.lang-shn .bi.hastr>.en{display:none}
+.tr,.langbtn[lang=my],.langbtn[lang=shn]{font-family:'JetBrains Mono','Noto Sans Myanmar','Myanmar Sangam MN','Myanmar Text','Pyidaungsu','Prompt',sans-serif}
+.tr:lang(my),.tr:lang(shn){overflow-wrap:anywhere;line-height:1.7}
 /* WO-69 — the card */
 ul.dir.cards{column-width:auto;column-count:1;max-width:44rem}
 li.rcard{position:relative;padding:.45rem 2.4rem .45rem 0;border-bottom:1px solid var(--warm-border);margin:0;break-inside:avoid}
@@ -4565,14 +4575,21 @@ try{localStorage.setItem('md-read',on?'1':'0');}catch(e){}}
 document.querySelectorAll('[data-read]').forEach(b=>{
 b.setAttribute('aria-pressed',RD.classList.contains('easyread')?'true':'false');
 b.addEventListener('click',()=>mdSetRead(!RD.classList.contains('easyread')));});
-function mdSetLang(v){B.classList.remove('lang-en','lang-both','lang-th');
-B.classList.add(v==='en'?'lang-en':v==='th'?'lang-th':'lang-both');
-B.lang=v==='en'?'en':'th';
+// Burmese and Shan (WO-112): lang-en stays on so every English rule serves a pair with no entry, and
+// lang-my or lang-shn lets assets/i18n.js fill in the rest. <html lang> carries the code.
+function mdSetLang(v){B.classList.remove('lang-en','lang-both','lang-th','lang-my','lang-shn');
+const tr=v==='my'||v==='shn';
+B.classList.add(tr||v==='en'?'lang-en':v==='th'?'lang-th':'lang-both');
+if(tr)B.classList.add('lang-'+v);
+B.lang=tr?v:v==='en'?'en':'th';
 if(v!=='both')try{localStorage.setItem('md-lang',v);}catch(e){}
 document.querySelectorAll('.langbtn').forEach(b=>
-b.setAttribute('aria-pressed',b.dataset.lang===v?'true':'false'));}
+b.setAttribute('aria-pressed',b.dataset.lang===v?'true':'false'));
+if(tr){if(window.MDI18N)window.MDI18N.apply();else if(!document.getElementById('mdi18n')){
+const s=document.createElement('script');s.id='mdi18n';s.async=true;
+s.src=(B.getAttribute('data-root')||'')+'i18n.js';document.head.appendChild(s);}}}
 mdSetLang((()=>{let v=null;try{v=localStorage.getItem('md-lang');}catch(e){}
-if(v==='th'||v==='en')return v;
+if(v==='th'||v==='en'||v==='my'||v==='shn')return v;
 return B.classList.contains('lang-th')?'th':B.classList.contains('lang-en')?'en':'both';})());
 document.querySelectorAll('.langbtn').forEach(b=>
 b.addEventListener('click',()=>mdSetLang(b.dataset.lang)));
@@ -8810,6 +8827,8 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
     lang_html = (f'<div class="langgroup" role="group" aria-label="ภาษา Language">'
                  f'<button type="button" class="langbtn" data-lang="th" aria-pressed="false">ไทย</button>'
                  f'<button type="button" class="langbtn" data-lang="en" aria-pressed="false">EN</button>'
+                 f'<button type="button" class="langbtn" data-lang="my" lang="my" aria-pressed="false">မြန်မာ</button>'
+                 f'<button type="button" class="langbtn" data-lang="shn" lang="shn" aria-pressed="false">တႆး</button>'
                  f'</div>')
     # MapLibre is a megabyte. It is pulled in only by the pages that actually
     # carry a map, and that is decided by looking at the finished body rather
@@ -8885,7 +8904,7 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
 <meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" type="application/rss+xml" title="มดแดง — ของเด่น" href="{r}rss.xml">
 <link rel="stylesheet" href="{r}style.css">
-<script>try{{var _r=document.documentElement,_l=localStorage.getItem('md-lang');if(localStorage.getItem('md-read')==='1')_r.classList.add('easyread');if(_l!=='th'&&_l!=='en')_l=/bot|crawl|spider|slurp|preview|lighthouse/i.test(navigator.userAgent)?null:/^th/i.test(navigator.language||'')?'th':'en';if(_l==='en'||_l==='th'){{_r.classList.remove('lang-both');_r.classList.add('lang-'+_l)}}if(_l==='en')_r.lang='en'}}catch(e){{}}</script>
+<script>try{{var _r=document.documentElement,_l=localStorage.getItem('md-lang');if(localStorage.getItem('md-read')==='1')_r.classList.add('easyread');if(_l!=='th'&&_l!=='en'&&_l!=='my'&&_l!=='shn')_l=/bot|crawl|spider|slurp|preview|lighthouse/i.test(navigator.userAgent)?null:/^th/i.test(navigator.language||'')?'th':'en';if(_l==='en'||_l==='th'){{_r.classList.remove('lang-both');_r.classList.add('lang-'+_l)}}if(_l==='en')_r.lang='en';if(_l==='my'||_l==='shn'){{_r.classList.remove('lang-both');_r.classList.add('lang-en','lang-'+_l);_r.lang=_l}}}}catch(e){{}}</script>
 <link rel="icon" type="image/svg+xml" href="{r}logo/motdang-favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="{r}logo/motdang-mark-32.png">
 <link rel="apple-touch-icon" href="{r}logo/motdang-mark-180.png">
@@ -19142,6 +19161,8 @@ def build():
                                 + "\n" + eggs_layer.js() + "\n" + obs_layer.js()
                                 + "\n" + mine_layer.md_js() + "\n" + share_layer.md_js()
                                 + "\n" + preview_layer.LOADER)
+    import i18n_layer  # Burmese and Shan for the interface, WO-112
+    layers.run("i18n.emit", lambda: print("  i18n: %d strings in each of Burmese and Shan" % (i18n_layer.emit(DOCS) // 2)))
     # The same script alone, for the pages that do not load md.js: the front
     # page (assets/front/index.html) and the Worker's /find.
     # /find's tap learning rides here too (assets/find_learn.js, idle off /find).
