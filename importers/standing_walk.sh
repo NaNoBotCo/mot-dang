@@ -275,6 +275,10 @@ python3 importers/sync_toilets.py     || say "toilet sync kept what is on disk"
 python3 importers/sync_doodle_votes.py || say "doodle votes kept what is on disk"
 python3 importers/sync_suggestions.py || say "suggestion queue not read this round"
 
+# Her pictures with no place: tie each to the place it shows, or make the place
+# (NaN 2026-10-11). Before the import, so a record it makes is imported now.
+python3 importers/place_own_pictures.py --write || say "picture placing kept the last pass"
+
 # --- fold in finished crawls ---------------------------------------------
 # import_all.py reads cache/overpass/ wholesale and rewrites data/canonical/.
 # A crawl still writing into that cache can hand it a half-written file, and a
