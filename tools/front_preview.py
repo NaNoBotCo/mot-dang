@@ -49,6 +49,10 @@ def front_html():
         lm, hm = re.search(pat, local, re.S), re.search(pat, html, re.S)
         if lm and hm and "{{" not in lm.group(0):
             html = html[:hm.start()] + lm.group(0) + html[hm.end():]
+    # sections the local page has dropped (#fc and #tiles went into the calendar, 2026-10-11)
+    for sid in re.findall(r'<section id="([a-z0-9-]+)"', html):
+        if f'<section id="{sid}"' not in local:
+            html = re.sub(rf'<section id="{sid}".*?</section>', "", html, count=1, flags=re.S)
     return html.encode("utf-8")
 
 
