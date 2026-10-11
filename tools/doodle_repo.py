@@ -132,6 +132,7 @@ def gather(eng, day):
     places = {f.name.rsplit("-", 1)[0] for f in gd.glob("*-*.json")}
     lines = chrome(eng, "var D=MDDOODLER;D.sets().forEach(function(s){OUT.push(s)});"
                         "(window.MDDOODLER_FOOD||{cuisines:[]}).cuisines.forEach(function(k){OUT.push('food:'+k)});"
+                        "(window.MDDOODLER_DANCE||{kinds:[]}).kinds.forEach(function(k){OUT.push('dance:'+k)});"
                         "((window.MDDOODLER_MOAT||{places:[]}).places).forEach(function(p){OUT.push('moat:'+p.k)});")
     for s in lines:
         st, _, va = s.partition(":")

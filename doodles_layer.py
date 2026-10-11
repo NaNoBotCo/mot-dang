@@ -177,6 +177,7 @@ PORTRAIT = [  # (cat, sub or None, scene) — first match wins
     ("market", None, "freshmarket"), ("massage", None, "massage"), ("muaythai", None, "muaythai"),
     ("cooking", None, "cooking"), ("chang", None, "elephants"), ("tattoo", None, "tattoo"),
     ("sport", None, "gym"), ("parks", None, "park"), ("pets", None, "pets"),
+    ("cannabis", None, "cannabis"),
 ]
 HILLS = {"แม่ริม", "แม่แตง", "สะเมิง", "ดอยสะเก็ด", "แม่ออน", "จอมทอง", "แม่แจ่ม", "เชียงดาว", "พร้าว", "ฝาง", "แม่อาย",
          "อมก๋อย", "ดอยเต่า", "ฮอด", "กัลยาณิวัฒนา", "เวียงแหง", "ไชยปราการ", "แม่สรวย", "เวียงป่าเป้า", "แม่ฟ้าหลวง", "แม่จัน",
@@ -244,6 +245,7 @@ PORTRAIT_WORDS = {
     "apartment": ("อพาร์ตเมนต์", "apartments"), "dorm": ("หอพัก", "dormitory"), "moobaan": ("หมู่บ้านจัดสรร", "housing estate"),
     "agent": ("นายหน้าอสังหาฯ", "estate agent"), "massage": ("ร้านนวด", "massage"), "akha": ("ชุมชนอาข่า", "Akha"),
     "beautyclinic": ("คลินิกความงาม", "beauty clinic"),
+    "cannabis": ("ร้านกัญชา", "cannabis shop"),
 }
 
 
