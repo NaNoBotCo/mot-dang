@@ -40,12 +40,11 @@ account. Verbatim steps, so this is not a "go and ask" note:
      `read` on images. It does NOT need write, upload, or private data.
   3. The page then shows a "Client token" beginning `MLY|`. That is the
      token. Copy it.
-  4. Put it in the shell that runs this, and nowhere else:
-         export MAPILLARY_TOKEN='MLY|...'
-     Not in data/, not in a config file, not in the repo. This script reads
-     the environment and only the environment. If she would rather it lived
-     somewhere, that is a decision to make on purpose, not a default this
-     file picks for her.
+  4. With it on the clipboard: `~/.claude/bin/token save MAPILLARY_TOKEN`.
+     That writes ~/.tokens/MAPILLARY_TOKEN (mode 600) on the Mac and on
+     motdang-server (her word 2026-10-11: save tokens, they get reused).
+     Not in data/ and not in the repo. MAPILLARY_TOKEN in the environment
+     still wins over the saved file.
 
 MEASURED WITHOUT A TOKEN, 2026-09-08 — what the failure actually looks like:
 a tokenless request to graph.mapillary.com returns **HTTP 500**, not 401, with
@@ -145,13 +144,18 @@ class NoToken(RuntimeError):
 
 
 def token(env=None):
-    """MAPILLARY_TOKEN from the environment, or a clear refusal.
-
-    Never prompts, never reads a file, never falls back to an anonymous call.
-    An anonymous call does not fail cleanly (see _explain), so a fallback
-    would turn a missing credential into a mysterious server error."""
+    """MAPILLARY_TOKEN from the environment, else ~/.tokens/MAPILLARY_TOKEN
+    (saved by `~/.claude/bin/token save`, her word 2026-10-11), or a clear
+    refusal. The file is read only for the real environment; a caller passing
+    its own env gets that env and nothing else. No prompt and no anonymous
+    call: an anonymous call does not fail cleanly (see _explain), so it would
+    turn a missing credential into a mysterious server error."""
+    real = env is None
     env = os.environ if env is None else env
     t = (env.get("MAPILLARY_TOKEN") or "").strip()
+    saved = Path.home() / ".tokens" / "MAPILLARY_TOKEN"
+    if not t and real and saved.exists():
+        t = saved.read_text().strip()
     if not t:
         raise NoToken(
             "MAPILLARY_TOKEN is not set, so nothing was fetched and nothing "
@@ -159,8 +163,8 @@ def token(env=None):
             "The token is Nan's to make — the steps are in the docstring at "
             "the top of this file (mapillary.com/dashboard/developers → "
             "Register application → read scope → copy the MLY| client "
-            "token), then:\n"
-            "    export MAPILLARY_TOKEN='MLY|...'\n"
+            "token), copy it, then:\n"
+            "    ~/.claude/bin/token save MAPILLARY_TOKEN\n"
             "To see what this would do without one:\n"
             "    python3 importers/harvest_mapillary.py --bbox <w,s,e,n> --dry-run")
     if not t.startswith("MLY|"):
