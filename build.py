@@ -953,7 +953,9 @@ def own_strip(r, hero_file=None):
         pics = [p for p in pics if (ROOT / "assets" / p["file"]).stat().st_size != _sz]
     if not pics:
         return ""
-    pics = sorted(pics, key=lambda p: (p.get("date") or "", p["slug"]), reverse=True)[:6]
+    # 40, not 6: the strip scrolls and loads lazily, and a market she walked
+    # through carries a hundred frames (NaN 2026-10-11, Kamthieng amulet market).
+    pics = sorted(pics, key=lambda p: (p.get("date") or "", p["slug"]), reverse=True)[:40]
     for p in pics:
         ART_USED[p["slug"]] = p
     imgs = "".join(
