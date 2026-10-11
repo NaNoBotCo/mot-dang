@@ -203,23 +203,15 @@ PY
   fi
 }
 
-# --- the last good code ----------------------------------------------------
-# A session can leave build.py or a layer half-edited when the walk sends the
-# tree; the build or a gate then fails and the site stops updating until
-# someone notices (58 failures that way, 2026-09-20 to 10-05). So every
-# publish keeps a copy of the code it was built from, and a hand-off whose code
-# fails is built once more with that code and the hand-off's own data. Code:
-# the Python, shell and JS that build, gate and publish, and data/curated.
-LAST_GOOD="$SSTATE/last-good"
-CODE_FILTER=(--exclude __pycache__/ --exclude node_modules/ --exclude .wrangler/
-  --exclude hf-dataset/ --include '/*.py' --include /assets/ --include '/assets/*.js'
-  --include /data/ --include '/data/curated/***' --include '/importers/***'
-  --include '/publish/***' --include '/tests/***' --include '/tools/***'
-  --include '/fleetsearch/***' --include '/worker/***' --include '/worker-tt/***'
-  --exclude '*')
+# --- one try per hand-off ----------------------------------------------------
+# Until 2026-10-11 a failed hand-off was built a second time with the code of
+# the last publish and its own data. That second build published 0 times in 14
+# (the old code met the new assets and failed its own gates) and held the server
+# for another hour each time. A failed hand-off now ends the round, and the
+# next hand-off starts sooner.
 
 # The publish runs in a subshell: publish_steps.sh exits on any failure, and
-# this side has to see it to try the last good code.
+# this side has to see it to write the verdict.
 publish_once() {
   rm -f "$SSTATE/.publish-ok" "$SSTATE/.deferred-why"
   ( source importers/publish_steps.sh && print -- "$COUNT" > "$SSTATE/.publish-ok" )
@@ -228,9 +220,6 @@ publish_once() {
 
 if publish_once; then
   COUNT=$(cat "$SSTATE/.publish-ok")
-  rsync -a --delete "${CODE_FILTER[@]}" "$REPO/" "$LAST_GOOD/" \
-    && print -- "$HAND" > "$LAST_GOOD/.handoff" \
-    || say "⚠️  could not keep this publish's code as the last good copy"
   print -- "$HAND" > "$SSTATE/published"
   (( ${#PRUNE_ARGS} )) && rm -f "$SSTATE/prune-once"
   say "== published $HAND — $COUNT files"
@@ -241,30 +230,4 @@ if publish_once; then
   exit 0
 fi
 
-VERDICT=$(tail -1 "$SSTATE/walk.jsonl" | python3 -c 'import json,sys; print(json.loads(sys.stdin.read()).get("verdict",""))' 2>/dev/null)
-WHY=$(tail -1 "$SSTATE/walk.jsonl" | python3 -c 'import json,sys; print(json.loads(sys.stdin.read()).get("detail",""))' 2>/dev/null)
-[[ "$VERDICT" == "failed" ]] || exit 0      # stood down, not failed
-# The upload and the bucket listing fail for reasons code does not cause.
-case "$WHY" in
-  deploy.py*|"bucket listing") exit 1 ;;
-esac
-GOOD=$(cat "$LAST_GOOD/.handoff" 2>/dev/null)
-if [[ -z "$GOOD" || "$GOOD" == "$HAND" ]]; then
-  say "no earlier good code to fall back on — nothing published"
-  exit 1
-fi
-say "the code of $HAND failed ($WHY); building again with the code of $GOOD and the data of $HAND"
-rsync -a --exclude /.handoff "$LAST_GOOD/" "$REPO/" \
-  || { say "could not restore the last good code"; note "failed" "restore last good code"; exit 1 }
-if publish_once; then
-  COUNT=$(cat "$SSTATE/.publish-ok")
-  print -- "$HAND" > "$SSTATE/published"
-  say "== published $HAND with the code of $GOOD — $COUNT files; the newer code failed: $WHY"
-  note "published-last-good-code" "$HAND data, $GOOD code, $COUNT files; newer code failed: $WHY"
-  deferred_note
-  layer_note
-  held_note
-  exit 0
-fi
-note "failed" "the last good code failed too ($WHY)"
 exit 1
