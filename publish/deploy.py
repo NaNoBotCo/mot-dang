@@ -26,6 +26,13 @@
                                          # so ordinary churn retires on its own
                                          # while a tree missing limbs still
                                          # stops. Above the bound it refuses.
+    python3 publish/deploy.py --yes --defer-deletions
+                                         # when the deletion check refuses,
+                                         # upload new and changed files and
+                                         # delete nothing (the standing walk)
+    python3 publish/deploy.py --yes --no-delete
+                                         # upload new and changed files,
+                                         # delete nothing
     python3 publish/safety.py            # is docs/ a whole site? (no network)
     python3 publish/safety.py --smoke    # is the LIVE site answering?
 
@@ -94,6 +101,9 @@ BASEMAP = ROOT / "data" / "basemap.json"
 BUCKET = "mot-dang-site"
 BUILD_LOCK = ROOT / "cache" / "build.lock"
 DEPLOY_LOG = ROOT / "cache" / "deploy.log"
+# The deletions a publish put off (--defer-deletions, --no-delete): one key
+# per line, rewritten by every full publish, absent when none were put off.
+DEFERRED = Path(os.environ.get("MD_DEFERRED") or (ROOT / "cache" / "deferred-deletions.txt"))
 _lock_held = False
 
 
@@ -740,19 +750,35 @@ def main():
         keep_list.write_text("".join(g + "\n" for g in hold))
     ok, msg = safety.deletion_verdict(gone, prune=prune, prune_up_to=prune_up_to,
                                       tree_ok=tree_ok, announced=announced)
-    if not ok:
+    # DEFER, DO NOT REFUSE (Nan, 2026-10-11). Deleting is the only part of a
+    # publish a refused deletion check speaks to; new and changed files go up
+    # with `rclone copy`, which deletes nothing, and the deletions wait in
+    # DEFERRED for a round that passes. --no-delete: the caller's own check
+    # refused (importers/server_walk.sh, pre_deploy). --defer-deletions: defer
+    # instead of refusing here, for a tree that passed check_tree.
+    defer = "--no-delete" in sys.argv or (
+        not ok and tree_ok and "--defer-deletions" in sys.argv)
+    if not ok and not defer:
         sys.exit("\n" + msg + "\n")
     note(msg)
-    used = safety.expected_used(safety.expected_split(gone, announced)[1])
-
-    note("\n  syncing… (%s local files, %s deletions)"
-         % (f"{n_after:,}", f"{len(gone):,}"))
-    mirror(["rclone", "sync", str(DOCS), dest] + common
-           + (["--exclude-from", str(keep_list)] if keep_list else []), env)
-    note("  site synced")
-    if used:
-        safety.mark_expected_done(used)
-        note("  announced cuts done, no longer applied: %s" % ", ".join(used))
+    DEFERRED.unlink(missing_ok=True)
+    keep = ["--exclude-from", str(keep_list)] if keep_list else []
+    if defer:
+        DEFERRED.write_text("".join(k + "\n" for k in gone))
+        note("\n  DELETIONS DEFERRED — uploading new and changed files only; "
+             "%s live file(s) kept, listed in %s"
+             % (f"{len(gone):,}", DEFERRED))
+        mirror(["rclone", "copy", str(DOCS), dest] + common + keep, env)
+        note("  site copied, nothing deleted")
+    else:
+        used = safety.expected_used(safety.expected_split(gone, announced)[1])
+        note("\n  syncing… (%s local files, %s deletions)"
+             % (f"{n_after:,}", f"{len(gone):,}"))
+        mirror(["rclone", "sync", str(DOCS), dest] + common + keep, env)
+        note("  site synced")
+        if used:
+            safety.mark_expected_done(used)
+            note("  announced cuts done, no longer applied: %s" % ", ".join(used))
 
     if with_tiles:
         archives = declared_archives()

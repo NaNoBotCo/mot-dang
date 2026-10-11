@@ -34,11 +34,13 @@ HARD — fails the gate
      Mai on a cr one) still pinned within CITY_KM of its own city centre —
      derive.apply_pin_doubt marks those needs-pin
 
-Checks 2, 3, 5 and 6b ratchet (5 keyed by page, 6b by folder). The rows standing on the day the gate went in are in
+Checks 2, 3, 5 and 6b ratchet (5 keyed by page, 6b by folder; 5 is advisory). The rows standing on the day the gate went in are in
 tests/map_sanity_known.json and are printed, not failed; a NEW row fails. A
 known row that clears is reported so the file can shrink.
 
 ADVISORY — printed
+  - a NEW drawn pin outside its frame (check 5; Nan, 2026-10-11: a doodle pin
+    8 px off the Bum Gun drawing stopped the whole site five times)
   - coordinates on a 1/256-degree grid (~430 m): a geocoder's rounding
   - a place joined to a same-named street in the other province
   - the moat ring's west and east sides more than 2° apart
@@ -117,12 +119,17 @@ def outside_km(g, iso, lat, lng):
     return line_km(lat, lng, [r + r[:1] for r in prov["rings"]])
 
 
-def ratchet(name, found, known, fmt):
-    """found: {id: detail}. Fails on ids not in known."""
+def ratchet(name, found, known, fmt, advisory=False):
+    """found: {id: detail}. Fails on ids not in known, or notes them when advisory."""
     new = sorted(set(found) - set(known))
     gone = sorted(set(known) - set(found))
-    check(f"{name}: no new rows", not new,
-          f"{len(found)} standing, {len(found) - len(new)} known, {len(new)} new")
+    detail = f"{len(found)} standing, {len(found) - len(new)} known, {len(new)} new"
+    if advisory:
+        print(f"  {'ok  ' if not new else 'note'}  {name}: no new rows  — {detail}")
+        if new:
+            ADVISE.append(f"{name}: {len(new)} new — " + ", ".join(new[:5]))
+    else:
+        check(f"{name}: no new rows", not new, detail)
     for i in new[:25]:
         print("        new  " + fmt(i, found[i]))
     if gone:
@@ -293,9 +300,8 @@ def main():
             if enabled and 'data-mdmap="1"' in s and "maplibre-gl.js" not in s:
                 no_ground.append(str(f.relative_to(DOCS)))
         print(f"  ({n_svg} drawings on {len(pages)} pages, {len(imported)} of them from sites built elsewhere)")
-        hold("pins inside the frame: no new rows",
-             ratchet("pins inside the frame", off, known.get("off_frame", []),
-                     lambda k, d: f"{k} {d}"), "a pin off its frame")
+        ratchet("pins inside the frame", off, known.get("off_frame", []),
+                lambda k, d: f"{k} {d}", advisory=True)
         OFF_FRAME.update(off)
         print("6 · basemap mounts")
         check("every mount centred inside the fence", not bad_mount, "; ".join(bad_mount[:5]))

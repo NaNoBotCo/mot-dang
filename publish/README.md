@@ -197,6 +197,16 @@ band is used up (`/srv/state/expected-done.txt` on the server,
 `cache/expected-done.txt` here); one past `until` never applies. An
 announcement cannot cover `vendor/`, `glyphs/` or `api/`.
 
+### Deferred deletions
+
+When either check refuses, the standing walk still publishes: `deploy.py
+--defer-deletions` (or `--no-delete`, when the server walk's own check refused)
+uploads new and changed files with `rclone copy` and deletes nothing. The keys
+it kept are in `/srv/state/deferred.txt` on the server (`cache/deferred-deletions.txt`
+here), the walk ledger gets a `deletions-deferred` line, and STATE.txt says so
+until a publish deletes them. A tree that fails the whole-site check, a gate,
+or the bucket listing still publishes nothing.
+
 ## Still worth doing
 
 `docs/` is committed, which is why `.git` is 2.8 GB and why every rebuild is a

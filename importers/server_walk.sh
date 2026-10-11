@@ -25,6 +25,7 @@ export MD_PROFILE=${MD_PROFILE:-$SSTATE/build-profile.json}   # build_sampler.py
 export MD_LAYER_STATE=${MD_LAYER_STATE:-$SSTATE/layers.json}   # layers.py: each layer's time, outputs, failures
 export MD_HOLD_BACK=${MD_HOLD_BACK:-$SSTATE/held-back.txt}     # tools/holdback.py: pages held at their live version
 MISSING_CEILING=500   # 2026-10-05: an 11-hour-old source would have deleted 1,977 live files
+export MD_DEFERRED=$SSTATE/deferred.txt   # deploy.py: deletions a publish put off
 # Announced cuts that landed (publish/safety.py, 2b) stay used up across hand-offs.
 export MD_EXPECT_DONE=$SSTATE/expected-done.txt
 
@@ -49,6 +50,15 @@ layer_note() {
   return 0
 }
 # A page or site a gate failed on was held at its live version (tools/holdback.py).
+# Deletions this publish put off (publish/deploy.py --defer-deletions, --no-delete).
+deferred_note() {
+  local n why
+  [[ -s "$MD_DEFERRED" ]] || return 0
+  n=$(wc -l < "$MD_DEFERRED")
+  why=$(cat "$SSTATE/.deferred-why" 2>/dev/null)
+  say "$n deletion(s) deferred${why:+ — $why}; the list is $MD_DEFERRED"
+  note "deletions-deferred" "$n live files kept${why:+: $why}"
+}
 held_note() {
   local h; h=$(python3 tools/holdback.py line 2>/dev/null)
   [[ -n "$h" ]] && { say "⚠️  held back at their live version: $h"; note "held-back" "$h" }
@@ -185,10 +195,11 @@ PY
     note "failed" "bucket listing"
     return 1
   elif (( rc != 0 )); then
+    # The deletions wait; new and changed files still go up (Nan, 2026-10-11).
     why=$(print -r -- "$out" | sed -n 's/^FAIL //p' | tail -1)
-    say "REFUSING — ${why:-the missing-files check failed}; the list is $SSTATE/missing.txt"
-    note "failed" "${why:-missing-files check}"
-    return 1
+    say "DELETIONS DEFERRED — ${why:-the missing-files check failed}; the list is $SSTATE/missing.txt"
+    print -r -- "${why:-missing-files check}" > "$SSTATE/.deferred-why"
+    PRUNE_ARGS+=(--no-delete)
   fi
 }
 
@@ -210,7 +221,7 @@ CODE_FILTER=(--exclude __pycache__/ --exclude node_modules/ --exclude .wrangler/
 # The publish runs in a subshell: publish_steps.sh exits on any failure, and
 # this side has to see it to try the last good code.
 publish_once() {
-  rm -f "$SSTATE/.publish-ok"
+  rm -f "$SSTATE/.publish-ok" "$SSTATE/.deferred-why"
   ( source importers/publish_steps.sh && print -- "$COUNT" > "$SSTATE/.publish-ok" )
   [[ -s "$SSTATE/.publish-ok" ]]
 }
@@ -224,6 +235,7 @@ if publish_once; then
   (( ${#PRUNE_ARGS} )) && rm -f "$SSTATE/prune-once"
   say "== published $HAND — $COUNT files"
   note "published" "$HAND $COUNT files"
+  deferred_note
   layer_note
   held_note
   exit 0
@@ -249,6 +261,7 @@ if publish_once; then
   print -- "$HAND" > "$SSTATE/published"
   say "== published $HAND with the code of $GOOD — $COUNT files; the newer code failed: $WHY"
   note "published-last-good-code" "$HAND data, $GOOD code, $COUNT files; newer code failed: $WHY"
+  deferred_note
   layer_note
   held_note
   exit 0
