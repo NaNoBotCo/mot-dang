@@ -19086,6 +19086,9 @@ def build():
     _sites = ROOT / "assets" / "sites"
     if _sites.is_dir():
         shutil.copytree(_sites, DOCS / "sites", dirs_exist_ok=True)
+        # the doodle maps' map.js and /pins.js named by their content (mappins_layer.py)
+        import mappins_layer
+        mappins_layer.stamp_doodle(DOCS)
     # /markets/ — every market and mall, /markets/<cm|cr>/, and one folder per market that has
     # its own site (/markets/cm/kamthieng/amulets/). Built in the markets repo with MOTDANG=1 and
     # installed into assets/markets/. Publish with:  python3 publish/deploy.py --only markets --yes

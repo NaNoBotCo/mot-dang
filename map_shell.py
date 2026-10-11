@@ -51,6 +51,7 @@ import zlib
 import mine_layer
 import mapsense_layer
 import traffic_map_layer
+import mappins_layer
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -127,7 +128,7 @@ def version():
     surely as an edited line does.
     """
     cfg = config()
-    payload = JS + mine_layer.map_js() + mapsense_layer.map_js() + traffic_map_layer.map_js() + json.dumps(
+    payload = JS + mine_layer.map_js() + mapsense_layer.map_js() + traffic_map_layer.map_js() + mappins_layer.map_js() + json.dumps(
         {"url": cfg.get("url"), "glyphs": cfg.get("glyphs"),
          "bounds": cfg.get("bounds") or BOUNDS,
          "minZoom": cfg.get("minZoom") or MIN_ZOOM,
@@ -778,6 +779,8 @@ function build(el){
     if(window.MDSENSE)window.MDSENSE.watch(map);
     /* TomTom flow and the nearest measured road (traffic_map_layer.py) */
     if(window.MDTRAFFIC)window.MDTRAFFIC.paint(map,el);
+    /* the directory's places as icon pins, more with every step in (mappins_layer.py) */
+    if(window.MDPINS)window.MDPINS.paint(map,el);
     /* The drawn SVG stays in the DOM — it is what prints, and it is what
        comes back if the tiles ever stop resolving. It is only hidden from
        sight, and only once there is something real underneath. */
@@ -1289,7 +1292,10 @@ def emit(g):
     (docs / "map.js").write_text(
         "window.MDMAP_CFG=" + json.dumps(runtime, ensure_ascii=False,
                                          separators=(",", ":")) + ";\n" + JS
-        + "\n" + mine_layer.map_js() + "\n" + mapsense_layer.map_js() + "\n" + traffic_map_layer.map_js())
+        + "\n" + mine_layer.map_js() + "\n" + mapsense_layer.map_js() + "\n" + traffic_map_layer.map_js()
+        + "\n" + mappins_layer.map_js())
+    # /pins.js on its own, for the doodle maps' canvas (mappins_layer.py)
+    mappins_layer.emit(docs)
     vend = docs / "vendor"
     vend.mkdir(exist_ok=True)
     for f in VENDOR:

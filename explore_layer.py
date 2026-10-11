@@ -527,7 +527,7 @@ MDMAP.ready(el,function(map){
         'text-variable-anchor':['left','right','top','bottom'],'text-radial-offset':.7,
         'text-justify':'auto','symbol-sort-key':['-',0,RANK]},
       paint:{'text-color':inkFor(k)||'#C2401C','text-halo-color':'#FFFCF6','text-halo-width':1.8}});
-    loaded[k]=true;gjs[k]=gj;
+    loaded[k]=true;gjs[k]=gj;pinMute(k,true);
     refilter();
   }
 
@@ -544,7 +544,11 @@ MDMAP.ready(el,function(map){
     });
   }
 
+  /* a whole category on as a shelf: its icon pins step aside (mappins_layer.py) */
+  function pinMute(k,yes){var c=k.replace(/^[a-z]{2}-/,'');
+    if(window.MDPINS&&MDPINS.K[c])MDPINS.mute(map,c,yes);}
   function show(k,yes){
+    pinMute(k,yes);
     /* '-open' belongs in this list: a shelf switched off and on again while
        the open-now rings are lit would otherwise come back without them,
        because only its dots were ever hidden. */
@@ -637,6 +641,7 @@ MDMAP.ready(el,function(map){
       if(!ids.length)return;
       /* a saved place under the finger answers for itself (mine_layer.py) */
       if(window.MDMINE&&MDMINE.hit(map,e.point))return;
+      if(window.MDPINS&&MDPINS.hit(map,e.point))return;
       /* A fingertip, not a pixel: query a box around the touch and take the
          nearest, so a near miss still names the thing that was aimed at. */
       var R=22,pt=e.point;
