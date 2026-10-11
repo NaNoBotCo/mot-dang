@@ -6,17 +6,19 @@ beacon the front page sends carries it as the page: /ab/cal or /ab/map. People o
 
   seen      a front page opened in that arm (ab:seen, once a load)
   engaged   a load with any tap: a day, an event, the map, the toggle, a link (ab:engaged)
-  day / ev  a day tapped in the month / an event opened anywhere on the page
+  ev        an event opened anywhere on the page
   map       a first touch on the map
   to-map / to-cal   the toggle, by hand
   go        a link followed off the front page
-  soon      the calendar further down reached
-  ahead     a tap in Ahead: the months ribbon, a festival card, add to calendar
+  ahead     a tap in Plan ahead: a festival card, add to calendar
 
 The score is engaged ÷ seen. A load is a page view, not a person: one reader opening the
 page five times counts five.
 
-  python3 ab_home.py [--since 2026-10-02]
+  python3 ab_home.py [--since 2026-10-11]
+
+The calendar arm changed on 2026-10-11 (the three bands, Nan's word): the count starts again
+that day. --since 2026-10-02 reads the first calendar's run.
 """
 import argparse
 import datetime as dt
@@ -26,8 +28,8 @@ import pathlib
 from traffic import sql
 
 OUT = pathlib.Path.home() / "Desktop/1 — NEXT UP/AB — calendar or map first.txt"
-START = "2026-10-02"
-KEYS = ["seen", "engaged", "day", "ev", "ahead", "map-touch", "to-map", "to-cal", "go", "soon"]
+START = "2026-10-11"
+KEYS = ["seen", "engaged", "ev", "ahead", "map-touch", "to-map", "to-cal", "go"]
 
 
 def counts(since):

@@ -13,14 +13,9 @@ var $ = function (id) { return document.getElementById(id); };
 var H = document.documentElement;
 var GATE = [18.7877, 98.9931];
 var D = {};
-/* the new calendar (design 2026-10-11, three bands) shows only under ?cal=next; the tab remembers it (sessionStorage md-cal-next), ?cal=old clears it */
-var CALNEXT = (function () {
-  var q = /[?&]cal=(next|old)\b/.exec(location.search), on = false;
-  try { if (q) { if (q[1] === 'next') sessionStorage.setItem('md-cal-next', '1'); else sessionStorage.removeItem('md-cal-next'); } on = sessionStorage.getItem('md-cal-next') === '1'; }
-  catch (x) { on = !!q && q[1] === 'next'; }
-  if (on) H.classList.add('cal-next');
-  return on;
-})();
+/* the calendar in three bands (design 2026-10-11; Nan's answers 2026-10-11: the grid, the doodle's pager and the festival ribbon go, the #soon list goes) */
+var CALNEXT = true;
+H.classList.add('cal-next');
 if (CALNEXT) (function () {
   var st = document.createElement('style'); st.id = 'front-cal-next';
   st.textContent = [
@@ -56,6 +51,16 @@ if (CALNEXT) (function () {
     '#month details.ev.nxrun .tt{display:inline;font-size:1rem}',
     '#month details.ev.nxrun .nxu{color:var(--mute);font-weight:600;font-size:.9rem}',
     '#aheadwk{margin-top:.4rem}',
+    /* a day of the next fourteen: its heading, wan phra and festival marks */
+    '#month .nxday{margin:1rem 0 .2rem;font:700 1.05rem var(--hand);color:var(--hot)}#month .nxday small{font:600 .85rem var(--hand);color:var(--mute)}',
+    '#month .nxmk{display:inline-block;font:600 .78rem var(--hand);color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:0 .45rem;margin-left:.2rem}#month .nxmk.hot{color:#b0442e;border-color:#b0442e}',
+    /* the reason and the thumbs, small, inside the opened card */
+    '#month .nxwhy{margin:.1rem .8rem .3rem;font-size:.8rem;color:var(--mute)}',
+    '#month .nxfb{margin:.1rem .8rem .6rem}#ahead .nxfb{margin:.5rem 0 0}',
+    '#month .mord{display:inline-flex;gap:4px;flex:none}',
+    /* plan ahead: the festival cards stacked, whole at phone width */
+    '#ahead{margin-top:1.3rem}#ahcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,19rem),1fr));gap:12px;overflow:visible;scroll-snap-type:none;padding:.3rem 0}',
+    '#ahcards .ahc{flex:none;margin:0}#ahcards .aha .chip.paid{font-size:.8rem}#ahcards .aha .chip i{font-style:normal;opacity:.75}',
     '@media (max-width:420px){#month details.ev.nx>summary{grid-template-columns:4rem minmax(0,1fr);gap:.1rem .55rem;padding:.55rem .6rem}#month details.ev.nx .nxt{font-size:1.28rem}}'
   ].join('');
   document.head.appendChild(st);
@@ -407,7 +412,7 @@ function drift(el) {
    A picture of its own sets how much is shown: feature, card, or one line. */
 var ME = store('md-cal') || { cats: {}, venues: {}, saved: {}, hidden: {}, hideCats: {} };
 function saveMe() { store('md-cal', ME); }
-var CATMAP = {}, FILTER = { c: null, area: null, saved: false, near: false }, SHOWN = 3, TOP = 5;
+var CATMAP = {};
 /* every beacon from this page carries the reader's arm of the A/B as its page: /ab/cal or /ab/map
    (a ?home= preview stays '/'); ab_home.py reads them */
 var ARM = H.getAttribute('data-arm'), PG = ARM && !H.hasAttribute('data-ab-forced') ? '/ab/' + ARM : '/', TOLD = {};
@@ -493,62 +498,10 @@ function evHtml(e, tier, day) {
     '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 7.9 3.6 4.5 7 4.5c2 0 3.6 1.2 5 3 1.4-1.8 3-3 5-3 3.4 0 5.6 3.4 4.3 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"/></svg></button>';
   return '<details class="ev ' + tier + '" data-k="' + e.k + '" data-s="' + esc(e.s) + '"><summary>' + head + hrt + '</summary>' + body + '</details>';
 }
+/* the calendar's data has arrived, or the reader moved: the bands are cut again */
 function cal() {
   var E = D.events; if (!E) return;
   E.cats.forEach(function (c) { CATMAP[c.k] = c; });
-  var now = Date.now(), today = ymd(now), maxN = 1, maxC = 0;
-  E.events.forEach(function (e) { if (e.n > maxN) maxN = e.n; });
-  Object.keys(ME.cats).forEach(function (k) { if (ME.cats[k] > maxC) maxC = ME.cats[k]; });
-  var live = E.events.filter(function (e) {
-    var s = at(e.s), en = e.e ? atEnd(e.e) : s + 2 * 3600e3;
-    return en > now && !ME.hidden[e.k] && !ME.hideCats[e.c];
-  }).map(function (e) { return score(e, maxN, maxC); });
-  /* the chips: what is here, with counts */
-  var counts = {}; live.forEach(function (e) { counts[e.c] = (counts[e.c] || 0) + 1; });
-  var nSaved = live.filter(function (e) { return ME.saved[e.k]; }).length;
-  var chips = '<button class="chip" type="button" data-f="all" aria-pressed="' + (!FILTER.c && !FILTER.area && !FILTER.saved && !FILTER.near) + '">' + bi('ทั้งหมด', 'All') + '<i>' + live.length + '</i></button>' +
-    '<button class="chip" type="button" data-f="near" aria-pressed="' + FILTER.near + '">' + bi('ใกล้ก่อน', 'Nearest first') + '</button>' +
-    (nSaved ? '<button class="chip" type="button" data-f="saved" aria-pressed="' + FILTER.saved + '">' + bi('จำไว้', 'Kept') + '<i>' + nSaved + '</i></button>' : '') +
-    E.cats.filter(function (c) { return counts[c.k]; }).map(function (c) { return '<button class="chip" type="button" data-cat="' + c.k + '" aria-pressed="' + (FILTER.c === c.k) + '">' + bi(c.th, c.en) + '<i>' + counts[c.k] + '</i></button>'; }).join('') +
-    (FILTER.area ? '<button class="chip" type="button" data-f="noarea" aria-pressed="true">' + esc(FILTER.area) + ' ×</button>' : '');
-  $('calbar').innerHTML = chips;
-  var list = live.filter(function (e) { return (!FILTER.c || e.c === FILTER.c) && (!FILTER.area || e.aen === FILTER.area) && (!FILTER.saved || ME.saved[e.k]); });
-  /* long runs (exhibitions) sit above the days */
-  var runs = list.filter(function (e) { return e.e && atEnd(e.e) - at(e.s) > 30 * 3600e3; });
-  var byDay = {};
-  list.forEach(function (e) { if (runs.indexOf(e) >= 0) return; var d = ymd(Math.max(at(e.s), now)); (byDay[d] = byDay[d] || []).push(e); });
-  var days = Object.keys(byDay).sort().slice(0, SHOWN), html = '', t = 0;
-  if (runs.length) {
-    html += '<h3 class="dayh">' + bi('ตลอดช่วงนี้', 'Running now') + '</h3>';
-    var rf = 0;
-    runs.sort(function (a, b) { return (b.img ? 1 : 0) - (a.img ? 1 : 0) || b.sc - a.sc; }).forEach(function (e) {
-      var tier = !e.img ? 'row' : rf++ ? 'card' : 'feature';
-      html += evHtml(e, tier, ymd(Math.max(at(e.s), now)));
-    });
-  }
-  days.forEach(function (d) {
-    var dn = dayName(d), evs = byDay[d];
-    evs.sort(FILTER.near ? function (a, b) { return (a.km == null ? 99 : a.km) - (b.km == null ? 99 : b.km); } : function (a, b) { return b.sc - a.sc; });
-    html += '<h3 class="dayh" id="d-' + d + '">' + (d === today ? bi('วันนี้', 'Today') + ' <small>' + bi(dn[0], dn[1]) + '</small>' : bi(dn[0], dn[1])) + ' <small>' + evs.length + '</small></h3>';
-    /* room goes to pictures (her word 10/2): the day's first event with its own picture
-       leads as the feature, other pictured ones are cards, the rest one line each */
-    var top = FILTER.c || FILTER.area || FILTER.saved ? 40 : TOP, lead = evs.slice(0, top).filter(function (e) { return e.img; })[0];
-    if (lead) evs = [lead].concat(evs.filter(function (e) { return e !== lead; }));
-    evs.slice(0, top).forEach(function (e) {
-      html += evHtml(e, e === lead ? 'feature' : e.img ? 'card' : 'row', d); t++;
-    });
-    if (evs.length > top) html += '<details class="dmore"><summary>' + bi('อีก ' + (evs.length - top) + ' งานวันนี้', (evs.length - top) + ' more this day') + '</summary>' +
-      evs.slice(top).map(function (e) { return evHtml(e, 'row', d); }).join('') + '</details>';
-  });
-  if (!t && !runs.length) html = '<p>' + bi('ไม่มีงานที่ตรงกับที่เลือก', 'Nothing matches that choice') + '</p>';
-  $('cal').innerHTML = html;
-  arts('#cal', list);
-  var more = Object.keys(byDay).length > SHOWN;
-  $('calmore').innerHTML = more ? '<button type="button" id="calmoreb">' + bi('วันถัดไป', 'More days') + '</button>' : '';
-  var hc = Object.keys(ME.hideCats).filter(function (k) { return ME.hideCats[k]; }), hn = Object.keys(ME.hidden).length;
-  $('calnote').innerHTML = bi('ลำดับงานมาจาก: ใกล้แค่ไหน ข้อมูลครบแค่ไหน ผู้อ่านเปิดดูกี่ครั้งใน 30 วัน และสิ่งที่คุณเปิดหรือจำไว้ (เก็บในเบราว์เซอร์ของคุณเอง)',
-    'Order comes from: how near, how complete, how often readers opened it in 30 days, and what you opened or kept (stored in your own browser).') +
-    (hc.length || hn ? ' <button type="button" id="unhide" class="chip">' + bi('แสดงที่ซ่อนไว้', 'show what you hid') + '</button>' : '');
   month();
 }
 function arts(root, list) {
@@ -579,119 +532,8 @@ function weekend(now) {
 }
 function startH(e) { return +String(e.s).slice(11, 13) + +String(e.s).slice(14, 16) / 60; }
 /* the quick picks: on now or within two hours; tonight from five; the weekend; what the reader keeps */
-function viewList(v, now) {
-  var today = ymd(now), by = MBY, out = [];
-  if (v === 'now') (by[today] || []).forEach(function (e) { var s = span(e); if (s[0] <= now + 2 * 36e5 && s[1] > now && !e.ad) out.push([today, e]); });
-  else if (v === 'tonight') (by[today] || []).forEach(function (e) { if (!e.ad && startH(e) >= 17) out.push([today, e]); });
-  else if (v === 'weekend') weekend(now).forEach(function (d) { (by[d] || []).forEach(function (e) { out.push([d, e]); }); });
-  else if (v === 'kept') MDAYS.forEach(function (d) { (by[d] || []).forEach(function (e) { out.push([d, e]); }); });
-  out.sort(function (a, b) { return a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : at(a[1].s) - at(b[1].s) || b[1].sc - a[1].sc; });
-  return out;
-}
 var VIEWS = { now: ['ตอนนี้', 'Now'], tonight: ['คืนนี้', 'Tonight'], weekend: ['สุดสัปดาห์', 'Weekend'], kept: ['ที่จำไว้', 'Kept'] };
-function month(how) {
-  if (CALNEXT) return calNext(how);
-  var E = D.events, g = $('mgrid'); if (!E || !g) return;
-  how = how || {};
-  var now = Date.now(), today = ymd(now), t0 = at(today + ' 12:00:00') + MOFF * 864e5, days = [], by = {}, all = {}, runs = [], maxN = 1, maxC = 0, i, endD = '', cityN = { cm: 0, cr: 0 };
-  for (i = 0; i < 14; i++) days.push(ymd(t0 + i * 864e5));
-  MDAYS = days;
-  E.events.forEach(function (e) { if (e.n > maxN) maxN = e.n; EVS[evKey(e)] = e; if (span(e)[1] > now) cityN[e.city || 'cm'] = (cityN[e.city || 'cm'] || 0) + 1; });
-  Object.keys(ME.cats).forEach(function (k) { if (ME.cats[k] > maxC) maxC = ME.cats[k]; });
-  E.events.forEach(function (e) {
-    if (ME.hidden[e.k] || ME.hideCats[e.c] || (e.city || 'cm') !== MCITY) return;
-    var s = span(e); if (s[1] <= now) return;
-    score(e, maxN, maxC);
-    if (s[1] - s[0] > 30 * 3600e3) { runs.push(e); return; }
-    var d = ymd(Math.max(s[0], now)); if (d > endD) endD = d; if (days.indexOf(d) < 0) return;
-    (all[d] = all[d] || []).push(e);
-    if ((!MF.c || e.c === MF.c) && (MVIEW !== 'kept' || ME.saved[e.k])) (by[d] = by[d] || []).push(e);
-  });
-  MLIST = E.events; MBY = by; MALL = all; MRUNS = runs;
-  MMORE = endD > days[13];
-  if (!MSEL || days.indexOf(MSEL) < 0) MSEL = (by[today] ? today : days.filter(function (d) { return by[d]; })[0]) || (days.indexOf(today) >= 0 ? today : days[0]);
-  var fest = {};
-  ((D.soon || {}).festivals || []).forEach(function (f) { days.forEach(function (d) { if (d >= f.d0 && d <= f.d1 && !fest[d]) fest[d] = f; }); });
-  var top = Math.max.apply(null, days.map(function (d) { return (by[d] || []).length; }).concat([1]));
-  var lead = (new Date(t0 + 7 * 3600e3).getUTCDay() + 6) % 7, last = days[days.length - 1];
-  var m0 = +days[0].slice(5, 7) - 1, m1 = +last.slice(5, 7) - 1, y = +last.slice(0, 4);
-  var tot = days.reduce(function (n, d) { return n + (by[d] || []).length; }, 0);
-  var h = '<div class="mtopbar"><div class="mh"><button type="button" class="mpg" data-mpage="-1"' + (MOFF ? '' : ' disabled') + ' aria-label="สองสัปดาห์ก่อน · the two weeks before">‹</button>' +
-    '<b>' + bi(MON_TH[m0] + (m1 !== m0 ? ' – ' + MON_TH[m1] : '') + ' ' + (y + 543), MON_EN[m0] + (m1 !== m0 ? ' – ' + MON_EN[m1] : '') + ' ' + y) + '</b>' +
-    '<small>' + bi(dates(days[0], last)[0] + ' · ' + tot + ' งาน', dates(days[0], last)[1] + ' · ' + tot + ' events') + '</small>' +
-    '<button type="button" class="mpg" data-mpage="1"' + (MMORE ? '' : ' disabled') + ' aria-label="สองสัปดาห์ถัดไป · the next two weeks">›</button></div>' +
-    '<span class="mcity" role="group" aria-label="เมือง · city">' + ['cm', 'cr'].map(function (c) {
-      return '<button type="button" data-mcity="' + c + '" aria-pressed="' + (MCITY === c) + '">' + bi(CITY_N[c][0], CITY_N[c][1]) + '<i class="badge-count">' + (cityN[c] || 0) + '</i></button>';
-    }).join('') + '</span></div>';
-  /* quick picks and kinds: counts from the same fortnight */
-  var cnt = {}, kinds = {};
-  var byC = {}, byK = {};
-  days.forEach(function (d) { byC[d] = (all[d] || []).filter(function (e) { return !MF.c || e.c === MF.c; }); byK[d] = byC[d].filter(function (e) { return ME.saved[e.k]; }); });
-  ['now', 'tonight', 'weekend', 'kept'].forEach(function (v) { MBY = v === 'kept' ? byK : byC; cnt[v] = viewList(v, now).length; });
-  MBY = by;
-  days.forEach(function (d) { (all[d] || []).forEach(function (e) { kinds[e.c] = (kinds[e.c] || 0) + 1; }); });
-  h += '<div class="mbar" role="toolbar" aria-label="เลือกดู · pick">' + ['now', 'tonight', 'weekend', 'kept'].filter(function (v) { return cnt[v] || MVIEW === v; }).map(function (v) {
-    return '<button type="button" class="mq' + (v === 'kept' ? ' mkp' : '') + '" data-mview="' + v + '" aria-pressed="' + (MVIEW === v) + '">' + (v === 'kept' ? '<b aria-hidden="true">♥</b>' : '') + bi(VIEWS[v][0], VIEWS[v][1]) + '<i class="badge-count">' + cnt[v] + '</i></button>';
-  }).join('') + '<span class="msep" aria-hidden="true"></span>' + E.cats.filter(function (c) { return kinds[c.k]; }).sort(function (a, b) { return kinds[b.k] - kinds[a.k]; }).map(function (c) {
-    return '<button type="button" class="mq" data-mcat="' + c.k + '" aria-pressed="' + (MF.c === c.k) + '"><s style="background:' + (CAT_PAPER[c.k] || CAT_PAPER.other) + '"></s>' + bi(c.th, c.en) + '<i class="badge-count">' + kinds[c.k] + '</i></button>';
-  }).join('') + '</div>';
-  h += '<div class="wk" role="group" aria-label="14 วัน · 14 days">' + WD_TH.map(function (w, k) { return '<div class="wd" aria-hidden="true">' + bi(w, WD_EN[k]) + '</div>'; }).join('');
-  /* the week's days already gone, crossed off; the last week filled out blank */
-  for (i = lead; i > 0; i--) h += '<span class="mc pad ' + (MOFF ? 'prev' : 'past') + '" aria-hidden="true"><span class="mn">' + (+ymd(t0 - i * 864e5).slice(8)) + '</span></span>';
-  var inView = {}; if (MVIEW) viewList(MVIEW, now).forEach(function (p) { inView[p[0]] = 1; });
-  days.forEach(function (d, k) {
-    var evs = (by[d] || []).slice().sort(function (a, b) { return b.sc - a.sc; }), n = evs.length, dn = dayName(d), dow = (lead + k) % 7;
-    var cats = []; evs.forEach(function (e) { if (cats.indexOf(e.c) < 0) cats.push(e.c); });
-    var wp = D.sky && D.sky.days && D.sky.days[d] && D.sky.days[d].moon && D.sky.days[d].moon.wan_phra, f = fest[d];
-    var first = k === 0 || d.slice(8) === '01', kept = (all[d] || []).filter(function (e) { return ME.saved[e.k]; }).length;
-    var on = MVIEW ? !!inView[d] : d === MSEL;
-    h += '<button type="button" class="mc' + (d === today ? ' today' : '') + (dow > 4 ? ' we' : '') + (f ? ' fest' : '') + (MLIT[d] ? ' lit' : '') + (MVIEW && !inView[d] ? ' dim' : '') + '" data-mday="' + d + '" aria-pressed="' + on + '"' +
-      ' style="--h:' + (n ? (0.06 + 0.3 * Math.log(1 + n) / Math.log(1 + top)).toFixed(2) : 0) + '"' +
-      ' aria-label="' + esc(dn[0] + ' · ' + dn[1] + ', ' + n + (n === 1 ? ' event' : ' events') + (wp ? ', wan phra' : '') + (f ? ', ' + (f.en || f.th) : '') + (kept ? ', ' + kept + ' kept' : '')) + '">' +
-      '<span class="mtop"><span class="mn">' + (+d.slice(8)) + '</span>' + (kept ? '<span class="mhk" aria-hidden="true">♥' + (kept > 1 ? kept : '') + '</span>' : '') + (n ? '<span class="mk">' + n + '</span>' : '') + '</span>' +
-      (first ? '<span class="mo">' + bi(MON_TH[+d.slice(5, 7) - 1], MON_EN[+d.slice(5, 7) - 1]) + '</span>' : '') +
-      (f ? '<span class="mf">' + bi(esc(f.th), esc(f.en || f.th)) + '</span>' : '') +
-      evs.slice(0, 2).map(function (e) { return '<span class="mt">' + esc(e.t) + '</span>'; }).join('') +
-      (cats.length ? '<span class="md" aria-hidden="true">' + cats.slice(0, 5).map(function (c) { return '<i style="background:' + (CAT_PAPER[c] || CAT_PAPER.other) + '"></i>'; }).join('') + '</span>' : '') +
-      (wp ? '<span class="mw" aria-hidden="true"></span>' : '') + '</button>';
-  });
-  for (i = 1; i <= (7 - (lead + days.length) % 7) % 7; i++) h += '<span class="mc pad after" aria-hidden="true"><span class="mn">' + (+ymd(at(last + ' 12:00:00') + i * 864e5).slice(8)) + '</span></span>';
-  g.innerHTML = h + '</div>';
-  /* the chosen day, or the quick pick, listed */
-  var o = '', TOPM = 6, ix = 0;
-  function row(e, d) { var r = evHtml(e, e.img ? 'card' : 'row', d); return r.replace('<details class="ev', '<details style="--i:' + (ix++) + '" class="ev'); }
-  if (MVIEW) {
-    var L = viewList(MVIEW, now), lastD = '';
-    o += '<div class="mdh"><h3 class="dayh">' + bi(VIEWS[MVIEW][0], VIEWS[MVIEW][1]) + ' <small class="badge-count">' + L.length + '</small></h3><button type="button" class="mnav mx" data-mview="" aria-label="ปิด · close">×</button></div>';
-    if (!L.length) o += '<p>' + bi('ไม่มีงานที่ตรงกับที่เลือก', 'Nothing matches that choice') + '</p>';
-    L.forEach(function (p) {
-      if (p[0] !== lastD && (MVIEW === 'weekend' || MVIEW === 'kept')) { var dn0 = dayName(p[0]); o += '<h4 class="mdsub">' + (p[0] === today ? bi('วันนี้', 'Today') + ' · ' : '') + bi(dn0[0], dn0[1]) + '</h4>'; }
-      lastD = p[0]; o += row(p[1], p[0]);
-    });
-  } else {
-    var evs = (by[MSEL] || []).slice().sort(function (a, b) { return b.sc - a.sc; }), dn = dayName(MSEL), di = days.indexOf(MSEL);
-    var onR = runs.filter(function (e) { var s = span(e); return ymd(s[0]) <= MSEL && ymd(s[1]) >= MSEL && (!MF.c || e.c === MF.c); });
-    o += '<div class="mdh"><button type="button" class="mnav" data-mstep="-1"' + (di <= 0 && !MOFF ? ' disabled' : '') + ' aria-label="วันก่อน · previous day">‹</button>' +
-      '<h3 class="dayh">' + (MSEL === today ? bi('วันนี้', 'Today') + ' <small>' + bi(dn[0], dn[1]) + '</small>' : bi(dn[0], dn[1])) + ' <small>' + evs.length + '</small></h3>' +
-      '<button type="button" class="mnav" data-mstep="1"' + (di >= days.length - 1 && !MMORE ? ' disabled' : '') + ' aria-label="วันถัดไป · next day">›</button></div>';
-    o += '<canvas class="mdb" aria-hidden="true"></canvas>';
-    if (fest[MSEL]) o += '<p class="bi">' + bi('เทศกาล: ' + esc(fest[MSEL].th), 'Festival: ' + esc(fest[MSEL].en || fest[MSEL].th)) + '</p>';
-    if (!evs.length) o += '<p>' + (tot ? bi('ยังไม่มีงานในวันนี้ในปฏิทิน', 'Nothing in the calendar for this day yet') : bi('ยังไม่มีงานใน' + CITY_N[MCITY][0] + 'ช่วงนี้ในปฏิทิน', 'Nothing in ' + CITY_N[MCITY][1] + ' in the calendar for these two weeks yet')) + '</p>';
-    evs.slice(0, TOPM).forEach(function (e) { o += row(e, MSEL); });
-    if (evs.length > TOPM) o += '<details class="dmore"><summary>' + bi('อีก ' + (evs.length - TOPM) + ' งานวันนี้', (evs.length - TOPM) + ' more this day') + '</summary>' +
-      evs.slice(TOPM).map(function (e) { return evHtml(e, 'row', MSEL); }).join('') + '</details>';
-    if (onR.length) o += '<details class="dmore"><summary>' + bi('ตลอดช่วงนี้ ' + onR.length, 'Running now, ' + onR.length) + '</summary>' + onR.map(function (e) { return evHtml(e, 'row', MSEL); }).join('') + '</details>';
-  }
-  o += '<a class="mall" href="#day=' + (MVIEW ? today : MSEL) + '">' + bi('ปฏิทินเต็ม', 'The full calendar') + ' ↓</a>';
-  var md = $('mday');
-  md.classList.remove('unfold', 'slide-l', 'slide-r');
-  if (how.ox != null) md.style.setProperty('--ox', how.ox);
-  md.innerHTML = o;
-  if (!REDUCED && how.anim) { void md.offsetWidth; md.classList.add(how.anim); }
-  arts('#mday', MLIST);
-  mcells(by);
-  markAt();
-}
+function month(how) { return calNext(how); }
 /* ------------------------------------------------------------ THE CALENDAR IN THREE BANDS (design, 2026-10-11)
    Only under ?cal=next (kept for the tab in sessionStorage md-cal-next). One calendar, ปฏิทิน · Calendar:
    TODAY (now to the end of today's night), NEXT 14 DAYS (tomorrow to day 14; the grid is its index and a tap
@@ -715,12 +557,10 @@ function bandNear(evs, now) {
 }
 /* PLAN AHEAD: dated events from day 15 on, by start */
 function bandAhead(evs, now) { return evs.filter(function (e) { return MW.band(e, now) === 'ahead'; }).sort(nxByStart); }
-/* the n the reader's fit leads with, shown in time order; the rest follow in time order */
-function nxPick(evs, n) {
-  if (evs.length <= n) return { top: evs.slice(), rest: [] };
-  var top = evs.slice().sort(function (a, b) { return (b.sc || 0) - (a.sc || 0); }).slice(0, n).sort(nxByStart);
-  return { top: top, rest: evs.filter(function (e) { return top.indexOf(e) < 0; }) };
-}
+/* Order (Nan, 2026-10-11): rows by the reader's fit, a toggle to time order; the choice is kept in md-cal-order */
+var ORDER = store('md-cal-order') === 'time' ? 'time' : 'fit';
+function nxSort(evs) { return evs.slice().sort(ORDER === 'time' ? nxByStart : function (a, b) { return (b.sc || 0) - (a.sc || 0) || nxByStart(a, b); }); }
+function nxPick(evs, n) { var o = nxSort(evs); return { top: o.slice(0, n), rest: o.slice(n) }; }
 /* Monday of the week a date is in */
 function nxWeek(d) { var t = at(d + ' 12:00:00'); return ymd(t - ((bkk(t).getUTCDay() + 6) % 7) * 864e5); }
 
@@ -739,28 +579,43 @@ function dayMarks(d) {
   ((D.soon || {}).festivals || []).forEach(function (f) { if (d >= f.d0 && d <= f.d1) out.fest.push(f); });
   return out;
 }
-/* Find a room: the map with the hotel layer on, by the calendar's city (5,875 in Chiang Mai, 2,238 in Chiang Rai) */
+/* Find a room (Nan, 2026-10-11: a and b): the map with motdang's hotel layer on, by the calendar's city;
+   and the paid booking link for that city when ahead.json's plan.room carries one */
 function roomHref() {
   var c = MCITY === 'cr' ? ['cr', 19.9094, 99.8325] : ['cm', GATE[0], GATE[1]];
   return LIVE + 'map.html#12.4/' + c[1].toFixed(5) + '/' + c[2].toFixed(5) + '/' + c[0] + '-hotel';
+}
+function planOf() { return (D.ahead && D.ahead.plan) || {}; }
+function roomBtns() {
+  var P = planOf(), paid = P.room && P.room[MCITY];
+  return '<a class="chip room" href="' + roomHref() + '">' + bi('หาที่พัก', 'Find a room') + '</a>' +
+    (paid ? '<a class="chip room paid" href="' + esc(paid.url) + '" rel="sponsored nofollow noopener" target="_blank" title="' + esc((P.paid || {}).en || '') + '">' + bi(esc(paid.th), esc(paid.en)) + '</a>' : '');
+}
+/* Find a guide (Nan, 2026-10-11: start with a, b on top when there): motdang.net Co.'s helpers for the city first,
+   from plan.guide.helpers; then the Department of Tourism's licence register */
+function guideBtns() {
+  var G = planOf().guide || {}, hs = (G.helpers || []).filter(function (x) { return !x.city || x.city === MCITY; });
+  return hs.slice(0, 3).map(function (x) {
+    return '<a class="chip guide" href="' + esc(x.url) + '" rel="noopener">' + bi(esc(x.th || x.en), esc(x.en)) + (x.price ? ' <i>฿' + esc(x.price) + '</i>' : '') + '</a>';
+  }).join('') + (G.register ? '<a class="chip guide reg" href="' + esc(G.register) + '" rel="noopener" target="_blank">' + bi('เช็กใบอนุญาตไกด์', 'Check a guide’s licence') + '</a>' : '');
 }
 function nxBtn(e, a) {
   var k = esc(evKey(e));
   if (a === 'grab') return e.la != null ? '<a href="' + grabUrl(e) + '" rel="noopener">' + bi('ไปด้วย Grab', 'Grab there', 'stack') + '</a>' : '';
   if (a === 'invite') return '<button type="button" data-dact="share" data-ek="' + k + '">' + bi('ชวนเพื่อน', 'Invite', 'stack') + '</button>';
-  if (a === 'line') return '<a href="https://line.me/R/share?text=' + encodeURIComponent(e.t + ' https://motdang.net/#ev=' + e.k) + '" rel="noopener">LINE</a>';
-  if (a === 'map') return e.la != null ? '<a href="' + mapHref(e) + '" data-dact="map" data-ek="' + k + '">' + bi('แผนที่', 'Map', 'stack') + '</a>' : '';
   if (a === 'keep') return '<button type="button" data-save="' + e.k + '" class="' + (ME.saved[e.k] ? 'on' : '') + '" aria-pressed="' + (ME.saved[e.k] ? 'true' : 'false') + '">' + bi('จำไว้', 'Keep', 'stack') + '</button>';
   if (a === 'ics') return e.ad ? '' : '<a download="' + e.k + '.ics" href="' + ics(e) + '">' + bi('ลงปฏิทิน', 'Add to calendar', 'stack') + '</a>';
   return '';
 }
-/* a reason chip from what the reader does; the distance is on the row already, so it is not a chip */
+/* thumbs and a note on any item (feedback.js, window.MDFB); nothing when it has not loaded */
+function fb(item) { try { return window.MDFB ? '<div class="nxfb">' + MDFB.html(item) + '</div>' : ''; } catch (x) { return ''; } }
+/* the reason a row sits where it does: tucked into the opened card, small */
 function nxWhy(e) {
-  var w = (e.why || []).filter(function (x) { return x[3] !== 'num'; }).slice(0, 2);
-  return w.length ? '<div class="why">' + w.map(function (x) { return '<span class="' + x[0] + '">' + bi(x[1], x[2] === 'saved' ? 'kept' : x[2]) + '</span>'; }).join('') + '</div>' : '';
+  var w = e.why || [];
+  return w.length ? '<p class="nxwhy">' + bi('ทำไมขึ้นตรงนี้: ', 'why here: ') + w.map(function (x) { return bi(x[1], x[2] === 'saved' ? 'kept' : x[2]); }).join(' · ') + '</p>' : '';
 }
-/* one row: its time large, the whole title, the place, the distance once, then the band's buttons; a tap on the body opens
-   the card the day list opens (evHtml's body, richEv on toggle) */
+/* one row: its time large, the whole title, the place and the distance; the band's two buttons under it. A tap opens
+   the card (evHtml's body: source, map, calendar, keep, not for me), the reason and the thumbs */
 function nxRow(e, band, now, ix) {
   var s = span(e), st = at(e.s), on = band === 'today' && !e.ad && !!e.e && s[0] <= now, slot, bits = [], sameEnd = e.e && e.e.length > 10 && e.e.slice(0, 10) === e.s.slice(0, 10), u, acts;
   if (band === 'ahead') {
@@ -774,28 +629,29 @@ function nxRow(e, band, now, ix) {
   if (e.v) bits.push(esc(e.v));
   if (e.km != null) bits.push(bi(far(e.km), farEn(e.km), 'num'));
   if (e.e && e.e.slice(0, 10) > e.s.slice(0, 10) && !(on && MW.dayOf(s[1] - 1) !== MW.dayOf(now))) { u = dates(e.e.slice(0, 10), e.e.slice(0, 10)); bits.push(bi('ถึง ' + u[0], 'until ' + u[1])); }
-  acts = band === 'today' ? ['grab', 'invite', 'line', 'map'] : band === 'near' ? ['keep', 'ics', 'invite', 'line'] : ['ics', 'invite', 'line'];
+  acts = band === 'today' ? ['grab', 'invite'] : band === 'near' ? ['keep', 'invite'] : ['ics', 'invite'];
   return nxEv(e, band === 'today' ? ymd(Math.max(st, now)) : MW.firstDay(e), ix,
     '<summary class="nxs"><div class="nxt">' + slot + '</div><div class="nxb"><div class="tt">' + esc(e.t) + '</div>' +
-    (bits.length ? '<div class="meta">' + bits.join(' · ') + '</div>' : '') + (band === 'near' ? nxWhy(e) : '') +
+    (bits.length ? '<div class="meta">' + bits.join(' · ') + '</div>' : '') +
     '</div><div class="nxa">' + acts.map(function (a) { return nxBtn(e, a); }).join('') + '</div></summary>');
 }
-/* the same card as the day list's: evHtml's details and body, our summary */
+/* the same card as the day list's: evHtml's details and body, our summary, then the reason and the thumbs */
 function nxEv(e, day, ix, summary, cls) {
   return evHtml(e, 'row', day).replace('<details class="ev row"', '<details' + (ix != null ? ' style="--i:' + ix + '"' : '') + ' class="ev row nx' + (cls ? ' ' + cls : '') + '"')
-    .replace(/<summary>[\s\S]*?<\/summary>/, function () { return summary; });
+    .replace(/<summary>[\s\S]*?<\/summary>/, function () { return summary; })
+    .replace(/<\/details>$/, function () { return nxWhy(e) + fb('event:' + e.k) + '</details>'; });
 }
 /* a run in progress that began before today: one line, tappable */
 function nxRun(e) {
   var u = e.e ? dates(e.e.slice(0, 10), e.e.slice(0, 10)) : null;
   return nxEv(e, MW.dayOf(Date.now()), null, '<summary class="nxs nxr"><span class="tt">' + esc(e.t) + '</span>' + (u ? ' <span class="nxu">· ' + bi('ถึง ' + u[0], 'until ' + u[1]) + '</span>' : '') + '</summary>', 'nxrun');
 }
-/* dated events past day 14, a heading a week */
+/* dated events past day 14: by fit as one list, or by time under a heading a week */
 function nxWeeks(evs, now) {
   var h = '', wk = '', ix = 0;
   evs.forEach(function (e) {
     var w = nxWeek(MW.firstDay(e));
-    if (w !== wk) { wk = w; h += '<h4 class="nxwk" data-wk="' + w + '">' + bi('สัปดาห์ ' + dates(w, w)[0], 'Week of ' + dates(w, w)[1]) + '</h4>'; }
+    if (ORDER === 'time' && w !== wk) { wk = w; h += '<h4 class="nxwk" data-wk="' + w + '">' + bi('สัปดาห์ ' + dates(w, w)[0], 'Week of ' + dates(w, w)[1]) + '</h4>'; }
     h += nxRow(e, 'ahead', now, ix++);
   });
   return h;
@@ -804,14 +660,15 @@ function nxAhead(evs, now) {
   var box = $('aheadwk'), ab = $('ahead'), CAP = 8;
   if (!box) { if (!ab) return; box = document.createElement('div'); box.id = 'aheadwk'; ab.parentNode.insertBefore(box, ab.nextSibling); }
   if (!evs.length) { box.innerHTML = ''; return; }
-  box.innerHTML = '<h4 class="nxsub">' + bi('หลังจากนั้น', 'Later') + ' <small>' + evs.length + '</small></h4>' + nxWeeks(evs.slice(0, CAP), now) +
+  evs = nxSort(evs);
+  box.innerHTML = '<h4 class="nxsub">' + bi('งานหลังจากนั้น', 'Later events') + ' <small>' + evs.length + '</small></h4>' + nxWeeks(evs.slice(0, CAP), now) +
     (evs.length > CAP ? '<details class="dmore"><summary>' + bi('อีก ' + (evs.length - CAP) + ' งาน', '+ ' + (evs.length - CAP) + ' more') + '</summary>' + nxWeeks(evs.slice(CAP), now) + '</details>' : '');
 }
 var NXAT = 0;
 function calNext(how) {
   var E = D.events, g = $('mgrid'); if (!E || !g) return;
   how = how || {};
-  var now = Date.now(), td = MW.dayOf(now), maxN = 1, maxC = 0, all = [], cityN = { cm: 0, cr: 0 }, kinds = {}, nKept = 0, i, h, o = '';
+  var now = Date.now(), td = MW.dayOf(now), maxN = 1, maxC = 0, all = [], cityN = { cm: 0, cr: 0 }, kinds = {}, nKept = 0, h, o = '';
   NXAT = now;
   E.cats.forEach(function (c) { CATMAP[c.k] = c; });
   E.events.forEach(function (e) { if (e.n > maxN) maxN = e.n; EVS[evKey(e)] = e; });
@@ -826,14 +683,16 @@ function calNext(how) {
   var pool = all.filter(function (e) { return (!MF.c || e.c === MF.c) && (MVIEW !== 'kept' || ME.saved[e.k]); });
   var tb = bandToday(pool, now), nb = bandNear(pool, now), ah = bandAhead(pool, now), days = nb.days, by = nb.by;
   MDAYS = days; MBY = by; MALL = by; MRUNS = tb.run; MLIST = E.events; MMORE = false; MOFF = 0;
-  if (MSEL && days.indexOf(MSEL) < 0) MSEL = null;
-  var tot = days.reduce(function (n, d) { return n + by[d].length; }, 0), top = Math.max.apply(null, days.map(function (d) { return by[d].length; }).concat([1]));
-  /* the title, the city, the filters: one state for all three bands */
+  var tot = days.reduce(function (n, d) { return n + by[d].length; }, 0);
+  /* the title, the city, the order, the filters: one state for all three bands */
   h = '<div class="mtopbar"><div class="nxtitle" role="heading" aria-level="2">' + bi('ปฏิทิน', 'Calendar') + '</div>' +
     '<span class="mcity" role="group" aria-label="เมือง · city">' + ['cm', 'cr'].map(function (c) {
       return '<button type="button" data-mcity="' + c + '" aria-pressed="' + (MCITY === c) + '">' + bi(CITY_N[c][0], CITY_N[c][1]) + '<i class="badge-count">' + (cityN[c] || 0) + '</i></button>';
     }).join('') + '</span></div>';
-  h += '<div class="mbar" role="toolbar" aria-label="เลือกดู · pick">' + (nKept || MVIEW === 'kept' ? '<button type="button" class="mq mkp" data-mview="kept" aria-pressed="' + (MVIEW === 'kept') + '"><b aria-hidden="true">♥</b>' + bi(VIEWS.kept[0], VIEWS.kept[1]) + '<i class="badge-count">' + nKept + '</i></button><span class="msep" aria-hidden="true"></span>' : '') +
+  h += '<div class="mbar" role="toolbar" aria-label="เลือกดู · pick"><span class="mord" role="group" aria-label="ลำดับ · order">' +
+    [['fit', 'สำหรับคุณ', 'For you'], ['time', 'ตามเวลา', 'By time']].map(function (x) { return '<button type="button" class="mq" data-morder="' + x[0] + '" aria-pressed="' + (ORDER === x[0]) + '">' + bi(x[1], x[2]) + '</button>'; }).join('') +
+    '</span><span class="msep" aria-hidden="true"></span>' +
+    (nKept || MVIEW === 'kept' ? '<button type="button" class="mq mkp" data-mview="kept" aria-pressed="' + (MVIEW === 'kept') + '"><b aria-hidden="true">♥</b>' + bi(VIEWS.kept[0], VIEWS.kept[1]) + '<i class="badge-count">' + nKept + '</i></button><span class="msep" aria-hidden="true"></span>' : '') +
     E.cats.filter(function (c) { return kinds[c.k]; }).sort(function (a, b) { return kinds[b.k] - kinds[a.k]; }).map(function (c) {
       return '<button type="button" class="mq" data-mcat="' + c.k + '" aria-pressed="' + (MF.c === c.k) + '"><s style="background:' + (CAT_PAPER[c.k] || CAT_PAPER.other) + '"></s>' + bi(c.th, c.en) + '<i class="badge-count">' + kinds[c.k] + '</i></button>';
     }).join('') + '</div>';
@@ -846,46 +705,27 @@ function calNext(how) {
   pk.top.forEach(function (e) { h += nxRow(e, 'today', now, ix++); });
   if (pk.rest.length) h += '<details class="dmore"><summary>' + bi('อีก ' + pk.rest.length + ' งานวันนี้', '+ ' + pk.rest.length + ' more today') + '</summary>' + pk.rest.map(function (e) { return nxRow(e, 'today', now); }).join('') + '</details>';
   h += '</section>';
-  /* NEXT 14 DAYS: the grid is the index */
-  var dr = dates(days[0], days[13]), lead = (bkk(at(days[0] + ' 12:00:00')).getUTCDay() + 6) % 7;
-  h += '<h3 class="nxh">' + bi('14 วันถัดไป', 'Next 14 days') + ' <small>' + bi(dr[0] + ' · ' + tot + ' งาน', dr[1] + ' · ' + tot + ' events') + '</small></h3>';
-  h += '<div class="wk" role="group" aria-label="14 วัน · 14 days">';
-  for (i = 0; i < 7; i++) h += '<div class="wd" aria-hidden="true">' + bi(WD_TH[(lead + i) % 7], WD_EN[(lead + i) % 7]) + '</div>';
-  days.forEach(function (d, k) {
-    var evs = by[d], n = evs.length, dn = dayName(d), dow = (lead + k) % 7, mk = dayMarks(d), f = mk.fest[0], kept = evs.filter(function (e) { return ME.saved[e.k]; }).length;
-    var cats = []; evs.forEach(function (e) { if (cats.indexOf(e.c) < 0) cats.push(e.c); });
-    h += '<button type="button" class="mc' + (dow > 4 ? ' we' : '') + (f ? ' fest' : '') + (MLIT[d] ? ' lit' : '') + '" data-mday="' + d + '" aria-pressed="' + (d === MSEL) + '"' +
-      ' style="--h:' + (n ? (0.06 + 0.3 * Math.log(1 + n) / Math.log(1 + top)).toFixed(2) : 0) + '"' +
-      ' aria-label="' + esc(dn[0] + ' · ' + dn[1] + ', ' + n + (n === 1 ? ' event' : ' events') + (mk.wan ? ', wan phra' : '') + (f ? ', ' + (f.en || f.th) : '') + (kept ? ', ' + kept + ' kept' : '')) + '">' +
-      '<span class="mtop"><span class="mn">' + (+d.slice(8)) + '</span>' + (kept ? '<span class="mhk" aria-hidden="true">♥' + (kept > 1 ? kept : '') + '</span>' : '') + (n ? '<span class="mk">' + n + '</span>' : '') + '</span>' +
-      (k === 0 || d.slice(8) === '01' ? '<span class="mo">' + bi(MON_TH[+d.slice(5, 7) - 1], MON_EN[+d.slice(5, 7) - 1]) + '</span>' : '') +
-      (f ? '<span class="mf">' + bi(esc(f.th), esc(f.en || f.th)) + '</span>' : '') +
-      evs.slice(0, 2).map(function (e) { return '<span class="mt">' + esc(e.t) + '</span>'; }).join('') +
-      (cats.length ? '<span class="md" aria-hidden="true">' + cats.slice(0, 5).map(function (c) { return '<i style="background:' + (CAT_PAPER[c] || CAT_PAPER.other) + '"></i>'; }).join('') + '</span>' : '') +
-      (mk.wan ? '<span class="mw" aria-hidden="true"></span>' : '') + '</button>';
-  });
-  g.innerHTML = h + '</div>';
-  /* the chosen day, under the grid */
-  if (MSEL) {
-    var evs = by[MSEL], dn = dayName(MSEL), di = days.indexOf(MSEL), mk = dayMarks(MSEL), p2 = nxPick(evs, 5), j = 0;
-    o += '<div class="mdh"><button type="button" class="mnav" data-mstep="-1"' + (di <= 0 ? ' disabled' : '') + ' aria-label="วันก่อน · previous day">‹</button>' +
-      '<h3 class="dayh">' + bi(dn[0], dn[1]) + ' <small>' + bi(evs.length + ' งาน', evs.length + (evs.length === 1 ? ' event' : ' events')) + '</small></h3>' +
-      '<button type="button" class="mnav" data-mstep="1"' + (di >= days.length - 1 ? ' disabled' : '') + ' aria-label="วันถัดไป · next day">›</button></div>';
-    o += '<canvas class="mdb" aria-hidden="true"></canvas>';
-    if (mk.wan || mk.fest.length) o += '<div class="why nxmk">' + (mk.wan ? '<span>' + bi('วันพระ', 'wan phra') + '</span>' : '') + mk.fest.map(function (f) { return '<span class="hot">' + bi(esc(f.th), esc(f.en || f.th)) + '</span>'; }).join('') + '</div>';
-    if (!evs.length) o += '<p class="nxnone">' + (tot ? bi('ยังไม่มีงานในวันนี้ในปฏิทิน', 'Nothing in the calendar for this day yet') : bi('ยังไม่มีงานใน' + CITY_N[MCITY][0] + 'ช่วงนี้ในปฏิทิน', 'Nothing in ' + CITY_N[MCITY][1] + ' in the calendar for these two weeks yet')) + '</p>';
+  g.innerHTML = h;
+  /* NEXT 14 DAYS: a day at a time, three rows each and the rest folded */
+  var dr = dates(days[0], days[13]), j = 0;
+  o += '<h3 class="nxh">' + bi('14 วันถัดไป', 'Next 14 days') + ' <small>' + bi(dr[0] + ' · ' + tot + ' งาน', dr[1] + ' · ' + tot + ' events') + '</small></h3>';
+  days.forEach(function (d) {
+    var evs = by[d], dn = dayName(d), mk = dayMarks(d), p2;
+    if (!evs.length && !mk.wan && !mk.fest.length) return;
+    p2 = nxPick(evs, 3);
+    o += '<h4 class="nxday" id="nxd-' + d + '" data-day="' + d + '">' + bi(dn[0], dn[1]) + (evs.length ? ' <small>' + bi(evs.length + ' งาน', evs.length + (evs.length === 1 ? ' event' : ' events')) + '</small>' : '') +
+      (mk.wan ? ' <span class="nxmk">' + bi('วันพระ', 'wan phra') + '</span>' : '') + mk.fest.map(function (f) { return ' <span class="nxmk hot">' + bi(esc(f.th), esc(f.en || f.th)) + '</span>'; }).join('') + '</h4>';
     p2.top.forEach(function (e) { o += nxRow(e, 'near', now, j++); });
-    if (p2.rest.length) o += '<details class="dmore"><summary>' + bi('อีก ' + p2.rest.length + ' งานวันนี้', '+ ' + p2.rest.length + ' more') + '</summary>' + p2.rest.map(function (e) { return nxRow(e, 'near', now); }).join('') + '</details>';
-  } else o += '<p class="nxhint">' + bi('แตะวันในตาราง เพื่อดูงานของวันนั้น', 'Tap a day above to see what is on') + '</p>';
+    if (p2.rest.length) o += '<details class="dmore"><summary>' + bi('อีก ' + p2.rest.length + ' งาน', '+ ' + p2.rest.length + ' more') + '</summary>' + p2.rest.map(function (e) { return nxRow(e, 'near', now); }).join('') + '</details>';
+  });
+  if (!tot) o += '<p class="nxnone">' + bi('ยังไม่มีงานใน' + CITY_N[MCITY][0] + 'ช่วงนี้ในปฏิทิน', 'Nothing in ' + CITY_N[MCITY][1] + ' in the calendar for these two weeks yet') + '</p>';
   var md = $('mday');
   md.classList.remove('unfold', 'slide-l', 'slide-r');
-  if (how.ox != null) md.style.setProperty('--ox', how.ox);
   md.innerHTML = o;
   if (!REDUCED && how.anim) { void md.offsetWidth; md.classList.add(how.anim); }
-  /* PLAN AHEAD: the ribbon's cards follow the city; the dated events under it */
-  document.querySelectorAll('#ahead a.room').forEach(function (a) { a.setAttribute('href', roomHref()); });
+  /* PLAN AHEAD: festival cards with their room and guide buttons, then later events */
+  ahead();
   nxAhead(ah, now);
-  mcells(by);
   markAt();
 }
 /* a shared #ev= or the clock's Calendar button: the band that holds the event opens it. False when no band holds it (over, hidden, too far). */
@@ -895,7 +735,7 @@ function openNext(e) {
   if ((e.city || 'cm') !== MCITY) setCity(e.city || 'cm', true);
   if (H.getAttribute('data-stage') !== 'cal') stage('cal');
   if ((MF.c && MF.c !== e.c) || (MVIEW === 'kept' && !ME.saved[e.k])) { MF.c = null; MVIEW = null; }
-  if (b === 'near') { MSEL = MW.firstDay(e); month({ anim: 'unfold' }); } else month();
+  month();
   sel = (b === 'today' ? '#mtoday' : b === 'near' ? '#mday' : '#aheadwk') + ' details.ev[data-k="' + k + '"]';
   el = document.querySelector(sel + '[data-s="' + e.s + '"]') || document.querySelector(sel);
   if (!el) return false;
@@ -916,7 +756,7 @@ function goNext(h) {
     if (gap < 0 || gap > MW.AHEAD_DAYS) return false;
     if (H.getAttribute('data-stage') !== 'cal') stage('cal');
     if (gap === 0) el = $('mtoday');
-    else if (gap <= 14) { MSEL = d; month({ anim: 'unfold' }); el = $('mday'); }
+    else if (gap <= 14) el = $('nxd-' + d) || $('mday');
     else {
       el = document.querySelector('#aheadwk [data-wk="' + nxWeek(d) + '"]') || $('aheadwk') || $('ahead');
       var p = el && el.closest('details.dmore'); if (p) p.open = true;
@@ -934,14 +774,9 @@ document.addEventListener('visibilitychange', function () {
 });
 /* the clock turned to another hour (null = now): the list shows that day, and what runs then is marked */
 function markAt() {
-  document.querySelectorAll('#mday details.ev').forEach(function (el) { var e = evOf(el), s = e && span(e); el.classList.toggle('at', !!(CALAT != null && s && s[0] <= CALAT && s[1] > CALAT)); });
+  document.querySelectorAll('#mtoday details.ev, #mday details.ev').forEach(function (el) { var e = evOf(el), s = e && span(e); el.classList.toggle('at', !!(CALAT != null && s && s[0] <= CALAT && s[1] > CALAT)); });
 }
-function calAt(t) {
-  CALAT = t;
-  if (t != null) { var d = ymd(t); if (MDAYS.indexOf(d) < 0 && MOFF && daysTo(d) >= 0 && daysTo(d) < 14) { MOFF = 0; MSEL = d; MVIEW = null; month(); return; }
-    if (MDAYS.indexOf(d) >= 0 && (d !== MSEL || MVIEW)) { MSEL = d; MVIEW = null; month(); return; } }
-  markAt();
-}
+function calAt(t) { CALAT = t; markAt(); }
 /* THE FORTNIGHT, drawn (Nan, 2026-10-03: "doodle the hero calendar"). Each day is a paper-cut
    scene: its leading event by the doodler (doodler.js setOf → scene), lit by that event's hour;
    Doi Suthep's own heights run across each week's row as one ridge (ridge.json, 98.80–99.06° E);
@@ -1242,8 +1077,7 @@ function ahead() {
   var today = ymd(Date.now()), all = A.items.filter(function (x) { return x.d1 >= today; });
   if (A.smoke && A.smoke.d1 >= today) all.push(A.smoke);
   all.sort(function (a, b) { return a.d0 < b.d0 ? -1 : 1; });
-  var h = '<div class="ahh"><h3>' + (CALNEXT ? bi('วางแผนล่วงหน้า', 'Plan ahead') : bi('ข้างหน้า', 'Ahead')) + '</h3><small>' + (CALNEXT ? bi('ห้องพักและตั๋วหมดเร็ว', 'rooms and tickets go early') : bi('วางแผนล่วงหน้า', 'worth planning for')) + '</small></div>' +
-    '<canvas id="ahrib" role="img" aria-label="' + esc(all.map(function (x) { return x.en + ' ' + dates(x.d0, x.d1)[1]; }).join(' · ')) + '"></canvas><div id="ahcards">';
+  var h = '<h3 class="nxh">' + bi('วางแผนล่วงหน้า', 'Plan ahead') + ' <small>' + bi('ห้องพักและตั๋วหมดเร็ว', 'rooms and tickets go early') + '</small></h3><div id="ahcards">';
   all.forEach(function (x) {
     var n = daysTo(x.d0), dd = dates(x.d0, x.d1), smoke = x.kind === 'smoke', live = n <= 0;
     var when = live ? bi('ตอนนี้', 'now') : smoke ? bi('อีก <b>' + n + '</b> วันควันเริ่ม', 'smoke in <b>' + n + '</b> days') : bi('อีก <b>' + n + '</b> วัน', 'in <b>' + n + '</b> days');
@@ -1252,22 +1086,13 @@ function ahead() {
       '<div class="ahn">' + when + '</div><div class="aht">' + bi(esc(x.th), esc(x.en)) + '</div>' +
       '<div class="ahd">' + bi(dd[0] + (smoke ? ' · หนักสุดราว ' + dates(x.peak, x.peak)[0] : x.usual ? ' · ตามปกติ' : ''), dd[1] + (smoke ? ' · worst around ' + dates(x.peak, x.peak)[1] : x.usual ? ' · usually' : '')) + '</div>' +
       '<p>' + bi(esc(x.lth), esc(x.len)) + '</p><div class="aha">' +
+      (smoke ? '' : roomBtns() + guideBtns()) +
       '<a class="chip" download="' + (x.id || 'smoke') + '.ics" href="' + ics + '">' + (smoke ? bi('ลงปฏิทินวันหนีควัน', 'mark the getaway') : bi('ลงปฏิทิน', 'add to calendar')) + '</a>' +
-      '<a class="chip" href="' + LIVE + x.page + '">' + (smoke ? bi('ฤดูหมอกควัน', 'The Smoky Season') : bi('ดูงาน', 'the festival')) + ' →</a>' +
-      (CALNEXT && !smoke ? '<a class="chip room" href="' + roomHref() + '" rel="noopener">' + bi('หาที่พัก', 'Find a room') + '</a>' : '') + '</div></div></article>';
+      '<a class="chip" href="' + LIVE + x.page + '">' + (smoke ? bi('ฤดูหมอกควัน', 'The Smoky Season') : bi('ดูงาน', 'the festival')) + ' →</a></div>' +
+      fb(smoke ? 'site:smoky-season' : 'festival:' + x.id) + '</div></article>';
   });
   box.innerHTML = h + '</div>';
   AH.all = all;
-  var rib = $('ahrib');
-  rib.addEventListener('click', function (ev) {
-    var b = rib.getBoundingClientRect(), x = ev.clientX - b.left, best = null, bd = 30;
-    AH.marks.forEach(function (m) { var d = Math.abs(m.x - x); if (d < bd) { bd = d; best = m.it; } });
-    if (!best && A.smoke) { var s = AH.smokeX; if (s && x >= s[0] && x <= s[1]) best = A.smoke; }
-    if (!best) return;
-    var card = $('ah-' + (best.id || 'smoke'));
-    if (card) { card.scrollIntoView({ inline: 'center', block: 'nearest', behavior: REDUCED ? 'auto' : 'smooth' }); card.classList.remove('flash'); void card.offsetWidth; card.classList.add('flash'); }
-    AH.sel = best;
-  });
   if (!AH.io && window.IntersectionObserver) {
     AH.io = new IntersectionObserver(function (e) { AH.on = e[0].isIntersecting; if (AH.on && !AH.raf) AH.raf = requestAnimationFrame(aheadFrame); }, { rootMargin: '60px' });
     AH.io.observe(box);
@@ -1276,53 +1101,8 @@ function ahead() {
 }
 function aheadFrame(t) {
   AH.raf = 0;
-  var A = D.ahead, rib = $('ahrib'); if (!A || !rib) return;
+  if (!D.ahead) return;
   if (REDUCED) t = 4000;
-  var w = rib.clientWidth, h = rib.clientHeight; if (!w) return;
-  if (rib.width !== Math.round(w * DPR)) { rib.width = Math.round(w * DPR); rib.height = Math.round(h * DPR); }
-  var c = rib.getContext('2d'), now = Date.now(), today = ymd(now), t0 = dms(today), span = (dms(A.to) - t0) / 864e5, EN = enMode();
-  var X = function (d) { return Math.max(0, Math.min(w, (dms(d) - t0) / 864e5 / span * w)); }, i;
-  c.setTransform(DPR, 0, 0, DPR, 0, 0);
-  var g = c.createLinearGradient(0, 0, 0, h); g.addColorStop(0, '#0d1320'); g.addColorStop(1, '#161c27'); c.fillStyle = g; c.fillRect(0, 0, w, h);
-  /* the fortnight above, lit */
-  c.fillStyle = 'rgba(255,194,102,.10)'; c.fillRect(0, 0, 14 / span * w, h);
-  /* the smoke: haze from the fires climatology */
-  var hz = A.haze || [], off = Math.round((t0 - dms(A.from)) / 864e5);
-  if (hz.length) {
-    c.beginPath(); c.moveTo(0, h);
-    for (i = 0; i <= w; i += 2) { var v = hz[Math.min(hz.length - 1, off + Math.floor(i / w * span))] || 0; c.lineTo(i, h - v * h * .82 - Math.sin(i / 23 + t / 1800) * v * 3); }
-    c.lineTo(w, h); c.closePath();
-    g = c.createLinearGradient(0, h * .15, 0, h); g.addColorStop(0, 'rgba(196,160,120,.55)'); g.addColorStop(1, 'rgba(120,95,70,.85)'); c.fillStyle = g; c.fill();
-    for (i = 0; i < 46; i++) {
-      var px = ((i * 97.3 + t / 90 * (0.3 + (i % 5) / 6)) % w), pv = hz[Math.min(hz.length - 1, off + Math.floor(px / w * span))] || 0;
-      if (pv < .3) continue;
-      c.fillStyle = 'rgba(225,200,170,' + (.25 * pv) + ')'; c.beginPath(); c.arc(px, h - pv * h * (.25 + .5 * ((i * 37) % 10) / 10), 2 + (i % 3), 0, 7); c.fill();
-    }
-  }
-  if (A.smoke) {
-    AH.smokeX = [X(A.smoke.d0), X(A.smoke.d1)];
-    c.fillStyle = '#fff1dc'; c.font = '800 13px ' + getComputedStyle(document.body).fontFamily; c.textAlign = 'center';
-    c.fillText(EN ? 'smoke season' : 'ฤดูควัน', X(A.smoke.peak), h - 9);
-  }
-  /* months */
-  c.textAlign = 'left'; c.font = '700 12px ' + getComputedStyle(document.body).fontFamily;
-  var fl = EN ? '14 days' : '14 วัน', end = 4 + c.measureText(fl).width + 4;
-  c.fillStyle = '#ffc266'; c.fillText(fl, 4, 14);
-  for (var m = new Date(t0 + 7 * 3600e3); ; ) {
-    m = new Date(Date.UTC(m.getUTCFullYear(), m.getUTCMonth() + 1, 1)); var md = m.toISOString().slice(0, 10); if (md > A.to) break;
-    var mx = X(md), ml = (EN ? MON_EN : MON_TH)[m.getUTCMonth()]; c.fillStyle = 'rgba(255,255,255,.14)'; c.fillRect(mx, 0, 1, h);
-    c.fillStyle = '#aab4be'; c.fillText(ml, Math.max(mx + 4, end), 14); end = Math.max(mx + 4, end) + c.measureText(ml).width + 4;
-  }
-  /* the festivals */
-  AH.marks = [];
-  A.items.forEach(function (it, k) {
-    if (it.d1 < today) return;
-    var x = (X(it.d0) + X(it.d1)) / 2, y = h * (.42 + (k % 2) * .12), sz = Math.max(9, h * .13), pv = AH.marks[AH.marks.length - 1];
-    if (pv && x - pv.x < sz * 1.8) x = pv.x + sz * 1.8;                /* two on one day: side by side */
-    if (AH.sel === it) { c.strokeStyle = '#ffc266'; c.lineWidth = 2; c.beginPath(); c.arc(x, y, h * .2, 0, 7); c.stroke(); }
-    glyph(c, it.kind, x, y, sz, t, k / 7);
-    AH.marks.push({ x: x, it: it });
-  });
   /* the card pictures */
   document.querySelectorAll('#ahcards .ahc').forEach(function (a, k) {
     var cv = a.querySelector('canvas'); scene(cv, a.dataset.k, t, 101 + k * 7919);
@@ -1399,6 +1179,8 @@ $('month').addEventListener('click', function (ev) {
   } else if (b.dataset.mview != null) {
     ev.stopPropagation(); MVIEW = b.dataset.mview && MVIEW !== b.dataset.mview ? b.dataset.mview : null;
     month({ anim: 'unfold' }); engaged(); if (MVIEW && !CALNEXT) toList();
+  } else if (b.dataset.morder) {
+    ev.stopPropagation(); if (b.dataset.morder !== ORDER) { ORDER = b.dataset.morder; store('md-cal-order', ORDER); month(); tell('open', 'cal:order-' + ORDER); } engaged();
   } else if (b.dataset.mcat) {
     ev.stopPropagation(); MF.c = MF.c === b.dataset.mcat ? null : b.dataset.mcat; month(); engaged();
   } else if (b.dataset.mstep) { ev.stopPropagation(); dayStep(+b.dataset.mstep); }
@@ -1412,16 +1194,6 @@ $('mgrid').addEventListener('keydown', function (ev) {
   var i = MDAYS.indexOf(b.dataset.mday) + d, n = i >= 0 && i < MDAYS.length && document.querySelector('#mgrid button[data-mday="' + MDAYS[i] + '"]');
   if (n) { ev.preventDefault(); n.focus(); }
 });
-/* a finger sweeps the list a day on */
-(function () {
-  var md = $('mday'), p = null;
-  md.addEventListener('pointerdown', function (e) { if (e.pointerType !== 'mouse' && !MVIEW && !(e.target.closest && e.target.closest('canvas.mdb'))) p = [e.clientX, e.clientY]; });
-  md.addEventListener('pointerup', function (e) {
-    if (!p) return; var dx = e.clientX - p[0], dy = e.clientY - p[1]; p = null;
-    if (Math.abs(dx) > 60 && Math.abs(dx) > 2 * Math.abs(dy)) dayStep(dx < 0 ? 1 : -1);
-  });
-  md.addEventListener('pointercancel', function () { p = null; });
-})();
 /* a mouse resting on a day shows what is in it */
 (function () {
   if (!window.matchMedia || !matchMedia('(hover: hover) and (pointer: fine)').matches) return;
@@ -1458,36 +1230,29 @@ $('mgrid').addEventListener('keydown', function (ev) {
     var a = ev.target.closest && ev.target.closest('a[href]'); if (!a || /^#/.test(a.getAttribute('href'))) return;
     tell('open', 'ab:go', true); engaged();
   }, true);
-  if (window.IntersectionObserver && $('soon')) new IntersectionObserver(function (e, o) { if (e[0].isIntersecting) { tell('open', 'ab:soon', true); o.disconnect(); } }).observe($('soon'));
 })();
+/* a card's buttons: its crumbs go to the day or the kind; keep, not for me and hide redraw the bands in place */
+var CALBOX = '#mtoday, #mday, #aheadwk';
 document.addEventListener('click', function (ev) {
-  var b = ev.target.closest && ev.target.closest('button'); if (!b || !b.closest(CALNEXT ? '#soon, #mday, #mtoday, #aheadwk' : '#soon, #mday')) return;
-  if (CALNEXT && b.closest('#mtoday, #aheadwk') && b.dataset.day) { ev.preventDefault(); return; }
-  if (b.closest('#mday') && b.dataset.day) { ev.preventDefault(); MSEL = b.dataset.day; month(); return; }
-  if (b.dataset.f === 'all') { FILTER = { c: null, area: null, saved: false, near: false }; }
-  else if (b.dataset.f === 'near') FILTER.near = !FILTER.near;
-  else if (b.dataset.f === 'saved') FILTER.saved = !FILTER.saved;
-  else if (b.dataset.f === 'noarea') FILTER.area = null;
-  else if (b.dataset.cat) { ev.preventDefault(); FILTER.c = FILTER.c === b.dataset.cat ? null : b.dataset.cat; }
-  else if (b.dataset.area) { ev.preventDefault(); FILTER.area = b.dataset.area; }
-  else if (b.dataset.day) { ev.preventDefault(); var h = $('d-' + b.dataset.day); if (h) h.scrollIntoView({ block: 'start' }); return; }
-  else if (b.dataset.save) { ev.preventDefault(); ME.saved[b.dataset.save] = !ME.saved[b.dataset.save]; if (!ME.saved[b.dataset.save]) delete ME.saved[b.dataset.save]; saveMe(); engaged(); var popK = ME.saved[b.dataset.save] ? b.dataset.save : null; }
+  var b = ev.target.closest && ev.target.closest('button'); if (!b || !b.closest(CALBOX)) return;
+  var popK = null;
+  if (b.dataset.day) { ev.preventDefault(); goNext('day=' + b.dataset.day); return; }
+  if (b.dataset.area) { ev.preventDefault(); return; }
+  if (b.dataset.cat) { ev.preventDefault(); MF.c = b.dataset.cat; month(); $('month').scrollIntoView({ block: 'start', behavior: REDUCED ? 'auto' : 'smooth' }); return; }
+  if (b.dataset.save) { ev.preventDefault(); ME.saved[b.dataset.save] = !ME.saved[b.dataset.save]; if (!ME.saved[b.dataset.save]) delete ME.saved[b.dataset.save]; saveMe(); engaged(); popK = ME.saved[b.dataset.save] ? b.dataset.save : null; }
   else if (b.dataset.hide) { ME.hidden[b.dataset.hide] = 1; saveMe(); }
   else if (b.dataset.hidecat) { ME.hideCats[b.dataset.hidecat] = 1; saveMe(); }
-  else if (b.id === 'unhide') { ME.hidden = {}; ME.hideCats = {}; saveMe(); }
-  else if (b.id === 'calmoreb') SHOWN += 4;
   else return;
-  var open = [].map.call(document.querySelectorAll(CALNEXT ? '#cal details[open], #mday details[open], #mtoday details[open], #aheadwk details[open]' : '#cal details[open], #mday details[open]'), function (d) { var c = CALNEXT && d.closest('#mday, #mtoday, #aheadwk'); return [c ? '#' + c.id : d.closest('#mday') ? '#mday' : '#cal', d.dataset.k]; });
+  var open = [].map.call(document.querySelectorAll('#mtoday details[open], #mday details[open], #aheadwk details[open]'), function (d) { return ['#' + d.closest(CALBOX).id, d.dataset.k]; });
   /* the row tapped stays under the finger through the redraw */
-  var anc = b.closest('details.ev'), ancSel = anc && ((CALNEXT && anc.closest('#mday, #mtoday, #aheadwk')) ? '#' + anc.closest('#mday, #mtoday, #aheadwk').id : anc.closest('#mday') ? '#mday' : '#cal') + ' details.ev[data-k="' + anc.dataset.k + '"][data-s="' + anc.dataset.s + '"]', y0 = anc && anc.getBoundingClientRect().top;
+  var anc = b.closest('details.ev'), ancSel = anc && '#' + anc.closest(CALBOX).id + ' details.ev[data-k="' + anc.dataset.k + '"][data-s="' + anc.dataset.s + '"]', y0 = anc && anc.getBoundingClientRect().top;
   cal();
   var na = ancSel && document.querySelector(ancSel); if (na) scrollBy(0, na.getBoundingClientRect().top - y0);
   open.forEach(function (k) { var d = k[1] && document.querySelector(k[0] + ' details[data-k="' + k[1] + '"]'); if (d) d.open = true; });
   if (popK && !REDUCED) document.querySelectorAll('.hrt[data-save="' + popK + '"]').forEach(function (h) { h.classList.add('pop'); });
-  if (b.dataset.cat || b.dataset.area || b.dataset.f) $('calbar').scrollIntoView({ block: 'start', behavior: REDUCED ? 'auto' : 'smooth' });
 });
 document.addEventListener('toggle', function (ev) {
-  var d = ev.target; if (!d.matches || !d.matches(CALNEXT ? '#cal details.ev, #mday details.ev, #mtoday details.ev, #aheadwk details.ev' : '#cal details.ev, #mday details.ev') || !d.open) return;
+  var d = ev.target; if (!d.matches || !d.matches('#mtoday details.ev, #mday details.ev, #aheadwk details.ev') || !d.open) return;
   var e = evOf(d) || D.events.events.filter(function (x) { return x.k === d.dataset.k; })[0]; if (!e) return;
   ME.cats[e.c] = (ME.cats[e.c] || 0) + 1; if (e.v) ME.venues[e.v] = (ME.venues[e.v] || 0) + 1; saveMe();
   beacon(e.k);
@@ -1790,7 +1555,7 @@ function ddChoices(first) {
   return out.slice(0, 9);
 }
 /* the fortnight, opened at a day (the clock's face) */
-function openDay(d) { if (H.getAttribute('data-stage') !== 'cal') stage('cal', true); pickDay(d, 'unfold'); toList(); }
+function openDay(d) { if (H.getAttribute('data-stage') !== 'cal') stage('cal', true); goNext('day=' + d); }
 function doodle() {
   var SKY = window.MDSKY; if (!SKY) return;
   var paper = SKY.paper, jagPoly = SKY.jag, circ = SKY.circ;
@@ -2153,7 +1918,7 @@ function doodle() {
       var time = e.ad || e.s.slice(11, 16) === '00:00' ? '' : ' ' + hhmm(s), k = esc(evKey(e));
       var th = x.row && x.row.th, enn = x.row && x.row.en || e.t, C = (D.events.cats.filter(function (q) { return q.k === e.c; })[0]) || { th: '', en: '' };
       var km1 = e.la != null ? km(where.lat, where.lng, e.la, e.lo) : null, map = mapHref(e);
-      var nav = CH.length > 1 ? '<span class="ddnav"><button type="button" data-dd="-1" aria-label="งานก่อนหน้า · previous">‹</button><small>' + (CI + 1) + '/' + CH.length + '</small><button type="button" data-dd="1" aria-label="งานถัดไป · next">›</button></span>' : '';
+      var nav = '';   /* the pager is gone (Nan, 2026-10-11): the day's other events are in the calendar's Today */
       h += '<div class="ddev"><div class="ddwhen">' + (CI ? '' : '★ ') + bi(when[0] + time, when[1] + time) + ' · ' + cdHtml(e) + nav + '</div>' +
         '<a class="ddt" href="#ev=' + e.k + '" data-dact="pop" data-ek="' + k + '">' + (th ? bi(esc(th), esc(enn), 'stack') : esc(enn)) + '</a>' +
         '<div class="ddv">' + (e.v ? esc(e.v) : '') + (km1 != null ? ' · ' + bi(far(km1), farEn(km1), 'num') : '') + (C.th ? ' · ' + bi(C.th, C.en) : '') + '</div>' +
@@ -2175,8 +1940,6 @@ function doodle() {
   }
   /* one tap: believed at once, sent to the readers' rain gauge (obs_layer.py) with where we think they are */
   box.addEventListener('click', function (ev) {
-    var n = ev.target.closest && ev.target.closest('[data-dd]');
-    if (n) { ev.preventDefault(); cycle(+n.dataset.dd); return; }
     if (ev.target.closest && ev.target.closest('[data-now]')) { ev.preventDefault(); springBack(); return; }
     var a = ev.target.closest && ev.target.closest('[data-nr]'); if (!a) return;
     ev.preventDefault();
@@ -2479,21 +2242,7 @@ function doodle() {
     else if (ev.key === 'Escape' || ev.key === 'Home') { ev.preventDefault(); springBack(); }
     else if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); openDay(T.d); }
   });
-  /* the band's other choices: ‹ ›, or a sideways swipe across the picture */
-  function cycle(n) {
-    if (CH.length < 2) return;
-    CI = (CI + n + CH.length) % CH.length; x = CH[CI]; poster = null;
-    FX.slide0 = performance.now(); FX.dir = n; lastMin = -1; shut(); engaged();
-    if (REDUCED) paint(4000);
-  }
-  var sw = null, swallow = false;
-  cv.addEventListener('pointerdown', function (ev) { sw = [ev.clientX, ev.clientY]; swallow = false; });
-  cv.addEventListener('pointerup', function (ev) {
-    if (!sw) return; var dx = ev.clientX - sw[0], dy = ev.clientY - sw[1]; sw = null;
-    if (CH.length > 1 && Math.abs(dx) > 50 && Math.abs(dx) > 1.6 * Math.abs(dy)) { swallow = true; cycle(dx < 0 ? 1 : -1); }
-  });
-  cv.addEventListener('pointercancel', function () { sw = null; });
-  cv.onclick = function (ev) { if (swallow) { swallow = false; return; } var p = cvXY(ev); tapAt(p[0], p[1]); };
+  cv.onclick = function (ev) { var p = cvXY(ev); tapAt(p[0], p[1]); };
   pop.addEventListener('click', function (e) {
     if (e.target.closest('.x')) { shut(); return; }
     var tn = e.target.closest('[data-turn]'); if (tn) { e.preventDefault(); shut(); setAt(+tn.dataset.turn); hold(); }
@@ -2538,29 +2287,11 @@ function jump() {
   var h = [[today, today, 'วันนี้', 'Today'], [tom, tom, 'พรุ่งนี้', 'Tomorrow']];
   if (dow !== 6 && dow !== 0) h.push([sat, sun, 'เสาร์อาทิตย์', 'Weekend']);
   $('jump').innerHTML = h.map(function (r) { var c = n(r[0], r[1]); return c ? '<a class="chip" href="#day=' + r[0] + '">' + bi(r[2], r[3]) + '<i>' + c + '</i></a>' : ''; }).join('') +
-    '<a class="chip cal" href="#soon">' + bi('ปฏิทินทั้งหมด', 'The calendar') + ' ↓</a>';
+    '<a class="chip cal" href="#day=' + today + '">' + bi('ปฏิทิน', 'The calendar') + ' ↑</a>';
 }
 /* #ev=<key> opens that event in the calendar; #day=<date> goes to that day.
    Search rows, the map's event taps and the doodle all lead here. */
-function findEv(k) { return document.querySelector('#cal details.ev[data-k="' + k.replace(/[^a-z0-9-]/g, '') + '"]'); }
-function showDay(d) { var n = 0; while (!$('d-' + d) && $('calmoreb') && n++ < 12) { SHOWN += 4; cal(); } return $('d-' + d); }
-function go(h) {
-  if (!D.events || !$('cal').firstChild) return;
-  if (CALNEXT && goNext(h)) return;
-  var m, el;
-  if ((m = /^ev=([a-z0-9-]+)$/.exec(h))) {
-    var e = D.events.events.filter(function (x) { return x.k === m[1]; })[0];
-    el = findEv(m[1]);
-    if (!el && e) { showDay(ymd(Math.max(at(e.s), Date.now()))); el = findEv(m[1]); }
-    if (!el && e) { FILTER = { c: null, area: null, saved: false, near: false }; cal(); showDay(ymd(Math.max(at(e.s), Date.now()))); el = findEv(m[1]); }
-    if (!el) { $('soon').scrollIntoView({ block: 'start' }); return; }
-    var p = el.closest('details.dmore'); if (p) p.open = true;
-    el.open = true; el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
-    el.scrollIntoView({ block: 'start', behavior: REDUCED ? 'auto' : 'smooth' });
-  } else if ((m = /^day=(\d{4}-\d{2}-\d{2})$/.exec(h))) {
-    el = showDay(m[1]) || $('soon'); el.scrollIntoView({ block: 'start', behavior: REDUCED ? 'auto' : 'smooth' });
-  }
-}
+function go(h) { if (D.events) goNext(h); }
 function route() { var h = location.hash.slice(1); try { h = decodeURIComponent(h); } catch (e) { } go(h); }
 addEventListener('hashchange', route);
 document.addEventListener('click', function (ev) {
@@ -2570,38 +2301,6 @@ document.addEventListener('click', function (ev) {
   go(h.slice(1));
 });
 
-/* the wan phra and the festivals, big; lanterns rising as Yi Peng nears */
-function big() {
-  var S = D.soon; if (!S) return;
-  var now = Date.now(), today = ymd(now), wp = null, h = '';
-  if (D.sky) Object.keys(D.sky.days).sort().some(function (k) { if (k >= today && D.sky.days[k].moon.wan_phra) { wp = [k, D.sky.days[k].moon]; return true; } });
-  function days(d) { return Math.round((Date.parse(d) - Date.parse(today)) / 864e5); }
-  if (wp) { var n = days(wp[0]); h += '<div class="bigd"><canvas id="moonc" width="120" height="120" aria-hidden="true"></canvas><div class="n">' + (n || bi('วันนี้', 'today')) + (n ? '<small>' + bi('วัน', 'days') + '</small>' : '') + '</div><div class="l">' + bi('วันพระ', 'Wan phra') + '</div><div class="s">' + bi(esc(wp[1].thai_label_th), esc(wp[1].thai_label_en)) + '</div></div>'; }
-  S.festivals.slice(0, 2).forEach(function (f) { h += '<div class="bigd"><div class="n">' + days(f.d0) + '<small>' + bi('วัน', 'days') + '</small></div><div class="l">' + bi(esc(f.th), esc(f.en), 'stack') + '</div><div class="s">' + (+f.d0.slice(8)) + ' ' + MON_EN[+f.d0.slice(5, 7) - 1] + '</div></div>'; });
-  $('big').innerHTML = h;
-  if (wp) { var c = $('moonc').getContext('2d'), M = wp[1]; c.fillStyle = '#fff6dc'; c.beginPath(); c.arc(60, 60, 50, 0, 7); c.fill(); c.save(); c.beginPath(); c.arc(60, 60, 50, 0, 7); c.clip(); c.fillStyle = '#10141b'; c.beginPath(); c.arc(60 + (M.waxing ? -1 : 1) * 100 * M.illum, 60, 51.5, 0, 7); c.fill(); c.restore(); }
-  var yp = S.festivals.filter(function (f) { return /yi-peng/.test(f.id); })[0];
-  lanterns(yp ? Math.max(0, days(yp.d0)) : 60);
-}
-function lanterns(dd) {
-  var cv = $('lanterns'), c = cv.getContext('2d'), L = [], on = false, n = REDUCED ? 0 : Math.round(Math.max(5, Math.min(60, 60 - dd)));
-  function size() { cv.width = cv.clientWidth * DPR; cv.height = cv.clientHeight * DPR; }
-  size(); addEventListener('resize', size);
-  for (var i = 0; i < n; i++) L.push([Math.random(), Math.random(), 0.00006 + Math.random() * 0.0001, 4 + Math.random() * 7, Math.random() * 6]);
-  new IntersectionObserver(function (e) { on = e[0].isIntersecting; if (on) requestAnimationFrame(f); }).observe(cv);
-  function f(t) {
-    if (!on) return;
-    var W = cv.clientWidth, Hh = cv.clientHeight; c.setTransform(DPR, 0, 0, DPR, 0, 0); c.clearRect(0, 0, W, Hh);
-    L.forEach(function (l) {
-      l[1] -= l[2] * 16; if (l[1] < -0.05) { l[1] = 1.05; l[0] = Math.random(); }
-      var x = l[0] * W + Math.sin(t / 2000 + l[4]) * 12, y = l[1] * Hh, s = l[3];
-      var g = c.createRadialGradient(x, y, 0, x, y, s * 3); g.addColorStop(0, 'rgba(255,190,100,.5)'); g.addColorStop(1, 'rgba(255,150,60,0)');
-      c.fillStyle = g; c.beginPath(); c.arc(x, y, s * 3, 0, 7); c.fill();
-      c.fillStyle = 'rgba(255,214,150,.85)'; c.fillRect(x - s / 2, y - s * 0.7, s, s * 1.3);
-    });
-    requestAnimationFrame(f);
-  }
-}
 
 /* the smoky-season page belongs beside the air reading in its season (mid-January
    to April, its card's window in sites.json) or on a day the air is bad (Thai AQI
@@ -2660,7 +2359,7 @@ j(LIVE + 'front/near.json').then(function (d) { D.near = d; near(); }, function 
 Promise.all([j(LIVE + 'front/events.json').then(function (d) { D.events = d; }), j(LIVE + 'front/soon.json').then(function (d) { D.soon = d; }),
              j(LIVE + 'data/sky.json').then(function (d) { D.sky = d; }, function () { }),
              j(LIVE + 'front/doodle.json').then(function (d) { D.doodle = d; }, function () { })])
-  .then(function () { [cal, big, doodle, jump, route].forEach(function (f) { try { f(); } catch (err) { console.error(err); } }); }, function () { });   /* each on its own: one that fails leaves the rest, the doodle above all, standing */
+  .then(function () { [cal, doodle, jump, route].forEach(function (f) { try { f(); } catch (err) { console.error(err); } }); }, function () { });   /* each on its own: one that fails leaves the rest, the doodle above all, standing */
 j(LIVE + 'front/sites.json').then(function (d) { D.sites = d; sites(); }, function () { });
 
 j(LIVE + 'front/drawer.json').then(function (d) { D.drawer = d; drawer(); }, function () { });

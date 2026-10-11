@@ -285,6 +285,18 @@
     "hotel"
    ],
    "on": "both"
+  },
+  "md-plan-room-cm": {
+   "brand": "Agoda",
+   "url": null,
+   "en": "Book a room in Chiang Mai · Agoda",
+   "th": "จองที่พักในเชียงใหม่ · Agoda"
+  },
+  "md-plan-room-cr": {
+   "brand": "Agoda",
+   "url": null,
+   "en": "Book a room in Chiang Rai · Agoda",
+   "th": "จองที่พักในเชียงราย · Agoda"
   }
  },
  "label_en": "Paid link: Mot Dang earns a fee if you book.",

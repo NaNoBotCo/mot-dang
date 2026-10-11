@@ -1146,8 +1146,29 @@ def bake_ahead(docs, today=None):
         pk = dt.date(y, 1, 1) + dt.timedelta(days=clim.index(top))
         out["smoke"] = {"kind": "smoke", "th": sm["th"], "en": sm["en"], "lth": sm["line_th"], "len": sm["line_en"],
                         "d0": s0.isoformat(), "d1": s1.isoformat(), "peak": pk.isoformat(), "page": sm["page"]}
+    out["plan"] = _plan()
     _dump(out, docs / "front/ahead.json")
     return len(items)
+
+
+GUIDE_REGISTER = "https://esvcs.dot.go.th/e-service/LicenseInformationPage"
+
+
+def _plan():
+    """The Plan ahead cards' buttons (Nan, 2026-10-11). Find a room: the paid booking link per city, from the
+    md-plan-room-<city> slots in data/curated/affiliate.json (affiliate-slots/slots.json; url null until the link
+    exists). Find a guide: motdang.net Co.'s helpers from data/curated/guides.json when it has any
+    ({"helpers": [{"city", "en", "th", "url", "price"}]}), then the Department of Tourism's licence register."""
+    aff = _j(ROOT / "data/curated/affiliate.json") if (ROOT / "data/curated/affiliate.json").exists() else {"slots": {}}
+    room = {}
+    for c in ("cm", "cr"):
+        s = aff["slots"].get("md-plan-room-" + c) or {}
+        if s.get("url"):
+            room[c] = {"url": s["url"], "en": s.get("en") or s.get("brand", ""), "th": s.get("th") or s.get("brand", "")}
+    g = ROOT / "data/curated/guides.json"
+    helpers = [h for h in (_j(g).get("helpers", []) if g.exists() else []) if h.get("url") and h.get("en")]
+    return {"room": room, "paid": {"en": aff.get("label_en", ""), "th": aff.get("label_th", "")},
+            "guide": {"register": GUIDE_REGISTER, "helpers": helpers}}
 
 
 # ---------------------------------------------------------------- the whole bake, and the page

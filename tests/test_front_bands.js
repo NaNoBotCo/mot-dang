@@ -1,7 +1,7 @@
 // The front calendar's three bands (calendar design, 2026-10-11) cut from the baked events with the page's own
 // code: MDWHEN.band from when.js says which band an event is in, and bandToday, bandNear, bandAhead from
 // front.js put what it keeps in order. Checked at several moments of the day, in the order the reader sees:
-//   TODAY: sorted by start, nothing over, no all-day event of tomorrow, runs that began earlier on their own list
+//   TODAY: cut by start, nothing over, no all-day event of tomorrow, runs that began earlier on their own list
 //   NEXT 14 DAYS: fourteen days in date order, each event on its own day, each day in start order
 //   PLAN AHEAD: by start, from day 15 on; every event inside seven months is in a band or over
 //
@@ -27,8 +27,8 @@ function take(name) {
 }
 const win = {}; new Function('window', WHEN)(win);
 const MW = win.MDWHEN, at = MW.at, ymd = MW.ymd, bkk = MW.bkk;
-const F = new Function('MW', 'at', 'ymd', 'bkk', ['nxByStart', 'bandToday', 'bandNear', 'bandAhead', 'nxPick', 'nxWeek'].map(take).join('\n') +
-  '\nreturn { bandToday, bandNear, bandAhead, nxPick, nxWeek, nxByStart };')(MW, at, ymd, bkk);
+const F = new Function('MW', 'at', 'ymd', 'bkk', "var ORDER = 'fit';\n" + ['nxByStart', 'bandToday', 'bandNear', 'bandAhead', 'nxSort', 'nxPick', 'nxWeek'].map(take).join('\n') +
+  '\nreturn { bandToday, bandNear, bandAhead, nxPick, nxWeek, nxByStart, order: function (o) { ORDER = o; } };')(MW, at, ymd, bkk);
 
 if (!fs.existsSync(SRC)) { console.log('front bands: no ' + path.relative(ROOT, SRC) + ', nothing to check'); process.exit(0); }
 const data = JSON.parse(fs.readFileSync(SRC, 'utf8'));
@@ -84,10 +84,15 @@ for (let off = 0; off < 3; off++) for (const hm of moments) {
 {
   const now = at(day0 + ' 09:38:00'), T = F.bandToday(evs, now);
   T.rows.forEach((e, i) => { e.sc = (i * 7919) % 13; });
-  const P = F.nxPick(T.rows, 5);
+  // For you (Nan, 2026-10-11: rows ordered by fit): the best fit first; ties by start
+  let P = F.nxPick(T.rows, 5);
   if (P.top.length + P.rest.length !== T.rows.length) bad.push('the pick loses rows');
-  P.top.forEach((e, i) => { if (i && at(P.top[i - 1].s) > at(e.s)) bad.push('the five picked are not in start order'); });
-  P.rest.forEach((e, i) => { if (i && at(P.rest[i - 1].s) > at(e.s)) bad.push('the rest are not in start order'); });
+  const L = P.top.concat(P.rest);
+  L.forEach((e, i) => { if (i && (L[i - 1].sc < e.sc || (L[i - 1].sc === e.sc && at(L[i - 1].s) > at(e.s)))) bad.push('for you: not in fit order at ' + i); });
+  // By time: start order throughout
+  F.order('time'); P = F.nxPick(T.rows, 5); F.order('fit');
+  if (P.top.length + P.rest.length !== T.rows.length) bad.push('by time: the pick loses rows');
+  P.top.concat(P.rest).forEach((e, i, A) => { if (i && at(A[i - 1].s) > at(e.s)) bad.push('by time: not in start order at ' + i); });
   if (F.nxWeek('2026-10-26') !== '2026-10-26' || F.nxWeek('2026-11-01') !== '2026-10-26') bad.push('a week does not start on Monday');
 }
 if (bad.length) {
