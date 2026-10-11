@@ -2,6 +2,9 @@
    /data/{weather,air,sky}.json. Thai or English from the bar's ไทย / EN. */
 (function () {
 'use strict';
+/* the time model is when.js (window.MDWHEN): Bangkok's clock, the 03:00 day, span, ics, the names */
+var MW = window.MDWHEN, bkk = MW.bkk, hhmm = MW.hhmm, ymd = MW.ymd, at = MW.at, atEnd = MW.atEnd, span = MW.span, ics = MW.ics,
+  MON_TH = MW.MON_TH, MON_EN = MW.MON_EN, DAY_TH = MW.DAY_TH, DAY_EN = MW.DAY_EN;
 var LIVE = '/';
 var ON_SITE = /(^|\.)motdang\.net$/.test(location.hostname);
 var REDUCED = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -16,15 +19,6 @@ var D = {};
 function j(u) { return fetch(u).then(function (r) { if (!r.ok) throw new Error(u); return r.json(); }); }
 function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
 function bi(th, en, cls) { return '<span class="bi' + (cls ? ' ' + cls : '') + '"><span class="th" lang="th">' + th + '</span><span class="en" lang="en">' + en + '</span></span>'; }
-function bkk(t) { return new Date(t + 7 * 3600e3); }
-function hhmm(t) { return bkk(t).toISOString().slice(11, 16); }
-function ymd(t) { return bkk(t).toISOString().slice(0, 10); }
-function at(s) { return Date.parse(s.replace(' ', 'T') + '+07:00'); }
-/* an event's end: a bare date (a festival's last day) runs to the end of that day */
-function atEnd(s) { return s.length > 10 ? at(s) : at(s + ' 23:59:59'); }
-var MON_TH = ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
-var MON_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-var DAY_TH = ['อาทิตย์', 'จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์', 'เสาร์'], DAY_EN = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 function hash(s) { var h = 2166136261; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
 function rnd(seed) { return function () { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; }; }
 function store(k, v) { try { if (v === undefined) return JSON.parse(localStorage.getItem(k) || 'null'); localStorage.setItem(k, JSON.stringify(v)); } catch (e) { return null; } }
@@ -418,14 +412,6 @@ function art(cv, e, w, h) {            /* an illustration drawn from the kind of
   else for (i = 0; i < 60; i++) { c.fillStyle = ink(0.4); c.fillRect(r() * w, r() * h, 3, 3); }
 }
 function dayName(d) { var t = new Date(d + 'T12:00:00+07:00'); return [DAY_TH[t.getUTCDay()] + ' ' + t.getUTCDate() + ' ' + MON_TH[t.getUTCMonth()], DAY_EN[t.getUTCDay()] + ' ' + t.getUTCDate() + ' ' + MON_EN[t.getUTCMonth()]]; }
-function ics(e) {
-  var z = function (ms) { return isNaN(ms) ? '' : new Date(ms).toISOString().replace(/[-:]/g, '').slice(0, 15) + 'Z'; };
-  var s0 = at(e.s), end = e.e ? atEnd(e.e) : s0 + 7200e3;
-  var t = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//motdang.net//front//EN', 'BEGIN:VEVENT', 'UID:' + e.k + '-' + e.s.slice(0, 10) + '@motdang.net',
-    'DTSTAMP:' + z(s0), 'DTSTART:' + z(s0), 'DTEND:' + z(end), 'SUMMARY:' + e.t.replace(/[,;]/g, ' '), 'LOCATION:' + (e.v || '').replace(/[,;]/g, ' '),
-    'URL:' + (e.url || 'https://motdang.net/'), 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
-  return 'data:text/calendar;charset=utf-8,' + encodeURIComponent(t);
-}
 function evHtml(e, tier, day) {
   var C = CATMAP[e.c], s = at(e.s), dn = dayName(day);
   var crumbs = '<nav class="crumbs" aria-label="breadcrumb"><span>' + bi('เร็วๆ นี้', 'Soon') + '</span>›<button type="button" data-day="' + day + '">' + bi(dn[0], dn[1]) + '</button>›' +
@@ -1396,10 +1382,6 @@ function mapHref(e) {
   var m = /^(c[mr])\/p\/([a-z0-9-]+)\.html$/.exec(e.vu || '');
   return LIVE + 'map.html#16/' + e.la + '/' + e.lo + '//ev=1' + (m ? '&pin=' + m[1] + ':' + m[2] : '');
 }
-function span(e) {
-  var s = at(e.s), en = e.e ? (e.e.length > 10 ? at(e.e) : at(e.e + ' 23:59:59')) : (e.ad ? s + 864e5 - 1 : s + 2 * 3600e3);
-  return [s, Math.max(s, en)];
-}
 var DOODLES = window.MDDOODLES || { has: function () { return false; } };   /* doodles.js */
 function doodleEvent() {
   var E = D.events; if (!E) return null;
@@ -2354,6 +2336,9 @@ Promise.all([j(LIVE + 'data/weather.json').then(function (d) { D.weather = d; },
              j(LIVE + 'front/ridge.json').then(function (d) { D.ridge = d; }, function () { })])
   .then(function () { sky.text(); if (MC.cells.length) mcFrame(); });
 j(LIVE + 'front/ahead.json').then(function (d) { D.ahead = d; ahead(); }, function () { });
+/* the one bake of the calendar's dates (front_layer.bake_when); it 404s until a hand-off carries it, nothing waits on it,
+   and the readers stay on events.json (cats, fields) until they move over */
+j(LIVE + 'front/when.json').then(function (d) { D.when = d; }, function () { });
 j(LIVE + 'front/near.json').then(function (d) { D.near = d; near(); }, function () { });
 Promise.all([j(LIVE + 'front/events.json').then(function (d) { D.events = d; }), j(LIVE + 'front/soon.json').then(function (d) { D.soon = d; }),
              j(LIVE + 'data/sky.json').then(function (d) { D.sky = d; }, function () { }),

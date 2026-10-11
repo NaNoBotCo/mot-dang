@@ -34,6 +34,7 @@ import datetime as dt
 from pathlib import Path
 
 import doodles_layer
+import thaitime
 
 ROOT = Path(__file__).resolve().parent
 DOCS = ROOT / "docs"
@@ -931,7 +932,7 @@ def interest(days=30):
                    f"WHERE blob1 = 'motdang.net' AND timestamp > NOW() - INTERVAL '{days}' DAY "
                    "AND blob4 = '/api/map' AND blob9 = 'open' AND blob11 LIKE 'ev:%' AND blob2 = 'human' "
                    "GROUP BY k ORDER BY n DESC LIMIT 500")
-        data = {"generated": dt.date.today().isoformat(), "days": days,
+        data = {"generated": thaitime.bangkok_today().isoformat(), "days": days,
                 "counts": {r["k"][3:]: int(float(r["n"])) for r in rows}}
         _dump(data, INTEREST)
         return data
@@ -950,11 +951,11 @@ def bake_events(docs, ix, counts):
     # A file older than three days is not trusted to say a source link is dead: the source's stands.
     lkf = ROOT / "data/event_links.json"
     lk = _j(lkf) if lkf.exists() else {}
-    fresh = lk.get("generated", "") >= (dt.date.today() - dt.timedelta(days=3)).isoformat()
+    fresh = lk.get("generated", "") >= (thaitime.bangkok_today() - dt.timedelta(days=3)).isoformat()
     links = lk.get("links", {}) if fresh else {}
     judged = set(lk.get("judged", [])) if fresh else set()
 
-    today = dt.date.today()
+    today = thaitime.bangkok_today()
     horizon = (today + dt.timedelta(days=56)).isoformat()   # the calendar pages a fortnight at a time
     out, matched = [], 0
     for e in ev + rows_add:
@@ -1091,7 +1092,7 @@ def bake_ahead(docs, today=None):
     encourage planning further out … also planning to bug out for smoke season"). Picks and
     words in data/curated/ahead.json; lunar dates from festival_calendar.json; the smoke from
     the Smoky Season's satellite fire climatology (FIRMS 2003–2024, per day of year)."""
-    today = today or dt.date.today()
+    today = today or thaitime.bangkok_today()
     cur = _j(ROOT / "data/curated/ahead.json")
     cal = _j(ROOT / "data/festival_calendar.json")["rows"]
     m = today.month - 1 + cur.get("months", 7) + 1
@@ -1150,6 +1151,59 @@ def bake_ahead(docs, today=None):
 
 
 # ---------------------------------------------------------------- the whole bake, and the page
+
+# ---------------------------------------------------------------- WHEN: every dated thing, one bake
+
+AHEAD_DAYS = 214        # plan ahead runs to about seven months (when.js AHEAD_DAYS)
+
+
+def bake_when(docs, today=None):
+    """docs/front/when.json (calendar design, D): the front page's dated things in one file. Events
+    are events.json's rows as they stand (same `k`, so kept lists and shared #ev= links hold) with
+    kind "ev"; festivals take their dates from festivals_layer.occurrence() (announced, then the
+    rule) and from data/festival_calendar.json only where that gives none; wan phra and the full and
+    new moons come from data/sky.json. Run after bake_events."""
+    import festivals_layer
+    today = today or thaitime.bangkok_today()
+    horizon = today + dt.timedelta(days=AHEAD_DAYS)
+    items = [dict(e, kind="ev") for e in _j(docs / "front/events.json")["events"]]
+    ann = festivals_layer.announced_dates()
+    cal = sorted(_j(ROOT / "data/festival_calendar.json")["rows"], key=lambda r: r["date_start"])
+    for f in _j(ROOT / "data/festivals.json")["festivals"]:
+        occ = festivals_layer.occurrence(f, ann.get(f["id"]), today)
+        if occ:
+            d0, d1, by = occ
+        else:
+            row = next((r for r in cal if r["festival_id"] == f["id"] and r["date_end"] >= today.isoformat()), None)
+            if not row:
+                continue
+            d0, d1, by = dt.date.fromisoformat(row["date_start"]), dt.date.fromisoformat(row["date_end"]), "calendar"
+        if d1 < today or d0 > horizon:
+            continue
+        items.append({"kind": "fest", "id": f["id"], "th": f.get("name_th", f["id"]), "en": f.get("name_en", ""),
+                      "d0": d0.isoformat(), "d1": d1.isoformat(), "by": by, "prov": f.get("province") or "",
+                      "page": "festivals/%s.html" % f["id"]})
+    sky = _j(ROOT / "data/sky.json").get("days", {})
+    for d in sorted(sky):
+        m = sky[d].get("moon") or {}
+        if not today.isoformat() <= d <= horizon.isoformat():
+            continue
+        if m.get("wan_phra") or m.get("phase_en") in ("Full moon", "New moon"):
+            items.append({"kind": "sky", "d": d, "wan": bool(m.get("wan_phra")), "th": m.get("phase_th", ""),
+                          "en": m.get("phase_en", ""), "lth": m.get("thai_label_th", ""), "len": m.get("thai_label_en", "")})
+    _dump({"built": dt.datetime.now(thaitime.BKK).isoformat(timespec="seconds"), "today": today.isoformat(),
+           "items": items}, docs / "front/when.json")
+    return len(items)
+
+
+def _when_or_none(docs):
+    """when.json is new and nothing reads it yet: a failure in it is printed, and the build goes on."""
+    try:
+        return bake_when(docs)
+    except Exception as x:  # noqa: BLE001
+        print("  ⚠️  front: when.json not baked —", repr(x))
+        return 0
+
 
 def bake_fires(docs):
     """docs/front/fires.json: the week's satellite fire counts (data/firms.json, the Smoky Season's feed),
@@ -1221,8 +1275,9 @@ def bake(docs=None, thumbs=True, ask=True):
     ix = _index(docs)
     counts = (interest() if ask else (_j(INTEREST) if INTEREST.exists() else {})).get("counts", {})
     parts = {"map": bake_map(docs, ix), "near": bake_near(docs, ix, thumbs), "sites": bake_sites(docs),
-             "events": bake_events(docs, ix, counts), "ahead": bake_ahead(docs), "fires": bake_fires(docs),
+             "events": bake_events(docs, ix, counts), "when": _when_or_none(docs), "ahead": bake_ahead(docs), "fires": bake_fires(docs),
              "flights": bake_flights(docs), "roads": bake_roads(docs)}
+    shutil.copy(ASSETS / "when.js", docs / "front/when.js")
     shutil.copy(ASSETS / "tiles.js", docs / "front/tiles.js")
     shutil.copy(ASSETS / "front.js", docs / "front/front.js")
     shutil.copy(ASSETS / "wx.js", docs / "front/wx.js")
@@ -1244,7 +1299,7 @@ def stamp(t):
     """Each front-page script's own hash in its address. sw.js answers a script from its cache first, so an
     unstamped address hands a returning phone yesterday's script beside today's page (Nan's phone, 2026-10-03:
     the doodle and tiles blank until a second visit). One page carries these; the rest of the site does not."""
-    for js in ("skyline.js", "doodler.js", "doodles.js", "tiles.js", "wx.js", "front.js"):
+    for js in ("skyline.js", "doodler.js", "doodles.js", "when.js", "tiles.js", "wx.js", "front.js"):
         f = ASSETS / js
         if f.exists():
             v = hashlib.md5(f.read_bytes()).hexdigest()[:8]

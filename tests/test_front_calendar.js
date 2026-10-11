@@ -2,18 +2,21 @@
 // page's own date code (front.js at, atEnd, span, ics). On 2026-10-10 one event
 // whose end was a bare date threw inside ics(), and the calendar's day drawings
 // and day list never rendered on the live page; nothing had checked. This runs
-// those functions, taken from front.js as the page runs them, over every event.
+// those functions, taken from assets/front/when.js (where they moved on 2026-10-11) as the
+// page runs them, over every event.
 //
 //   node tests/test_front_calendar.js [events.json]
 const fs = require('fs'), path = require('path');
 const ROOT = path.resolve(__dirname, '..');
-const SRC = fs.readFileSync(process.env.MD_FRONT_JS || path.join(ROOT, 'assets/front/front.js'), 'utf8');
+const WHEN = process.env.MD_WHEN_JS || path.join(ROOT, 'assets/front/when.js');
+if (!fs.existsSync(WHEN)) throw new Error('no ' + path.relative(ROOT, WHEN) + ': the page\'s date code is gone');
+const SRC = fs.readFileSync(WHEN, 'utf8');
 const EV = process.argv[2] || path.join(ROOT, 'docs/front/events.json');
 
-// a top-level `function name(...) {...}` from front.js, braces counted outside strings
+// a top-level `function name(...) {...}` from when.js, braces counted outside strings
 function take(name) {
   const i = SRC.indexOf('\nfunction ' + name + '(');
-  if (i < 0) throw new Error('front.js has no function ' + name);
+  if (i < 0) throw new Error('when.js has no function ' + name);
   let j = SRC.indexOf('{', i), depth = 0, q = null;
   for (let k = j; k < SRC.length; k++) {
     const ch = SRC[k];
@@ -24,7 +27,7 @@ function take(name) {
   }
   throw new Error('unbalanced function ' + name);
 }
-const lib = ['bkk', 'ymd', 'at', 'span', 'ics'].map(take).join('\n') + '\n' + (SRC.indexOf('\nfunction atEnd(') >= 0 ? take('atEnd') : '');
+const lib = ['bkk', 'ymd', 'at', 'span', 'ics', 'atEnd'].map(take).join('\n');
 const F = new Function(lib + '\nreturn { ymd, at, span, ics };')();
 
 if (!fs.existsSync(EV)) { console.log('front calendar: no ' + path.relative(ROOT, EV) + ', nothing to check'); process.exit(0); }

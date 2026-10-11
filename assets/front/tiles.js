@@ -14,13 +14,9 @@ function j(u) { return fetch(u).then(function (r) { if (!r.ok) throw new Error(u
 function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
 function bi(th, en, cls) { return '<span class="bi' + (cls ? ' ' + cls : '') + '"><span class="th" lang="th">' + th + '</span><span class="en" lang="en">' + en + '</span></span>'; }
 function en() { return H.classList.contains('lang-en'); }
-function bkk(t) { return new Date(t + 7 * 3600e3); }
-function hhmm(t) { return bkk(t).toISOString().slice(11, 16); }
-function ymd(t) { return bkk(t).toISOString().slice(0, 10); }
+var bkk = window.MDWHEN.bkk, hhmm = window.MDWHEN.hhmm, ymd = window.MDWHEN.ymd, MON_TH = window.MDWHEN.MON_TH, MON_EN = window.MDWHEN.MON_EN;
 function n0(x) { return Math.round(x).toLocaleString('en-US'); }
 function hash(s) { var h = 2166136261; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
-var MON_TH = ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
-var MON_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 function dayStr(d) { return [+d.slice(8) + ' ' + MON_TH[+d.slice(5, 7) - 1], +d.slice(8) + ' ' + MON_EN[+d.slice(5, 7) - 1]]; }
 var SANS = '"Sarabun",system-ui,sans-serif', MONO = 'ui-monospace,"SF Mono",Menlo,monospace';
 

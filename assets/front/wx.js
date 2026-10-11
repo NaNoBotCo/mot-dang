@@ -19,7 +19,7 @@ function en() { return H.classList.contains('lang-en'); }
 function L(th, e) { return en() ? e : th; }
 function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
 function bi(th, e, cls) { return '<span class="bi' + (cls ? ' ' + cls : '') + '"><span class="th" lang="th">' + th + '</span><span class="en" lang="en">' + e + '</span></span>'; }
-function bkk(t) { return new Date(t + 7 * 3600e3); }
+var bkk = window.MDWHEN.bkk, MON_TH = window.MDWHEN.MON_TH, MON_EN = window.MDWHEN.MON_EN;
 function hourKey(t) { return bkk(t).toISOString().slice(0, 13) + ':00'; }
 function today() { return bkk(Date.now()).toISOString().slice(0, 10); }
 function store(k, v) { try { if (v === undefined) return JSON.parse(localStorage.getItem(k) || 'null'); localStorage.setItem(k, JSON.stringify(v)); } catch (e) { return null; } }
@@ -28,8 +28,6 @@ function r0(x) { return Math.round(x); }
 function r1(x) { return Math.round(x * 10) / 10; }
 var DAY_TH = ['อา.', 'จ.', 'อ.', 'พ.', 'พฤ.', 'ศ.', 'ส.'], DAY_EN = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 var DAYL_TH = ['อาทิตย์', 'จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์', 'เสาร์'];
-var MON_TH = ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
-var MON_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 function dow(d) { return new Date(d.slice(0, 10) + 'T12:00:00Z').getUTCDay(); }
 function plus(d, n) { return new Date(Date.parse(d.slice(0, 10) + 'T12:00:00Z') + n * 864e5).toISOString().slice(0, 10); }
 /* "today" / "tomorrow" / the weekday, for a date or an hour key */
