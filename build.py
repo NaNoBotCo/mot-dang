@@ -74,6 +74,7 @@ import doodles_layer
 import preview_layer
 import pics_layer
 import waypics_layer
+import streetphoto_layer  # a Mapillary or own street photo at the pin (WO-79; NaN 2026-10-11)
 import sites_layer
 import sitenet_layer
 import indexsplit_layer
@@ -389,6 +390,9 @@ for _p in SITE_ART:
     if _p.get("artist") == "NaN Peacock":
         for _pid in {_p.get("placeId"), *(_p.get("places") or [])} - {None}:
             OWN_BY_PLACE.setdefault(_pid, []).append(_p)
+# One street-level photograph per place (streetphoto_layer): hers first, then
+# Mapillary, which is harvested on the server and held there.
+STREET_PHOTOS = streetphoto_layer.load()
 ART_USED = {}     # slug -> pick, filled as pictures are drawn; feeds /pictures.html
 ART_DRAWN = {}    # slug -> how many times drawn, so art() can round-robin the pool
 
@@ -961,6 +965,13 @@ def own_strip(r, hero_file=None):
     return (f'<figure class="ownpics"><div>{imgs}</div><figcaption>📷 '
             f'<a href="../../pictures.html">NaN Peacock</a>{" — " + when if when else ""}'
             f' · CC BY 4.0</figcaption></figure>')
+
+
+def street_fig(r):
+    """The street where this place stands, from streetphoto_layer; "" when none."""
+    return streetphoto_layer.figure_html(r, STREET_PHOTOS.get(r["id"]), {
+        "att": att, "bi": bi, "esc": esc, "bi_text": bi_text,
+        "name_th": name_th, "name_en": name_en})
 
 
 def _emph(s):
@@ -13092,7 +13103,7 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
         _photo = img_tag.startswith('<img class="photo"') and "placeholderpic" not in img_tag
         img_tag = _band + (img_tag if _photo else "")
     body = (f"<h1>{name_bi(r)}</h1>{status_line(r)}{best_layer.line(r, bi)}{top_map}{plan_cta}{reach_block(r)}"
-            f"{img_tag}{own_strip(r, photo_file)}{pano_layer.block(r, att, esc, bi, svg_icon)}{landmark_gallery(r)}{video_layer.block(r, att, esc, bi)}{around_pics(r)}{inat_layer.block(r, NET_HELPERS)}{waypics_layer.block(r, bi, svg_icon)}{hotel_layer.block(r, HOTEL_HELPERS)}"
+            f"{img_tag}{own_strip(r, photo_file)}{street_fig(r)}{pano_layer.block(r, att, esc, bi, svg_icon)}{landmark_gallery(r)}{video_layer.block(r, att, esc, bi)}{around_pics(r)}{inat_layer.block(r, NET_HELPERS)}{waypics_layer.block(r, bi, svg_icon)}{hotel_layer.block(r, HOTEL_HELPERS)}"
             f"{share_block(BASE + path, name_text(r), qr=True, pick=True)}"
             f"{honour_panel(r)}{facet_panel(r)}{seven_band(r)}{tag_pills(r)}"
             f"{landmark_history(r)}{wander_html}{blurb}"
@@ -15366,7 +15377,8 @@ SOURCE_FILES = ["build.py", "CLAUDE.md", "README.md", "AGENTS.md",
                 "homebits.py", "mapart.py", "home_next.py",
                 "moat_layer.py", "seven_layer.py", "hom_layer.py", "bearings_layer.py",
                 "video_layer.py", "net_layer.py", "commons_layer.py", "fullmoon_layer.py", "sites_layer.py", "sitenet_layer.py", "pano_layer.py",
-                "pics_layer.py", "waypics_layer.py", "ahead_layer.py"]
+                "pics_layer.py", "waypics_layer.py", "ahead_layer.py",
+                "streetphoto_layer.py"]
 # Anything that is somebody's private business, a credential, or a working
 # scratch never enters the archive. Whitelisting the trees above and naming
 # these again is belt and braces: a bare "everything except" would ship
@@ -19025,6 +19037,7 @@ def build():
         _rl_fh.write("\n" + rowline_layer.CSS)
         _rl_fh.write("\n" + video_layer.CSS)
         _rl_fh.write("\n" + pano_layer.CSS)
+        _rl_fh.write("\n" + streetphoto_layer.CSS)
         _rl_fh.write("\n" + net_layer.CSS)
         _rl_fh.write("\n" + commons_layer.CSS)
         _rl_fh.write("\n" + sites_layer.CSS)
@@ -19221,6 +19234,7 @@ def build():
     # 360-degree spheres (importers/make_panos.py) → docs/pano/, Pannellum → docs/vendor/pannellum/.
     print("  pano: %d files copied" % pano_layer.copy_assets(DOCS))
     print("  inat: %d photos copied" % inat_layer.copy_assets(DOCS))
+    print("  street photos: %s" % streetphoto_layer.emit({"DOCS": DOCS, "bi_text": bi_text}))
     # Nan's own frames for the front page — importers/make_hero.py. The
     # homepage reads site/hero/index.json out of the tree being built, so the
     # frames have to be copied in like any other asset. They used to be

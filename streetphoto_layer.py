@@ -54,8 +54,8 @@ this stands", not "this place". The distinction is the same one
 harvest_commons.py already makes and the same reason `wat.svg` is only ever
 drawn on wat and sights.
 
-Nothing here fetches. Nothing here is imported by build.py yet — the hook
-lines are in notes/maps-grow-2026-09-08.txt §11.
+Nothing here fetches. build.py draws figure_html() on place pages and calls
+emit() in its asset pass (2026-10-11).
 """
 
 import json
@@ -93,7 +93,7 @@ def _exif():
 
 
 def taken(jpeg_bytes):
-    """DateTimeOriginal (0x9003) as an ISO date, or None. Never guesses.
+    """DateTimeOriginal (0x9003) as an ISO date, or None when the file carries neither tag.
 
     Falls back to DateTime (0x0132) — the file's own timestamp — only when
     the original is absent, and that is a real distinction: DateTime is
@@ -453,8 +453,7 @@ def version():
 def emit(g):
     """Copy the photographs into docs/ and write the sheet's script.
 
-    Called from build.py's asset pass — the hook lines are in
-    notes/maps-grow-2026-09-08.txt §11 and are NOT applied here.
+    Called from build.py's asset pass.
     """
     import shutil
     docs = g["DOCS"]
@@ -466,6 +465,10 @@ def emit(g):
         if not src.exists():
             continue
         dest = docs / sub / p["file"]
+        # tens of thousands of files: copy only what is new or changed
+        if dest.exists() and dest.stat().st_size == src.stat().st_size:
+            n += 1
+            continue
         dest.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy(src, dest)
         n += 1

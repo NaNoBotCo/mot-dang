@@ -26,7 +26,12 @@ RSYNC_IDLE=--timeout=300
 HANDOFF_EXCLUDES=(--exclude /docs/ --exclude /docs.next/ --exclude /docs.prev/
   --exclude __pycache__/ --exclude '*.pyc' --exclude /cache/build.lock
   --exclude /cache/walk-rest --exclude /_incoming/enrich/ --exclude /.claude/
-  --exclude .DS_Store)
+  --exclude .DS_Store
+  # Mapillary street photos are harvested on the server, into the staging
+  # folder, and held there only (her word 2026-10-11: rented storage, not the
+  # Mac). Excluded, so this mirror neither sends nor deletes them; her own
+  # photos in assets/streetphotos/own/ still travel.
+  --exclude '/assets/streetphotos/*.jpg' --exclude /data/street_photos.json)
 
 hand_to_server() {
   local id at; id="$(date +%Y%m%dT%H%M%S)-$$"; at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
