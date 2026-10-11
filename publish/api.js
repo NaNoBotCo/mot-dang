@@ -414,3 +414,123 @@ export function slugCandidates(index, key) {
   const rows = tables(index).bySlug.get(String(key || "").trim());
   return rows && rows.length > 1 ? rows : [];
 }
+
+/* ------------------------------------------------------------ the grid */
+
+/* BBOX WITHOUT THE INDEX (2026-10-11). The maps ask nine boxes per pan or
+ * zoom, and every box that missed the colo cache paid for index.json: 75 MB,
+ * read from R2 and parsed on each request because no isolate can keep it.
+ * Measured that day: 6.8 s per miss, 2.5 s for /health alone. The box itself
+ * was never the cost.
+ *
+ * So the build also writes api/v1/grid/: meta.json holds, for every pinned
+ * row, only what a box query reads (lat, lng, ant rank, province) in the
+ * order /places would sort them, plus where the whole row sits: one of a few
+ * hundred chunk files of GRID_CHUNK rows, cut along a Z-order curve so a box
+ * touches few of them. A box query scans meta in memory, counts `total`, and
+ * reads only the chunks its page lands in.
+ *
+ * The answer is the one queryPlaces gives, byte for byte; tests/
+ * test_api_worker.js compares the two. Only queries the grid can answer
+ * exactly take this path (gridEligible); the rest still walk the index. */
+export const GRID_CHUNK = 256;
+
+/* The /places default order: ant rank, then name in Thai collation, then
+ * index position (Array.prototype.sort is stable). Over a subset this is the
+ * order queryPlaces gives that subset, so one global rank serves every box. */
+export function gridOrder(places) {
+  const coll = new Intl.Collator("th");
+  return [...places.keys()].sort((i, j) =>
+    places[j].antRank - places[i].antRank || coll.compare(String(places[i].name), String(places[j].name)));
+}
+
+function zkey(x, y) {
+  let k = 0;
+  for (let b = 15; b >= 0; b--) k = k * 4 + (((y >> b) & 1) << 1) + ((x >> b) & 1);
+  return k;
+}
+
+/* index → { meta, chunks }. meta's columns run in /places order; `ch`/`at`
+ * say which chunk holds the full row and where. A chunk row is the index row
+ * without `q`, the match blob: a box query has no words to match. */
+export function buildGrid(index) {
+  const P = index.places;
+  const pinned = [...P.keys()].filter((i) => P[i].lat != null);
+  let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+  for (const i of pinned) {
+    const x = P[i].lng ?? 0, y = P[i].lat;
+    if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y;
+  }
+  const qx = (v) => Math.max(0, Math.min(65535, Math.round(((v - x0) / ((x1 - x0) || 1)) * 65535)));
+  const qy = (v) => Math.max(0, Math.min(65535, Math.round(((v - y0) / ((y1 - y0) || 1)) * 65535)));
+  const z = new Map(pinned.map((i) => [i, zkey(qx(P[i].lng ?? 0), qy(P[i].lat))]));
+  const spatial = [...pinned].sort((a, b) => z.get(a) - z.get(b) || a - b);
+  const where = new Map();
+  const chunks = [];
+  spatial.forEach((i, k) => {
+    const c = Math.floor(k / GRID_CHUNK);
+    if (!chunks[c]) chunks[c] = [];
+    const { q, ...row } = P[i];
+    where.set(i, [c, chunks[c].length]);
+    chunks[c].push(row);
+  });
+  const provs = [...new Set(pinned.map((i) => P[i].province))].sort();
+  const meta = {
+    generated: index.generated, base: index.base,
+    attribution: index.attribution, licence: index.licence, terms: index.terms,
+    chunks: chunks.length, provs,
+    lat: [], lng: [], ant: [], prov: [], ch: [], at: [],
+  };
+  for (const i of gridOrder(P)) {
+    if (!where.has(i)) continue;
+    const r = P[i];
+    meta.lat.push(r.lat); meta.lng.push(r.lng ?? null); meta.ant.push(r.antRank);
+    meta.prov.push(provs.indexOf(r.province));
+    const [c, a] = where.get(i);
+    meta.ch.push(c); meta.at.push(a);
+  }
+  return { meta, chunks };
+}
+
+/* A box and nothing the grid does not hold: no words, no point, no hours,
+ * no set filters, and the default order (sort=name is a different one). */
+export function gridEligible(p) {
+  return !!p.bbox && !p.tokens.length && !p.near && !p.openNow && p.openAt == null
+    && p.sort !== "name" && !p.cat.length && !p.sub.length && !p.tag.length
+    && !p.lens.length && !p.facet.length && !p.has.length;
+}
+
+/* queryPlaces for a box, over meta and the chunks its page needs.
+ * getChunk(c) resolves to that chunk's rows. null when not eligible. */
+export async function queryPlacesGrid(meta, getChunk, sp) {
+  const p = parseQuery(sp);
+  if (!gridEligible(p)) return null;
+  const { w, s, e, n } = p.bbox;
+  const { lat, lng, ant, prov, ch, at } = meta;
+  const want = p.province ? meta.provs.indexOf(p.province) : null;
+  const lo = p.offset, hi = p.offset + p.limit;
+  const page = [];
+  let total = 0;
+  for (let i = 0; i < lat.length; i++) {
+    if (want !== null && prov[i] !== want) continue;
+    if (p.minAnts && ant[i] < p.minAnts) continue;
+    if (lng[i] < w || lng[i] > e || lat[i] < s || lat[i] > n) continue;
+    if (total >= lo && total < hi) page.push(i);
+    total++;
+  }
+  const need = [...new Set(page.map((i) => ch[i]))];
+  const got = new Map(await Promise.all(need.map(async (c) => [c, await getChunk(c)])));
+  return {
+    schemaVersion: SCHEMA_VERSION,
+    generated: meta.generated,
+    query: echoQuery(sp, p),
+    total,
+    count: page.length,
+    limit: p.limit,
+    offset: p.offset,
+    results: page.map((i) => present(got.get(ch[i])[at[i]], meta.base, p, [], null)),
+    attribution: meta.attribution,
+    licence: meta.licence,
+    terms: meta.terms,
+  };
+}

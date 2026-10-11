@@ -46,6 +46,7 @@
 
 import { SCHEMA_VERSION, queryPlaces, findPlace, slugCandidates, minuteOfWeek,
          present, liftProvince, norm, parseQuery, rowMatches,
+         gridEligible, queryPlacesGrid,
          LIMIT_DEFAULT, LIMIT_MAX } from "./api.js";
 import SEARCHCORE from "./searchcore.js";
 import { fleetSearch } from "./fleetsearch.js";
@@ -741,6 +742,84 @@ function loadIndex(env) {
   return INDEX_P;
 }
 
+/* THE BOX INDEX (2026-10-11). api/v1/grid/, written by publish/emit_grid.mjs:
+ * meta.json (3.6 MB, held per isolate) answers a bbox query's filter and
+ * count, and the page's rows come from a few of the chunk files. See "the
+ * grid" in api.js. meta is re-checked against the bucket once a minute, as
+ * the index is. A chunk is kept only when it carries meta's v; any other
+ * fault drops meta and the request walks the index instead. */
+let GRID_P = null;
+let GRID_ETAG = null;
+let GRID_CHECKED = 0;
+const GRID_ROWS = new Map();         // `${v}/${c}` -> rows, newest last
+const GRID_KEEP = 24;
+
+async function revalidateGrid(env) {
+  const now = Date.now();
+  if (!GRID_P || now - GRID_CHECKED < REVALIDATE_MS) return;
+  GRID_CHECKED = now;
+  try {
+    const head = await env.SITE.head("api/v1/grid/meta.json");
+    if ((head ? head.httpEtag : null) !== GRID_ETAG) { GRID_P = null; GRID_ETAG = null; }
+  } catch { /* keep what we have; try again next window */ }
+}
+
+function loadGrid(env) {
+  if (!GRID_P) {
+    GRID_CHECKED = Date.now();
+    GRID_P = (async () => {
+      const obj = await env.SITE.get("api/v1/grid/meta.json");
+      if (!obj) return null;                       // not deployed: the index answers
+      GRID_ETAG = obj.httpEtag;
+      return JSON.parse(await obj.text());
+    })().catch((e) => { GRID_P = null; GRID_ETAG = null; throw e; });
+  }
+  return GRID_P;
+}
+
+async function gridChunk(env, meta, c) {
+  const k = meta.v + "/" + c;
+  const held = GRID_ROWS.get(k);
+  if (held) { GRID_ROWS.delete(k); GRID_ROWS.set(k, held); return held; }
+  let cache = null, req = null, text = null;
+  try {
+    cache = caches.default;
+    req = new Request("https://motdang.net/__grid/" + k);
+    const hit = await cache.match(req);
+    if (hit) text = await hit.text();
+  } catch { cache = null; }
+  const fresh = text == null;
+  if (fresh) {
+    const obj = await env.SITE.get("api/v1/grid/c" + String(c).padStart(4, "0") + ".json");
+    if (!obj) throw new Error("grid chunk missing");
+    text = await obj.text();
+  }
+  const body = JSON.parse(text);
+  if (body.v !== meta.v) throw new Error("grid chunk out of step");
+  if (fresh && cache) {
+    try { await cache.put(req, new Response(text, { headers: { "cache-control": "public, max-age=86400" } })); }
+    catch { /* the answer stands without the copy */ }
+  }
+  GRID_ROWS.set(k, body.rows);
+  while (GRID_ROWS.size > GRID_KEEP) GRID_ROWS.delete(GRID_ROWS.keys().next().value);
+  return body.rows;
+}
+
+/* The /places answer from the grid, or null when the index has to walk. */
+async function placesFromGrid(env, sp) {
+  if (!gridEligible(parseQuery(sp))) return null;
+  try {
+    await revalidateGrid(env);
+    const meta = await loadGrid(env);
+    if (!meta) return null;
+    return await queryPlacesGrid(meta, (c) => gridChunk(env, meta, c), sp);
+  } catch (e) {
+    console.error("/api/v1/places grid fault, walking the index", e && e.message);
+    GRID_P = null; GRID_ETAG = null;
+    return null;
+  }
+}
+
 /* Discovery the standard way (RFC 8631), so a client that lands on any
  * endpoint can find the documentation and the machine spec without anyone
  * having told it where they are — and so can a person reading -v output. The
@@ -867,6 +946,20 @@ async function api(request, env, url, path, ctx) {
       }
     } catch {
       cache = null;                    /* no cache here: computed, as before */
+    }
+  }
+
+  if (path === "/places") {
+    const body = await placesFromGrid(env, url.searchParams);
+    if (body) {
+      const res = apiJson(body);
+      if (cache && ckey) {
+        try { ctx.waitUntil(cache.put(ckey, res.clone()).catch(() => {})); }
+        catch { /* unfilled: the next asker computes it */ }
+        res.headers.set("x-md-edge", "miss");
+      }
+      res.headers.set("x-md-grid", "1");
+      return res;
     }
   }
 
