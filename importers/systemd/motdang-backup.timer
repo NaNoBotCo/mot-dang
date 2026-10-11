@@ -1,0 +1,9 @@
+[Unit]
+Description=Mot Dang source to the Storage Box, nightly 03:30 Bangkok
+
+[Timer]
+OnCalendar=*-*-* 20:30:00 UTC
+Persistent=true
+
+[Install]
+WantedBy=timers.target
