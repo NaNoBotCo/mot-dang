@@ -1728,6 +1728,22 @@ function thd(s) { return String(s).replace(/\d/g, function (d) { return TH_DIG[d
 function enMode() { return H.classList.contains('lang-en'); }
 function hourOf(t) { var b = bkk(t); return b.getUTCHours() + b.getUTCMinutes() / 60 + b.getUTCSeconds() / 3600; }
 function dialA(h) { return -Math.PI / 2 + h / 12 * Math.PI * 2; }
+/* the colour of the day, Sunday first (importers/make_fortune.py THAI_DAYS): the clock's rim wears it */
+var DAY_HEX = ['#DC3D3D', '#F2D95C', '#EC6A9C', '#4FA96B', '#EE8B3C', '#5BB6E0', '#8C63C4'];
+/* the hour as Thai says it: ตี before dawn, โมงเช้า, เที่ยง, บ่าย, โมงเย็น, ทุ่ม; [Thai, romanised, English] */
+var NUM_TH = ['', 'หนึ่ง', 'สอง', 'สาม', 'สี่', 'ห้า', 'หก', 'เจ็ด', 'แปด', 'เก้า', 'สิบ', 'สิบเอ็ด'],
+  NUM_RO = ['', 'nueng', 'song', 'sam', 'si', 'ha', 'hok', 'chet', 'paet', 'kao', 'sip', 'sip et'];
+function hourWord(h) {
+  h = Math.floor(h) % 24;
+  if (h === 0) return ['เที่ยงคืน', 'thiang khuen', 'midnight'];
+  if (h < 6) return ['ตี' + NUM_TH[h], 'ti ' + NUM_RO[h], h + ' at night'];
+  if (h < 12) return [NUM_TH[h] + 'โมงเช้า', NUM_RO[h] + ' mong chao', h + ' in the morning'];
+  if (h === 12) return ['เที่ยง', 'thiang', 'noon'];
+  if (h === 13) return ['บ่ายโมง', 'bai mong', '1 in the afternoon'];
+  if (h < 16) return ['บ่าย' + NUM_TH[h - 12] + 'โมง', 'bai ' + NUM_RO[h - 12] + ' mong', (h - 12) + ' in the afternoon'];
+  if (h < 19) return [NUM_TH[h - 12] + 'โมงเย็น', NUM_RO[h - 12] + ' mong yen', (h - 12) + (h < 18 ? ' in the afternoon' : ' in the evening')];
+  return [(h === 19 ? 'หนึ่ง' : NUM_TH[h - 18]) + 'ทุ่ม', NUM_RO[h - 18] + ' thum', (h - 12) + ' at night'];
+}
 function sunTimes(t) {
   var d0 = at(ymd(t) + ' 00:00:00'), rise = null, set = null, prev = sunAlt(d0, where.lat, where.lng);
   for (var m = 4; m <= 1440; m += 4) {
@@ -1894,7 +1910,8 @@ function doodle() {
   var tagHits = [];
   function dial(k) {
     var R = L.R, cx = L.cx, cy = L.cy, en = enMode(), i, a;
-    paper(k, function (q) { circ(q, cx, cy, R * 1.13, 21); q.moveTo(cx + R * 0.99, cy); q.arc(cx, cy, R * 0.99, 0, 6.2832, true); }, '#c9973f', 2.2);
+    var rim = DAY_HEX[new Date(T.d + 'T12:00:00Z').getUTCDay()] || '#c9973f';
+    paper(k, function (q) { circ(q, cx, cy, R * 1.13, 21); q.moveTo(cx + R * 0.99, cy); q.arc(cx, cy, R * 0.99, 0, 6.2832, true); }, rim, 2.2);
     paper(k, function (q) { circ(q, cx, cy, R, 22); }, '#f2e6c9', 1.6);
     /* the ring: the next 12 hours, from the hour hand clockwise, cut at sunrise and sunset */
     var rise = T.sun.rise ? hourOf(T.sun.rise) : 6, set = T.sun.set ? hourOf(T.sun.set) : 18, h0 = hourOf(T.now), cuts = [h0];
@@ -1908,6 +1925,13 @@ function doodle() {
     for (i = 0; i < 12; i++) { a = dialA(i); k.save(); k.translate(cx + Math.cos(a) * R, cy + Math.sin(a) * R); k.rotate(a); k.fillRect(-(i % 3 ? R * 0.06 : R * 0.12), -0.9, i % 3 ? R * 0.06 : R * 0.12, 1.8); k.restore(); }
     k.font = '800 ' + Math.max(10, Math.round(R * 0.2)) + 'px ' + (en ? 'system-ui' : '"Sarabun",system-ui'); k.textAlign = 'center'; k.textBaseline = 'middle'; k.fillStyle = '#24170a';
     for (i = 0; i < 12; i += 3) { a = dialA(i); k.fillText(en ? String(i || 12) : thd(i || 12), cx + Math.cos(a) * R * 0.63, cy + Math.sin(a) * R * 0.63); }
+    /* tonight's moon in a window over the 6; on wan phra its frame is gold */
+    if (T.moon) {
+      var mo = T.moon, il = mo.illum == null ? 0.5 : mo.illum, side = mo.waxing ? 1 : -1, kk = 2 * il - 1, mx = cx, my = cy + R * 0.36, mr = R * 0.11;
+      paper(k, function (q) { circ(q, mx, my, mr * 1.3, 10); }, mo.wan_phra ? '#e0a92a' : '#8a6a3a', 1.2);
+      paper(k, function (q) { circ(q, mx, my, mr, 9); }, '#2b2f63', 0.8);
+      if (il > 0.02) paper(k, function (q) { q.beginPath(); q.arc(mx, my, mr, -Math.PI / 2, Math.PI / 2, side < 0); q.ellipse(mx, my, mr * Math.abs(kk), mr, 0, Math.PI / 2, -Math.PI / 2, side > 0 ? kk < 0 : kk >= 0); q.closePath(); }, '#fff2c8', 0.6);
+    }
     var hs = T.w ? T.w.hours || [] : [], k0 = hourKey(T.now); dropHits = [];
     hs.forEach(function (h) {
       var t = Date.parse(h[0] + ':00+07:00'); if (t <= T.now - 36e5 || t > T.now + 11 * 36e5 || !(h[1] >= 40 || h[2] >= 0.2)) return;
@@ -2111,6 +2135,7 @@ function doodle() {
     if (T.alt > -0.83 && T.sun.set && T.sun.set > T.now) bits.push(bi('ตะวันตก ' + hhmm(T.sun.set), 'sunset ' + hhmm(T.sun.set)));
     else if (T.sun.rise && T.sun.rise > T.now) bits.push(bi('ตะวันขึ้น ' + hhmm(T.sun.rise), 'sunrise ' + hhmm(T.sun.rise)));
     if (T.moon) bits.push(bi(T.moon.thai_label_th + (T.moon.wan_phra ? ' วันพระ' : ''), T.moon.thai_label_en + (T.moon.wan_phra ? ', wan phra' : '')));
+    var hw = hourWord(hourOf(T.now)); bits.unshift(bi(hw[0], '<span lang="th">' + hw[0] + '</span> · ' + hw[1] + ' · ' + hw[2]));
     var tm = turned ? '<i>▸ ' + hhmm(T.now) + '</i>' : hhmm(T.now), rl = turned ? relTxt(T.now) : null;
     var h = '<div class="ddtop' + (turned ? ' turned' : '') + '"><div class="ddw">' + bi('วัน' + DAY_TH[dw] + ' ' + d + ' ' + MON_TH[mo] + ' · ' + tm + (rl ? ' (' + rl[0] + ')' : '') + ' · ' + ct[0] + ' ' + here[0],
       DAY_EN[dw] + ' ' + d + ' ' + MON_EN[mo] + ' · ' + tm + (rl ? ' (' + rl[1] + ')' : '') + ' · ' + ct[1] + ', ' + here[1]) +
