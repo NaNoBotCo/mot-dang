@@ -968,7 +968,7 @@ def bake_events(docs, ix, counts):
         v = venue(e.get("venue_name"), e.get("city") or "")
         got = links.get(e["uid"])
         url = got["url"] if got else ("" if e["uid"] in judged else e.get("url") or "")   # an event harvested after the run keeps its source's link
-        row = {"k": _slug(e["title"]), "t": e["title"], "s": s, "e": e.get("end"), "ad": bool(e.get("all_day")),
+        row = {"k": _slug(e["title"]), "t": re.sub(r"<[^>]+>", "", e["title"]).strip(), "s": s, "e": e.get("end"), "ad": bool(e.get("all_day")),
                "v": e.get("venue_name") or "", "cost": e.get("cost") or "", "url": url,
                "rec": bool(e.get("recurring")), "src": e.get("source") or "", "c": cat[0],
                # the calendar has two cities; a venue in a neighbouring province (Lamphun's) goes with Chiang Mai

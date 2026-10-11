@@ -48,6 +48,6 @@ function band(e, now) {
 W.MDWHEN = {
   bkk: bkk, hhmm: hhmm, ymd: ymd, at: at, atEnd: atEnd, span: span, ics: ics,
   MON_TH: MON_TH, MON_EN: MON_EN, DAY_TH: DAY_TH, DAY_EN: DAY_EN, be: be,
-  DAY_END_H: DAY_END_H, AHEAD_DAYS: AHEAD_DAYS, dayOf: dayOf, over: over, band: band
+  DAY_END_H: DAY_END_H, AHEAD_DAYS: AHEAD_DAYS, dayOf: dayOf, firstDay: firstDay, over: over, band: band
 };
 })(window);
