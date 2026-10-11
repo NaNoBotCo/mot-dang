@@ -73,6 +73,35 @@ def emit(g, data):
         shutil.copyfile(f, dest)
         web_files += 1
 
+    # motdang.net/near/bathrooms — the link Nan drops in a Facebook comment
+    # (2026-10-11). Each reader who taps it lands in the app with the location
+    # question already open, so the list sorts from where that reader stands
+    # at that minute. The page carries its own preview card for the crawler
+    # and hands the reader on; ?near is what app.js reads.
+    near_head = (
+        '<meta property="og:type" content="website">'
+        '<meta property="og:site_name" content="มดแดง Mot Dang">'
+        '<meta property="og:title" content="ห้องน้ำใกล้ฉัน · Nearest bathroom">'
+        '<meta property="og:description" content="ห้องน้ำ เรียงจากใกล้ที่สุดก่อน · '
+        'เชียงใหม่ เชียงราย · Toilets, nearest first — Chiang Mai and Chiang Rai.">'
+        '<meta property="og:image" content="https://motdang.net/og/toilets.png">'
+        '<meta property="og:image:width" content="1200">'
+        '<meta property="og:image:height" content="630">'
+        '<meta name="twitter:card" content="summary_large_image">')
+    for word in ("bathrooms", "bathroom", "toilets", "toilet", "restroom", "restrooms"):
+        d = docs / "near" / word
+        d.mkdir(parents=True, exist_ok=True)
+        (d / "index.html").write_text(
+            '<!DOCTYPE html><html lang="th"><head><meta charset="utf-8">'
+            '<meta name="viewport" content="width=device-width, initial-scale=1">'
+            '<meta name="robots" content="noindex,follow">'
+            '<title>ห้องน้ำใกล้ฉัน · Nearest bathroom · มดแดง</title>'
+            + near_head +
+            '<meta http-equiv="refresh" content="0;url=../../app/?near">'
+            '<script>location.replace("../../app/?near")</script>'
+            '</head><body><p><a href="../../app/?near">'
+            'ห้องน้ำใกล้ฉัน · Nearest bathroom</a></p></body></html>')
+
     apk_bytes = APK_SRC.read_bytes()
     (docs / "app" / APK_NAME).write_bytes(apk_bytes)
     sha = hashlib.sha256(apk_bytes).hexdigest()

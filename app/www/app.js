@@ -738,16 +738,24 @@ document.getElementById('btn-locate').onclick = locate;
 document.getElementById('loc-yes').onclick = startWatch;
 document.getElementById('loc-no').onclick = killGps;
 /* Ask Android what it already knows, so 📍 is never offered for a permission
-   the OS has already refused. Unsupported here just leaves the button up. */
+   the OS has already refused. Unsupported here just leaves the button up.
+
+   ?near is how motdang.net/near/bathrooms arrives: the reader tapped a link
+   asking for the nearest one, so our dialog opens at once instead of waiting
+   for 📍. Already allowed: straight to where they stand. Already refused:
+   nothing changes. */
+var NEAR = /[?&]near\b/.test(location.search);
 if (navigator.permissions && navigator.permissions.query) {
   try {
     navigator.permissions.query({ name: 'geolocation' }).then(function (st) {
       if (st.state === 'denied') { gpsOff = true;
         var b = document.getElementById('btn-locate');
         if (b && b.parentNode) b.parentNode.removeChild(b); }
-    }).catch(function () {});
-  } catch (e) {}
-}
+      else if (NEAR && st.state === 'granted') startWatch();
+      else if (NEAR) locate();
+    }).catch(function () { if (NEAR) locate(); });
+  } catch (e) { if (NEAR) locate(); }
+} else if (NEAR) locate();
 
 /* ---------- city jump ----------
    Two cities are 190 km apart. Without this, a reader in Chiang Rai whose
