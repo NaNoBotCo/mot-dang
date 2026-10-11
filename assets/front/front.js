@@ -27,9 +27,6 @@ if (CALNEXT) (function () {
     '#month .nxwk{margin:.9rem 0 .1rem;font:700 .95rem var(--hand);color:var(--mute)}',
     '#month .nxnone,#month .nxhint{margin:.6rem 0;color:var(--mute)}',
     '#month .nxmk{margin:.3rem 0 .5rem}',
-    /* the grid: each day shows its count at phone width */
-    '#month .mc .mk{display:block;font:800 .78rem/1 var(--hand);color:var(--bg);background:var(--ink);border-radius:999px;padding:.12rem .38rem}#month .mc[aria-pressed=true] .mk{background:var(--bg);color:var(--ink)}',
-    '#month .mc .mtop{align-items:flex-start}',
     /* a row: its time large, the whole title wrapping, the buttons under it */
     '#month details.ev.nx{margin:.5rem 0}',
     '#month details.ev.nx>summary{display:grid;grid-template-columns:4.4rem minmax(0,1fr);gap:.15rem .7rem;align-items:start;padding:.6rem .7rem}',
@@ -65,8 +62,8 @@ if (CALNEXT) (function () {
   ].join('');
   document.head.appendChild(st);
 })();
-/* the taps' own look (2026-10-04): slips, the turned clock, the fortnight's picks, hearts */
-(function () { var st = document.createElement('style'); st.id = 'front-taps'; st.textContent = '#doodc{touch-action:pan-y}#ddat[hidden],#spotev[hidden],#mprev[hidden],#ddpop[hidden]{display:none!important}#ddclk{position:absolute;z-index:3;border-radius:50%;touch-action:none;cursor:grab;-webkit-tap-highlight-color:transparent}#ddclk:focus-visible{outline:3px dashed var(--hot);outline-offset:4px}#ddclk.turning{cursor:grabbing}#ddat{position:absolute;right:8px;z-index:4;display:flex;align-items:center;gap:.4rem;background:#f2e6c9;color:#2a1a0a;border-radius:6px;padding:.25rem .3rem .25rem .6rem;box-shadow:2px 3px 0 rgba(0,0,0,.35);font-size:.9rem;transform:rotate(.8deg);max-width:calc(100% - 16px)}#ddat b{font-weight:800}#ddat small{font-weight:600;color:#6a4a20}#ddat .en{color:inherit}html.lang-both #ddat .en{display:none}#ddat button{background:#2a1a0a;color:#fff;border:0;border-radius:6px;padding:.25rem .6rem;min-height:2.2rem;font-weight:800;cursor:pointer}#ddat button .en{color:#fff}#ddpop{z-index:5}#ddpop.unf{animation:ddUnf .42s cubic-bezier(.2,.9,.25,1.2) both;transform-origin:50% 100%}@keyframes ddUnf{from{opacity:0;transform:perspective(700px) rotateX(-75deg) scale(.6)}to{opacity:1;transform:rotate(-.6deg)}}#ddpop .pw{font-weight:700}#ddpop .pd{font-size:.88rem;color:#4a3420}#ddpop .sty{background:rgba(120,90,40,.12);border-left:3px solid #c9973f;padding:.3rem .5rem;border-radius:4px}#ddpop .thd{font-size:1.05rem;font-weight:700}#ddpop .ddacts{flex-wrap:wrap!important}#ddpop .ddacts a{min-height:2.4rem;white-space:nowrap}#ddpop .cd .en,#ddpop .cd{color:inherit}.ddtop.turned{border-color:var(--hot)!important}.ddw i{font-style:normal;color:var(--hot)}.ddair a[data-now]{color:var(--hot)}.cd{font-weight:700}.cd.on{color:#8be07a}.cd.over{opacity:.7}#ddpop .cd.on{color:#1d6b12}.ddwhen .cd{font:700 .85rem var(--sans);color:#fff}.ddwhen .cd.on{color:#8be07a}.ddwhen .cd .en::before,#ddpop .cd .en::before{content:none}html.lang-both .ddwhen .cd .en,html.lang-both #ddpop .cd .en,html.lang-both .evcd .cd .en{display:none}.ddnav{display:inline-flex;align-items:center;gap:2px;margin-left:.5rem;vertical-align:middle}.ddnav button{background:rgba(255,255,255,.1);border:1px solid var(--line);border-radius:8px;color:#fff;font:800 1.1rem/1 var(--sans);min-width:2.3rem;min-height:2.3rem;cursor:pointer}.ddnav small{font:700 .8rem var(--mono);color:var(--mute);padding:0 .3rem}.mbar{display:flex;gap:6px;overflow-x:auto;padding:0 0 .6rem;scrollbar-width:none}.mbar::-webkit-scrollbar{display:none}.mq{flex:none;display:inline-flex;align-items:center;gap:.35rem;min-height:2.5rem;padding:.2rem .75rem;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 .92rem var(--sans);cursor:pointer;white-space:nowrap;transition:transform .15s}.mq:active{transform:scale(.95)}.mq i{font-style:normal;opacity:.75;font-size:.85em}.mq s{width:.7rem;height:.7rem;border-radius:50%;display:inline-block}.mq b{color:#ff6b8a}.mq[aria-pressed=true]{background:var(--hot);border-color:var(--hot);color:#000;font-weight:800}.mq[aria-pressed=true] .en,.mq[aria-pressed=true] b{color:#000}html.lang-both .mq .en{display:none}.msep{flex:none;width:1px;background:var(--line);margin:.3rem .15rem}.mc{transition:transform .18s ease,box-shadow .18s ease,opacity .2s}@media (hover:hover) and (pointer:fine){.mc:not(.pad):not(:disabled):hover{transform:translateY(-3px) rotate(-.4deg);box-shadow:0 6px 0 rgba(0,0,0,.35),0 0 0 1px var(--hot)}}.mc:active{transform:scale(.97)}.mc.dim{opacity:.45}.mc.lit{animation:mcLit 1.6s ease-in-out 3}@keyframes mcLit{0%,100%{box-shadow:0 0 0 0 rgba(255,194,102,0)}50%{box-shadow:0 0 0 4px rgba(255,194,102,.9)}}.mc .mhk{font-size:.72rem;color:#ff6b8a;font-weight:800;margin-left:auto;margin-right:.2rem}.mc[aria-pressed=true] .mhk{color:#7a0020}#month .wrap{position:relative}#mprev{position:absolute;z-index:20;width:17rem;background:#f2e6c9;color:#2a1a0a;border-radius:6px;padding:.55rem .7rem;box-shadow:3px 5px 0 rgba(0,0,0,.35),0 10px 24px rgba(0,0,0,.45);pointer-events:none;font-size:.9rem;line-height:1.35;transform:rotate(-.5deg);animation:ddUnf .3s ease both}#mprev b{display:block;font-size:1rem}#mprev .en{color:#6a4a20}html.lang-both #mprev .en{display:none}#mprev ul{list-style:none;margin:.3rem 0 0;padding:0}#mprev li{padding:.12rem 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#mprev li i{display:inline-block;width:.55rem;height:.55rem;border-radius:50%;margin-right:.3rem}#mprev time{font:700 .85rem var(--mono)}#mprev p{margin:.2rem 0 0}.mpw{display:flex;align-items:center;gap:.3rem}.mpw svg{width:28px;height:30px}.mpm{color:#6a4a20}.mdh{display:flex;align-items:center;gap:8px;position:sticky;top:var(--barh,3.1rem);z-index:5;background:var(--bg);transition:top .22s ease}.mdh .dayh{flex:1;position:static;margin-top:.4rem}.mnav{flex:none;min-width:2.8rem;min-height:2.8rem;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:800 1.4rem/1 var(--sans);cursor:pointer}.mnav:disabled{opacity:.3;cursor:default}.mdsub{margin:1rem 0 .2rem;font-size:1.05rem;color:var(--hot)}canvas.mdb{display:block;width:100%;height:120px;border-radius:12px;margin:.4rem 0 .5rem;border:1px solid var(--line)}@media (min-width:760px){canvas.mdb{height:160px}}#mday{touch-action:pan-y}#mday.unfold canvas.mdb{animation:mdUnf .6s cubic-bezier(.2,.85,.25,1.12) both;transform-origin:var(--ox,50%) 0}@keyframes mdUnf{from{opacity:.15;transform:perspective(800px) rotateX(-80deg) scale(.16,.3)}to{opacity:1;transform:none}}#mday.unfold details.ev,#mday.slide-l details.ev,#mday.slide-r details.ev{animation:mdIn .45s ease both;animation-delay:calc(var(--i,0) * 45ms + .15s)}@keyframes mdIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}#mday.slide-l canvas.mdb{animation:mdSl .4s ease both}#mday.slide-r canvas.mdb{animation:mdSr .4s ease both}@keyframes mdSl{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}@keyframes mdSr{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}details.ev{position:relative}details.ev>summary{padding-right:3.2rem}.hrt{position:absolute;right:.45rem;top:.45rem;width:2.6rem;height:2.6rem;border-radius:50%;border:0;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}.hrt svg{width:1.45rem;height:1.45rem;fill:none;stroke:var(--mute);stroke-width:2;transition:transform .2s}.hrt:hover svg{stroke:#ff6b8a}.hrt[aria-pressed=true] svg{fill:#ff4f7a;stroke:#ff4f7a}.hrt.pop svg{animation:hrtPop .5s cubic-bezier(.3,1.6,.5,1)}@keyframes hrtPop{0%{transform:scale(.6)}60%{transform:scale(1.35)}100%{transform:scale(1)}}details.ev.at{box-shadow:inset 5px 0 0 var(--hot),0 0 0 1px var(--hot)}details.ev.at .tm::after{content:" ▸";color:var(--hot)}.evx{margin:0 0 .6rem}canvas.evdd{display:block;width:100%;height:96px;border-radius:10px;margin-bottom:.4rem}.evcd{margin:.1rem 0 .5rem!important;font-size:1rem}.evcd .en::before{content:none}.evx .acts{margin-bottom:.4rem}#spotev{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));transform:translateX(-50%) rotate(-.4deg);z-index:2147483600;width:min(26rem,calc(100% - 24px));background:#f2e6c9;color:#2a1a0a;border-radius:8px;padding:.6rem .7rem .6rem;box-shadow:3px 5px 0 rgba(0,0,0,.35),0 10px 30px rgba(0,0,0,.55);animation:ddUnf .4s ease both}#spotev b{display:block;padding-right:2rem}#spotev .en{color:#6a4a20}html.lang-both #spotev .en{display:none}#spotev .sp{display:block;width:100%;text-align:left;background:none;border:0;border-top:1px solid rgba(42,26,10,.2);padding:.45rem 0;color:#2a1a0a;font:600 .95rem var(--sans);cursor:pointer;min-height:2.6rem}#spotev time{font:800 .85rem var(--mono);color:#8a4a10}#spotev .x{position:absolute;right:.3rem;top:.2rem;background:none;border:0;font-size:1.5rem;color:#2a1a0a;cursor:pointer;min-width:2.4rem;min-height:2.4rem}@media (max-width:639px){#ddat{right:6px;font-size:.82rem}.ddnav button{min-width:2.6rem;min-height:2.6rem}}@media (prefers-reduced-motion:reduce){#ddpop.unf,#mprev,#spotev,#mday.unfold canvas.mdb,#mday details.ev,#mday canvas.mdb,.mc.lit,.hrt.pop svg{animation:none!important}.mc{transition:none}}#ddpop .ddvote{display:flex;flex-wrap:wrap;gap:.3rem .8rem;align-items:center;margin-top:.45rem;font-size:.85rem}#ddpop .ddvote[hidden]{display:none!important}#ddpop .ddvote span{display:inline-flex;gap:.25rem;align-items:center}#ddpop .ddvote span>.en,#ddpop .ddvote span>.th{margin-right:.15rem;font-weight:700}#ddpop .ddvote button{display:inline-flex;align-items:center;gap:.2rem;min-height:2.3rem;min-width:2.7rem;padding:0 .45rem;border:1px solid rgba(42,26,10,.35);border-radius:999px;background:transparent;color:#2a1a0a;font:700 .8rem var(--mono);cursor:pointer}#ddpop .ddvote button[aria-pressed=true]{background:#2a1a0a;color:#f2e6c9}#ddpop .ddvote svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}'; document.head.appendChild(st); })();
+/* the taps' own look (2026-10-04): slips, the turned clock, the picks, hearts */
+(function () { var st = document.createElement('style'); st.id = 'front-taps'; st.textContent = '#doodc{touch-action:pan-y}#ddat[hidden],#spotev[hidden],#ddpop[hidden]{display:none!important}#ddclk{position:absolute;z-index:3;border-radius:50%;touch-action:none;cursor:grab;-webkit-tap-highlight-color:transparent}#ddclk:focus-visible{outline:3px dashed var(--hot);outline-offset:4px}#ddclk.turning{cursor:grabbing}#ddat{position:absolute;right:8px;z-index:4;display:flex;align-items:center;gap:.4rem;background:#f2e6c9;color:#2a1a0a;border-radius:6px;padding:.25rem .3rem .25rem .6rem;box-shadow:2px 3px 0 rgba(0,0,0,.35);font-size:.9rem;transform:rotate(.8deg);max-width:calc(100% - 16px)}#ddat b{font-weight:800}#ddat small{font-weight:600;color:#6a4a20}#ddat .en{color:inherit}html.lang-both #ddat .en{display:none}#ddat button{background:#2a1a0a;color:#fff;border:0;border-radius:6px;padding:.25rem .6rem;min-height:2.2rem;font-weight:800;cursor:pointer}#ddat button .en{color:#fff}#ddpop{z-index:5}#ddpop.unf{animation:ddUnf .42s cubic-bezier(.2,.9,.25,1.2) both;transform-origin:50% 100%}@keyframes ddUnf{from{opacity:0;transform:perspective(700px) rotateX(-75deg) scale(.6)}to{opacity:1;transform:rotate(-.6deg)}}#ddpop .pw{font-weight:700}#ddpop .pd{font-size:.88rem;color:#4a3420}#ddpop .sty{background:rgba(120,90,40,.12);border-left:3px solid #c9973f;padding:.3rem .5rem;border-radius:4px}#ddpop .thd{font-size:1.05rem;font-weight:700}#ddpop .ddacts{flex-wrap:wrap!important}#ddpop .ddacts a{min-height:2.4rem;white-space:nowrap}#ddpop .cd .en,#ddpop .cd{color:inherit}.ddtop.turned{border-color:var(--hot)!important}.ddw i{font-style:normal;color:var(--hot)}.ddair a[data-now]{color:var(--hot)}.cd{font-weight:700}.cd.on{color:#8be07a}.cd.over{opacity:.7}#ddpop .cd.on{color:#1d6b12}.ddwhen .cd{font:700 .85rem var(--sans);color:#fff}.ddwhen .cd.on{color:#8be07a}.ddwhen .cd .en::before,#ddpop .cd .en::before{content:none}html.lang-both .ddwhen .cd .en,html.lang-both #ddpop .cd .en,html.lang-both .evcd .cd .en{display:none}.mbar{display:flex;gap:6px;overflow-x:auto;padding:0 0 .6rem;scrollbar-width:none}.mbar::-webkit-scrollbar{display:none}.mq{flex:none;display:inline-flex;align-items:center;gap:.35rem;min-height:2.5rem;padding:.2rem .75rem;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 .92rem var(--sans);cursor:pointer;white-space:nowrap;transition:transform .15s}.mq:active{transform:scale(.95)}.mq i{font-style:normal;opacity:.75;font-size:.85em}.mq s{width:.7rem;height:.7rem;border-radius:50%;display:inline-block}.mq b{color:#ff6b8a}.mq[aria-pressed=true]{background:var(--hot);border-color:var(--hot);color:#000;font-weight:800}.mq[aria-pressed=true] .en,.mq[aria-pressed=true] b{color:#000}html.lang-both .mq .en{display:none}.msep{flex:none;width:1px;background:var(--line);margin:.3rem .15rem}#month .wrap{position:relative}#mday{touch-action:pan-y}#mday.unfold details.ev,#mday.slide-l details.ev,#mday.slide-r details.ev{animation:mdIn .45s ease both;animation-delay:calc(var(--i,0) * 45ms + .15s)}@keyframes mdIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}details.ev{position:relative}details.ev>summary{padding-right:3.2rem}.hrt{position:absolute;right:.45rem;top:.45rem;width:2.6rem;height:2.6rem;border-radius:50%;border:0;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}.hrt svg{width:1.45rem;height:1.45rem;fill:none;stroke:var(--mute);stroke-width:2;transition:transform .2s}.hrt:hover svg{stroke:#ff6b8a}.hrt[aria-pressed=true] svg{fill:#ff4f7a;stroke:#ff4f7a}.hrt.pop svg{animation:hrtPop .5s cubic-bezier(.3,1.6,.5,1)}@keyframes hrtPop{0%{transform:scale(.6)}60%{transform:scale(1.35)}100%{transform:scale(1)}}details.ev.at{box-shadow:inset 5px 0 0 var(--hot),0 0 0 1px var(--hot)}details.ev.at .tm::after{content:" ▸";color:var(--hot)}.evx{margin:0 0 .6rem}canvas.evdd{display:block;width:100%;height:96px;border-radius:10px;margin-bottom:.4rem}.evcd{margin:.1rem 0 .5rem!important;font-size:1rem}.evcd .en::before{content:none}.evx .acts{margin-bottom:.4rem}#spotev{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));transform:translateX(-50%) rotate(-.4deg);z-index:2147483600;width:min(26rem,calc(100% - 24px));background:#f2e6c9;color:#2a1a0a;border-radius:8px;padding:.6rem .7rem .6rem;box-shadow:3px 5px 0 rgba(0,0,0,.35),0 10px 30px rgba(0,0,0,.55);animation:ddUnf .4s ease both}#spotev b{display:block;padding-right:2rem}#spotev .en{color:#6a4a20}html.lang-both #spotev .en{display:none}#spotev .sp{display:block;width:100%;text-align:left;background:none;border:0;border-top:1px solid rgba(42,26,10,.2);padding:.45rem 0;color:#2a1a0a;font:600 .95rem var(--sans);cursor:pointer;min-height:2.6rem}#spotev time{font:800 .85rem var(--mono);color:#8a4a10}#spotev .x{position:absolute;right:.3rem;top:.2rem;background:none;border:0;font-size:1.5rem;color:#2a1a0a;cursor:pointer;min-width:2.4rem;min-height:2.4rem}@media (max-width:639px){#ddat{right:6px;font-size:.82rem}}@media (prefers-reduced-motion:reduce){#ddpop.unf,#spotev,#mday details.ev,.hrt.pop svg{animation:none!important}}#ddpop .ddvote{display:flex;flex-wrap:wrap;gap:.3rem .8rem;align-items:center;margin-top:.45rem;font-size:.85rem}#ddpop .ddvote[hidden]{display:none!important}#ddpop .ddvote span{display:inline-flex;gap:.25rem;align-items:center}#ddpop .ddvote span>.en,#ddpop .ddvote span>.th{margin-right:.15rem;font-weight:700}#ddpop .ddvote button{display:inline-flex;align-items:center;gap:.2rem;min-height:2.3rem;min-width:2.7rem;padding:0 .45rem;border:1px solid rgba(42,26,10,.35);border-radius:999px;background:transparent;color:#2a1a0a;font:700 .8rem var(--mono);cursor:pointer}#ddpop .ddvote button[aria-pressed=true]{background:#2a1a0a;color:#f2e6c9}#ddpop .ddvote svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}'; document.head.appendChild(st); })();
 
 function j(u) { return fetch(u).then(function (r) { if (!r.ok) throw new Error(u); return r.json(); }); }
 function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
@@ -211,12 +208,6 @@ function city() {
   var w = D.weather; if (!w) return null;
   var id = where.lat > 19.5 ? 'chiang-rai' : 'chiang-mai';
   return w.cities.filter(function (c) { return c.id === id; })[0] || w.cities[0];
-}
-/* the calendar's city's forecast (its switch, not where the reader is) */
-function calCity() {
-  var w = D.weather; if (!w) return null;
-  var id = MCITY === 'cr' ? 'chiang-rai' : 'chiang-mai';
-  return w.cities.filter(function (c) { return c.id === id; })[0] || city();
 }
 function hourKey(t) { return bkk(t).toISOString().slice(0, 13) + ':00'; }
 /* the nearest of make_weather.SPOTS (~11 km apart) when we know roughly where the reader is */
@@ -516,23 +507,14 @@ function arts(root, list) {
   });
 }
 
-/* ------------------------------------------------------------ THE FORTNIGHT: 14 days, a tap a day
-   The stage's calendar (the A/B with the map). Monday first; a cell's warmth is how much is on,
-   its dots the kinds; wan phra wears a moon, a festival its name. A tap lists the day below. */
-var MSEL = null, MLIST = [], MVIEW = null, MF = { c: null }, MDAYS = [], MBY = {}, MALL = {}, MRUNS = [], MLIT = {}, CALAT = null, EVS = {};
-/* the fortnight shown (days after today, by fourteens) and its city; the city follows the map's switch, and the map follows it */
-var MOFF = 0, MMORE = false, MCITY = ((document.querySelector('#now .mapcity button[aria-pressed="true"]') || { dataset: {} }).dataset.city) || 'cm';
+/* ------------------------------------------------------------ THE CALENDAR: the stage's calendar (the A/B with the map) */
+var MLIST = [], MVIEW = null, MF = { c: null }, MDAYS = [], CALAT = null, EVS = {};
+/* the calendar's city; it follows the map's switch, and the map follows it */
+var MCITY = ((document.querySelector('#now .mapcity button[aria-pressed="true"]') || { dataset: {} }).dataset.city) || 'cm';
 var CITY_N = { cm: ['เชียงใหม่', 'Chiang Mai'], cr: ['เชียงราย', 'Chiang Rai'] };
 var WD_TH = ['จ', 'อ', 'พ', 'พฤ', 'ศ', 'ส', 'อา'], WD_EN = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
 function evKey(e) { return e.k + '|' + e.s; }
 function evOf(el) { return el && EVS[el.dataset.k + '|' + el.dataset.s]; }
-/* this weekend: today and tomorrow on a Saturday, today on a Sunday, else the coming pair */
-function weekend(now) {
-  var dow = bkk(now).getUTCDay(), today = ymd(now);
-  if (dow === 0) return [today];
-  var sat = ymd(now + ((6 - dow + 7) % 7) * 864e5); return [sat, ymd(at(sat + ' 12:00:00') + 864e5)];
-}
-function startH(e) { return +String(e.s).slice(11, 13) + +String(e.s).slice(14, 16) / 60; }
 /* the quick picks: on now or within two hours; tonight from five; the weekend; what the reader keeps */
 var VIEWS = { now: ['ตอนนี้', 'Now'], tonight: ['คืนนี้', 'Tonight'], weekend: ['สุดสัปดาห์', 'Weekend'], kept: ['ที่จำไว้', 'Kept'] };
 function month(how) { return calNext(how); }
@@ -684,7 +666,7 @@ function calNext(how) {
   });
   var pool = all.filter(function (e) { return (!MF.c || e.c === MF.c) && (MVIEW !== 'kept' || ME.saved[e.k]); });
   var tb = bandToday(pool, now), nb = bandNear(pool, now), ah = bandAhead(pool, now), days = nb.days, by = nb.by;
-  MDAYS = days; MBY = by; MALL = by; MRUNS = tb.run; MLIST = E.events; MMORE = false; MOFF = 0;
+  MDAYS = days; MLIST = E.events;
   var tot = days.reduce(function (n, d) { return n + by[d].length; }, 0);
   /* the title, the city, the order, the filters: one state for all three bands */
   h = '<div class="mtopbar"><div class="nxtitle" role="heading" aria-level="2">' + bi('ปฏิทิน', 'Calendar') + '</div>' +
@@ -779,86 +761,9 @@ function markAt() {
   document.querySelectorAll('#mtoday details.ev, #mday details.ev').forEach(function (el) { var e = evOf(el), s = e && span(e); el.classList.toggle('at', !!(CALAT != null && s && s[0] <= CALAT && s[1] > CALAT)); });
 }
 function calAt(t) { CALAT = t; markAt(); }
-/* THE FORTNIGHT, drawn (Nan, 2026-10-03: "doodle the hero calendar"). Each day is a paper-cut
-   scene: its leading event by the doodler (doodler.js setOf → scene), lit by that event's hour;
-   Doi Suthep's own heights run across each week's row as one ridge (ridge.json, 98.80–99.06° E);
-   the day's moon in its true phase, aglow on wan phra; a festival's own drawing; and, where the
-   forecast reaches, rain by the day's weather code (lightning at 95+) and haze by its PM2.5
-   (the band's veil: (PM − 8) / 90, at most half). Moves while the grid is in view, still when the
-   reader asks for less motion. */
-var MC = { cells: [], raf: 0, on: true, last: 0, gen: 0, fx: [] };
-function mcells(by) {
-  var DD = window.MDDOODLER, g = $('mgrid'); if (!DD || !window.MDSKY || !g) return;
-  var kinds = {}; ((D.ahead || {}).items || []).forEach(function (it) { if (it.id) kinds[it.id] = it.kind; });
-  var now = Date.now(), today = ymd(now);
-  MC.cells = [];
-  g.querySelectorAll('.mc[data-mday]').forEach(function (b) {
-    var d = b.dataset.mday, e = (by[d] || []).slice().sort(function (x, y) { return y.sc - x.sc; })[0] || null;
-    var hr = e ? +String(e.s).slice(11, 13) : 12, f = null;
-    ((D.soon || {}).festivals || []).forEach(function (x) { if (!f && d >= x.d0 && d <= x.d1) f = x; });
-    var cv = document.createElement('canvas'); cv.className = 'mcv'; cv.setAttribute('aria-hidden', 'true');
-    b.appendChild(cv); b.classList.add('dd');
-    MC.cells.push({ b: b, cv: cv, d: d, e: e, col: 0, set: e ? DD.setOf(e) : '', seed: hash((e ? e.k : '') + d),
-      night: d === today ? sunAlt(now, where.lat, where.lng) < -4 : hr >= 18 || hr < 6, fest: f, fk: f ? (kinds[f.id] || '') : '' });
-  });
-  /* the row a cell sits in decides its slice of the ridge */
-  MC.cells.forEach(function (o) { o.col = (o.b.offsetLeft - g.querySelector('.wk').offsetLeft) / Math.max(1, g.querySelector('.wk').clientWidth); });
-  /* the chosen day, drawn wide over its list: the whole ridge across it */
-  var bn = $('mday') && $('mday').querySelector('canvas.mdb');
-  if (bn) {
-    var e0 = (by[MSEL] || []).slice().sort(function (x, y) { return y.sc - x.sc; })[0] || null, h0 = e0 ? +String(e0.s).slice(11, 13) : 12, f0 = null;
-    ((D.soon || {}).festivals || []).forEach(function (x) { if (!f0 && MSEL >= x.d0 && MSEL <= x.d1) f0 = x; });
-    MC.cells.push({ b: null, cv: bn, d: MSEL, e: e0, col: 0, wide: true, set: e0 ? DD.setOf(e0) : '', seed: hash((e0 ? e0.k : '') + MSEL),
-      night: MSEL === today ? sunAlt(now, where.lat, where.lng) < -4 : h0 >= 18 || h0 < 6, fest: f0, fk: f0 ? (kinds[f0.id] || '') : '' });
-  }
-  if (!MC.io && 'IntersectionObserver' in window) {
-    var on = {};
-    MC.io = new IntersectionObserver(function (es) { es.forEach(function (x) { on[x.target.id] = x.isIntersecting; }); MC.on = !!(on.mgrid || on.mday); if (MC.on) mcFrame(); }, { rootMargin: '60px' });
-    MC.io.observe(g); if ($('mday')) MC.io.observe($('mday'));
-  }
-  MC.last = 0; mcFrame();
-}
-function mcFrame(ts) {
-  var t = REDUCED ? 4000 : performance.now();
-  cancelAnimationFrame(MC.raf);
-  if (!REDUCED && ts && ts - MC.last < 50) { MC.raf = requestAnimationFrame(mcFrame); return; }   /* 20 a second is plenty */
-  MC.last = ts || 0;
-  MC.cells.forEach(function (o) { try { mcDraw(o, t); } catch (er) { } });
-  if (!REDUCED && MC.on && H.getAttribute('data-stage') === 'cal') MC.raf = requestAnimationFrame(mcFrame);
-}
-/* a scene file or the forecast arriving recuts the stills */
-addEventListener('mddoodler', function () { MC.gen++; if (MC.cells.length) mcFrame(); });
-/* the chosen day moves whole; the others are stills (cut once) with only their rain falling */
-function mcDraw(o, t) {
-  var cv = o.cv, W = cv.clientWidth, Hh = cv.clientHeight; if (!W || !Hh) return;
-  var dpr = Math.min(2, window.devicePixelRatio || 1), pw = Math.round(W * dpr), ph = Math.round(Hh * dpr);
-  if (cv.width !== pw || cv.height !== ph) { cv.width = pw; cv.height = ph; o.still = null; }
-  var c = cv.getContext('2d'), live = o.d === MSEL && !REDUCED, wx = mcWx(o.d);
-  c.setTransform(dpr, 0, 0, dpr, 0, 0);
-  if (live) { c.clearRect(0, 0, W, Hh); mcPaint(c, W, Hh, o, t, wx); }
-  else {
-    if (!o.still || o.still.wx !== wx.key) {
-      var s = document.createElement('canvas'); s.width = pw; s.height = ph; s.wx = wx.key;
-      var k = s.getContext('2d'); k.setTransform(dpr, 0, 0, dpr, 0, 0); mcPaint(k, W, Hh, o, 4000, wx); o.still = s;
-    } else if (!wx.wet && !o.wide) return;                            /* dry and drawn: nothing moves */
-    c.setTransform(1, 0, 0, 1, 0, 0); c.clearRect(0, 0, pw, ph); c.drawImage(o.still, 0, 0); c.setTransform(dpr, 0, 0, dpr, 0, 0);
-  }
-  if (wx.wet) mcRain(c, W, Hh, o, REDUCED ? 4000 : t, wx);
-  if (o.wide) { if (MC.fx.length) fxDraw(c, MC.fx, W, Hh); mcClock(c, W, Hh, o); }
-}
-/* THE DAY'S PICTURE ANSWERS (Nan, 2026-10-10: every graphic does something when tapped). A tap throws up
-   the day's own things from the finger (notes for music, lanterns after dark, a festival's own drawing,
-   paper confetti by day); a sideways drag runs the day's hours across it, the sky and the scene lit for
-   that hour and the events on at that moment marked in the list. Opening an event draws its scene here. */
-var FXK = ['lantern', 'firework', 'umbrella', 'flower', 'water', 'cny'], HR0 = 5, HRS = 20;
-function fxKind(o) {
-  if (o.fk && FXK.indexOf(o.fk) >= 0) return o.fk;
-  var e = o.e, hr = o.hr != null ? o.hr : e && !e.ad ? startH(e) : 12;
-  if (e && (e.c === 'music' || e.c === 'dance')) return 'note';
-  if (hr >= 18.5 || hr < 6) return 'lantern';
-  if (e && (e.c === 'wellness' || e.c === 'faith' || e.c === 'family')) return 'flower';
-  return 'confetti';
-}
+/* a Plan ahead card's picture answers a tap (Nan, 2026-10-10: every graphic does something when tapped):
+   the festival's own drawing, or paper confetti, thrown up from the finger */
+var FXK = ['lantern', 'firework', 'umbrella', 'flower', 'water', 'cny'];
 function fxAdd(list, x, y, k, seed) {
   list.push({ x: x, y: y, k: k, t0: performance.now(), r: rnd(seed >>> 0) });
   if (list.length > 6) list.shift();
@@ -878,109 +783,6 @@ function fxDraw(c, list, W, Hh) {
       c.restore();
     });
   }
-}
-function hhmm2(hr) { var m = Math.round(hr * 60) % 1440; return ('0' + Math.floor(m / 60)).slice(-2) + ':' + ('0' + m % 60).slice(-2); }
-function mcClock(c, W, Hh, o) {
-  var hr = o.hr != null ? o.hr : o.e && !o.e.ad ? startH(o.e) : null; if (hr == null) return;
-  var x = Math.max(0, Math.min(W, (hr - HR0) / HRS * W)), txt = o.hr != null ? hhmm2(hr) : '\u2039 ' + hhmm2(hr) + ' \u203A';
-  c.save(); c.font = '700 13px Mali, Sarabun, sans-serif';
-  var tw = c.measureText(txt).width + 14, cx = Math.max(6, Math.min(W - tw - 6, x - tw / 2));
-  if (o.hr != null) { c.strokeStyle = 'rgba(255,250,236,.75)'; c.setLineDash([4, 4]); c.lineWidth = 1.5; c.beginPath(); c.moveTo(x, 30); c.lineTo(x, Hh); c.stroke(); c.setLineDash([]); }
-  c.fillStyle = '#fffaf0'; c.strokeStyle = '#2b2118'; c.lineWidth = 1.5; c.beginPath();
-  if (c.roundRect) c.roundRect(cx, 7, tw, 21, 8); else c.rect(cx, 7, tw, 21);
-  c.fill(); c.stroke(); c.fillStyle = '#2b2118'; c.textBaseline = 'middle'; c.fillText(txt, cx + 7, 18);
-  c.restore();
-}
-function wideCell() { return MC.cells.filter(function (x) { return x.wide; })[0] || null; }
-function bannerRedraw() { var o = wideCell(); if (o) o.still = null; mcFrame(); }
-function tapBanner(cv, cx, cy) {
-  var o = wideCell(); if (!o) return;
-  var r = cv.getBoundingClientRect();
-  fxAdd(MC.fx, cx - r.left, cy - r.top, fxKind(o), hash(o.d + MC.fx.length + cx));
-  bannerRedraw();
-  if (REDUCED) setTimeout(function () { MC.fx.length = 0; bannerRedraw(); }, 1400);
-}
-function scrubAt(cv, cx) {
-  var o = wideCell(); if (!o) return;
-  var r = cv.getBoundingClientRect(), f = Math.max(0, Math.min(1, (cx - r.left) / Math.max(1, r.width)));
-  o.hr = Math.round((HR0 + f * HRS) * 4) / 4;
-  CALAT = at(o.d + ' 00:00:00') + o.hr * 36e5; markAt();
-  bannerRedraw();
-}
-(function () {
-  var md = $('mday'), S = null;
-  md.addEventListener('pointerdown', function (e) {
-    var cv = e.target.closest && e.target.closest('canvas.mdb'); if (!cv || (e.pointerType === 'mouse' && e.button)) return;
-    S = { x: e.clientX, y: e.clientY, cv: cv, moved: false, id: e.pointerId };
-  });
-  md.addEventListener('pointermove', function (e) {
-    if (!S || e.pointerId !== S.id) return;
-    var dx = e.clientX - S.x;
-    if (!S.moved && Math.abs(dx) > 8 && Math.abs(dx) > Math.abs(e.clientY - S.y)) { S.moved = true; try { S.cv.setPointerCapture(e.pointerId); } catch (x) { } }
-    if (S.moved) { e.preventDefault(); scrubAt(S.cv, e.clientX); }
-  });
-  md.addEventListener('pointerup', function (e) { if (!S) return; var s = S; S = null; if (!s.moved) tapBanner(s.cv, e.clientX, e.clientY); else engaged(); });
-  md.addEventListener('pointercancel', function () { S = null; });
-})();
-/* an event opened in the day's list: its scene drawn up top, at its hour */
-document.addEventListener('toggle', function (ev) {
-  var d = ev.target; if (!d.matches || !d.matches('#mday details.ev') || !d.open) return;
-  var e = evOf(d), o = wideCell(), DD = window.MDDOODLER; if (!e || !o || !DD) return;
-  o.e = e; o.set = DD.setOf(e); o.seed = hash(e.k + o.d); o.hr = e.ad ? null : startH(e);
-  var cv = o.cv; fxAdd(MC.fx, cv.clientWidth / 2, cv.clientHeight * .62, fxKind(o), hash(e.k));
-  bannerRedraw();
-  if (REDUCED) setTimeout(function () { MC.fx.length = 0; bannerRedraw(); }, 1400);
-}, true);
-function mcWx(d) {
-  var c = calCity(), a = D.air && (D.air.places.filter(function (p) { return p.id === (MCITY === 'cr' ? 'chiang-rai' : 'chiang-mai'); })[0] || air()), wd = null, ad = null;
-  ((c && c.days) || []).forEach(function (x) { if (x.date === d) wd = x; });
-  ((a && a.days) || []).forEach(function (x) { if (x.date === d) ad = x; });
-  var pm = ad && ad.pm25 != null ? ad.pm25 : null;
-  return { code: wd ? wd.code : null, wet: !!(wd && wd.code >= 51), storm: !!(wd && wd.code >= 95), pm: pm, key: (wd ? wd.code : '') + '|' + pm + '|' + (D.ridge ? 1 : 0) + '|' + MC.gen };
-}
-function mcPaint(c, W, Hh, o, t, wx) {
-  var SKY = window.MDSKY, DD = window.MDDOODLER, d = o.d, night = o.night, wet = wx.wet, i, dusk = false;
-  if (o.hr != null) { night = o.hr >= 18.75 || o.hr < 5.75; dusk = !night && (o.hr >= 17.5 || o.hr < 6.75); }
-  var moon = D.sky && D.sky.days && D.sky.days[d] && D.sky.days[d].moon, wp = moon && moon.wan_phra;
-  /* sky */
-  var g = c.createLinearGradient(0, 0, 0, Hh);
-  if (night) { g.addColorStop(0, wet ? '#1c1a2a' : '#120c26'); g.addColorStop(1, wet ? '#3a3448' : '#3a2350'); }
-  else if (dusk) { g.addColorStop(0, wet ? '#4a4660' : '#4b4a86'); g.addColorStop(1, wet ? '#c9a58a' : '#f2a65e'); }
-  else { g.addColorStop(0, wet ? '#8fa0aa' : '#9cc6d8'); g.addColorStop(1, wet ? '#d6d2c4' : '#efe3c4'); }
-  c.fillStyle = g; c.fillRect(0, 0, W, Hh);
-  if (night) { var sr = rnd(o.seed); for (i = 0; i < 10; i++) { c.fillStyle = 'rgba(255,255,255,' + (0.3 + 0.3 * Math.sin(t / 700 + i * 2)) + ')'; c.fillRect(sr() * W, sr() * Hh * 0.45, 1, 1); } }
-  /* the day's moon, its true phase; aglow on wan phra */
-  if (moon) {
-    var mr = Math.max(3, Math.min(7, Hh * 0.11)) * (wp ? 1.3 : 1), mx = W - mr - 4, my = mr + 4;
-    if (wp) { var mg = c.createRadialGradient(mx, my, 0, mx, my, mr * 3); mg.addColorStop(0, 'rgba(255,246,220,.55)'); mg.addColorStop(1, 'rgba(255,246,220,0)'); c.fillStyle = mg; c.fillRect(mx - mr * 3, my - mr * 3, mr * 6, mr * 6); }
-    c.save(); c.globalAlpha = night ? 1 : 0.8; c.fillStyle = '#fff3d0'; c.beginPath(); c.arc(mx, my, mr, 0, 7); c.fill();
-    c.beginPath(); c.arc(mx, my, mr, 0, 7); c.clip();
-    c.fillStyle = night ? '#1d1433' : '#a9c9d6'; c.beginPath(); c.arc(mx + (moon.waxing ? -1 : 1) * 2 * mr * moon.illum, my, mr * 1.03, 0, 7); c.fill(); c.restore();
-  }
-  /* Doi Suthep, one ridge across the week's row */
-  var R = D.ridge, hz = Hh * 0.66, pts = [], x, y;
-  for (x = -4; x <= W + 4; x += 3) {
-    if (R && R.ele) { var lng = 98.8 + (o.wide ? x / W : o.col + x / W / 7) * 0.26, j = Math.max(0, Math.min(R.ele.length - 1, Math.round((lng - R.lon_a) / R.step))); y = hz - (R.ele[j] - 300) / 1400 * Hh * 0.5; }
-    else y = hz - (Math.sin((o.col * 7 * W + x) * 0.02) * 0.5 + 0.6) * Hh * 0.16;
-    pts.push([x, y]);
-  }
-  pts.push([W + 4, Hh + 4], [-4, Hh + 4]);
-  SKY.paper(c, function (q) { SKY.jag(q, pts, 31 + (o.col * 100 | 0), 1); }, night ? '#24352f' : '#3f6b52', 1);
-  /* the event, by the doodler; an empty day keeps the land */
-  if (o.e) DD.scene(c, W, Hh, t, { set: o.set, seed: o.seed, night: night, phone: o.wide ? W < 640 : true, deck: Hh * 0.9, x0: o.wide ? W * 0.02 : -W * 0.35, x1: o.wide ? W * 0.98 : W * 1.35, label: '', title: '', now: o.hr != null ? at(d + ' 00:00:00') + o.hr * 36e5 : at(d + ' ' + (String(o.e.s).slice(11, 16) || '12:00') + ':00') });
-  else { c.fillStyle = night ? '#1f3326' : '#4f7d4a'; c.fillRect(0, Hh * 0.9, W, Hh * 0.1); }
-  /* a festival's own drawing */
-  if (o.fest && o.fk) glyph(c, o.fk, W * 0.2, Hh * 0.3, Math.max(6, Hh * 0.16), t, (o.seed % 100) / 100);
-  /* haze, by the day's PM2.5 */
-  if (wx.pm != null) { var hzA = Math.min(0.5, Math.max(0, (wx.pm - 8) / 90)); if (hzA > 0.02) { c.fillStyle = (night ? 'rgba(70,74,94,' : 'rgba(232,220,198,') + hzA.toFixed(2) + ')'; c.fillRect(0, 0, W, Hh); } }
-}
-/* rain, by the day's code */
-function mcRain(c, W, Hh, o, t, wx) {
-  var rr = rnd(o.seed ^ 77), n = wx.storm || wx.code >= 63 ? 26 : 14, i;
-  c.strokeStyle = o.night ? 'rgba(160,190,255,.6)' : 'rgba(70,110,170,.55)'; c.lineWidth = 1; c.beginPath();
-  for (i = 0; i < n; i++) { var rx = rr() * (W + 10), ry = (rr() * Hh + t / 6 * (0.8 + rr() * 0.4)) % (Hh + 8) - 4; c.moveTo(rx, ry); c.lineTo(rx - 1.5, ry + 5); }
-  c.stroke();
-  if (wx.storm && !REDUCED && ((t / 1000 + (o.seed % 13)) % 9) < 0.12) { c.fillStyle = 'rgba(255,255,240,.45)'; c.fillRect(0, 0, W, Hh); }
 }
 /* ------------------------------------------------------------ AHEAD: past the fortnight
    Nan, 2026-10-02: "do something snazzy to encourage planning further out, such as for a loy
@@ -1135,29 +937,10 @@ $('ahead').addEventListener('click', function (ev) {
   if (REDUCED) { aheadFrame(4000); setTimeout(function () { L.length = 0; aheadFrame(4000); }, 1400); }
   else if (!AH.raf) AH.raf = requestAnimationFrame(aheadFrame);
 });
-/* a day's cell unfolds into its list (2026-10-04, Nan: "expecting wondrous things to happen") */
-function toList() {
-  var md = $('mday'); if (!md) return;
-  var r = md.getBoundingClientRect(), bh = (parseFloat(getComputedStyle(H).getPropertyValue('--barh')) || 50) + 8;
-  if (r.top > innerHeight * 0.62 || r.top < bh - 20) scrollTo({ top: scrollY + r.top - bh, behavior: REDUCED ? 'auto' : 'smooth' });
-}
-function pickDay(d, anim, ox) { MSEL = d; MVIEW = null; month({ anim: anim, ox: ox }); }
-function dayStep(n) {
-  var i = MDAYS.indexOf(MSEL) + n;
-  if (i < 0 || i >= MDAYS.length) { pageStep(n > 0 ? 1 : -1, n > 0 ? 0 : 13); return; }
-  pickDay(MDAYS[i], n > 0 ? 'slide-l' : 'slide-r'); engaged();
-}
-/* a fortnight on or back; `at` picks the day to land on (0 = its first, 13 = its last), else its busiest first */
-function pageStep(dir, at_) {
-  if ((dir < 0 && !MOFF) || (dir > 0 && !MMORE)) return false;
-  MOFF = Math.max(0, MOFF + 14 * dir); MVIEW = null; MLIT = {};
-  MSEL = at_ == null ? null : ymd(at(ymd(Date.now()) + ' 12:00:00') + (MOFF + at_) * 864e5);
-  month({ anim: dir > 0 ? 'slide-l' : 'slide-r' }); engaged(); return true;
-}
 /* the calendar's city; the map's switch is moved with it (and it with the map's) */
 function setCity(c, byHand) {
   if (c !== 'cm' && c !== 'cr') return;
-  MCITY = c; MOFF = 0; MSEL = null; MLIT = {}; MVIEW = null;
+  MCITY = c; MVIEW = null;
   month({ anim: 'unfold' });
   if (!byHand) return;
   try { sessionStorage.setItem('md-map-city', c); } catch (x) { }
@@ -1173,56 +956,15 @@ function setCity(c, byHand) {
 })();
 $('month').addEventListener('click', function (ev) {
   var b = ev.target.closest('button'); if (!b) return;
-  if (b.dataset.mday) {
-    var md = $('mday').getBoundingClientRect(), r = b.getBoundingClientRect();
-    pickDay(b.dataset.mday, 'unfold', ((r.left + r.width / 2 - md.left) / Math.max(1, md.width) * 100).toFixed(1) + '%');
-    tell('open', 'ab:day'); engaged(); toList();
-    var c = document.querySelector('#mgrid button[data-mday="' + MSEL + '"]'); if (c) c.focus({ preventScroll: true });
-  } else if (b.dataset.mview != null) {
+  if (b.dataset.mview != null) {
     ev.stopPropagation(); MVIEW = b.dataset.mview && MVIEW !== b.dataset.mview ? b.dataset.mview : null;
-    month({ anim: 'unfold' }); engaged(); if (MVIEW && !CALNEXT) toList();
+    month({ anim: 'unfold' }); engaged();
   } else if (b.dataset.morder) {
     ev.stopPropagation(); if (b.dataset.morder !== ORDER) { ORDER = b.dataset.morder; store('md-cal-order', ORDER); month(); tell('open', 'cal:order-' + ORDER); } engaged();
   } else if (b.dataset.mcat) {
     ev.stopPropagation(); MF.c = MF.c === b.dataset.mcat ? null : b.dataset.mcat; month(); engaged();
-  } else if (b.dataset.mstep) { ev.stopPropagation(); dayStep(+b.dataset.mstep); }
-  else if (b.dataset.mpage) { ev.stopPropagation(); pageStep(+b.dataset.mpage); }
-  else if (b.dataset.mcity) { ev.stopPropagation(); if (b.dataset.mcity !== MCITY) { setCity(b.dataset.mcity, true); engaged(); } }
+  } else if (b.dataset.mcity) { ev.stopPropagation(); if (b.dataset.mcity !== MCITY) { setCity(b.dataset.mcity, true); engaged(); } }
 });
-/* arrows walk the fortnight's cells */
-$('mgrid').addEventListener('keydown', function (ev) {
-  var b = ev.target.closest && ev.target.closest('button[data-mday]'), d = { ArrowLeft: -1, ArrowRight: 1, ArrowUp: -7, ArrowDown: 7 }[ev.key];
-  if (!b || !d) return;
-  var i = MDAYS.indexOf(b.dataset.mday) + d, n = i >= 0 && i < MDAYS.length && document.querySelector('#mgrid button[data-mday="' + MDAYS[i] + '"]');
-  if (n) { ev.preventDefault(); n.focus(); }
-});
-/* a mouse resting on a day shows what is in it */
-(function () {
-  if (!window.matchMedia || !matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-  var tip = document.createElement('div'); tip.id = 'mprev'; tip.hidden = true; tip.setAttribute('aria-hidden', 'true');
-  $('month').firstElementChild.appendChild(tip);
-  var tm = 0, cur = null;
-  function show(b) {
-    var d = b.dataset.mday, evs = (MBY[d] || []).slice().sort(function (a, c) { return at(a.s) - at(c.s); }), dn = dayName(d), w = null, cw = calCity();
-    ((cw && cw.days) || []).forEach(function (x) { if (x.date === d) w = x; });
-    var sk = D.sky && D.sky.days && D.sky.days[d] && D.sky.days[d].moon, wm = w && WMO[w.code];
-    var h = '<b>' + bi(dn[0], dn[1]) + '</b>' + (w ? '<div class="mpw">' + icon(w.code) + '<span>' + Math.round(w.max) + '° / ' + Math.round(w.min) + '°' + (wm ? ' · ' + bi(wm[0], wm[1].toLowerCase()) : '') + '</span></div>' : '') +
-      (sk ? '<div class="mpm">' + bi(sk.thai_label_th + (sk.wan_phra ? ' · วันพระ' : ''), sk.thai_label_en + (sk.wan_phra ? ' · wan phra' : '')) + '</div>' : '') +
-      (evs.length ? '<ul>' + evs.slice(0, 4).map(function (e) { return '<li><i style="background:' + (CAT_PAPER[e.c] || CAT_PAPER.other) + '"></i><time>' + (e.ad ? '·' : e.s.slice(11, 16)) + '</time> ' + esc(e.t) + (ME.saved[e.k] ? ' ♥' : '') + '</li>'; }).join('') + '</ul>' : '<p>' + bi('ยังว่าง', 'Nothing in yet') + '</p>') +
-      (evs.length > 4 ? '<p>' + bi('อีก ' + (evs.length - 4), (evs.length - 4) + ' more') + '</p>' : '');
-    tip.innerHTML = h; tip.hidden = false;
-    var wr = tip.parentNode.getBoundingClientRect(), r = b.getBoundingClientRect(), tw = tip.offsetWidth;
-    var x = r.left - wr.left + r.width / 2 - tw / 2; x = Math.max(0, Math.min(wr.width - tw, x));
-    tip.style.left = x + 'px'; tip.style.top = (r.bottom - wr.top + 6) + 'px';
-  }
-  $('mgrid').addEventListener('mouseover', function (e) {
-    var b = e.target.closest && e.target.closest('button[data-mday]'); if (b === cur) return; cur = b; clearTimeout(tm);
-    if (!b) { tip.hidden = true; return; }
-    tm = setTimeout(function () { show(b); }, 260);
-  });
-  $('mgrid').addEventListener('mouseleave', function () { cur = null; clearTimeout(tm); tip.hidden = true; });
-  $('mgrid').addEventListener('click', function () { tip.hidden = true; });
-})();
 /* the rest of the A/B's counts: a first touch on the map, a link followed, the calendar below reached */
 (function () {
   var f = document.querySelector('#now iframe');
@@ -1345,22 +1087,8 @@ function shareEv(e, b) {
   if (navigator.share) navigator.share({ title: e.t, text: text, url: url }).catch(function () { });
   else if (navigator.clipboard) navigator.clipboard.writeText(text + ' ' + url).then(said, function () { });
 }
-/* the fortnight, opened at an event: its day unfolds and the event opens in it */
-function openInFortnight(e) {
-  if (CALNEXT) { if (!openNext(e)) go('ev=' + e.k); return; }
-  var d = ymd(Math.max(span(e)[0], Date.now())), k = daysTo(d);
-  if (!$('month') || k < 0 || k >= 56) { go('ev=' + e.k); return; }
-  if ((e.city || 'cm') !== MCITY) setCity(e.city || 'cm', true);
-  MOFF = Math.floor(k / 14) * 14;
-  if (H.getAttribute('data-stage') !== 'cal') stage('cal', true);
-  if (MF.c && MF.c !== e.c) MF.c = null;
-  pickDay(d, 'unfold');
-  var el = document.querySelector('#mday details.ev[data-k="' + e.k + '"][data-s="' + e.s + '"]') || document.querySelector('#mday details.ev[data-k="' + e.k + '"]');
-  if (!el) { toList(); return; }
-  var p = el.closest('details.dmore'); if (p) p.open = true;
-  el.open = true; el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
-  setTimeout(function () { var r = el.getBoundingClientRect(), bh = (parseFloat(getComputedStyle(H).getPropertyValue('--barh')) || 50) + 10; scrollTo({ top: scrollY + r.top - bh - 40, behavior: REDUCED ? 'auto' : 'smooth' }); }, 30);
-}
+/* the calendar, opened at an event: the band that holds it opens it */
+function openInFortnight(e) { if (!openNext(e)) go('ev=' + e.k); }
 
 /* ------------------------------------------------------------ the map up top, flown to (the doodle map's md-fly / md-at / md-spot) */
 var MAPQ = null, MAPREADY = false, FLYOK = null;
@@ -1397,7 +1125,7 @@ function mapAt(t) {
   if (t === atLast || !MAPREADY || H.getAttribute('data-stage') !== 'map') return;
   clearTimeout(atTimer); atTimer = setTimeout(function () { atLast = t; mapPost({ type: 'md-at', t: t }); }, 120);
 }
-/* a spot tapped in the map: what it hosts in the fortnight, lit in the calendar and offered in a slip */
+/* a spot tapped in the map: what it hosts in the next fourteen days, offered in a slip */
 addEventListener('message', function (m) {
   var f = mapFrame();
   if (m.origin !== location.origin || !f || m.source !== f.contentWindow || !m.data || m.data.type !== 'md-spot') return;
@@ -1407,8 +1135,6 @@ addEventListener('message', function (m) {
   var hits = ahead.filter(function (e) { return path && e.vu && path.indexOf(e.vu) >= 0; });
   if (!hits.length) hits = ahead.filter(function (e) { return e.la != null && d.lat != null && km(e.la, e.lo, d.lat, d.lng) < 0.06; });
   hits.sort(function (a, b) { return at(a.s) - at(b.s); });
-  MLIT = {}; hits.forEach(function (e) { MLIT[ymd(Math.max(span(e)[0], now))] = 1; });
-  month();
   var slip = $('spotev');
   if (!slip) { slip = document.createElement('div'); slip.id = 'spotev'; slip.setAttribute('role', 'status'); document.body.appendChild(slip); }
   if (!hits.length) { slip.hidden = true; return; }
@@ -2352,7 +2078,7 @@ reveal();
 Promise.all([j(LIVE + 'data/weather.json').then(function (d) { D.weather = d; }, function () { }),
              j(LIVE + 'data/air.json').then(function (d) { D.air = d; }, function () { }),
              j(LIVE + 'front/ridge.json').then(function (d) { D.ridge = d; }, function () { })])
-  .then(function () { sky.text(); if (MC.cells.length) mcFrame(); });
+  .then(function () { sky.text(); });
 j(LIVE + 'front/ahead.json').then(function (d) { D.ahead = d; ahead(); }, function () { });
 /* the one bake of the calendar's dates (front_layer.bake_when); it 404s until a hand-off carries it, nothing waits on it,
    and the readers stay on events.json (cats, fields) until they move over */

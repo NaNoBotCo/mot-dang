@@ -174,39 +174,10 @@ html.maptool,html.maptool body{overflow:hidden;overscroll-behavior:none}
 #month{display:none;padding:0 0 1.6rem}
 html[data-stage=cal] #month{display:block}
 html[data-stage=cal] #now{display:none}
-#mgrid .mh{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;margin:.1rem 0 .5rem}
-#mgrid .mh b{font-size:1.25rem}
-#mgrid .mh small{color:var(--dim)}
-#mgrid .wk{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
-#mgrid .wd{text-align:center;font-size:.8rem;color:var(--dim);padding-bottom:.15rem}
-.mc{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:.15rem;min-height:4.4rem;padding:.3rem .35rem;border-radius:10px;border:1px solid var(--line);
-  background:linear-gradient(rgba(255,194,102,var(--h,0)),rgba(255,194,102,var(--h,0))),var(--card);color:var(--ink);font:inherit;text-align:left;cursor:pointer;overflow:hidden}
-.mc.pad{visibility:hidden}
-.mc.we{border-color:rgba(255,255,255,.32)}
-.mc .mn{font:800 1.05rem/1.1 var(--mono)}
-.mc .mo{font-size:.7rem;color:var(--hot);font-weight:700;line-height:1}
-.mc .md{display:flex;flex-wrap:wrap;gap:3px}
-.mc .md i{width:7px;height:7px;border-radius:50%}
-.mc .mtop{display:flex;align-items:baseline;justify-content:space-between;gap:.2rem;width:100%}
-.mc .mk{font:700 .74rem var(--mono);color:var(--mute)}
-.mc.fest{box-shadow:inset 0 3px 0 var(--link)}
-.mc .mw{position:absolute;right:.35rem;bottom:.3rem;width:.7rem;height:.7rem;border-radius:50%;background:#fff6dc;box-shadow:0 0 6px #fff6dc}
-.mc.dd{padding-bottom:calc(2.9rem + .3rem);overflow:hidden}.mc.dd .mw{display:none}
-.mc .mcv{position:absolute;left:0;right:0;bottom:0;width:100%;height:2.9rem;display:block;pointer-events:none}
-@media (min-width:760px){.mc.dd{padding-bottom:calc(4.6rem + .45rem)}.mc .mcv{height:4.6rem}}
-.mc .mf{display:none;font-size:.78rem;line-height:1.2;color:var(--link);font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
-.mc .mt{display:none;font-size:.78rem;line-height:1.25;color:var(--mute);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
-.mc.today{border:2px solid var(--hot)}
-.mc[aria-pressed=true]{background:var(--hot);color:#000;border-color:var(--hot)}
-.mc[aria-pressed=true] .mk,.mc[aria-pressed=true] .mt,.mc[aria-pressed=true] .mo,.mc[aria-pressed=true] .mf,.mc[aria-pressed=true] .en{color:#000}
-.mc:disabled{cursor:default;opacity:.55}
-@media (max-width:420px){.mc{padding:.3rem .3rem}.mc .mtop{flex-direction:column;gap:0}.mc .mk{font-size:.7rem;line-height:1.1}}
-@media (min-width:760px){.mc{min-height:6.4rem;padding:.45rem .55rem}.mc .mt,.mc .mf{display:block}#mgrid .wk{gap:7px}}
 #ahead{margin-top:1.1rem}
 #ahead .ahh{display:flex;align-items:baseline;gap:.7rem;margin-bottom:.4rem}
 #ahead .ahh h3{margin:0;font-size:1.25rem}
 #ahead .ahh small{color:var(--dim)}
-#ahrib{display:block;width:100%;height:104px;border-radius:12px;border:1px solid var(--line);cursor:pointer}
 #ahcards{display:flex;align-items:flex-start;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:.7rem 0 .3rem;scrollbar-width:thin}
 .ahc{flex:0 0 min(78vw,17.5rem);scroll-snap-align:start;border-radius:16px;border:1px solid var(--line);background:var(--card);overflow:hidden;display:flex;flex-direction:column}
 .ahc.flash{animation:flash 2.4s ease-out 1}
@@ -220,10 +191,8 @@ html[data-stage=cal] #now{display:none}
 .ahc .aha{display:flex;flex-wrap:wrap;gap:6px}
 .ahc .aha .chip{display:inline-flex;align-items:center;text-decoration:none;color:var(--ink);font-size:.88rem}
 .ahc[data-k=smoke]{border-color:rgba(196,160,120,.6)}
-@media (min-width:760px){#ahrib{height:128px}.ahc .ahv{height:110px}}
+@media (min-width:760px){.ahc .ahv{height:110px}}
 #mday{margin-top:1rem}
-#mday .dayh{margin:.4rem 0 .2rem}
-#mday .mall{display:inline-block;margin-top:.6rem}
 /* THE FORTNIGHT ON PAPER (Nan, 2026-10-10: the calendar and the map "should be equal"): the hand-drawn
    map's paper, ink, Mali lettering, wobbled corners and offset shadows (sites/doodle-map), so both tabs
    are one hand. The tokens are redefined on #month, so the day's list and the ahead cards follow. */
@@ -233,24 +202,12 @@ html[data-stage=cal] #now{display:none}
 @font-face{font-family:'Mali';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/mali-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 #month{--ink:#2b2118;--mute:#5c4d3c;--dim:#6d5d4b;--line:rgba(43,33,24,.3);--card:#fffaf0;--bg:#f5ecd7;--link:#8a3b2a;--hot:#b0442e;--hand:Mali,var(--sans);--pen:rgba(43,33,24,.2);
   color:var(--ink);background:radial-gradient(rgba(43,33,24,.07) 1px,transparent 1.4px) 0 0/9px 9px,#f5ecd7;border-top:2px dashed #b0442e;border-bottom:2px dashed #b0442e;padding:1rem 0 2rem}
-#mgrid .mh{flex-wrap:wrap;justify-content:flex-start;gap:.1rem .8rem;width:fit-content;max-width:100%;margin:.1rem 0 1rem;padding:.45rem .9rem .5rem;background:rgba(255,250,236,.93);border:2px solid var(--ink);border-radius:6px 14px 8px 12px;box-shadow:3px 3px 0 rgba(43,33,24,.25);transform:rotate(-.6deg)}
 #mgrid .mtopbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem .8rem;margin-bottom:.2rem}
-#mgrid .mtopbar .mh{display:grid;grid-template-columns:auto auto auto;column-gap:.75rem;row-gap:0;align-items:center;margin-bottom:.6rem}
-#mgrid .mh .mpg:first-child{grid-column:1;grid-row:1/3}
-#mgrid .mh b{grid-column:2;grid-row:1}
-#mgrid .mh small{grid-column:2;grid-row:2}
-#mgrid .mh .mpg:last-child{grid-column:3;grid-row:1/3}
-#mgrid .mpg{flex:none;min-width:2.4rem;min-height:2.4rem;border-radius:50% 46% 52% 48%;border:2px solid var(--ink);background:var(--card);color:var(--ink);font:700 1.3rem/1 var(--hand);cursor:pointer;box-shadow:2px 2px 0 var(--pen)}
-#mgrid .mpg:disabled{opacity:.28;cursor:default;box-shadow:none}
 #mgrid .mcity{display:flex;gap:4px;padding:3px;margin-bottom:.6rem;border-radius:99px;background:rgba(255,250,236,.92);border:2px solid var(--ink);box-shadow:2px 2px 0 var(--pen)}
 #mgrid .mcity button{font:700 .9rem var(--hand);padding:.25rem .8rem;min-height:2.4rem;border:0;border-radius:99px;background:transparent;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:.3rem}
 #mgrid .mcity button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
 #mgrid .mcity button[aria-pressed=true] .en{color:var(--bg)}
 html.lang-both #mgrid .mcity .en{display:none}
-#month canvas.mdb{cursor:grab;touch-action:pan-y}
-#month .mc.prev .mn{color:rgba(43,33,24,.3)}
-#mgrid .mh b{font:700 1.4rem/1.15 var(--hand)}
-#mgrid .mh small{color:#8a3b2a;font:600 .85rem var(--hand)}
 #month .mbar{margin:0 -.3rem;padding:.1rem .3rem .8rem}
 #month .mq{background:var(--card);border:1.5px solid var(--ink);border-radius:12px 8px 12px 9px;color:var(--ink);font:600 .9rem var(--hand);box-shadow:2px 2px 0 var(--pen)}
 #month .mq:nth-child(even){border-radius:9px 12px 8px 12px}
@@ -259,38 +216,6 @@ html.lang-both #mgrid .mcity .en{display:none}
 #month .mq s{border:1px solid rgba(43,33,24,.45)}
 #month .mq b{color:#c2185b}
 #month .msep{background:var(--line)}
-#mgrid .wd{font:600 .85rem var(--hand);color:var(--mute)}
-#mgrid .wk{gap:8px}
-#month .mc{background:linear-gradient(rgba(233,181,47,var(--h,0)),rgba(233,181,47,var(--h,0))),var(--card);border:2px solid var(--ink);border-radius:7px 13px 9px 12px;box-shadow:3px 3px 0 var(--pen);color:var(--ink)}
-#month .mc:nth-child(3n){border-radius:12px 8px 13px 7px;rotate:.35deg}
-#month .mc:nth-child(4n+1){border-radius:9px 12px 7px 14px;rotate:-.3deg}
-#month .mc:nth-child(5n+2){rotate:.2deg}
-#month .mc.we{background:linear-gradient(rgba(233,181,47,var(--h,0)),rgba(233,181,47,var(--h,0))),#fbf0d6}
-#month .mc .mn{position:relative;font:700 1.2rem/1 var(--hand)}
-#month .mc .mk{font:600 .74rem var(--hand);color:var(--mute)}
-#month .mc .mo{font:700 .74rem var(--hand);color:#8a3b2a}
-#month .mc .mf{color:#8a3b2a}
-#month .mc .mt{color:var(--ink)}
-#month .mc .md i{box-shadow:0 0 0 1px rgba(43,33,24,.35)}
-#month .mc .mcv{border-top:2px solid var(--ink)}
-#month .mc.fest{box-shadow:inset 0 4px 0 #d9473b,3px 3px 0 var(--pen)}
-#month .mc.today{border-color:#d9473b}
-#month .mc.today .mn::after{content:"";position:absolute;inset:-.3em -.4em;border:2px solid #d9473b;border-radius:52% 46% 55% 44%;rotate:-9deg;pointer-events:none}
-#month .mc[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--bg);translate:0 -3px;box-shadow:4px 5px 0 rgba(43,33,24,.35)}
-#month .mc[aria-pressed=true] .mk,#month .mc[aria-pressed=true] .mt,#month .mc[aria-pressed=true] .en{color:var(--bg)}
-#month .mc[aria-pressed=true] .mo,#month .mc[aria-pressed=true] .mf{color:#ffc266}
-#month .mc[aria-pressed=true] .mcv{border-top-color:var(--bg)}
-#month .mc[aria-pressed=true].today .mn::after{border-color:#ffc266}
-@media (hover:hover) and (pointer:fine){#month .mc:not(.pad):not(:disabled):hover{box-shadow:4px 6px 0 rgba(43,33,24,.3)}}
-#month .mc.pad{visibility:visible;background:none;border:1.5px dashed rgba(43,33,24,.3);box-shadow:none;cursor:default;rotate:none}
-#month .mc.pad .mn{color:rgba(43,33,24,.42);font-size:1rem}
-#month .mc.past .mn::after{content:"";position:absolute;inset:-.15em -.3em;pointer-events:none;
-  background:linear-gradient(to top right,transparent calc(50% - 1px),rgba(176,68,46,.7) calc(50% - 1px) calc(50% + 1px),transparent calc(50% + 1px)),linear-gradient(to top left,transparent calc(50% - 1px),rgba(176,68,46,.7) calc(50% - 1px) calc(50% + 1px),transparent calc(50% + 1px))}
-#month .mdh{background:var(--bg)}
-#month .dayh{font-family:var(--hand);border-bottom:2px dashed #b0442e}
-#month .dayh small{color:var(--mute)}
-#month .mnav{background:var(--card);border:2px solid var(--ink);color:var(--ink);box-shadow:2px 2px 0 var(--pen)}
-#month canvas.mdb{border:2px solid var(--ink);border-radius:8px 16px 10px 14px;box-shadow:3px 3px 0 var(--pen)}
 #month details.ev{background:var(--card);border:2px solid var(--ink);border-radius:8px 16px 10px 14px;box-shadow:3px 3px 0 var(--pen)}
 #month details.ev:nth-of-type(even){border-radius:14px 9px 15px 8px}
 #month details.ev[open]>summary{border-bottom:1.5px dashed var(--line)}
@@ -305,15 +230,13 @@ html.lang-both #mgrid .mcity .en{display:none}
 #month .cd.on{color:#1d6b12}
 #month #ahead{margin-top:1.6rem}
 #month #ahead .ahh h3{font-family:var(--hand)}
-#month #ahrib{border:2px solid var(--ink);border-radius:8px 16px 10px 14px;box-shadow:3px 3px 0 var(--pen)}
 #month .ahc{background:var(--card);border:2px solid var(--ink);border-radius:8px 16px 10px 14px;box-shadow:3px 3px 0 var(--pen);margin:0 3px 4px 0}
 #month .ahc:nth-child(even){border-radius:14px 9px 15px 8px}
 #month .ahc .ahv{border-bottom:2px solid var(--ink)}
 #month .ahc .ahn{color:#b0442e}
 #month .ahc .aht{font-family:var(--hand)}
 #month .ahc .aha .chip{background:#fff;border:1.5px solid var(--ink);color:var(--ink)}
-@media (max-width:560px){#month .mc .md{display:none}#mgrid .wk{gap:6px}#mgrid .mh b{font-size:1.2rem}#month .dayh{font-size:1.1rem}#month .ev .tt{font-size:1.02rem;font-weight:600}}
-@media (max-width:420px){#month .mc .mk{display:none}#month .mc .mn{font-size:1.05rem}}
+@media (max-width:560px){#month .ev .tt{font-size:1.02rem;font-weight:600}}
 html[data-contrast="more"] #month{--ink:#000;--mute:#000;--dim:#000;--line:#000;--card:#fff;--bg:#fff;--link:#000;--hot:#a00000;--pen:transparent;background:#fff}
 
 .more{display:inline-block;margin-top:.5rem;font-weight:700;font-size:.95rem;color:var(--link)}
