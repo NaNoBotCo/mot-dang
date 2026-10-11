@@ -193,7 +193,7 @@ function chip(href, label, cls, ext) {
 }
 function rowFacts(li) {
   /* what the row itself says: its title, reading, picture, shelf */
-  var a = li.querySelector('a.t') || li.querySelector('a[href]:not(.mdth):not(.th)');
+  var a = li.tagName === 'A' ? li : li.querySelector('a.t') || li.querySelector('a[href]:not(.mdth):not(.th)');
   var nm = li.classList.contains('pvi') ? li.querySelector('.pvn') : a;
   var o = { url: li.dataset.u || (a && a.href) || '', title: nm ? (nm.firstChild && nm.firstChild.nodeValue || nm.textContent).split(' — ')[0].trim() : '' };
   var rd = li.querySelector('.rd, .pvn small, .rdth, .roman'); o.rd = li.dataset.rd || (rd ? rd.textContent.replace(/^[\s·]*(อ่านว่า|reads)?\s*/, '').trim() : '');
@@ -284,14 +284,22 @@ function show(li, x, y, viaKey) {
 }
 
 /* ------------------------------------------------------------ the doors into it */
+/* Nan, 2026-10-12: "The links should also contain preview information. Everywhere." Past the rows, any
+   link to a place page on any page peeks the same way: the pointer resting on it, or a long press. */
+function placeLink(n) {
+  var a = n.closest('a[href]'); if (!a || a.closest('.mdpk, nav, header, .crumbs')) return null;
+  return twinUrl(a.href) ? a : null;
+}
 function rowOf(n) {
   if (!n || !n.closest) return null;
   var pv = n.closest('.pvi'); if (pv && !pv.closest('.mdpk')) return pv;
-  var li = n.closest('.r[data-k], ul.dir li[data-n]'); return li && !li.closest('.mdpk') ? li : null;
+  var li = n.closest('.r[data-k], ul.dir li[data-n]'); if (li && !li.closest('.mdpk')) return li;
+  return placeLink(n);
 }
 function urlOf(li) {
   if (!li) return '';
-  if (li.classList.contains('pvi')) { li.dataset.u = li.getAttribute('href'); }
+  if (li.tagName === 'A') { li.dataset.u = li.href; }
+  else if (li.classList.contains('pvi')) { li.dataset.u = li.getAttribute('href'); }
   else if (!li.dataset.u) { var a = li.querySelector('a.t') || li.querySelector('a[href*="/p/"]'); if (a) li.dataset.u = a.href; }
   return li.dataset.u;
 }
@@ -323,7 +331,7 @@ d.addEventListener('contextmenu', function (e) { if (eat || (lp && rowOf(e.targe
 /* desktop: rest the pointer on a picture or a name */
 if (HOVER) {
   d.addEventListener('mouseover', function (e) {
-    var tg = e.target.closest && e.target.closest('a.th, a.t, .pvi, a.mdth, ul.dir li[data-n] > a');
+    var tg = e.target.closest && (e.target.closest('a.th, a.t, .pvi, a.mdth, ul.dir li[data-n] > a') || placeLink(e.target));
     if (!tg) return;
     var li = rowOf(tg); if (!li || !urlOf(li)) return;
     clearTimeout(showT); clearTimeout(hideT);
@@ -331,7 +339,7 @@ if (HOVER) {
     showT = setTimeout(function () { show(li, x, y); }, 520);
   });
   d.addEventListener('mouseout', function (e) {
-    var tg = e.target.closest && e.target.closest('a.th, a.t, .pvi, a.mdth, ul.dir li[data-n] > a');
+    var tg = e.target.closest && (e.target.closest('a.th, a.t, .pvi, a.mdth, ul.dir li[data-n] > a') || placeLink(e.target));
     if (!tg) return;
     clearTimeout(showT);
     if (openFor && !(e.relatedTarget && card && card.contains(e.relatedTarget))) hideT = setTimeout(close, 380);

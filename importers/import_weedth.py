@@ -164,6 +164,7 @@ def records(report=False):
     # adding the landmark and postcode tiers made this KeyError, which is a
     # silly way to lose a run.
     stats = collections.Counter()
+    elsewhere = []
 
     for uuid, e in sorted(doc.items()):
         if uuid.startswith("_"):
@@ -178,6 +179,12 @@ def records(report=False):
         # Rule 1: an exact name match is the shop we already have.
         if (prov, key) in have:
             stats["corroborated"] += 1
+            # Nan, 2026-10-12: Pineapple Express "not listed in mot dang at all" —
+            # it was, as a guesthouse, and this match kept it off the cannabis
+            # shelf. A match on a record standing on another shelf is named here
+            # so it reaches data/curated/shelves.json (24 added that day).
+            if "cannabis" not in (have[(prov, key)].get("cat") or []):
+                elsewhere.append((name, have[(prov, key)]["id"], have[(prov, key)].get("cat")))
             continue
         # A partial match is a question, not an answer — but only if it is
         # actually a question. Substring matching on these keys sent 92 of 218
@@ -286,6 +293,13 @@ def records(report=False):
     print(f"weed.th -> {stats['new']} new record(s); "
           f"{stats['corroborated']} already held (exact name match, not added); "
           f"{stats['near']} near-matches sent to review")
+    shelved = set(((json.load(open(os.path.join(ROOT, "data", "curated", "shelves.json"), encoding="utf-8"))
+                    .get("shelves") or {}) if os.path.exists(os.path.join(ROOT, "data", "curated", "shelves.json")) else {}))
+    left = [x for x in elsewhere if x[1] not in shelved]
+    if left:
+        print(f"   {len(left)} matched a record on another shelf and not in shelves.json:")
+        for nm, rid, cats in left:
+            print(f"     {nm} -> {rid} {cats}")
     tiers = ", ".join(f"{k} {stats[k]}" for k in
                       ("landmark", "street", "postcode", "tambon", "needs-pin")
                       if stats[k])

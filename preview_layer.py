@@ -50,15 +50,15 @@ SCRIPT_NAME = "findpeek.js"
 # Rides at the end of md.js and of locshare.js (the one script /find carries):
 # a page with shelf rows or search rows fetches the peek script from the same
 # root that script came from.
-LOADER = r"""(function(){var d=document;function go(){if(window.MDPEEK||!d.querySelector('ul.dir li[data-n], .r[data-k]'))return;
+LOADER = r"""(function(){var d=document;function go(){if(window.MDPEEK||!d.querySelector('ul.dir li[data-n], .r[data-k], a[href*="/p/"]'))return;
 var me=[].filter.call(d.scripts,function(s){return /(^|\/)(md|locshare)\.js(\?|$)/.test(s.getAttribute('src')||'')})[0];
-var root=me?me.src.replace(/(md|locshare)\.js(\?.*)?$/,''):'/';var s=d.createElement('script');s.src=root+'front/findpeek.js?v=1004';s.async=true;d.head.appendChild(s)}
+var root=me?me.src.replace(/(md|locshare)\.js(\?.*)?$/,''):'/';var s=d.createElement('script');s.src=root+'front/findpeek.js?v=1012';s.async=true;d.head.appendChild(s)}
 if(d.readyState==='loading')d.addEventListener('DOMContentLoaded',go);else go()})();"""
 
 
 def script(rel):
     """The peek script tag for a page `rel` deep (its path back to the root)."""
-    return f'<script src="{rel}front/{SCRIPT_NAME}?v=1004" defer></script>'
+    return f'<script src="{rel}front/{SCRIPT_NAME}?v=1012" defer></script>'
 
 
 _CELL_OF = None

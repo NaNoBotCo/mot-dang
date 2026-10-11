@@ -74,6 +74,7 @@ import net_layer
 import commons_layer
 import doodles_layer
 import preview_layer
+import shelfmap_layer  # the doodle map at the head of every list, Nan 2026-10-12
 import pics_layer
 import waypics_layer
 import streetphoto_layer  # a Mapillary or own street photo at the pin (WO-79; NaN 2026-10-11)
@@ -10518,9 +10519,17 @@ def entry_li(r, href):
     # (preview_layer.py, Nan 2026-10-04: "not enough preview anywhere").
     _pic = preview_layer.thumb(r, href, _root_rel(href), att)
     _rd = preview_layer.reading(r, _th, name_pair(r)[1], esc)
+    # The chips over the shelf's map read data-f / data-s / data-sub, and the line
+    # under the name says what, where, when and how to reach it (shelfmap_layer.py,
+    # Nan 2026-10-12: "The links should also contain preview information. Everywhere.")
+    _sm = shelfmap_layer.row_attrs(globals(), r)
+    _subs = " ".join(s for s in (r.get("sub") or []) if s in SUB_LABELS)
+    if _subs:
+        _sm += f' data-sub="{att(_subs)}"'
+    _pv = shelfmap_layer.preview(globals(), r)
     return (f'<li data-n="{att(name_text(r))}"{ne}{lat} data-rank="{rank}" '
-            f'data-upd="{att(upd)}"{keys}{fac}>{star}{_pic}'
-            f'<a href="{href}">{name_bi(r)}{_rd}</a>{ele_chip}{chip}{pin}{hon}{facet_pills(r)}{plan}</li>')
+            f'data-upd="{att(upd)}"{keys}{fac}{_sm}>{star}{_pic}'
+            f'<a href="{href}">{name_bi(r)}{_rd}</a>{ele_chip}{chip}{pin}{hon}{facet_pills(r)}{plan}{_pv}</li>')
 
 
 def _root_rel(href):
@@ -10902,17 +10911,28 @@ def listing_pages(title_th, title_en, records, depth, prov, crumbs, path, extra_
     d_en = f" · {title_en}" if title_en and title_en != title_th else ""
     chunks = chunked(records)
     out = []
+    # The doodle map heads every page of the list and its chips switch the pins and
+    # the rows together (shelfmap_layer.py, Nan 2026-10-12: "The main driver of all
+    # shelf pages should be a map"). A list on more than one page hands the map the
+    # whole list from <page>.map.json. It takes the place of the drawn shelf map
+    # and of the facet chips, which it counts among its own.
+    _prov = prov["key"] if isinstance(prov, dict) else (prov or "cm")
+    _mj = shelfmap_layer.write_json(globals(), path, records) if len(chunks) > 1 else ""
+    shmap = shelfmap_layer.block(globals(), records, _prov, _mj)
     for n, chunk in enumerate(chunks, 1):
         dom = []
         lis = fold_rows(chunk, href_of, order_out=dom)
         # map_of draws this page's own rows on one ground (shelf_map, whose
         # dots are row indexes — so it is handed the rows in DOM order).
-        mapped = map_of(dom or chunk) if map_of else ""
+        mapped = "" if shmap else (map_of(dom or chunk) if map_of else "")
         pager = shelf_pager(n, len(chunks), first)
         if n == 1:
+            _fc = facet_chips(records)
+            if shmap:
+                _fc = _fc.split('<div class="toolbar facetbar"', 1)[0]
             body = (f"<h1>{bi(title_th, title_en)} "
                     f'<span class="count">({len(records):,})</span></h1>'
-                    f"{extra_top}{ad_box(path, depth)}{doors}{facet_chips(records)}"
+                    f"{shmap}{extra_top}{ad_box(path, depth)}{doors}{_fc}"
                     f"{mapped}{toolbar(chunk)}{pager}"
                     f'<ul class="dir" data-sortable>{lis}</ul>{pager}'
                     f"{share_block(BASE + path, title_th, card=og)}"
@@ -10928,7 +10948,7 @@ def listing_pages(title_th, title_en, records, depth, prov, crumbs, path, extra_
                 f'<span class="count">({rng} {bi("จาก", "of")} {len(records):,})</span></h1>'
                 f'<p class="prov"><a href="{first}">← '
                 f'{bi("กลับหน้าแรกของชั้น", "Back to the front of the shelf")}</a></p>'
-                f"{mapped}{toolbar(chunk)}{pager}"
+                f"{shmap}{mapped}{toolbar(chunk)}{pager}"
                 f'<ul class="dir" data-sortable>{lis}</ul>{pager}')
         out.append((npath, page(f"{full_title} — {n}", body, depth, crumbs=crumbs, path=npath,
                                 desc=f"{title_th} — {rng} จาก {len(records)} แห่ง{d_en} · มดแดง",
@@ -19184,7 +19204,9 @@ def build():
         _rl_fh.write("\n" + commons_layer.CSS)
         _rl_fh.write("\n" + sites_layer.CSS)
         _rl_fh.write("\n" + preview_layer.CSS)
+        _rl_fh.write("\n" + shelfmap_layer.CSS)
         _rl_fh.write("\n" + hotel_layer.CSS)
+    shelfmap_layer.emit(DOCS)
     # Clips under the photograph: assets/video/ → docs/v/, gate-checked rows only.
     _vshown, _vheld, _vwhy = video_layer.counts()
     layers.run("video.copy_assets", lambda: print("  video: %d shown, %d held%s, %d files copied" % (
@@ -20049,6 +20071,11 @@ def build():
             # entries between pages would be a sort the reader cannot see
             # the result of.
             chunks = chunked(in_cat)
+            # The doodle map, front and centre, with the shelf's chips (shelfmap_layer.py,
+            # Nan 2026-10-12). It replaces the drawn shelf map on every page.
+            _mj = (shelfmap_layer.write_json(globals(), f"{key}/{c}/index.html", in_cat)
+                   if len(chunks) > 1 else "")
+            shmap = shelfmap_layer.block(globals(), in_cat, key, _mj)
             for n, chunk in enumerate(chunks, 1):
                 dom_order = []
                 lis = fold_rows(chunk, lambda r: f"../p/{place_slug(r)}.html",
@@ -20058,12 +20085,13 @@ def build():
                 if n == 1:
                     body = (f'{cat_art_band(c, key)}'
                             f'<h1>{bi(cdef["th"], cdef["en"])} <span class="count">({len(in_cat):,})</span></h1>'
+                            f'{shmap}'
                             f'{sites_layer.shelf_band(c, key, "../../")}'
                             f'{bands}'
                             f'{affiliate_layer.shelf_line(c, None, key, bi, att, esc)}'
                             f'{subshelf}{doors}'
                             f'{ad_box(f"{key}/{c}/index.html", 2)}'
-                            f'{shelf_map(dom_order or chunk, c, p)}{toolbar(chunk)}'
+                            f'{"" if shmap else shelf_map(dom_order or chunk, c, p)}{toolbar(chunk)}'
                             f'{pager}'
                             f'<ul class="dir" data-sortable>{lis}</ul>{pager}{dl}'
                             f'{share_block(BASE + f"{key}/{c}/index.html", cdef["th"] + " " + p["th"], card=shelf_og(key, c))}'
@@ -20081,7 +20109,7 @@ def build():
                     f'<span class="count">({rng} {bi("จาก", "of")} {len(in_cat):,})</span></h1>'
                     f'<p class="prov"><a href="index.html">← '
                     f'{bi("กลับหน้าแรกของชั้น", "Back to the front of the shelf")}</a></p>'
-                    f'{shelf_map(dom_order or chunk, c, p)}{toolbar(chunk)}'
+                    f'{shmap or shelf_map(dom_order or chunk, c, p)}{toolbar(chunk)}'
                     f'{pager}'
                     f'<ul class="dir" data-sortable>{lis}</ul>{pager}{dl}')
                 (pdir / c / f"page-{n}.html").write_text(page(
