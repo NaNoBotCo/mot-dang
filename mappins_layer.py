@@ -147,13 +147,25 @@ function J(u){return fetch(u).then(function(r){if(!r.ok)throw 0;return r.json();
 /* the places in a box, best known first */
 function places(w,s,e,n,lim){
   return J(LIVE+'api/v1/places?bbox='+[w,s,e,n].map(function(v){return v.toFixed(4);}).join(',')+'&limit='+lim)
-    .then(function(d){return (d.results||[]).filter(function(r){return r.lat!=null&&!thin(r);});});
+    .then(function(d){return (d.results||[]).filter(function(r){return r.lat!=null&&!thin(r);});}).then(readings);
 }
+/* Nan, 2026-10-11: "All names should be transliterated on the english speaking map pages if no english
+   version exists." A Thai-only name reads by its RTGS reading in English (/readings.js, readings_layer.py),
+   waited for at most 0.8 s */
+var RJS=null;
+function readings(rows){
+  if(lang()==='th')return rows;
+  RJS=RJS||new Promise(function(ok){if(window.MDREAD)return ok(MDREAD);var s=document.createElement('script');
+    s.src=LIVE+'readings.js';s.onload=function(){ok(window.MDREAD||null);};s.onerror=function(){ok(null);};document.head.appendChild(s);});
+  return Promise.race([RJS.then(function(R){return R?R.want(rows.filter(function(r){return !r.nameEn;})):0;}),
+    new Promise(function(ok){setTimeout(ok,800);})]).then(function(){return rows;},function(){return rows;});
+}
+function reading(r){return window.MDREAD&&!r.nameEn?MDREAD.of(r.id):'';}
 function lang(){var h=document.documentElement,c=h.classList,l=h.getAttribute('data-lang')||h.lang||'';
   return c.contains('lang-en')||/^en/.test(l)&&!c.contains('lang-th')?'en':c.contains('lang-th')||/^th/.test(l)?'th':'';}
 function names(r){
   var th=r.name||'',en=r.nameEn||'',L=lang();
-  if(L==='en')return en||th;if(L==='th')return th||en;
+  if(L==='en')return en||reading(r)||th;if(L==='th')return th||en;
   return th&&en&&th!==en?th+'\n'+en:th||en;
 }
 function item(r){

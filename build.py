@@ -23366,6 +23366,12 @@ def build():
     # runs at the edge — this writes only the baked index it reads.
     import api_layer
     layers.run("api.emit", lambda: print("  api:", api_layer.emit(globals(), data, photos, _tg)))
+    # readings of Thai-only names beside it, for the maps in English (readings_layer.py)
+    import readings_layer
+    layers.run("readings.emit", lambda: print("  readings:", readings_layer.emit(globals(), data)))
+    # every place along the moat, for Chiang Mai, Doodled (moatfront_layer.py)
+    import moatfront_layer
+    layers.run("moatfront.emit", lambda: print("  moat front:", moatfront_layer.emit(globals())))
 
     # ---- the register: /sites/ and docs/data/sites.json -----------------
     # Late on purpose: /sites/ lists the root pages under their own <h1>, so they
