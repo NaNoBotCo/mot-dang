@@ -24230,8 +24230,7 @@ have a page; counts are per province and never merged.
 - Index: {BASE}tags.html
 - Definitions + live counts + page urls: {BASE}data/tags.json
 - Pages: {BASE}<province>/tag/<slug>.html; a tag on one shelf is
-  {BASE}search.html?tag=<slug>&cat=<shelf>. Each tag has a GeoJSON at
-  {BASE}data/<province>-tag-<slug>.geojson and a JSON at
+  {BASE}search.html?tag=<slug>&cat=<shelf>. Each tag has a JSON at
   {BASE}data/tags/<province>-<slug>.json listing the places and their `via`.
 
 ## 📄 Licence

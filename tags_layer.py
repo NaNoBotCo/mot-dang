@@ -899,7 +899,7 @@ def emit(g, data):
     entry_li, shelf_map, toolbar = g["entry_li"], g["shelf_map"], g["toolbar"]
     share_block, ad_box = g["share_block"], g["ad_box"]
     breadcrumb_ld, item_list_ld = g["breadcrumb_ld"], g["item_list_ld"]
-    listing_page, geojson = g["listing_page"], g["geojson"]
+    listing_page = g["listing_page"]
     CATS, CAT_ORDER, PROVINCES = g["CATS"], g["CAT_ORDER"], g["PROVINCES"]
     name_of, is_featured = g["name_of"], g["is_featured"]
     BUILD_DATE = g["BUILD_DATE"]
@@ -1041,12 +1041,10 @@ def emit(g, data):
                 also = (f'<p class="tinynote tagalso">'
                         + bi("ที่อื่นที่เก็บเรื่องนี้ไว้ด้วย", "Also catalogued by")
                         + f": {links}</p>")
-            gj = geojson(recs)
-            gj_name = f"{key}-tag-{slug}.geojson"
-            (DOCS / "data" / gj_name).write_text(json.dumps(gj, ensure_ascii=False))
-            dl = (f'<p class="prov"><a href="../../data/{gj_name}">⬇ GeoJSON</a> '
-                  f'({len(gj["features"]):,} {bi("จุด", "points")}) · '
-                  f'<a href="../../data/tags/{key}-{slug}.json">JSON</a></p>')
+            # One download per tag: the JSON. A GeoJSON beside each (3,007 files,
+            # 215 MB) went 2026-10-11 (Nan: cut what weighs and adds little).
+            dl = (f'<p class="prov"><a href="../../data/tags/{key}-{slug}.json">⬇ JSON</a> '
+                  f'({len(recs):,} {bi("แห่ง", "places")})</p>')
             title_th = f'{t_th} {p["th"]}'
             crumbs = (f'<a href="../../index.html">{bi("หน้าแรก", "Home")}</a> › '
                       f'<a href="../../tags.html">{bi("ป้ายกำกับ", "Tags")}</a> › '

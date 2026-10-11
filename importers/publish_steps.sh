@@ -102,10 +102,11 @@ if typeset -f pre_deploy >/dev/null; then pre_deploy || exit 1; fi
 # Two walks cannot pile up behind each other while this waits: the walk lock
 # at the top of this file stands the next tick down. If the lane is still
 # busy after 45 minutes the tower returns 75 and this stands down as before.
+(( ${+PRUNE_ARGS} )) || PRUNE_ARGS=()   # server_walk.sh sets it (a one-time deletion bound)
 if [[ -f "$TOWER" ]]; then
-  python3 "$TOWER" wrap cloudflare-deploy --patience 45 -- python3 publish/deploy.py --yes
+  python3 "$TOWER" wrap cloudflare-deploy --patience 45 -- python3 publish/deploy.py --yes "${PRUNE_ARGS[@]}"
 else
-  python3 publish/deploy.py --yes     # the server has no tower; nothing else there publishes
+  python3 publish/deploy.py --yes "${PRUNE_ARGS[@]}"     # the server has no tower; nothing else there publishes
 fi
 RC=$?
 if (( RC == 75 )); then

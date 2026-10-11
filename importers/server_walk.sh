@@ -110,6 +110,20 @@ if [[ -f cache/build-code.tar ]]; then
 fi
 TODAY=$(date +%F)
 
+# A cut Nan has said yes to can delete more live files than the two ceilings
+# allow, once: $SSTATE/prune-once holds "<bound> <last day> <why>". It raises
+# MISSING_CEILING and passes --prune-up-to for the next publish of new code,
+# and goes when that publish succeeds. First use 2026-10-11, the per-tag GeoJSON.
+PRUNE_ARGS=()
+if [[ -r "$SSTATE/prune-once" ]]; then
+  read -r PRUNE_N PRUNE_UNTIL PRUNE_WHY < "$SSTATE/prune-once" || true
+  if [[ "${PRUNE_N:-}" == <-> && -n "${PRUNE_UNTIL:-}" && ! "$TODAY" > "$PRUNE_UNTIL" ]]; then
+    MISSING_CEILING=$PRUNE_N
+    PRUNE_ARGS=(--prune-up-to "$PRUNE_N")
+    say "one-time deletion bound $PRUNE_N until $PRUNE_UNTIL: ${PRUNE_WHY:-}"
+  fi
+fi
+
 # Live is what the bucket holds, listed at publish time by the same call
 # deploy.py's deletion preview makes (publish/safety.py). Until 2026-10-10 the
 # list came from the laptop's own docs/, which stops matching the bucket once
@@ -175,6 +189,7 @@ if publish_once; then
     && print -- "$HAND" > "$LAST_GOOD/.handoff" \
     || say "⚠️  could not keep this publish's code as the last good copy"
   print -- "$HAND" > "$SSTATE/published"
+  (( ${#PRUNE_ARGS} )) && rm -f "$SSTATE/prune-once"
   say "== published $HAND — $COUNT files"
   note "published" "$HAND $COUNT files"
   layer_note
