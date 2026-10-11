@@ -46,7 +46,9 @@
   function frame(cv, r, t) { size(cv); try { window.MDREPO.draw(cv, r, t, RIDGE); } catch (e) { console.error(r.id, e); } }
   function shell(inner) {
     APP.innerHTML = '<header><a class="home" href="/"><b>มดแดง</b> Mot Dang</a><nav><button class="btn" id="lang" type="button" aria-label="ภาษา · language">' + bi('EN', 'ไทย') + '</button></nav></header>' + inner +
-      '<footer>' + bi('วาดด้วยโค้ด ไม่มีภาพถ่าย', 'Drawn in code, no photographs.') + ' · <a href="/doodles/data/meta.json">data</a> · CC BY 4.0 Mot Dang</footer>';
+      '<footer>' + bi('วาดด้วยโค้ด ไม่มีภาพถ่าย', 'Drawn in code, no photographs.') + ' · <a href="/doodles/data/meta.json">data</a>' +
+      (META && META.full ? ' · <a href="' + META.full.url + '">' + bi('ทั้งหมด ' + META.full.n.toLocaleString() + ' ภาพ บน GitHub', 'all ' + META.full.n.toLocaleString() + ' on GitHub') + '</a>' : '') +
+      ' · CC BY 4.0 Mot Dang</footer>';
     $('lang').onclick = function () { setLang(lang === 'th' ? 'en' : 'th'); if (shell.re) shell.re(); };
   }
 

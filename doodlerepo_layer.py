@@ -97,8 +97,8 @@ def _page(c, sub, K, title_th, title_en, rel, n=0, alt=("", ""), card="", kids=(
         desc_th = "ภาพวาดเคลื่อนไหวของมดแดง %s ภาพ หมวด%s แต่ละภาพลิงก์กลับไปหน้าของมัน" % (format(n, ","), title_th.split(" · ")[-1])
         desc_en = "%s of Mot Dang's moving drawings: %s. Each links back to its page." % (format(n, ","), title_en.split(" · ")[-1])
     else:
-        desc_th = "ภาพวาดเคลื่อนไหวของมดแดง ทุกภาพ ทุกรุ่น แต่ละภาพลิงก์กลับไปหน้าของมัน"
-        desc_en = "Mot Dang's moving drawings, every one and every version of it, each linked back to its page."
+        desc_th = "ภาพวาดเคลื่อนไหวของมดแดงที่คัดมา แต่ละภาพลิงก์กลับไปหน้าของมัน ทุกภาพทุกรุ่นอยู่บน GitHub"
+        desc_en = "A selection of Mot Dang's moving drawings, each linked back to its page. Every one, every version, is on GitHub."
     url = BASE + "doodles/" + rel
     e = html.escape
     img = BASE + "doodles/" + (("cards/" + card) if card else "card.jpg")
@@ -140,6 +140,16 @@ def _page(c, sub, K, title_th, title_en, rel, n=0, alt=("", ""), card="", kids=(
 def emit(docs):
     """docs/doodles/: pages, data, engines. Returns the number of doodles."""
     vers, gone, params = load()
+    # Nan, 2026-10-11: about 200 kept to start, the unique ornate ones, more picked from new batches
+    # (tools/doodle_keep.py); every doodle is on GitHub (data/doodles/keep.json "full").
+    full = None
+    try:
+        kj = json.loads((STORE / "keep.json").read_text())
+        full = {"url": kj["full"], "n": kj.get("total") or len(vers)}
+        ids = set(kj["ids"])
+        vers = {i: vs for i, vs in vers.items() if i in ids}
+    except (OSError, ValueError, KeyError):
+        pass
     if not vers:
         print("doodle repo: empty store, nothing written (run tools/doodle_repo.py)")
         return 0
@@ -201,7 +211,7 @@ def emit(docs):
                                                         "versions": sum(len(v) for v in vers.values()), "cats": cats,
                                                         "names": {"cats": K["cats"], "kinds": K["kinds"], "alts": doodles_layer.alts()},
                                                         "pay": pay_offer(),
-                                                        "feats": feat_names(feats)},
+                                                        "feats": feat_names(feats), "full": full},
                                                        ensure_ascii=False, separators=(",", ":")))
     (out / "engines").mkdir()
     used = {r["e"] for vs in vers.values() for r in vs} | {cur}
