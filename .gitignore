@@ -118,3 +118,7 @@ docs/the-plan/
 # hand-off (importers/server_link.sh). lpn.json is small and stays tracked.
 data/canonical/cm.json
 data/canonical/cr.json
+
+# Build output. The server builds it and R2 serves it; GitHub Pages had stopped
+# serving it by 2026-10-11. Untracked that day.
+/docs/

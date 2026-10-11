@@ -60,8 +60,12 @@ OUT = HERE / "_incoming" / "enrich"
 LEDGER = OUT / "demand.jsonl"
 TODAY = datetime.date.today().isoformat()
 
-ARCHIVE = pathlib.Path.home() / "Desktop" / "Legal Cases" / \
-    "CHATGPT EXPORT (OpenAI, 2026-08-29) — CROSS-CASE SOURCE" / "03 — All transcripts (7,761)"
+# The transcript folder this reads sits outside the repo and is named only on
+# this Mac, in cache/enrich_archive.txt (one line, a path) or MD_ENRICH_ARCHIVE.
+_arch = os.environ.get("MD_ENRICH_ARCHIVE") or (
+    (HERE / "cache" / "enrich_archive.txt").read_text().strip()
+    if (HERE / "cache" / "enrich_archive.txt").exists() else "")
+ARCHIVE = pathlib.Path(_arch) if _arch else HERE / "cache" / "enrich-archive-not-set"
 WLAI = pathlib.Path.home() / "Developer" / "claude code projects" / "white-label-ai"
 SEARCH = "https://ask.motdang.net/api/search"
 UA = "mot-dang-enrich/1.0 (+https://motdang.net)"   # the zone 403s python-urllib's default
