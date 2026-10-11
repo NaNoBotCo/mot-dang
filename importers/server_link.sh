@@ -31,7 +31,27 @@ HANDOFF_EXCLUDES=(--exclude /docs/ --exclude /docs.next/ --exclude /docs.prev/
   # folder, and held there only (her word 2026-10-11: rented storage, not the
   # Mac). Excluded, so this mirror neither sends nor deletes them; her own
   # photos in assets/streetphotos/own/ still travel.
-  --exclude '/assets/streetphotos/*.jpg' --exclude /data/street_photos.json)
+  --exclude '/assets/streetphotos/*.jpg' --exclude /data/street_photos.json
+  # Importer caches and old logs that no server build read from 2026-10-05 to
+  # 10-11 (atime on /srv): 3.6 GB in 19k files a round. The Mac keeps them;
+  # the server keeps its last copy. Nan, 2026-10-11: cut what weighs and adds little.
+  --exclude /cache/cmhy/ --exclude /cache/roads-prov/ --exclude /cache/satellite/
+  --exclude /cache/weedth/ --exclude /cache/overture/ --exclude /cache/terrain/
+  --exclude /cache/swag/ --exclude /cache/naturalearth/ --exclude /cache/bigsize/
+  --exclude /cache/paper/ --exclude /cache/flights-research/ --exclude /cache/admin/
+  --exclude /cache/hotel_amenities/ --exclude /cache/scripture/ --exclude /cache/obec/
+  --exclude /cache/datagoth/ --exclude /cache/rollback/ --exclude /cache/commons_area/
+  --exclude /cache/lens/ --exclude /cache/foursquare/ --exclude /cache/thdata/
+  --exclude /cache/care/ --exclude /cache/traffic/ --exclude /cache/ot/
+  --exclude /cache/buildings/ --exclude /cache/buildings-cr/
+  --exclude /cache/fda_register/ --exclude /cache/hotel_monthly/ --exclude /cache/nhso/
+  --exclude /cache/inat/ --exclude /cache/citizeninfo/
+  --exclude /_incoming/vivo-2026-10-02 --exclude /_incoming/pano
+  --exclude /_incoming/passed --exclude /_incoming/canonical-backup-2026-09-05
+  --exclude /_incoming/nano-banana-2026-10-05
+  --exclude /_incoming/provenance-backfill-2026-09-05.json
+  --exclude /_incoming/osm-giveback-2026-09-05.json
+  --exclude '/cache/*.log' --exclude '/cache/*.bak*' --exclude '/cache/*.before*')
 
 hand_to_server() {
   local id at; id="$(date +%Y%m%dT%H%M%S)-$$"; at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"

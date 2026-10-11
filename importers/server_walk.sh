@@ -69,6 +69,10 @@ fi
 
 exec 8>"$SSTATE/docs.lock"; flock 8
 say "== hand-off $HAND"
+# A Mapillary harvest (~/mly_tiles.py), when one is running, waits while the round
+# builds: 2026-10-11 the build and the harvest together had 2 GB of the 4 GB box in swap.
+pkill -STOP -u "$(id -un)" -f mly_tiles.py 2>/dev/null
+trap 'pkill -CONT -u "$(id -un)" -f mly_tiles.py 2>/dev/null' EXIT
 # A data file the laptop sent while something was still writing it does not
 # parse; the working tree keeps last round's copy of it (tools/datacheck.py).
 HELD=()

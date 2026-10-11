@@ -17,6 +17,7 @@ the glyphs come from our own bucket.
 import atexit
 import base64
 import datetime
+import functools
 import hashlib
 import heapq
 import io
@@ -8459,6 +8460,7 @@ _TOPCATS = [c for c in ("food", "wat", "medical", "essentials", "massage", "hote
 ASK_HOST = "https://ask.motdang.net"
 
 
+@functools.lru_cache(maxsize=None)   # once a build, not once a page (~30 s on 2026-10-11)
 def ask_enabled():
     p = ROOT / "data" / "ask.json"
     if not p.exists():
@@ -19977,14 +19979,14 @@ def build():
             ])
             bands = (f'{emergency_band(c)}{muaythai_band(c)}{cooking_band(c)}{chang_band(c)}{springs_band(c)}{shrines_band(c)}{doi_band(c)}{beauty_band(c)}{realestate_band(c)}{womens_health_band(c)}{trans_health_band(c)}{longcare_band(c)}{transport_band(c)}{yant_band(c)}{fleet_band()}')
             # Doors to every group of SHELF_MIN+ on this shelf: its ย่าน
-            # (written here) and its tags (the tag×shelf pages tags_layer
-            # writes). The hub form — a front of sub-shelf doors with the rows
+            # (written here) and its tags (a search for the tag on this shelf,
+            # since 2026-10-11). The hub form — a front of sub-shelf doors with the rows
             # behind a noindexed all.html — is gone: at 100 rows a page every
             # shelf front can carry its first page of rows (Nan, 2026-10-03).
             doors = shelf_doors(in_cat, p, f"{key}/{c}", 2, crumbs.rsplit(" › ", 1)[0]
                                 + f' › <a href="index.html">{bi(cdef["th"], cdef["en"])}</a>',
                                 cdef["th"], cdef["en"], og=shelf_og(key, c),
-                                tag_href=lambda s, c=c: f"../tag/{s}--{c}.html")
+                                tag_href=lambda s, c=c: f"../../search.html?tag={s}&amp;cat={c}")
             # The map's dots carry row indexes resolved against the DOM, and
             # fold_rows reorders rows into brand shelves — so the map is drawn
             # from the order the rows actually land in (see fold_rows).
@@ -22502,8 +22504,21 @@ def build():
         "generated": BUILD_DATE,
     }, ensure_ascii=False, indent=1))
 
-    (DOCS / "data" / "places.json").write_text(
-        json.dumps(full_dump, ensure_ascii=False))
+    # data/places.json, every record in one file (195 MB on 2026-10-11), is
+    # rebuilt once a week (Nan, 2026-10-11): between rebuilds last build's file
+    # moves over. Written as a stream, so the build never holds it as one string.
+    _pj, _pj_was = DOCS / "data" / "places.json", None
+    if _FINAL_DOCS is not None and _FINAL_DOCS != DOCS:
+        _pj_was = _FINAL_DOCS / "data" / "places.json"
+    try:
+        _pj_fresh = _pj_was is not None and time.time() - _pj_was.stat().st_mtime < 7 * 86400
+    except OSError:
+        _pj_fresh = False
+    if _pj_fresh:
+        os.rename(_pj_was, _pj)
+    else:
+        with open(_pj, "w", encoding="utf-8") as _fh:
+            json.dump(full_dump, _fh, ensure_ascii=False)
     # /doodles/: the place portraits, worked out here in the parent — the pages above are written by
     # forked workers, so nothing they note comes back (the first try wrote an empty list, 2026-10-05)
     _dtg = (globals().get("TAGS") or {}).get("by_id") or {}
@@ -23619,7 +23634,7 @@ works from a browser as well as a server.
   place with no pin drops out of a near= query rather than being placed.
 
 ## 🍜 Dinner's ready — the full dataset, one file
-- Everything, every field: {BASE}data/places.json ({len(full_dump):,} records)
+- Everything, every field: {BASE}data/places.json (rebuilt weekly)
 - Slim search index: {BASE}data/index.json
 - Per-category GeoJSON: {BASE}data/<province>-<category>.geojson
   (province = cm | cr; e.g. {BASE}data/cm-wat.geojson)
@@ -24214,8 +24229,8 @@ honours:<kind> · brand · curated:<list>). Brand tags are generated from
 have a page; counts are per province and never merged.
 - Index: {BASE}tags.html
 - Definitions + live counts + page urls: {BASE}data/tags.json
-- Pages: {BASE}<province>/tag/<slug>.html (and <slug>--<shelf>.html where a
-  shelf holds {_tg["tag_shelf_min"]}+ of them); each with a GeoJSON at
+- Pages: {BASE}<province>/tag/<slug>.html; a tag on one shelf is
+  {BASE}search.html?tag=<slug>&cat=<shelf>. Each tag has a GeoJSON at
   {BASE}data/<province>-tag-<slug>.geojson and a JSON at
   {BASE}data/tags/<province>-<slug>.json listing the places and their `via`.
 

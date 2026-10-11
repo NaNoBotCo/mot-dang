@@ -16,7 +16,7 @@ What it guards, each against a way this goes wrong quietly:
 3. **Counts are true.** For every province × tag, the page exists exactly when
    the count reaches min_tag; the h1 count, the rows on the page and
    data/tags.json agree; no tag×shelf page exists below tag_shelf_min and each
-   one that exists carries exactly the records it claims.
+   one that exists forwards to search for that tag on that shelf.
 4. **Provenance travels.** In places.json every record with `tags` carries a
    `tagVia` for each, with a head the layer knows.
 5. **The pills are on the place pages**, linking only to pages that exist,
@@ -247,9 +247,9 @@ def main():
                 real = by_prov_tag_cat.get((p, slug, cat), [])
                 if len(real) < x_min:
                     fail(msgs, f"{p}/tag/{xf.name}: exists with only {len(real)} records (< {x_min})")
-                rows = rows_all_pages(xf)
-                if rows != len(real):
-                    fail(msgs, f"{p}/tag/{xf.name}: {rows} rows, {len(real)} records")
+                # a forward to search since 2026-10-11 (tags_layer.emit)
+                if f"search.html?tag={slug}&amp;cat={cat}" not in xf.read_text(encoding="utf-8"):
+                    fail(msgs, f"{p}/tag/{xf.name}: not a forward to search?tag={slug}&cat={cat}")
                 n_cross += 1
             # and none missing where the crowd is real
             for (pp, s, c), rs in by_prov_tag_cat.items():
