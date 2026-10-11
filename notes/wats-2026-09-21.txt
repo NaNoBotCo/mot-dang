@@ -1,0 +1,99 @@
+/merit.html IS GONE. THE WAT SITE IS /wats
+2026-09-21
+
+
+WHAT IT IS
+
+    motdang.net/wats                  the practice, 8 rounds, all 92 wats
+    motdang.net/wats/round-01.html    one round, wat by wat, the line on
+                                      the streets  (…-02 … -08)
+    motdang.net/wats/w/<wat>.html     one wat: picture, both names, what is
+                                      recorded about it, where it sits
+
+/merit.html and /merit forward to it: a stub page at the old address in the
+build, and a 301 in the worker once the worker is next deployed.
+
+
+THE FOUR THINGS THAT WERE WRONG
+
+1.  NOT ALL OF THEM WERE WATS. Five stops on the published rounds were not:
+    เทพมณเฑียร, which is a Hindu temple · พุทธสถานเชียงใหม่, a hall ·
+    ศาลเจ้าพ่อหลักเมืองแจ่งกระต๊ำ, a shrine · สมาคมพุทธภาวนาบุญสถาน, an
+    association · and a node named only "Buddhist temple". The catalogue's wat
+    shelf is wider than the word — under it, inside the city, sit 41 things
+    that are not wats, a Christian hall and an apron shop among them.
+    A stop now has to be named as a wat, วัด or Wat at the head of its own
+    name, and nothing else lets a place on.
+
+2.  SOME WERE NOWHERE NEAR WHERE THE PAGE PUT THEM. 55 records inside the
+    city come from the temple register, which pins a wat at the middle of its
+    tambon: 37 of them on one point off Chotana Road, and they are wats in
+    แม่อาย and ฝาง, 100 km away. Another source is exact and loose — its
+    วัดดวงดี is a kilometre from the วัดดวงดี on Ratchadamnoen. Stops now come
+    from the map, which is also what the road data was cut from.
+
+3.  WAT PHRA SINGH WAS ON NO ROUND AT ALL. Nor Wat Suan Dok, nor วัดดวงดี.
+    Their pins land nearest a footpath inside their own compound that joins
+    nothing — sixteen junctions, in Phra Singh's case — so the router called
+    them unreachable and set them aside. A stop is now snapped to the
+    connected city. Every one of the 92 is reachable; none is set aside.
+
+4.  THE LINES WENT THROUGH BUILDINGS. The map joined the stops with straight
+    lines and said so in the caption. Every leg is now drawn along the road it
+    is walked on, with the walk in from each gate to the street drawn as a
+    grey stub — the same way /plan.html has always drawn it.
+
+    And the order: nine stops is small enough to solve exactly, so each round
+    is the shortest closed walk rather than a good guess at it.
+
+
+WHAT IS ON THE PAGES NOW
+
+    a picture               64 of 92 wats, each with its photographer and
+                            licence. They were on the disk the whole time.
+    what the wat is         68 in Thai, 29 in English — the founding, the
+                            Lanna history, the heritage registration where
+                            there is one. Also already on the disk.
+    royal grade             16, as the Sangha assigned it
+    the order               written on the page as the shortest way round,
+                            not a ranking
+    พระประจำวันเกิด          what to look for at any wat, tied to none of them
+
+
+THE ROUNDS
+
+    6 you can walk          2.9 · 3.4 · 3.5 · 4.0 · 4.0 · 4.2 km
+    2 you would ride        8.6 · 11.1 km
+    72 wats on a round, 20 not — the wats near enough to make nine are
+    already on one. Those 20 keep their own pages and their neighbours.
+
+
+WHAT IS STILL THIN
+
+    28 wats have no picture anywhere free that I could find — mostly the
+    outer ones. Commons has nothing of them within 220 m that is of them.
+    24 have no encyclopaedia entry in either language.
+    Both are listed on the pages by their absence, not filled with something
+    of another wat.
+
+
+ONE THING FOR YOUR FINGERS, WHENEVER
+
+    cd '/Users/annikapeacock/Developer/claude code projects/mot-dang/publish'
+    npx wrangler deploy
+
+    That is what turns /merit.html into a 301 rather than a stub page. The
+    stub works without it; the 301 is what moves a search engine's entry.
+    wrangler is logged out on this Mac.
+
+
+FILES
+
+    /Users/annikapeacock/Developer/claude code projects/mot-dang/wats_layer.py
+    /Users/annikapeacock/Developer/claude code projects/mot-dang/importers/build_wats.py
+    /Users/annikapeacock/Developer/claude code projects/mot-dang/importers/enrich_wats.py
+    /Users/annikapeacock/Developer/claude code projects/mot-dang/data/wats.json
+    /Users/annikapeacock/Developer/claude code projects/mot-dang/data/curated/wat_wiki.json
+    /Users/annikapeacock/Developer/claude code projects/mot-dang/tests/test_wats.py
+
+    Gone: importers/build_merit.py, data/merit.json, build.py's merit page.

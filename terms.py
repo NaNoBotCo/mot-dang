@@ -20,7 +20,7 @@ WHY IT COMPOSES RATHER THAN LISTING
 the same dozen words joined with slashes. `levels` has 35 values and they are
 six stage words and a number. A flat table of 39 strings is 39 chances to
 have missed one; a table of twelve words that compose covers the fortieth
-value the day the register adds it, and says so honestly when it cannot.
+value the day the register adds it, and says so plainly when it cannot.
 
 WHAT IT WILL NOT DO
 -------------------

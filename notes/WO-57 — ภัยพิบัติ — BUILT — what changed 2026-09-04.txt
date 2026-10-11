@@ -34,9 +34,9 @@ WHAT IS NOW TRUE THAT WAS NOT THIS MORNING
     I tested it by stopping the server and loading a page I had never
     visited: it served the numbers.
 
-    Your position is never sent anywhere. The search runs on the device.
+    Your position stays on the device, where the search runs.
 
-2 · THE FOUR NUMBERS ARE ON EVERY PAGE
+2 · THE FOUR NUMBERS ARE ON every PAGE
 ---------------------------------------
     Footer of all 23,434 pages, as tel: links. Somebody who lands on a
     noodle shop at 3am now has a path to 1669.

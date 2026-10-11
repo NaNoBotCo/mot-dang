@@ -1,0 +1,145 @@
+{
+ "note": "Exported from festival-push/calendar/*/line.md by export_drip.py. An issue with held=true carries unpublished-notice slots and is rendered as its title plus what it waits on, never its body.",
+ "source": "festival-push calendar (Bot 03, drafts), send dates per bots/03-dispatch-writer.md",
+ "anchor": "2026-11-24",
+ "issues": [
+  {
+   "wk": "wk01",
+   "send": "2026-09-01",
+   "title_th": "เปิดฤดูยี่เป็ง",
+   "title_en": "Yi Peng season opens",
+   "body_th": "🪔 **เปิดฤดูยี่เป็ง ๒๕๖๙**\n\nอีกสิบสองสัปดาห์ ฟ้าเมืองเหนือจะเต็มไปด้วยแสงอีกครั้ง\n\n**ยี่** แปลว่า *ที่สอง* · **เป็ง** แปลว่า *เพ็ญ*\nยี่เป็ง จึงคือ *คืนเพ็ญเดือนยี่* — เดือนที่สองของปฏิทินล้านนา\n\nแล้วทำไมเดือนที่สองจึงมาตกเอาเดือนพฤศจิกายน?\nเพราะล้านนานับเดือนเร็วกว่าภาคกลางอยู่สองเดือน เดือนสิบสองของภาคกลาง\nจึงเป็นเดือนยี่ของทางเหนือพอดี — *(ที่มา: ตำราปฏิทินล้านนา วันเมือง)*\n\n*ตามคติที่ถือสืบกันมา—* คืนนั้นมีแสงอยู่สามที่: โคมลอยขึ้นฟ้า\nโคมแขวนอยู่ใต้ชายคา ผางประทีปอยู่บนขอบหน้าต่าง และมีกระทงลอยไปตามน้ำ\n\n*(ตามการคำนวณปฏิทิน—)* ปีนี้คืนเพ็ญตรงกับ **วันอังคารที่ ๒๔ พฤศจิกายน ๒๕๖๙**\nส่วนกำหนดการงานเมืองและประกาศต่าง ๆ ยังรอทางราชการประกาศ\nเราจะส่งให้ทราบทันทีที่ออก\n\nสิบสองสัปดาห์ต่อจากนี้ เราจะเล่าไปทีละเรื่อง — โคมแต่ละชนิด กระทง\nวิธีนับวัน ที่ทางในเมือง และวิธีทำที่บ้านซึ่งใครก็ทำได้",
+   "en": "*Yi Peng season opens.* ยี่ = second, เป็ง = full moon: the full-moon night of\nthe second Lanna month. The Lanna calendar runs two months ahead of the central\nThai count, which is why a \"second month\" lands in November. This year the moon\nis full on **Tuesday 24 November 2026**. Twelve weekly notes from here to the\nnight itself.",
+   "held": false,
+   "waits_on": []
+  },
+  {
+   "wk": "wk02",
+   "send": "2026-09-08",
+   "title_th": "ครอบครัวของโคม",
+   "title_en": "The lantern family",
+   "body_th": "🏮 **ครอบครัวของโคม — ฟ้า ชายคา ขอบหน้าต่าง**\n\nยี่เป็งมีดวงไฟอยู่สามที่ และแต่ละที่มีงานของมันเอง\n\n**โคมลอย** — ดวงที่ *ขึ้นฟ้า*\n*ตามคติที่ถือสืบกันมา—* เป็นการถวายแสงขึ้นไปเบื้องบน\nสู่พระเกตุแก้วจุฬามณีซึ่งคนเดินไปไหว้ไม่ถึง แสงจึงต้องบินไปแทน\n*(ทะเบียนประเพณี—)* และถือกันว่าโคมพาความทุกข์ลอยขึ้นไปพร้อมกันด้วย\n\n**โคมแขวน** — ดวงที่ *อยู่กับชายคา*\n*ตามคติที่ถือสืบกันมา—* แขวนไว้ที่ประตู ชายคา หน้าวิหาร ตลอดช่วงงาน\nเป็นแสงที่ถวายด้วยความสงบ ประดับบ้านและวัด และรับสิริมงคลเข้าประตู\n\n**ผางประทีป** — ดวงที่ *อยู่บนขอบ*\nถ้วยดินเผาใบเล็ก ใส่น้ำมันหรือขี้ผึ้ง มีไส้ วางเรียงบนขอบหน้าต่าง\nขั้นบันได เสาประตู ลานเจดีย์\nดวงเล็กที่สุดในสามดวง — แต่ในคัมภีร์ใบลาน เป็นดวงที่ *เก่าที่สุด*\n\n*(คัมภีร์ใบลาน—)* ในคลังวิชามีคัมภีร์อานิสงว่าด้วยบุญของการจุดประทีป\nอยู่ทั้งชั้น — วัดพระสิงห์ เชียงใหม่ · วัดสูงเม่น แพร่ จ.ศ. ๑๑๙๒ (พ.ศ. ๒๓๗๓) ·\nวัดพระบาทมิ่งเมือง แพร่ จ.ศ. ๑๒๖๗ · วัดพระธาตุช้างค้ำ น่าน พ.ศ. ๒๔๙๐\nสามจังหวัด ห้าวัด ร้อยกว่าปี — บุญของการจุดดวงไฟถูกเทศน์มาทั่วแผ่นดินล้านนา\n\nดวงที่คุณจุดบนขอบหน้าต่าง คือการกระทำที่ใบลานเหล่านั้นเขียนขึ้นเพื่อยกย่อง",
+   "en": "*The lantern family.* Three lights, three homes: **โคมลอย** the lantern that\nrises, **โคมแขวน** the lantern that keeps the eave, and **ผางประทีป** the small\nclay lamp on the sill. The humblest of the three is the deepest in the\nmanuscript record — five temple libraries across three provinces hold sermon\ntexts on the merit of lighting a lamp.",
+   "held": false,
+   "waits_on": []
+  },
+  {
+   "wk": "wk03",
+   "send": "2026-09-15",
+   "title_th": "กระทงกับคำขอขมา",
+   "title_en": "The little raft",
+   "body_th": "🌊 **กระทงน้อย กับคำขอขมาที่ฝากไปกับน้ำ**\n\n*(ทะเบียนประเพณี—)* กระทงแบบดั้งเดิมคือหยวกกล้วยฝานเป็นแว่น\nห่อด้วยใบตองพับ ปักดอกไม้ ธูป เทียน และมักมีเหรียญหนึ่งเหรียญ\n\n*(ตามคติที่ถือสืบกันมา—)* สิ่งที่ลอยไปคือคำขอขมาต่อ **แม่คงคา** —\nขอบคุณสำหรับน้ำตลอดปี และขออภัยสำหรับสิ่งที่เราทิ้งลงไป\n*(ทะเบียนประเพณี—)* และถือกันว่ากระทงพาเคราะห์ลอยไปกับสายน้ำด้วย\n\nแต่ในบทสวดที่เป็นทางการ กระทงมีอีกชื่อหนึ่ง — **กระทงประทีป**\nคือกระทง *ดวงไฟ*\n\n*(หนังสือที่ได้รับมอบ—)* คำบูชาที่กล่าวเหนือกระทง (จัดพิธีกรรมทางศาสนา\nฉบับสมบูรณ์ เอกสาร ๖๙๗๑ หน้า ๔๑–๔๒) ขึ้นต้นว่า\n*\"มะยัง โภนโต อิมินา ปะทีเปนะ นัมมะทายะ นะทิยา วาลิกาปุลิเน มุนิโน\nปาทะวะลัญชัง อะภิปูเชมะ…\"* —\n\"ด้วยดวงประทีปนี้ ข้าพเจ้าทั้งหลายขอบูชารอยพระพุทธบาท\nอันประดิษฐานเหนือหาดทรายแห่งแม่น้ำนัมมทา\"\n\n*(สันนิษฐาน—)* สองความหมายนี้ไม่ได้แย่งกัน แต่ *ซ้อนกัน* —\nกระทงใบเดียวพาไปทั้งคู่ และไม่มีใครริมน้ำต้องเลือก\n\n*(ทะเบียนประเพณี—)* กระทงใบตองย่อยสลายได้ กระทงโฟมไม่ได้ —\nและวัดริมน้ำหลายแห่งแจกใบตองให้พับเอง ซึ่งเป็นเย็นวันนั้นในแบบที่ดีที่สุดอยู่แล้ว",
+   "en": "*The little raft.* Banana trunk, folded leaf, a flower, a candle, a coin. The\nfolk telling calls it a pardon asked of **แม่คงคา**, the mother of waters; the\nformal liturgy calls it **กระทงประทีป**, a *lamp*-krathong offered to the\nBuddha's footprint on the far Narmada. The two are layers, not rivals — one\nfloat carries both. Leaf breaks down; foam does not, and several riverside wats\nhand out leaves so you can fold your own.",
+   "held": false,
+   "waits_on": []
+  },
+  {
+   "wk": "wk04",
+   "send": "2026-09-22",
+   "title_th": "วิธีนับวันเพ็ญ",
+   "title_en": "Why 24 November this year",
+   "body_th": "🌕 **ทำไมปีนี้จึงเป็นวันที่ ๒๔ พฤศจิกายน**\n\nยี่เป็งไม่ได้ตกวันเดิมทุกปี เพราะไม่ได้นับด้วยปฏิทินสุริยคติ\nแต่นับด้วย *ดวงจันทร์*\n\n**กฎมีอยู่ข้อเดียว** *(ทะเบียนประเพณี—)*\nคืนเพ็ญของ **เดือนสิบสอง** ตามจันทรคติภาคกลาง\nซึ่งก็คือ **เดือนยี่** ของล้านนา เพราะทางเหนือนับเร็วกว่าสองเดือน\n\n**ปีนี้ตกวันไหน** *(ตามการคำนวณปฏิทิน—)*\nตารางปฏิทินล้านนาอ่านได้ว่า **ขึ้น ๑๕ ค่ำ เดือน ๑๒** ตรงกับ\n**วันอังคารที่ ๒๔ พฤศจิกายน ๒๕๖๙**\nและปฏิทินดาราศาสตร์ของเดือนพฤศจิกายน ๒๕๖๙ ก็ให้วันเดียวกัน\n\n**แล้วงานล่ะ** *(รอประกาศ—)*\nกำหนดการงานประเพณีของเทศบาลนครเชียงใหม่ ประจำปี ๒๕๖๙ ยังไม่ประกาศ\nตามรอบปีก่อน ๆ มักออกช่วงปลายกันยายน–ตุลาคม\nเราจะส่งให้ทราบทันทีที่ออก และจะไม่บอกวันงานล่วงหน้าจนกว่าจะมีประกาศจริง\n\n🌙 อยากดูดวงจันทร์เดินไปหาคืนเพ็ญ ลองเครื่องมือดูข้างขึ้นข้างแรมของเรา\n→ https://wichaa.net/moon",
+   "en": "*Why 24 November this year.* One rule: the full moon of the 12th central lunar\nmonth, which is the 2nd Lanna month — the north counts two months ahead. For\n2026 the almanac table reads the 15th waxing day of the 12th month on\n**Tuesday 24 November 2026**, and the astronomical calendar agrees. The city's\nown festival program has not been announced yet; we will pass it on when it is.",
+   "held": false,
+   "waits_on": []
+  },
+  {
+   "wk": "wk05",
+   "send": "2026-09-29",
+   "title_th": "ที่ทางในเมือง (๑)",
+   "title_en": "Where the city gathers",
+   "body_th": "🏞️ **ที่ทางในเมือง — สามแห่งที่เมืองมารวมกัน**\n\n*(ทะเบียนประเพณี — รายการสถานที่)*\n\n**๑ · แม่น้ำปิง สะพานนวรัฐ**\nจุดลอยกระทงหลักของเมือง ริมน้ำสองฝั่งรอบสะพานคนแน่นที่สุด —\nยืนบนสะพานจะเห็นทั้งกระทงในน้ำและโคมบนฟ้าพร้อมกัน\n\n**๒ · ประตูท่าแพ**\nเวทีหลัก ขบวนแห่ ซุ้มโคม และการประกวด —\nจุดถ่ายรูปโคมแขวนที่คึกคักที่สุด\n\n**๓ · ข่วงอนุสาวรีย์สามกษัตริย์**\nพิธีเปิดและการแสดงวัฒนธรรม บรรยากาศงานเมืองแบบเป็นทางการ\n\n**เรื่องค่าใช้จ่าย** *(ทะเบียนประเพณี — ราคาปี ๒๕๖๘)*\nงานในเมืองเข้าฟรีทั้งหมด ขบวนแห่ ริมน้ำ โคมที่ประตูเมืองและวัด\nไม่มีบัตรผ่านประตู จ่ายเฉพาะของที่ลอยหรือปล่อยเท่านั้น\n\n*(รอประกาศ—)* กำหนดวัน เวลา เวที และเส้นทางขบวนของปี ๒๕๖๙\nยังรอประกาศจากทางเมือง เราจะส่งให้ทราบทันทีที่ออก",
+   "en": "*Where the city gathers.* Three places, from the register: the **Ping River at\nNawarat Bridge** (the main krathong bank — from the bridge you see krathongs on\nthe water and lanterns overhead at once), **Tha Phae Gate** (main stage,\nparades, lantern arches), and the **Three Kings Monument** (opening ceremonies\nand cultural performances). The city festival is free to attend; you pay only\nfor what you float or release. This year's times and stages are not announced\nyet — we will pass them on.",
+   "held": false,
+   "waits_on": []
+  },
+  {
+   "wk": "wk06",
+   "send": "2026-10-06",
+   "title_th": "วัดในคืนยี่เป็ง",
+   "title_en": "Yi Peng at the wat",
+   "body_th": "🏮 **ยี่เป็งที่วัด — โคมใต้ชายคา ประทีปบนลานเจดีย์**\n\nก่อนจะถึงริมน้ำและเวทีกลางเมือง คืนยี่เป็งตั้งต้นที่วัด\nช่วงเทศกาล วัดแขวนโคมตามชายคาและซุ้มประตู\nจุดผางประทีปเรียงตามลานเจดีย์ และเปิดลานให้เข้าไปนั่งในแสงนั้นได้\n\n*(ประเพณีว่า—)* โคมแขวนคือแสงที่ถวายไว้อย่างสงบ\nประดับบ้านและวัด และเชื้อเชิญบุญให้มาถึงประตู\n\n*(ใบลาน—)* **อานิสงเดือนยี่** ผูกคู่กับ **อานิสงประทิศ**\nวัดป่าซางน้อย เชียงใหม่ จ.ศ. ๑๓๐๖ — คลังวิชชา ms 5794\nเดือนหนึ่งกับเปลวไฟหนึ่ง เทศน์ไว้ด้วยกันในมัดใบลานเดียว\n\n*(ทะเบียนประเพณี — ช่องบุญ)* วัดริมน้ำหลายแห่งแจกใบตองให้พับกระทงเอง ฟรี\nใบตองย่อยสลายได้ โฟมไม่ได้\n\n**ที่ลานวัด** แต่งกายสุภาพ ถอดรองเท้าก่อนขึ้นวิหาร\nจะถ่ายรูปคนที่กำลังไหว้ ขออนุญาตสักคำ\nเรื่องไฟ ถือตามที่วัดนั้นบอกไว้ — ทุกวัดยินดีบอกถ้าถาม\n\n*(รอประกาศ—)* กำหนดพิธีเย็นของวัดปี ๒๕๖๙ ยังไม่ออก\nเราจะส่งให้ทราบทันทีที่ประกาศ",
+   "en": "*Yi Peng at the wat.* Before the riverbank and the city stage, the night begins\nin the courtyards: **โคมแขวน** hung along the eaves and gate arches,\n**ผางประทีป** in rows on the chedi terrace, the courtyard open to anyone who\nwants to sit in that light. *Tradition holds—* the hanging lantern is light\noffered in stillness, welcoming merit to the door. The palm leaves agree it\nmatters: **อานิสงเดือนยี่**, bound with the lamp-anisong, Wat Pa Sak Noi, 1944\n(corpus ms 5794). Several riverside wats hand out banana leaf so you can fold\nyour own krathong, free. Shoes off before the viharn, ask before photographing\nanyone at prayer, and follow each wat's own word on flame. This year's evening\nschedules are not published yet — we will pass them on.",
+   "held": false,
+   "waits_on": []
+  },
+  {
+   "wk": "wk07",
+   "send": "2026-10-13",
+   "title_th": "ที่ที่ฟ้าเปิด",
+   "title_en": "Where the sky is open",
+   "body_th": "🏮 **ที่ที่ฟ้าเปิด — ปล่อยโคมปีนี้ที่ไหน เมื่อไร**\n\nทุกปี ทางจังหวัดจะประกาศไว้ว่า คืนยี่เป็งปีนั้น\nฟ้าเปิดให้โคมขึ้นได้ที่ไหนบ้าง และช่วงเวลาใด\nเป็นการจัดที่ทางให้ทั้งโคมและเครื่องบินอยู่ร่วมฟ้าเดียวกันได้อย่างเรียบร้อย\n\n*(ประกาศทางการ ปี ๒๕๖๙—)*\n**[HOLD — รอประกาศเขตปล่อยโคม จ.เชียงใหม่ ๒๕๖๙: พื้นที่ที่เปิดให้ปล่อย]**\n\n*(ประกาศทางการ ปี ๒๕๖๙—)*\n**[HOLD — ช่วงเวลาที่เปิดให้ปล่อยในแต่ละคืน]**\n\n*(ประกาศทางการ ปี ๒๕๖๙—)*\n**[HOLD — ช่วงเวลาของโคมควัน / ว่าวฮม ในเวลากลางวัน ถ้าประกาศระบุไว้]**\n\n*(ประกาศทางการ ปี ๒๕๖๙—)*\n**[HOLD — บริเวณที่ฟ้าถูกเว้นไว้ให้เส้นทางบิน]**\n\n**ถ้าประกาศยังไม่ออกในวันที่ท่านอ่าน** — ถามคนขายโคมที่แผง\nถามวัดที่ท่านไป หรือถามที่พักของท่านได้เลย\nคนในพื้นที่รู้กันดีว่าคืนนั้นฟ้าเปิดตรงไหน และยินดีบอกเสมอ\n\n*(ประเพณีว่า—)* และแสงอีกสองดวงของยี่เป็งไม่ต้องรอประกาศใด ๆ เลย\nโคมแขวนหนึ่งดวงใต้ชายคา ผางประทีปเรียงบนขอบหน้าต่าง\nเป็นแสงที่อยู่ในมือเราเองทั้งคืน — ฉบับที่ ๘ ว่าด้วยเรื่องนี้ทั้งฉบับ",
+   "en": "*Where the sky is open.* Each year the province publishes where lanterns may\nrise on the festival nights, and in which hours — the arrangement that lets\nlanterns and aircraft share one sky gracefully. **[HOLD — 2569 zones]** ·\n**[HOLD — 2569 hours]** · **[HOLD — daytime smoke-lantern window, if the notice\nnames one]** · **[HOLD — the areas kept clear for the flight paths]**. If the\nnotice is not out when you read this, ask the stall you buy from, the wat you\nvisit, or your host — local people know which sky is open that night and are\nglad to say. *Tradition holds—* the other two lights need no notice at all: one\nโคมแขวน at the eave, ผางประทีป along the sill, light that stays in your own\nkeeping. Issue 8 is given over to those.",
+   "held": true,
+   "waits_on": [
+    "ช่วงเวลาของโคมควัน / ว่าวฮม ในเวลากลางวัน ถ้าประกาศระบุไว้",
+    "ช่วงเวลาที่เปิดให้ปล่อยในแต่ละคืน",
+    "บริเวณที่ฟ้าถูกเว้นไว้ให้เส้นทางบิน",
+    "รอประกาศเขตปล่อยโคม จ.เชียงใหม่ ๒๕๖๙: พื้นที่ที่เปิดให้ปล่อย"
+   ]
+  },
+  {
+   "wk": "wk08",
+   "send": "2026-10-20",
+   "title_th": "ผางประทีปที่บ้าน",
+   "title_en": "ผางประทีป at home",
+   "body_th": "🪔 **ผางประทีป — ยี่เป็งที่ทำเองได้ ทุกที่ ทุกคน**\n\nถ้วยดินเล็ก ๆ ใส่น้ำมันหรือขี้ผึ้ง มีไส้หนึ่งเส้น\nวางเรียงตรงที่มีขอบให้แสงเกาะ — ขอบหน้าต่าง ขั้นบันได เสาประตู ราวระเบียง\nจุดตอนพระจันทร์ขึ้น แล้วปล่อยให้ไหม้จนหมดเอง\nไม่ต้องมีงาน ไม่ต้องมีแม่น้ำ ไม่ต้องรอประกาศใด ๆ\n\n*(ใบลาน—)* และนี่คือดวงที่ลึกที่สุดในคลังใบลานของเรา\n**อานิสงตามประทีป** วัดสูงเม่น แพร่ จ.ศ. ๑๑๙๒ (พ.ศ. ๒๓๗๓) — คลังวิชชา ms 2012\n**ปะทีปบูชา** วัดพระสิงห์ เชียงใหม่ ไม่ระบุปี — ms 24\n**ดวงประทีปแก้ว** วัดพระธาตุช้างค้ำ น่าน พ.ศ. ๒๔๙๐ — ms 209\n\n*(อนุมาน—)* ห้าวัด สามจังหวัด ตั้งแต่ ๒๓๗๓ ถึง ๒๔๙๐\nเทศน์เรื่องบุญของการจุดประทีปไว้ทั้งนั้น\nดวงไฟที่ถ่อมที่สุดของเทศกาล คือดวงที่มีคนเขียนถึงมากที่สุด\n\n*(หนังสือร่วมสมัย—)* และในราชสำนักล้านนาเคยมีตำแหน่ง **มหาราชครูอาง** —\nครูใหญ่แห่งการบูชาด้วยแสงประทีป (อภิมหามนต์คาถา — ms 6968 น. ๑๗)\nประทีป ในทางวิชชา ไม่ใช่ของประดับ แต่เป็นเครื่องมือ\n\n**ที่บ้าน** วางบนจานหรือถาดกันหยด ให้ห่างผ้าม่านสักฝ่ามือ\nลมแรงก็ย้ายเข้าใน เท่านั้นเอง",
+   "en": "*ผางประทีป at home.* A small clay cup of oil or wax with one wick, set in rows\nwherever an edge will hold the light — sill, stair tread, gate post, balcony\nrail. Light them at moonrise and let them burn down. No venue, no river, no\nnotice needed. *Manuscript—* and this is the deepest of Yi Peng's three lights\nin our corpus: **อานิสงตามประทีป**, Wat Sung Men, Phrae, CS 1192 (1830 CE),\ncorpus ms 2012 · **ปะทีปบูชา**, Wat Phra Sing, Chiang Mai, undated, ms 24 ·\n**ดวงประทีปแก้ว**, Wat Phra That Chang Kham, Nan, 1947, ms 209. *Inference—*\nfive temples, three provinces, 1830 to 1947: the humblest flame is the one most\nwritten about. Set the cups on a plate or tray, a hand's width clear of any\ncurtain; if the wind is up, bring them inside.",
+   "held": false,
+   "waits_on": []
+  },
+  {
+   "wk": "wk09",
+   "send": "2026-10-27",
+   "title_th": "หลายทาง เพ็ญเดียว",
+   "title_en": "Many ways, one full moon",
+   "body_th": "🌕 **หลายทาง เพ็ญเดียว**\n\nคืนวันที่ ๒๔ พฤศจิกายนปีนี้ มีหลายวิธีที่จะอยู่ในคืนนั้น\nและทุกวิธีคือยี่เป็งเหมือนกัน ต่างกันแค่ขนาดของงานเท่านั้น\n\n**ริมน้ำและกลางเมือง** *(ทะเบียนประเพณี — ราคาปี ๒๕๖๘)*\nเข้าฟรีทั้งหมด ขบวนแห่ ริมน้ำ โคมที่ประตูเมืองและตามวัด ไม่มีบัตรผ่านประตู\nจ่ายเฉพาะของที่ลอยหรือปล่อย — กระทงใบตองราว ๓๐–๑๐๐ บาท\n(หรือพับเองฟรีที่วัดริมน้ำหลายแห่ง) โคมลอยราว ๕๐–๑๐๐ บาท\n\n**ลานวัด** เข้าฟรี จุดผางประทีป นั่งในแสงได้ทั้งคืน\n\n**ที่บ้าน** ผางประทีปชุดหนึ่งบนขอบหน้าต่าง — ราคาไม่กี่สิบบาท\n\n**งานขายบัตรนอกเมือง** ภาพโคมนับพันขึ้นพร้อมกันที่เห็นในโฆษณา คืองานเหล่านี้\n*(ผู้จัดงาน—)* **CAD Khomloy** ๒๔–๒๕ พ.ย. บัตร ๔,๙๐๐–๑๕,๙๐๐ บาท\n*(ผู้จัดงาน—)* **Yee Peng Lanna International** ลานนาธุตังคสถาน สันทราย\n๒๔–๒๕ พ.ย. ราว ๑๒.๐๐–๒๑.๐๐ น. ธีมปีนี้ \"Six Senses\" — บัตร **[HOLD — ราคายังไม่ยืนยัน]**\n\nทั้งหมดนี้อยู่ในเพ็ญเดือนยี่เดียวกัน \nท่านเลือกตามแรง ตามเวลา ตามกระเป๋าของท่านเองได้เลย",
+   "en": "*Many ways, one full moon.* There are several ways to be inside the night of\n24 November, and each of them is Yi Peng — they differ in scale, not in kind.\n**Riverbank and city** *(canon, 2568 prices)*: free to attend; you pay only for\nwhat you float or release — a banana-leaf krathong ฿30–100 (or fold your own\nfree at several riverside wats), a sky lantern ฿50–100. **Wat courtyards**:\nfree, lamps lit, the terrace open all evening. **At home**: a packet of\nผางประทีป on the sill, a few tens of baht. **Ticketed fields outside town** —\nthe thousand-lanterns-at-once photographs come from these: *(organizer—)*\n**CAD Khomloy**, 24–25 Nov, ฿4,900–15,900 · *(organizer—)* **Yee Peng Lanna\nInternational** at Lanna Dhutanka, San Sai, 24–25 Nov, about 12:00–21:00, this\nyear's theme \"Six Senses\", tickets **[HOLD — price not confirmed]**. All of it\nis the same full moon. Choose by your own energy, evening\nand purse.",
+   "held": true,
+   "waits_on": [
+    "ราคายังไม่ยืนยัน"
+   ]
+  },
+  {
+   "wk": "wk10",
+   "send": "2026-11-03",
+   "title_th": "ริมน้ำกก และเมืองเล็ก ๆ",
+   "title_en": "The full moon beyond Chiang Mai",
+   "body_th": "🌕 **ยี่เป็งที่ไม่ได้อยู่ในเชียงใหม่**\n\nคืนเพ็ญเดือนยี่ขึ้นทั่วล้านนา ไม่ใช่เมืองเดียว ฉบับนี้ออกจากเชียงใหม่สักฉบับ\n\n**เชียงราย — ริมน้ำกก** *(ทะเบียนประเพณี — รายการสถานที่)*\nทะเบียนของเราบันทึกริมแม่น้ำกกไว้เป็นจุดลอยกระทงของเชียงราย\n*(ประกาศเทศบาล — ปีที่ผ่านมาเท่านั้น)* งานเทศบาลนครเชียงรายชื่อ\n**\"ป๋าเวณียี่เป็ง ลอยสะเปา ล่องนที สะหลียี่เป็ง\"** ที่สวนสาธารณะริมน้ำกก ฝั่งหมิ่น\nหลังวัดฝั่งหมิ่น — กระทงใหญ่กลางน้ำ สะเปาจากริมตลิ่ง เข้าฟรี\nปีก่อน ๆ ตรงคืนเพ็ญ: ๔–๕ พ.ย. ๒๕๖๘ · ๑๕–๑๖ พ.ย. ๒๕๖๗\n*(อนุมาน—)* ปีนี้น่าจะราว ๒๓–๒๕ พ.ย. ที่สวนเดิม\n**[HOLD — วันที่ปี ๒๕๖๙ รอประกาศเทศบาล ใส่เมื่อออก]**\n\n**แพร่ น่าน และเมืองเล็ก ๆ** *(ใบลาน—)* ยังไม่มีกำหนดงานปีนี้ของเมืองเล็ก\nแต่ธรรมอานิสงส์เรื่องการจุดประทีปในคลังของเรา\nมาจากวัดสูงเม่นและวัดพระบาทมิ่งเมือง จ.แพร่ วัดพระธาตุช้างค้ำ จ.น่าน\nและวัดพระสิงห์กับวัดป่าซางน้อย จ.เชียงใหม่ — ห้าวัด สามจังหวัด\nปีจารึก ๒๓๗๓ ถึง ๒๔๙๐\n*(อนุมาน—)* บุญของการจุดประทีปถูกเทศน์ทั่วล้านนา ไม่ใช่เมืองเดียว\n\n**ถ้าเมืองของท่านไม่มีงานใหญ่** ก็ยังเต็มคืนเท่ากัน\nผางประทีปบนขอบหน้าต่าง โคมแขวนใต้ชายคา — ใบลานเหล่านั้นไม่พูดถึงงานเมืองเลย\nพูดถึงการจุดไฟหนึ่งดวง",
+   "en": "*The full moon beyond Chiang Mai.* **Chiang Rai — the Kok riverbank:**\n*(canon, venues)* our register keeps the Kok River bank as Chiang Rai's own\nkrathong bank; *(municipal notice, past years only)* the city evening is called\n**ป๋าเวณียี่เป็ง ลอยสะเปา ล่องนที สะหลียี่เป็ง**, at the Kok riverside park on the\nFang Min side behind Wat Fang Min — a grand krathong midstream, สะเปา rafts from\nthe bank, free to attend. Past years fell on the full-moon nights: 4–5 Nov 2025,\n15–16 Nov 2024. *(Inference—)* 2026 likely lands around 23–25 Nov at the same\npark. **[HOLD — 2569 dates await the municipal notice.]** **Phrae, Nan and the\nsmaller towns:** we hold no 2569 programs for them —\nbut *(manuscript—)* our lamp-merit sermons come from Wat Sung Men and Wat Phra\nBat Ming Mueang in Phrae, Wat Phra That Chang Kham in Nan, Wat Phra Sing and\nWat Pa Sak Noi in Chiang Mai: five temples, three provinces, inscribed 1830 to\n1947. *(Inference—)* the lamp was preached across all of Lanna. **If your town\nholds no large festival**, the night is whole anyway — lamps on the sill, one\nlantern at the eave. Not one of those leaves describes a civic festival; they\ndescribe lighting a single flame.",
+   "held": true,
+   "waits_on": [
+    "วันที่ปี ๒๕๖๙ รอประกาศเทศบาล ใส่เมื่อออก"
+   ]
+  },
+  {
+   "wk": "wk11",
+   "send": "2026-11-10",
+   "title_th": "สัปดาห์ยี่เป็ง วันต่อวัน",
+   "title_en": "Festival week, day by day",
+   "body_th": "🌕 **สัปดาห์ยี่เป็ง วันต่อวัน**\n\n*(ปฏิทิน—)* **คืนเพ็ญ = วันอังคารที่ ๒๔ พฤศจิกายน ๒๕๖๙** ทั้งสัปดาห์วางรอบคืนนั้น\n\n**อา. ๒๒ – จ. ๒๓ พ.ย.** **[HOLD — กำหนดการเมืองปี ๒๕๖๙ ยังไม่ประกาศ]**\nปีก่อน ๆ มีขบวนแห่ ประกวดกระทงใหญ่ ซุ้มโคม *(อนุมาน—)* ปีนี้น่าจะคล้ายกัน\nแต่เรายังไม่พิมพ์วัน\n\n**อ. ๒๔ พ.ย. — คืนเพ็ญ**\n*(ทะเบียนประเพณี)* ริมน้ำปิง สะพานนวรัฐ · ประตูท่าแพ · ข่วงสามกษัตริย์ — เข้าฟรี\n*(ผู้จัดงาน—)* CAD Khomloy บัตร ๔,๙๐๐–๑๕,๙๐๐ บาท ·\nYee Peng Lanna International สันทราย ราว ๑๒.๐๐–๒๑.๐๐ น.\n**[HOLD — เวลาพิธีเย็นของวัดพันเตา วัดโลกโมฬี วัดชัยมงคล ๒๕๖๙]**\n\n**พ. ๒๕ พ.ย.** *(ผู้จัดงาน—)* CAD Khomloy คืนที่สอง ·\nYee Peng Lanna วันที่สอง · **[HOLD — งานเมืองคืนที่สอง]**\n\n**พฤ. ๒๖ พ.ย.** **[HOLD — วันปิดงาน ยังไม่ประกาศ]**\n\n**เชียงราย ริมน้ำกก** **[HOLD — รอเทศบาลนครเชียงราย]** *(อนุมาน—)* ราว ๒๓–๒๕ พ.ย.\n\n⚑ **ก่อนออกจากบ้าน** **[HOLD — ประกาศเขตปล่อยโคม ๒๕๖๙]**\nจังหวัดประกาศทุกปีว่าฟ้าเปิดที่ไหนเวลาใด — ปีนี้ยังไม่ออกตอนที่ร่าง\n*(ทะเบียนประเพณี — ช่องตรวจสอบ)* หลักเดิมคือดูประกาศของปีนั้นก่อนปล่อยโคมเสมอ\n\n*(ทะเบียนประเพณี — ราคาปี ๒๕๖๘)* งานเมืองเข้าฟรี · กระทง ๓๐–๑๐๐ บาท\n(พับเองฟรีที่วัดริมน้ำหลายแห่ง) · โคมลอย ๕๐–๑๐๐ บาท",
+   "en": "*Festival week, day by day.* *(Calendar—)* **the full moon is Tuesday 24\nNovember 2026**; the week arranges itself around that night. **Sun 22 – Mon 23:**\n**[HOLD — the 2569 city program is unannounced]** — past years brought parades,\nthe grand krathong contest and lantern arches; *(inference—)* likely again, but\nno day is printed yet. **Tue 24 — the full moon:** *(canon—)* the Ping at\nNawarat Bridge, Tha Phae Gate, the Three Kings Monument, all free ·\n*(organizer—)* CAD Khomloy, ฿4,900–15,900 · Yee Peng Lanna International, San\nSai, about 12:00–21:00 · **[HOLD — 2569 wat evening times for Wat Phan Tao, Wat\nLok Moli, Wat Chai Mongkhon]**. **Wed 25:** second evenings at both ticketed\nevents · **[HOLD — the city's second evening]**. **Thu 26:** **[HOLD — closing\nday unannounced]**. **Chiang Rai, the Kok riverbank:** **[HOLD — awaiting the\nmunicipal notice]**, *(inference—)* around 23–25 Nov. ⚑ **Before you go out:**\n**[HOLD — the 2569 release-zone notice]** — the province publishes where and\nwhen the sky is open each year; *(canon, verify field—)* the standing courtesy\nis to read that year's own notice before releasing a lantern. *(Canon, 2568\nprices—)* the city festival is free; krathong ฿30–100 (or fold your own free at\nseveral riverside wats), sky lantern ฿50–100.",
+   "held": true,
+   "waits_on": [
+    "กำหนดการเมืองปี ๒๕๖๙ ยังไม่ประกาศ",
+    "งานเมืองคืนที่สอง",
+    "ประกาศเขตปล่อยโคม ๒๕๖๙",
+    "รอเทศบาลนครเชียงราย",
+    "วันปิดงาน ยังไม่ประกาศ",
+    "เวลาพิธีเย็นของวัดพันเตา วัดโลกโมฬี วัดชัยมงคล ๒๕๖๙"
+   ]
+  },
+  {
+   "wk": "wk12",
+   "send": "2026-11-23",
+   "title_th": "พรุ่งนี้คืนเพ็ญ",
+   "title_en": "Tomorrow the moon is full",
+   "body_th": "🌕 **พรุ่งนี้คืนเพ็ญเดือนยี่**\n\n*(ปฏิทิน—)* พรุ่งนี้ วันอังคารที่ ๒๔ พฤศจิกายน ๒๕๖๙\nสิบสองสัปดาห์เดินมาถึงคืนนี้ — รายการสั้น ๆ ก่อนค่ำ\n\n**๑ ใบตอง ไม่ใช่โฟม** *(ทะเบียนประเพณี — ช่องบุญ)* ใบตองย่อยสลายได้ โฟมไม่ได้\nวัดริมน้ำหลายแห่งแจกใบตองให้พับเองฟรี\n\n**๒ ผางประทีป จุดตอนเดือนขึ้น** วางเรียงตรงขอบหน้าต่าง ขั้นบันได เสาประตู\n\n**๓ โคมแขวนหนึ่งดวงใต้ชายคา** แขวนไว้ทั้งคืน\n\n**๔ คำขอขมาต่อแม่คงคา** *(ประเพณี—)* ด้วยคำของท่านเองก็ได้\n\n**๕ ก่อนปล่อยโคม** **[HOLD — สาระประกาศเขตปล่อยโคม ๒๕๖๙]**\n*(ทะเบียนประเพณี — ช่องตรวจสอบ)* ทุกปีจังหวัดบอกว่าฟ้าเปิดที่ไหนเวลาใด\nดูสักครู่ก่อนออกจากบ้าน แล้วเบาใจได้ทั้งคืน\n\n**๖ ราคา** *(ทะเบียนประเพณี — ราคาปี ๒๕๖๘)* งานเมืองเข้าฟรี ·\nกระทง ๓๐–๑๐๐ บาท · โคมลอย ๕๐–๑๐๐ บาท\nถ้าคืนนี้ของท่านไม่ต้องจ่ายอะไรเลย ก็เต็มคืนเท่ากัน\n\n*(ทะเบียนประเพณี)* ริมน้ำปิง สะพานนวรัฐ · ประตูท่าแพ · ข่วงสามกษัตริย์ · ริมน้ำกก เชียงราย\n*(ผู้จัดงาน—)* CAD Khomloy · Yee Peng Lanna International — ๒๔ และ ๒๕ พ.ย.\n\n\nขอบคุณที่อ่านมาตลอดฤดูค่ะ 🙏\n*ขอให้เคราะห์ลอยไปกับน้ำ ทุกข์ลอยขึ้นไปกับโคม*\n*และขอให้แสงที่ท่านจุดคืนนี้ ส่องกลับมาถึงท่านทั้งปี*",
+   "en": "*Tomorrow the moon is full.* *(Calendar—)* **Tuesday 24 November 2026** — twelve\nweeks have walked up to it. A short list before evening: **1** *(canon, merit\nfield)* leaf, not foam — several riverside wats hand out banana leaf so you can\nfold your own free. **2** ผางประทีป lit at moonrise, in rows along a sill, a\nstair, a gate post. **3** one hanging lantern at the eave, through the night.\n**4** *(tradition holds—)* the pardon asked of แม่คงคา, in your own words if you\nlike. **5** before releasing a lantern, **[HOLD — the 2569 release-zone notice]**\n— *(canon, verify field)* each year the province says where and when the sky is\nopen; a minute with it before you leave buys an easy mind for the whole evening.\n**6** *(canon, 2568 prices)* the city festival is free; krathong ฿30–100, sky\nlantern ฿50–100 — and a night that costs nothing is a whole night just the same.\nPlaces: *(canon—)* the Ping at Nawarat Bridge, Tha Phae Gate, the Three Kings\nMonument, the Kok riverbank in Chiang Rai · *(organizer—)* CAD Khomloy and Yee\nPeng Lanna International, 24 and 25 Nov. Thank you for reading the season\nthrough. *May what troubles you float away downstream and what weighs on you\nrise with the lantern — and may the light you set out tomorrow shine back on you\nall year.*",
+   "held": true,
+   "waits_on": [
+    "สาระประกาศเขตปล่อยโคม ๒๕๖๙"
+   ]
+  }
+ ]
+}

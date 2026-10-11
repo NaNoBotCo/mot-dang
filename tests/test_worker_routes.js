@@ -214,6 +214,18 @@ await t("nothing else about the site moved", async () => {
   eq(renamed.status, 301, "the learn→sport rename stopped working");
 });
 
+/* /why stopped being built on 2026-09-04 and was still one of the handful of
+ * motdang.net URLs Google held on 2026-09-20 — a 404 on the only address an
+ * index knows teaches that index the site is gone. */
+await t("the retired /why lands on the page that answers it", async () => {
+  for (const u of ["/why", "/why.html"]) {
+    const r = await get(u);
+    eq(r.status, 301, `${u} should be a permanent redirect`);
+    eq(r.headers.get("location"), "https://motdang.net/what.html",
+       `${u} should land on what.html`);
+  }
+});
+
 /* ------------------------------------------- the index revalidation clock */
 
 /* 2026-09-07: a content deploy replaced api/v1/index.json in the bucket and the
@@ -262,6 +274,32 @@ await t("a HEAD that throws does not take the API down", async () => {
   } finally {
     Date.now = realNow;
     SITE.head = broken;
+  }
+});
+
+/* 🎲 The door that used to be baked into 91,000 pages. What matters here is
+ * that it ALWAYS opens on somewhere real — a dead die is worse than a dull
+ * one — and that nothing caches the answer, because a cached 302 is a die
+ * that stopped rolling. */
+await t("the dice door opens on a real page, and is never cached", async () => {
+  const r = await get("/random");
+  eq(r.status, 302, "the dice door did not redirect");
+  const to = r.headers.get("location");
+  ok(to && to.startsWith("/"), `the die landed off the site: ${to}`);
+  ok(to.endsWith(".html"), `the die landed on something that is not a page: ${to}`);
+  eq(r.headers.get("cache-control"), "no-store", "a cached die stops rolling");
+  eq(r.headers.get("x-robots-tag"), "noindex", "a door got indexed as a page");
+});
+
+await t("the dice door still opens when the dice file is missing", async () => {
+  const real = SITE.get;
+  SITE.get = async (k, o) => (k === "data/dice.json" ? null : real.call(SITE, k, o));
+  try {
+    const r = await get("/random");
+    eq(r.status, 302, "no dice file took the door down");
+    eq(r.headers.get("location"), "/cm/index.html", "the fallback is not a shelf");
+  } finally {
+    SITE.get = real;
   }
 });
 

@@ -1,0 +1,140 @@
+{
+ "walk": {
+  "name": "On foot",
+  "th": "เดิน",
+  "sub": "Inside the moat, in a morning",
+  "hook": "Everything the old city holds, including the spot the founder was killed on, within a square 1.6 km on a side.",
+  "start": "Wat Chiang Man, north-east quarter. Any red songthaew from anywhere in town, 30 ฿.",
+  "finish": "Chiang Mai Gate. The market is on from dusk.",
+  "hours": "Start at seven. Monks eat before eleven, so anything involving a tray happens in the first four hours.",
+  "kit": [
+   "Water. More than you think.",
+   "Long trousers or a long skirt; shoulders covered. Two of these stops will turn you away otherwise and lend you a sarong at the third.",
+   "Shoes that come off fast. You will take them off eight times.",
+   "Small notes. Nothing here has change for a thousand.",
+   "A hat. There is no shade on Ratchadamnoen."
+  ],
+  "stops": [
+   "wat-chiang-man",
+   "wat-pa-pao",
+   "ho-phaya-mangrai",
+   "wat-inthakhin-sadue-muang",
+   "wat-umong-maha-therachan",
+   "white-lion-house",
+   "wat-chiang-yuen",
+   "wat-lok-molee",
+   "wat-phra-singh",
+   "wat-phan-tao",
+   "pratu-suan-prung",
+   "pratu-chiang-mai"
+  ],
+  "band": "Twelve stops, one square kilometre"
+ },
+ "ride": {
+  "name": "By bicycle",
+  "th": "จักรยาน",
+  "sub": "The moat, the mountain's foot, and the city the river buried",
+  "hook": "The dead were kept outside the wall. On a bicycle you can reach all of it and be back by dark.",
+  "start": "Wat Ku Tao, north of the moat behind the stadium.",
+  "finish": "Nawarat Bridge at dusk.",
+  "hours": "Out by six thirty. The last hour of this ride is the reason to do it, and it needs the light to go.",
+  "kit": [
+   "A bike with gears. The Suthep Road side climbs.",
+   "Lights, front and back. You will finish after sunset and the canal roads are unlit.",
+   "Water and a second bottle.",
+   "Long trousers. Same rule as the walk, and it is also what keeps the sun off on a bike.",
+   "A lock. Leave the bike inside the wat wall, not on the street."
+  ],
+  "note": "Hire: 50–150 ฿ a day for a city bike from a shop on Moon Muang or Ratchaphakhinai; 300–600 ฿ for something with gears worth riding up Suthep. Prices seen September 2026; check them.",
+  "stops": [
+   "wat-ku-tao",
+   "wat-chiang-yuen",
+   "wat-lok-molee",
+   "wat-suan-dok",
+   "ang-kaew",
+   "wat-umong",
+   "wat-phra-singh",
+   "pratu-suan-prung",
+   "pratu-chiang-mai",
+   "wiang-kum-kam",
+   "foreign-cemetery",
+   "nawarat-bridge"
+  ],
+  "band": "Out at six thirty, back after dark"
+ },
+ "scoot": {
+  "name": "On a scooter",
+  "th": "มอเตอร์ไซค์",
+  "sub": "The whole valley, in a day, on two wheels",
+  "band": "Everything outside the moat, before dark",
+  "hook": "A scooter reaches the mountain, the giants' shrine and the buried capital in one day, which nothing else on this site does without a driver. It is also the way most people in Chiang Mai get anywhere.",
+  "start": "Wherever you hired it, by seven. Doi Suthep is the stop that punishes a late start.",
+  "finish": "Nawarat Bridge at dusk.",
+  "hours": "Eleven stops. About 55 km on the clock once the mountain switchbacks are counted. Doi Suthep before nine, the mountain done by noon, the valley floor in the afternoon.",
+  "kit": [
+   "*A helmet, worn.* It is the law, it is enforced on the moat road, and a checkpoint fine runs 500–1,000 ฿. The rental gives you one. Wear it up the mountain in particular.",
+   "*A licence that actually covers a motorcycle.* A home motorcycle licence plus an International Driving Permit with category A on it. A car-only IDP does not cover a scooter, and the checkpoints around the old city check the class rather than glancing at the booklet.",
+   "*Your insurance, read before you go.* Policies commonly exclude a rider who was not licensed for the machine. Find the clause in yours rather than finding it afterwards.",
+   "Long trousers and shoes. The same rule the wats want, and the same rule that decides how a slide at 30 km/h goes.",
+   "Photographs of the bike, all four sides, before you ride off. Scratch disputes at the return are the standard complaint.",
+   "About 60 ฿ of fuel. That is the whole day on a 125."
+  ],
+  "note": "Hire: 200–350 ฿ a day for a 110–125 cc automatic, 600–1,200 ฿ for something bigger, quoted around the old city in September 2026. Leave a cash deposit rather than a passport. Check them, they move.",
+  "stops": [
+   "wat-ku-tao",
+   "wat-chiang-yuen",
+   "wat-lok-molee",
+   "wat-suan-dok",
+   "wat-umong",
+   "wat-pha-lat",
+   "doi-suthep",
+   "doi-kham",
+   "wiang-kum-kam",
+   "foreign-cemetery",
+   "nawarat-bridge"
+  ]
+ },
+ "drive": {
+  "name": "With a driver",
+  "th": "จ้างคนขับ",
+  "sub": "The mountain, the giants, and the buried capital — one day",
+  "hook": "Four of these are up a mountain or across a river and none of them are walkable. This is the day that needs a car and someone who knows the roads.",
+  "start": "Picked up wherever you are staying, seven a.m.",
+  "finish": "The river at dusk.",
+  "hours": "Doi Suthep is a car park between ten and four. Going first, at seven, is the whole reason to hire a driver rather than take a songthaew at ten.",
+  "kit": [
+   "Cash for entries: about 100 ฿ a head across the day.",
+   "The same clothing rule. Doi Suthep enforces it at the gate.",
+   "Something warm for the top in the cool season. It is 1,050 m and it is not Chiang Mai weather up there.",
+   "Motion tolerance or a tablet. The Suthep road is switchbacks the whole way."
+  ],
+  "stops": [
+   "wat-suan-dok",
+   "wat-pha-lat",
+   "doi-suthep",
+   "doi-kham",
+   "wiang-kum-kam",
+   "foreign-cemetery",
+   "nawarat-bridge"
+  ],
+  "band": "Doi Suthep at seven, not at ten"
+ },
+ "drive-north": {
+  "name": "The second day north",
+  "th": "เชียงดาว",
+  "sub": "Chiang Dao — the hollow mountain",
+  "hook": "Seventy-two kilometres north, a full day, and the only stop on this site outside the Chiang Mai valley.",
+  "start": "Six a.m. from town.",
+  "finish": "Back by six.",
+  "hours": "The caves shut at five and the lamp guides go home before that.",
+  "kit": [
+   "Shoes with grip. The unlit passages are wet limestone.",
+   "Cash for the guide, 200–300 ฿, paid at the mouth.",
+   "A torch of your own as well."
+  ],
+  "stops": [
+   "tham-chiang-dao"
+  ],
+  "band": "A mountain with a city inside it"
+ }
+}

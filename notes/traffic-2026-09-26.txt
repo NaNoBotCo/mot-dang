@@ -1,0 +1,71 @@
+TRAFFIC  ·  รถติด  ·  motdang.net/traffic.html
+Built local 2026-09-26. Not published.
+
+WHAT IT DOES
+- Opens on the reader's clock: "Saturday 20:00 · slow · a 10-minute drive takes 14".
+- 24 bars for the day, 7 day buttons, a week grid. Tap any to move the forecast.
+- Map: jam hexagons over central Chiang Mai at the hour picked. Highway lines
+  coloured by the Department of Highways grade A to F; thicker = more vehicles.
+  Tap a line: vehicles a day, motorcycles a day, grade.
+- Beside the number: rain (Open-Meteo), Sunday Walking Street hours (OSM),
+  festival days (the Mot Dang calendar).
+- When waiting saves a minute: "Wait until 22:00 and it takes 13 instead of 14".
+- Chiang Mai, Chiang Mai province, Chiang Rai buttons move the map.
+
+NUMBERS
+- Worst hour of the week: Friday 17:00, 10 minutes takes 19.
+- Clearest hour 06:00 to 22:00: Sunday 06:00, 11.
+- 129 highway sections in the two provinces. Busiest: route 1141, Mahidol Road,
+  121,403 cars, buses and trucks a day plus 26,366 motorcycles, grade E
+  (at capacity). Grade F (over capacity): 5 sections.
+
+THE SUM
+  congestion = TomTom's figure for that weekday and hour × that month ÷ the year
+  minutes    = 10 × (1 + congestion ÷ 100)
+Rain, festivals and walking streets show as lines; nothing on disk measures
+what they do to the number.
+
+SOURCES
+- Department of Highways, open data: traffic count road lines 2568 (its map
+  server, onemap-layers.doh.go.th) and congestion grades by section 2568.
+  DOH's 2568 grade file has its province column scrambled: 98.5% of rows name
+  the wrong province. The values match their rows (88% same grade as 2567, the
+  same agreement 2566 had with 2567), so the join is on route and section.
+- TomTom Traffic Index 2025, Chiang Mai page: congestion for every weekday
+  hour, by month, and the jam hexagons. TomTom marks the page all rights
+  reserved. Chiang Rai has no TomTom figure; the page says so.
+
+YOUR CALL: PUBLISH?
+  A. Publish as built, TomTom credited. Costs nothing. Worst case: TomTom asks
+     for the hour curve to come down; the DOH half stands alone.
+  B. Publish the DOH roads only. No hour forecast.
+  C. A free TomTom developer key (your signup; 2,500 calls a day free). A
+     Worker samples 15 roads every 30 minutes. In about 4 weeks the hour curve
+     is our own measurement, road by road, and the page gains a "right now".
+  Recommended: A now, C after.
+  ⏳ if silent: stays unpublished.
+
+TO PUBLISH (A)
+  build.py, after the nam_layer lines:
+      import traffic_layer
+      print("  traffic:", traffic_layer.emit(globals()))
+  build.py toys_html(), a tile after nam.html:
+      ("traffic.html", "🛣", "รถติด", "traffic", "ชั่วโมงไหน ถนนเส้นไหน", "which hour, which road"),
+  Then, from the repo:
+      python3 traffic_layer.py
+      python3 publish/deploy.py --files traffic.html traffic.js traffic.css data/traffic.json traffic-card.png --yes
+  The hook is not in build.py yet: with it in, the next standing-walk build
+  would publish the page.
+
+REFRESH
+  python3 importers/make_traffic.py    (pip install h3 when TomTom's cells change)
+  python3 make_traffic_card.py
+  python3 tests/test_traffic.py
+
+REST OF THAILAND
+  The DOH road lines cover the country. TomTom also has Bangkok, Hat Yai,
+  Khon Kaen and Nakhon Ratchasima. Same importer, another box.
+
+FILES
+  importers/make_traffic.py  traffic_layer.py  make_traffic_card.py
+  tests/test_traffic.py  data/traffic.json  assets/og/traffic-card.png

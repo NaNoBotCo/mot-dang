@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Riding the Map — Mot Dang explainer</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+  :root{
+    --bg:#0d0c0f; --ink:#f5f1ea; --dim:#b6afa6;
+    --accent:#e0492e;      /* mot daeng — red ant */
+    --accent2:#f0b429;     /* amber */
+    --panel:rgba(12,11,14,.72);
+    --gut:clamp(16px,4vw,64px);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;overflow:hidden}
+  #stage{position:fixed;inset:0;overflow:hidden}
+
+  /* scenes */
+  .scene{position:absolute;inset:0;opacity:0;visibility:hidden;
+    transition:opacity .9s ease;z-index:1}
+  .scene.on{opacity:1;visibility:visible;z-index:2}
+
+  /* photo layers */
+  .layer{position:absolute;inset:0;background-size:cover;background-position:center;
+    opacity:0;transition:opacity 1.2s ease;transform:scale(1.04);animation:none}
+  .scene.on .layer{opacity:1}
+  .scene.on .layer.kb{animation:kb 22s ease-out both}
+  @keyframes kb{from{transform:scale(1.02) translate3d(0,0,0)}
+                to{transform:scale(1.14) translate3d(-1.5%,-1.5%,0)}}
+  /* when the subject sits at the bottom (pos:bottom), grow the zoom from the
+     bottom edge and drop the upward drift, so the ken-burns never crops it back
+     out over the slide's 22s — matters for a clean recording */
+  .scene.on .layer.kb.kbbottom{animation:kbb 22s ease-out both;transform-origin:50% 100%}
+  @keyframes kbb{from{transform:scale(1.03) translate3d(0,0,0)}
+                 to{transform:scale(1.12) translate3d(-1.2%,0,0)}}
+  /* multi-photo: cross-dissolve handled per-scene by JS toggling .show */
+  .layer.multi{opacity:0}
+  .scene.on .layer.multi.show{opacity:1}
+
+  /* scrim for legibility */
+  .scrim{position:absolute;inset:0;z-index:3;pointer-events:none;
+    background:linear-gradient(180deg,rgba(8,7,10,.58) 0%,rgba(8,7,10,0) 22%,
+      rgba(8,7,10,0) 38%,rgba(8,7,10,.62) 70%,rgba(8,7,10,.92) 100%)}
+
+  /* text block */
+  .copy{position:absolute;left:var(--gut);right:var(--gut);bottom:clamp(110px,15vh,170px);
+    z-index:4;max-width:min(920px,72vw);transition:bottom .4s}
+  /* when the teleprompter is showing, lift the title clear of it */
+  body:not(.hideprompt) .copy{bottom:clamp(238px,41vh,400px)}
+  .kicker{font-size:clamp(12px,1.4vw,15px);letter-spacing:.28em;text-transform:uppercase;
+    color:var(--accent2);margin:0 0 .7em;font-weight:600}
+  .kicker::before{content:"";display:inline-block;width:26px;height:2px;background:var(--accent);
+    vertical-align:middle;margin-right:.8em;transform:translateY(-3px)}
+  h1{font-size:clamp(30px,6.2vw,74px);line-height:1.02;margin:0;font-weight:700;
+    letter-spacing:-.01em;text-shadow:0 2px 22px rgba(0,0,0,.85),0 1px 4px rgba(0,0,0,.9)}
+  .kicker,.sub,.stat{text-shadow:0 1px 10px rgba(0,0,0,.8)}
+  .sub{font-size:clamp(15px,2vw,23px);color:var(--ink);margin:.6em 0 0;font-weight:400}
+  .stat{display:inline-block;margin-top:1em;font-size:clamp(14px,1.7vw,20px);
+    font-weight:600;color:var(--ink);background:rgba(16,12,15,.72);
+    border:1px solid rgba(224,73,46,.7);border-radius:100px;padding:.5em 1.1em;
+    letter-spacing:.01em;backdrop-filter:blur(3px)}
+  .stat b{color:var(--accent2)}
+  /* sign chip — what the camera read off the sign in frame */
+  .signchip{display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:.55em;margin-top:1em;
+    font-size:clamp(16px,2vw,24px);background:rgba(16,12,15,.72);
+    border:1px solid rgba(240,180,41,.6);border-radius:12px;padding:.55em 1.05em;
+    backdrop-filter:blur(3px);max-width:min(760px,90vw)}
+  .signchip .signlab{font-size:.6em;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--accent2);font-weight:700;align-self:center}
+  .signchip .signth{font-weight:700;color:var(--ink)}
+  .signchip .signrom{color:var(--dim);font-style:italic}
+  .signchip .signen{color:var(--dim)}
+
+  /* burst */
+  .burstwrap{position:absolute;inset:0;z-index:1;background:#000}
+  .bframe{position:absolute;inset:0;background-size:cover;background-position:center;
+    opacity:0;transform:scale(1.06);transition:opacity .85s ease}
+  .bframe.show{opacity:1}
+  .vignette{position:absolute;inset:0;z-index:2;pointer-events:none;
+    box-shadow:inset 0 0 160px 10px rgba(0,0,0,.42)}
+  .burstscene .bframe{filter:saturate(1.06) contrast(1.03)}
+  .filmstrip{display:flex;gap:6px;margin-top:14px}
+  .filmstrip span{width:34px;height:6px;border-radius:3px;background:rgba(255,255,255,.22);
+    animation:strip 2.6s linear infinite}
+  .filmstrip span:nth-child(2){animation-delay:.2s}
+  .filmstrip span:nth-child(3){animation-delay:.4s}
+  .filmstrip span:nth-child(4){animation-delay:.6s}
+  .filmstrip span:nth-child(5){animation-delay:.8s}
+  @keyframes strip{0%,100%{background:rgba(255,255,255,.18)}50%{background:var(--accent2)}}
+
+  /* spherical scan — viewports side by side, panned smoothly across */
+  .scanwrap{position:absolute;inset:0;overflow:hidden;background:#000;z-index:1}
+  .scanstrip{position:absolute;top:0;left:0;height:100%;display:flex;will-change:transform}
+  .scene.on .scanstrip{animation:scanpan var(--scandur,17s) cubic-bezier(.5,0,.5,1) infinite alternate}
+  .scanstrip .sv{height:100%;flex:0 0 100vw;background-size:cover;background-position:center}
+  .scanstrip .sv+.sv{box-shadow:inset 22px 0 40px -10px rgba(0,0,0,.55)}
+  @keyframes scanpan{from{transform:translateX(0)}to{transform:translateX(var(--scanend,-200vw))}}
+
+  /* smooth single-photo pan (ken burns) */
+  .panwrap{position:absolute;inset:0;overflow:hidden;background:#000;z-index:1}
+  .panimg{position:absolute;top:-7%;left:-15%;width:130%;height:114%;
+    background-size:cover;background-position:center}
+  .scene.on .panimg{animation:panmove 16s ease-in-out infinite alternate}
+  @keyframes panmove{from{transform:translateX(0) scale(1.0)}to{transform:translateX(-9%) scale(1.06)}}
+
+  /* charts */
+  .chartscene{background:radial-gradient(120% 90% at 50% -10%,#1a121b,var(--bg) 65%)}
+  .vizwrap{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:20px;padding:8vh var(--gut) 22vh}
+  .vizhead{font-size:clamp(23px,3.8vw,50px);font-weight:700;color:var(--ink);text-align:center;
+    letter-spacing:-.01em;text-shadow:0 2px 18px rgba(0,0,0,.7)}
+  .chartscene .vizhead{color:var(--accent2)}
+  .vizsub{font-size:clamp(14px,1.8vw,21px);color:var(--dim);text-align:center;margin-top:-8px}
+  .vizchart{width:100%;display:flex;justify-content:center}
+  .vizchart svg{width:min(1000px,92vw);height:auto;max-height:56vh}
+  .vizsrc{font-size:clamp(10px,1.2vw,13px);color:#7d776f;letter-spacing:.04em}
+
+  /* map */
+  #map{position:absolute;inset:0;z-index:1;background:#0d0c0f}
+  .leaflet-container{background:#0d0c0f}
+  /* Esri dark-gray canvas — keyless, natively dark, no referer block */
+  .leaflet-control-attribution{font-size:10px;background:rgba(12,11,14,.6);color:#8a847c}
+  .leaflet-control-attribution a{color:#b6afa6}
+  .legend{position:absolute;right:var(--gut);top:clamp(70px,11vh,120px);z-index:6;
+    background:var(--panel);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.1);
+    border-radius:14px;padding:14px 16px;font-size:13px;line-height:1.9}
+  .legend .dot{display:inline-block;width:10px;height:10px;border-radius:50%;
+    margin-right:8px;vertical-align:middle}
+  .legend .line{display:inline-block;width:16px;height:3px;border-radius:2px;
+    margin-right:8px;vertical-align:middle}
+
+  /* teleprompter */
+  #prompter{position:fixed;left:0;right:0;bottom:0;z-index:8;
+    background:linear-gradient(0deg,rgba(8,7,10,.96),rgba(8,7,10,.72) 70%,transparent);
+    padding:22px var(--gut) 20px;transition:opacity .4s;backdrop-filter:blur(3px)}
+  #prompter .plabel{font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--accent2);margin-bottom:6px;display:flex;gap:10px;align-items:center}
+  #prompter .plabel .pill{background:rgba(255,255,255,.08);border-radius:100px;
+    padding:2px 9px;color:var(--dim);letter-spacing:.08em}
+  #script{font-size:clamp(16px,2vw,23px);line-height:1.44;font-weight:500;
+    max-width:1250px;margin:0}
+  body.rec #prompter{background:linear-gradient(0deg,rgba(4,3,6,.92),rgba(4,3,6,.5) 75%,transparent);}
+  body.hideprompt #prompter{opacity:0;pointer-events:none}
+
+  /* chrome: top bar + controls + dots */
+  #top{position:fixed;top:0;left:0;right:0;z-index:9;display:flex;justify-content:space-between;
+    align-items:center;padding:16px var(--gut);
+    background:linear-gradient(180deg,rgba(8,7,10,.7),transparent);transition:opacity .4s}
+  #brand{font-weight:700;letter-spacing:.02em;font-size:15px}
+  #brand b{color:var(--accent)}
+  #dots{display:flex;gap:7px;align-items:center}
+  #dots button{width:9px;height:9px;border-radius:50%;border:0;padding:0;cursor:pointer;
+    background:rgba(255,255,255,.28);transition:all .3s}
+  #dots button.at{background:var(--accent);width:26px;border-radius:6px}
+  #ctl{position:fixed;bottom:calc(env(safe-area-inset-bottom,0px));right:0;z-index:10}
+  #hint{position:fixed;left:var(--gut);bottom:6px;z-index:10;font-size:11px;color:#6f6a63;
+    letter-spacing:.04em;transition:opacity .4s}
+  body.rec #top,body.rec #hint,body.rec #dots{opacity:0;pointer-events:none}
+  .navzone{position:fixed;top:0;bottom:120px;width:14vw;z-index:7;cursor:pointer}
+  #prev{left:0}#next{right:0}
+
+  /* recording badge */
+  #recbadge{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:11;
+    display:none;align-items:center;gap:8px;font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:#ffd9d1;background:rgba(224,73,46,.2);
+    border:1px solid var(--accent);border-radius:100px;padding:5px 14px}
+  body.rec #recbadge{display:flex}
+  #recbadge .r{width:9px;height:9px;border-radius:50%;background:var(--accent);
+    animation:blink 1.4s steps(1) infinite}
+  @keyframes blink{50%{opacity:.25}}
+
+  /* start overlay */
+  #start{position:fixed;inset:0;z-index:20;background:radial-gradient(120% 120% at 50% 0%,#1a1116,#0b0a0d 60%);
+    display:flex;flex-direction:column;justify-content:center;padding:var(--gut);gap:24px}
+  #start.gone{display:none}
+  #start .big{font-size:clamp(34px,7vw,86px);line-height:1;font-weight:800;letter-spacing:-.02em;margin:0}
+  #start .big em{color:var(--accent);font-style:normal}
+  #start p{max-width:620px;color:var(--dim);font-size:clamp(15px,1.9vw,20px);line-height:1.55;margin:0}
+  .keys{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+  .keys span{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+    border-radius:10px;padding:8px 13px;font-size:13px;color:var(--ink)}
+  .keys span b{color:var(--accent2)}
+  .btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+  .btns button{cursor:pointer;font:inherit;font-weight:700;font-size:16px;border-radius:12px;
+    padding:14px 26px;border:1px solid rgba(255,255,255,.16);background:#17141a;color:var(--ink);
+    transition:transform .15s,background .2s}
+  .btns button:hover{transform:translateY(-2px)}
+  .btns button.go{background:var(--accent);border-color:var(--accent)}
+  .howto{font-size:13px;color:#8a847c;max-width:640px;line-height:1.7;border-left:2px solid var(--accent);
+    padding-left:16px}
+  .howto b{color:var(--dim)}
+</style>
+</head>
+<body class="hideprompt">
+
+<div id="stage"></div>
+<div class="scrim"></div>
+
+<div id="recbadge"><span class="r"></span> Recording view</div>
+
+<div id="top">
+  <div id="brand"><b>มดแดง</b> · Mot Dang field-mapping</div>
+  <div id="dots"></div>
+</div>
+
+<div id="prev" class="navzone"></div>
+<div id="next" class="navzone"></div>
+
+<div id="prompter">
+  <div class="plabel"><span id="pnum">01 / 11</span><span class="pill" id="ptitle">Teleprompter</span></div>
+  <p id="script"></p>
+</div>
+
+<div id="hint">→ / space next · ← back · <b style="color:#8a847c">R</b> record view · <b style="color:#8a847c">T</b> teleprompter · <b style="color:#8a847c">F</b> fullscreen</div>
+
+<div id="start">
+  <div>
+    <p style="margin:0 0 10px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent2);font-size:13px;font-weight:600">Mot Dang · explainer · recording studio</p>
+    <h1 class="big">Riding the <em>Map</em></h1>
+  </div>
+  <p>A full-screen explainer built from your own ride photos. You narrate live; the deck holds the pictures and a teleprompter so you never lose your place.</p>
+  <div class="keys">
+    <span><b>→ / space</b> next</span><span><b>←</b> back</span>
+    <span><b>R</b> clean recording view</span><span><b>T</b> show / hide teleprompter</span>
+    <span><b>F</b> fullscreen</span><span><b>M</b> the map (auto-loads)</span>
+  </div>
+  <div class="btns">
+    <button class="go" onclick="begin(false)">▶ Start</button>
+    <button onclick="begin(true)">● Start in recording view</button>
+  </div>
+  <div class="howto">
+    <b>To record:</b> press <b>F</b> for fullscreen, then start your Mac screen recorder —
+    <b>⌘⇧5 → Record Entire Screen</b> (turn the mic on to catch your voice). Press <b>R</b> to hide
+    every control. Read the teleprompter line, press <b>→</b> to advance, talk over the pictures.
+    Stop the recorder with <b>⌘⇧5</b> again. The full script also sits in <b>script.txt</b> in this folder.
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="data.js"></script>
+<script>
+const IMG = "img/";
+// scene model: kicker, h1/sub/stat optional, photos[], narration
+const SCENES = [
+ { k:"Mot Dang · field-mapping", h1:"Riding the Map", sub:"Chiang Mai, by motorbike.",
+   photos:["ride-20260923-ab2131-362-f.jpg"],
+   s:"I'm NaN. I ride Chiang Mai and map it — a 360-degree camera on the handlebars, one street at a time. Here's how it works, and why it matters." },
+
+ { k:"One spot, all around", scan:true,
+   scanImgs:["sphere/v1_left.jpg","sphere/v2_front.jpg","sphere/v3_right.jpg"],
+   s:"Every stop captures a full sphere. Watch this one turn — left, ahead, then right across the moat." },
+
+ { k:"The moat", pan:true, panImg:"pan-moat.jpg", pos:"center 80%",
+   s:"The moat glides past the saddle — the green heart of the city." },
+
+ { k:"One ride, many places", burst:true,
+   burstImgs:Array.from({length:20},(_,n)=>`burst/b${String(n+1).padStart(2,'0')}.jpg`),
+   s:"One ride draws one continuous line. Every frame along it turns into a place on the map." },
+
+ { k:"The ride", h1:"I ride, I don't survey", stat:"<b>44 km</b> · 3,995 frames · one afternoon",
+   photos:["ride-20260923-ab2131-066-r.jpg"],
+   s:"I ride — I don't survey. Forty-four kilometres in one afternoon. I chase coverage, not a joyride." },
+
+ { k:"The camera", h1:"It sees everything",
+   photos:["ride-20260923-ab2131-134-r.jpg"],
+   s:"The camera watches all around me while I ride. The footage flies to the cloud — never my laptop." },
+
+ { k:"From frame to record", h1:"Bots read each frame",
+   stat:"818 read · <b>265 places</b> · <b>105 new</b>",
+   photos:["ride-20260923-ab2131-124-r.jpg"],
+   s:"Bots read each frame — they blur the faces, catch the signs, pin the place. They match it to the map, or add it new." },
+
+ { k:"The signs are the data", h1:"The street types for me",
+   photos:["ride-20260923-aa1911-120-l.jpg"],
+   sign:{th:"ล้านนากระเบื้อง", rom:"Lanna Krabueang", en:"— roof & clay tiles"},
+   s:"A roof-tile shop wears only a Thai name. The camera reads the sign. The street types the record." },
+
+ { k:"Thai and English", h1:"Read in two languages",
+   photos:["ride-20260924-aesthetic-ac4358-197.jpg"],
+   sign:{th:"อุณาโลม อมูเลท", rom:"Unalom Amulet", en:"— amulet shop"},
+   s:"A gold unalom hangs over a shutter. The camera reads it in Thai and English, then files it where it belongs." },
+
+ { k:"Street art", h1:"I collect the walls",
+   photos:["ride-20260924-street-art-aa2731-266.jpg"],
+   s:"I collect the murals, the painted transformer boxes, the public art on every wall." },
+
+ { k:"Street art", h1:"", pos:"center bottom",
+   photos:["ride-20260923-aesthetic-ab2131-180.jpg"],
+   s:"A concrete orca guards a coffee shop. The map keeps the city, not just its grid." },
+
+ { k:"Parked bikes", h1:"I tag the spot", pos:"center bottom",
+   photos:["ride-20260923-ab2131-295-f.jpg"],
+   s:"A clump of parked motorbikes? I tag the spot. On a bike, that saves half the trip." },
+
+ { k:"On the verge", h1:"I give them a layer",
+   photos:["ride-20260923-aa1911-118-l.jpg","ride-20260923-ab2131-053-f.jpg","ride-20260923-ab2131-321-f.jpg"],
+   s:"Shrines, spirit houses and wat gates line every street, and no other map holds them. So I give them their own layer." },
+
+ { k:"Near · Now · Soon", map:true,
+   s:"It all lands on one map. The map knows where you stand and what's open now. It measures nearest by road — a motorbike's road, around a moat with nine gates." },
+
+ { k:"For a person", h1:"You find the hidden shop",
+   photos:["ride-20260923-market-ab2131-160.jpg","ride-20260924-market-ac4358-055.jpg"],
+   s:"You find the corner shop no one listed. It knows the road, fits your hand, and never calls a place closed just because no one logged the hours." },
+
+ { k:"For a machine", h1:"Who's reading it?", chart:"split",
+   s:"Almost no human reads this map. One week brought nearly two million requests — two hundred ninety-nine of them a person." },
+
+ { k:"For a machine", h1:"Every big model, reading", chart:"bots",
+   s:"Meta, OpenAI, Anthropic, Amazon, ByteDance — they all crawl it. Meta alone hit it two million times in a single week." },
+
+ { k:"Two months old", h1:"≈ 23 million requests", sub:"in two months — every crawl and asset Cloudflare counted", chart:"ramp",
+   src:"Cloudflare total requests · motdang.net · ~2 months",
+   s:"This map is two months old, and machines have already hit it about twenty-three million times. Week one, a hundred thousand. By week three, almost four million a week." },
+
+ { k:"For a machine", h1:"I hand them the truth",
+   photos:["ride-20260923-ab2131-249-r.jpg"],
+   s:"So I hand the machines the truth — first-hand, licensed, straight from the road. Not a guess scraped from a guess. Let them learn it right." },
+
+ { k:"Mot Dang", h1:"One bike. One city.", sub:"I map it by hand.",
+   credit:"Photography & mapping — NaN Peacock · CC BY 4.0 · motdang.net",
+   photos:["rider.jpg"],
+   s:"That's me — NaN. One bike, one city, mapped by hand. That's Mot Dang. Thanks for riding along." },
+];
+
+const stage=document.getElementById('stage');
+const dotsEl=document.getElementById('dots');
+let i=0, mapReady=false, mmap=null, multiTimers=[];
+
+// build scenes
+SCENES.forEach((sc,idx)=>{
+  const el=document.createElement('section'); el.className='scene'; el.dataset.i=idx;
+  if(sc.burst){
+    el.classList.add('burstscene');
+    // preload all burst frames as stacked layers; JS flips .show fast
+    const frames=sc.burstImgs.map((p,li)=>
+      `<div class="bframe${li===0?' show':''}" data-bi="${li}" data-bg="${IMG}${p}"></div>`).join('');
+    el.innerHTML=`<div class="burstwrap">${frames}</div>
+      <div class="vignette"></div>
+      <div class="copy"><p class="kicker">${sc.k}</p>
+      <div class="filmstrip"><span></span><span></span><span></span><span></span><span></span></div></div>`;
+  }else if(sc.scan){
+    el.classList.add('scanscene');
+    const svs=sc.scanImgs.map(p=>`<div class="sv" data-bg="${IMG}${p}"></div>`).join('');
+    const end=-(sc.scanImgs.length-1)*100;
+    el.innerHTML=`<div class="scanwrap"><div class="scanstrip" style="--scanend:${end}vw;--scandur:${(sc.scanImgs.length*6)}s">${svs}</div></div>
+      <div class="scrim"></div>
+      <div class="copy"><p class="kicker">${sc.k}</p></div>`;
+  }else if(sc.pan){
+    el.classList.add('panscene');
+    const pps = sc.pos ? ` style="background-position:${sc.pos}"` : '';
+    el.innerHTML=`<div class="panwrap"><div class="panimg"${pps} data-bg="${IMG}${sc.panImg}"></div></div>
+      <div class="copy"><p class="kicker">${sc.k}</p></div>`;
+  }else if(sc.chart){
+    el.classList.add('chartscene');
+    el.innerHTML=chartHTML(sc);   // title lives inside the chart; no floating kicker
+  }else if(sc.map){
+    el.innerHTML=`<div id="map"></div>
+      <div class="legend">
+        <div><span class="line" style="background:#e0492e"></span>24 Sep ride · 44 km</div>
+        <div><span class="line" style="background:#f0b429"></span>23 Sep ride · 13.5 km</div>
+        <div style="margin-top:6px"><span class="dot" style="background:#ff5c8a"></span>street art</div>
+        <div><span class="dot" style="background:#8ad0ff"></span>spirit house</div>
+        <div><span class="dot" style="background:#8affc2"></span>market</div>
+        <div><span class="dot" style="background:#ffd166"></span>shrine</div>
+      </div>`;
+  }else{
+    const layers=(sc.photos||[]).map((p,li)=>{
+      let cls = sc.photos.length>1 ? 'layer multi'+(li===0?' show':'') : 'layer kb';
+      if(sc.photos.length===1 && sc.pos && sc.pos.includes('bottom')) cls+=' kbbottom';
+      // sc.pos biases the crop: cover+center drops a low subject (bikes on the
+      // ground, the orca, the moat) below the frame. Per-scene background-position
+      // keeps it in view.
+      const ps = sc.pos ? ` style="background-position:${sc.pos}"` : '';
+      return `<div class="${cls}"${ps} data-li="${li}" data-bg="${IMG}${p}"></div>`;
+    }).join('');
+    let copy=`<div class="copy">`;
+    copy+=`<p class="kicker">${sc.k}</p>`;
+    if(sc.h1) copy+=`<h1>${sc.h1}</h1>`;
+    if(sc.sub) copy+=`<p class="sub">${sc.sub}</p>`;
+    if(sc.stat) copy+=`<div class="stat">${sc.stat}</div>`;
+    if(sc.sign) copy+=`<div class="signchip"><span class="signlab">the camera reads</span> `
+      +`<span class="signth" lang="th">${sc.sign.th}</span>`
+      +(sc.sign.rom?` <span class="signrom">${sc.sign.rom}</span>`:'')
+      +(sc.sign.en?` <span class="signen">${sc.sign.en}</span>`:'')+`</div>`;
+    if(sc.credit) copy+=`<p class="sub" style="font-size:clamp(12px,1.5vw,16px);margin-top:1.3em;color:#8a847c">${sc.credit}</p>`;
+    copy+=`</div>`;
+    el.innerHTML=layers+copy;
+  }
+  stage.appendChild(el);
+  const b=document.createElement('button'); b.title='Scene '+(idx+1);
+  b.onclick=()=>go(idx); dotsEl.appendChild(b);
+});
+
+const sceneEls=[...document.querySelectorAll('.scene')];
+const dotEls=[...dotsEl.children];
+
+function clearMulti(){ multiTimers.forEach(t=>clearInterval(t)); multiTimers=[]; }
+
+// lazy image load: set background-image only for the scenes near the one shown
+// in the bundled single-file build, window.ASSETS maps each img path to a
+// data URI; served from a folder it stays empty and the paths are used as-is
+const ASSETS = window.ASSETS || {};
+function hydrate(idx){
+  idx=(idx+SCENES.length)%SCENES.length;
+  sceneEls[idx].querySelectorAll('[data-bg]').forEach(el=>{
+    const src=ASSETS[el.dataset.bg]||el.dataset.bg;
+    el.style.backgroundImage=`url("${src}")`;
+    el.removeAttribute('data-bg');
+  });
+}
+// after the first paint, load every remaining slide in the background so no
+// slide is ever blank — staggered so it doesn't all decode at once
+function hydrateAllSoon(){
+  let k=0;
+  const step=()=>{ if(k>=SCENES.length) return; hydrate(k++); setTimeout(step,90); };
+  setTimeout(step,600);
+}
+
+function fmt(n){ if(n>=1e6) return (n/1e6).toFixed(1)+'M'; if(n>=1e3) return Math.round(n/1e3)+'K'; return ''+n; }
+function chartHTML(sc){
+  let svg='';
+  if(sc.chart==='ramp'){
+    const d=[['Wk 1',124410],['Wk 2',988400],['Wk 3',3896078],['Wk 4',2048623]];
+    const W=1040,H=560,pad=64,base=H-96,top=72,max=3896078,bw=150,gap=(W-2*pad-4*bw)/3;
+    let bars='';
+    d.forEach((r,x)=>{ const h=(r[1]/max)*(base-top),bx=pad+x*(bw+gap),by=base-h,peak=r[1]===max;
+      bars+=`<rect x="${bx}" y="${by}" width="${bw}" height="${h}" rx="9" fill="${peak?'#e0492e':'#f0b429'}"/>`
+        +`<text x="${bx+bw/2}" y="${by-18}" text-anchor="middle" fill="#f5f1ea" font-size="34" font-weight="700">${fmt(r[1])}</text>`
+        +`<text x="${bx+bw/2}" y="${base+42}" text-anchor="middle" fill="#b6afa6" font-size="26">${r[0]}</text>`; });
+    svg=`<svg viewBox="0 0 ${W} ${H}"><text x="${pad}" y="34" fill="#7d776f" font-size="22" letter-spacing="2">PAGE REQUESTS · PER WEEK</text><line x1="${pad}" y1="${base}" x2="${W-pad}" y2="${base}" stroke="#39343b" stroke-width="2"/>${bars}</svg>`;
+  } else if(sc.chart==='bots'){
+    const d=[['Meta',1950408],['OpenAI',1106095],['Anthropic',329958],['Amazon',148223],['ByteDance',33494]];
+    const W=1040,H=540,labelw=300,max=1950408,rh=72,gap=26,top=30,barmax=W-labelw-200;
+    let rows='';
+    d.forEach((r,x)=>{ const y=top+x*(rh+gap),w=Math.max((r[1]/max)*barmax,4);
+      rows+=`<text x="${labelw-18}" y="${y+rh/2+10}" text-anchor="end" fill="#f5f1ea" font-size="31" font-weight="600">${r[0]}</text>`
+        +`<rect x="${labelw}" y="${y}" width="${w}" height="${rh}" rx="8" fill="${x===0?'#e0492e':'#f0b429'}"/>`
+        +`<text x="${labelw+w+16}" y="${y+rh/2+10}" fill="#b6afa6" font-size="28">${fmt(r[1])}</text>`; });
+    svg=`<svg viewBox="0 0 ${W} ${H}">${rows}</svg>`;
+  } else if(sc.chart==='split'){
+    const W=1040,H=430;
+    svg=`<svg viewBox="0 0 ${W} ${H}">`
+      +`<text x="56" y="58" fill="#b6afa6" font-size="26" letter-spacing="4">MACHINES · one week</text>`
+      +`<rect x="56" y="76" width="${W-112}" height="88" rx="11" fill="#e0492e"/>`
+      +`<text x="${W-74}" y="135" text-anchor="end" fill="#fff" font-size="42" font-weight="700">1,953,316</text>`
+      +`<text x="56" y="252" fill="#b6afa6" font-size="26" letter-spacing="4">PEOPLE</text>`
+      +`<rect x="56" y="270" width="11" height="88" rx="5" fill="#f0b429"/>`
+      +`<text x="84" y="330" fill="#f0b429" font-size="42" font-weight="700">299</text>`
+      +`<text x="${W/2}" y="415" text-anchor="middle" fill="#f5f1ea" font-size="33" font-weight="700">6,533 machine requests for every person</text>`
+      +`</svg>`;
+  }
+  return `<div class="vizwrap"><div class="vizhead">${sc.h1||''}</div>`
+    +(sc.sub?`<div class="vizsub">${sc.sub}</div>`:'')
+    +`<div class="vizchart">${svg}</div>`
+    +`<div class="vizsrc">${sc.src||'Cloudflare edge analytics · four weeks to 24 Sep 2026 · motdang.net'}</div></div>`;
+}
+
+function runBurst(el){
+  const frames=[...el.querySelectorAll('.bframe')];
+  if(!frames.length) return;
+  let b=0; frames.forEach((f,x)=>f.classList.toggle('show',x===0));
+  // slow cross-dissolve (was a hard-cut burst) — keep the next frame fading in
+  // as the current fades out
+  const t=setInterval(()=>{ const prev=b; b=(b+1)%frames.length;
+    frames[b].classList.add('show'); frames[prev].classList.remove('show'); }, 1000);
+  multiTimers.push(t);
+}
+
+function show(n){
+  i=(n+SCENES.length)%SCENES.length;
+  clearMulti();
+  hydrate(i); hydrate(i+1); hydrate(i-1);   // load current + neighbours only
+  sceneEls.forEach((el,x)=>el.classList.toggle('on',x===i));
+  dotEls.forEach((d,x)=>d.classList.toggle('at',x===i));
+  const sc=SCENES[i];
+  // teleprompter
+  document.getElementById('script').textContent=sc.s;
+  document.getElementById('pnum').textContent=String(i+1).padStart(2,'0')+' / '+String(SCENES.length).padStart(2,'0');
+  document.getElementById('ptitle').textContent=sc.k;
+  // restart ken-burns
+  const kb=sceneEls[i].querySelector('.layer.kb');
+  if(kb){kb.style.animation='none'; void kb.offsetWidth; kb.style.animation='';}
+  // multi-photo cross-dissolve
+  const multi=[...sceneEls[i].querySelectorAll('.layer.multi')];
+  if(multi.length>1){
+    let m=0; multi.forEach((L,x)=>L.classList.toggle('show',x===0));
+    const t=setInterval(()=>{ m=(m+1)%multi.length;
+      multi.forEach((L,x)=>L.classList.toggle('show',x===m)); }, 4200);
+    multiTimers.push(t);
+  }
+  if(sc.map) ensureMap();
+  if(sc.burst) runBurst(sceneEls[i]);
+}
+function go(n){ show(n); }
+function next(){ show(i+1); }
+function prev(){ show(i-1); }
+
+function ensureMap(){
+  if(mapReady) { setTimeout(()=>mmap.invalidateSize(),200); return; }
+  mapReady=true;
+  mmap=L.map('map',{zoomControl:true,attributionControl:true}).setView([18.79,99.0],12);
+  const esri='https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/';
+  L.tileLayer(esri+'World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',{
+    maxZoom:16, attribution:'Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap contributors'
+  }).addTo(mmap);
+  L.tileLayer(esri+'World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}',{
+    maxZoom:16, opacity:.9
+  }).addTo(mmap);
+  const kindColor={'street-art':'#ff5c8a','spirit-house':'#8ad0ff','market':'#8affc2',
+    'shrine':'#ffd166','ribbon-tree':'#c9a0ff'};
+  // data baked into data.js (window.TRACKS / window.POINTS) so the deck runs
+  // straight from a double-clicked file, with a fetch() fallback if served
+  function draw(tracks,points){
+    const bounds=[];
+    tracks.features.forEach(f=>{
+      const c=(f.properties.session||'').indexOf('24')>-1?'#e0492e':'#f0b429';
+      const line=L.geoJSON(f,{style:{color:c,weight:3.2,opacity:.9}}).addTo(mmap);
+      bounds.push(line.getBounds());
+    });
+    if(bounds.length) mmap.fitBounds(bounds.reduce((a,b)=>a.extend(b)),{padding:[60,60]});
+    L.geoJSON(points,{pointToLayer:(f,ll)=>L.circleMarker(ll,{
+      radius:4, color:kindColor[f.properties.kind]||'#fff', weight:0,
+      fillColor:kindColor[f.properties.kind]||'#fff', fillOpacity:.85
+    }).bindPopup((f.properties.title_th||f.properties.title||f.properties.kind))}).addTo(mmap);
+  }
+  if(window.TRACKS&&window.POINTS){ draw(window.TRACKS,window.POINTS); }
+  else{ Promise.all([fetch('data/tracks.geojson').then(r=>r.json()),
+    fetch('data/points.geojson').then(r=>r.json())]).then(([t,p])=>draw(t,p)); }
+}
+
+// controls
+document.getElementById('next').onclick=next;
+document.getElementById('prev').onclick=prev;
+addEventListener('keydown',e=>{
+  if(document.getElementById('start').classList.contains('gone')===false) return;
+  const k=e.key.toLowerCase();
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();next();}
+  else if(e.key==='ArrowLeft'){prev();}
+  else if(k==='r'){document.body.classList.toggle('rec');}
+  else if(k==='t'){document.body.classList.toggle('hideprompt');}
+  else if(k==='f'){toggleFs();}
+  else if(k==='m'){go(SCENES.findIndex(s=>s.map));}
+  else if(k>='1'&&k<='9'){const n=+k-1; if(n<SCENES.length)go(n);}
+});
+function toggleFs(){ if(!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+  else document.exitFullscreen?.(); }
+
+function begin(rec){
+  document.getElementById('start').classList.add('gone');
+  document.body.classList.remove('hideprompt');
+  if(rec) document.body.classList.add('rec');
+  show(0);
+}
+show(0);
+hydrateAllSoon();
+</script>
+</body>
+</html>

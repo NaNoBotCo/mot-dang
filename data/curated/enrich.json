@@ -1,4 +1,5 @@
 {
+ "cm-ovt-c86f0456-7daa-4dbe-a1ff-f84fcb1c507c": {"fields": {"nameTh": "บ้านสบาย วิลเลจ ซีเนียร์ เรสซิเดนส์", "phone": "053-854-778", "hours": "24/7", "attrs": {"phones": ["053854778", "0936942359", "0827628310", "0966593592", "0897291904"], "email": "info@bansabaicare.com", "facebook": "https://www.facebook.com/BanSabaiVillageSeniorResidenceandcare", "youtube": "https://www.youtube.com/@BanSabaiVillageSeniorResidence", "kind": "care home, long stay and nursing", "kindTh": "บ้านพักดูแลผู้สูงอายุ ระยะสั้นและระยะยาว", "facilityType": "long-care", "dementia": "stated on its own care page", "units": 21, "opened": "2003", "seniorResidenceSince": "2021", "monthlyFromThb": 57000, "monthlyToThb": 120000, "pricesPage": "https://bansabaicare.com/ban-sabai-village-senior-residence-prices/", "minisite": "sites/ban-sabai/"}}, "how": {"nameTh": "its Thai home page", "phone": "its inquiry page", "attrs": "own pages: home, care, prices (updated 2026-08-11), inquiry, brochure"}, "src": "https://bansabaicare.com/", "license": "official-site", "fetched": "2026-10-04", "note": "Nan 2026-10-04 asked for a fuller page; the minisite motdang.net/sites/ban-sabai/ carries the full price table, care, rooms and hospitals."},
  "_readme": [
   "Researched enrichment, laid over the crawl. data/canonical/*.json is rewritten",
   "wholesale by importers/import_overpass.py, so anything typed into it is lost on",
@@ -882,14 +883,29 @@
    "attrs": {
     "facebook": "https://www.facebook.com/MyPlaceLoungeChiangMai/",
     "instagram": "https://www.instagram.com/myplaceloungechiangmai/",
-    "lineUrl": "https://line.me/R/ti/p/%40myplacelounge"
+    "lineUrl": "https://line.me/R/ti/p/%40myplacelounge",
+    "menu": "burgers, wings, flatbread, panini, Thai food; all-day breakfast from 8 am",
+    "saleBanner": "red banner on the balcony above its sign, 2 Oct 2026: เซ้งร้าน · Business For Sale · ติดต่อที่ร้าน (ask at the shop)"
    }
   },
   "how": {
    "attrs": "page links"
   },
   "license": "official-site",
-  "src": "https://myplaceloungechiangmai.com/"
+  "src": "https://myplaceloungechiangmai.com/",
+  "prov": {
+   "attrs": {
+    "src": "her vivo photo IMG_20261002_183131.jpg, 2026-10-02",
+    "license": "field",
+    "fetched": "2026-10-02",
+    "how": "its yellow sign"
+   },
+   "attrs.saleBanner": {
+    "src": "her vivo photo IMG_20261002_182644.jpg, 2026-10-02",
+    "license": "field",
+    "fetched": "2026-10-02"
+   }
+  }
  },
  "cm-osm-node-2300400256": {
   "fetched": "2026-08-19",
@@ -897,7 +913,7 @@
    "address": "69 ถนนลอยเคราะห์ ต.ช้างคลาน อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50100",
    "attrs": {
     "alsoKnownAs": "Oriental Garden Chiang Mai — the sign over the door reads Garden Restaurant & Guest House",
-    "art": "เจ้าของสะสมงานศิลป์และรูปปั้นไว้เต็มตัวอาคาร — เดินดูได้รอบ",
+    "art": "คุณมีนาผู้ดูแลร้านสะสมงานศิลป์และรูปปั้นไว้เต็มตัวอาคาร — เดินดูได้รอบ",
     "bar": "บาร์มีโต๊ะพูล บรรยากาศบ่กวนใคร",
     "facebook": "https://www.facebook.com/gardenloycm/",
     "garden": "ห้องพักอยู่ลึกเข้าไปในสวนหลังร้าน เงียบกว่าถนนหลายเท่า",
@@ -906,7 +922,9 @@
     "kitchen": "อาหารไทย จานกระเบื้องลายน้ำเงิน กล้วยไม้วางบนผัก · มีอาหารดัตช์ให้เลือกสองสามอย่าง",
     "songkran": "สงกรานต์: นั่งโต๊ะหน้าร้านได้ตลอด ๑๓–๑๕ เมษา น้ำสาดถึงที่ กิ๋นข้าวไปเปียกไป บ่ต้องยืนแย่งกับใครเจ้า",
     "street": "ถนนลอยเคราะห์",
-    "subdistrict": "Chang Khlan"
+    "subdistrict": "Chang Khlan",
+    "menuAppetizers": "Supper/appetizers (อาหารว่าง), 2 Oct 2026: cashew nuts 79 · spring rolls 89 · prawn crackers 89 · French fries 89 · crispy wonton 89 · northern sausage salad 99 · glass-noodle salad 79/89/129/149 · green vegetable salad 79 · fried shrimp 129 · fried chicken with fries 129 baht",
+    "sharesAddressWith": "Oriental Guest House (cm-ovt-5d975623-318e-4b4a-a85d-5db86e61cbe3)"
    },
    "blurb_en": "A garden restaurant and guest house on Loi Kroh — blue-and-white porcelain, orchids laid on the greens, chicken folded in pandan with sweet chilli. At Songkran you keep your table and still get thoroughly, joyfully soaked.",
    "blurb_th": "สวนอาหารและเกสต์เฮาส์กลางถนนลอยเคราะห์ จานกระเบื้องลายน้ำเงิน กล้วยไม้วางบนผัก ไก่ห่อใบเตยจิ้มน้ำหวาน — สงกรานต์เฮามานั่งตี้นี้ทุกปี เปียกครบแต่ยังได้กิ๋นข้าวสบาย ๆ น่อ",
@@ -935,8 +953,16 @@
    "name": "read off the shop's own sign in our photograph, 23 June 2026"
   },
   "license": "field",
-  "note": "Phone left null on purpose. Their own site (orientalgardenchiangmai.com) no longer resolves and directory copies disagree — two candidates seen in the wild are 053-276742 / 085-722-3084, and one older listing says 053-206267. The owner is the last word on her own number: ask her, then record it as an owner claim. Also still wanted: a still frame of the art collection (we have it only on video, IMG_2241.MOV, 23 June 2026), and the house number confirmed off the doorplate.",
-  "src": "own photographs and field visits, Chiang Mai"
+  "note": "Phone left null on purpose. Their own site (orientalgardenchiangmai.com) no longer resolves and directory copies disagree — two candidates seen in the wild are 053-276742 / 085-722-3084, and one older listing says 053-206267. Google's AI overview (Nan's screenshot, 2026-09-23) gives 080 905 8561, with 69 Loi Kroh beside Wat Loi Kroh and daily 10:00-23:00. The owner is the last word on her own number: ask her, then record it as an owner claim. Also still wanted: a still frame of the art collection (we have it only on video, IMG_2241.MOV, 23 June 2026), and the house number confirmed off the doorplate.",
+  "src": "own photographs and field visits, Chiang Mai",
+  "prov": {
+   "attrs": {
+    "src": "her vivo photo IMG_20261002_162805.jpg, 2026-10-02",
+    "license": "field",
+    "fetched": "2026-10-02",
+    "how": "menu page photographed at the table; art line corrected to her word of 26 Sep (Meena runs it, the art is her collection)"
+   }
+  }
  },
  "cm-osm-node-2425083045": {
   "fetched": "2026-08-16",
@@ -7208,5 +7234,1229 @@
   "license": "official-site",
   "src": "https://www.facebook.com/profile.php?id=100064278386228",
   "note": "วัดดวงดี. The page is the temple's own — วัดดวงดี / WatDuangDee, ต.ศรีภูมิ อ.เมือง เชียงใหม่ — so it is a first-hand source, not a directory card. Content is behind a login wall, so only the identity and the link are taken: no hours, no phone, no donation from it. The เจิมรถ practice this temple is known for is NOT recorded here — it is the asked-question jerm-rot (2026-09-06), whose note carries Nan's two walks and the MGR Online 2013 piece."
+ },
+ "cm-onab-03500101031": {
+  "fields": {
+   "lat": 18.789598,
+   "lng": 98.979973,
+   "geoPrecision": "approx",
+   "attrs": {
+    "pinVia": "own gate sign วัดพระครู (เฉลิมพระเกียรติ) read from the road 2026-09-23; frame position, within ~30 m"
+   }
+  },
+  "src": "field: GoPro Max 2 ride 2026-09-23, sign crops 277/364/538 in _incoming/gopro-2026-09-23",
+  "license": "field",
+  "fetched": "2026-09-23",
+  "note": "replaces the tambon-centroid pin, which sat 1.3 km from the gate"
+ },
+ "cm-ovt-ffb756c7-0132-412f-b538-11dbede02b1b": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "Showroom open daily: Mon-Sat 08.30-18.00, Sun 10.00-18.00; service centre Mon-Sat 08.00-17.00 (window lettering, read small)"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-23/",
+  "license": "own-sign",
+  "fetched": "2026-09-23",
+  "note": "read from the road on NaN's GoPro Max 2 ride, second pass"
+ },
+ "cm-ovt-0d2df384-9fed-4487-a500-7412c1fa96e0": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "บริการนอกสถานที่ 24 ชม."
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-23/",
+  "license": "own-sign",
+  "fetched": "2026-09-23",
+  "note": "read from the road on NaN's GoPro Max 2 ride, second pass"
+ },
+ "cm-ovt-47aa87b0-2159-4686-94f7-686bd683fb9a": {
+  "fields": {
+   "phone": "081276101"
+  },
+  "how": {
+   "phone": "read off the place's own sign from the road"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-23/",
+  "license": "own-sign",
+  "fetched": "2026-09-23",
+  "note": "read from the road on NaN's GoPro Max 2 ride, second pass"
+ },
+ "cm-osm-node-11499334713": {
+  "fields": {
+   "phone": "0992429124"
+  },
+  "how": {
+   "phone": "read off the place's own sign from the road"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-23/",
+  "license": "own-sign",
+  "fetched": "2026-09-23",
+  "note": "read from the road on NaN's GoPro Max 2 ride, second pass"
+ },
+ "cm-ovt-d0537261-825d-4947-ae3f-c7b023152430": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "OPEN DAILY ทุกวัน 8.30 - 19.30"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-23/",
+  "license": "own-sign",
+  "fetched": "2026-09-23",
+  "note": "read from the road on NaN's GoPro Max 2 ride, second pass"
+ },
+ "cm-ovt-222d5b22-f86a-4c2b-b5af-5408072e331e": {
+  "fields": {
+   "phone": "0627708000"
+  },
+  "how": {
+   "phone": "read off the place's own sign from the road"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-23/",
+  "license": "own-sign",
+  "fetched": "2026-09-23",
+  "note": "read from the road on NaN's GoPro Max 2 ride, second pass"
+ },
+ "cm-osm-node-3331582463": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "เปิด 24 ชั่วโมง (flags)"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-23/",
+  "license": "own-sign",
+  "fetched": "2026-09-23",
+  "note": "read from the road on NaN's GoPro Max 2 ride, second pass"
+ },
+ "cm-ovt-e20c0bcb-ad03-446b-bf1b-e4b554ac6c1d": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "board by the door: วันจันทร์-เสาร์ 17.00-19.00 น.; วันอาทิตย์ …-12.00 น. (Sunday opening time not legible)"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-23/",
+  "license": "own-sign",
+  "fetched": "2026-09-23",
+  "note": "read from the road on NaN's GoPro Max 2 ride, second pass"
+ },
+ "cm-ovt-fe37ad32-37f9-4d25-b2e6-aa17a3b76c9b": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "เปิดบริการ จันทร์-เสาร์ 08.00-17.00 น.; ฝ่ายขายวันอาทิตย์ 09.00-17.00 น."
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-23/",
+  "license": "own-sign",
+  "fetched": "2026-09-23",
+  "note": "read from the road on NaN's GoPro Max 2 ride, second pass"
+ },
+ "cm-osm-node-3067759753": {
+  "fields": {
+   "phone": "053202269"
+  },
+  "how": {
+   "phone": "read off the place's own sign from the road"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-23/",
+  "license": "own-sign",
+  "fetched": "2026-09-23",
+  "note": "read from the road on NaN's GoPro Max 2 ride, second pass"
+ },
+ "cm-osm-node-2638262573": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "OPEN DAILY"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-23/",
+  "license": "own-sign",
+  "fetched": "2026-09-23",
+  "note": "read from the road on NaN's GoPro Max 2 ride, second pass"
+ },
+ "cm-ovt-7c2fdcd5-7285-46dd-8d27-c5c0782e7863": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "Mon-Sat 8:30-19:30, Sun closed"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-23/",
+  "license": "own-sign",
+  "fetched": "2026-09-23",
+  "note": "read from the road on NaN's GoPro Max 2 ride, second pass"
+ },
+ "cm-osm-node-2099734363": {
+  "fields": {
+   "phone": "053326165"
+  },
+  "how": {
+   "phone": "read off the place's own sign from the road"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-23/",
+  "license": "own-sign",
+  "fetched": "2026-09-23",
+  "note": "read from the road on NaN's GoPro Max 2 ride, second pass"
+ },
+ "cm-osm-node-4813352421": {
+  "fields": {
+   "phone": "0623597581"
+  },
+  "how": {
+   "phone": "read off the place's own sign from the road"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-23/",
+  "license": "own-sign",
+  "fetched": "2026-09-23",
+  "note": "read from the road on NaN's GoPro Max 2 ride, second pass"
+ },
+ "cm-osm-way-378271848": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "gate 05.00-20.00"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-23/",
+  "license": "own-sign",
+  "fetched": "2026-09-23",
+  "note": "read from the road on NaN's GoPro Max 2 ride, second pass"
+ },
+ "cm-ovt-c21fc7cf-6d2f-4a38-8b22-e6d4eb0e5019": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "10.00-22.00 น."
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-23/",
+  "license": "own-sign",
+  "fetched": "2026-09-23",
+  "note": "read from the road on NaN's GoPro Max 2 ride, second pass"
+ },
+ "cm-ovt-8735b55d-9edd-4a24-bae7-3aa1c7ae3a57": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "วันจันทร์-วันอาทิตย์ 9.00-20.00 น."
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-23/",
+  "license": "own-sign",
+  "fetched": "2026-09-23",
+  "note": "read from the road on NaN's GoPro Max 2 ride, second pass"
+ },
+ "cm-ovt-9c09a2c4-d5f8-410b-bea9-247fd8749ae8": {
+  "fields": {
+   "phone": "052079412",
+   "attrs": {
+    "phones": [
+     "052079412",
+     "1153"
+    ]
+   }
+  },
+  "how": {
+   "phone": "read off the place's own sign from the road"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-23/",
+  "license": "own-sign",
+  "fetched": "2026-09-23",
+  "note": "read from the road on NaN's GoPro Max 2 ride, second pass"
+ },
+ "cm-curated-bake-a-seat": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "8.00-17.00"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-23/",
+  "license": "own-sign",
+  "fetched": "2026-09-23",
+  "note": "read from the road on NaN's GoPro Max 2 ride, second pass"
+ },
+ "cm-osm-node-6351675891": {
+  "fields": {
+   "phone": "+6653225958",
+   "attrs": {
+    "phones": [
+     "053225958",
+     "053229959",
+     "0869192488",
+     "0532259589"
+    ],
+    "hoursPosted": "ตลาดนัดพระเครื่อง วันพุธ เวลา 06.00-14.00 น.",
+    "hoursActual": "Thursday mornings (the posted Wednesday market has not taken hold)",
+    "hoursActualTh": "เช้าวันพฤหัส",
+    "tableFee": "80 baht for a table and two chairs, one morning (1 Oct 2026)",
+    "kind": "amulet and antique market",
+    "kindTh": "ตลาดพระเครื่องและของเก่า",
+    "signText": [
+     "ตลาดนัดพระเครื่อง วันพุธ เวลา 06.00-14.00 น.",
+     "ค่าเช่าล็อคเฉพาะวันพุธเท่านั้น 30 บาท/วัน",
+     "เช่าล็อคทั้งวันพุธและพฤหัสบดี ทั้ง 2 วัน ค่าเช่าล็อคเฉพาะวันพุธ 20.-",
+     "โปรโมชั่นพิเศษ โต๊ะและเก้าอี้ ฟรี",
+     "เริ่มนัดแรก 2 ตุลาคม 2567",
+     "สำนักงานตลาดคำเที่ยง 053-225958-9"
+    ],
+    "signFrames": [
+     "GSAC4358_076",
+     "GSAC4358_083",
+     "GSAC4358_084",
+     "GSAC4358_086",
+     "GSAC4358_087"
+    ],
+    "facets": {
+     "foodinside": "field",
+     "toilethere": "field",
+     "toiletpay": "field",
+     "walkintable": "field",
+     "tablefee80": "field",
+     "parking": "field"
+    }
+   },
+   "nameTh": "ตลาดนัดพระเครื่อง",
+   "cat": [
+    "market"
+   ],
+   "sub": [
+    "flea"
+   ]
+  },
+  "how": {
+   "phone": "read off the place's own sign from the road",
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk",
+  "prov": {
+   "attrs.facets": {
+    "src": "NaN, first-hand, 2026-09-25 (food inside, pay toilet, no booking); parking from the 24 Sep footage; 2026-10-01 a table and two chairs cost 80 baht",
+    "fetched": "2026-10-01"
+   },
+   "attrs.hoursActual": {
+    "src": "NaN, first-hand, 2026-10-02: the amulet market is Thursday morning, whatever the signs say",
+    "fetched": "2026-10-02"
+   }
+  }
+ },
+ "cm-curated-matrix-honda-automobile": {
+  "fields": {
+   "phone": "053126288"
+  },
+  "how": {
+   "phone": "read off the place's own sign from the road"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-ovt-7d0256b8-8538-4d8a-832c-769a630fa900": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "11:00-16:30, closed Thursdays"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-ovt-b7bac1df-7c03-46c5-8942-3aaf4db28aa1": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "11:00-20:00"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-osm-node-2490629437": {
+  "fields": {
+   "phone": "053248182"
+  },
+  "how": {
+   "phone": "read off the place's own sign from the road"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-ovt-b34451a8-bcc5-4d16-9ad1-a03db53f27b4": {
+  "fields": {
+   "phone": "0654723008",
+   "attrs": {
+    "hoursPosted": "08:00-17:00"
+   }
+  },
+  "how": {
+   "phone": "read off the place's own sign from the road",
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-ovt-b7f25b61-6768-4c9a-973b-64d85ac9c7e1": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "08:30-17:30"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-ovt-059848ac-252c-4173-9ce9-b6faa7cb750f": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "08:00-18:30, closed Sundays"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-osm-way-224819420": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "9 AM - 8 PM"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-ovt-ad2a4991-4e2a-4354-8daf-0c6282734451": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "Market open every day; flea market Sat-Sun"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-ovt-9450a101-7380-49da-b548-42b5f8f45a83": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "เปิดทุกวัน (open every day), starting time obscured"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-ovt-170722ea-d06d-4531-be31-bea2f7ac0256": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "closed / shutter down at time of filming (~9:36am)"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-osm-node-6205218349": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "9:00am-8:00pm"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-ovt-c247442f-4e44-463c-b6f7-71524d7bc2bc": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "24 hours"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-ovt-bb0a138d-169e-4093-abcd-0e64f6d092ea": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "Open daily"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-osm-way-192582618": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "Mon-Sat 8:30 AM - 5:30 PM"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-ovt-f41f39a9-845a-462d-9ce2-6b3ee3c811ef": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "1953-2556 (school-year sign)"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-curated-pp-buffet": {
+  "fields": {
+   "phone": "0866711615",
+   "attrs": {
+    "phones": [
+     "0866711615",
+     "0867287911"
+    ],
+    "hoursPosted": "17.00-02.00"
+   }
+  },
+  "how": {
+   "phone": "read off the place's own sign from the road",
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-osm-node-11608834671": {
+  "fields": {
+   "phone": "0822158244"
+  },
+  "how": {
+   "phone": "read off the place's own sign from the road"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-osm-node-5117303021": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "24 hours"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-osm-node-12543092104": {
+  "fields": {
+   "phone": "053211888",
+   "attrs": {
+    "hoursPosted": "9.00-16.00 (workshop hours posted)"
+   }
+  },
+  "how": {
+   "phone": "read off the place's own sign from the road",
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-osm-node-11499304870": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "08.00 AM - 05.00 PM"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-ovt-a32e7481-212e-49d4-9254-d0c9fa95c259": {
+  "fields": {
+   "phone": "0651238182",
+   "attrs": {
+    "phones": [
+     "0651238182",
+     "0921817858"
+    ]
+   }
+  },
+  "how": {
+   "phone": "read off the place's own sign from the road"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-ovt-00319733-c0b1-49f7-88f2-5c73fcd488a1": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "open (sign: OPEN)"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-osm-node-7426556027": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "08:30-19:30 น."
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-osm-node-4617425626": {
+  "fields": {
+   "phone": "053223680"
+  },
+  "how": {
+   "phone": "read off the place's own sign from the road"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-ovt-39762ebc-13c9-4cfa-97bc-cae9affdb716": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "10:00-23:00"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-curated-paper-17111": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "10.00-19.00 Mon-Sat"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-ovt-6d9236eb-fa26-4a8f-b4da-0eda7d53abc0": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "จันทร์-เสาร์ 09:30-19:00 น."
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-ovt-b6f1d9bc-cefa-4524-ab1c-b55e335c44c7": {
+  "fields": {
+   "phone": "0939599105",
+   "attrs": {
+    "phones": [
+     "0939599105",
+     "0639904306"
+    ]
+   }
+  },
+  "how": {
+   "phone": "read off the place's own sign from the road"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-ovt-cd279250-dc89-4e86-b3af-69335e297087": {
+  "fields": {
+   "phone": "0520709901",
+   "attrs": {
+    "phones": [
+     "0520709901",
+     "0870664567"
+    ]
+   }
+  },
+  "how": {
+   "phone": "read off the place's own sign from the road"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-osm-node-8690841998": {
+  "fields": {
+   "phone": "053117207"
+  },
+  "how": {
+   "phone": "read off the place's own sign from the road"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-curated-chiang-mai-laminet": {
+  "fields": {
+   "phone": "0832002599",
+   "attrs": {
+    "phones": [
+     "0832002599",
+     "0874952271"
+    ]
+   }
+  },
+  "how": {
+   "phone": "read off the place's own sign from the road"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-ovt-74bf2023-7f01-48f5-a4db-ebca4826d557": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "appears closed"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-osm-way-695910297": {
+  "fields": {
+   "phone": "053998555"
+  },
+  "how": {
+   "phone": "read off the place's own sign from the road"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "read off the place's own sign on NaN's GoPro Max 2 ride and market walk"
+ },
+ "cm-ovt-b37ef0be-aefe-466f-a209-c56d3fd2a359": {
+  "fetched": "2026-09-24",
+  "src": "https://motdang.net/field/sessions/2026-09-24-amulets/",
+  "license": "own-sign",
+  "note": "its own sign and glass shopfront in the amulet market, NaN's GoPro Max 2 walk, 24 Sep 2026",
+  "fields": {
+   "cat": [
+    "shopping"
+   ],
+   "sub": [
+    "crafts"
+   ],
+   "attrs": {
+    "kind": "amulet and Buddha image shop; frames and waterproof amulet cases",
+    "kindTh": "ร้านพระเครื่อง พระบูชา รับทำกรอบพระกันน้ำ",
+    "insideOfId": "cm-osm-node-6351675891",
+    "phones": [
+     "0625985696",
+     "0625969944"
+    ]
+   }
+  }
+ },
+ "cm-osm-node-3298131066": {
+  "fetched": "2026-09-24",
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "note": "its own sign, วาเลนไทน์ · Valentine, read from the road on NaN's GoPro Max 2 ride, 24 Sep 2026 09:50",
+  "fields": {
+   "nameTh": "วาเลนไทน์",
+   "attrs": {
+    "kind": "lingerie and women's clothing shop",
+    "kindTh": "ร้านชุดชั้นใน เสื้อผ้าผู้หญิง"
+   }
+  }
+ },
+ "cm-ovt-1c2d2930-d769-4319-a755-db080040ca51": {
+  "fields": {
+   "attrs": {
+    "hoursPosted": "08.00-20.00 น. ทุกวัน"
+   }
+  },
+  "how": {
+   "attrs": "posted hours, as written on the sign"
+  },
+  "src": "https://motdang.net/field/sessions/2026-09-24/",
+  "license": "own-sign",
+  "fetched": "2026-09-24",
+  "note": "its own sign, read at a stop on NaN's GoPro Max 2 ride, 24 Sep 2026"
+ },
+ "cm-osm-node-2865838901": {
+  "fetched": "2026-09-25",
+  "fields": {
+   "phone": "053-288-804",
+   "attrs": {
+    "phonesExtra": [
+     "060-153-9000",
+     "080-153-9000"
+    ]
+   }
+  },
+  "how": {
+   "phone": "read on the clinic shopfront sign"
+  },
+  "license": "field",
+  "src": "GoPro Max 2 walk GSAF6825_167_R, Central Festival Chiang Mai, 2026-09-25"
+ },
+ "cm-osm-node-10815775054": {
+  "fetched": "2026-09-27",
+  "fields": {
+   "name": "ตลาดฉำฉา",
+   "nameTh": "ตลาดฉำฉา",
+   "nameEn": "Chamcha Market",
+   "hours": "Sa-Su 09:00-15:00",
+   "attrs": {
+    "altNames": [
+     "เวิ้งฉำฉา",
+     "Werng Cham Chaa",
+     "ฉำฉา market"
+    ],
+    "facts": [
+     "toilets 10 baht",
+     "parking 20 baht",
+     "customer parking signed in Thai, English, Chinese, Korean, Japanese"
+    ]
+   }
+  },
+  "how": {
+   "name": "the market's own painted signs ('ฉำฉา market', 'Werng Cham Chaa market'); the record's old name ตะกร้าผ้าทอ is a woven-basket shop",
+   "hours": "market banner 'ฉำฉา market Sat-Sun 9:00am-3:00pm'"
+  },
+  "license": "field",
+  "src": "GoPro Max 2 walk GSAA7017, Chamcha Market, San Kamphaeng, 2026-09-27"
+ },
+ "cm-osm-node-5203436917": {
+  "fetched": "2026-09-27",
+  "fields": {
+   "phone": "089-634-8981",
+   "nameTh": "บ้านเปิงใจ๋"
+  },
+  "how": {
+   "phone": "sign 'บ้าน เปิงใจ๋ 089-6348981'"
+  },
+  "license": "field",
+  "src": "GoPro Max 2 walk GSAA7017, Chamcha Market, San Kamphaeng, 2026-09-27"
+ },
+ "cm-ovt-6bdccf9e-fdec-481a-a21c-96b1d37260a5": {
+  "fetched": "2026-09-27",
+  "fields": {
+   "hours": "Mo-Su 09:00-17:00",
+   "nameTh": "เฮือน ณ ใจ๋",
+   "attrs": {
+    "altNames": [
+     "ฝ้ายเปลือกไม้ FAIPLUEAKMAI"
+    ],
+    "kind": "café, exhibitions and workshops in a garden of teak houses; coffee and egg tarts"
+   }
+  },
+  "how": {
+   "hours": "gate sign 'OPEN DAILY 09.00-17.00'"
+  },
+  "license": "field",
+  "src": "GoPro Max 2 walk GSAA7017, Chamcha Market, San Kamphaeng, 2026-09-27"
+ },
+ "cm-ovt-495481d7-c0b9-4bad-83fd-48836e9d796c": {
+  "fetched": "2026-09-27",
+  "fields": {
+   "hours": "Mo,Tu,Th,Fr 10:00-16:00; Sa,Su 09:00-16:00; We off"
+  },
+  "how": {
+   "hours": "board 'Weekend 9:00-16:00, Weekday 10:00-16:00, close on Wednesday'"
+  },
+  "license": "field",
+  "src": "GoPro Max 2 walk GSAA7017, Chamcha Market, San Kamphaeng, 2026-09-27"
+ },
+ "cm-ovt-05b32254-6837-434c-911a-ce7369728b4f": {
+  "fetched": "2026-09-27",
+  "fields": {
+   "nameTh": "ปังปอนด์",
+   "attrs": {
+    "facebook": "Pungpond",
+    "prices": "pastries 45-70; sourdough"
+   }
+  },
+  "how": {
+   "facebook": "sign 'Pungpond' Facebook",
+   "note": "phone 081-784-7737 read at medium confidence on the last digits, not written"
+  },
+  "license": "field",
+  "src": "GoPro Max 2 walk GSAA7017, Chamcha Market, San Kamphaeng, 2026-09-27"
+ },
+ "cm-osm-node-4686351107": {
+  "fetched": "2026-09-27",
+  "fields": {
+   "hours": "Mo-Su 10:00-18:00"
+  },
+  "how": {
+   "hours": "gate board 'Open every day 10AM-6PM'"
+  },
+  "license": "field",
+  "src": "GoPro Max 2 walk GSAA7017, Chamcha Market, San Kamphaeng, 2026-09-27"
+ },
+ "cm-ovt-2ae8f854-0cf2-4a4c-bba0-17cc5f9cf1da": {
+  "fetched": "2026-09-27",
+  "fields": {
+   "hours": "Mo-Su 08:00-16:30"
+  },
+  "how": {
+   "hours": "shop sign 'Weekend … 8:00-16:30', read from the road on the 27 Sep ride video"
+  },
+  "license": "field",
+  "src": "GoPro Max 2 walk GSAA7017, Chamcha Market, San Kamphaeng, 2026-09-27"
+ },
+ "cm-osm-node-7005727190": {
+  "fetched": "2026-10-02",
+  "fields": {
+   "nameTh": "ดรอปอิน",
+   "attrs": {
+    "kind": "restaurants and bar"
+   }
+  },
+  "how": {
+   "nameTh": "Thai name and trade from its hanging sign",
+   "attrs": "Thai name and trade from its hanging sign"
+  },
+  "license": "field",
+  "src": "her vivo photo IMG_20261002_093700.jpg, 2026-10-02"
+ },
+ "cm-ovt-5d975623-318e-4b4a-a85d-5db86e61cbe3": {
+  "fetched": "2026-10-02",
+  "fields": {
+   "name": "Oriental Guest House",
+   "nameEn": "Oriental Guest House",
+   "phone": "053-276742",
+   "address": "69 Loikroh Rd., T.Changklan, A. Muang, Chiang Mai 50100",
+   "attrs": {
+    "fax": "053-206267",
+    "kind": "guest house with garden, coffee shop, bar & restaurant",
+    "kindTh": "เกสต์เฮาส์ มีสวน ร้านกาแฟ บาร์และร้านอาหาร",
+    "operator": "Lugér Oriental Company Limited Group",
+    "sharesAddressWith": "Garden Restaurant (cm-osm-node-2300400256)"
+   }
+  },
+  "how": {
+   "name": "phone, fax, address, website and operator from the sign over its door",
+   "nameEn": "phone, fax, address, website and operator from the sign over its door",
+   "phone": "phone, fax, address, website and operator from the sign over its door",
+   "address": "phone, fax, address, website and operator from the sign over its door",
+   "attrs": "phone, fax, address, website and operator from the sign over its door"
+  },
+  "license": "field",
+  "src": "her vivo photo IMG_20261002_162507.jpg, 2026-10-02"
+ },
+ "cm-ovt-a8b5127b-dd19-41b9-859b-de7c5207a161": {
+  "fetched": "2026-10-02",
+  "fields": {
+   "name": "Ilili House",
+   "nameEn": "Ilili House",
+   "phone": "098-107-4318",
+   "attrs": {
+    "kind": "hourly room rental and hostel",
+    "kindTh": "ห้องพักรายชั่วโมงและโฮสเทล"
+   }
+  },
+  "how": {
+   "name": "name, phone and 'Hourly room rental' from its two signs",
+   "nameEn": "name, phone and 'Hourly room rental' from its two signs",
+   "phone": "name, phone and 'Hourly room rental' from its two signs",
+   "attrs": "name, phone and 'Hourly room rental' from its two signs"
+  },
+  "license": "field",
+  "src": "her vivo photo IMG_20261002_183017.jpg, 2026-10-02"
+ },
+ "cm-osm-way-360706203": {
+  "fetched": "2026-10-02",
+  "fields": {
+   "address": "65 ต.ช้างคลาน อ.เมือง จ.เชียงใหม่",
+   "attrs": {
+    "nameLanna": "on the gate sign in Tai Tham script"
+   }
+  },
+  "how": {
+   "address": "address from the gate sign",
+   "attrs": "address from the gate sign"
+  },
+  "license": "field",
+  "src": "her vivo photo IMG_20261002_162426.jpg, 2026-10-02"
+ },
+ "cm-osm-node-1477685528": {
+  "fetched": "2026-10-02",
+  "fields": {
+   "nameTh": "บลูสกาย นวดเพื่อสุขภาพ",
+   "address": "67 Loi Kroh Road",
+   "attrs": {
+    "services": "Thai massage, oil massage, foot massage"
+   }
+  },
+  "how": {
+   "nameTh": "Thai name, house number 67 and services from its sign",
+   "address": "Thai name, house number 67 and services from its sign",
+   "attrs": "Thai name, house number 67 and services from its sign"
+  },
+  "license": "field",
+  "src": "her vivo photo IMG_20261002_162451.jpg, 2026-10-02"
+ },
+ "cm-osm-node-820315995": {
+  "fetched": "2026-10-02",
+  "fields": {
+   "attrs": {
+    "kind": "guest house: rooms, dorm & restaurant",
+    "kindTh": "เกสต์เฮาส์ ห้องพัก ห้องรวม และร้านอาหาร",
+    "forSale": "hand-written sign on the gate, 2 Oct 2026: guest house + land 56.9 sq wah for sale (ขาย เกสต์เฮ้าส์ + ที่ดิน 56.9 ตร.ว.)"
+   }
+  },
+  "how": {
+   "attrs": "trade from the arch sign; sale notice on the gate"
+  },
+  "license": "field",
+  "src": "her vivo photo IMG_20261002_162322.jpg, 2026-10-02"
+ },
+ "cm-osm-node-3385494997": {
+  "fetched": "2026-10-02",
+  "fields": {
+   "attrs": {
+    "cards": "Visa sticker on the door"
+   }
+  },
+  "how": {
+   "attrs": "Visa sticker on the café door"
+  },
+  "license": "field",
+  "src": "her vivo photo IMG_20261002_120700.jpg, 2026-10-02"
+ },
+ "cm-osm-node-2597946649": {
+  "fetched": "2026-10-02",
+  "fields": {
+   "attrs": {
+    "kind": "bar with football on TV, neon 'darling bar' sign"
+   }
+  },
+  "how": {
+   "attrs": "seen inside"
+  },
+  "license": "field",
+  "src": "her vivo photo IMG_20261002_182951.jpg, 2026-10-02"
+ },
+ "cm-ovt-c2623b8b-73bf-48ff-8b64-9a199f43082c": {
+  "fetched": "2026-10-03",
+  "src": "https://www.centrallabthai.com/index.php/th/download/category/34-chiangmai-branch",
+  "license": "official-site",
+  "how": {
+   "attrs": "Department of Medical Sciences regional lab; named as cannabis proficiency-test organiser on Central Lab Thai's branch page; ISO/IEC 17025 per its own instrument-verification guide"
+  },
+  "fields": {
+   "attrs": {
+    "facilityType": "laboratory",
+    "kind": "Department of Medical Sciences regional lab — food, water, cannabis, drug and pesticide testing; GC-MS and headspace GC-MS in its service manual, GC-MS amphetamine test on its ISO/IEC 17025 scope",
+    "kindTh": "ห้องปฏิบัติการของกรมวิทยาศาสตร์การแพทย์ — ตรวจอาหาร น้ำ กัญชา ยาเสพติด สารพิษตกค้าง มี GC-MS และ headspace GC-MS ในคู่มือบริการ การตรวจแอมเฟตามีนด้วย GC-MS อยู่ในขอบข่าย ISO/IEC 17025",
+    "tradeTags": [
+     "GC-MS",
+     "แก๊สโครมาโทกราฟี",
+     "ตรวจวิเคราะห์อาหาร",
+     "ตรวจกัญชา",
+     "ตรวจสารพิษตกค้าง"
+    ],
+    "tradeTagsEn": [
+     "GC-MS",
+     "gas chromatography",
+     "food testing",
+     "cannabis testing",
+     "pesticide residues"
+    ]
+   }
+  },
+  "prov": {
+   "attrs.kind": {
+    "src": "https://drive.google.com/file/d/1feAlReF7iIg2k54Hct1ltaxJC5WP7Lxb/view",
+    "license": "official-doc",
+    "fetched": "2026-10-03"
+   }
+  }
+ },
+ "cm-ovt-42f6fe00-e85a-4ef6-9773-28471ba53b87": {
+  "fetched": "2026-10-03",
+  "src": "https://www.doa.go.th/leka/?p=3322",
+  "license": "official-site",
+  "how": {
+   "attrs": "Department of Agriculture regional office page"
+  },
+  "fields": {
+   "attrs": {
+    "facilityType": "laboratory",
+    "kind": "Department of Agriculture regional research office — agricultural testing incl. pesticide residues; GC-MS not confirmed",
+    "kindTh": "สำนักวิจัยและพัฒนาการเกษตรเขตที่ 1 กรมวิชาการเกษตร — ตรวจวิเคราะห์สินค้าเกษตร รวมถึงสารพิษตกค้าง",
+    "tradeTags": [
+     "ตรวจสารพิษตกค้าง",
+     "ตรวจวิเคราะห์สินค้าเกษตร"
+    ],
+    "tradeTagsEn": [
+     "pesticide residues",
+     "agricultural testing"
+    ]
+   }
+  }
+ },
+ "cm-ovt-317381c5-5755-4359-8f3f-3f473dac57c7": {
+  "fetched": "2026-10-03",
+  "src": "https://secretary-science.mju.ac.th/goverment/25570522101243_science_secretary/Doc_25680530220228_117096.pdf",
+  "license": "official-doc",
+  "how": {
+   "attrs": "Maejo University rate announcement for Faculty of Science services (May 2025), GC-MS/MS rows; phones from the centre's instrument-list page"
+  },
+  "fields": {
+   "phone": "053-873802, 053-873803",
+   "website": "https://sciencebase.mju.ac.th/scias/index.php",
+   "attrs": {
+    "facilityType": "laboratory",
+    "kind": "university analytical service — GC-MS/MS: ฿3,000/sample in scan or SIM, ฿3,500 in MRM, headspace +฿200; instrument time ฿1,500/hour (GC-MS) or ฿3,500/hour (GC-MS/MS); general-public rates of May 2025, chemicals extra, customer supplies the method",
+    "kindTh": "บริการวิเคราะห์ของมหาวิทยาลัย — GC-MS/MS ตัวอย่างละ ฿3,000 (scan/SIM) ฿3,500 (MRM) headspace +฿200 ใช้เครื่องชั่วโมงละ ฿1,500 (GC-MS) หรือ ฿3,500 (GC-MS/MS) อัตราบุคคลทั่วไป ประกาศ พ.ค. 2568 ไม่รวมสารเคมี ลูกค้าต้องมี condition มาเอง",
+    "_pricesVerified": false,
+    "tradeTags": [
+     "GC-MS",
+     "GC-MS/MS",
+     "แก๊สโครมาโทกราฟี",
+     "วิเคราะห์สารเคมี"
+    ],
+    "tradeTagsEn": [
+     "GC-MS",
+     "GC-MS/MS",
+     "gas chromatography",
+     "chemical analysis"
+    ]
+   }
+  }
  }
 }

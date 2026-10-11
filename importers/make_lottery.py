@@ -47,9 +47,27 @@ the four headline groups (รางวัลที่ 1, เลขหน้า 3
 are present and non-empty. The source also publishes its separate N3 digit
 lottery under an `n3` key; deliberately not baked — different product,
 different tile if ever wanted.
+
+PAST DRAWS -> data/lottery_history.json (surveyed 2026-10-03, from the
+office's own front-end bundle, /_nuxt/*.js, LotteryCheckStore):
+   - POST /api/lottery/getPeriodsByYear {"year": "2026", "type": "CHECKED"}
+     lists the year's draw dates (each date twice, one per sheet number).
+   - POST /api/lottery/getLotteryAward {"date": "16", "month": "09",
+     "year": "2026"} returns ONE past draw in the same envelope as
+     getLatestLottery, so build_record() reads it unchanged. Keyless, no
+     CAPTCHA (the per-ticket checker is the one that carries reCAPTCHA).
+   The history keeps the newest HISTORY_N draws, the latest one included,
+   newest first; each entry is the `draw` object of data/lottery.json. A run
+   fetches only the draws it does not hold yet: a sheet already in
+   cache/lottery/ is read from there, and every request waits PAUSE seconds
+   after the one before. The first run costs up to two period lists and
+   HISTORY_N sheets; a run after a new draw costs one period list (the
+   latest sheet is already in hand); a run with no new draw costs nothing
+   beyond the latest-draw fetch. Unchanged draws -> byte-identical file.
 """
 import json
 import sys
+import time
 import urllib.request
 from datetime import date, datetime, timezone, timedelta
 from pathlib import Path
@@ -60,6 +78,11 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "data" / "lottery.json"
 CACHE = ROOT / "cache" / "lottery"
 URL = "https://www.glo.or.th/api/lottery/getLatestLottery"
+URL_AWARD = "https://www.glo.or.th/api/lottery/getLotteryAward"
+URL_PERIODS = "https://www.glo.or.th/api/lottery/getPeriodsByYear"
+HIST = ROOT / "data" / "lottery_history.json"
+HISTORY_N = 24
+PAUSE = 3.0   # seconds between requests to the office
 UA = ("mot-dang-directory/1.0 (+https://github.com/NaNoBotCo/mot-dang; "
       "lottery-draw public-record snapshot, twice monthly)")
 
@@ -88,14 +111,139 @@ _EN_MO = ["", "January", "February", "March", "April", "May", "June",
           "July", "August", "September", "October", "November", "December"]
 
 
-def fetch():
-    """One polite POST. The empty JSON body is the whole request."""
+def fetch(url=URL, body=None):
+    """One polite POST. For the latest draw the empty JSON body is the whole
+    request; the history calls pass their own small body."""
+    data = json.dumps(body or {}).encode()
     req = urllib.request.Request(
-        URL, data=b"{}",
+        url, data=data,
         headers={"User-Agent": UA, "Content-Type": "application/json"},
         method="POST")
     with urllib.request.urlopen(req, timeout=45) as r:
         return json.load(r)
+
+
+_last_request = [0.0]
+
+
+def polite_fetch(url, body):
+    """fetch(), PAUSE seconds after the previous office request of this run."""
+    wait = _last_request[0] + PAUSE - time.monotonic()
+    if wait > 0:
+        time.sleep(wait)
+    try:
+        return fetch(url, body)
+    finally:
+        _last_request[0] = time.monotonic()
+
+
+def period_dates(year):
+    """The office's draw dates for one CE year, newest first, de-duplicated."""
+    payload = polite_fetch(URL_PERIODS, {"year": str(year), "type": "CHECKED"})
+    rows = ((payload or {}).get("response") or {}).get("result") or []
+    out = set()
+    for r in rows:
+        try:
+            out.add(date.fromisoformat(str(r.get("date"))[:10]))
+        except ValueError:
+            continue
+    return sorted(out, reverse=True)
+
+
+def cached_sheet(day):
+    f = CACHE / ("glo-%s.json" % day.isoformat())
+    if f.exists():
+        try:
+            return json.loads(f.read_text())
+        except ValueError:
+            return None
+    return None
+
+
+def update_history(latest, fetched_at, offline):
+    """data/lottery_history.json: the newest HISTORY_N draws, latest included.
+
+    Draws already held stay as they are; a missing one comes from cache/ or,
+    online, from one getLotteryAward request. A sheet that fails build_record()
+    is left out and named, and the rest of the history still writes."""
+    held = {}
+    if HIST.exists():
+        try:
+            old = json.loads(HIST.read_text())
+        except ValueError:
+            old = {}
+        for d in old.get("draws") or []:
+            if d.get("date"):
+                held[d["date"]] = d
+    else:
+        old = {}
+    already = latest["date"] in held and len(held) >= HISTORY_N
+    held[latest["date"]] = latest
+    newest = date.fromisoformat(latest["date"])
+
+    if already:
+        wanted = []   # nothing new since the last run: no request at all
+    elif offline:
+        wanted = sorted((date.fromisoformat(f.stem[4:]) for f in CACHE.glob("glo-*.json")),
+                        reverse=True) if CACHE.exists() else []
+    else:
+        wanted = []
+        year = newest.year
+        while len([d for d in wanted if d <= newest]) < HISTORY_N \
+                and year >= newest.year - 2:
+            try:
+                wanted += [d for d in period_dates(year) if d <= newest]
+            except Exception as e:
+                print("🐜 period list %d failed (%s) — history from what is held" % (year, e))
+                break
+            year -= 1
+    wanted = [d for d in wanted if d <= newest][:HISTORY_N]
+
+    skipped = []
+    for day in wanted:
+        key = day.isoformat()
+        if key in held:
+            continue
+        payload = cached_sheet(day)
+        if payload is None and not offline:
+            try:
+                payload = polite_fetch(URL_AWARD, {"date": "%02d" % day.day,
+                                                   "month": "%02d" % day.month,
+                                                   "year": str(day.year)})
+            except Exception as e:
+                skipped.append("%s (%s)" % (key, e))
+                continue
+            CACHE.mkdir(parents=True, exist_ok=True)
+            (CACHE / ("glo-%s.json" % key)).write_text(
+                json.dumps(payload, ensure_ascii=False, indent=1))
+        if payload is None:
+            continue
+        rec = build_record(payload, fetched_at)
+        if isinstance(rec, str):
+            skipped.append("%s (%s)" % (key, rec))
+            continue
+        if rec["draw"]["date"] != key:
+            skipped.append("%s (sheet says %s)" % (key, rec["draw"]["date"]))
+            continue
+        held[key] = rec["draw"]
+
+    draws = [held[k] for k in sorted(held, reverse=True)][:HISTORY_N]
+    if old.get("draws") == draws:
+        doc = old
+    else:
+        doc = {
+            "generated": fetched_at[:10],
+            "fetched_at": fetched_at,
+            "source": ("สำนักงานสลากกินแบ่งรัฐบาล — Government Lottery Office, glo.or.th "
+                       "(POST /api/lottery/getLotteryAward, one request a draw)"),
+            "draws": draws,
+        }
+    ingest.write(HIST, doc, count=len(draws), min_rows=1,
+                 source_published_at=draws[0]["date"], label="lottery_history.json")
+    for s_ in skipped:
+        print("🐜 history: left out %s" % s_)
+    print("🐜 history: %d draws, %s to %s -> %s"
+          % (len(draws), draws[-1]["date"], draws[0]["date"], HIST))
 
 
 def newest_cache():
@@ -222,6 +370,7 @@ def main():
                          label="lottery.json")
             print("🐜 งวด %s unchanged — data/lottery.json kept as it was"
                   % rec["draw"]["date"])
+            update_history(rec["draw"], fetched_at, from_cache)
             return
 
     # WO-41 Phase 2. The sheet is already validated above; this records the
@@ -232,6 +381,7 @@ def main():
     first = next((p for p in rec["draw"]["prizes"] if p["id"] == "first"), {})
     print("🐜 งวด %s — รางวัลที่ 1: %s -> %s"
           % (rec["draw"]["date"], " ".join(first.get("numbers", [])), OUT))
+    update_history(rec["draw"], fetched_at, from_cache)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,89 @@
+PAID RED-TEAMING — NO HIRING — checked 2 Oct 2026
+ICT = Chiang Mai time. "unverified" = the program's own page would not load.
+
+OPEN NOW, NO APPLICATION
+--------------------------------------------------------------------------
+1. 0DIN (Mozilla) — https://0din.ai/marketing/bug_bounty
+   Jailbreaks, prompt injection, training-data leaks on deployed models.
+   Send a short summary; they rule on scope within 3 business days.
+   Per finding: $500 low · $2,500 medium · $5,000 high · $15,000 severe.
+   Always open. Thailand eligible (sanctioned countries only excluded).
+   At payout: photo ID + W-9. Credit can stay anonymous.
+
+2. Gray Swan — Lucky Break Agent Direct —
+   https://app.grayswan.ai/arena/challenge/lucky-break-agent-direct
+   Five customer-service agents (car dealer, furniture store, utility,
+   pharmacy, biolab); talk each out of its rule. Each confirmed break = one
+   raffle ticket, up to 5. $10,000: 100 winners x $100, drawn 2–3 days after.
+   Opened 28 Sept 13:00 PT = 29 Sept 03:00 ICT. Still live 2 Oct.
+   Breaks count until 5 Oct 10:00 PT = 6 Oct 00:00 ICT (the page also says
+   "prizes close" 13:00 PT = 03:00 ICT; the earlier hour governs breaks).
+   Open to Arena users 18+ worldwide except where prohibited (Quebec named).
+   On a win: profile, W-9, paid by Stripe or wire in 2–4 weeks.
+   Hand-typed only; no sharing breaks for 30 days after.
+
+3. Gray Swan — next prized arena. Recent: IPI Aug $30k, Hazard Hunt $80k
+   (25 Aug – 11 Sept). Next named contest not announced (arena read 2 Oct). Pattern: IPI monthly,
+   Hazard Hunt quarterly. Paid 2–4 weeks after close.
+
+4. huntr "Blind Trust" — https://huntr.com/challenges
+   Prompt-inject three sandboxed agents, hand-typed. $15,000 pool.
+   Ends 30 or 31 Oct (2 Oct: "29 days remaining"; exact date and hour
+   unverified). Pays via Stripe Connect
+   (serves Thailand). Stripe ID check. Handle.
+
+HACKERONE — PUBLIC PROGRAMS WITH AN AI MODEL IN SCOPE (checked 23 Sept; HackerOne blocked the reader 27 Sept – 2 Oct — unverified since)
+--------------------------------------------------------------------------
+Anthropic — $100–10k. Claude Code permission-prompt bypass is in scope:
+   commands or file writes run without the prompt, or a prompt that shows
+   something other than what runs. Jailbreaks and harmful output are OUT.
+Anthropic Cyber Jailbreak — cyber jailbreaks of Claude. Disclosure only,
+   no money.
+Notion AI — $50–5k. Wants AI reaching data the user lacks permission to.
+Priceline "Penny" (travel assistant) — $50–5k.
+Cloudflare Workers AI — $100–10k. Prompt injection counts only with
+   impact on Cloudflare itself.
+Amazon VRP — $200–30k, one AI model asset.
+Private invitations: none yet. HackerOne sends them after a valid report
+or Hacker101 CTF points.
+
+APPLICATION + NDA, BIGGEST PAY
+--------------------------------------------------------------------------
+5. Anthropic model safety bounty (HackerOne, invite) — up to $35,000 per
+   universal jailbreak of Claude's classifiers on CBRN/cyber.
+   Apply by Google Form on the page; rolling review, acceptance selective
+   (read 2 Oct). Accepted: Claude Console account on a
+   @wearehackerone.com alias.
+   https://support.claude.com/en/articles/12119250-model-safety-bug-bounty-program
+6. OpenAI Bio Bounty — $50,000 per universal jailbreak of the bio
+   challenge on GPT-5.6; smaller awards for partial wins.
+   OPEN: since 9 July an ongoing private program with ROLLING applications
+   (page dated 9 July, read 30 Sept; page refused the reader 2 Oct).
+   Apply: short form (name, affiliation, experience), needs an existing
+   ChatGPT account; NDA on acceptance. https://openai.com/index/bio-bug-bounty/
+7. OpenAI Safety Bug Bounty (Bugcrowd) — agent hijack by third-party
+   prompt injection, reproducible 50%+. Up to $20k, $100k exceptional.
+   Plain jailbreaks excluded. https://bugcrowd.com/engagements/openai-safety
+
+ALWAYS OPEN, INJECTION ONLY (jailbreaks excluded)
+--------------------------------------------------------------------------
+8. Microsoft Copilot — $250–30,000; injection must hit another user.
+9. Google AI VRP — up to $30,000; data theft or rogue actions.
+10. Meta — pays only when chained to another payable risk.
+11. Microsoft Zero Day Quest — last research challenge ran 4 Aug – 4 Oct
+   2025, live event spring 2026. No new window on the MSRC page 2 Oct.
+
+THAI-LANGUAGE
+--------------------------------------------------------------------------
+None pays extra for Thai jailbreaks. ETDA's Thailand Banking AI Red Team
+Challenge ran 30 June – 3 July 2026, entry limited to 21 teams from TB-CERT
+member banks; no rerun found 2 Oct.
+
+CLOSED: Gray Swan Lucky Break Chat (29 Sept 00:00 ICT),
+huntr Inside Job (14 Sept), CrowdStrike Agents of Chaos
+(registration 31 Aug; Act 3 play ends 29 Sept), Kaggle AI Agent Security
+(1 Sept), AIM Intelligence Judgement Day (31 May), HackAPrompt 2.0,
+Dreadnode Crucible, Kaggle, Pangea, LLMail-Inject, Singapore IMDA.
+
+HIRING-SHAPED (skipped): Gray Swan private network (top 40–50 invited),
+Scale/Outlier, Mercor, Surge/DataAnnotation, Invisible, Appen, Haize Labs.

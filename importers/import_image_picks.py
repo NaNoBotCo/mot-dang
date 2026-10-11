@@ -8,15 +8,25 @@ site's own furniture: the hero, the category cards, the section art. A picture
 of a red songthaew belongs at the top of the transport shelf whether or not it
 is that particular songthaew, so identity is not the test here. Her eye is.
 
-She sent the picks two ways, and both are handled:
+Four link shapes are handled:
 
   https://share.google/<id>          a shared Google Image result
   https://commons.wikimedia.org/...  a Commons file page, any URL shape
+  https://unsplash.com/photos/...    an Unsplash photograph
+  https://www.flickr.com/photos/...  a Flickr photograph
 
 Google Images licenses nothing — it is an index. What makes the share links
 usable is that every one of hers lands on Wikimedia Commons, where the licence
 and the photographer arrive as facts attached to the file. Anything resolving
-somewhere else is reported and dropped; it is never guessed at.
+somewhere else is reported and dropped; the code does not guess at it.
+
+Unsplash and Flickr were added later, once "Commons only" turned out to be a
+limit of this file rather than a position on other sources. The test each has
+to pass is the one Commons passes: the licence and the photographer are read
+from the publisher's own API, not inferred. Unsplash needs a key, read from
+~/.config/nanobotco/keys.json; without one it goes quiet and the Commons picks
+still import. Flickr needs no key — its oEmbed endpoint states the licence
+outright, and a photograph whose licence cannot be seen is not used.
 
 The files are DOWNLOADED, not hotlinked. Two reasons. The site tells readers in
 five places that it follows no one around, and an image served from someone
@@ -64,9 +74,27 @@ PAUSE = 0.5
 WIDTH = 1000          # what we ask Commons for
 LONGEST = 1100        # what we keep: the hero shows ~1000 CSS px, cards ~300
 
-# Licences we will actually publish. Anything else is catalogued with its
+# Licences this publishes. Anything else is catalogued with its
 # verdict so the reason is on the record, but never handed to build.py.
-OK_LICENCE = re.compile(r"^(cc[ -]?(by|zero|0)|public domain|pd|cc[ -]?by[ -]?sa)", re.I)
+OK_LICENCE = re.compile(
+    r"^(cc[ -]?(by|zero|0)|public domain|pd|cc[ -]?by[ -]?sa|unsplash licen[cs]e)",
+    re.I)
+# NonCommercial and NoDerivatives, refused by name and BEFORE the allow-match.
+# "CC BY-NC-ND 2.0" starts with "CC BY", so the allow-pattern alone calls it
+# publishable — which was harmless while Commons was the only source, since
+# Commons will not host an NC or ND file at all. Flickr will, and most of its
+# Creative Commons photographs are exactly these: the first Flickr photo tested
+# against this importer was CC BY-NC-ND 2.0. NC also fails on its own terms
+# here, the site being a commercial directory, and ND fails the moment a
+# photograph is composited into a card.
+DENY_LICENCE = re.compile(r"\bn[ -]?c\b|noncommercial|non-commercial|"
+                          r"\bn[ -]?d\b|noderiv|no-deriv", re.I)
+
+
+def publishable(licence):
+    """One verdict, so every source is judged by the same rule."""
+    lic = (licence or "").strip()
+    return bool(lic) and not DENY_LICENCE.search(lic) and bool(OK_LICENCE.match(lic))
 
 SHARE = re.compile(r"share\.google/([A-Za-z0-9_-]+)")
 FILEPAGE = re.compile(r"commons\.wikimedia\.org/wiki/(File:[^\s\"'#&\\]+)", re.I)
@@ -78,6 +106,16 @@ FILEPAGE = re.compile(r"commons\.wikimedia\.org/wiki/(File:[^\s\"'#&\\]+)", re.I
 UPLOAD = re.compile(
     r"upload\.wikimedia\.org/wikipedia/commons/(?:thumb/)?[0-9a-f]/[0-9a-f]{2}/"
     r"([^\s\"'/?#\\]+\.(?:jpe?g|png|gif|svg|webp|tif+))", re.I)
+
+# Two more places a picture can come from, added when the Commons-only rule
+# turned out to be a limit of this file rather than a position on other
+# sources. Each is read through its own publisher's API, so the licence and the
+# photographer still arrive as facts rather than being reconstructed.
+#   unsplash.com/photos/<slug>-<id>   and the older unsplash.com/photos/<id>
+#   flickr.com/photos/<user>/<id>     any trailing path
+UNSPLASH = re.compile(r"unsplash\.com/photos/(?:[^/?#]*-)?([A-Za-z0-9_-]{6,})", re.I)
+FLICKR = re.compile(r"flickr\.com/photos/[^/]+/(\d{6,})", re.I)
+KEYS = os.path.expanduser("~/.config/nanobotco/keys.json")
 
 
 def get(url, ua=UA, timeout=45):
@@ -136,6 +174,115 @@ def resolve_share(sid, cache, refresh=False):
                       "landed": host.group(2) if host else "unknown"}
     time.sleep(PAUSE)
     return cache[sid]
+
+
+def unsplash_key():
+    """The fleet key store, or None. A missing key is a source that is quiet,
+    not a run that fails: her Commons picks must still import."""
+    try:
+        with open(KEYS, encoding="utf-8") as fh:
+            return (json.load(fh).get("unsplash") or {}).get("key") or None
+    except Exception:                                        # noqa: BLE001
+        return None
+
+
+def resolve_unsplash(pid, cache, refresh=False):
+    """One Unsplash photograph, through Unsplash's own API.
+
+    The Unsplash Licence permits commercial use and asks for — without
+    requiring — the photographer and a link back. We record both, because a
+    picture whose maker is not named is a picture we cannot answer for.
+    """
+    ck = "unsplash:" + pid
+    if not refresh and ck in cache:
+        return cache[ck]
+    key = unsplash_key()
+    if not key:
+        cache[ck] = {"ok": False, "why": "no Unsplash key in " + KEYS}
+        return cache[ck]
+    try:
+        req = urllib.request.Request(
+            "https://api.unsplash.com/photos/" + pid,
+            headers={"Authorization": "Client-ID " + key,
+                     "Accept-Version": "v1", "User-Agent": UA})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            d = json.load(r)
+    except Exception as e:                                   # noqa: BLE001
+        cache[ck] = {"ok": False, "why": "Unsplash: %s" % e}
+        return cache[ck]
+    who = (d.get("user") or {})
+    # A real location field, which Commons filenames only ever implied.
+    where = ((d.get("location") or {}).get("name") or "").strip()
+    desc = (d.get("description") or d.get("alt_description") or "").strip()
+    cache[ck] = {"ok": True, "entry": {
+        "title": desc or ("Unsplash photograph " + pid),
+        "page": ((d.get("links") or {}).get("html")
+                 or "https://unsplash.com/photos/" + pid),
+        "thumb": (d.get("urls") or {}).get("regular", ""),
+        "download_location": (d.get("links") or {}).get("download_location", ""),
+        "width": d.get("width"), "height": d.get("height"),
+        "licence": "CC0" if d.get("public_domain") else "Unsplash License",
+        "artist": who.get("name") or who.get("username") or "unknown",
+        "credit": "%s on Unsplash — %s" % (
+            who.get("name") or "unknown",
+            (who.get("links") or {}).get("html", "https://unsplash.com")),
+        "description": (desc + (" — " + where if where else "")).strip(),
+        "date": (d.get("created_at") or "")[:10],
+        "source": "unsplash",
+    }}
+    time.sleep(PAUSE)
+    return cache[ck]
+
+
+def resolve_flickr(url, cache, refresh=False):
+    """One Flickr photograph, through Flickr's oEmbed endpoint — which needs no
+    API key and, unusually for oEmbed, states the licence outright. That is the
+    only reason Flickr can be read here at all: a picture whose licence we
+    cannot see is a picture this does not use."""
+    ck = "flickr:" + url
+    if not refresh and ck in cache:
+        return cache[ck]
+    try:
+        q = urllib.parse.urlencode({"format": "json", "url": url})
+        with urllib.request.urlopen(urllib.request.Request(
+                "https://www.flickr.com/services/oembed?" + q,
+                headers={"User-Agent": UA}), timeout=30) as r:
+            d = json.load(r)
+    except Exception as e:                                   # noqa: BLE001
+        cache[ck] = {"ok": False, "why": "Flickr oEmbed: %s" % e}
+        return cache[ck]
+    lic = (d.get("license") or "").strip()
+    if not lic:
+        # All Rights Reserved photographs simply carry no licence line.
+        cache[ck] = {"ok": False, "why": "Flickr states no licence (all rights "
+                                         "reserved) — not usable"}
+        return cache[ck]
+    cache[ck] = {"ok": True, "entry": {
+        "title": (d.get("title") or "").strip() or "Flickr photograph",
+        "page": d.get("web_page") or url,
+        "thumb": d.get("url", ""),
+        "width": d.get("width"), "height": d.get("height"),
+        "licence": lic,
+        "artist": d.get("author_name") or "unknown",
+        "credit": "%s on Flickr — %s" % (d.get("author_name") or "unknown",
+                                         d.get("author_url") or url),
+        "description": (d.get("title") or "").strip(),
+        "date": "",
+        "source": "flickr",
+        "licence_url": d.get("license_url", ""),
+    }}
+    time.sleep(PAUSE)
+    return cache[ck]
+
+
+def resolve_external(line, cache, refresh=False):
+    """Is this line one of the non-Commons sources? None means 'not mine'."""
+    m = UNSPLASH.search(line)
+    if m:
+        return resolve_unsplash(m.group(1), cache, refresh)
+    if FLICKR.search(line):
+        return resolve_flickr(line.split("#")[0].strip(), cache, refresh)
+    return None
 
 
 # --------------------------------------------------------------- the four axes
@@ -244,7 +391,11 @@ HAND_TAGS = {
 def classify(e):
     """Tag one pick on all four axes. Everything is derived and re-derivable;
     a hand-set value in data/curated/ overrides it on the next merge."""
-    hay = (" " + e["title"][5:] + " " + e.get("description", "") + " ").lower()
+    # Commons titles arrive as "File:Name.jpg"; an Unsplash or Flickr title is
+    # already the words themselves. Stripping five characters unconditionally
+    # would eat the first word of every one of those.
+    name = e["title"][5:] if e["title"].lower().startswith("file:") else e["title"]
+    hay = (" " + name + " " + e.get("description", "") + " ").lower()
     # Commons filenames join words with any of these. Leaving hyphens in place
     # cost 6 pictures a topic on the first pass — "Thai-Cooking-Class" simply
     # does not contain "cooking class".
@@ -331,8 +482,18 @@ def main():
         lines = [ln.strip() for ln in fh
                  if ln.strip() and not ln.strip().startswith("#")]
 
-    titles, dropped = [], []
+    titles, dropped, external = [], [], []
     for ln in lines:
+        # Non-Commons sources first: they answer for themselves, and a
+        # share.google link never points at one.
+        ext = resolve_external(ln, cache, args.refresh)
+        if ext is not None:
+            json.dump(cache, open(cache_path, "w", encoding="utf-8"))
+            if ext.get("ok"):
+                external.append(ext["entry"])
+            else:
+                dropped.append((ln, ext.get("why", "?")))
+            continue
         m = SHARE.search(ln)
         if m:
             r = resolve_share(m.group(1), cache, args.refresh)
@@ -351,8 +512,15 @@ def main():
         if t not in seen:
             seen.add(t)
             order.append(t)
-    print("%d links → %d distinct Commons files (%d dropped)"
-          % (len(lines), len(order), len(dropped)))
+    # De-duplicate the external picks by their page URL, the same way Commons
+    # picks are de-duplicated by title.
+    seen_ext, ext_order = set(), []
+    for e in external:
+        if e["page"] not in seen_ext:
+            seen_ext.add(e["page"])
+            ext_order.append(e)
+    print("%d links → %d distinct Commons files, %d from other sources (%d dropped)"
+          % (len(lines), len(order), len(ext_order), len(dropped)))
     for ln, why in dropped:
         print("  dropped  %s  (%s)" % (ln, why))
 
@@ -386,13 +554,21 @@ def main():
             }
         time.sleep(PAUSE)
 
+    # The external picks join the same ledger, so a slug clash between an
+    # Unsplash photograph and a Commons file is caught by the same tie-break.
+    for e in ext_order:
+        e["slug"] = slug_for(e["title"], taken)
+        taken.setdefault(e["slug"], e["title"])
+        meta[e["page"]] = e
+        order.append(e["page"])
+
     out = []
     for t in order:
         m = meta.get(t)
         if not m:
             continue
         classify(m)
-        m["usable"] = bool(OK_LICENCE.match(m["licence"] or ""))
+        m["usable"] = publishable(m.get("licence"))
         if not m["usable"]:
             print("  not publishable  %s  (%s)" % (t, m["licence"] or "no licence stated"))
         out.append(m)
@@ -422,6 +598,20 @@ def main():
                 open(dest, "wb").write(get(e["thumb"], timeout=60))
                 shrink(dest)
                 got += 1
+                # Unsplash asks that a download be reported to this endpoint.
+                # It is a condition of using their API, it sends them nothing
+                # about the reader, and a failure here must not lose the file.
+                if e.get("source") == "unsplash" and e.get("download_location"):
+                    key = unsplash_key()
+                    if key:
+                        try:
+                            urllib.request.urlopen(urllib.request.Request(
+                                e["download_location"],
+                                headers={"Authorization": "Client-ID " + key,
+                                         "Accept-Version": "v1",
+                                         "User-Agent": UA}), timeout=20).read()
+                        except Exception:                    # noqa: BLE001
+                            pass
             except Exception as ex:                          # noqa: BLE001
                 print("  download failed  %s  (%s)" % (e["slug"], ex))
                 e.pop("file", None)

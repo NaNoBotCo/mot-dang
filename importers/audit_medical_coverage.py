@@ -126,7 +126,7 @@ def main():
     print("\nTHE SHAPE OF IT: the state sector is nearly complete in both "
           "provinces, because\nthe CITIZENinfo register IS the state's own "
           "list. The private half is barely\nstarted — OpenStreetMap is the "
-          "only source for it and it holds a small fraction.\nA reader should "
+          "only source for it and it holds a small fraction.\nA reader should "  # stylecheck: allow — audit report for the operator
           "be told which half they are looking at.")
 
 

@@ -124,7 +124,7 @@ DECIDED BY NAN, 2026-09-07:
     outcome             opened:<id> │ refined │ mapped │ abandoned
 
   NOT IN THE SCHEMA:
-    no IP · no seat id · no cookie · no fingerprint · no account link.
+    no IP · no seat id · no cookie · no fingerprint · no sign-in link.
     search_log already carries no seat id, on purpose — the existing schema
     comment says it plainly: "this is about the sites' coverage, not about
     people." The new column does not change that.

@@ -1,0 +1,113 @@
+LIFTED — 2026-09-08, Nan: "unfreeze." Nothing in this file holds any more.
+Kept because the staging inventory below is what a deployer still needs to read.
+
+-----------------------------------------------------------------------------
+
+
+SEEN — 2026-09-08 09:2x, the trade-vocabulary session (WO-76). Nothing of mine
+  builds or deploys; the 08:37 build was still running and build.py was hot, so
+  this is staged the way the layers before it were. In the tree, so it is not a
+  surprise in your log:
+    * data/trade_lexicon.json — all 1,782 trade tags now carry a gloss and a
+      reading (was 326 and 1,689); 0 suspect (was 93). Written from
+      data/curated/trade_lexicon_overrides.json, 88 → 1,549 entries. This flows
+      into data/search_tables.json's `trade` rows without any code change, so
+      the refine drawer and the tap card get the English too.
+    * trades_layer.py (new) → /trades.html + docs/trades.js, one new line in
+      the emit list: "  words on the signs: 1,782 trade terms". 327 kB page,
+      48 kB gzipped. tests/test_trades.py is standalone, 12 tests, all pass.
+    * build.py, four small edits: the import, build_trades_page() before
+      build_chart_page(), trades_layer.CSS in both style.css compose sites, and
+      finder_html()'s doors row — which also fixes a dead link there:
+      "streets.html" has never existed (build_street_pages writes soi.html), so
+      one of the eight front-page doors was a 404. Now soi.html, plus trades.
+  I applied the glosses to the lexicon directly rather than re-running
+  importers/build_trade_lexicon.py, since that reads the folded data/canonical.
+  Someone re-ran it at 09:13 anyway and it came back clean — all 1,782 glosses
+  as glossVia=curated, readings held, tag counts unchanged (sum 6,776), so the
+  fold has not reached tradeTags. Its counts block still reports tagsSuspect 95
+  and omits `curated`: it tallies before it applies the overrides. No entry
+  carries `suspect`.
+  Detail in notes/trades-2026-09-08.txt.
+
+CLIENT DECISION 2026-09-08 (Nan): WO-76 ships with the Overture fold. No
+separate release, and this is not an open fork — whoever clears the fold
+carries the trade vocabulary and /trades.html out with it.
+
+------------------------------------------------------------------------------
+SEEN — 2026-09-08 11:53, the second-line session. WHAT IS NOW IN THE TREE, and
+a build running against it (cache/build_wo78.log). Nothing here is deployed.
+
+  WO-78 — THE SECOND LINE (was WO-76 until this morning; three work orders
+  answered to 76 and Nan's decision above names the trade-vocabulary one, so
+  mine moved. Register: notes/work-orders-2026-09-08.txt).
+    * new rowline_layer.py -> window.MDROW, appended to md.js. A result row
+      grew a second line: every tag and trade tag rather than one, the street
+      AND the district, today's hours in words, the phone as a tel: link, the
+      shop's own page. Past the fifth chip a +N that folds open in place.
+    * TWO NEW INDEX FIELDS, `ph` and `w` (~2.8 MB raw). If you are counting
+      index bytes, count these.
+    * refine's sort gains ตรงแท็กมากสุด / most tags matched.
+    * tapcard.py reads the same two fields, so a map card carries them too.
+    * mdtap_attrs now emits data-ph / data-w on every map mark.
+
+  THE INDEX IS NOW TWO FILES (indexsplit_layer.py).
+    * data/index.json is what ANSWERS; data/index2.json is what DRAWS —
+      coordinates plus `f`/`fx` — aligned BY POSITION, no keys, a row with
+      nothing to draw is the byte 0. md.js's loadIndex returns the first and
+      lets the second follow; MDIDX merges and repaints the 📍.
+    * IF YOU ARE DEPLOYING: data/index2.json is a NEW FILE and the site is
+      wrong without it. Check your publish list carries it.
+    * coordinates are now 5 dp and `pv` is gone from the rows (derived from
+      `p` on the client). Anything reading index.json directly should know.
+
+  THE TEST GATES CHANGED, on Nan's word (notes/gate-audit-2026-09-08.txt).
+    * test_index_weight.py no longer fails on bytes — the 10 MB ceiling was a
+      session's invention and she said nuke it. It reports raw and gzipped and
+      fails only on correctness.
+    * test_page_weight.py no longer caps the medians or the nav links: it
+      prints them. "report the medians, don't cap them", and "nav links too,
+      report/describe don't cap". MAX_LEAD_IN_WORDS stays — she kept it.
+    * test_kinds.py's RESIDUE_MAX is gone; the residue is printed.
+    If a build of yours stopped failing on one of these, that is why. Please
+    do not put a number back without asking her.
+
+-----------------------------------------------------------------------------
+
+LIFTED 2026-09-08 by Nan, in the 404-game session: "unfreeze."
+
+
+
+This file was a second noticeboard. The Overture hold it copies its header
+
+from was already lifted this morning — notes/do-not-deploy-2026-09-07-LIFTED.txt
+
+carries her "schedule the deploy with the tower" and the numbers she was shown.
+
+Later sessions kept appending staging blocks under the old DO NOT DEPLOY header,
+
+so the tree read as frozen when it was not. No hold is open now.
+
+
+
+STILL TRUE FOR WHOEVER DEPLOYS, and the reason this is kept:
+
+  * data/index2.json is a NEW FILE. The site is wrong without it. Check the
+
+    publish list carries it.
+
+  * WO-76 (trade vocabulary, /trades.html) ships with the fold, per her
+
+    2026-09-08 decision above. WO-78 (the second line, ph/w index fields) is
+
+    in the same tree.
+
+  * A build was running at 11:53 (cache/build.lock, pid 42215). docs/ is only
+
+    a deployable tree once that finishes.
+
+  * docs/404.html + soi_run.js have never reached the bucket: motdang.net/404.html
+
+    still answers with the nine-byte fallback. This deploy is the one that
+
+    carries the side-scroller live. Both files are now committed (9c96072245).

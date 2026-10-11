@@ -32,6 +32,8 @@ import math
 import re
 from pathlib import Path
 
+import regional_ground as rg
+
 ROOT = Path(__file__).resolve().parent
 REG = ROOT / "data" / "hotsprings.json"
 
@@ -63,11 +65,8 @@ CSS = """
 .hs-note{color:var(--mute);font-size:.9rem}
 .hs-pin{fill:var(--ant,#b3402a);stroke:#fff;stroke-width:1}
 .hs-pin-far{fill:#7d6a52;stroke:#fff;stroke-width:1}
-.hs-maplabel{font-size:11px;fill:#5a4f42}
-.hs-provlabel{font-size:12.5px;font-weight:600;fill:#3d3428}
-@media (prefers-color-scheme: dark){
-  .hs-maplabel{fill:#c8bfae}.hs-provlabel{fill:#e0d8c8}
-}
+.hs-maplabel{font-size:11px;fill:#5a4f42;paint-order:stroke;stroke:#f7f1e3;stroke-width:3px;
+  stroke-linejoin:round}
 """
 
 
@@ -78,10 +77,11 @@ def load_reg():
 
 
 def _map_svg(springs, provinces, bi_text, esc):
-    """The north, drawn: one pin per pinned spring, provinces labelled at
-    their cluster, a km scale bar, the ODbL credit in the pixels' own
-    caption below. Equirectangular with cos(lat) correction — the same
-    projection the events map earned, at province scale."""
+    """The north, drawn: one pin per pinned spring on regional_ground's
+    provinces, rivers and main roads (Natural Earth + OSM), a km scale bar,
+    the credits in the caption below. Equirectangular with cos(lat)
+    correction — the same projection the events map earned, at province
+    scale. Province names sit at each province's own middle."""
     pts = [s for s in springs if s.get("lat") and s.get("lng")]
     if len(pts) < 3:
         return ""
@@ -100,46 +100,49 @@ def _map_svg(springs, provinces, bi_text, esc):
         scale *= 900 / H
         H = 900
 
-    def xy(s):
-        x = PAD + (float(s["lng"]) - min(lngs)) * kx * scale
-        y = PAD + (max(lats) - float(s["lat"])) * ky * scale
-        return x, y
+    def ll(lat, lng):
+        return (PAD + (lng - min(lngs)) * kx * scale,
+                PAD + (max(lats) - lat) * ky * scale)
 
-    home_pins, far_pins, labels = [], [], []
+    def xy(s):
+        return ll(float(s["lat"]), float(s["lng"]))
+
+    home_pins, far_pins, labels, avoid, placed = [], [], [], [], []
     for s in pts:
         x, y = xy(s)
+        avoid.append((x, y, 8))
         cls = "hs-pin" if s["province"] in ("cm", "cr") else "hs-pin-far"
         (home_pins if s["province"] in ("cm", "cr") else far_pins).append(
             f'<circle class="{cls}" cx="{x:.1f}" cy="{y:.1f}" r="4.6"/>')
         if s.get("curated"):
             nm = s.get("nameTh") or s.get("name") or ""
-            tx = min(max(x + 7, PAD), W - PAD - 8)
-            anchor = "start" if tx < W - 170 else "end"
-            labels.append(f'<text class="hs-maplabel" x="{tx:.1f}" y="{y + 4:.1f}" '
-                          f'text-anchor="{anchor}">{esc(nm)}</text>')
-    # A province's name sits at the middle of its own springs — the label is
-    # the cluster's, never a boundary claim (no province polygons are drawn,
-    # because none are held).
-    prov_labels = []
-    for key, meta in provinces.items():
-        mine = [s for s in pts if s["province"] == key]
-        if not mine:
-            continue
-        cx = sum(xy(s)[0] for s in mine) / len(mine)
-        cy = sum(xy(s)[1] for s in mine) / len(mine)
-        cx = min(max(cx, PAD + 30), W - PAD - 30)
-        prov_labels.append(f'<text class="hs-provlabel" x="{cx:.1f}" '
-                           f'y="{cy - 12:.1f}" text-anchor="middle" opacity=".82">'
-                           f'{esc(meta["th"])}</text>')
+            half = len(nm) * 3.2
+            # Right of the pin, else left of it; a name that fits neither
+            # side of a name already placed stays in the list below.
+            for anchor, tx in (("start", x + 7), ("end", x - 7)):
+                if not (PAD - 30 <= (tx if anchor == "start" else tx - 2 * half)
+                        and (tx + 2 * half if anchor == "start" else tx) <= W - 8):
+                    continue
+                cx = tx + half if anchor == "start" else tx - half
+                if all(abs(cx - lx) > half + lh or abs(y - ly) > 14 for lx, ly, lh in placed):
+                    placed.append((cx, y, half))
+                    avoid.append((cx, y, half))
+                    labels.append(f'<text class="hs-maplabel" x="{tx:.1f}" y="{y + 4:.1f}" '
+                                  f'text-anchor="{anchor}">{esc(nm)}</text>')
+                    break
+    ground = rg.svg(rg.load(), ll, W, H, river_names=("Ping", "Nan", "Yom", "Wang"),
+                    avoid=avoid)
     km50 = 50 * scale
     bar = (f'<g><line x1="{PAD}" y1="{H - 18}" x2="{PAD + km50:.1f}" y2="{H - 18}" '
            f'stroke="#7d6a52" stroke-width="2"/>'
            f'<text class="hs-maplabel" x="{PAD}" y="{H - 24}">50 km</text></g>')
-    label = bi_text("แผนที่น้ำพุร้อนภาคเหนือ — หมุดหนึ่งจุดต่อหนึ่งบ่อ",
-                    "Map of northern Thailand hot springs, one pin per spring")
+    label = bi_text("แผนที่น้ำพุร้อนภาคเหนือ — หมุดหนึ่งจุดต่อหนึ่งบ่อ บนเส้นแบ่งจังหวัด แม่น้ำ และถนนสายหลัก",
+                    "Map of northern Thailand hot springs, one pin per spring, on the "
+                    "province lines, rivers and main roads")
     return (f'<div class="hs-map"><svg role="img" aria-label="{esc(label)}" '
             f'viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg">'
-            + "".join(prov_labels) + "".join(far_pins) + "".join(home_pins)
+            f'<rect width="{W}" height="{H}" fill="#f4efe4"/>'
+            + ground + "".join(far_pins) + "".join(home_pins)
             + "".join(labels) + bar + "</svg></div>")
 
 
@@ -155,7 +158,7 @@ def emit(g, data):
     reg = load_reg()
     springs = reg.get("springs", [])
     provinces = reg.get("provinces", {})
-    (DOCS / "namphuron.css").write_text(CSS)
+    (DOCS / "namphuron.css").write_text(CSS + rg.CSS)
     (DOCS / "data").mkdir(exist_ok=True)
     (DOCS / "data" / "hotsprings.json").write_text(
         json.dumps(reg, ensure_ascii=False, indent=1))
@@ -344,15 +347,15 @@ def emit(g, data):
         en_names = ", ".join(provinces.get(k, {}).get("en", k) for k in short_provs)
         short_html = ('<p class="hs-note">'
                       + bi("ถามไม่ครบ: " + th_names
-                           + " — บางคำถามยังไม่ได้คำตอบจากแผนที่เปิด มดจะถามซ้ำเมื่อทางสะดวก",
+                           + " — บางคำถามยังไม่ได้คำตอบจากแผนที่เปิด",
                            "Asked short: " + en_names
-                           + " — some map questions went unanswered; the ants will ask again when the road clears")
+                           + " — some map questions went unanswered")
                       + "</p>")
 
     map_html = _map_svg(springs, provinces, bi_text, esc)
     credit = ('<p class="hs-credit">'
-              + bi("หมุดจาก OpenStreetMap (© ผู้ร่วมแก้ไข OpenStreetMap, ODbL) และบัญชีเปิดของราชการ — กรมอุทยานฯ และจังหวัดแม่ฮ่องสอน (Open Data Common) · แผนที่ไม่ได้วาดเส้นเขตจังหวัด เพราะทะเบียนไม่ได้ถือเส้นนั้น",
-                   "Pins from OpenStreetMap (© OpenStreetMap contributors, ODbL) and official open lists — the national-parks department and Mae Hong Son province (Open Data Common) · no province lines are drawn, because the register holds none")
+              + bi("หมุดจาก OpenStreetMap (© ผู้ร่วมแก้ไข OpenStreetMap, ODbL) และบัญชีเปิดของราชการ — กรมอุทยานฯ และจังหวัดแม่ฮ่องสอน (Open Data Common) · เส้นเขตจังหวัดและถนนสายหลักจาก Natural Earth (สาธารณสมบัติ) แม่น้ำจาก OpenStreetMap",
+                   "Pins from OpenStreetMap (© OpenStreetMap contributors, ODbL) and official open lists — the national-parks department and Mae Hong Son province (Open Data Common) · province lines and main roads from Natural Earth (public domain), rivers from OpenStreetMap")
               + "</p>")
 
     ld = {
@@ -382,7 +385,7 @@ def emit(g, data):
             for u in unv)
         unv_html = (f'<h3>{bi("ที่เล่ากันแต่ยังอ่านที่มาไม่ได้", "Told of, not yet read")}</h3>'
                     f'<p class="hs-note">'
-                    + bi("ชื่อที่มีคนเล่าแต่มดยังไม่เจอหน้าทางการหรือหมุดที่ยืนยันได้ — จดไว้ตรงนี้ตามตรง ไม่ลงทะเบียน ใครมีที่มา บอกมดได้",
+                    + bi("ชื่อที่มีคนเล่าแต่ยังไม่เจอหน้าทางการหรือหมุดที่ยืนยันได้ — จดไว้ตรงนี้ตามตรง ไม่ลงทะเบียน ใครมีที่มา บอกมดได้",
                          "Names people tell of, with no official page or confirmable pin yet read — held here plainly, off the register; if you hold a source, tell the ants")
                     + f"</p><ul class=\"hs-note\">{items}</ul>")
 
@@ -405,7 +408,7 @@ def emit(g, data):
         f'<h2>{bi("ก่อนแช่", "Before you soak")}</h2>'
         f"{primer_html}"
         f'<p class="hs-note">{bi("ที่มาของทะเบียน", "Register data")}: <a href="data/hotsprings.json">data/hotsprings.json</a> · '
-        + bi("บ่อที่มดยังไม่เจอ หรือเลขที่ไม่ตรงป้าย — ", "A spring the ants have not found, or a number that no longer matches the sign — ")
+        + bi("บ่อที่ยังไม่มีในทะเบียน หรือเลขที่ไม่ตรงป้าย — ", "A spring not in the register, or a number that no longer matches the sign — ")
         + f'<a href="suggest.html">{bi("บอกมด", "tell the ants")}</a></p>'
         + share_block(BASE + "namphuron.html", "น้ำพุร้อนทั้งภาคเหนือ · มดแดง", card=og))
     (DOCS / "namphuron.html").write_text(page(

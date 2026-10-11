@@ -164,6 +164,20 @@ NARROW_ROWS = (
     ("su",  "ชั้น",          "shelf",        "many"),
 )
 
+# One glyph per narrowing row, same order. Drawn, not worded: the word sits
+# inside the control (tools_row).
+TOOL_GLYPHS = ("i-grid", "i-pin", "i-road", "i-check", "i-layers")
+# The word each of them prints inside itself, same order: a select is 141 px
+# wide on a 375 px phone, and "ประเภท · what it is" was cut to "what it". The
+# full label is still the control's aria-label and title.
+TOOL_WORDS = (("ประเภท", "type"), ("ย่าน", "area"), ("ถนน", "road"),
+              ("มี", "has"), ("ชั้น", "shelf"))
+# The same for the sort's unset choice ("nearest first" in the form) and the
+# ring. Each half translates the other; at 375 px the select is 141 px and
+# they need 106 and 117 (Chrome). "ใกล้สุด · closest" needs 140, "nearest" 143.
+TOOL_SORT_WORDS = {"": ("ใกล้", "near")}
+TOOL_RADIUS_WORD = ("ระยะ", "range")
+
 KEYS = tuple(k for k, _, _, _ in NARROW_ROWS) + ("cat", "open")
 WORD_KEYS = tuple(k for k, _, _, _ in WORD_ROWS)
 
@@ -213,22 +227,149 @@ RECORD_TAGS = ("no-contact", "has-phone", "has-hours", "has-website", "has-faceb
 OPTION_CAP = 300
 
 
-def js_version():
-    """The hash build.py stamps on refine.js, computed off this module's own
-    source so a change here cannot be served from a reader's cache.
+HOME_CSS = r"""
+/* ── the front page, artboard 2a (redesign spec 2026-09-08, decisions 2026-09-09) ── */
+/* อา, the language buttons, the two openers and the day cells are 44 px, a fingertip;
+   a day cell is ~40 px wide on a 375 px phone, where seven share 305 px. */
+.home96h .mast{display:flex;justify-content:space-between;align-items:center;padding:14px 16px 0}
+.home96h .readbtn{width:44px;height:44px;border:1px solid var(--hair,#d8d2c4);border-radius:8px;background:transparent;
+ color:var(--meta,#5c574c);font:inherit;font-size:15px;display:inline-flex;align-items:center;justify-content:center}
+.home96h .langgroup{display:inline-flex;border:1px solid var(--hair,#d8d2c4);border-radius:8px;overflow:hidden;font-size:12px;background:transparent}
+.home96h .langbtn{padding:10px 12px;min-width:44px;min-height:44px;border:0;border-left:1px solid var(--hair,#d8d2c4);background:transparent;color:var(--meta,#5c574c);font:inherit;font-size:12px}
+.home96h .langbtn:first-child{border-left:0}
+.home96h .langbtn[aria-pressed="true"]{background:var(--sel,#f0e9dc);color:var(--ink)}
+body.home .beadrule,body.home .ribbon{display:none}
+body.home header.site.home96h{border:0;box-shadow:none;background:transparent;padding:0;margin:0}
+body.home main{padding-top:0;display:flex;flex-direction:column;min-height:100dvh;box-sizing:border-box}
+body.home .home96{flex:1;min-height:0}
+body.home .home96f{margin-top:auto}
+html.lang-both .home96 .en96,html.lang-th .home96 .en96,html.lang-en .home96 .allshelves .th{display:none!important}
+.home96{max-width:560px;width:100%;margin:0 auto;padding:1vh 24px 12px;display:flex;flex-direction:column;align-items:center;gap:16px;box-sizing:border-box;justify-content:center}
+.home96 .wordmark{margin:0;display:flex;flex-direction:column;align-items:center;gap:4px;font-weight:600}
+.home96 .th96{font-size:40px;color:var(--ant);letter-spacing:-.01em;line-height:1.05}
+.home96 .rom96{font-size:11px;letter-spacing:.34em;margin-left:.34em;color:var(--meta,#5c574c);font-weight:400;font-family:inherit}
+.home96 .seek96{width:100%;display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--hair,#d8d2c4);
+ border-radius:999px;padding:11px 18px;box-shadow:0 2px 8px rgba(60,50,30,.08);margin:0}
+.home96 .seek96 input{flex:1;border:0;background:transparent;font:inherit;font-size:17px;color:var(--ink);min-width:0;padding:6px 0;outline:none}
+.home96 .seek96 input::-webkit-search-decoration{display:none}
+.home96 .seek96 .go,.home96 .seek96 .mic{border:0;background:transparent;padding:4px;display:inline-flex;align-items:center;cursor:pointer;color:var(--ant)}
+.home96 .seek96 .mic{color:var(--meta,#5c574c)}
+.home96 .seek96:focus-within{box-shadow:0 0 0 3px rgba(198,47,34,.18),0 2px 8px rgba(60,50,30,.08)}
+.home96 .cities{display:inline-flex;border:1px solid var(--hair,#d8d2c4);border-radius:999px;overflow:hidden;font-size:14px}
+.home96 .city{padding:11px 14px;color:var(--meta,#5c574c);text-decoration:none;white-space:nowrap;border-left:1px solid var(--hair,#d8d2c4)}
+.home96 .city:first-child{border-left:0}
+.home96 .city.on{background:var(--sel,#f0e9dc);color:var(--ink)}
+.home96 .city .n{font-size:12px;margin-left:.4em;color:var(--meta,#5c574c)}
+.home96 .tiles96{display:flex;gap:14px;align-items:flex-start}
+.home96 .t96{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:52px;height:52px;
+ border:1px solid var(--hair,#d8d2c4);border-radius:12px;background:#fff;color:var(--ink);text-decoration:none;box-sizing:border-box;cursor:pointer}
+.home96 .t96 .tl{display:none}
+html.easyread .home96 .t96{height:auto;min-height:52px;width:auto;min-width:64px;padding:8px 6px;gap:4px}
+html.easyread .home96 .t96 .tl{display:block;font-size:11px;line-height:1.2;text-align:center;color:var(--meta,#5c574c)}
+.home96 .t96.wx{font-size:11px;line-height:1.15}
+.home96 .t96.wx .t{display:block}
+.home96 .t96.wx .pm{display:block;color:#3c8a3f}
+.home96 .t96.wx .pm.band-moderate,.home96 .tile.wx .pm.band-yellow{color:#a56d00}
+.home96 .t96.wx .pm.band-usg,.home96 .tile.wx .pm.band-orange,.home96 .tile.wx .pm.band-unhealthy,.home96 .tile.wx .pm.band-red{color:var(--ant)}
+.home96 .sos{position:relative}
+.home96 .sos summary{list-style:none;border:1.5px solid var(--ant);color:var(--ant)}
+.home96 .sos summary::-webkit-details-marker{display:none}
+.home96 .sos[open] summary{background:var(--ant);color:#fff}
+.home96 .sossheet{position:absolute;right:0;top:60px;z-index:5;min-width:240px;background:#fff;border:1px solid var(--hair,#d8d2c4);border-radius:12px;
+ box-shadow:0 10px 30px rgba(0,0,0,.14);padding:6px;display:flex;flex-direction:column}
+.home96 .sosrow{display:flex;align-items:center;gap:10px;min-height:52px;padding:0 12px;border-radius:8px;color:var(--ink);text-decoration:none;font-size:14px}
+.home96 .sosrow b{color:var(--ant);font-size:18px;min-width:3.2em}
+.home96 .sosrow:hover{background:var(--sel,#f0e9dc)}
+.home96 .sosrow.more{color:var(--ant);border-top:1px solid var(--hair,#d8d2c4);border-radius:0}
+.home96 .allshelves{font-size:14px;color:var(--ant);text-underline-offset:3px}
+.home96f{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 16px;padding:16px;font-size:11px;color:var(--meta,#5c574c);white-space:nowrap;border:0;margin:0}
+.home96f a{color:inherit;text-decoration:none;display:inline-flex;align-items:center}
+.home96f a:hover{color:var(--ant)}
+html.easyread .home96 .seek96 input{font-size:19px}
+html.easyread .home96 .city,html.easyread .home96 .allshelves{font-size:17px}
+@media (max-width:420px){.home96{padding-left:16px;padding-right:16px;gap:14px}.home96 .tiles96{gap:8px}.home96 .pane96{height:170px}}
+.home96 .tiles96.inpane{position:absolute;top:8px;right:8px;z-index:3;gap:8px}
+.home96 .tiles96.inpane .t96{width:46px;height:46px;box-shadow:0 1px 4px rgba(60,50,30,.12)}
+.home96 .pane96{overflow:visible}.home96 .pane96 .mdmap,.home96 .pane96 .homemapbox{overflow:hidden;border-radius:14px}
+.home96 .sossheet{top:54px}
+html.lang-both .home96 .cal96 .wd .en,html.lang-th .home96 .cal96 .wd .en,html.lang-en .home96 .cal96 .wd .th{display:none}
+.home96 .cal96 .items li a{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.home96 .cal96 .items .v{display:none}
+.home96 .row96{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.home96 .pane96{position:relative;width:100%;height:190px;border:1px solid var(--hair,#d8d2c4);border-radius:14px;overflow:hidden;background:#fff}
+.home96 .pane96 .mdmap,.home96 .pane96 .homemapbox{height:100%;margin:0}
+.home96 .pane96 .mdmap-draw,.home96 .pane96 .homemapsvg{height:100%}
+.home96 .paneopen,.home96 .calopen{position:absolute;right:8px;bottom:8px;width:44px;height:44px;border-radius:9px;background:#fff;border:1px solid var(--hair,#d8d2c4);
+ display:inline-flex;align-items:center;justify-content:center;color:var(--ink);z-index:3}
+.home96 .cal96{position:relative;width:100%;padding-right:0}
+.home96 .cal96 .days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.home96 .cal96 .day{display:flex;flex-direction:column;align-items:center;gap:1px;padding:6px 0 4px;min-height:44px;box-sizing:border-box;border:1px solid var(--hair,#d8d2c4);border-radius:10px;
+ background:#fff;color:var(--ink);text-decoration:none;font-size:12px;line-height:1.15}
+.home96 .cal96 .day b{font-size:15px;font-weight:600}
+.home96 .cal96 .day .wd{font-size:10px;color:var(--meta,#5c574c)}
+.home96 .cal96 .day .n{font-size:10px;color:var(--ant);min-height:12px}
+.home96 .cal96 .day.on{background:var(--sel,#f0e9dc)}
+.home96 .cal96 .items{list-style:none;margin:8px 54px 0 0;padding:0;display:flex;flex-direction:column;gap:5px}
+.home96 .cal96 .items li a{display:block;font-size:14px;color:var(--ink);text-decoration:none;line-height:1.3}
+.home96 .cal96 .items .w,.home96 .cal96 .items .v{color:var(--meta,#5c574c);font-size:12px}
+.home96 .cal96 .items .none{color:var(--meta,#5c574c);text-align:center}
+.home96 .cal96 .calopen{bottom:0}
+@media (min-width:1024px){
+ .home96{max-width:1040px;display:grid;grid-template-columns:420px 1fr;grid-template-areas:"today today" "mark map" "box map" "row map" "cal map" "all map";column-gap:36px;row-gap:18px;align-items:start;justify-items:center;padding-top:4vh}
+ .home96 .today96{grid-area:today;justify-self:stretch}
+ .home96 .wordmark{grid-area:mark}.home96 .seek96{grid-area:box}.home96 .row96{grid-area:row}.home96 .cal96{grid-area:cal;justify-self:stretch}
+ .home96 .allshelves{grid-area:all}.home96 .pane96{grid-area:map;height:100%;min-height:460px;align-self:stretch}
+}
+/* THE FOOTER, QUIETER (Nan, 2026-09-10 evening). One hairline, small type,
+   the meta ink; the emergency numbers keep their weight. */
+footer.bare{margin-top:3rem;padding-top:.8rem;border-top:1px solid var(--hair,#d8d2c4)}
+footer.bare .footline{font-size:.78rem;color:var(--meta,#5c574c);line-height:1.6}
+footer.bare a,footer.bare a:visited{color:var(--meta,#5c574c)}
+"""
 
-    style.css went unversioned until 2026-09-07 and every layout fix shipped
-    in a seven-day window reached first-time visitors and nobody else. This
-    file is not going to repeat it.
-    """
-    import zlib
-    return f"{zlib.crc32((JS + CSS).encode()) & 0xFFFFFFFF:08x}"
+HOME_JS = r"""
+// ── the front page (artboard 2a): the remembered city, and the mic ─────
+(function(){
+  if(typeof document==='undefined'||!document.querySelector)return;   // node harnesses stub a bare document
+  var home=document.querySelector('.home96');if(!home)return;
+  try{var c=localStorage.getItem('md-city');if(c){home.querySelectorAll('.city').forEach(function(a){a.classList.toggle('on',a.getAttribute('data-city')===c);});}}catch(e){}
+  home.querySelectorAll('.city').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('md-city',a.getAttribute('data-city'));}catch(e){}});});
+  // THE PANE: the drawn city now, the live map when the phone is idle or the
+  // pane is touched — never on a data-saver or 2G connection. Same loader as
+  // search.html's map (the asset list is baked in #maphead), then the city
+  // the reader last chose is centred.
+  (function(){var pane=home.querySelector('.pane96 [data-mdmap]');if(!pane)return;var booted=false;
+    function boot(){if(booted)return;booted=true;var c=navigator.connection||{};if(c.saveData||/2g/.test(c.effectiveType||''))return;
+      var urls=[];try{urls=JSON.parse(document.getElementById('maphead').textContent);}catch(e){}if(!urls.length)return;
+      var RR=document.documentElement.getAttribute('data-root')||'';
+      urls.filter(function(u){return /\.css/.test(u);}).forEach(function(u){var l=document.createElement('link');l.rel='stylesheet';l.href=RR+u;document.head.appendChild(l);});
+      var js=urls.filter(function(u){return !/\.css/.test(u);}),i=0;
+      (function next(){if(i>=js.length){pane.setAttribute('data-mdmap','1');if(window.MDMAP&&window.MDMAP.mount)window.MDMAP.mount(pane);
+        var city=null;try{city=localStorage.getItem('md-city');}catch(e){}
+        if(city==='cr'&&window.MDMAP&&window.MDMAP.ready)window.MDMAP.ready(pane,function(m){try{m.jumpTo({center:[99.8325,19.9094],zoom:13});}catch(e){}});return;}
+        var s=document.createElement('script');s.src=RR+js[i++];s.async=false;s.onload=next;s.onerror=next;document.head.appendChild(s);})();}
+    pane.addEventListener('pointerdown',boot,{once:true});
+    if('requestIdleCallback' in window)requestIdleCallback(boot,{timeout:5000});else setTimeout(boot,2500);})();
+  // THE CALENDAR: tap a day, read its three lines; the days are baked with the page.
+  (function(){var cal=home.querySelector('.cal96');if(!cal)return;var days=[];try{days=JSON.parse(cal.getAttribute('data-cal'));}catch(e){}
+    var list=cal.querySelector('.items');
+    cal.addEventListener('click',function(ev){var a=ev.target.closest('.day');if(!a)return;var iso=a.getAttribute('data-iso');
+      var d=null;for(var i=0;i<days.length;i++)if(days[i].iso===iso)d=days[i];if(!d)return;ev.preventDefault();
+      cal.querySelectorAll('.day').forEach(function(x){x.classList.toggle('on',x===a);});
+      list.innerHTML=d.items.map(function(it){return '<li><a href="'+it.h+'"><span class="t">'+it.t+'</span>'+(it.w?' <span class="w">'+it.w+'</span>':'')+(it.v?' <span class="v">'+it.v+'</span>':'')+'</a></li>';}).join('')||'<li class="none">·</li>';});})();
+  var SR=window.SpeechRecognition||window.webkitSpeechRecognition,mic=home.querySelector('.mic'),q=home.querySelector('#q');
+  if(SR&&mic&&q){mic.hidden=false;mic.addEventListener('click',function(){
+    var r=new SR();r.lang=(document.documentElement.className.indexOf('lang-en')>=0)?'en-US':'th-TH';r.interimResults=false;
+    mic.classList.add('live');r.onresult=function(ev){var t=ev.results[0][0].transcript;q.value=t;mic.classList.remove('live');q.form.requestSubmit?q.form.requestSubmit():q.form.submit();};
+    r.onerror=r.onend=function(){mic.classList.remove('live');};try{r.start();}catch(e){mic.classList.remove('live');}});}
+})();
+"""
 
 
 def head(r):
     """The one script tag. `defer` because both surfaces are real HTML before
     any script runs — the form submits with JavaScript off."""
-    return f'<script src="{r}refine.js?v={js_version()}" defer></script>'
+    return f'<script src="{r}refine.js" defer></script>'
 
 
 def _opts(key, rows, bi, att, cap=OPTION_CAP):
@@ -242,8 +383,24 @@ def _opts(key, rows, bi, att, cap=OPTION_CAP):
     out = [f'<option value="">{att(bi_text("ทั้งหมด", "any"))}</option>']
     for value, th, en, n in (rows or [])[:cap]:
         word = bi_text(th, en) if en and en != th else (th or value)
-        out.append(f'<option value="{att(value)}">{att(word)} ({n:,})</option>')
+        out.append(f'<option value="{att(value)}">{att(_flat(word))} ({n:,})</option>')
     return "".join(out)
+
+
+def _flat(s):
+    """One line, whatever arrived.
+
+    Four values in the catalogue carry an embedded newline — a trade tag
+    ('กล่องอาหารเดลิเวอรี่\nบรรจุภัณฑ์อาหาร'), two names and an English name.
+    A newline inside an <option> is drawn by the browser as a gap or a second
+    line inside the dropdown, and the same value goes into title= and
+    aria-label= where it is read aloud as two things. The values themselves
+    are not touched — `value=` keeps the exact string the filter matches on,
+    so a collapsed LABEL cannot make an option select the wrong rows. This is
+    a display guard, not a data fix: data/canonical is rewritten wholesale by
+    importers/import_all.py, so the fix that lasts belongs there.
+    """
+    return " ".join(str(s or "").split())
 
 
 def bi_text(th, en, sep=" · "):
@@ -339,31 +496,47 @@ def tools_row(bi, att, r=""):
 
     Rendered empty at build time and filled by refine.js from the answer
     actually on screen, so every count says how many of THESE results the
-    choice would leave. It is a <details> closed by default: the reader who
-    got what they wanted never opens it, and it costs one line when shut.
+    choice would leave. It stands open, one line, glyph-led (WO-77); the
+    whole row hides only when no control has anything to offer.
     """
+    # WO-77 (Nan, 2026-09-08): "handy and visible… not add unnecessary
+    # words." The row stands open — no <details>, no "Search tools" to find —
+    # and each control wears a glyph instead of a printed word. The word is
+    # still there, once, INSIDE the control as its empty first option
+    # ("ประเภท · type"), where a reader meets it at the moment of
+    # choosing and nowhere else. refine.js keeps that option when it refills
+    # the list from the answer (data-word). The glyph is aria-hidden: the
+    # <select> announces its full label from aria-label.
     sels = "".join(
-        f'<label class="tool"><span>{bi(th, en)}</span>'
-        f'<select data-refkey="{k}"><option value="">'
-        f'{att(bi_text("ทั้งหมด", "any"))}</option></select></label>'
-        for k, th, en, _ in NARROW_ROWS)
+        f'<label class="tool" title="{att(bi_text(th, en))}">{glyphs.icon(g, 18)}'
+        f'<select data-refkey="{k}" data-word="{att(bi_text(*w))}" '
+        f'aria-label="{att(bi_text(th, en))}"><option value="">'
+        f'{att(bi_text(*w))}</option></select></label>'
+        for (k, th, en, _), g, w in zip(NARROW_ROWS, TOOL_GLYPHS, TOOL_WORDS))
     return (
         '<div class="refine" id="refine" hidden>'
         '<p class="refbar" id="refbar"></p>'
-        '<details class="reftools" id="reftools">'
-        f'<summary>{bi("เครื่องมือค้นหา", "Search tools")}</summary>'
+        '<div class="reftools" id="reftools">'
         f'<div class="toolrow" id="toolrow">{sels}'
-        f'<label class="tool tickbox"><input type="checkbox" data-refkey="open" value="1"> '
-        f'<span>{bi("เปิดอยู่ตอนนี้", "open now")}</span></label>'
-        f'<label class="tool"><span>{bi("เรียงลำดับ", "sort by")}</span>'
-        f'<select data-refkey="sort">'
-        + "".join(f'<option value="{att(v)}">{att(bi_text(th, en))}</option>'
+        f'<label class="tool tickbox" title="{att(bi_text("เปิดอยู่ตอนนี้", "open now"))}">'
+        f'<input type="checkbox" data-refkey="open" value="1" aria-label="{att(bi_text("เปิดอยู่ตอนนี้", "open now"))}">'
+        f'{glyphs.icon("i-lamp", 18)}</label>'
+        f'<label class="tool" title="{att(bi_text("เรียงลำดับ", "sort by"))}">{glyphs.icon("i-sort", 18)}'
+        f'<select data-refkey="sort" aria-label="{att(bi_text("เรียงลำดับ", "sort by"))}">'
+        + "".join(f'<option value="{att(v)}">{att(bi_text(*TOOL_SORT_WORDS.get(v, (th, en))))}</option>'
                   for v, th, en in SORT_ROWS) + '</select></label>'
-        f'<label class="tool tickbox"><input type="checkbox" data-refkey="mypos" value="1"> '
-        f'<span>{bi("ใกล้ฉัน", "near me")}</span></label>'
-        f'<a class="advlink" href="{r}advanced.html">'
-        f'{bi("ค้นหาขั้นสูง", "Advanced search")} →</a></div>'
-        '</details>'
+        f'<label class="tool tickbox" title="{att(bi_text("ใกล้ฉัน", "near me"))}">'
+        f'<input type="checkbox" data-refkey="mypos" value="1" aria-label="{att(bi_text("ใกล้ฉัน", "near me"))}">'
+        f'{glyphs.icon("i-near", 18)}</label>'
+        # The ring: how far. Works from the reader's point or the landmark.
+        f'<label class="tool" title="{att(bi_text("ในระยะ", "within"))}">{glyphs.icon("i-ring", 18)}'
+        f'<select data-refkey="radius" data-word="{att(bi_text(*TOOL_RADIUS_WORD))}" aria-label="{att(bi_text("ในระยะ", "within"))}">'
+        f'<option value="">{att(bi_text(*TOOL_RADIUS_WORD))}</option>'
+        + "".join(f'<option value="{km:g}">{att(bi_text(th, en))}</option>' for km, th, en in RADII)
+        + '</select></label>'
+        f'<a class="advlink" href="{r}advanced.html" title="{att(bi_text("ค้นหาขั้นสูง", "Advanced search"))}">'
+        f'{glyphs.icon("i-filter", 20, "rowicon", label=att(bi_text("ค้นหาขั้นสูง", "Advanced search")))}</a></div>'
+        '</div>'
         '</div>')
 
 
@@ -419,13 +592,28 @@ WORD_SCOPES = (
 # HOW THE ANSWER IS ORDERED. Only what the index can actually order on:
 # there is no updatedAt in a row and no popularity anywhere, so neither is
 # offered. "ครบที่สุด" counts how many of a row's fields are filled in — the
-# honest stand-in for "the one we know most about", and the only ranking here
+# plain stand-in for "the one we know most about", and the only ranking here
 # that is about the record rather than the query.
+# DISTANCE IS THE DEFAULT ORDER (Nan, 2026-09-08: "Distance should be the
+# default order for search results, unless specified otherwise by user").
+# The empty value — no sort= in the URL — is nearest-first, measured from the
+# reader's own point when they have given one and otherwise from the city's
+# landmark (Tha Phae Gate; the Clock Tower on a Chiang Rai answer), and the
+# bar says which. `rel` is the engine's own order, now a choice. `near` is
+# kept as an alias for links already in the wild.
 SORT_ROWS = (
-    ("",     "ตรงที่สุด",    "best match"),
+    ("",     "ใกล้ที่สุด",    "nearest first"),
+    ("rel",  "ตรงที่สุด",    "best match"),
     ("name", "ก-ฮ / A-Z",  "by name"),
-    ("near", "ใกล้ที่สุด",    "nearest first"),
     ("full", "ครบที่สุด",    "most complete"),
+    # WO-78 — the reader's own criteria, applied to the answer in front of
+    # them. It counts how many of the tag terms they have actually asked for
+    # each row carries, so an OR of two tags puts the rows carrying both on
+    # top. It only ever REORDERS: a row carrying none of them scores nought
+    # and sorts last, and a row that nobody has tagged is untagged, not
+    # disqualified. Offered whether or not a tag is set — with none set every
+    # row scores nought and the order is left exactly as it was found.
+    ("tags", "ตรงแท็กมากสุด", "most tags matched"),
 )
 
 # The radii a person actually thinks in, on foot and on a motorbike.
@@ -495,25 +683,27 @@ CSS = """
   border-color:var(--mute);text-decoration:line-through}
 .refterm.no:hover,.refterm.no:focus{background:var(--mute);color:#fff}
 .refclear{font-size:.82rem;color:var(--mute);margin-inline-start:.25rem}
-.reftools>summary{cursor:pointer;list-style:none;display:inline-block;
-  color:var(--mute);font-size:.85rem;padding:.1rem 0}
-.reftools>summary::-webkit-details-marker{display:none}
-.reftools>summary::after{content:" ▾"}
-.reftools[open]>summary{color:var(--ant-dark)}
-.reftools[open]>summary::after{content:" ▴"}
-.reftools>summary:hover{color:var(--ant-dark);text-decoration:underline}
-.toolrow{display:flex;flex-wrap:wrap;gap:.5rem .9rem;align-items:center;
-  margin:.4rem 0 .2rem;padding:.5rem 0 .1rem;border-top:1px dotted var(--rule)}
-.tool{display:inline-flex;align-items:center;gap:.35rem;font-size:.85rem;
+.refnote{font-size:.85rem;color:var(--mute)}
+/* The rail stands open (WO-77): one wrapping line of glyph-led controls,
+   no heading, no word outside a control. */
+.reftools[hidden]{display:none}
+.toolrow{display:flex;flex-wrap:wrap;gap:.35rem .55rem;align-items:center;
+  margin:.3rem 0 .2rem;padding:.4rem 0 .1rem;border-top:1px dotted var(--rule)}
+.tool{display:inline-flex;align-items:center;gap:.3rem;font-size:.85rem;
   color:var(--mute)}
+.tool .rowicon{color:var(--ant-dark);flex:0 0 auto}
 .tool select{font:inherit;font-size:.85rem;padding:.2rem .4rem;
   border:1px solid var(--dashed,#c4b28d);border-radius:.3rem;background:#fff;
-  color:var(--ink);max-width:12rem;min-height:36px}
+  color:var(--ink);max-width:11rem;min-height:36px}
 .tool select:disabled{opacity:.45}
-.tickbox{gap:.4rem}
-.advlink{font-size:.85rem;margin-inline-start:auto;white-space:nowrap}
+.tool select:disabled+*,.tool:has(select:disabled) .rowicon{opacity:.45}
+.tickbox{gap:.25rem;min-height:36px}
+.tickbox input:checked+.rowicon{color:var(--ant)}
+.advlink{display:inline-flex;align-items:center;min-height:36px;
+  margin-inline-start:auto;color:var(--ant-dark)}
+.advlink:hover,.advlink:focus{color:var(--ant)}
 @media(max-width:560px){.advlink{margin-inline-start:0}
-  .tool{width:100%}.tool select{flex:1;max-width:none}}
+  .tool:not(.tickbox){width:calc(50% - .3rem)}.tool select{flex:1;max-width:none;min-width:0}}
 /* ── the two doors on the answer ────────────────────────────────── */
 /* Underlined, worded and sized like something a thumb is meant to hit. The
    pair they replace were two bare emoji in the heading with nothing but an
@@ -528,7 +718,8 @@ CSS = """
 .resdoor:visited{color:var(--ant-dark)}
 .resdoor:hover,.resdoor:focus{color:var(--ant)}
 .resdoor .count{color:var(--mute);font-size:.85rem;text-decoration:none}
-.resdoor .dooricon{font-size:1.05rem;text-decoration:none}
+.resdoor .dooricon{flex:0 0 auto;color:var(--ant-dark)}
+.resdoor:hover .dooricon,.resdoor:focus .dooricon{color:var(--ant)}
 .resdoor[aria-busy=true]{opacity:.55}
 /* ── the bare shell ─────────────────────────────────────────────── */
 /* logo · language · อ่านง่าย, one line, and the controls to the right where
@@ -544,7 +735,29 @@ header.site.bare{border-bottom:3px solid var(--day);padding:.7rem 0 .6rem;margin
 }
 body.home .homebare{margin:.6rem 0 0;font-size:.9rem;color:var(--mute)}
 body.home header.site .seek input{font-size:1.15rem;padding:.75rem .9rem}
-body.home header.site .seek{margin-top:.5rem}
+body.home header.site .seekrow{margin-top:.5rem}
+/* the box and the two doors, one line (WO-77) */
+.seekrow{display:flex;gap:.5rem;align-items:stretch;margin:.9rem 0 .2rem}
+.seekrow form.seek{flex:1;margin:0;min-width:0}
+/* คุยกับมด, in the box (Nan, 2026-09-17: "make the ask.motdang.net features
+   more fully incorporated into the search bar functionality"). A word index
+   answers words; a sentence goes to the ants. Both start in the same box, so
+   the reader types once and picks who reads it. Revealed only where the
+   assistant is actually configured — md.js unhides it. */
+.seekrow .askbtn{border:0;background:transparent;color:var(--ant-dark);
+ padding:0 .55rem;display:inline-flex;align-items:center;cursor:pointer;
+ border-left:1px solid var(--warm-border)}
+.seekrow .askbtn:hover,.seekrow .askbtn:focus-visible{color:var(--ant)}
+.door{flex:0 0 52px;display:grid;place-items:center;border:2px solid var(--ink);
+  border-radius:14px;background:var(--card);box-shadow:0 2px 0 var(--shadow);
+  color:var(--ant-dark);text-decoration:none}
+.door:hover,.door:focus{color:var(--ant);border-color:var(--ant)}
+.door:focus-visible{outline:2px solid var(--ant);outline-offset:2px}
+@media(max-width:34rem){.door{flex-basis:46px}}
+/* Three doors beside the box left a phone's search field a finger wide, so on a
+   phone the box takes its own line and the doors share the one under it. */
+@media(max-width:34rem){.seekrow{flex-wrap:wrap}.seekrow form.seek{flex:1 0 100%}
+.seekrow .door{flex:1 1 0;height:44px}}
 body.home main{min-height:38vh}
 footer.bare{margin-top:2.4rem;padding-top:.7rem;border-top:1px solid var(--rule);
   font-size:.78rem;color:var(--mute);line-height:1.9}
@@ -563,6 +776,7 @@ JS = r"""
 (function(){
 'use strict';
 var RECTAG=__RECORD_TAGS__;
+var CENTRES=__CENTRES__;
 var NARROW=__NARROW__, WORDF=__WORD_FIELDS__, FW=__FACET_WORDS__,
     SCOPES=__SCOPES__, PRESENCE=__PRESENCE__, SORTS=__SORTS__;
 var KEYS=NARROW.concat(['cat','kd','p','open']);
@@ -591,7 +805,11 @@ function parse(search){
   var st={u:u,inc:{},not:[],blank:{},has:{},
           q:u.get('as_q')||u.get('q')||'', epq:u.get('as_epq')||'',
           oq:u.get('as_oq')||'', eq:u.get('as_eq')||'',
-          scope:u.get('as_in')||'any'};
+          scope:u.get('as_in')||'any',
+          // `aq` IS THE ADVANCED FIELD, AND ONLY THAT. `q` above is still the
+          // whole query, because the .ics download is named after it — but it
+          // must never reach wordsOk. See the note there.
+          aq:u.get('as_q')||''};
   KEYS.forEach(function(k){var v=list(u,k);if(v.length)st.inc[k]=v;});
   list(u,'not').forEach(function(p){var i=p.indexOf(':');if(i>0){
     var k=p.slice(0,i);if(KEYS.indexOf(k)>=0)st.not.push([k,p.slice(i+1)]);}});
@@ -603,7 +821,7 @@ function parse(search){
 // ── the words, and where they are allowed to match ───────────────────────
 // THE CERTAINTY CONTROL. `k` carries shelf words, cuisine, brand and road;
 // `a` carries alt names, other-language names and the RTGS reading. Both are
-// matched and never shown, which is right for a wide search and wrong for
+// matched and not shown, which is right for a wide search and wrong for
 // somebody who knows the name of the shop they want. as_in picks the field
 // set, so "ชื่อเท่านั้น" returns that shop and nothing standing near it.
 function text(e,scope){
@@ -611,11 +829,40 @@ function text(e,scope){
   for(var i=0;i<fields.length;i++){var v=e[fields[i]];if(v)out.push(v);}
   return out.join(' ').toLowerCase();
 }
+// WHAT THE SEARCH BOX TYPES IS NOT "ALL THESE WORDS".
+//
+// Nan, 2026-09-09: "the only thing you should see if you do a search is
+// results relevant to that search. Not possible always, but should at least
+// not always be impossible."
+//
+// It was impossible for almost every query of more than one word, and this
+// line is why. `st.q` fell back to the plain `q` — what the search box on
+// search.html sends — and this test then demanded that every token appear as
+// a literal lowercase substring of the row. No stemming, no thesaurus, no
+// tiers, no partial credit: the advanced form's strictest slot, applied to
+// the ordinary box.
+//
+// Measured on the live site, 2026-09-09, with the index fully loaded:
+//   "guitar"                       ->  9   (one token; the AND is satisfiable)
+//   "martin guitar"                ->  0
+//   "place to buy a Martin guitar" ->  0
+// while searchcore, handed the same index offline, ranked Guitar House and
+// Intune Guitar Shop FIRST for the third of those out of 489 rows. The engine
+// had the right answer every time and this function threw it away, because no
+// single row contains both "martin" and "guitar" as substrings.
+//
+// searchcore has already matched `q` — with tiers, coverage and the
+// thesaurus, over the fields it was told to search. Re-testing it here was
+// never a second opinion, it was a veto. So the word tests belong to the
+// ADVANCED fields alone: as_q, as_epq, as_oq, as_eq, which a reader reaches
+// on advanced.html and asks for deliberately. search.html sends none of them
+// — it has no as_ control at all — so on the ordinary box this function now
+// returns true and the ranking stands.
 function wordsOk(e,st){
-  if(!st.q&&!st.epq&&!st.oq&&!st.eq)return true;
+  if(!st.aq&&!st.epq&&!st.oq&&!st.eq)return true;
   var s=text(e,st.scope),i,t;
   if(st.epq&&s.indexOf(st.epq.trim().toLowerCase())<0)return false;
-  if(st.q){t=toks(st.q);for(i=0;i<t.length;i++)if(s.indexOf(t[i])<0)return false;}
+  if(st.aq){t=toks(st.aq);for(i=0;i<t.length;i++)if(s.indexOf(t[i])<0)return false;}
   if(st.oq){t=toks(st.oq);var any=false;
     for(i=0;i<t.length;i++)if(s.indexOf(t[i])>=0){any=true;break;}
     if(!any)return false;}
@@ -683,8 +930,22 @@ function point(st){
   var la=parseFloat(n[0]),ln=parseFloat(n[1]);
   return (isFinite(la)&&isFinite(ln))?[la,ln]:null;
 }
-function far(e,st){
-  var p=point(st),r=parseFloat(st.u.get('radius')||'');
+// Which province an answer is mostly in, read off the rows themselves.
+function provOf(e){
+  var p=e.p||e.prov||'';if(p==='cm'||p==='cr')return p;
+  return /ราย|rai/i.test(String(e.pv||''))?'cr':'cm';
+}
+// WHERE DISTANCE IS MEASURED FROM. The reader's own point when they gave
+// one; otherwise the landmark of whichever city the answer is mostly in.
+// `own` says which, so the bar can tell the reader which it was.
+function origin(st,rows){
+  var p=point(st);if(p)return {pt:p,own:true};
+  var cm=0,cr=0;(rows||[]).forEach(function(e){if(provOf(e)==='cr')cr++;else cm++;});
+  var c=CENTRES[cr>cm?'cr':'cm'];
+  return {pt:[c[0],c[1]],own:false,th:c[2],en:c[3]};
+}
+function far(e,st,p){
+  p=p||point(st);var r=parseFloat(st.u.get('radius')||'');
   if(!p||!isFinite(r)||r<=0)return null;
   // A place with no pin is NOT beyond the radius — it is unmeasured, and
   // dropping it would be unknown read as no all over again. It is kept, and
@@ -692,24 +953,37 @@ function far(e,st){
   if(e.lat==null||e.lng==null)return null;
   return dist(p[0],p[1],e.lat,e.lng)>r;
 }
-// How much of a row is filled in. The honest stand-in for "the one we know
+// How much of a row is filled in. The plain stand-in for "the one we know
 // most about": there is no popularity in this index and no updatedAt, so
 // neither is offered as an order.
-var FULLF=['e','r','st','ar','t','tt','f','hk','su','kd','lat'];
+var FULLF=['e','r','st','ar','t','tt','f','hk','su','kd','lat','ph','w'];
 function fullness(e){var n=0;for(var i=0;i<FULLF.length;i++){
   var v=e[FULLF[i]];if(v!=null&&(!v.length||v.length>0))n++;}return n;}
-function sortRows(rows,st,T){
-  var s=st.u.get('sort')||'',p=point(st);
-  if(!s)return rows;
+function sortRows(rows,st,T,p){
+  var s=st.u.get('sort')||'';if(s==='near')s='';
+  if(s==='rel')return rows;            // the engine's own order, by choice
   var out=rows.slice();
   if(s==='name')out.sort(function(a,b){
     return String(a.n||'').localeCompare(String(b.n||''),'th');});
   else if(s==='full')out.sort(function(a,b){return fullness(b)-fullness(a);});
-  else if(s==='near'&&p)out.sort(function(a,b){
-    // Unpinned rows go last rather than first: Infinity, never 0.
-    var da=(a.lat==null?Infinity:dist(p[0],p[1],a.lat,a.lng));
-    var db=(b.lat==null?Infinity:dist(p[0],p[1],b.lat,b.lng));
-    return da-db;});
+  else if(s==='tags'){var want=list(st.u,'tag'),sc={};
+    var score=function(e){if(sc[e.id]!=null)return sc[e.id];
+      var mine=vals(e,'tag',T),have={},i,n=0;
+      for(i=0;i<mine.length;i++)have[mine[i]]=1;
+      for(i=0;i<want.length;i++)if(have[want[i]])n++;
+      return (sc[e.id]=n);};
+    // A stable sort by score alone: rows that tie keep the order the ranker
+    // put them in, so this reorders the answer without discarding it.
+    out.sort(function(a,b){return score(b)-score(a);});}
+  else{
+    // Nearest first — the default (Nan, 2026-09-08). Measured from the
+    // reader's point or the city's landmark; see origin().
+    p=p||origin(st,rows).pt;
+    out.sort(function(a,b){
+      // Unpinned rows go last rather than first: Infinity, never 0.
+      var da=(a.lat==null?Infinity:dist(p[0],p[1],a.lat,a.lng));
+      var db=(b.lat==null?Infinity:dist(p[0],p[1],b.lat,b.lng));
+      return da-db;});}
   return out;
 }
 // Filters, then orders. One call, so md.js's hook stays one line.
@@ -717,9 +991,9 @@ function sortRows(rows,st,T){
 // (that is what makes every count read "how many would be left"), and the two
 // doors under the count are about the filtered one — the rows on screen.
 function apply(rows,T){
-  var st=parse();
+  var st=parse(),o=origin(st,rows);
   lastRows=sortRows(rows.filter(function(e){
-    return ok(e,st,T)&&far(e,st)!==true;}),st,T);
+    return ok(e,st,T)&&far(e,st,o.pt)!==true;}),st,T,o.pt);
   return lastRows;
 }
 
@@ -819,17 +1093,22 @@ function bar(st,T){
     out.push('<span class="join">−</span>');
     out.push('<a class="refterm no" href="'+H(href(st,'unnot',n[0],n[1]))+'">'+
       label(n[0],n[1],T)+'<span class="x" aria-hidden="true">×</span></a>');});
-  var rad=st.u.get('radius'),pt=point(st);
-  if(pt&&rad)push('<a class="refterm" href="'+H(href(st,'word','radius'))+'">'+
+  var rad=st.u.get('radius'),pt=point(st),o=origin(st,lastRows||[]);
+  if(rad)push('<a class="refterm" href="'+H(href(st,'word','radius'))+'">'+
     BI('ในระยะ '+rad+' กม.','within '+rad+' km')+'<span class="x" aria-hidden="true">×</span></a>');
-  else if(pt)push('<a class="refterm" href="'+H(href(st,'word','near'))+'">'+
+  if(pt)push('<a class="refterm" href="'+H(href(st,'word','near'))+'">'+
     BI('วัดจากตำแหน่งของฉัน','measured from where you are')+'<span class="x" aria-hidden="true">×</span></a>');
-  var so=st.u.get('sort');
+  var so=st.u.get('sort');if(so==='near')so='';
   if(so){var sw=null;SORTS.forEach(function(x){if(x[0]===so)sw=x;});
     if(sw)push('<a class="refterm" href="'+H(href(st,'word','sort'))+'">'+
       BI('เรียง: '+sw[1],'sorted '+sw[2])+'<span class="x" aria-hidden="true">×</span></a>');}
+  var terms=out.length;
+  // The default order is said, not assumed: a reader who did not give a
+  // point is told which landmark the distances run from.
+  if(!so&&!o.own)out.push('<span class="refnote">'+
+    BI('ใกล้'+o.th+'ก่อน','nearest '+o.en+' first')+'</span>');
   if(!out.length)return '';
-  out.push('<a class="refclear" href="'+H(href(st,'clear'))+'">'+BI('ล้าง','clear')+'</a>');
+  if(terms)out.push('<a class="refclear" href="'+H(href(st,'clear'))+'">'+BI('ล้าง','clear')+'</a>');
   return out.join(' ');
 }
 
@@ -853,7 +1132,9 @@ function fillTools(base,T){
     var k=sel.dataset.refkey;
     if(NARROW.indexOf(k)<0)return;   // sort is not a narrowing key
     var t=tally(base,st,k,T),on=(st.inc[k]||[])[0]||'';
-    var html='<option value="">'+H('ทั้งหมด · any')+'</option>';
+    // The empty option is the row's own word (WO-77): the only place it is
+    // printed, so it must survive every refill.
+    var html='<option value="">'+H(sel.dataset.word||'ทั้งหมด · any')+'</option>';
     t.rows.forEach(function(r){
       // A value every row already carries narrows nothing, and a value at
       // zero is never reached. Neither is offered.
@@ -869,13 +1150,12 @@ function fillTools(base,T){
     box.disabled=!openTest;if(!box.disabled)anyOffer=true;}
   var sort=row.querySelector('select[data-refkey="sort"]');
   if(sort){sort.value=st.u.get('sort')||'';
-    // Nearest-first is offered only once there is a point to measure from.
-    var np=!point(st);
-    sort.querySelectorAll('option[value="near"]').forEach(function(o){o.disabled=np;});
     anyOffer=true;}
   var mp=row.querySelector('input[data-refkey="mypos"]');
   if(mp){mp.checked=!!point(st);
     mp.disabled=!('geolocation' in navigator);if(!mp.disabled)anyOffer=true;}
+  var rad=row.querySelector('select[data-refkey="radius"]');
+  if(rad){rad.value=st.u.get('radius')||'';anyOffer=true;}
   return anyOffer;
 }
 // ONE PLACE THE PANEL LEAVES THE PAGE. Every control here is a real
@@ -930,17 +1210,30 @@ function wire(){
 // drawn at zero.
 //
 // WHAT THEY DO IS WHAT A PERSON WOULD EXPECT THEM TO DO:
-//   🗺 draws THESE results on the map already sitting above them — not the
-//      city map with its shelves switched on, which is a different question
-//      wearing the same word (go/wrongtool). Tap again and it shuts, and the
-//      label says so.
-//   🗓 hands over the events standing at THESE places as one .ics file — the
-//      same VEVENTs build.py writes, so what a reader gets from the door and
-//      what they get from events.ics cannot disagree.
+//   map      draws THESE results on the map already sitting above them — not
+//            the city map with its shelves switched on, which is a different
+//            question wearing the same word (go/wrongtool). Tap again and it
+//            shuts, and the label says so.
+//   calendar hands over the events standing at THESE places as one .ics file
+//            — the same VEVENTs build.py writes, so what a reader gets from
+//            the door and what they get from events.ics cannot disagree.
+//
+// THE DRAWN ICONS, NOT SYSTEM EMOJI (Nan, 2026-09-08). #i-map and #i-cal are
+// in the sprite page() puts on every page, they take the link's own colour
+// through currentColor, and they are the same two marks the rest of the site
+// uses for a map and a date. An emoji is whatever the reader's phone decides
+// it is, at whatever size, in whatever palette.
 var MAPCAP=200;      // what md.js hands the results map, and what it draws
 var lastRows=null;   // the filtered answer, stashed by apply()
 function root(){return document.documentElement.getAttribute('data-root')||'';}
 function nfmt(n){return Number(n).toLocaleString();}
+// One <use> of the sprite build.py already puts on the page — the same markup
+// its own svg_icon() writes, so the two cannot drift into two icon sets.
+function icon(name){
+  var ic=document.documentElement.getAttribute('data-icons')||'';
+  return '<svg class="rowicon dooricon" aria-hidden="true" focusable="false" '+
+    'width="18" height="18" viewBox="0 0 24 24"><use href="'+ic+'#'+name+'"></use></svg>';
+}
 // {place id: how many events stand there}, baked into search.html. Absent —
 // on a page that carries no such table, or a build that has not written one
 // yet — the calendar door is simply not drawn, and nothing is fetched.
@@ -953,27 +1246,34 @@ function evTable(){
   el._md=t;
   return t;
 }
-// 184 of 1,796 rather than 184: the difference between the two numbers is the
-// rows nobody has pinned yet. They are unmeasured, not absent, and saying so
-// in the count is cheaper than a sentence saying so underneath.
+// 184 / 1,796 rather than 184: the difference between the two numbers is the
+// rows nobody has pinned yet, or the rows past the two hundred the map is
+// handed. They are unmeasured, not absent, and two numbers say so more
+// cheaply than a sentence underneath saying it.
+// TWO NUMBERS AND A SLASH, NOT A WORD. "80 จาก 1,796 · 80 of 1,796" is what
+// a bilingual join costs when both halves are the same two numbers, and it
+// is the same trap md.js's distance chip fell into. A slash reads in both.
 function doorCount(shown,total){
-  return total>shown
-    ?'('+BI(nfmt(shown)+' จาก '+nfmt(total),nfmt(shown)+' of '+nfmt(total))+')'
-    :'('+nfmt(shown)+')';
+  return total>shown?'('+nfmt(shown)+' / '+nfmt(total)+')':'('+nfmt(shown)+')';
 }
+// Called with the answer, and called again with nothing when a door has only
+// changed its own label — a toggle must never be able to erase the row it
+// lives in, which is what re-reading a `lastRows` that a caller may never
+// have filled did the first time a finger touched this.
+var doorRows=[];
 function drawDoors(rows){
   var el=document.getElementById('resdoors');
   if(!el)return;
-  rows=rows||[];
+  if(rows)doorRows=rows;
+  rows=doorRows;
   var out=[],shown=rows.slice(0,MAPCAP),pinned=0,i;
   for(i=0;i<shown.length;i++)if(shown[i].lat!=null&&shown[i].lng!=null)pinned++;
   var btn=document.getElementById('resmapbtn'),rm=document.getElementById('resmap');
   if(btn&&rm&&pinned){
     var open=!rm.hidden;
-    out.push('<a class="resdoor" id="resdoor-map" href="#resmap">'+
-      '<span class="dooricon" aria-hidden="true">🗺</span> '+
-      (open?BI('ซ่อนแผนที่','hide the map')
-           :BI('ดูบนแผนที่','see these on the map')+
+    out.push('<a class="resdoor" id="resdoor-map" href="#resmap">'+icon('i-map')+
+      (open?BI('ซ่อนแผนที่','hide map')
+           :BI('แผนที่','map')+
              ' <span class="count">'+doorCount(pinned,rows.length)+'</span>')+'</a>');}
   // The join is the index row's own id against the event's place id, which is
   // the join md.js already makes to paint 🎪 into an opened row. A row with no
@@ -985,9 +1285,8 @@ function drawDoors(rows){
     var c=T[rid];
     if(c){ids.push(rid);n+=c;}}
   if(n)out.push('<a class="resdoor" id="resdoor-cal" href="'+H(root()+'events.ics')+
-    '" data-ids="'+H(ids.join(' '))+'">'+
-    '<span class="dooricon" aria-hidden="true">🗓</span> '+
-    BI('ใส่ปฏิทิน','add to calendar')+
+    '" data-ids="'+H(ids.join(' '))+'">'+icon('i-cal')+
+    BI('ปฏิทิน','calendar')+
     ' <span class="count">('+nfmt(n)+')</span></a>');
   el.innerHTML=out.join('');
   el.hidden=!out.length;
@@ -1079,11 +1378,11 @@ function wireDoors(){
       btn.click();
       var rm=document.getElementById('resmap');
       if(rm&&!rm.hidden&&rm.scrollIntoView)rm.scrollIntoView({block:'nearest'});
-      drawDoors(lastRows);
+      drawDoors();
       // openMap() gives up after eight seconds when no basemap arrives and
       // shuts the box again. The label has to follow it back, or it sits
       // there offering to hide a map that is not there.
-      setTimeout(function(){drawDoors(lastRows);},8600);
+      setTimeout(function(){drawDoors();},8600);
       return;}
     if(a.id!=='resdoor-cal')return;
     // THE EVENTS ARE FETCHED ONLY BY THE READER WHO ASKS FOR THEM. The count
@@ -1127,6 +1426,8 @@ window.MDREFINE={parse:parse,apply:apply,draw:draw,href:href,vals:vals,ok:ok,
 """
 
 import json as _json
+import glyphs
+import map_shell as _map_shell
 
 
 def _js_consts():
@@ -1148,13 +1449,24 @@ def _js_consts():
                                     ensure_ascii=False),
         "__SORTS__": _json.dumps([[v, th, en] for v, th, en in SORT_ROWS if v],
                                  ensure_ascii=False),
+        # The two landmarks distance is measured from when the reader has not
+        # said where they are — the same pair every map here opens on.
+        "__CENTRES__": _json.dumps({k: [c["lat"], c["lng"], c["th"], c["en"]]
+                                    for k, c in _map_shell.CENTERS.items()},
+                                   ensure_ascii=False),
     }
 
 
 for _k, _v in _js_consts().items():
     JS = JS.replace(_k, _v)
 def header(r, bi, att, svg_icon, logo_html, lang_html, strip_html=""):
-    """logo · language · the box — and on the front page, the one line.
+    """logo · language · the box · [map] · [cal] — and on the front page, the line.
+
+    WO-77 (Nan, 2026-09-08): the site is built around three doors — map,
+    calendar, boolean — and the map door goes on every page with minimal
+    words. So the two glyphs stand beside the box on every page, each a link
+    with its name in aria-label and title and nothing printed. The box is the
+    third door: the boolean is where it lands.
 
     What is gone from here, and it is most of what was here: the tagline, the
     ☰ <details>, the nine chipbar chips, the five svcbar families and their
@@ -1170,13 +1482,23 @@ def header(r, bi, att, svg_icon, logo_html, lang_html, strip_html=""):
     {lang_html}
     <button type="button" class="readbtn" data-read aria-pressed="false"
             aria-label="{att(bi_text("อ่านง่าย — แบบอักษรสำหรับผู้มีปัญหาการอ่านและสายตาเลือนราง",
-                                     "Easy read — a typeface for dyslexia and low vision"))}">{bi("อ่านง่าย", "Easy read")}</button>
+                                     "Easy read — a typeface for dyslexia and low vision"))}"
+            title="{att(bi_text("อ่านง่าย", "Easy read"))}">อา</button>
   </div>
+  <div class="seekrow">
   <form class="seek" action="{r}search.html" method="get">
     <label class="vh" for="q">{bi("ค้นหา", "Search")}</label>
     <input id="q" name="q" type="search" placeholder="ค้นหาชื่อร้าน วัด คลินิก… / search">
     <button aria-label="{att(bi_text("ค้นหา", "Search"))}">{svg_icon("i-search", 22, "rowicon")}{bi("ค้นหา", "Search")}</button>
+    <button type="button" class="askbtn" data-mdask-q hidden
+            aria-label="{att(bi_text("ถามมดเป็นประโยค", "ask the ants in a sentence"))}"
+            title="{att(bi_text("ถามมดเป็นประโยค", "ask the ants in a sentence"))}">{svg_icon("i-chat", 22, "rowicon")}</button>
   </form>
+  <a class="door door-loo" href="{r}toilets.html" title="{att(bi_text("ห้องน้ำใกล้ที่สุด", "nearest toilet"))}">{glyphs.icon("i-loo", 26, "rowicon", label=att(bi_text("ห้องน้ำใกล้ที่สุด", "nearest toilet")))}</a>
+  <a class="door" href="{r}map.html" title="{att(bi_text("แผนที่", "the map"))}">{glyphs.icon("i-map", 26, "rowicon", label=att(bi_text("แผนที่", "the map")))}</a>
+  <a class="door" href="{r}calendar.html" title="{att(bi_text("ปฏิทิน", "the calendar"))}">{glyphs.icon("i-cal", 26, "rowicon", label=att(bi_text("ปฏิทิน", "the calendar")))}</a>
+  <a class="door" href="{r}sites/" title="{att(bi_text("ทุกเว็บ", "every site"))}">{glyphs.icon("i-grid", 26, "rowicon", label=att(bi_text("ทุกเว็บ", "every site")))}</a>
+  </div>
   {strip_html}
 </header>"""
 
@@ -1253,7 +1575,154 @@ def bake_options(rows, T, cap=OPTION_CAP):
 
 
 # ────────────────────────────────────────────────────────────── the bare shell
-def home_body(strip_html=""):
+def home_header(r, bi, att, lang_html):
+    """Artboard 2a, the top row: อา at the left, the language control at the
+    right, nothing else. No logo tile — the wordmark below is the brand on
+    this one page — and no box in the header: the box is the page."""
+    return f"""<header class="site slim bare home96h">
+  <div class="mast">
+    <button type="button" class="readbtn" data-read aria-pressed="false"
+            aria-label="{att(bi_text("อ่านง่าย — แบบอักษรสำหรับผู้มีปัญหาการอ่านและสายตาเลือนราง",
+                                     "Easy read — a typeface for dyslexia and low vision"))}"
+            title="{att(bi_text("อ่านง่าย", "Easy read"))}">อา</button>
+    {lang_html}
+  </div>
+</header>"""
+
+
+def home_body(totals=None, provinces=(), tiles=(None, None, "", "", ""), shelves=(),
+              emergency=(), bi=None, att=None, r="", map_html="", calendar=(),
+              map_assets="[]", today_html=""):
+    """THE FRONT PAGE — artboard 2a of the redesign (Claude Design 2026-09-08;
+    Nan's decisions 2026-09-09; built 2026-09-10 after she found none of it on
+    her phone). Nine visible words: มดแดง · ไทย/+EN/EN · เชียงใหม่ · เชียงราย ·
+    ทุกชั้น ทุกหมวด · อา. Everything else is an icon, a numeral or a symbol,
+    and every icon carries its name in both languages as title and aria-label
+    — a tooltip on a desk, a long-press on a phone, and under อา the names are
+    printed.
+
+    Order of first paint, as the spec has it: wordmark → box → cities → four
+    tiles → the every-shelf link → footer glyphs. One column, no scroll on a
+    phone taller than 640 px. Works with no JavaScript: the form submits, the
+    pills are links, the tiles are links, the emergency tile is a <details>
+    whose sheet is the five numbers.
+
+    Nothing is dropped. The shelf grid, the events strip, the postcard map,
+    today, the sky, the toys and the feeds are all still built at their own
+    addresses; all.html is the no-JS path to every shelf and the box reaches
+    the rest. The old front page is home-classic.html, one release."""
+    import phosphor as PH
+    bi_ = bi or (lambda a, b: f"{a} · {b}")
+    att_ = att or (lambda x: str(x).replace('"', "&quot;"))
+    totals = totals or {}
+    # The two cities. The remembered one is drawn selected by JS
+    # (localStorage md-city); with no memory the first province stands
+    # selected, which is Chiang Mai, where most of the catalogue is.
+    pills = "".join(
+        f'<a class="city{" on" if i == 0 else ""}" data-city="{k}" href="{r}{k}/">'
+        f'{th}<span class="n">{totals.get(k, 0):,}</span></a>'
+        for i, (k, th, en) in enumerate(provinces))
+    temp, pm25, band_th, band_en, band_key = tiles
+    wx = ""
+    if isinstance(temp, (int, float)):
+        wx += f'<span class="t">{temp:.0f}°</span>'
+    if isinstance(pm25, (int, float)):
+        wx += f'<span class="pm band-{att_(band_key or "x")}">{pm25:.0f}</span>'
+    if not wx:
+        wx = '<span class="t">—</span>'   # nothing fresh to say; the tile still opens the widgets
+    wx_label = bi_text("อากาศ · ฝุ่น PM2.5", "Weather · PM2.5") + (f" — {band_th} · {band_en}" if band_th else "")
+    tile = lambda href, mark, th, en, extra_cls="": (
+        f'<a class="t96{extra_cls}" href="{href}" title="{att_(bi_text(th, en))}" '
+        f'aria-label="{att_(bi_text(th, en))}">{mark}<span class="tl">{bi_(th, en)}</span></a>')
+    sos_rows = "".join(
+        f'<a class="sosrow" href="tel:{att_(n["tel"])}"><b>{n["tel"]}</b> {bi_(n["th"], n["en"])}</a>'
+        for n in emergency)
+    tiles_html = (
+        f'<a class="t96 wx" href="{r}widgets.html#w-weather" title="{att_(wx_label)}" '
+          f'aria-label="{att_(wx_label)}">{wx}<span class="tl">{bi_("อากาศ", "Weather")}</span></a>'
+        + f'<details class="sos"><summary class="t96 sostile" title="{att_(bi_text("ฉุกเฉิน", "Emergency"))}" '
+          f'aria-label="{att_(bi_text("ฉุกเฉิน", "Emergency"))}">{PH.icon("phone-call", 24)}'
+          f'<span class="tl">{bi_("ฉุกเฉิน", "Emergency")}</span></summary>'
+          f'<div class="sossheet">{sos_rows}'
+          f'<a class="sosrow more" href="{r}chuai.html">{bi_("ช่วย — ที่ใกล้ที่สุด", "Help — what is nearest")} →</a></div></details>')
+    # THE PANE. The postcard (the moat, the gates, real ground once the live
+    # map loads) with one door out at its corner: the full map, at this view.
+    pane = ""
+    if map_html:
+        pane = (f'<div class="pane96">{map_html}<div class="tiles96 inpane">{tiles_html}</div>'
+                f'<a class="paneopen" href="{r}map.html" title="{att_(bi_text("แผนที่ทั้งเมือง", "The full map"))}" '
+                f'aria-label="{att_(bi_text("แผนที่ทั้งเมือง", "The full map"))}">{PH.icon("map-trifold", 18)}</a></div>')
+    # THE CALENDAR. Seven days as cells — the date, a Thai weekday initial, the
+    # count — today selected, and the day's first three events under it. Each
+    # cell is a link to the events page with no script; the script switches
+    # the day in place. Words on the page: none new — titles are content.
+    import json as _json
+    WD_TH = ("จ", "อ", "พ", "พฤ", "ศ", "ส", "อา")
+    WD_EN = ("M", "T", "W", "T", "F", "S", "S")
+    cal = ""
+    if calendar:
+        cells = "".join(
+            f'<a class="day{" on" if i == 0 else ""}" data-iso="{d["iso"]}" href="{r}events.html" '
+            f'title="{d["iso"]}"><span class="wd"><span class="th" lang="th">{WD_TH[d["wd"]]}</span>'
+            f'<span class="en" lang="en">{WD_EN[d["wd"]]}</span></span><b>{d["d"]}</b>'
+            f'<span class="n">{d["n"] if d["n"] else ""}</span></a>'
+            for i, d in enumerate(calendar))
+        today = calendar[0]
+        items = "".join(
+            f'<li><a href="{r}{it["h"]}"><span class="t">{it["t"]}</span>'
+            + (f' <span class="w">{it["w"]}</span>' if it.get("w") else "")
+            + (f' <span class="v">{it["v"]}</span>' if it.get("v") else "") + "</a></li>"
+            for it in today["items"]) or '<li class="none">·</li>'
+        slim = [{"iso": d["iso"], "items": d["items"]} for d in calendar]
+        cal = (f'<div class="cal96" data-cal="{att_(_json.dumps(slim, ensure_ascii=False))}">'
+               f'<div class="days">{cells}</div><ul class="items">{items}</ul>'
+               f'<a class="calopen" href="{r}events.html" title="{att_(bi_text("ปฏิทิน", "Events"))}" '
+               f'aria-label="{att_(bi_text("ปฏิทิน", "Events"))}">{PH.icon("calendar-dots", 18)}</a></div>')
+    # The shelves as native suggestions: one tap in the empty box lists them,
+    # no script, no words on the page.
+    opts = "".join(f'<option value="{att_(th)}">{att_(en)}</option>' for th, en in shelves)
+    # ของวันนี้ stands ABOVE the wordmark — Nan, 2026-09-16: "above all current
+    # content". daily_layer.py owns what is in it.
+    return f"""<div class="home96">
+{today_html}
+<h1 class="wordmark"><span class="th96">มดแดง</span><span class="rom96">MOT DANG</span></h1>
+<form class="seek seek96" action="{r}search.html" method="get" role="search">
+  <button class="go" aria-label="{att_(bi_text("ค้นหา", "Search"))}" title="{att_(bi_text("ค้นหา", "Search"))}">{PH.icon("magnifying-glass", 20)}</button>
+  <label class="vh" for="q">{bi_("ค้นหา", "Search")}</label>
+  <input id="q" name="q" type="search" list="shelves96" autocomplete="off" enterkeyhint="search"
+         aria-label="{att_(bi_text("ค้นหาชื่อร้าน วัด คลินิก ถนน ป้าย", "Search names, shelves, tags, sois, numbers"))}">
+  <datalist id="shelves96">{opts}</datalist>
+  <button type="button" class="mic" hidden aria-label="{att_(bi_text("พูดเพื่อค้นหา", "Speak to search"))}" title="{att_(bi_text("พูดเพื่อค้นหา", "Speak to search"))}">{PH.icon("microphone", 19)}</button>
+</form>
+<div class="row96"><nav class="cities" aria-label="{att_(bi_text("จังหวัด", "Province"))}">{pills}</nav>{"" if pane else f'<div class="tiles96">{tiles_html}</div>'}</div>
+{pane}
+{cal}
+<a class="allshelves" href="{r}all.html" title="{att_(bi_text("ทุกชั้น ทุกหมวด", "every shelf"))}"><span class="th" lang="th">ทุกชั้น ทุกหมวด</span><span class="en en96" lang="en">every shelf</span> →</a>
+</div>
+<script type="application/json" id="maphead">{map_assets}</script>"""
+
+
+def home_footer(r, bi, att, build_date, be_build, ask_host=""):
+    """Artboard 2a's footer: add · chat · source as marks, then API · CC BY 4.0
+    · © OSM · the date in the Buddhist year. The five emergency numbers are
+    not here — on this page they are the red tile."""
+    import phosphor as PH
+    be_date = f"{be_build}{build_date[4:]}" if build_date and len(build_date) >= 10 else build_date
+    chat = (f'<a href="{ask_host}" rel="noopener" title="{att(bi_text("คุยกับมด", "Chat with the ants"))}" '
+            f'aria-label="{att(bi_text("คุยกับมด", "Chat with the ants"))}">{PH.icon("chats-circle", 16)}</a>') if ask_host else ""
+    return f"""<footer class="bare home96f">
+  <a href="{r}add.html" title="{att(bi_text("เพิ่มข้อมูล", "Add a place"))}" aria-label="{att(bi_text("เพิ่มข้อมูล", "Add a place"))}">{PH.icon("plus-circle", 16)}</a>
+  {chat}
+  <a href="{r}source/" title="{att(bi_text("โค้ดและข้อมูลดิบ", "Source and raw data"))}" aria-label="{att(bi_text("โค้ดและข้อมูลดิบ", "Source and raw data"))}">{PH.icon("code", 16)}</a>
+  <a href="{r}elsewhere.html" title="{att(bi_text("ที่อื่นของเรา", "Elsewhere from the same workshop"))}"><span class="th" lang="th">ที่อื่นของเรา</span><span class="en" lang="en">elsewhere</span></a>
+  <a href="{r}api/">API</a>
+  <a href="https://creativecommons.org/licenses/by/4.0/" rel="license noopener">CC BY 4.0</a>
+  <a href="https://www.openstreetmap.org/copyright" rel="noopener">© OSM</a>
+  <time datetime="{build_date}">{be_date}</time>
+</footer>"""
+
+
+def _home_body_legacy(strip_html=""):
     """The front page below the box. `strip_html` is nownear_layer.strip(),
     which the header already carries on the front page, so this is normally
     empty — the argument stays so a caller can put the line here instead.
@@ -1264,18 +1733,36 @@ def home_body(strip_html=""):
     return (f'<h1 class="vh">มดแดง · Mot Dang</h1>{strip_html}')
 
 
+def _updated_line(bi, day):
+    """'ปรับปรุง … · updated …' for a record's own date, or nothing."""
+    if not day:
+        return ""
+    be = int(day[:4]) + 543
+    return bi(f"ปรับปรุง {day} (พ.ศ. {be})", f"updated {day} (B.E. {be})") + " · "
+
+
 def bare_footer(r, bi, emergency_foot, build_date, be_build, lic_th, lic_en,
-                extra_html=""):
+                extra_html="", record_date=""):
     """The minimal footer. What is here is here for a reason that is not
     housekeeping: the four numbers, because a person looking for a hospital at
     2 a.m. is the reader this site was built for; the OSM line, because it is
-    a licence condition and not decoration; the date, because a directory that
-    will not say when it was last read is not a directory; ทุกชั้น, because
-    without it 25,889 pages have no inbound link but the sitemap.
+    a licence condition and not decoration; ทุกชั้น, because without it
+    25,889 pages have no inbound link but the sitemap. The build date left
+    this footer on 2026-09-10: it changed every page every day, and every page
+    re-uploaded for it. The home page, the sitemap and the RSS feed still
+    carry it. A place page prints its record's own last-changed date instead
+    (Nan, 2026-09-11: "(b), the record's own last-changed date"), passed in
+    as `record_date`, which moves only when the place does.
 
     Everything else that stood here — RSS, partners, the fix log, Ko-fi,
     llms.txt, the picture credits — is still built and still at its own
-    address. `extra_html` is where a caller puts any of it back."""
+    address. `extra_html` is where a caller puts any of it back.
+
+    THE LICENCE IS ONE LINE (Nan, 2026-09-08: "everywhere, but subtle"). The
+    45-word sentence that stood under it on all 25,889 pages is gone; both
+    licences are still named, each as a link. `lic_th`/`lic_en` stay in the
+    signature — build.py still passes them and source/ and terms.html still
+    print them — but this footer no longer reads them."""
     return f"""<footer class="bare">
   <div class="footsos">{emergency_foot(r)}</div>
   <span class="footline"><a href="{r}all.html">{bi("ทุกชั้น ทุกหมวด", "every shelf")}</a> ·
@@ -1283,8 +1770,12 @@ def bare_footer(r, bi, emergency_foot, build_date, be_build, lic_th, lic_en,
   <a href="{r}api/">API</a> ·
   <a href="{r}privacy.html">{bi("ความเป็นส่วนตัว", "Privacy")}</a> ·
   <a href="{r}terms.html">{bi("เงื่อนไขการใช้ข้อมูล", "Terms of use")}</a>{extra_html}</span>
-  <span class="footline">{bi(f"ปรับปรุง {build_date} (พ.ศ. {be_build})",
-      f"updated {build_date} (B.E. {be_build})")} ·
+  <span class="footline">{_updated_line(bi, record_date)}<a href="https://creativecommons.org/licenses/by/4.0/" rel="license noopener">CC BY 4.0</a> ·
   © <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a> (ODbL)</span>
-  <span class="licence">{bi(lic_th, lic_en)}</span>
 </footer>"""
+
+
+# The front page's sheet and script ride with this module's own, so build()
+# ships them without another file.
+CSS = CSS + HOME_CSS
+JS = JS + HOME_JS

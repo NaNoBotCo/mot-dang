@@ -118,6 +118,8 @@ h2 .shn { display: block; font-size: 13pt; font-weight: 400; margin-top: 2mm; }
 .steps .en { display: block; font-size: 10pt; color: #222; margin-top: 1mm; }
 .qrwrap { margin-top: 6mm; display: flex; gap: 8mm; align-items: center; }
 .qrwrap img { width: 52mm; height: 52mm; border: 2px solid #000; }
+.qrwrap.board .qrsvg svg { width: 38mm; height: 38mm; }
+.qrwrap.board .lineid { font-size: 13pt; }
 .qrwrap .lineid { font-size: 20pt; font-weight: 700; }
 .qrwrap p { font-size: 11pt; margin-top: 2mm; }
 .ants { font-size: 15pt; letter-spacing: -1px; }
@@ -189,6 +191,20 @@ def tri(th, en, shn=None):
     return out
 
 
+def board_block(s):
+    """A second code on the back of a sheet that carries boardUrl: the
+    home-help board's sign-up form (motdang.net/home-help/join), for a
+    worker who would rather fill it in than message the LINE account."""
+    url = s.get("boardUrl")
+    if not url:
+        return ""
+    import segno
+    svg = segno.make(url, error="m").svg_inline(scale=4, border=2, dark="#000")
+    return (f'<div class="qrwrap board"><div class="qrsvg">{svg}</div><div>'
+            f'<p>{esc(s.get("board_th", ""))}</p><p class="en">{esc(s.get("board_en", ""))}</p>'
+            f'<p class="lineid">{esc(url.replace("https://", ""))}</p></div></div>')
+
+
 def sheet_html(s, common, cfg, qr, stamped):
     three = bool(s.get("trilingual"))
     banner = ""
@@ -229,6 +245,7 @@ def sheet_html(s, common, cfg, qr, stamped):
 <div class="qrwrap">{qr_img}
 <div><span class="lineid">{esc(line_id)}</span>
 <p>{esc(common['noapp_th'])}</p><p class="en">{esc(common['noapp_en'])}</p></div></div>
+{board_block(s)}
 <ol class="steps">{steps}</ol>
 <div class="ladder"><span class="ants">🐜🐜🐜🐜🐜🐜🐜🐜🐜</span><br>
 {esc(common['ants_th'])}<span class="en">{esc(common['ants_en'])}</span></div>
@@ -256,9 +273,9 @@ def main():
     shan_ok = bool(doc.get("shanVerified"))
     qr = qr_data_uri()
     if not qr:
-        print("warning: no LINE QR found in assets/qr — printing without it")
+        print("warning: no LINE QR found in assets/qr — printing without it")  # stylecheck: allow — console output
     if not cfg.get("lineOaId"):
-        print("warning: no lineOaId in data/config.json — the sheet will print "
+        print("warning: no lineOaId in data/config.json — the sheet will print "  # stylecheck: allow — console output
               "without the one thing it exists to hand over")
 
     chrome = find_chrome()

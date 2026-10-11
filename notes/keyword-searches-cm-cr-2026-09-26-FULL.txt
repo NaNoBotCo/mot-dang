@@ -1,0 +1,3350 @@
+Google Autocomplete — ALL Chiang Mai / Chiang Rai completions
+Method: client=chrome, hl en+th, gl th; alphabet-soup + intent expansion
+352 expansions · 3346 distinct CM/CR queries (contaminants dropped)
+rank	surfaced_in_N	avg_pos	query
+1	8	6.75	chiang mai to bangkok
+2	7	1.14	chiang mai university
+3	7	5.86	is chiang rai safe
+4	6	1.5	chiang mai night safari
+5	6	5.33	is it worth visiting chiang rai
+6	6	5.5	what is chiang rai known for
+7	6	6.0	cost of living in chiang rai
+8	5	0.8	chiang rai weather
+9	5	1.4	chiang mai weather
+10	5	3.0	chiang mai zoo
+11	5	7.4	chiang rai to bangkok
+12	5	8.8	chiang mai to chiang rai
+13	5	9.0	chiang rai weather forecast 30 days
+14	4	0.75	chiang mai 60 mulberry
+15	4	1.0	chiang mai klaimor hospital
+16	4	1.75	chiang mai airport
+17	4	1.75	chiang rai white temple
+18	4	2.0	เชียงใหม่0องศา
+19	4	2.5	chiang rai golden triangle
+20	4	2.75	chiang rai municipality school 6
+21	4	3.0	chiang mai night market
+22	4	3.0	chiang mai zoo tickets
+23	4	3.5	chiang mai zoo reviews
+24	4	3.5	เชียงใหม่ 90
+25	4	4.0	chiang mai night bazaar
+26	4	4.0	เชียงใหม่ 106 lyrics
+27	4	4.0	เชียงใหม่ 60
+28	4	4.5	เชียงใหม่ 2025
+29	4	4.75	chiang mai food
+30	4	4.75	chiang mai map
+31	4	5.0	chiang mai elephant sanctuary
+32	4	5.0	เชียงใหม่ 6
+33	4	5.0	เชียงใหม่ 89 พลาซ่า รูปภาพ
+34	4	5.0	เชียงใหม่ 9
+35	4	5.25	เชียงใหม่ 1
+36	4	5.25	chiang rai marathon 2026
+37	4	5.5	chiang mai university address
+38	4	5.75	chiang mai boxing stadium
+39	4	5.75	chiang mai zip code
+40	4	5.75	chiangmai marathon 2026
+41	4	5.75	chiang rai temperature
+42	4	6.0	เชียงใหม่ 99
+43	4	6.25	chiang mai international airport
+44	4	6.25	เชียงใหม่ 1 day trip
+45	4	6.25	เชียงใหม่ 1 วัน
+46	4	6.25	chiang rai to chiang mai
+47	4	6.5	chiang mai population
+48	4	6.75	chiang mai zoo map
+49	4	6.75	เชียงใหม่ 2026
+50	4	6.75	เชียงใหม่ 80
+51	4	7.0	chiang mai weather forecast
+52	4	7.0	chiangmai utmb 2026
+53	4	7.25	เชียงใหม่ 10 เขต
+54	4	7.25	เชียงใหม่ 108 cm108
+55	4	7.25	what to eat in chiang rai
+56	4	7.25	difference between chiang mai and chiang rai
+57	4	8.25	เชียงใหม่ 8
+58	4	8.75	เชียงใหม่ 108 วัน นี้
+59	4	10.0	เชียงใหม่ 106 คอร์ด
+60	4	11.25	chiang rai get your guide
+61	4	11.75	chiang mai zoo panda
+62	4	12.0	เชียงใหม่ 108cm
+63	3	0.0	chiang mai 5 star hotels
+64	3	0.0	chiangmai weather
+65	3	0.0	chiang rai day trip from chiang mai
+66	3	0.0	chiang rai karen village
+67	3	0.0	chiang rai or pai
+68	3	0.0	chiang rai youth orchestra
+69	3	0.0	chiang rai zoo
+70	3	0.0	chiang rai 2 day itinerary
+71	3	0.0	chiang rai 4 seasons
+72	3	0.0	chiangrai united
+73	3	0.33	เชียงใหม่ 5 วัน 4 คืน
+74	3	0.67	chiang mai journal of science
+75	3	0.67	chiang mai 700 years park
+76	3	0.67	chiang mai 7 eleven
+77	3	0.67	เชียงใหม่ 700 ปี
+78	3	0.67	chiangrai prachanukroh hospital
+79	3	1.0	chiang mai design week
+80	3	1.0	chiang mai marriott hotel
+81	3	1.0	chiang mai 5 day itinerary
+82	3	1.0	chiang mai 67 bar
+83	3	1.0	chiangmai ram hospital
+84	3	1.0	เชียงใหม่ 108
+85	3	1.0	เชียงใหม่ 3 วัน 2 คืน
+86	3	1.0	chiang rai day tour
+87	3	1.0	chiang rai golf
+88	3	1.0	chiang rai kennedy
+89	3	1.0	chiang rai or chiang mai
+90	3	1.0	chiang rai que ver
+91	3	1.0	chiang rai zipline
+92	3	1.0	chiangrai airport
+93	3	1.33	chiang mai 4 seasons
+94	3	1.33	chiang mai 99 the gallery hotel
+95	3	1.33	chiangmai airport
+96	3	1.33	เชียงใหม่ 50000
+97	3	1.67	chiang mai holistic
+98	3	1.67	chiang mai 3d art museum
+99	3	1.67	chiang mai 4 day itinerary
+100	3	1.67	chiangmai immigration
+101	3	1.67	chiang rai 4 days itinerary
+102	3	2.0	chiang mai orchid hotel
+103	3	2.0	chiang mai 3 days
+104	3	2.0	เชียงใหม่ 730 ปี
+105	3	2.0	เชียงใหม่ 89 พลาซ่า
+106	3	2.0	chiang rai airport
+107	3	2.0	chiang rai districts
+108	3	2.0	chiang rai golf courses
+109	3	2.0	chiang rai july weather
+110	3	2.0	chiang rai khao soi
+111	3	2.0	chiang rai off the beaten path
+112	3	2.0	chiang rai que faire
+113	3	2.0	chiang rai yelp
+114	3	2.0	chiang rai zip code
+115	3	2.33	chiang mai pao park
+116	3	2.33	chiang mai 5 days
+117	3	2.33	chiang mai 99 heritage
+118	3	2.33	เชียงใหม่ 51
+119	3	2.33	chiang rai tour
+120	3	2.67	chiang mai zoo aquarium
+121	3	2.67	chiangrai hotel
+122	3	3.0	chiang mai 4 days
+123	3	3.0	เชียงใหม่ 4 วัน 3 คืน
+124	3	3.0	เชียงใหม่ 6 วัน 5 คืน
+125	3	3.0	เชียงใหม่ 89
+126	3	3.0	chiang rai downtown
+127	3	3.0	chiang rai gym
+128	3	3.0	chiang rai jobs
+129	3	3.0	chiang rai kitchen
+130	3	3.0	chiang rai old airport
+131	3	3.0	chiang rai que hacer
+132	3	3.0	chiang rai youtube
+133	3	3.0	chiang rai 4 days
+134	3	3.33	chiang mai old city
+135	3	3.33	chiangmai night bazaar
+136	3	3.33	chiangmai to bangkok flight
+137	3	3.33	เชียงใหม่ 50200
+138	3	3.33	chiang rai bus terminal 2
+139	3	3.33	chiang rai walking street
+140	3	3.67	chiang mai yoga class
+141	3	3.67	chiang mai yoga retreat
+142	3	3.67	chiangmai hill hotel
+143	3	3.67	เชียงใหม่ 3
+144	3	3.67	เชียงใหม่ 7 วัน 6 คืน
+145	3	3.67	chiang rai blue temple
+146	3	3.67	chiang rai weather forecast
+147	3	3.67	chiangrai international school
+148	3	3.67	chiangrai temple
+149	3	4.0	chiang mai 50200
+150	3	4.0	chiang mai 99 heritage hotel
+151	3	4.0	chiangmai international airport
+152	3	4.0	chiangmai weather forecast
+153	3	4.0	เชียงใหม่ 68
+154	3	4.0	chiang rai dragon temple
+155	3	4.0	chiang rai green park resort
+156	3	4.0	chiang rai kids activities
+157	3	4.0	chiang rai long beach
+158	3	4.0	chiang rai old town
+159	3	4.0	chiang rai yearly weather
+160	3	4.0	chiang rai zentrum
+161	3	4.0	chiang rai zwiedzanie
+162	3	4.33	chiang mai zipline
+163	3	4.33	chiang mai 4 star hotel
+164	3	4.33	chiang mai 60
+165	3	4.33	เชียงใหม่ 106
+166	3	4.33	เชียงใหม่ 5
+167	3	4.33	chiang rai marathon 2027
+168	3	4.33	chiang rai red temple
+169	3	4.33	chiangrai technocom
+170	3	4.67	chiang mai 3 month rental
+171	3	4.67	เชียงใหม่ 7 ยอด
+172	3	4.67	chiang rai expat community
+173	3	4.67	chiang rai population
+174	3	4.67	chiang rai united
+175	3	4.67	chiangrai college
+176	3	4.67	chiangrai road classic 2026
+177	3	5.0	chiang mai 700th anniversary stadium
+178	3	5.0	chiang mai 7 day forecast
+179	3	5.0	เชียงใหม่ 66
+180	3	5.0	เชียงใหม่ 9 วัด
+181	3	5.0	chiang rai departures
+182	3	5.0	chiang rai october weather
+183	3	5.0	chiang rai population 2025
+184	3	5.0	chiang rai yoga
+185	3	5.0	chiang rai zara
+186	3	5.33	chiang mai hiking
+187	3	5.33	chiang mai national museum
+188	3	5.33	chiang mai sunday night market
+189	3	5.33	เชียงใหม่ 2 วัน 1 คืน
+190	3	5.33	เชียงใหม่ 3 คืน 4 วัน
+191	3	5.33	เชียงใหม่ 50300
+192	3	5.33	chiang rai jungle bubble
+193	3	5.33	chiang rai long neck village
+194	3	5.67	chiang mai jazz bar
+195	3	5.67	chiang mai quad biking
+196	3	5.67	chiang mai 3 kings monument
+197	3	5.67	เชียงใหม่ 49
+198	3	5.67	chiang rai green bus
+199	3	5.67	chiang rai quán
+200	3	5.67	chiang rai temples
+201	3	5.67	chiang rai zachod slonca
+202	3	5.67	chiangrai vs ratchaburi
+203	3	6.0	chiang mai flight status
+204	3	6.0	chiang mai ktv
+205	3	6.0	chiang mai old town hotel
+206	3	6.0	chiang mai youtube
+207	3	6.0	chiang mai 3 days 2 nights
+208	3	6.0	chiang mai 50100
+209	3	6.0	chiang mai 7 days
+210	3	6.0	chiang mai 90s
+211	3	6.0	chiang mai 925 silver
+212	3	6.0	เชียงใหม่ 600
+213	3	6.0	เชียงใหม่ 89 ทันต กรรม คลินิก
+214	3	6.0	chiang rai directions
+215	3	6.0	chiang rai flower festival 2026
+216	3	6.0	chiang rai on map
+217	3	6.0	chiang rai quanti giorni
+218	3	6.0	chiang rai weather by month
+219	3	6.0	chiang rai yoga retreat
+220	3	6.0	chiangrai united standings
+221	3	6.33	chiang mai zoo photos
+222	3	6.33	เชียงใหม่ 7
+223	3	6.33	chiang rai expat club
+224	3	6.33	chiang rai what to do
+225	3	6.67	chiang mai university night market
+226	3	6.67	chiang mai yi peng
+227	3	6.67	chiang mai 48
+228	3	6.67	chiang rai grand room hotel
+229	3	7.0	chiang mai que ver
+230	3	7.0	chiang mai 60 mulberry plant near me
+231	3	7.0	เชียงใหม่ 2
+232	3	7.0	50100 เชียงใหม่
+233	3	7.0	chiang rai orange county
+234	3	7.0	chiang rai yi peng
+235	3	7.33	chiang mai zoo entrance fee
+236	3	7.33	chiang mai 620
+237	3	7.33	chiang mai 700 year stadium
+238	3	7.33	chiang mai 9 days
+239	3	7.33	เชียงใหม่ x center
+240	3	7.33	เชียงใหม่ zoo aquarium
+241	3	7.33	เชียงใหม่ 48
+242	3	7.33	เชียงใหม่ 81
+243	3	7.33	chiang rai krabi
+244	3	7.33	chiang rai zwarte tempel
+245	3	7.67	chiang mai 50300
+246	3	7.67	chiang rai distance from bangkok
+247	3	7.67	chiang rai google maps
+248	3	7.67	chiang rai que visitar
+249	3	7.67	chiang rai zloty trojkat
+250	3	8.0	chiang mai krabi flight
+251	3	8.0	chiang mai que hacer
+252	3	8.0	chiang mai 3 star hotel
+253	3	8.0	เชียงใหม่ 700 ปี ประวัติ
+254	3	8.0	chiang rai jersey
+255	3	8.0	chiang rai loop
+256	3	8.0	chiang rai on thailand map
+257	3	8.0	chiang rai yoga house
+258	3	8.33	chiang mai bangkok flight
+259	3	8.33	chiang mai 7 fountains
+260	3	8.33	เชียงใหม่ zipline
+261	3	8.33	เชียงใหม่ 3 วัน
+262	3	8.33	เชียงใหม่ 4
+263	3	8.33	สมัครงานเชียงใหม่ 89 พลาซ่า
+264	3	8.33	chiang rai que ver en un dia
+265	3	8.67	chiang mai 420
+266	3	8.67	chiang mai 60 mulberry plant price
+267	3	8.67	เชียงใหม่ 2 คืน 3 วัน
+268	3	8.67	เชียงใหม่ 3 กษัตริย์
+269	3	8.67	เชียงใหม่ 50210
+270	3	8.67	chiang rai december weather
+271	3	8.67	chiang rai golden triangle tour
+272	3	9.0	chiang mai 4k
+273	3	9.0	chiang mai 50000
+274	3	9.0	chiang rai jazz festival 2025
+275	3	9.0	chiang rai one day tour
+276	3	9.33	chiang mai 747
+277	3	9.33	เชียงใหม่ 70
+278	3	9.33	เชียงใหม่ 89 พลาซ่า โดย เจ้าของ
+279	3	9.33	chiang rai krabi flight
+280	3	9.33	chiang rai things to do
+281	3	9.33	chiang rai waterfall
+282	3	9.33	chiang rai weather december
+283	3	9.33	is chiang rai worth visiting
+284	3	9.33	chiangrai things to do
+285	3	9.67	chiang mai elevation
+286	3	9.67	chiang mai zipline king kong
+287	3	9.67	chiang mai 99 hotel
+288	3	9.67	เชียงใหม่ 50130
+289	3	9.67	chiang rai dimana
+290	3	9.67	chiang rai gluten free
+291	3	9.67	chiang rai yoga class
+292	3	10.0	chiang mai 4 days 3 nights
+293	3	10.0	chiang rai japanese restaurant
+294	3	10.0	chiang rai or chiang mai which is better
+295	3	10.0	chiang rai que voir
+296	3	10.33	chiang mai 4d3n
+297	3	10.33	chiang mai 50230
+298	3	10.33	เชียงใหม่ 888
+299	3	10.67	chiang mai ethical elephant sanctuary
+300	3	10.67	chiang mai que faire
+301	3	10.67	chiang mai 7 days inn
+302	3	10.67	chiang rai yelp tustin
+303	3	11.0	chiang mai immigration 90 days report
+304	3	11.0	chiang mai things to do
+305	3	11.0	chiang mai zoo animals
+306	3	11.0	chiang rai distance from chiang mai
+307	3	11.0	chiang rai order
+308	3	11.33	chiang mai loop
+309	3	11.33	เชียงใหม่ 50230
+310	3	11.33	เชียงใหม่ 88
+311	3	11.67	เชียงใหม่ 4วัน
+312	3	11.67	chiang rai governor cave rescue
+313	3	11.67	chiang rai wat rong khun
+314	3	12.0	chiang rai distance from phuket
+315	3	12.0	chiang rai jewelry
+316	3	12.0	chiang rai online order
+317	3	12.33	เชียงใหม่ 89 ทันต กรรม คลินิก รูปภาพ
+318	3	12.33	chiang rai yunnan
+319	3	12.67	chiang mai 50180
+320	3	12.67	เชียงใหม่ 1985
+321	3	12.67	เชียงใหม่ 5 ดาว
+322	3	12.67	chiang rai grab
+323	3	12.67	chiang rai lantern festival
+324	3	13.0	chiang mai zoo price
+325	3	13.0	chiang mai 4sky
+326	3	13.0	เชียงใหม่ 4dx
+327	3	13.0	chiang rai delivery
+328	3	13.0	chiang rai jazz bar
+329	3	13.0	chiang rai october
+330	3	13.33	เชียงใหม่ 89 พลาซ่า wfh
+331	3	13.67	chiang mai zoe in yellow
+332	3	13.67	chiang rai golden temple
+333	3	14.0	chiang rai direct flights
+334	2	0.0	chiang mai direct
+335	2	0.0	chiang mai quality tour
+336	2	0.0	chiang mai x centre
+337	2	0.0	chiang mai yoga
+338	2	0.0	chiang mai 22k night run 2026
+339	2	0.0	chiang mai 3 day itinerary
+340	2	0.0	chiang mai 4th ring road
+341	2	0.0	chiang mai 89 plaza
+342	2	0.0	chiangmai circuit - go kart
+343	2	0.0	chiangmai quality tour
+344	2	0.0	chiangmai sport clinic
+345	2	0.0	chiangmai yoga
+346	2	0.0	chiangmai zoo
+347	2	0.0	chiangmai 10k
+348	2	0.0	chiangmai 22k night run
+349	2	0.0	chiang rai clock tower
+350	2	0.0	chiang rai elephant sanctuary
+351	2	0.0	chiang rai january weather
+352	2	0.0	chiang rai lake hill resort
+353	2	0.0	chiang rai vs chiang mai
+354	2	0.0	chiang rai 1 day itinerary
+355	2	0.0	chiang rai 3 day itinerary
+356	2	0.0	chiang rai 5 star hotels
+357	2	0.0	chiang rai 7 eleven
+358	2	0.0	chiangrai emr
+359	2	0.0	chiangrai land associates co. ltd
+360	2	0.0	chiangrai vs chonburi
+361	2	0.0	92 chiangrai poshtel
+362	2	0.0	best chiang rai restaurants
+363	2	0.5	chiang mai bus terminal 3
+364	2	0.5	chiang mai hill hotel
+365	2	0.5	chiang mai ram hospital
+366	2	0.5	chiang mai 90 day report drive through
+367	2	0.5	chiang mai 90 day reporting
+368	2	0.5	chiangmai boxing stadium
+369	2	0.5	chiangmai book fair
+370	2	0.5	chiangmai elephant sanctuary
+371	2	0.5	chiangmai elephant home
+372	2	0.5	chiangmai life architects
+373	2	0.5	chiangmai old town
+374	2	0.5	chiangmai pickleball
+375	2	0.5	chiangmai 89 plaza
+376	2	0.5	chiang rai international school
+377	2	0.5	chiang rai map
+378	2	0.5	chiang rai night bazaar
+379	2	0.5	chiang rai province
+380	2	0.5	chiangrai fashion to the world
+381	2	0.5	chiangrai hospital
+382	2	0.5	chiangrai map
+383	2	0.5	chiangrai night bazaar
+384	2	0.5	chiangrai stadium
+385	2	0.5	xyz chiangrai
+386	2	0.5	restaurants in chiang rai thailand
+387	2	1.0	chiang mai circuit
+388	2	1.0	chiang mai fc
+389	2	1.0	chiang mai gate market
+390	2	1.0	chiang mai immigration
+391	2	1.0	chiang mai pickleball
+392	2	1.0	chiang mai 106
+393	2	1.0	chiangmai archery
+394	2	1.0	chiangmai design week 2026
+395	2	1.0	chiangmai fc
+396	2	1.0	chiangmai horumon
+397	2	1.0	chiangmai job
+398	2	1.0	chiangmai karaoke
+399	2	1.0	chiangmai land
+400	2	1.0	chiangmai quote
+401	2	1.0	chiangmai ram
+402	2	1.0	chiangmai united
+403	2	1.0	chiangmai voyage of light
+404	2	1.0	chiangmai yoga studio
+405	2	1.0	chiangmai zoo aquarium
+406	2	1.0	chiangmai 89 dental clinic
+407	2	1.0	chiang rai elevation
+408	2	1.0	chiang rai international christian school
+409	2	1.0	chiang rai visa run
+410	2	1.0	chiang rai huay xai bus
+411	2	1.0	chiang rai 14 day weather forecast
+412	2	1.0	chiang rai 2 days
+413	2	1.0	chiang rai 3 days
+414	2	1.0	chiang rai 57000
+415	2	1.0	chiang rai municipality school 6 photos
+416	2	1.0	chiang rai 7 days inn
+417	2	1.0	chiangrai bus terminal 1
+418	2	1.0	chiangrai news
+419	2	1.0	chiangrai vs
+420	2	1.0	chiangrai united 0 ratchaburi fc
+421	2	1.0	best chiang rai hotels
+422	2	1.5	chiang mai visa shop
+423	2	1.5	chiang mai yangon flight
+424	2	1.5	chiangmai international school
+425	2	1.5	chiangmai news
+426	2	1.5	chiangmai thailand
+427	2	1.5	chiangmai view place 2
+428	2	1.5	chiangmai united 0 pattani fc
+429	2	1.5	chiang rai bus terminal 1
+430	2	1.5	chiang rai city
+431	2	1.5	chiang rai heritage hotel
+432	2	1.5	chiang rai hospital
+433	2	1.5	chiang rai queen garden
+434	2	1.5	chiang rai rajabhat university
+435	2	1.5	chiang rai 4 star hotel
+436	2	1.5	chiangrai agro-industry co. ltd
+437	2	1.5	chiangrai fc
+438	2	1.5	chiangrai focus
+439	2	1.5	chiangrai immigration
+440	2	1.5	chiangrai marathon
+441	2	1.5	chiangrai night market
+442	2	1.5	chiangrai restaurant
+443	2	1.5	chiangrai singha park
+444	2	1.5	xiaomi chiangrai
+445	2	2.0	chiang mai archery
+446	2	2.0	chiang mai elephant home
+447	2	2.0	chiang mai international school
+448	2	2.0	chiang mai jr muay thai
+449	2	2.0	chiang mai khao soi
+450	2	2.0	chiang mai 7 day itinerary
+451	2	2.0	chiang mai 88
+452	2	2.0	chiangmai cedar international school
+453	2	2.0	chiangmai gate hotel
+454	2	2.0	chiangmai hospital
+455	2	2.0	chiangmai july weather
+456	2	2.0	chiangmai klaimor hospital reviews
+457	2	2.0	chiangmai love home
+458	2	2.0	chiangmai quality tour co ltd
+459	2	2.0	chiangmai utmb
+460	2	2.0	chiangmai 2026 lantern festival
+461	2	2.0	chiangmai 89
+462	2	2.0	chiang rai elephant
+463	2	2.0	chiang rai hotels
+464	2	2.0	chiang rai night market
+465	2	2.0	chiang rai vs pai
+466	2	2.0	chiang rai 14th ave markham
+467	2	2.0	chiang rai 2 day tour
+468	2	2.0	chiang rai 3 temples
+469	2	2.0	chiang rai 7 11
+470	2	2.0	95 chiang rai
+471	2	2.0	chiangrai contemporary art museum
+472	2	2.0	epoc chiangrai
+473	2	2.0	เชียงใหม่ eng
+474	2	2.0	chiangrai international christian school
+475	2	2.0	chiangrai united 0 prachuap fc
+476	2	2.0	เชียงราย 3 วัน 2 คืน
+477	2	2.0	เชียงราย 90
+478	2	2.0	best chiang rai tours
+479	2	2.0	airport near chiang rai
+480	2	2.5	chiang mai book fair 2026
+481	2	2.5	chiang mai old town
+482	2	2.5	chiang mai province
+483	2	2.5	chiang mai rajabhat university
+484	2	2.5	chiang mai vocational college
+485	2	2.5	chiang mai 2026
+486	2	2.5	chiangmai lantern festival
+487	2	2.5	chiangmai property
+488	2	2.5	เชียงใหม่ quote
+489	2	2.5	chanthaburi 0 chiangmai united
+490	2	2.5	chiang rai news
+491	2	2.5	chiang rai places to visit
+492	2	2.5	chiang rai prachanukroh hospital
+493	2	2.5	chiang rai university
+494	2	2.5	chiangrai attractions
+495	2	2.5	chiangrai bangkok flight
+496	2	2.5	chiangrai city fc
+497	2	2.5	singha chiangrai united
+498	2	2.5	เชียงราย 72
+499	2	3.0	chiang mai festival
+500	2	3.0	chiang mai fresh milk
+501	2	3.0	chiang mai k star travel
+502	2	3.0	chiang mai news
+503	2	3.0	chiang mai queen sirikit botanic garden
+504	2	3.0	chiang mai university ranking
+505	2	3.0	chiang mai view place 2
+506	2	3.0	chiang mai wellness clinic
+507	2	3.0	chiang mai 5d4n itinerary
+508	2	3.0	chiang mai 7s
+509	2	3.0	chiang mai 89 dental clinic
+510	2	3.0	chiangmai event
+511	2	3.0	chiangmai gourmet
+512	2	3.0	chiangmai khao soi
+513	2	3.0	chiangmai muay thai gym
+514	2	3.0	chiangmai quality
+515	2	3.0	chiangmai rally house
+516	2	3.0	chiangmai visa run
+517	2	3.0	เชียงใหม่ 49 คอน สต รั ค ชั่ น
+518	2	3.0	chiang rai bicycle tour
+519	2	3.0	chiang rai earthquake
+520	2	3.0	chiang rai hot springs
+521	2	3.0	chiang rai jungle
+522	2	3.0	chiang rai jazz festival
+523	2	3.0	chiang rai nightlife
+524	2	3.0	chiang rai quotes
+525	2	3.0	chiang rai restaurant
+526	2	3.0	chiang rai road classic 2026
+527	2	3.0	chiang rai tour from chiang mai
+528	2	3.0	chiang rai visiting places
+529	2	3.0	white temple chiang rai 911
+530	2	3.0	chiangrai airport hotel
+531	2	3.0	เชียงใหม่ event
+532	2	3.0	เชียงราย eng
+533	2	3.0	chiangrai nice massage
+534	2	3.0	chiangrai rajabhat university
+535	2	3.0	chiangrai vs buriram
+536	2	3.0	xpeng chiangrai
+537	2	3.0	chiangrai united 0 port fc
+538	2	3.0	เชียงราย 3
+539	2	3.0	best chiang rai temples
+540	2	3.5	chiang mai bangkok
+541	2	3.5	chiang mai breakfast
+542	2	3.5	chiang mai hospital
+543	2	3.5	chiang mai massage
+544	2	3.5	chiang mai university logo
+545	2	3.5	chiang mai walking street
+546	2	3.5	chiang mai 2026 lantern festival
+547	2	3.5	chiangmai business park
+548	2	3.5	chiangmai bakermart
+549	2	3.5	chiangmai cad
+550	2	3.5	chiangmai decor
+551	2	3.5	168 chiangmai guesthouse
+552	2	3.5	chiang rai airport code
+553	2	3.5	chiang rai market
+554	2	3.5	chiang rai massage
+555	2	3.5	chiang rai singha park
+556	2	3.5	chiang rai to bkk
+557	2	3.5	chiang rai huay xai
+558	2	3.5	chiang rai 1 day tour
+559	2	3.5	chiangrai airport code
+560	2	3.5	chiangrai bangkok
+561	2	3.5	chiangrai in chinese
+562	2	3.5	chiangrai music
+563	2	3.5	เชียงใหม่ pm2 5
+564	2	3.5	singha chiangrai stadium
+565	2	3.5	chiangrai white temple
+566	2	3.5	เชียงราย 108
+567	2	4.0	chiang mai elephant friends
+568	2	4.0	chiang mai grand view
+569	2	4.0	chiang mai yoga in the park
+570	2	4.0	chiang mai yi peng lantern festival
+571	2	4.0	chiang mai 137 pillars
+572	2	4.0	chiang mai 10 day forecast
+573	2	4.0	chiang mai 711
+574	2	4.0	chiangmai art museum
+575	2	4.0	chiangmai grandview convention center
+576	2	4.0	chiangmai kitchen
+577	2	4.0	chiangmai lantern festival 2026
+578	2	4.0	chiangmai night market
+579	2	4.0	chiangmai population
+580	2	4.0	chiangmai smile dental clinic
+581	2	4.0	chiangmai wellness clinic
+582	2	4.0	เชียงใหม่ 3 วัน 2 คืน ขับ รถ ไป เอง
+583	2	4.0	chiangmai 89 dental
+584	2	4.0	chiang rai earthquake 2014
+585	2	4.0	chiang rai food
+586	2	4.0	chiang rai july
+587	2	4.0	chiang rai lalitta cafe
+588	2	4.0	chiang rai vapes
+589	2	4.0	chiang rai weather today
+590	2	4.0	chiang rai 2026
+591	2	4.0	chiang rai 3 letter code
+592	2	4.0	chiang rai 4k
+593	2	4.0	chiangrai city
+594	2	4.0	chiangrai food
+595	2	4.0	chiangrai homestay
+596	2	4.0	chiangrai immigration office
+597	2	4.0	chiangrai massage
+598	2	4.0	chiangrai marathon 2026
+599	2	4.0	เชียงใหม่ night safari
+600	2	4.0	chiangrai road classic 2025
+601	2	4.0	chiangrai united 0 1 prachuap fc
+602	2	4.0	เชียงราย 0250
+603	2	4.0	best chiang mai restaurants
+604	2	4.0	best chiang rai food
+605	2	4.0	when is chiang mai rainy season
+606	2	4.5	chiang mai gourmet
+607	2	4.5	chiang mai osteopathy
+608	2	4.5	chiang mai university library
+609	2	4.5	chiang mai 81
+610	2	4.5	chiangmai highlands golf and spa resort
+611	2	4.5	chiangmai thai house
+612	2	4.5	chiangmai vs bangkok
+613	2	4.5	chiang rai black temple
+614	2	4.5	chiang rai cooking class
+615	2	4.5	chiang rai college
+616	2	4.5	chiang rai international airport
+617	2	4.5	chiang rai reddit
+618	2	4.5	chiang rai 3 star hotel
+619	2	4.5	chiang rai airport 7/11
+620	2	4.5	chiang rai weather forecast 7 days
+621	2	4.5	chiangrai heritage
+622	2	4.5	เชียงใหม่ pm
+623	2	4.5	chiangrai tcg club
+624	2	4.5	chiangrai weather forecast
+625	2	4.5	เชียงราย 108 น้ํามัน
+626	2	4.5	เชียงราย 4
+627	2	4.5	dining in chiang rai
+628	2	5.0	chiang mai design week 2026
+629	2	5.0	chiang mai lantern festival
+630	2	5.0	chiang mai lantern festival 2026
+631	2	5.0	chiang mai old town map
+632	2	5.0	chiang mai railway station
+633	2	5.0	chiang mai ram
+634	2	5.0	chiang mai 4d3n itinerary
+635	2	5.0	chiang mai 4 days 3 nights itinerary
+636	2	5.0	chiang mai 5 star resort
+637	2	5.0	chiangmai driving school
+638	2	5.0	chiangmai ivf
+639	2	5.0	chiangmai journal
+640	2	5.0	chiangmai january weather
+641	2	5.0	chiangmai june weather
+642	2	5.0	chiangmai jungle trekking
+643	2	5.0	chiangmai weather today
+644	2	5.0	เชียงใหม่ 3 วัน 2 คืน 2568
+645	2	5.0	chiang rai cave rescue
+646	2	5.0	chiang rai elephant sanctuary hotel
+647	2	5.0	chiang rai golf courses green fees
+648	2	5.0	chiang rai village
+649	2	5.0	chiang rai to xishuangbanna
+650	2	5.0	chiang rai 1 day
+651	2	5.0	chiang rai 5 days
+652	2	5.0	เชียงใหม่ elephant friend
+653	2	5.0	chiangrai flower and art festival 2025
+654	2	5.0	chiangrai hilton
+655	2	5.0	chiangrai ratchaburi
+656	2	5.0	chiangrai united 0 prime bangkok fc
+657	2	5.0	เชียงราย8
+658	2	5.0	เชียงราย 99
+659	2	5.0	best chiang rai night market
+660	2	5.0	food in chiang mai airport
+661	2	5.5	chiang mai highlands golf and spa resort
+662	2	5.5	chiang mai immigration office
+663	2	5.5	chiang mai international film festival
+664	2	5.5	chiang mai jungle coaster
+665	2	5.5	chiang mai qi gong
+666	2	5.5	chiang mai restaurant
+667	2	5.5	chiang mai 2 days
+668	2	5.5	chiang mai 31 december
+669	2	5.5	chiang mai 60 mulberry plant online
+670	2	5.5	chiang mai 60 mulberry tree
+671	2	5.5	chiang mai 80 coffee
+672	2	5.5	chiang mai 88 cafe malacca photos
+673	2	5.5	chiangmai bus terminal 3
+674	2	5.5	chiangmai design week 2025
+675	2	5.5	chiangmai elephant land
+676	2	5.5	chiangmai elephant
+677	2	5.5	chiangmai elephant friends
+678	2	5.5	chiangmai go kart
+679	2	5.5	chiangmai or chiang mai
+680	2	5.5	chiang rai bangkok
+681	2	5.5	chiang rai car rental
+682	2	5.5	chiang rai cafe
+683	2	5.5	chiang rai flower festival
+684	2	5.5	chiang rai flower festival 2025
+685	2	5.5	chiang rai luang prabang
+686	2	5.5	chiang rai rain
+687	2	5.5	chiang rai sheep farm
+688	2	5.5	chiang rai united schedule
+689	2	5.5	chiang rai utv adventure tours
+690	2	5.5	chiang rai united fixtures
+691	2	5.5	chiang rai united fc
+692	2	5.5	xyz chiang rai
+693	2	5.5	chiang rai municipality school 7
+694	2	5.5	เชียงใหม่ night bazaar
+695	2	5.5	chiangrai prachanukroh hospital reviews
+696	2	5.5	เชียงราย 7
+697	2	5.5	best chiang mai night market
+698	2	6.0	chiang mai elephant
+699	2	6.0	chiang mai horumon
+700	2	6.0	chiang mai krabi
+701	2	6.0	chiang mai library
+702	2	6.0	chiang mai orchid
+703	2	6.0	chiang mai plastic
+704	2	6.0	chiang mai thailand
+705	2	6.0	chiangmai golf
+706	2	6.0	chiangmai hall
+707	2	6.0	chiangmai kafae boran
+708	2	6.0	เชียงใหม่ 3 วัน 2 คืน งบ
+709	2	6.0	chiang rai jungle trekking
+710	2	6.0	chiang rai united jersey
+711	2	6.0	chiang rai vs chiang mai reddit
+712	2	6.0	weather in chiang rai 10 days
+713	2	6.0	chiang rai en 4 jours
+714	2	6.0	wetter chiang rai 7 tage
+715	2	6.0	breadclub chiangrai
+716	2	6.0	chiangrai central
+717	2	6.0	เชียงใหม่ elephant home
+718	2	6.0	chiangrai focus หา งาน
+719	2	6.0	play chiangrai
+720	2	6.0	chiangrai riverside
+721	2	6.0	chiangrai united games
+722	2	6.0	chiangrai vs nakhon
+723	2	6.0	chiangrai united 1 0 kitchee
+724	2	6.0	best chiang rai cafe
+725	2	6.0	how many days in chiang rai
+726	2	6.0	restaurants in chiang mai airport
+727	2	6.0	restaurants in chiang mai thailand
+728	2	6.5	chiang mai gate hotel
+729	2	6.5	chiang mai marriott
+730	2	6.5	chiang mai university convention center
+731	2	6.5	chiang mai view
+732	2	6.5	chiang mai 19 bar
+733	2	6.5	chiang mai 1 month rental
+734	2	6.5	chiang mai 60 mulberry taste
+735	2	6.5	chiang mai 88 cafe
+736	2	6.5	chiangmai cdr
+737	2	6.5	chiangmai elephant care
+738	2	6.5	chiangmai ice arena
+739	2	6.5	chiangmai view
+740	2	6.5	chiang rai biennale
+741	2	6.5	chiang rai clock tower light show
+742	2	6.5	chiang rai how many days
+743	2	6.5	chiang rai lalita cafe
+744	2	6.5	chiang rai long beach reviews
+745	2	6.5	chiang rai mall
+746	2	6.5	chiang rai saturday night market
+747	2	6.5	xlc chiang rai
+748	2	6.5	chiang rai 1000 stars
+749	2	6.5	chiang rai pm2 5
+750	2	6.5	hi chiangrai hotel
+751	2	6.5	chiangrai in thailand
+752	2	6.5	เชียงใหม่ xcentre
+753	2	6.5	เชียงราย 2
+754	2	6.5	เชียงราย 4 วัน 3 คืน
+755	2	6.5	เชียงราย 5 วัน 4 คืน
+756	2	6.5	food in chiang mai thailand
+757	2	6.5	rent apartment chiang rai
+758	2	7.0	chiang mai history
+759	2	7.0	chiang mai half marathon 2026
+760	2	7.0	chiang mai koh samui
+761	2	7.0	chiang mai night safari tickets
+762	2	7.0	chiang mai quán thái
+763	2	7.0	chiang mai visa run
+764	2	7.0	chiang mai yoga studio
+765	2	7.0	chiang mai 4 seasons hotel
+766	2	7.0	chiang mai 9 temples
+767	2	7.0	chiangmai fencing open 2026
+768	2	7.0	chiangmai hotel
+769	2	7.0	chiangmai kids activities
+770	2	7.0	chiangmai news in english
+771	2	7.0	chiangmai night run
+772	2	7.0	chiangmai ram dental center
+773	2	7.0	เชียงใหม่ 3 วัน 2 คืน pantip
+774	2	7.0	69tires chiangmai
+775	2	7.0	chiang rai day trip
+776	2	7.0	chiang rai expats
+777	2	7.0	chiang rai news today
+778	2	7.0	chiang rai national park
+779	2	7.0	chiang rai nice massage
+780	2	7.0	chiang rai private driver
+781	2	7.0	chiang rai ram hospital
+782	2	7.0	chiang rai vegetarian restaurant
+783	2	7.0	chiang rai to huay xai laos
+784	2	7.0	chiang rai 3 jours
+785	2	7.0	the legend chiang rai 4 *
+786	2	7.0	bedvilla chiangrai
+787	2	7.0	chiangrai chiangmai
+788	2	7.0	เชียงราย expo
+789	2	7.0	chiangrai flight
+790	2	7.0	เชียงใหม่ night safari ราคา
+791	2	7.0	chiangrai river cafe & bar
+792	2	7.0	เชียงใหม่ steak house
+793	2	7.0	chiangrai thailand
+794	2	7.0	chiangrai vs rayong
+795	2	7.0	zontes chiangrai
+796	2	7.0	best chiang mai elephant sanctuary
+797	2	7.0	chiang rai time
+798	2	7.5	chiang mai gate
+799	2	7.5	chiang mai karting
+800	2	7.5	chiang mai 89
+801	2	7.5	chiang mai 90 day report online
+802	2	7.5	chiangmai car wash
+803	2	7.5	chiangmai diner
+804	2	7.5	chiangmai freshmilk co. ltd
+805	2	7.5	chiangmai international film festival
+806	2	7.5	chiangmai plastic
+807	2	7.5	chiangmai saloon
+808	2	7.5	chiangmai marathon 2025
+809	2	7.5	chiang rai activities
+810	2	7.5	chiang rai beach
+811	2	7.5	chiang rai house for sale
+812	2	7.5	chiang rai lanna tours
+813	2	7.5	chiang rai night bazaar photos
+814	2	7.5	chiang rai sunset
+815	2	7.5	xiaomi chiang rai
+816	2	7.5	เชียงใหม่ aqi
+817	2	7.5	chiangrai flower and art festival 2024
+818	2	7.5	chiangrai in thai
+819	2	7.5	เชียงใหม่ map
+820	2	7.5	chiangrai thai
+821	2	7.5	เชียงใหม่ zoo
+822	2	7.5	เชียงราย 764 ปี
+823	2	7.5	best chiang mai temples
+824	2	7.5	restaurants in chiang mai old town
+825	2	8.0	chiang mai expats club
+826	2	8.0	chiang mai film festival 2026
+827	2	8.0	chiang mai hill
+828	2	8.0	chiang mai jobs
+829	2	8.0	chiang mai quality air
+830	2	8.0	chiang mai riverside condominium
+831	2	8.0	chiang mai villa
+832	2	8.0	chiang mai 1 week itinerary
+833	2	8.0	chiang mai 3d2n itinerary
+834	2	8.0	chiang mai 50k
+835	2	8.0	chiang mai 5 star
+836	2	8.0	chiang mai 60 mulberry buy online
+837	2	8.0	chiangmai garden
+838	2	8.0	chiangmai gymkhana club
+839	2	8.0	chiangmai immigration office
+840	2	8.0	chiangmai kai shek
+841	2	8.0	chiangmai onsen
+842	2	8.0	chiangmai weather now
+843	2	8.0	เชียงใหม่ 4 วัน 3 คืน pantip
+844	2	8.0	thai chiang rai
+845	2	8.0	chiang rai june weather
+846	2	8.0	chiang rai klook
+847	2	8.0	chiang rai long beach photos
+848	2	8.0	chiang rai united players
+849	2	8.0	chiang rai visit
+850	2	8.0	chiang rai weather forecast 14 days
+851	2	8.0	slow boat huay xai to chiang rai
+852	2	8.0	chiang rai to friendship bridge 4
+853	2	8.0	the heritage chiang rai 4 *
+854	2	8.0	เชียงใหม่ esport
+855	2	8.0	chiangrai from bangkok
+856	2	8.0	chiangrai international school ค่า เทอม
+857	2	8.0	เชียงใหม่ night market
+858	2	8.0	เชียงใหม่ pm2 5 วัน นี้
+859	2	8.0	ratchaburi chiangrai united
+860	2	8.0	best chiang mai hotels
+861	2	8.0	food in chiang mai old town
+862	2	8.5	chiang mai breakfast world
+863	2	8.5	chiang mai circuit go kart
+864	2	8.5	chiang mai day trips
+865	2	8.5	chiang mai jungle
+866	2	8.5	chiang mai news in english
+867	2	8.5	chiang mai to bangkok train
+868	2	8.5	chiang mai what to do
+869	2	8.5	chiang mai yunnan market
+870	2	8.5	chiang mai 60 plant
+871	2	8.5	chiangmai airport arrival
+872	2	8.5	chiangmai cosmetic
+873	2	8.5	chiangmai diner & bar
+874	2	8.5	chiangmai july
+875	2	8.5	chiangmai osaka
+876	2	8.5	chiangmai steak house
+877	2	8.5	chiangmai sky travel
+878	2	8.5	chiang rai bus station
+879	2	8.5	chiang rai balloon festival 2026
+880	2	8.5	chiang rai football
+881	2	8.5	chiang rai le meridien
+882	2	8.5	chiang rai marathon
+883	2	8.5	chiang rai muay thai
+884	2	8.5	le meridien chiang rai 5 *
+885	2	8.5	anuban chiangrai school
+886	2	8.5	เชียงใหม่ night safari รีวิว
+887	2	8.5	เชียงใหม่ sp hotel
+888	2	8.5	chiangrai vs uthai thani
+889	2	8.5	zumba chiangrai
+890	2	8.5	57000 เชียงราย
+891	2	8.5	restaurants in chiang mai old city
+892	2	9.0	chiang mai city
+893	2	9.0	chiang mai kitchen oxford
+894	2	9.0	chiang mai real estate
+895	2	9.0	chiang mai to bangkok bus
+896	2	9.0	chiang mai 89 plaza photos
+897	2	9.0	chiangmai glass blowing
+898	2	9.0	chiangmai lanna business services ltd
+899	2	9.0	ที่เที่ยวเชียงใหม่ 2026
+900	2	9.0	เชียงใหม่ 2026 ที่ เที่ยว
+901	2	9.0	chiang rai elephant camp
+902	2	9.0	chiang rai vegan
+903	2	9.0	muang xai to chiang rai
+904	2	9.0	xpeng chiang rai
+905	2	9.0	chiang rai time zone
+906	2	9.0	chiang rai khamthana hotel 4 *
+907	2	9.0	เชียงใหม่ expo
+908	2	9.0	hi chiangrai hotel reviews
+909	2	9.0	miru chiangrai
+910	2	9.0	robinson chiangrai
+911	2	9.0	เชียงใหม่ sushiro
+912	2	9.5	chiang mai shooting range
+913	2	9.5	chiang mai yellow bar
+914	2	9.5	chiang mai ziplining
+915	2	9.5	chiang mai 137 pillars house
+916	2	9.5	chiang mai 3 day trek
+917	2	9.5	chiang mai 60 mulberry plant buy
+918	2	9.5	chiang mai 6 day itinerary
+919	2	9.5	chiang mai 88 car rental
+920	2	9.5	chiangmai grand view
+921	2	9.5	chiangmai healthy product co. ltd
+922	2	9.5	chiangmai jr muay thai
+923	2	9.5	chiangmai maker
+924	2	9.5	chiangmai nightlife
+925	2	9.5	chiangmai rajabhat university
+926	2	9.5	เชียงใหม่ 4 วัน 3 คืน งบ
+927	2	9.5	chiang rai koh samui
+928	2	9.5	chiang rai night bazaar opening hours
+929	2	9.5	chiang rai rent a car
+930	2	9.5	chiang rai spa
+931	2	9.5	chiang rai terminal 1
+932	2	9.5	bangkok chiangrai hospital
+933	2	9.5	central chiangrai directory
+934	2	9.5	เชียงใหม่ cnx
+935	2	9.5	เชียงใหม่ news
+936	2	9.5	เชียงราย pantip
+937	2	9.5	เชียงราย 2 คืน 3 วัน
+938	2	9.5	เชียงใหม่ 3d
+939	2	9.5	เชียงใหม่ 4 คืน 5 วัน
+940	2	10.0	chiang mai marathon 2026
+941	2	10.0	chiang mai qibla direction
+942	2	10.0	chiang mai united
+943	2	10.0	chiang mai 5 star resorts
+944	2	10.0	chiang mai 9 days itinerary
+945	2	10.0	chiangmai ai party
+946	2	10.0	chiangmai adventure
+947	2	10.0	klook chiang mai
+948	2	10.0	chiangmai utmb 2025
+949	2	10.0	เชียงใหม่ 22
+950	2	10.0	chiang rai airport to city
+951	2	10.0	chiang rai bangkok flight
+952	2	10.0	chiang rai economy
+953	2	10.0	chiang rai quanto stare
+954	2	10.0	chiang rai to bangkok flight
+955	2	10.0	chiang rai vs chonburi
+956	2	10.0	chiang rai wiki
+957	2	10.0	chiang rai to huay xai bus timetable
+958	2	10.0	chiang rai mini zoo
+959	2	10.0	เชียงใหม่ book fair
+960	2	10.0	เชียงราย event
+961	2	10.0	เชียงใหม่ hiv
+962	2	10.0	nakhon chiangrai run 2026
+963	2	10.0	เชียงใหม่ 4k
+964	2	10.0	best chiang mai food
+965	2	10.5	chiang mai water park
+966	2	10.5	chiang mai yipeng festival
+967	2	10.5	chiangmai cafe
+968	2	10.5	chiangmai weather december
+969	2	10.5	chiangmai home pottery
+970	2	10.5	chiangmai medical center
+971	2	10.5	pm 2.5 chiang mai
+972	2	10.5	chiang rai forecast
+973	2	10.5	chiang rai flower festival 2026 dates
+974	2	10.5	chiang rai khuakrae resort
+975	2	10.5	chiang rai laos
+976	2	10.5	chiang rai united shop
+977	2	10.5	chiang rai trekking 3 days
+978	2	10.5	hi chiangrai
+979	2	10.5	เชียงราย pm 2.5
+980	2	10.5	chiangrai united ratchaburi fc
+981	2	10.5	เชียงใหม่ sf
+982	2	10.5	เชียงราย 3 คืน 4 วัน
+983	2	10.5	best chiang mai cooking class
+984	2	11.0	chiang mai quad bike rental
+985	2	11.0	chiangmai cotton
+986	2	11.0	chiangmai jj market
+987	2	11.0	chiangmai october weather
+988	2	11.0	chiangmai rice life
+989	2	11.0	chiang rai thai kitchen and bar
+990	2	11.0	chiang rai hiking
+991	2	11.0	chiang rai meaning
+992	2	11.0	chiang rai night market saturday
+993	2	11.0	chiang rai park
+994	2	11.0	chiang rai que visiter
+995	2	11.0	chiang rai quán thái
+996	2	11.0	chiang rai real estate
+997	2	11.0	chiang rai river beach
+998	2	11.0	chiang rai vs chiang mai restaurant
+999	2	11.0	chiang rai top 10
+1000	2	11.0	spartan chiang rai 2026
+1001	2	11.0	chiang rai bus terminal 3
+1002	2	11.0	เชียงใหม่ elephant
+1003	2	11.0	เชียงใหม่ hospital
+1004	2	11.0	nour chiangrai
+1005	2	11.0	เชียงราย night bazaar
+1006	2	11.5	chiang mai garden
+1007	2	11.5	chiang mai university world ranking
+1008	2	11.5	chiang mai university demonstration school
+1009	2	11.5	chiang mai weather now
+1010	2	11.5	chiang mai weather by month
+1011	2	11.5	chiang mai 14 day forecast
+1012	2	11.5	chiang mai 60 mulberry fruiting time
+1013	2	11.5	chiang mai 700 years park photos
+1014	2	11.5	chiangmai danforth
+1015	2	11.5	chiangmai frozen foods
+1016	2	11.5	chiangmai nimman
+1017	2	11.5	chiangmai province
+1018	2	11.5	chiangmai pm2 5
+1019	2	11.5	chiang rai big buddha
+1020	2	11.5	chiang rai cinema
+1021	2	11.5	chiang rai etobicoke
+1022	2	11.5	chiang rai ktv
+1023	2	11.5	chiang rai que es
+1024	2	11.5	chiang rai to luang prabang
+1025	2	11.5	central chiang rai zara
+1026	2	11.5	chiang rai golden pine 4 *
+1027	2	11.5	เชียงใหม่ bkk
+1028	2	11.5	เชียงราย map
+1029	2	11.5	chiangrai vs lamphun
+1030	2	12.0	chiang mai craft beer
+1031	2	12.0	chiang mai property
+1032	2	12.0	chiang mai victor
+1033	2	12.0	chiang mai white temple
+1034	2	12.0	chiang mai to krabi
+1035	2	12.0	chiang mai 3d
+1036	2	12.0	chiang mai music journey 8
+1037	2	12.0	chiangmai book fair 2026
+1038	2	12.0	chiangmai itinerary
+1039	2	12.0	chiangmai in december
+1040	2	12.0	chiang rai jazz
+1041	2	12.0	chiang rai vocational college
+1042	2	12.0	chiang rai weather october
+1043	2	12.0	chiang rai yoga studio
+1044	2	12.0	chiang rai snow 1955
+1045	2	12.0	เชียงใหม่ atv
+1046	2	12.0	เชียงใหม่ cad
+1047	2	12.0	เชียงใหม่ ev
+1048	2	12.0	เชียงใหม่ hill
+1049	2	12.0	เชียงใหม่ ivf
+1050	2	12.5	chiang mai aquarium
+1051	2	12.5	chiang mai elephant nature park
+1052	2	12.5	chiang mai international film festival 2026
+1053	2	12.5	chiang mai 36 hours
+1054	2	12.5	chiang mai 4x4 rental
+1055	2	12.5	chiangmai beer
+1056	2	12.5	chiangmai jazz
+1057	2	12.5	is chiang rai a province
+1058	2	12.5	chiang rai central
+1059	2	12.5	chiang rai excursions
+1060	2	12.5	chiang rai halal food
+1061	2	12.5	chiang rai koh samui flight
+1062	2	12.5	chiang rai que significa
+1063	2	12.5	chiang rai united stadium
+1064	2	12.5	singha park chiang rai zipline
+1065	2	12.5	chiang rai legend resort 4 *
+1066	2	12.5	banana chiangrai
+1067	2	12.5	เชียงราย night market
+1068	2	12.5	เชียงราย pm 2.5 วัน นี้
+1069	2	13.0	chiang mai quanti giorni
+1070	2	13.0	7. chiang mai
+1071	2	13.0	chiangmai november weather
+1072	2	13.0	chiang rai vs manaao
+1073	2	13.0	chiang rai yelp long beach
+1074	2	13.0	claybed chiangrai
+1075	2	13.0	เชียงราย emr
+1076	2	13.0	muang chiangrai
+1077	2	13.5	chiang mai 1970
+1078	2	13.5	chiang mai 5 star luxury hotels
+1079	2	13.5	chiang rai que ver en dos dias
+1080	2	14.0	chiang mai quand partir
+1081	2	14.0	chiang rai events
+1082	2	14.0	chiang rai villa for sale
+1083	1	0.0	chiang mai cooking class
+1084	1	0.0	chiang mai longevity summit 2026
+1085	1	0.0	chiang mai markets
+1086	1	0.0	chiang mai sauna ice bath eudemonia
+1087	1	0.0	chiang mai mail
+1088	1	0.0	chiang mai 10k
+1089	1	0.0	chiang mai 3 tage
+1090	1	0.0	chiang mai 4 tage
+1091	1	0.0	chiangmai direct หลัง มอ
+1092	1	0.0	chiangmai fresh milk
+1093	1	0.0	chiangmai freshmilk
+1094	1	0.0	chiangmai grandview hotel & convention center
+1095	1	0.0	chiangmai marriott hotel
+1096	1	0.0	chiangmai night safari
+1097	1	0.0	chiangmai orchid
+1098	1	0.0	chiangmai xcentre
+1099	1	0.0	chiangmai 3 days
+1100	1	0.0	chiangmai 4k
+1101	1	0.0	chiangmai 7 days inn
+1102	1	0.0	chiang rai from chiang mai
+1103	1	0.0	chiang rai fc
+1104	1	0.0	chiang rai jao
+1105	1	0.0	chiang rai quote
+1106	1	0.0	chiang rai smart water
+1107	1	0.0	chiang rai tournament
+1108	1	0.0	chiang rai o que fazer
+1109	1	0.0	chiang rai rain radar
+1110	1	0.0	chiangrai bosch car service
+1111	1	0.0	เชียงใหม่ direct
+1112	1	0.0	chiangrai grand room hotel
+1113	1	0.0	เชียงใหม่ jungle coaster
+1114	1	0.0	kokotel chiangrai
+1115	1	0.0	chiangrai outdoor and camping
+1116	1	0.0	chiangrai station
+1117	1	0.0	chiangrai tournament
+1118	1	0.0	chiangrai weather
+1119	1	0.0	chiangrai youth orchestra
+1120	1	0.0	pm2.5 chiang rai
+1121	1	0.0	cheap chiang mai hotels
+1122	1	0.0	cheap flights chiang rai to bangkok
+1123	1	0.0	where chiang mai thailand
+1124	1	0.0	where is chiang rai in thailand
+1125	1	0.0	what's chiang mai known for
+1126	1	0.0	how far chiang rai from bangkok
+1127	1	0.0	when chiang mai lantern festival 2026
+1128	1	0.0	when is chiang rai night bazaar
+1129	1	0.0	what chiang mai famous for
+1130	1	0.0	why chiang mai is cnx
+1131	1	0.0	why go to chiang rai
+1132	1	0.0	top chiang mai attractions
+1133	1	0.0	near chiang mai airport
+1134	1	0.0	around chiang rai
+1135	1	0.0	map chiang mai thailand
+1136	1	0.0	map chiang rai thailand
+1137	1	0.0	prices chiang mai
+1138	1	0.0	cost of living chiang rai
+1139	1	0.0	house price chiang mai
+1140	1	0.0	price white temple chiang rai
+1141	1	0.0	michelin guide chiang mai
+1142	1	0.0	michelin guide chiang rai
+1143	1	0.0	things to do in chiang mai old city
+1144	1	0.0	things to do in chiang rai thailand
+1145	1	0.0	hotels in chiang mai thailand
+1146	1	0.0	hotels in chiang rai thailand
+1147	1	0.0	restaurants in chiang rai
+1148	1	0.0	weather in chiang mai tomorrow
+1149	1	0.0	visa run chiang mai
+1150	1	0.0	visa run chiang rai
+1151	1	0.0	hospital chiang mai thailand
+1152	1	0.0	hospital chiang rai thailand
+1153	1	0.0	chiang rai digital nomad reddit
+1154	1	0.0	expat chiang mai forum
+1155	1	0.0	expats chiang rai
+1156	1	0.0	rent chiang mai apartment
+1157	1	0.0	rental chiang rai
+1158	1	0.0	apartment chiang mai rent
+1159	1	0.0	condo chiang rai
+1160	1	0.0	temple chiang mai doi suthep
+1161	1	0.0	chiang rai wat temple
+1162	1	0.0	cafe chiang mai 2026
+1163	1	0.0	cafe chiang rai thailand
+1164	1	0.0	market chiang mai today
+1165	1	0.0	marketplace chiang rai
+1166	1	0.0	airport chiang mai departures
+1167	1	0.0	airport chiang rai departures
+1168	1	0.0	to chiang mai airport
+1169	1	0.0	bangkok to chiang rai
+1170	1	0.0	from chiang mai to chiang rai
+1171	1	0.0	from chiang rai to chiang mai
+1172	1	1.0	chiang mai airport departures
+1173	1	1.0	chiang mai cinema
+1174	1	1.0	chiang mai city arts & cultural centre
+1175	1	1.0	chiang mai events
+1176	1	1.0	chiang mai flood
+1177	1	1.0	chiang mai local
+1178	1	1.0	chiang mai night safari ราคา
+1179	1	1.0	chiang mai original
+1180	1	1.0	chiang mai postcode
+1181	1	1.0	chiang mai quote
+1182	1	1.0	chiang mai quotes
+1183	1	1.0	chiang mai saturday night market
+1184	1	1.0	chiang mai sleep innovation
+1185	1	1.0	chiang mai to pai
+1186	1	1.0	chiang mai thai house
+1187	1	1.0	chiang mai vape
+1188	1	1.0	chiang mai xian
+1189	1	1.0	chiang mai o que fazer
+1190	1	1.0	chiang mai 106 เนื้อเพลง
+1191	1	1.0	chiang mai 2 day itinerary
+1192	1	1.0	chiang mai 22k night run 2026 @doi suthep
+1193	1	1.0	3 day itinerary chiang mai
+1194	1	1.0	chiang mai 7 11
+1195	1	1.0	chiangmai cinema
+1196	1	1.0	chiangmai design week
+1197	1	1.0	chiangmai gate market
+1198	1	1.0	chiangmai marathon
+1199	1	1.0	chiangmai sunday night market
+1200	1	1.0	chiangmai vibes แปล ว่า
+1201	1	1.0	chiangmai xcentre ราคา
+1202	1	1.0	chiangmai united 0 1 nakhon pathom united fc
+1203	1	1.0	chiangmai 2026
+1204	1	1.0	chiangmai 22k doi suthep night run
+1205	1	1.0	4sky chiang mai
+1206	1	1.0	7-11 chiangmai
+1207	1	1.0	chiang rai airport hotel (โรงแรมเชียงรายแอร์พอร์ตโฮเทล) รูปภาพ
+1208	1	1.0	chiang rai flooding
+1209	1	1.0	chiang rai focus
+1210	1	1.0	chiang rai international school ค่าเทอม
+1211	1	1.0	chiang rai nice massage เมือง reviews
+1212	1	1.0	chiang rai road classic
+1213	1	1.0	chiang rai station
+1214	1	1.0	chiang rai thailand
+1215	1	1.0	chiang rai wellness city
+1216	1	1.0	chiang rai o que visitar
+1217	1	1.0	4 star hotel in chiang rai
+1218	1	1.0	chiangrai bicycle tour
+1219	1	1.0	desty chiangrai
+1220	1	1.0	chiangrai green park resort
+1221	1	1.0	chiangrai hoops
+1222	1	1.0	jaecoo chiangrai
+1223	1	1.0	kahavadi chiangrai
+1224	1	1.0	chiangrai lanna fc
+1225	1	1.0	chiangrai land associates
+1226	1	1.0	chiangrai music station
+1227	1	1.0	เชียงใหม่ one day trip
+1228	1	1.0	chiangrai pao
+1229	1	1.0	gas que chiangrai onrender com
+1230	1	1.0	chiangrai ram
+1231	1	1.0	chiangrai taekwondo championships 2026
+1232	1	1.0	chiangrai united vs chonburi f.c. matches
+1233	1	1.0	chiangrai united wiki
+1234	1	1.0	yamaha chiangrai
+1235	1	1.0	เขต 7 เชียงราย
+1236	1	1.0	cheap chiang mai flights
+1237	1	1.0	cheap hotels chiang rai
+1238	1	1.0	where is chiang mai in thailand map
+1239	1	1.0	where is chiang rai in thailand map
+1240	1	1.0	how far chiang mai from bangkok
+1241	1	1.0	how is chiang rai
+1242	1	1.0	when chiang mai lantern festival
+1243	1	1.0	when is chiang rai flower festival
+1244	1	1.0	what is chiang mai burning season
+1245	1	1.0	what is chiang rai
+1246	1	1.0	why chiang mai is famous
+1247	1	1.0	top chiang mai restaurants
+1248	1	1.0	nearby chiang mai
+1249	1	1.0	map chiang mai old city
+1250	1	1.0	google map chiang rai
+1251	1	1.0	mini cost chiang mai
+1252	1	1.0	cost of white temple chiang rai
+1253	1	1.0	diesel price chiang mai
+1254	1	1.0	price blue temple chiang rai
+1255	1	1.0	tour guide chiang mai
+1256	1	1.0	tour guide chiang rai
+1257	1	1.0	things to do in chiang mai thailand
+1258	1	1.0	things to do in chiang rai with kids
+1259	1	1.0	hotels in chiang mai old town
+1260	1	1.0	hotels in chiang rai city centre
+1261	1	1.0	food in chiang rai
+1262	1	1.0	weather in chiang mai today
+1263	1	1.0	weather in chiang rai tomorrow
+1264	1	1.0	star visa chiang mai
+1265	1	1.0	visa service chiang rai
+1266	1	1.0	hospital chiang mai ram
+1267	1	1.0	bangkok hospital chiang rai
+1268	1	1.0	expats chiang mai thailand
+1269	1	1.0	expat living in chiang rai
+1270	1	1.0	rent chiang mai condo
+1271	1	1.0	rent car chiang rai
+1272	1	1.0	apartment chiang mai buy
+1273	1	1.0	house chiang rai
+1274	1	1.0	temple chiang mai mountain
+1275	1	1.0	blue temple chiang rai
+1276	1	1.0	cafe chiang mai near me
+1277	1	1.0	cafe chiang rai station
+1278	1	1.0	market chiang mai sunday
+1279	1	1.0	night market chiang rai
+1280	1	1.0	airport chiang mai arrivals
+1281	1	1.0	airport code chiang rai
+1282	1	1.0	in chiang mai thailand
+1283	1	1.0	pai to chiang rai
+1284	1	1.0	from chiang mai to pai
+1285	1	1.0	from chiang rai to luang prabang
+1286	1	2.0	chiang mai artist village
+1287	1	2.0	chiang mai alist clinic
+1288	1	2.0	chiang mai book fair
+1289	1	2.0	chiang mai city craft space
+1290	1	2.0	chiang mai departures
+1291	1	2.0	chiang mai direct กาด ธานินทร์
+1292	1	2.0	chiang mai gym
+1293	1	2.0	chiang mai journal of science impact factor
+1294	1	2.0	chiang mai kids
+1295	1	2.0	chiang mai laundry
+1296	1	2.0	chiang mai longevity summit 2026 world class wellness destination
+1297	1	2.0	chiang mai montessori international school
+1298	1	2.0	chiang mai rally house pickleball club
+1299	1	2.0	chiang mai sunday market
+1300	1	2.0	chiang mai slow time
+1301	1	2.0	chiang mai to bangkok flight
+1302	1	2.0	chiang mai tour center
+1303	1	2.0	chiang mai waterfall
+1304	1	2.0	chiang mai xtreme
+1305	1	2.0	chiang mai o que visitar
+1306	1	2.0	14 day weather forecast for chiang mai
+1307	1	2.0	chiang mai 22k night run
+1308	1	2.0	chiang mai 5 days itinerary
+1309	1	2.0	chiang mai 60 mulberry plant
+1310	1	2.0	chiang mai 6 days itinerary
+1311	1	2.0	chiang mai 90 day report
+1312	1	2.0	chiangmai airport flight status
+1313	1	2.0	chiangmai central festival
+1314	1	2.0	chiangmai first house & tour
+1315	1	2.0	chiangmai gate capsule hostel
+1316	1	2.0	chiangmai map
+1317	1	2.0	chiangmai osaka flight
+1318	1	2.0	chiangmai outdoor
+1319	1	2.0	chiangmai railway station
+1320	1	2.0	chiangmai sunday market
+1321	1	2.0	chiangmai student league
+1322	1	2.0	chiang mai to bkk
+1323	1	2.0	chiangmai tour
+1324	1	2.0	chiangmai waste to energy company limited
+1325	1	2.0	chiangmai xcentre รีวิว
+1326	1	2.0	chiangmai zipline
+1327	1	2.0	zipline chiang mai
+1328	1	2.0	chiangmai united 0 nakhon pathom united fc
+1329	1	2.0	cfw chiang mai 1
+1330	1	2.0	3q chiangmai residence
+1331	1	2.0	chiangmai 49 construction
+1332	1	2.0	chiangmai 88 carrent
+1333	1	2.0	chiang rai airport departures
+1334	1	2.0	chiang rai anantara
+1335	1	2.0	chiang rai flights
+1336	1	2.0	chiang rai fashion to the world
+1337	1	2.0	chiang rai hoops
+1338	1	2.0	chiang rai music
+1339	1	2.0	chiang rai spartan
+1340	1	2.0	chiang rai style restaurant
+1341	1	2.0	chiang rai university thailand
+1342	1	2.0	chiang rai united transfermarkt
+1343	1	2.0	chiang rai weather radar
+1344	1	2.0	chiang rai o dau
+1345	1	2.0	chiang rai 57100
+1346	1	2.0	chiang rai rain season
+1347	1	2.0	chiangrai beach
+1348	1	2.0	chiangrai car rental
+1349	1	2.0	เชียงใหม่ design week
+1350	1	2.0	chiangrai go th
+1351	1	2.0	chiangrai hoop
+1352	1	2.0	เชียงใหม่ jazz
+1353	1	2.0	kokotel chiangrai airport
+1354	1	2.0	chiangrai land
+1355	1	2.0	chiangrai land associates co ltd กรุงเทพ
+1356	1	2.0	เชียงใหม่ osaka
+1357	1	2.0	chiangrai province
+1358	1	2.0	chiangrai ram hospital
+1359	1	2.0	chiangrai times
+1360	1	2.0	chiangrai tournament 2026
+1361	1	2.0	chiangrai united vs chonburi f.c. stats
+1362	1	2.0	chiangrai university
+1363	1	2.0	ymca chiangrai
+1364	1	2.0	cheap chiang mai car rental
+1365	1	2.0	cheap eats chiang rai
+1366	1	2.0	where is chiang mai lantern festival
+1367	1	2.0	where is chiang rai white temple
+1368	1	2.0	how to chiang mai from bangkok
+1369	1	2.0	how many days chiang rai
+1370	1	2.0	when chiang mai lantern festival 2025
+1371	1	2.0	when to go chiang rai
+1372	1	2.0	what time chiang mai
+1373	1	2.0	what is chiang rai golden triangle
+1374	1	2.0	why chiang mai air pollution
+1375	1	2.0	top chiang mai hotels
+1376	1	2.0	around chiang mai
+1377	1	2.0	waterfalls near chiang rai
+1378	1	2.0	map chiang mai to chiang rai
+1379	1	2.0	map of chiang rai province
+1380	1	2.0	living cost chiang mai
+1381	1	2.0	chiang rai cost
+1382	1	2.0	tuk tuk price chiang mai
+1383	1	2.0	chiang rai price
+1384	1	2.0	michelin guide chiang mai 2026
+1385	1	2.0	michelin guide chiang rai thailand
+1386	1	2.0	things to do in chiang mai reddit
+1387	1	2.0	things to do in chiang rai city
+1388	1	2.0	hotels in chiang mai old city
+1389	1	2.0	hotel in chiang rai city
+1390	1	2.0	places to eat in chiang rai
+1391	1	2.0	dinner in chiang rai
+1392	1	2.0	weather in chiang mai thailand
+1393	1	2.0	weather in chiang rai today
+1394	1	2.0	visa extension chiang mai
+1395	1	2.0	visa photo chiang rai
+1396	1	2.0	medical center chiang mai
+1397	1	2.0	overbrook hospital chiang rai
+1398	1	2.0	expat homes chiang mai
+1399	1	2.0	rent chiang mai house
+1400	1	2.0	rent motorbike chiang rai
+1401	1	2.0	apartment chiang mai for sale
+1402	1	2.0	condo chiang rai rent
+1403	1	2.0	temple chiang mai old town
+1404	1	2.0	red temple chiang rai
+1405	1	2.0	cafe chiang mai 2025
+1406	1	2.0	restaurant chiang rai
+1407	1	2.0	market chiang mai saturday
+1408	1	2.0	sunday market chiang rai
+1409	1	2.0	airport chiang mai thailand
+1410	1	2.0	old airport chiang rai
+1411	1	2.0	bangkok to chiang mai
+1412	1	2.0	bangkok to chiang rai flight
+1413	1	2.0	from chiang mai to bangkok
+1414	1	2.0	from chiang rai to laos
+1415	1	3.0	chiang mai airport food
+1416	1	3.0	chiang mai ai party
+1417	1	3.0	chiang mai car rental
+1418	1	3.0	chiang mai cad khomloy sky lantern festival
+1419	1	3.0	chiang mai driving school
+1420	1	3.0	chiang mai direct ไทยช่วยไทย
+1421	1	3.0	chiang mai esports
+1422	1	3.0	chiang mai go karting
+1423	1	3.0	chiang mai hall
+1424	1	3.0	chiang mai is calling
+1425	1	3.0	chiang mai j. sci
+1426	1	3.0	chiang mai laundry service
+1427	1	3.0	chiang mai low carbon city
+1428	1	3.0	chiang mai rock climbing
+1429	1	3.0	chiang mai sunday walking street
+1430	1	3.0	chiang mai student league
+1431	1	3.0	chiang mai thailand tour center
+1432	1	3.0	chiang mai vape delivery
+1433	1	3.0	chiang mai van taxi mr.wee
+1434	1	3.0	chiang mai waroros boutique hotel
+1435	1	3.0	chiang mai xmas
+1436	1	3.0	chiang mai zoo aquarium ราคา
+1437	1	3.0	chiang mai 10 day weather forecast
+1438	1	3.0	chiang mai 30 day weather forecast
+1439	1	3.0	chiangmai airport food
+1440	1	3.0	chiangmai acrylic design เชียงใหม่อะคริลิคดีไซน์
+1441	1	3.0	chiangmai ballet academy
+1442	1	3.0	chiangmai direct ไทยช่วยไทย
+1443	1	3.0	chiangmai earthquake
+1444	1	3.0	chiangmai flood
+1445	1	3.0	chiangmai fa
+1446	1	3.0	chiangmai half marathon 2026
+1447	1	3.0	chiangmai in thai
+1448	1	3.0	chiangmai nursing home care (cmnh) ศูนย์ดูแลผู้ป่วยผู้สูงอายุเชียงใหม่เนิร์สซิ่งโฮมแคร์
+1449	1	3.0	chiangmai osteopathy
+1450	1	3.0	chiangmai personal tour
+1451	1	3.0	chiangmai railway station park
+1452	1	3.0	chiangmai riverside
+1453	1	3.0	chiangmai sunset
+1454	1	3.0	chiangmai smiley tour
+1455	1	3.0	chiangmai teleshop
+1456	1	3.0	chiangmai united games
+1457	1	3.0	vs chiangmai
+1458	1	3.0	chiangmai walking street
+1459	1	3.0	chiangmai xcentre รูปภาพ
+1460	1	3.0	chiangmai yoga retreat
+1461	1	3.0	chiangmai zip code
+1462	1	3.0	02 gym chiang mai
+1463	1	3.0	4d3n chiang mai
+1464	1	3.0	chiang mai 88 car rent
+1465	1	3.0	chiang mai 9
+1466	1	3.0	chiang rai attractions
+1467	1	3.0	chiang rai a bangkok
+1468	1	3.0	chiang rai cris international school
+1469	1	3.0	chiang rai hotel
+1470	1	3.0	chiang rai immigration office
+1471	1	3.0	chiang rai international christian school (crics)
+1472	1	3.0	june weather in chiang rai
+1473	1	3.0	chiang rai postal code
+1474	1	3.0	chiang rai united wiki
+1475	1	3.0	chiang rai o pai
+1476	1	3.0	chiang rai 108
+1477	1	3.0	chiang rai pm 2.5
+1478	1	3.0	chiang rai 3 days itinerary
+1479	1	3.0	chiang rai 57100 thailand
+1480	1	3.0	chiang rai discover 7 must see spots
+1481	1	3.0	rain forecast chiang rai
+1482	1	3.0	chiangrai blue temple
+1483	1	3.0	chiangrai cinema
+1484	1	3.0	chiangrai cheese
+1485	1	3.0	เชียงใหม่ design week 2025
+1486	1	3.0	groove chiangrai
+1487	1	3.0	chiangrai hotels
+1488	1	3.0	เชียงใหม่ jungle
+1489	1	3.0	เชียงใหม่ krispy kreme
+1490	1	3.0	chiangrai lake hill
+1491	1	3.0	chiangrai markham
+1492	1	3.0	one chiangrai
+1493	1	3.0	port chiangrai utd
+1494	1	3.0	chiangrai united table
+1495	1	3.0	chiangrai united logo
+1496	1	3.0	chiangrai walking street
+1497	1	3.0	chiangrai united x
+1498	1	3.0	youtube เชียงใหม่
+1499	1	3.0	chiang rai 2
+1500	1	3.0	cheap chiang mai restaurant
+1501	1	3.0	cheap massage chiang rai
+1502	1	3.0	where is chiang mai airport
+1503	1	3.0	where is chiang rai city center
+1504	1	3.0	how far chiang mai from phuket
+1505	1	3.0	how to go chiang rai
+1506	1	3.0	when is chiang mai burning season
+1507	1	3.0	what is chiang mai noodles
+1508	1	3.0	what temple chiang rai
+1509	1	3.0	why not chiang mai
+1510	1	3.0	top chiang mai temples
+1511	1	3.0	waterfalls near chiang mai
+1512	1	3.0	hotel near chiang rai airport
+1513	1	3.0	map chiang mai old town
+1514	1	3.0	tourist map chiang rai
+1515	1	3.0	mri cost chiang mai
+1516	1	3.0	massage price chiang mai
+1517	1	3.0	private guide chiang mai
+1518	1	3.0	chiang rai local guide
+1519	1	3.0	things to do in chiang mai at night
+1520	1	3.0	things to do in chiang rai reddit
+1521	1	3.0	hotels in chiang mai with private pool
+1522	1	3.0	restaurants chiang mai
+1523	1	3.0	food in chiang mai international airport
+1524	1	3.0	lunch in chiang rai
+1525	1	3.0	weather in chiang mai now
+1526	1	3.0	weather in chiang rai in august
+1527	1	3.0	abc visa chiang mai
+1528	1	3.0	visa agent chiang rai
+1529	1	3.0	bangkok hospital chiang mai
+1530	1	3.0	sriburin hospital chiang rai
+1531	1	3.0	expat auto chiang mai
+1532	1	3.0	rent chiang mai thailand
+1533	1	3.0	rent scooter chiang rai
+1534	1	3.0	apartment chiang mai thailand
+1535	1	3.0	temple chiang mai thailand
+1536	1	3.0	black temple chiang rai
+1537	1	3.0	cafe chiang mai old town
+1538	1	3.0	coffee chiang rai
+1539	1	3.0	market chiang mai open now
+1540	1	3.0	saturday market chiang rai
+1541	1	3.0	airport chiang mai food
+1542	1	3.0	bangkok to chiang mai train
+1543	1	3.0	singapore to chiang rai
+1544	1	3.0	from chiang mai to mae kampong
+1545	1	3.0	to chiang rai
+1546	1	4.0	chiang mai art museum
+1547	1	4.0	chiang mai bus station
+1548	1	4.0	chiang mai breakfast restaurant (saneha) ร้านอาหารเช้า เชียงใหม่
+1549	1	4.0	chiang mai central festival
+1550	1	4.0	chiang mai ebird
+1551	1	4.0	chiang mai fencing club
+1552	1	4.0	chiang mai grand canyon
+1553	1	4.0	chiang mai golden place เชียงใหม่โกลเด็นเพลส photos
+1554	1	4.0	chiang mai in thai
+1555	1	4.0	chiang mai ivf
+1556	1	4.0	chiang mai journal of science scopus
+1557	1	4.0	chiang mai land transport office 2
+1558	1	4.0	chiang mai local tours
+1559	1	4.0	chiang mai museums
+1560	1	4.0	chiang mai municipality
+1561	1	4.0	chiang mai outlet
+1562	1	4.0	chiang mai pickleball (jedyod)
+1563	1	4.0	chiang mai rain
+1564	1	4.0	chiang mai rock climbing adventures
+1565	1	4.0	chiang mai sticky waterfall
+1566	1	4.0	chiang mai smile dental clinic
+1567	1	4.0	chiang mai to phuket flight time
+1568	1	4.0	chiang mai technical college
+1569	1	4.0	chiang mai university business school
+1570	1	4.0	chiang mai voyage of light
+1571	1	4.0	chiang mai center
+1572	1	4.0	chiang mai yoga teacher training
+1573	1	4.0	chiang mai o que ver
+1574	1	4.0	chiang mai 3d museum
+1575	1	4.0	chiang mai 6 month rental
+1576	1	4.0	chiangmai airconditioning
+1577	1	4.0	chiangmai central festival cinema
+1578	1	4.0	chiangmai dental hospital
+1579	1	4.0	chiangmai foot massage
+1580	1	4.0	chiangmai grandview hotel
+1581	1	4.0	chiangmai imax
+1582	1	4.0	chiangmai journal of science
+1583	1	4.0	chiangmai midpoint activity hostel
+1584	1	4.0	chiangmai night safari ราคา
+1585	1	4.0	chiangmai original
+1586	1	4.0	chiangmai park
+1587	1	4.0	chiangmai piano institute
+1588	1	4.0	chiangmai quán thái
+1589	1	4.0	quu chiang mai
+1590	1	4.0	chiangmai radio
+1591	1	4.0	chiangmai sport clinic reviews
+1592	1	4.0	chiangmai s. p. construction ltd. part
+1593	1	4.0	chiangmai train station
+1594	1	4.0	chiangmai thailand by utmb
+1595	1	4.0	chiangmai united standings
+1596	1	4.0	chiangmai university convention center
+1597	1	4.0	chiangmai center
+1598	1	4.0	chiangmai yipeng
+1599	1	4.0	chiangmai zoo ticket
+1600	1	4.0	09 hostel chiang mai
+1601	1	4.0	chiangmai radio 93.75
+1602	1	4.0	chiang rai airport car rental
+1603	1	4.0	chiang rai a luang prabang
+1604	1	4.0	chiang rai contemporary art museum
+1605	1	4.0	chiang rai international school (cris)
+1606	1	4.0	chiang rai is calling แปล
+1607	1	4.0	chiang rai land for sale
+1608	1	4.0	chiang rai muay thai gym
+1609	1	4.0	chiang rai photos
+1610	1	4.0	chiang rai quoi faire
+1611	1	4.0	chiang rai sightseeing
+1612	1	4.0	sightseeing in chiang rai
+1613	1	4.0	chiang rai trip
+1614	1	4.0	chiang rai 13 lives
+1615	1	4.0	chiang rai 3 temple tour
+1616	1	4.0	chiang rai 5 days itinerary
+1617	1	4.0	anantara chiang rai
+1618	1	4.0	เชียงใหม่ direct ใกล้ ฉัน
+1619	1	4.0	chiangrai flood
+1620	1	4.0	เชียงใหม่ google map
+1621	1	4.0	chiangrai international airport
+1622	1	4.0	jersey chiangrai united
+1623	1	4.0	kia chiangrai
+1624	1	4.0	chiangrai lake hill resort
+1625	1	4.0	เชียงใหม่ outlet
+1626	1	4.0	chiangrai united prime bangkok fc
+1627	1	4.0	chiangrai tostem dealer
+1628	1	4.0	chiangrai united players
+1629	1	4.0	chiangrai united fc
+1630	1	4.0	chiangrai vs prachuap
+1631	1	4.0	chiangrai vocational college
+1632	1	4.0	chiangrai what to do
+1633	1	4.0	chiangrai united x ratchaburi fc
+1634	1	4.0	เชียงใหม่ yourskin
+1635	1	4.0	zontes chiangrai รูปภาพ
+1636	1	4.0	chiang rai 2 day trip from chiang mai
+1637	1	4.0	best chiang mai cafes
+1638	1	4.0	cheap chiang mai accommodation
+1639	1	4.0	cheap accommodation chiang rai
+1640	1	4.0	where is chiang mai night market
+1641	1	4.0	where is chiang rai airport
+1642	1	4.0	how is chiang mai in july
+1643	1	4.0	how safe is chiang rai
+1644	1	4.0	when is chiang mai lantern festival 2027
+1645	1	4.0	when is sunset in chiang rai
+1646	1	4.0	what is chiang mai initiative
+1647	1	4.0	what do chiang rai
+1648	1	4.0	why pizza chiang mai
+1649	1	4.0	top chiang mai activities
+1650	1	4.0	beaches near chiang mai
+1651	1	4.0	hiking near chiang rai
+1652	1	4.0	map chiang mai airport
+1653	1	4.0	google map chiang rai thailand
+1654	1	4.0	massage cost chiang mai
+1655	1	4.0	scooter rental price chiang mai
+1656	1	4.0	local guide chiang mai
+1657	1	4.0	private guide chiang rai
+1658	1	4.0	things to do in chiang mai today
+1659	1	4.0	things to do in chiang rai city centre
+1660	1	4.0	hotels in chiang mai city centre
+1661	1	4.0	accommodation in chiang rai
+1662	1	4.0	restaurants in chiang mai international airport
+1663	1	4.0	food in chiang mai reddit
+1664	1	4.0	weather in chiang mai 10 days
+1665	1	4.0	weather in chiang rai now
+1666	1	4.0	ed visa chiang mai
+1667	1	4.0	visa agency chiang rai
+1668	1	4.0	mccormick hospital chiang mai
+1669	1	4.0	bangkok hospital chiang rai reviews
+1670	1	4.0	expat community chiang mai
+1671	1	4.0	rental chiang mai
+1672	1	4.0	rent bike chiang rai
+1673	1	4.0	accommodation chiang mai
+1674	1	4.0	apartment rental chiang rai
+1675	1	4.0	temple chiang mai jungle
+1676	1	4.0	blue temple chiang rai entrance fee
+1677	1	4.0	cafe chiang mai thailand
+1678	1	4.0	restaurant chiang rai style
+1679	1	4.0	market chiang mai friday
+1680	1	4.0	night market chiang rai opening hours
+1681	1	4.0	airport chiang mai mall
+1682	1	4.0	airport transfer chiang rai
+1683	1	4.0	bangkok to chiang mai flight
+1684	1	4.0	bangkok to chiang rai distance
+1685	1	4.0	from chiang mai to phuket
+1686	1	4.0	flights from chiang rai
+1687	1	5.0	chiang mai alist clinic maya chiang mai
+1688	1	5.0	chiang mai cafes
+1689	1	5.0	chiang mai chaloem phrakiat park สวนเฉลิมพระเกียรติฯ อบจ.เชียงใหม่
+1690	1	5.0	chiang mai domestic airport
+1691	1	5.0	chiang mai design week 2025
+1692	1	5.0	chiang mai event
+1693	1	5.0	chiang mai fresh milk ราคา
+1694	1	5.0	chiang mai gate market hours
+1695	1	5.0	chiang mai gate house
+1696	1	5.0	chiang mai imax
+1697	1	5.0	chiang mai jing jai market
+1698	1	5.0	chiang mai journal of science scimago
+1699	1	5.0	chiang mai karaoke
+1700	1	5.0	chiang mai kitchen
+1701	1	5.0	chiang mai live music
+1702	1	5.0	chiang mai life architects
+1703	1	5.0	chiang mai muay thai
+1704	1	5.0	chiang mai medical center
+1705	1	5.0	chiang mai night safari reviews
+1706	1	5.0	chiang mai night run 2026
+1707	1	5.0	chiang mai population 2026
+1708	1	5.0	chiang mai provincial social security office อําเภอเมือง reviews
+1709	1	5.0	chiang mai rice life
+1710	1	5.0	chiang mai stadium
+1711	1	5.0	chiang mai saloon
+1712	1	5.0	chiang mai thailand tour center 1
+1713	1	5.0	chiang mai vibe
+1714	1	5.0	chiang mai weather today
+1715	1	5.0	chiang mai waste to energy
+1716	1	5.0	chiang mai xtreme cnx
+1717	1	5.0	chiang mai la o dau
+1718	1	5.0	chiang mai 1 day itinerary
+1719	1	5.0	chiang mai 2027
+1720	1	5.0	chiang mai 2025
+1721	1	5.0	chiang mai 6 november
+1722	1	5.0	chiangmai aqi
+1723	1	5.0	chiangmai art & music school
+1724	1	5.0	chiangmai circuit - go kart ราคา
+1725	1	5.0	chiangmai dental hospital เมือง reviews
+1726	1	5.0	chiangmai easy travel
+1727	1	5.0	chiang mai fishing park
+1728	1	5.0	chiangmai flood hazard map
+1729	1	5.0	chiangmai international dental clinic
+1730	1	5.0	chiangmai ice arena รูปภาพ
+1731	1	5.0	chiangmai jinjang
+1732	1	5.0	chiangmai jobs
+1733	1	5.0	chiangmai live cam
+1734	1	5.0	lantern chiangmai
+1735	1	5.0	chiangmai movie
+1736	1	5.0	old city chiangmai
+1737	1	5.0	chiangmai photographer
+1738	1	5.0	chiangmai pao park
+1739	1	5.0	chiangmai quán
+1740	1	5.0	chiangmai ram 2
+1741	1	5.0	chiangmai temperature
+1742	1	5.0	chiangmai tattoo
+1743	1	5.0	chiangmai university ranking
+1744	1	5.0	chiangmai udee (เชียงใหม่อยู่ดี)
+1745	1	5.0	villa chiangmai
+1746	1	5.0	chiangmai weather radar
+1747	1	5.0	chiangmai walking street home
+1748	1	5.0	chiangmai xtreme
+1749	1	5.0	chiangmai yunnan market
+1750	1	5.0	chiangmai zoo map
+1751	1	5.0	053 tattoo chiang mai
+1752	1	5.0	86 chiangmai
+1753	1	5.0	chiang rai a pai
+1754	1	5.0	chiang rai flag
+1755	1	5.0	chiang rai house for rent
+1756	1	5.0	chiang rai immigration
+1757	1	5.0	chiang rai maps
+1758	1	5.0	postal code chiang rai
+1759	1	5.0	chiang rai slow boat to laos
+1760	1	5.0	slow boat to laos from chiang rai
+1761	1	5.0	chiang rai tea & coffee festival 2026
+1762	1	5.0	chiang rai four seasons tented camp
+1763	1	5.0	chiang rai 5 star resort
+1764	1	5.0	chiang mai chiang rai 5 days itinerary
+1765	1	5.0	chiangrai anantara
+1766	1	5.0	chiangrai clock tower
+1767	1	5.0	dap chiangrai
+1768	1	5.0	chiangrai futbol24
+1769	1	5.0	เชียงใหม่ gps
+1770	1	5.0	chiangrai calling
+1771	1	5.0	chiangrai jazz festival
+1772	1	5.0	เชียงใหม่ journal
+1773	1	5.0	chiang rai koh tao
+1774	1	5.0	เชียงใหม่ kl
+1775	1	5.0	เชียงใหม่ lemon8
+1776	1	5.0	chiangrai marathon 2027
+1777	1	5.0	เชียงใหม่ old town
+1778	1	5.0	เชียงใหม่ pantip
+1779	1	5.0	sukhothai chiangrai utd
+1780	1	5.0	chiangrai united transfermarkt
+1781	1	5.0	chiangrai vs kitchee
+1782	1	5.0	chiangrai weather today
+1783	1	5.0	chiangrai united x ratchaburi
+1784	1	5.0	yoga chiangrai
+1785	1	5.0	best chiang mai massage
+1786	1	5.0	affordable chiang mai hotels
+1787	1	5.0	cheap flights to chiang rai
+1788	1	5.0	where is chiang mai sunday night market
+1789	1	5.0	where is chiang rai night market
+1790	1	5.0	how is chiang mai in june
+1791	1	5.0	how long in chiang rai
+1792	1	5.0	what is chiang mai in thailand
+1793	1	5.0	what is chiang rai airport code
+1794	1	5.0	why nimman chiang mai
+1795	1	5.0	top chiang mai resorts
+1796	1	5.0	hotel near chiang mai airport
+1797	1	5.0	temples near chiang rai
+1798	1	5.0	map chiang mai city
+1799	1	5.0	map of chiang rai city
+1800	1	5.0	taxi cost chiang mai
+1801	1	5.0	beer price chiang mai
+1802	1	5.0	travel guide chiang mai
+1803	1	5.0	travel guide chiang rai
+1804	1	5.0	things to do in chiang mai with kids
+1805	1	5.0	things to do in chiang rai at night
+1806	1	5.0	hotels in chiang mai reddit
+1807	1	5.0	accommodation in chiang rai thailand
+1808	1	5.0	restaurants in chiang mai open now
+1809	1	5.0	best restaurants in chiang rai
+1810	1	5.0	food in chiang mai old city
+1811	1	5.0	weather in chiang mai this week
+1812	1	5.0	weather in chiang rai in december
+1813	1	5.0	dtv visa chiang mai
+1814	1	5.0	visa extension chiang rai
+1815	1	5.0	bangkok hospital chiang mai reviews
+1816	1	5.0	bangkok hospital chiang rai photos
+1817	1	5.0	expat jobs chiang mai
+1818	1	5.0	rentals chiang mai thailand
+1819	1	5.0	rent house chiang rai
+1820	1	5.0	condo chiang mai
+1821	1	5.0	3k apartment chiang rai
+1822	1	5.0	temple chiang mai old city
+1823	1	5.0	white temple chiang rai entrance fee
+1824	1	5.0	cafe chiang mai waterfall
+1825	1	5.0	lalitta cafe chiang rai
+1826	1	5.0	market chiang mai monday
+1827	1	5.0	food market chiang rai
+1828	1	5.0	airport chiang mai to city
+1829	1	5.0	airport in chiang rai thailand
+1830	1	5.0	flights to chiang mai
+1831	1	5.0	flights to chiang rai
+1832	1	5.0	from chiang mai to koh samui
+1833	1	5.0	tours from chiang rai
+1834	1	6.0	chiang mai airport arrivals
+1835	1	6.0	chiang mai archery ราคา
+1836	1	6.0	chiang mai business park
+1837	1	6.0	chiang mai cultural center
+1838	1	6.0	chiang mai cdr
+1839	1	6.0	chiang mai digix 2026
+1840	1	6.0	chiang mai flood map
+1841	1	6.0	chiang mai frozen foods public company limited
+1842	1	6.0	chiang mai gate crafts
+1843	1	6.0	chiang mai hot springs
+1844	1	6.0	chiang mai international school ค่าเทอม
+1845	1	6.0	chiang mai jewellery making
+1846	1	6.0	chiang mai junction
+1847	1	6.0	chiang mai michelin
+1848	1	6.0	chiang mai mansion 2
+1849	1	6.0	chiang mai night market sunday
+1850	1	6.0	chiang mai new
+1851	1	6.0	chiang mai osaka flight
+1852	1	6.0	chiang mai or chiangmai
+1853	1	6.0	chiang mai parks
+1854	1	6.0	chiang mai pickleball club
+1855	1	6.0	chiang mai qigong
+1856	1	6.0	chiang mai rain radar
+1857	1	6.0	chiang mai shopping mall
+1858	1	6.0	chiang mai steak house
+1859	1	6.0	chiang mai temples
+1860	1	6.0	chiang mai tattoo
+1861	1	6.0	chiang mai university market
+1862	1	6.0	chiang mai vector
+1863	1	6.0	chiang mai weather radar
+1864	1	6.0	chiang mai wheels
+1865	1	6.0	chiang mai xmas dinner
+1866	1	6.0	chiang mai to
+1867	1	6.0	chiang mai 14 day weather forecast
+1868	1	6.0	chiang mai 2 bedroom apartment
+1869	1	6.0	chiang mai 2 days itinerary
+1870	1	6.0	chiang mai 6ixcret
+1871	1	6.0	chiangmai butterfly garden
+1872	1	6.0	chiangmai central airport
+1873	1	6.0	chiangmai emoji
+1874	1	6.0	chiangmai empress travel service
+1875	1	6.0	chiangmai fullmoon travel
+1876	1	6.0	chiangmai hill
+1877	1	6.0	chiangmai holistic
+1878	1	6.0	chiangmai is calling แปลว่า
+1879	1	6.0	chiangmai lantern
+1880	1	6.0	liberty chiangmai
+1881	1	6.0	chiangmai mall
+1882	1	6.0	chiangmai night safari ticket
+1883	1	6.0	chiangmai outlet
+1884	1	6.0	chiangmai places to visit
+1885	1	6.0	chiangmai pacific world
+1886	1	6.0	chiang mai air quality
+1887	1	6.0	chiangmai railway station park photos
+1888	1	6.0	chiangmai riverside condominium
+1889	1	6.0	chiangmai sunset time
+1890	1	6.0	chiangmai temple
+1891	1	6.0	chiangmai thailand by utmb 2026
+1892	1	6.0	chiangmai and chiangrai
+1893	1	6.0	chiangmai with kids
+1894	1	6.0	chiangmai waroros boutique hotel
+1895	1	6.0	chiangmai xcentre โดย เจ้าของ
+1896	1	6.0	chiang mai you you travel
+1897	1	6.0	chiangmai zoo aquarium ค่า เข้า
+1898	1	6.0	que faire 0 chiang mai
+1899	1	6.0	chiangmai cad 2026
+1900	1	6.0	chiang rai and golden triangle
+1901	1	6.0	chiang rai hill tribe
+1902	1	6.0	chiang rai itinerary
+1903	1	6.0	chiang rai in thailand
+1904	1	6.0	koh samui to chiang rai
+1905	1	6.0	chiang rai lonely planet
+1906	1	6.0	chiang rai night market sunday
+1907	1	6.0	chiang rai pork
+1908	1	6.0	chiang rai phuket
+1909	1	6.0	chiang rai railway station
+1910	1	6.0	chiang rai restaurants
+1911	1	6.0	chiang rai sunset time
+1912	1	6.0	chiang rai to laos
+1913	1	6.0	chiang rai 1 day trip
+1914	1	6.0	chiang rai festival 2026
+1915	1	6.0	chiang rai 3 days 2 nights
+1916	1	6.0	chiang rai four seasons golden triangle
+1917	1	6.0	chiang rai 57000 thailand
+1918	1	6.0	tour chiang mai chiang rai 5 ngày 4 đêm
+1919	1	6.0	chiang rai seven eleven
+1920	1	6.0	anhaus chiangrai
+1921	1	6.0	เชียงใหม่ admission
+1922	1	6.0	buriram chiangrai utd
+1923	1	6.0	dudu chiangrai united
+1924	1	6.0	grandvista chiangrai
+1925	1	6.0	เชียงใหม่ jsn
+1926	1	6.0	chiang rai karaoke
+1927	1	6.0	เชียงใหม่ ktv
+1928	1	6.0	เชียงใหม่ love home
+1929	1	6.0	major chiangrai
+1930	1	6.0	เชียงใหม่ okinawa
+1931	1	6.0	chiang rai q
+1932	1	6.0	เชียงใหม่ smart city
+1933	1	6.0	chiangrai tsc
+1934	1	6.0	chiangrai vs prime bangkok
+1935	1	6.0	chiangrai wellness city
+1936	1	6.0	chiangrai united x buriram united
+1937	1	6.0	yoguruto chiangrai
+1938	1	6.0	เชียงใหม่ zip code
+1939	1	6.0	cheap flights chiang mai to bangkok
+1940	1	6.0	cheap car rental chiang rai
+1941	1	6.0	where is chiang mai old town
+1942	1	6.0	where is chiang rai province
+1943	1	6.0	how is chiang mai in august
+1944	1	6.0	how to get to chiang rai
+1945	1	6.0	when is chiang mai flower festival 2026
+1946	1	6.0	how long to spend in chiang rai
+1947	1	6.0	what is chiang mai airport code
+1948	1	6.0	what to see chiang rai
+1949	1	6.0	why coffee chiang mai
+1950	1	6.0	top chiang mai cafe
+1951	1	6.0	places near chiang mai
+1952	1	6.0	weather near chiang rai thailand
+1953	1	6.0	map chiang mai province
+1954	1	6.0	map of chiang rai temples
+1955	1	6.0	taxi cost chiang mai to pai
+1956	1	6.0	average house price chiang mai
+1957	1	6.0	michelin guide chiang mai 2025
+1958	1	6.0	jermsak guide chiang rai
+1959	1	6.0	things to do in chiang mai tonight
+1960	1	6.0	things to do in chiang rai province
+1961	1	6.0	hotels in chiang mai nimman
+1962	1	6.0	best hotels in chiang rai
+1963	1	6.0	restaurants in chiang mai reddit
+1964	1	6.0	indian restaurants in chiang rai
+1965	1	6.0	food in chiang mai vs bangkok
+1966	1	6.0	best food in chiang rai
+1967	1	6.0	weather in chiang mai by month
+1968	1	6.0	weather in chiang rai in september
+1969	1	6.0	visa agent chiang mai
+1970	1	6.0	chiang rai visa run service
+1971	1	6.0	rajavej hospital chiang mai
+1972	1	6.0	kasemrad hospital chiang rai
+1973	1	6.0	expat motors chiang mai
+1974	1	6.0	apartments near chiang mai university
+1975	1	6.0	rent car chiang rai airport
+1976	1	6.0	condo chiang mai rent
+1977	1	6.0	service apartment chiang rai
+1978	1	6.0	temple chiang mai stairs
+1979	1	6.0	golden temple chiang rai
+1980	1	6.0	cafe chiang mai nature
+1981	1	6.0	lalita cafe chiang rai
+1982	1	6.0	market chiang mai old city
+1983	1	6.0	weekend market chiang rai
+1984	1	6.0	airport chiang mai maps
+1985	1	6.0	cei airport chiang rai
+1986	1	6.0	phuket to chiang mai
+1987	1	6.0	phuket to chiang rai
+1988	1	6.0	from chiang mai to laos
+1989	1	6.0	from chiang rai to bangkok
+1990	1	7.0	chiang mai airport mall
+1991	1	7.0	chiang mai bicycle
+1992	1	7.0	chiang mai central festival cinema
+1993	1	7.0	chiang mai districts
+1994	1	7.0	chiang mai downtown privacy home
+1995	1	7.0	chiang mai events today
+1996	1	7.0	chiang mai elite drive
+1997	1	7.0	chiang mai film festival
+1998	1	7.0	chiang mai gymkhana club
+1999	1	7.0	chiang mai guide
+2000	1	7.0	chiang mai hotels
+2001	1	7.0	chiang mai international airport food
+2002	1	7.0	chiang mai international school (cmis)
+2003	1	7.0	chiang mai kuala lumpur flight
+2004	1	7.0	chiang mai logo
+2005	1	7.0	chiang mai mall
+2006	1	7.0	chiang mai night life
+2007	1	7.0	chiang mai oxford
+2008	1	7.0	chiang mai places to visit
+2009	1	7.0	chiang mai p.a.o. public park
+2010	1	7.0	chiang mai run club
+2011	1	7.0	chiang mai second hand warehouse madam muk โกดังสินค้ามือสองเชียงใหม่ มาดามมุก
+2012	1	7.0	chiang mai to pai bus
+2013	1	7.0	chiang mai thailand by utmb
+2014	1	7.0	chiang mai vintage market
+2015	1	7.0	chiang mai winter night cacao stout
+2016	1	7.0	chiang mai xventure
+2017	1	7.0	chiang mai o phuket
+2018	1	7.0	chiang mai 2.5 day itinerary
+2019	1	7.0	chiang mai 6ixcret show
+2020	1	7.0	80' chiang mai
+2021	1	7.0	chiangmai airport mall
+2022	1	7.0	chiangmai alist clinic
+2023	1	7.0	chiangmai boutique house
+2024	1	7.0	chiangmai christian fellowship
+2025	1	7.0	chiangmai cad khomloy sky lantern festival
+2026	1	7.0	chiangmai direct กาดธานินทร์
+2027	1	7.0	chiangmai elevation
+2028	1	7.0	chiangmai flight
+2029	1	7.0	chiangmai fresh milk ซื้อ ที่ไหน
+2030	1	7.0	chiangmai gate crafts
+2031	1	7.0	chiangmai lantern festival 2027
+2032	1	7.0	chiangmai massage
+2033	1	7.0	chiangmai neurological hospital
+2034	1	7.0	chiangmai nail more ร้านทําเล็บเจล&สปา
+2035	1	7.0	chiang mai phuket
+2036	1	7.0	chiangmai phucome hotel
+2037	1	7.0	air quality index chiang mai
+2038	1	7.0	chiangmai speedkart
+2039	1	7.0	chiangmai tree hostel
+2040	1	7.0	chiangmai university library
+2041	1	7.0	chiangmai united fc
+2042	1	7.0	chiangmai vs phuket
+2043	1	7.0	nakhon vs chiangmai
+2044	1	7.0	chiangmai water park
+2045	1	7.0	chiangmai xtreme cnx
+2046	1	7.0	chiangmai ymca
+2047	1	7.0	chiangmai zoo snow dome
+2048	1	7.0	big c chiang mai 1
+2049	1	7.0	เชียงใหม่ 2568
+2050	1	7.0	chiang rai apartments for rent
+2051	1	7.0	chiang rai and mai
+2052	1	7.0	chiang rai famous places
+2053	1	7.0	chiang rai from bangkok
+2054	1	7.0	chiang rai hotels 5 star
+2055	1	7.0	chiang rai in thai
+2056	1	7.0	chiang rai is in bangkok
+2057	1	7.0	chiang rai live camera
+2058	1	7.0	chiang rai night bazaar reviews
+2059	1	7.0	chiang rai population 2026
+2060	1	7.0	chiang rai pronunciation
+2061	1	7.0	chiang rai rainy season
+2062	1	7.0	chiang rai restaurant tustin
+2063	1	7.0	chiang rai shopping mall
+2064	1	7.0	chiang rai shopping
+2065	1	7.0	chiang rai tustin
+2066	1	7.0	chiang rai 3 letter airport code
+2067	1	7.0	chiang rai 57110
+2068	1	7.0	hotel le meridien chiang rai 5 *
+2069	1	7.0	chiang rai weather hourly
+2070	1	7.0	asado chiangrai
+2071	1	7.0	เชียงใหม่ business park
+2072	1	7.0	เชียงใหม่ direct ปิด กี่ โมง
+2073	1	7.0	เชียงใหม่ grab
+2074	1	7.0	เชียงใหม่ job
+2075	1	7.0	chiang rai known for
+2076	1	7.0	เชียงใหม่ kw
+2077	1	7.0	เชียงใหม่ low season
+2078	1	7.0	major chiang rai
+2079	1	7.0	เชียงใหม่ outdoor
+2080	1	7.0	pemain chiangrai united fc
+2081	1	7.0	เชียงใหม่ p&t
+2082	1	7.0	chiangrai united score
+2083	1	7.0	เชียงใหม่ skyscanner
+2084	1	7.0	chiangrai tea & coffee festival 2026
+2085	1	7.0	chiangrai united jersey
+2086	1	7.0	chiangrai weather in december
+2087	1	7.0	chiangrai united x kitchee
+2088	1	7.0	yakiniku chiangrai
+2089	1	7.0	chiang rai z chiang mai
+2090	1	7.0	zuula chiangrai
+2091	1	7.0	top chiang rai
+2092	1	7.0	cheap massage chiang mai
+2093	1	7.0	cheap flight from chiang rai to phuket
+2094	1	7.0	where is chiang mai from phuket
+2095	1	7.0	where is chiang rai temple
+2096	1	7.0	how is chiang mai in december
+2097	1	7.0	how to get to chiang rai from bangkok
+2098	1	7.0	when is chiang mai festival
+2099	1	7.0	what is chiang mai curry
+2100	1	7.0	what province is chiang rai in
+2101	1	7.0	why cafe chiang mai
+2102	1	7.0	tops chiang mai central
+2103	1	7.0	best chiang rai
+2104	1	7.0	hikes near chiang mai
+2105	1	7.0	caves near chiang rai
+2106	1	7.0	map chiang mai university
+2107	1	7.0	map chiang mai chiang rai
+2108	1	7.0	food cost chiang mai
+2109	1	7.0	car rental price chiang mai
+2110	1	7.0	michelin guide chiang mai map
+2111	1	7.0	get your guide chiang rai
+2112	1	7.0	things to do in chiang mai old town
+2113	1	7.0	things to do in chiang rai with family
+2114	1	7.0	hotels in chiang mai near night bazaar
+2115	1	7.0	best hotels in chiang rai thailand
+2116	1	7.0	restaurants in chiang mai near me
+2117	1	7.0	best restaurants in chiang rai thailand
+2118	1	7.0	food in chiang mai cost
+2119	1	7.0	halal food in chiang rai
+2120	1	7.0	weather in chiang mai in september
+2121	1	7.0	weather in chiang rai thailand
+2122	1	7.0	visa service chiang mai
+2123	1	7.0	thai visa solutions chiang rai
+2124	1	7.0	lanna hospital chiang mai
+2125	1	7.0	ram hospital chiang rai
+2126	1	7.0	expat club chiang mai
+2127	1	7.0	rent car chiang mai
+2128	1	7.0	rent condo chiang rai
+2129	1	7.0	house chiang mai
+2130	1	7.0	apartment for sale chiang rai
+2131	1	7.0	temple chiang mai white
+2132	1	7.0	monkey temple chiang rai
+2133	1	7.0	cafe chiang mai lion
+2134	1	7.0	lolita cafe chiang rai
+2135	1	7.0	market chiang mai near me
+2136	1	7.0	flower market chiang rai
+2137	1	7.0	airport chiang mai code
+2138	1	7.0	international airport chiang rai
+2139	1	7.0	singapore to chiang mai
+2140	1	7.0	bangkok to chiang rai train
+2141	1	7.0	from chiang mai to luang prabang
+2142	1	7.0	from chiang rai to pai
+2143	1	8.0	chiang mai attractions
+2144	1	8.0	chiang mai art village
+2145	1	8.0	chiang mai bike rental
+2146	1	8.0	chiang mai border run
+2147	1	8.0	chiang mai cabaret show
+2148	1	8.0	chiang mai cad khomloy sky lantern festival 2026
+2149	1	8.0	chiang mai districts map
+2150	1	8.0	chiang mai d hostel
+2151	1	8.0	chiang mai earthquake
+2152	1	8.0	chiang mai elephant land
+2153	1	8.0	chiang mai fine dining
+2154	1	8.0	chiang mai flood hazard map
+2155	1	8.0	chiang mai gate hotel (wua lai walking street)
+2156	1	8.0	chiang mai in thai language
+2157	1	8.0	chiang mai is calling แปลว่า
+2158	1	8.0	chiang mai jazz
+2159	1	8.0	chiang mai january weather
+2160	1	8.0	chiang mai kafae boran
+2161	1	8.0	chiang mai luggage storage
+2162	1	8.0	chiang mai love home
+2163	1	8.0	chiang mai movie theater
+2164	1	8.0	chiang mai midpoint activity hostel
+2165	1	8.0	chiang mai old city temples
+2166	1	8.0	chiang mai post office
+2167	1	8.0	chiang mai queensway
+2168	1	8.0	chiang mai removals
+2169	1	8.0	chiang mai saturday market
+2170	1	8.0	chiang mai sausage
+2171	1	8.0	chiang mai to chiang rai bus
+2172	1	8.0	chiang mai trekking
+2173	1	8.0	chiang mai university international program
+2174	1	8.0	chiang mai utmb
+2175	1	8.0	chiang mai vegetarian society
+2176	1	8.0	chiang mai viewplace 2 รูปภาพ
+2177	1	8.0	chiang mai wiki
+2178	1	8.0	chiang mai xiaomi
+2179	1	8.0	chiang mai yi peng lantern festival 2026
+2180	1	8.0	chiang mai 16 mulberry
+2181	1	8.0	1 day tour chiang mai
+2182	1	8.0	chiang mai 2006
+2183	1	8.0	chiang mai 2025 lantern festival
+2184	1	8.0	chiang mai 3 days 2 nights itinerary
+2185	1	8.0	chiang mai 50200 thailand
+2186	1	8.0	chiangmai aquarium
+2187	1	8.0	chiangmai ai champion
+2188	1	8.0	chiangmai baby shop
+2189	1	8.0	chiangmai boutique lodge
+2190	1	8.0	chiangmai cad khomloy sky lanterns festival 2026
+2191	1	8.0	chiangmai festival
+2192	1	8.0	chiangmai frozen foods public company limited
+2193	1	8.0	chiangmai in chinese
+2194	1	8.0	chiangmai junction
+2195	1	8.0	chiangmai liberty
+2196	1	8.0	chiangmai life construction
+2197	1	8.0	chiangmai montessori international school
+2198	1	8.0	chiangmai mri
+2199	1	8.0	chiangmai night run 2026
+2200	1	8.0	chiangmai original live
+2201	1	8.0	chiang mai pm2.5
+2202	1	8.0	chiangmai air quality now
+2203	1	8.0	chiangmai residence
+2204	1	8.0	chiangmai rock climbing
+2205	1	8.0	chiangmai storage
+2206	1	8.0	chiangmai shipping and packing co. ltd
+2207	1	8.0	chiangmai university logo
+2208	1	8.0	chiangmai united pattani fc
+2209	1	8.0	chiangmai vs chiang rai
+2210	1	8.0	chiangmai vocational college
+2211	1	8.0	chiangmai white temple
+2212	1	8.0	what to do in chiangmai
+2213	1	8.0	xventure chiangmai
+2214	1	8.0	chiangmai yi peng festival
+2215	1	8.0	chiangmai zip
+2216	1	8.0	chiang mai flight schedule
+2217	1	8.0	เชียงใหม่ 2569
+2218	1	8.0	80's chiang mai
+2219	1	8.0	chiang rai airport arrivals
+2220	1	8.0	chiang rai and the white temple
+2221	1	8.0	chiang rai big bike rentals
+2222	1	8.0	chiang rai black house
+2223	1	8.0	chiang rai cheese
+2224	1	8.0	chiang rai flooding today
+2225	1	8.0	chiang rai four seasons
+2226	1	8.0	chiang rai hidden gems
+2227	1	8.0	chiang rai hostel
+2228	1	8.0	chiang rai international school fees
+2229	1	8.0	chiang rai is where
+2230	1	8.0	michelin chiang rai
+2231	1	8.0	chiang rai nature
+2232	1	8.0	chiang rai pottery
+2233	1	8.0	chiang rai riverside hotel
+2234	1	8.0	chiang rai snow
+2235	1	8.0	chiang rai to laos slow boat
+2236	1	8.0	chiang rai university international program
+2237	1	8.0	chiang rai to huay xai taxi
+2238	1	8.0	chiang rai 10 day forecast
+2239	1	8.0	chiang rai weather 14 days
+2240	1	8.0	thailand biennale chiang rai 2023
+2241	1	8.0	tour chiang mai chiang rai 4 ngày 3 đêm
+2242	1	8.0	เชียงใหม่ bike week
+2243	1	8.0	เชียงใหม่ cm108
+2244	1	8.0	daruma chiangrai
+2245	1	8.0	เชียงราย gps
+2246	1	8.0	chiangrai is calling
+2247	1	8.0	chiang rai kuala lumpur
+2248	1	8.0	library chiangrai
+2249	1	8.0	เชียงใหม่ mri
+2250	1	8.0	เชียงใหม่ orchid
+2251	1	8.0	skor chiangrai united
+2252	1	8.0	chiangrai united - chonburi
+2253	1	8.0	chiangrai united vs ratchaburi fc
+2254	1	8.0	chiangrai... vs port fc
+2255	1	8.0	เชียงใหม่ weather
+2256	1	8.0	chiangrai united x sing pathumthani
+2257	1	8.0	yec chiangrai
+2258	1	8.0	เชียงใหม่ zoo aquarium ราคา
+2259	1	8.0	chiangrai united 1 0 ratchaburi fc
+2260	1	8.0	best chiang mai zipline
+2261	1	8.0	best massage chiang rai
+2262	1	8.0	cheap weed chiang mai
+2263	1	8.0	cheap scooter rental chiang rai
+2264	1	8.0	where is chiang mai night bazaar
+2265	1	8.0	where is chiang rai city centre
+2266	1	8.0	how is chiang mai in may
+2267	1	8.0	how to get from chiang rai to luang prabang
+2268	1	8.0	when is chiang mai night market
+2269	1	8.0	what is chiang mai sausage
+2270	1	8.0	what to eat chiang rai
+2271	1	8.0	why restaurant chiang mai
+2272	1	8.0	top 10 chiang rai
+2273	1	8.0	village near chiang mai
+2274	1	8.0	places near chiang rai
+2275	1	8.0	map chiang mai to bangkok
+2276	1	8.0	rain map chiang mai
+2277	1	8.0	flight cost chiang mai to bangkok
+2278	1	8.0	gas price chiang mai
+2279	1	8.0	michelin guide chiang mai khao soi
+2280	1	8.0	get your guide chiang rai tour
+2281	1	8.0	things to do in chiang mai city
+2282	1	8.0	things to do in chiang rai tripadvisor
+2283	1	8.0	hotels in chiang mai near airport
+2284	1	8.0	luxury hotels in chiang rai
+2285	1	8.0	food in chiang mai
+2286	1	8.0	good restaurants in chiang rai
+2287	1	8.0	restaurants in chiang mai
+2288	1	8.0	indian food in chiang rai
+2289	1	8.0	weather in chiang mai 10 days in celsius
+2290	1	8.0	weather in chiang rai in october
+2291	1	8.0	assist visa chiang mai
+2292	1	8.0	sriphat hospital chiang mai
+2293	1	8.0	mfu hospital chiang rai
+2294	1	8.0	expat cars chiang mai
+2295	1	8.0	rent motorbike chiang mai
+2296	1	8.0	bicycle rent chiang rai
+2297	1	8.0	accommodation chiang mai thailand
+2298	1	8.0	temple chiang mai meditation
+2299	1	8.0	purple temple chiang rai
+2300	1	8.0	cafe chiang mai garden
+2301	1	8.0	cat cafe chiang rai
+2302	1	8.0	market chiang mai clothes
+2303	1	8.0	floating market chiang rai
+2304	1	8.0	airport chiang mai car rental
+2305	1	8.0	airport taxi chiang rai
+2306	1	8.0	bkk to chiang mai
+2307	1	8.0	bangkok to chiang rai bus
+2308	1	8.0	from chiang mai to krabi
+2309	1	8.0	from chiang rai to golden triangle
+2310	1	9.0	chiang mai airport map
+2311	1	9.0	chiang mai ai center
+2312	1	9.0	chiang mai bakermart
+2313	1	9.0	chiang mai beer
+2314	1	9.0	chiang mai chaloem phrakiat park
+2315	1	9.0	chiang mai city run
+2316	1	9.0	chiang mai date girl
+2317	1	9.0	chiang mai diocese
+2318	1	9.0	chiang mai events this weekend
+2319	1	9.0	chiang mai elephant home - office in the city รีวิว
+2320	1	9.0	chiang mai friday night market
+2321	1	9.0	chiang mai flower festival
+2322	1	9.0	chiang mai grand canyon water park
+2323	1	9.0	chiang mai house for sale
+2324	1	9.0	chiang mai international airport directory
+2325	1	9.0	chiang mai jobs for foreigners
+2326	1	9.0	chiang mai kids activities
+2327	1	9.0	koh tao to chiang mai
+2328	1	9.0	chiang mai lady boy show
+2329	1	9.0	chiang mai motorbike rental
+2330	1	9.0	chiang mai mri
+2331	1	9.0	chiang mai night run
+2332	1	9.0	chiang mai old town things to do
+2333	1	9.0	chiang mai october weather
+2334	1	9.0	chiang mai private tour guide and driver
+2335	1	9.0	chiang mai quoi faire
+2336	1	9.0	chiang mai scooter rental
+2337	1	9.0	chiang mai sp hotel
+2338	1	9.0	chiang mai tree hostel
+2339	1	9.0	chiang mai university map
+2340	1	9.0	chiang mai vs chiang rai
+2341	1	9.0	chiang mai vs bangkok
+2342	1	9.0	chiang mai xavier
+2343	1	9.0	chiang mai yi peng festival
+2344	1	9.0	chiang mai zoo aquarium photos
+2345	1	9.0	chiang mai o que fazer a noite
+2346	1	9.0	chiang mai 2027 lantern festival
+2347	1	9.0	chiang mai 2.5 pm
+2348	1	9.0	chiangmai airport departures
+2349	1	9.0	chiangmai bangkok hospital
+2350	1	9.0	chiangmai beverage co. ltd
+2351	1	9.0	chiangmai cd supply
+2352	1	9.0	chiangmai december weather
+2353	1	9.0	chiangmai events
+2354	1	9.0	chiangmai history
+2355	1	9.0	chiangmai international marathon 2026
+2356	1	9.0	chiangmai is calling me แปล ว่า
+2357	1	9.0	chiangmai jazz bar
+2358	1	9.0	ktv chiangmai
+2359	1	9.0	chiangmai longview
+2360	1	9.0	chiangmai lanna & modern loft hotel
+2361	1	9.0	chiangmai market
+2362	1	9.0	chiangmai music journey
+2363	1	9.0	chiangmai nursing home care
+2364	1	9.0	chiangmai outfit
+2365	1	9.0	chiangmai originalive
+2366	1	9.0	chiangmai picture
+2367	1	9.0	chiangmai restaurants
+2368	1	9.0	chiangmai ria lab
+2369	1	9.0	chiangmai spa
+2370	1	9.0	chiangmai suksawad
+2371	1	9.0	chiangmai tzu chi school
+2372	1	9.0	chiangmai united vs nakhon pathom united fc
+2373	1	9.0	chiangmai vs
+2374	1	9.0	vape chiang mai
+2375	1	9.0	chiangmai wellness
+2376	1	9.0	chiangmai weather in june
+2377	1	9.0	xventure chiangmai ราคา
+2378	1	9.0	chiangmai youth music
+2379	1	9.0	chiang mai zoo and aquarium
+2380	1	9.0	what not to miss in chiang mai
+2381	1	9.0	chiang mai 3 letter code
+2382	1	9.0	3q chiangmai
+2383	1	9.0	เชียงใหม่ 50180
+2384	1	9.0	เชียงใหม่ 7 วัน
+2385	1	9.0	chiangmai tháng 8
+2386	1	9.0	chiang rai airport wiki
+2387	1	9.0	chiang rai a templo blanco
+2388	1	9.0	chiang rai city center
+2389	1	9.0	chiang rai flower garden
+2390	1	9.0	chiang rai flood
+2391	1	9.0	chiang rai hair salon
+2392	1	9.0	chiang rai immigration central
+2393	1	9.0	chiang rai in long beach
+2394	1	9.0	jazz chiang rai
+2395	1	9.0	chiang rai khao sok
+2396	1	9.0	chiang rai night market opening hours
+2397	1	9.0	chiang rai pineapple
+2398	1	9.0	chiang rai restaurant long beach
+2399	1	9.0	chiang rai shooting range
+2400	1	9.0	chiang rai sunday night market
+2401	1	9.0	chiang rai united vs kuching city
+2402	1	9.0	chiang rai to huay xai reddit
+2403	1	9.0	chiang rai nach huay xai
+2404	1	9.0	chiang rai 12go
+2405	1	9.0	chiang rai festival 2025
+2406	1	9.0	chiang rai 3 dias
+2407	1	9.0	3bb chiang rai
+2408	1	9.0	chiang rai five star hotel
+2409	1	9.0	เชียงใหม่ airport
+2410	1	9.0	b2 chiang rai
+2411	1	9.0	b2 chiangrai
+2412	1	9.0	เชียงใหม่ chiangmai
+2413	1	9.0	desty chiangrai รูปภาพ
+2414	1	9.0	เชียงใหม่ fc
+2415	1	9.0	เชียงราย grab
+2416	1	9.0	homepro chiang rai
+2417	1	9.0	chiang rai ke chiang mai
+2418	1	9.0	เชียงใหม่ logo
+2419	1	9.0	เชียงราย one day trip
+2420	1	9.0	pertandingan chiangrai united
+2421	1	9.0	เชียงใหม่ street food
+2422	1	9.0	chiangrai tustin
+2423	1	9.0	chiangrai united kit
+2424	1	9.0	chiangrai united vs ratchaburi fc standings
+2425	1	9.0	chiangrai vs port
+2426	1	9.0	เชียงราย weather
+2427	1	9.0	zontes chiangrai เมือง
+2428	1	9.0	เชียงราย 7 เขต
+2429	1	9.0	chiangrai united f.c
+2430	1	9.0	best coffee chiang rai
+2431	1	9.0	cheap breakfast chiang mai
+2432	1	9.0	best cheap eats chiang rai
+2433	1	9.0	where is chiang mai sunday market
+2434	1	9.0	where is chiang rai flower festival
+2435	1	9.0	how is chiang mai weather now
+2436	1	9.0	how to get from chiang rai to pai
+2437	1	9.0	when is chiang mai flower festival
+2438	1	9.0	what do chiang mai
+2439	1	9.0	why is chiang mai safe
+2440	1	9.0	top rated chiang rai restaurant
+2441	1	9.0	temples near chiang mai
+2442	1	9.0	cities near chiang rai
+2443	1	9.0	map chiang mai zoo
+2444	1	9.0	grab cost chiang mai
+2445	1	9.0	train price chiang mai to bangkok
+2446	1	9.0	michelin guide chiang mai street food
+2447	1	9.0	get your guide chiang rai day trip
+2448	1	9.0	things to do in chiang mai near me
+2449	1	9.0	things to see in chiang rai
+2450	1	9.0	hotels in chiang mai luxury
+2451	1	9.0	cheap hotels in chiang rai
+2452	1	9.0	places to eat in chiang mai
+2453	1	9.0	restaurants in central chiang rai
+2454	1	9.0	dinner in chiang mai
+2455	1	9.0	vegetarian food in chiang rai
+2456	1	9.0	weather in chiang mai right now
+2457	1	9.0	weather in chiang rai in november
+2458	1	9.0	education visa chiang mai
+2459	1	9.0	sripat hospital chiang mai
+2460	1	9.0	private hospital chiang rai
+2461	1	9.0	expat bars chiang mai
+2462	1	9.0	rent scooter chiang mai
+2463	1	9.0	siam rent chiang rai
+2464	1	9.0	accommodation chiang mai old town
+2465	1	9.0	temple chiang mai suthep
+2466	1	9.0	silver temple chiang rai
+2467	1	9.0	cafe chiang mai nimman
+2468	1	9.0	lalitta cafe chiang rai thailand
+2469	1	9.0	market chiang mai thailand
+2470	1	9.0	morning market chiang rai
+2471	1	9.0	airport chiang mai taxi
+2472	1	9.0	nearest airport chiang rai
+2473	1	9.0	bangkok to chiang mai sleeper train
+2474	1	9.0	bangkok to chiang rai flight time
+2475	1	9.0	from chiang mai to chiang dao
+2476	1	9.0	from chiang rai to huay xai
+2477	1	10.0	chiang mai airport smoking area
+2478	1	10.0	chiang mai air care engineering
+2479	1	10.0	chiang mai bamboo rafting
+2480	1	10.0	chiang mai cad
+2481	1	10.0	chiang mai drag show
+2482	1	10.0	chiang mai day tours
+2483	1	10.0	chiang mai flights
+2484	1	10.0	chiang mai fresh milk รีวิว
+2485	1	10.0	chiang mai google maps
+2486	1	10.0	chiang mai good tour
+2487	1	10.0	chiang mai home host
+2488	1	10.0	chiang mai illustrated books & comics festival
+2489	1	10.0	chiang mai jj market
+2490	1	10.0	chiang mai king kong zipline
+2491	1	10.0	chiang mai koh samui flight
+2492	1	10.0	chiang mai local food
+2493	1	10.0	chiang mai michelin guide
+2494	1	10.0	chiang mai marriott hotel ฝึกงาน
+2495	1	10.0	chiang mai night safari photos
+2496	1	10.0	chiang mai night safari map
+2497	1	10.0	chiang mai old city night market
+2498	1	10.0	chiang mai or bangkok
+2499	1	10.0	chiang mai pride 2026
+2500	1	10.0	chiang mai provincial land transport office fang branch
+2501	1	10.0	chiang mai quarry
+2502	1	10.0	chiang mai que visitar
+2503	1	10.0	chiang mai sunset time
+2504	1	10.0	chiang mai solar
+2505	1	10.0	chiang mai to taipei
+2506	1	10.0	chiang mai university qs ranking
+2507	1	10.0	chiang mai visa run reviews
+2508	1	10.0	chiang mai weekend market
+2509	1	10.0	chiang mai x centre mae rim
+2510	1	10.0	chiang mai yearly weather
+2511	1	10.0	chiang mai zurich
+2512	1	10.0	chiang mai zero dropout
+2513	1	10.0	chiang mai 2 week itinerary
+2514	1	10.0	chiang mai 2026 utmb
+2515	1	10.0	chiang mai 700 stadium
+2516	1	10.0	chiang mai 80
+2517	1	10.0	chiang mai 8 adventures
+2518	1	10.0	chiang mai atv
+2519	1	10.0	chiangmai archery & outdoor
+2520	1	10.0	chiang mai best food
+2521	1	10.0	chiangmai bakermart (เพื่อนครัว)
+2522	1	10.0	chiangmai construction
+2523	1	10.0	chiangmai diner & bar photos
+2524	1	10.0	chiangmai elephant care (mae taeng)
+2525	1	10.0	earthquake chiang mai
+2526	1	10.0	chiangmai freshmilk รีวิว
+2527	1	10.0	chiangmai good tour
+2528	1	10.0	chiangmai hair salon
+2529	1	10.0	chiangmai happy tour
+2530	1	10.0	chiangmai chinese
+2531	1	10.0	chiangmai kids
+2532	1	10.0	chiangmai lottery
+2533	1	10.0	chiangmai location
+2534	1	10.0	chiangmai movie theater
+2535	1	10.0	chiangmai masterpeace neuro hospital
+2536	1	10.0	outlet chiangmai
+2537	1	10.0	chiang mai pao
+2538	1	10.0	places to visit in chiang mai
+2539	1	10.0	chiangmai ram 2 hospital
+2540	1	10.0	chiangmai steak house เชียงใหม่ สเต็ก เฮ้าส์
+2541	1	10.0	chiangmai to singapore
+2542	1	10.0	chiangmai tools co. ltd
+2543	1	10.0	chiangmai united f.c
+2544	1	10.0	chiangmai united nakhon pathom united fc
+2545	1	10.0	chiangmai vs uttaradit
+2546	1	10.0	chiangmai what to do
+2547	1	10.0	xfm chiangmai
+2548	1	10.0	chiangmai yakiniku
+2549	1	10.0	zara chiangmai
+2550	1	10.0	chiang mai air quality by month
+2551	1	10.0	เชียงใหม่ 5 วัน 4 คืน pantip
+2552	1	10.0	เชียงใหม่ 730
+2553	1	10.0	chiang rai airport food
+2554	1	10.0	chiang mai distance to chiang rai
+2555	1	10.0	chiang rai chocolate
+2556	1	10.0	chiang rai coffee
+2557	1	10.0	chiang rai day tour from chiang mai
+2558	1	10.0	chiang rai flight
+2559	1	10.0	chiang rai history
+2560	1	10.0	chiang rai hotel thailand
+2561	1	10.0	chiang rai in july
+2562	1	10.0	chiang rai in tustin
+2563	1	10.0	chiang rai kahan hai
+2564	1	10.0	chiang rai mai
+2565	1	10.0	chiang rai property for sale
+2566	1	10.0	chiang rai private tour
+2567	1	10.0	chiang rai scooter rental
+2568	1	10.0	chiang rai to pai
+2569	1	10.0	chiang rai temple
+2570	1	10.0	chiang rai yr
+2571	1	10.0	chiang rai one day
+2572	1	10.0	chiang rai trekking 2 days
+2573	1	10.0	amazing chiang rai marathon 2026
+2574	1	10.0	chiang rai 3 letter
+2575	1	10.0	เชียงใหม่ agoda
+2576	1	10.0	central chiangrai photos
+2577	1	10.0	เชียงใหม่ design week 2026
+2578	1	10.0	เชียงใหม่ fc ตาราง แข่ง
+2579	1	10.0	เชียงราย google map
+2580	1	10.0	hi chiangrai hotel photos
+2581	1	10.0	ironman chiangrai
+2582	1	10.0	chiang rai karen tribe
+2583	1	10.0	lotus chiangrai
+2584	1	10.0	meesuk chiang rai hotel
+2585	1	10.0	meesuk chiangrai hotel
+2586	1	10.0	nakhon chiangrai run
+2587	1	10.0	oshinei chiangrai
+2588	1	10.0	เชียงใหม่ pm2 5 เดือน ไหน
+2589	1	10.0	robinson chiang rai photos
+2590	1	10.0	เชียงใหม่ radio
+2591	1	10.0	chiangrai thai closing
+2592	1	10.0	chiangrai utd
+2593	1	10.0	chiangrai vs muang thong
+2594	1	10.0	@waterside chiangrai
+2595	1	10.0	เชียงราย 3 วัน 2 คืน pantip
+2596	1	10.0	เชียงราย 4 วัน 3 คืน pantip
+2597	1	10.0	best chiang mai resorts
+2598	1	10.0	best breakfast chiang rai
+2599	1	10.0	cheap flights chiang mai to phuket
+2600	1	10.0	cheap flights bkk to chiang rai
+2601	1	10.0	where is chiang mai university
+2602	1	10.0	where to stay chiang rai
+2603	1	10.0	how is chiang mai in march
+2604	1	10.0	chiang rai how long to stay
+2605	1	10.0	when is chiang mai lantern
+2606	1	10.0	what is chiang mai night safari
+2607	1	10.0	what elevation is chiang rai
+2608	1	10.0	why go chiang mai
+2609	1	10.0	top attractions chiang rai
+2610	1	10.0	pai near chiang mai
+2611	1	10.0	hotels near chiang rai bus terminal 1
+2612	1	10.0	map chiang mai districts
+2613	1	10.0	tattoo cost chiang mai
+2614	1	10.0	fuel price chiang mai
+2615	1	10.0	food guide chiang mai
+2616	1	10.0	private tour guide chiang rai
+2617	1	10.0	things to do in chiang mai when its raining
+2618	1	10.0	things to see in chiang rai thailand
+2619	1	10.0	hotels in chiang mai with pool
+2620	1	10.0	boutique hotels in chiang rai
+2621	1	10.0	vegan restaurants in chiang rai
+2622	1	10.0	lunch in chiang mai
+2623	1	10.0	famous food in chiang rai
+2624	1	10.0	weather in chiang mai in october
+2625	1	10.0	weather in chiang rai in january
+2626	1	10.0	colonel visa chiang mai
+2627	1	10.0	nakornping hospital chiang mai
+2628	1	10.0	bangkok hospital chiang rai address
+2629	1	10.0	expat area chiang mai
+2630	1	10.0	rent bike chiang mai
+2631	1	10.0	condo chiang mai for sale
+2632	1	10.0	temple chiang mai dress code
+2633	1	10.0	white temple chiang rai dress code
+2634	1	10.0	cafe chiang mai forest
+2635	1	10.0	market chiang mai old town
+2636	1	10.0	makers market chiang rai
+2637	1	10.0	airport chiang mai cinema
+2638	1	10.0	airport bus chiang rai
+2639	1	10.0	bangkok to chiang mai distance
+2640	1	10.0	singapore to chiang rai flight
+2641	1	10.0	from chiang mai to pai bus
+2642	1	10.0	from chiang rai to phuket
+2643	1	11.0	chiang mai activities
+2644	1	11.0	chiang mai ai party 2026
+2645	1	11.0	chiang mai bus terminal 2
+2646	1	11.0	chiang mai ballet academy
+2647	1	11.0	chiang mai central airport
+2648	1	11.0	chiang mai cd supply
+2649	1	11.0	chiang mai dinner
+2650	1	11.0	chiang mai danforth
+2651	1	11.0	chiang mai entertainment complex
+2652	1	11.0	chiang mai elephants
+2653	1	11.0	chiang mai flower market
+2654	1	11.0	chiang mai flag
+2655	1	11.0	chiang mai golf
+2656	1	11.0	chiang mai green valley condominium
+2657	1	11.0	chiang mai house for rent
+2658	1	11.0	chiang mai hiking wordpress
+2659	1	11.0	chiang mai itinerary
+2660	1	11.0	chiang mai international exhibition and convention centre
+2661	1	11.0	chiang mai jiu jitsu
+2662	1	11.0	chiang mai june weather
+2663	1	11.0	chiang mai khon kaen flights
+2664	1	11.0	chiang mai khao sok
+2665	1	11.0	chiang mai lake
+2666	1	11.0	chiang mai lantern festival 2025
+2667	1	11.0	chiang mai monks trail
+2668	1	11.0	chiang mai materials science co. ltd
+2669	1	11.0	chiang mai nimman area
+2670	1	11.0	chiang mai onsen
+2671	1	11.0	chiang mai public park
+2672	1	11.0	chiang mai qualité de l air
+2673	1	11.0	chiang mai red truck
+2674	1	11.0	chiang mai radio
+2675	1	11.0	chiang mai spa
+2676	1	11.0	chiang mai sky adventure
+2677	1	11.0	chiang mai to krabi flight
+2678	1	11.0	chiang mai trip
+2679	1	11.0	chiang mai university photos
+2680	1	11.0	chiang mai university location
+2681	1	11.0	chiang mai visiting places
+2682	1	11.0	chiang mai vs phuket
+2683	1	11.0	chiang mai walking tour
+2684	1	11.0	chiang mai weather december
+2685	1	11.0	chiang mai to xishuangbanna
+2686	1	11.0	chiang mai yi peng lantern festival 2025
+2687	1	11.0	chiang mai 11s
+2688	1	11.0	chiang mai 1 bedroom apartment
+2689	1	11.0	chiang mai 2026 countdown
+2690	1	11.0	chiang mai 3 day itinerary reddit
+2691	1	11.0	5 star chiang mai
+2692	1	11.0	chiang mai boeing 747
+2693	1	11.0	chiang mai 84 park lawn
+2694	1	11.0	90 day report chiang mai immigration
+2695	1	11.0	chiangmai ai party 2026
+2696	1	11.0	chiang mai buffet
+2697	1	11.0	chiang mai etobicoke
+2698	1	11.0	chiangmai fresh milk barista
+2699	1	11.0	chiangmai freshmilk ราคา
+2700	1	11.0	chiangmai grandview hotel & convention center photos
+2701	1	11.0	chiangmai hotel supply
+2702	1	11.0	chiangmai international marathon 2025
+2703	1	11.0	chiangmai lantern festival 2025
+2704	1	11.0	chiangmai muaythai shop & thaikla muaythai
+2705	1	11.0	chiangmai medical lab
+2706	1	11.0	chiang mai night
+2707	1	11.0	chiangmai pollution
+2708	1	11.0	chiangmai rain radar
+2709	1	11.0	chiangmai royal creek
+2710	1	11.0	chiangmai steak house เชียงใหม่ สเต็ก เฮ้าส์ รูปภาพ
+2711	1	11.0	chiangmai tourist spot
+2712	1	11.0	chiangmai trail
+2713	1	11.0	chiangmai united vs police tero fc
+2714	1	11.0	chiangmai vs chainat
+2715	1	11.0	chiangmai van taxi mr wee
+2716	1	11.0	chiangmai weather in december
+2717	1	11.0	weather in chiangmai in may
+2718	1	11.0	xpeng chiangmai
+2719	1	11.0	chiangmai youth hackathon
+2720	1	11.0	zeekr chiangmai
+2721	1	11.0	chiang mai 3 letter airport code
+2722	1	11.0	3bb chiangmai
+2723	1	11.0	bar 67 chiangmai
+2724	1	11.0	fm100 75 chiangmai
+2725	1	11.0	chiangmai tháng 9
+2726	1	11.0	chiang rai air quality
+2727	1	11.0	chiang rai a chiang mai bus
+2728	1	11.0	chiang rai bar
+2729	1	11.0	chiang rai booking
+2730	1	11.0	chiang rai condo for rent
+2731	1	11.0	chiang rai east anaheim street long beach ca
+2732	1	11.0	chiang rai international school reviews
+2733	1	11.0	chiang rai in markham
+2734	1	11.0	chiang rai kingston
+2735	1	11.0	chiang rai long beach parking
+2736	1	11.0	chiang rai mountains
+2737	1	11.0	chiang rai nightlife reddit
+2738	1	11.0	chiang rai resort
+2739	1	11.0	chiang rai uber
+2740	1	11.0	chiang rai united tickets
+2741	1	11.0	weather chiang rai now
+2742	1	11.0	chiang rai new zealand licence valid
+2743	1	11.0	chiang rai one budget hotel
+2744	1	11.0	chiang rai terminal 1 bus
+2745	1	11.0	chiang rai marathon 2025
+2746	1	11.0	chiang rai meteo 3b
+2747	1	11.0	chiang rai municipality school 5
+2748	1	11.0	เชียงใหม่ adventure
+2749	1	11.0	เชียงใหม่ art museum
+2750	1	11.0	เชียงใหม่ boxing stadium
+2751	1	11.0	central chiangrai major
+2752	1	11.0	เชียงใหม่ direct คนละ ครึ่ง
+2753	1	11.0	fello chiangrai
+2754	1	11.0	เชียงใหม่ fresh milk
+2755	1	11.0	เชียงใหม่ grand view
+2756	1	11.0	hi chiangrai hotel chiang rai thailand
+2757	1	11.0	ilm chiangrai
+2758	1	11.0	เชียงใหม่ is calling
+2759	1	11.0	chiang rai kokotel
+2760	1	11.0	level chiangrai
+2761	1	11.0	เชียงใหม่ mooc
+2762	1	11.0	เชียงใหม่ otop center
+2763	1	11.0	เชียงใหม่ pet friendly
+2764	1	11.0	radar chiangrai
+2765	1	11.0	เชียงใหม่ sl
+2766	1	11.0	chiangrai thai photos
+2767	1	11.0	chiangrai tsc fc
+2768	1	11.0	chiangrai united klasemen
+2769	1	11.0	chiangrai united prachuap fc
+2770	1	11.0	chiangrai vs bangkok
+2771	1	11.0	chiangrai vs buriram united
+2772	1	11.0	เชียงใหม่ weather forecast
+2773	1	11.0	best chiang mai elephant experience
+2774	1	11.0	best spa chiang rai
+2775	1	11.0	cheap clothes chiang mai
+2776	1	11.0	cheap stk hotel chiang rai
+2777	1	11.0	where in chiang mai to stay
+2778	1	11.0	where to eat chiang rai
+2779	1	11.0	how is chiang mai thailand
+2780	1	11.0	how to travel to chiang rai
+2781	1	11.0	when is chiang mai sky lantern festival
+2782	1	11.0	what is chiang mai lantern festival
+2783	1	11.0	what to do in chiang rai in 2 days
+2784	1	11.0	why travel to chiang mai
+2785	1	11.0	top supermarket chiang rai
+2786	1	11.0	cities near chiang mai
+2787	1	11.0	hotels near chiang rai clock tower
+2788	1	11.0	map chiang mai to pai
+2789	1	11.0	cost train chiang mai to bangkok
+2790	1	11.0	tattoo price chiang mai
+2791	1	11.0	fishing guide chiang mai
+2792	1	11.0	get your guide chiang rai temple
+2793	1	11.0	things to do in chiang mai in the evening
+2794	1	11.0	what to do in chiang rai for 2 days
+2795	1	11.0	hotels in chiang mai budget
+2796	1	11.0	new hotels in chiang rai
+2797	1	11.0	places to eat in chiang mai old town
+2798	1	11.0	vegetarian restaurants in chiang rai
+2799	1	11.0	good food in chiang rai
+2800	1	11.0	weather in chiang mai in august
+2801	1	11.0	weather in chiang rai in july
+2802	1	11.0	knight visa chiang mai
+2803	1	11.0	maharaj hospital chiang mai
+2804	1	11.0	best hospital chiang rai
+2805	1	11.0	expat living chiang mai
+2806	1	11.0	siam rent chiang mai
+2807	1	11.0	car rental chiang rai airport
+2808	1	11.0	condo chiang mai buy
+2809	1	11.0	temple chiang mai elephant
+2810	1	11.0	white temple chiang rai history
+2811	1	11.0	cafe chiang mai lion world
+2812	1	11.0	carp cafe chiang rai
+2813	1	11.0	market chiang mai night
+2814	1	11.0	flea market chiang rai
+2815	1	11.0	airport chiang mai bus
+2816	1	11.0	airport code for chiang rai thailand
+2817	1	11.0	bangkok to chiang mai bus
+2818	1	11.0	phuket to chiang rai flight
+2819	1	11.0	at chiang mai hotel
+2820	1	11.0	trekking from chiang rai
+2821	1	12.0	chiang mai airways
+2822	1	12.0	chiang mai bars
+2823	1	12.0	chiang mai domestic departures
+2824	1	12.0	chiang mai december weather
+2825	1	12.0	chiang mai escape room
+2826	1	12.0	chiang mai food market
+2827	1	12.0	chiang mai fest
+2828	1	12.0	chiang mai golf festival 2026
+2829	1	12.0	chiang mai hair salon
+2830	1	12.0	chiang mai hotel
+2831	1	12.0	chiang mai international airport photos
+2832	1	12.0	chiang mai jazz festival
+2833	1	12.0	chiang mai july weather
+2834	1	12.0	chiang mai khao soi michelin
+2835	1	12.0	chiang mai lost and found
+2836	1	12.0	chiang mai liberty
+2837	1	12.0	chiang mai museum
+2838	1	12.0	chiang mai national park
+2839	1	12.0	chiang mai night safari รีวิว
+2840	1	12.0	chiang mai old town walking tour map
+2841	1	12.0	chiang mai or phuket
+2842	1	12.0	chiang mai premium outlet
+2843	1	12.0	chiang mai planned parenthood association of thailand
+2844	1	12.0	chiang mai railway station park
+2845	1	12.0	chiang mai rally house
+2846	1	12.0	chiang mai storage
+2847	1	12.0	chiang mai skyline
+2848	1	12.0	chiang mai university journal of natural sciences
+2849	1	12.0	chiang mai visa extension
+2850	1	12.0	chiang mai to xian flight
+2851	1	12.0	chiang mai zoo aquarium tickets
+2852	1	12.0	chiang mai 100k
+2853	1	12.0	chiang mai 2026 lantern
+2854	1	12.0	chiang mai 4 season
+2855	1	12.0	chiang mai 5 november
+2856	1	12.0	chiang mai airport 711
+2857	1	12.0	chiang mai 8 days itinerary
+2858	1	12.0	chiang mai nine hotel
+2859	1	12.0	train 9 chiang mai
+2860	1	12.0	chiangmai autotire co. ltd
+2861	1	12.0	chiangmai adventist academy
+2862	1	12.0	chiangmai car rental
+2863	1	12.0	chiangmai city craft space
+2864	1	12.0	chiang mai dimana
+2865	1	12.0	elephant jungle sanctuary chiang mai
+2866	1	12.0	chiangmai elephant land reviews
+2867	1	12.0	chiangmai flower
+2868	1	12.0	chiangmai fest
+2869	1	12.0	chiangmai golf festival 2026
+2870	1	12.0	chiangmai gate
+2871	1	12.0	chiangmai hill hotel รีวิว
+2872	1	12.0	chiangmai koi show
+2873	1	12.0	chiang mai luxury hotel
+2874	1	12.0	chiangmai library
+2875	1	12.0	chiangmai morning market
+2876	1	12.0	chiangmai mooc
+2877	1	12.0	chiangmai october
+2878	1	12.0	chiangmai part and tool
+2879	1	12.0	chiangmai rainy season
+2880	1	12.0	chiangmai temper co. ltd
+2881	1	12.0	chiang mai unesco
+2882	1	12.0	chiangmai united vs pattani fc
+2883	1	12.0	chiangmai vs chanthaburi
+2884	1	12.0	phuket vs chiangmai
+2885	1	12.0	chiangmai weather by month
+2886	1	12.0	chiangmai weather in march
+2887	1	12.0	xavier chiangmai
+2888	1	12.0	chiangmai yearly weather
+2889	1	12.0	zontes chiangmai
+2890	1	12.0	เชียงใหม่ 12 ปัน นา
+2891	1	12.0	mister chiangmai 2026
+2892	1	12.0	chiang mai 3 day tour
+2893	1	12.0	3q chiangmai residence รูปภาพ
+2894	1	12.0	4seas chiangmai
+2895	1	12.0	เชียงใหม่ 50140
+2896	1	12.0	chiang rai airport lounge
+2897	1	12.0	chiang rai bus terminal
+2898	1	12.0	chiang rai best restaurants
+2899	1	12.0	chiang rai fishing
+2900	1	12.0	chiang rai hospital for foreigners
+2901	1	12.0	highlights of chiang rai
+2902	1	12.0	chiang rai indian restaurant
+2903	1	12.0	chiang rai i chiang mai
+2904	1	12.0	chiang rai jetyod road
+2905	1	12.0	chiang rai kok river
+2906	1	12.0	chiang rai location
+2907	1	12.0	chiang rai luang prabang slow boat
+2908	1	12.0	chiang rai motorbike rental
+2909	1	12.0	chiang rai pizza
+2910	1	12.0	chiang rai pai
+2911	1	12.0	chiang rai resorts
+2912	1	12.0	chiang rai stadium
+2913	1	12.0	chiang rai to huay xai
+2914	1	12.0	chiang rai what to see
+2915	1	12.0	chiang rai terminal 2
+2916	1	12.0	chiang rai terminal.3
+2917	1	12.0	chiang rai m boutique 3 *
+2918	1	12.0	chiang rai m boutique 4 *
+2919	1	12.0	mae sai chiang rai 57130
+2920	1	12.0	เชียงใหม่ airbnb
+2921	1	12.0	a haus chiangrai
+2922	1	12.0	เชียงใหม่ direct กาด ธานินทร์
+2923	1	12.0	factory chiangrai
+2924	1	12.0	เชียงใหม่ fc ล่าสุด
+2925	1	12.0	greenpark chiangrai
+2926	1	12.0	เชียงใหม่ horumon
+2927	1	12.0	เชียงใหม่ ice bath
+2928	1	12.0	เชียงใหม่ ivf pantip
+2929	1	12.0	เชียงใหม่ landmark
+2930	1	12.0	เชียงใหม่ original
+2931	1	12.0	chiang rai que hay
+2932	1	12.0	chiangrai thai reviews
+2933	1	12.0	riverie chiangrai
+2934	1	12.0	เชียงใหม่ sleep test
+2935	1	12.0	เชียงใหม่ super rich
+2936	1	12.0	chiangrai thai brisbane
+2937	1	12.0	chiangrai united vs thai chonburi
+2938	1	12.0	chiangrai united vs prachuap fc
+2939	1	12.0	chiangrai vs pathum
+2940	1	12.0	เชียงราย vs บุรีรัมย์
+2941	1	12.0	เชียงใหม่ workshop
+2942	1	12.0	best chiang mai hotels in old city
+2943	1	12.0	best burger chiang rai
+2944	1	12.0	cheap eats chiang mai
+2945	1	12.0	where is chiang mai lantern festival 2026
+2946	1	12.0	where to go chiang rai
+2947	1	12.0	how is chiang mai reddit
+2948	1	12.0	when is chiang mai light festival
+2949	1	12.0	what is chiang mai airport
+2950	1	12.0	what is singha park chiang rai
+2951	1	12.0	top temples chiang rai
+2952	1	12.0	islands near chiang mai
+2953	1	12.0	hotels near chiang rai night bazaar
+2954	1	12.0	google map chiang mai
+2955	1	12.0	apartment cost chiang mai
+2956	1	12.0	elephant sanctuary price chiang mai
+2957	1	12.0	friends guide chiang mai
+2958	1	12.0	chiang rai guide driver dao
+2959	1	12.0	things to do in chiang mai airport
+2960	1	12.0	what to do in chiang rai for 3 days
+2961	1	12.0	hotels in chiang mai top rated
+2962	1	12.0	good hotels in chiang rai
+2963	1	12.0	nice restaurants in chiang rai
+2964	1	12.0	vegan food in chiang rai
+2965	1	12.0	weather in chiang mai july
+2966	1	12.0	weather in chiang rai 10 days celsius
+2967	1	12.0	visa agency chiang mai
+2968	1	12.0	bangkok hospital chiang mai photos
+2969	1	12.0	prachanukroh hospital chiang rai
+2970	1	12.0	chiang mai expat housing
+2971	1	12.0	rent hub chiang mai
+2972	1	12.0	rentals in chiang rai thailand
+2973	1	12.0	house chiang mai rent
+2974	1	12.0	temple chiang mai hill
+2975	1	12.0	white temple chiang rai opening hours
+2976	1	12.0	restaurant chiang mai
+2977	1	12.0	best cafe chiang rai
+2978	1	12.0	market chiang mai university
+2979	1	12.0	street market chiang rai
+2980	1	12.0	airport chiang mai hotel
+2981	1	12.0	festival old airport chiang rai
+2982	1	12.0	krabi to chiang mai
+2983	1	12.0	bus to chiang rai
+2984	1	12.0	at chiang mai restaurant
+2985	1	12.0	from chiang rai to krabi
+2986	1	13.0	chiang mai airport lounge
+2987	1	13.0	chiang mai business school
+2988	1	13.0	chiang mai bar
+2989	1	13.0	chiang mai coconut market
+2990	1	13.0	chiang mai creative city
+2991	1	13.0	chiang mai dessert
+2992	1	13.0	chiang mai electronics store
+2993	1	13.0	chiang mai flea market
+2994	1	13.0	chiang mai gate night market
+2995	1	13.0	chiang mai good trip
+2996	1	13.0	chiang mai heritage house
+2997	1	13.0	chiang mai international food festival 2026
+2998	1	13.0	chiang mai japanese village
+2999	1	13.0	chiang mai jungle trekking
+3000	1	13.0	chiang mai koi cafe
+3001	1	13.0	chiang mai koh phangan
+3002	1	13.0	chiang mai local market
+3003	1	13.0	chiang mai lantern
+3004	1	13.0	chiang mai maker club
+3005	1	13.0	chiang mai night safari prices
+3006	1	13.0	chiang mai noodles
+3007	1	13.0	chiang mai outlet mall
+3008	1	13.0	chiang mai on map
+3009	1	13.0	chiang mai pool garden
+3010	1	13.0	chiang mai river cruise
+3011	1	13.0	chiang mai running sandal
+3012	1	13.0	chiang mai sunday walking street market
+3013	1	13.0	chiang mai sky travel
+3014	1	13.0	chiang mai to koh samui
+3015	1	13.0	chiang mai utmb 2026
+3016	1	13.0	chiang mai village
+3017	1	13.0	chiang mai vietnam
+3018	1	13.0	chiang mai weather tomorrow
+3019	1	13.0	chiang mai huay xai bus
+3020	1	13.0	chiang mai yokosuka
+3021	1	13.0	chiang mai zipline accident
+3022	1	13.0	chiang mai 2026 festival
+3023	1	13.0	chiang mai 333 shooting range
+3024	1	13.0	chiang mai 4 day itinerary reddit
+3025	1	13.0	chiang mai 60 mulberry plant india
+3026	1	13.0	somphot chiang mai 700 pi road
+3027	1	13.0	chiang mai 8 days
+3028	1	13.0	chiang mai journey 9
+3029	1	13.0	chiang mai adventist academy
+3030	1	13.0	chiangmai bkk
+3031	1	13.0	chiangmai bioveggie co. ltd
+3032	1	13.0	chiang mai davao
+3033	1	13.0	chiangmai driver
+3034	1	13.0	chiangmai elephant hotel
+3035	1	13.0	chiangmai frozen
+3036	1	13.0	chiangmai freshmilk lactose free
+3037	1	13.0	chiangmai golf course
+3038	1	13.0	chiangmai half marathon
+3039	1	13.0	chiangmai in september
+3040	1	13.0	chiangmai is calling
+3041	1	13.0	chiangmai june
+3042	1	13.0	chiangmai kunming
+3043	1	13.0	chiangmai lady driver
+3044	1	13.0	chiangmai michelin
+3045	1	13.0	chiangmai milk
+3046	1	13.0	chiangmai neurological hospital reviews
+3047	1	13.0	chiangmai new year countdown
+3048	1	13.0	chiangmai otop center
+3049	1	13.0	chiangmai population 2026
+3050	1	13.0	chiangmai run
+3051	1	13.0	chiangmai running sandal
+3052	1	13.0	chiangmai shopping mall
+3053	1	13.0	chiangmai slow time
+3054	1	13.0	chiangmai tattoo time
+3055	1	13.0	chiangmai vs phrae united
+3056	1	13.0	chiangmai village
+3057	1	13.0	chiangmai weather september
+3058	1	13.0	chiangmai weather in july
+3059	1	13.0	yamaha chiangmai club
+3060	1	13.0	เชียงใหม่ 1 วัน ไป ไหน ดี
+3061	1	13.0	mister chiangmai 2025
+3062	1	13.0	เชียงใหม่ 3 วัน 2 คืน ไม่มี รถ
+3063	1	13.0	chiang mai 4 nights
+3064	1	13.0	chiangmai circuit
+3065	1	13.0	chiang rai attractions must see
+3066	1	13.0	chiang rai bkk flight
+3067	1	13.0	chiang rai central plaza
+3068	1	13.0	chiang rai elephant hotel
+3069	1	13.0	chiang rai famous food
+3070	1	13.0	chiang rai from phuket
+3071	1	13.0	chiang rai hotels near night market
+3072	1	13.0	chiang rai immigration office hours
+3073	1	13.0	chiang rai in japanese
+3074	1	13.0	chiang rai to khon kaen
+3075	1	13.0	chiang rai morning market
+3076	1	13.0	chiang rai north york
+3077	1	13.0	chiang rai nak nakara hotel
+3078	1	13.0	chiang rai provincial land transport office
+3079	1	13.0	chiang rai pollution
+3080	1	13.0	chiang rai radar
+3081	1	13.0	chiang rai sunday market
+3082	1	13.0	chiang rai street food
+3083	1	13.0	chiang rai temple tour
+3084	1	13.0	chiang rai uniqlo
+3085	1	13.0	chiang rai airport to huay xai
+3086	1	13.0	chiang rai special economic zone
+3087	1	13.0	chiang rai bus station 1
+3088	1	13.0	miss chiang rai 2023
+3089	1	13.0	chiang rai weather forecast 30 days accuweather
+3090	1	13.0	atv chiangrai ruammit
+3091	1	13.0	เชียงราย aqi
+3092	1	13.0	เชียงราย bkk
+3093	1	13.0	เชียงใหม่ cad โคมลอย
+3094	1	13.0	เชียงใหม่ dry ice
+3095	1	13.0	bangkok chiang rai flight
+3096	1	13.0	เชียงราย fc
+3097	1	13.0	เชียงใหม่ go kart
+3098	1	13.0	index chiangrai
+3099	1	13.0	เชียงใหม่ in english
+3100	1	13.0	chiang rai long beach reservations
+3101	1	13.0	เชียงราย lab
+3102	1	13.0	เชียงใหม่ marriott
+3103	1	13.0	เชียงใหม่ marriott hotel
+3104	1	13.0	เชียงใหม่ onsen
+3105	1	13.0	เชียงราย pm
+3106	1	13.0	rung chiangrai resort
+3107	1	13.0	เชียงใหม่ safari
+3108	1	13.0	chiangrai thai closed down
+3109	1	13.0	chiangrai thai massage
+3110	1	13.0	chiangrai united liga berapa
+3111	1	13.0	chiangrai united vs prime bangkok fc
+3112	1	13.0	chiangrai vs port fc
+3113	1	13.0	เชียงราย vs ราชบุรี
+3114	1	13.0	www chiangrai go th
+3115	1	13.0	เชียงใหม่ 106 เนื้อเพลง
+3116	1	13.0	chiangrai pm2 5
+3117	1	13.0	best chiang mai tours
+3118	1	13.0	best bars chiang rai
+3119	1	13.0	cheap food chiang mai
+3120	1	13.0	where is chiang mai bus terminal 3
+3121	1	13.0	where is central chiang rai
+3122	1	13.0	how is chiang mai nightlife
+3123	1	13.0	when is chiang mai burning season 2026
+3124	1	13.0	what is chiang mai night bazaar
+3125	1	13.0	what's the population of chiang rai
+3126	1	13.0	top charoen chiang rai
+3127	1	13.0	mountains near chiang mai
+3128	1	13.0	mountains near chiang rai
+3129	1	13.0	flood map chiang mai
+3130	1	13.0	flight cost chiang mai to phuket
+3131	1	13.0	grab price chiang mai
+3132	1	13.0	michelin guide chiang mai old town
+3133	1	13.0	michelin guide restaurants chiang rai
+3134	1	13.0	things to do in chiang mai this weekend
+3135	1	13.0	what to do in chiang rai today
+3136	1	13.0	hotels in chiang mai near night market
+3137	1	13.0	accor hotels in chiang rai
+3138	1	13.0	dining in chiang mai
+3139	1	13.0	halal restaurants in chiang rai
+3140	1	13.0	burmese food in chiang rai
+3141	1	13.0	weather in chiang mai next week
+3142	1	13.0	weather in chiang rai next week
+3143	1	13.0	vera visa chiang mai
+3144	1	13.0	public hospital chiang mai
+3145	1	13.0	international hospital chiang rai
+3146	1	13.0	expat life chiang mai
+3147	1	13.0	rent bicycle chiang mai
+3148	1	13.0	nice rental chiang rai
+3149	1	13.0	accommodation chiang mai old city
+3150	1	13.0	temples chiang mai map
+3151	1	13.0	red temple chiang rai entrance fee
+3152	1	13.0	coffee chiang mai
+3153	1	13.0	canary cafe chiang rai
+3154	1	13.0	market chiang mai tuesday
+3155	1	13.0	walking market chiang rai
+3156	1	13.0	airport chiang mai cnx
+3157	1	13.0	one budget airport chiang rai
+3158	1	13.0	singapore to chiang mai flight
+3159	1	13.0	singapore to chiang rai direct flight
+3160	1	13.0	at chiang mai melbourne
+3161	1	13.0	from chiang rai to nan
+3162	1	14.0	chiang mai arrivals
+3163	1	14.0	chiang mai all thailand table tennis
+3164	1	14.0	chiang mai botanical garden
+3165	1	14.0	chiang mai by utmb
+3166	1	14.0	chiang mai citylife
+3167	1	14.0	chiang mai doi inthanon
+3168	1	14.0	diner chiang mai
+3169	1	14.0	chiang mai expats
+3170	1	14.0	chiang mai flight
+3171	1	14.0	chiang mai head spa
+3172	1	14.0	chiang mai hematology conference 2026
+3173	1	14.0	chiang mai in japanese
+3174	1	14.0	chiang mai information
+3175	1	14.0	chiang mai jail
+3176	1	14.0	chiang mai krabi google flight
+3177	1	14.0	chiang mai latitude and longitude
+3178	1	14.0	chiang mai muay thai stadium
+3179	1	14.0	chiang mai motorbike rental (icey motor เช่ารถราคาถูก เชียงใหม่)
+3180	1	14.0	chiang mai news in english facebook
+3181	1	14.0	chiang mai nightlife
+3182	1	14.0	chiang mai old town market
+3183	1	14.0	chiang mai old city hotels
+3184	1	14.0	chiang mai provincial land transport office
+3185	1	14.0	chiang mai phucome hotel
+3186	1	14.0	chiang mai radar
+3187	1	14.0	chiang mai robot game
+3188	1	14.0	chiang mai safari
+3189	1	14.0	chiang mai social golfers
+3190	1	14.0	chiang mai train station
+3191	1	14.0	chiang mai thailand by utmb 2026
+3192	1	14.0	chiang mai university digital collections
+3193	1	14.0	chiang mai view point
+3194	1	14.0	chiang mai to xiamen
+3195	1	14.0	chiang mai yi peng 2026
+3196	1	14.0	chiang mai zoo ethical
+3197	1	14.0	chiang mai 1995
+3198	1	14.0	chiang mai 2026 burning season
+3199	1	14.0	chiang mai 3 kings
+3200	1	14.0	chiang mai 4k wallpaper
+3201	1	14.0	chiang mai 50100 thailand
+3202	1	14.0	chiang mai seven fountains
+3203	1	14.0	chiang mai international 7s
+3204	1	14.0	chiang mai train 9
+3205	1	14.0	chiang mai radio 93.75
+3206	1	14.0	chiangmai atv
+3207	1	14.0	chiangmai bike rental
+3208	1	14.0	chiang mai city life
+3209	1	14.0	chiangmai cup 2026
+3210	1	14.0	chiangmai december
+3211	1	14.0	chiangmai detox
+3212	1	14.0	chiangmai elephant legend
+3213	1	14.0	chiangmai frozen foods pcl
+3214	1	14.0	chiangmai gym
+3215	1	14.0	chiangmai grandview hotel & convention center reviews
+3216	1	14.0	chiangmai hematology conference 2026
+3217	1	14.0	chiangmai in august
+3218	1	14.0	chiang mai in june
+3219	1	14.0	chiangmai jazz festival
+3220	1	14.0	chiangmai katakana
+3221	1	14.0	chiangmai life
+3222	1	14.0	chiangmai national park
+3223	1	14.0	oasis spa chiang mai
+3224	1	14.0	chiangmai old town hotel
+3225	1	14.0	chiangmai postal code
+3226	1	14.0	chiangmai rent house
+3227	1	14.0	chiangmai stadium
+3228	1	14.0	chiangmai trekking with piroon
+3229	1	14.0	chiang mai university hospital
+3230	1	14.0	chiangmai uni
+3231	1	14.0	chiangmai vacation
+3232	1	14.0	chiangmai weather october
+3233	1	14.0	chiangmai weather august
+3234	1	14.0	xiaomi chiangmai
+3235	1	14.0	yellotel chiangmai รีวิว
+3236	1	14.0	zero chiangmai
+3237	1	14.0	เชียงใหม่ 106 ต้นฉบับ
+3238	1	14.0	404 chiangmai
+3239	1	14.0	50210 chiang mai
+3240	1	14.0	chiangmai airport 7 11
+3241	1	14.0	chiang rai airport photos
+3242	1	14.0	the legend chiang rai about
+3243	1	14.0	chiang rai city population
+3244	1	14.0	chiang rai cafe lalitta
+3245	1	14.0	chiang rai flood warning
+3246	1	14.0	chiang rai hours
+3247	1	14.0	chiang rai international school jobs
+3248	1	14.0	is chiang rai in the golden triangle
+3249	1	14.0	chiang rai job
+3250	1	14.0	chiang rai khun korn waterfall
+3251	1	14.0	chiang rai long beach michelin star
+3252	1	14.0	location chiang rai
+3253	1	14.0	chiang rai map tourist
+3254	1	14.0	chiang rai must see
+3255	1	14.0	chiang rai november weather
+3256	1	14.0	chiang rai night club
+3257	1	14.0	chiang rai one day itinerary
+3258	1	14.0	chiang rai power outage
+3259	1	14.0	chiang rai prayer time
+3260	1	14.0	chiang rai rental car
+3261	1	14.0	chiang rai saturday market
+3262	1	14.0	chiang rai social club
+3263	1	14.0	chiang rai to chiang khong bus
+3264	1	14.0	chiang rai universities
+3265	1	14.0	chiang rai white temple entrance fee
+3266	1	14.0	chiang rai weather november
+3267	1	14.0	chiang rai → huay xai
+3268	1	14.0	chiang rai guan yin temple
+3269	1	14.0	singha park chiang rai zoo
+3270	1	14.0	ziplining chiang rai
+3271	1	14.0	big c chiang rai 1
+3272	1	14.0	chiang rai classic 2025
+3273	1	14.0	tour chiang mai chiang rai 3 giorni
+3274	1	14.0	chiang rai the riverie 5 *
+3275	1	14.0	เชียงใหม่ airasia
+3276	1	14.0	เชียงใหม่ b2
+3277	1	14.0	เชียงราย chiang rai
+3278	1	14.0	เชียงใหม่ direct เปิด กี่ โมง
+3279	1	14.0	fc chiangrai utd
+3280	1	14.0	เชียงใหม่ fa
+3281	1	14.0	chiang rai gay
+3282	1	14.0	geely chiangrai
+3283	1	14.0	homepro chiangrai
+3284	1	14.0	เชียงใหม่ imax
+3285	1	14.0	เชียงราย logo
+3286	1	14.0	เชียงใหม่ michelin
+3287	1	14.0	เชียงใหม่ nursing home
+3288	1	14.0	chiang rai onsen
+3289	1	14.0	เชียงใหม่ outfit
+3290	1	14.0	pm 2.5 เชียงใหม่ วันนี้
+3291	1	14.0	เชียงใหม่ pool villa
+3292	1	14.0	chiang rai quoi visiter
+3293	1	14.0	chiangrai united rayong fc
+3294	1	14.0	เชียงใหม่ rice life
+3295	1	14.0	เชียงใหม่ sp
+3296	1	14.0	เชียงใหม่ souri
+3297	1	14.0	chiangrai tour
+3298	1	14.0	chiangrai united vs persija
+3299	1	14.0	chiangrai united vs kitchee
+3300	1	14.0	เชียงใหม่ vs ขอนแก่น
+3301	1	14.0	chiang rai weather now
+3302	1	14.0	เชียงใหม่ wallpaper
+3303	1	14.0	เชียงราย 1
+3304	1	14.0	เชียงใหม่ 4x4
+3305	1	14.0	best chiang mai spa
+3306	1	14.0	best pizza chiang rai
+3307	1	14.0	cheap bars chiang mai
+3308	1	14.0	where is chiang mai old city
+3309	1	14.0	where is mueang chiang rai
+3310	1	14.0	how is chiang mai weather in august
+3311	1	14.0	when is chiang mai marathon
+3312	1	14.0	what is chiang mai old city
+3313	1	14.0	what's the weather in chiang rai thailand
+3314	1	14.0	top things chiang rai
+3315	1	14.0	caves near chiang mai
+3316	1	14.0	beaches near chiang rai
+3317	1	14.0	tourist map chiang mai
+3318	1	14.0	liposuction cost chiang mai
+3319	1	14.0	condo price chiang mai
+3320	1	14.0	michelin guide chiang mai thailand
+3321	1	14.0	guide francophone chiang rai
+3322	1	14.0	things to do in chiang mai city centre
+3323	1	14.0	what to do in chiang rai besides temples
+3324	1	14.0	hotels in chiang mai 5 star
+3325	1	14.0	budget hotels in chiang rai
+3326	1	14.0	michelin restaurants in chiang rai
+3327	1	14.0	western food in chiang rai
+3328	1	14.0	weather in chiang mai in november
+3329	1	14.0	weather in chiang rai by month
+3330	1	14.0	visa run chiang mai to laos
+3331	1	14.0	private hospital chiang mai
+3332	1	14.0	bangkok hospital chiang rai job
+3333	1	14.0	expat rentals chiang mai
+3334	1	14.0	rent car chiang mai airport
+3335	1	14.0	car rental chiang rai thailand
+3336	1	14.0	condo chiang mai nimman
+3337	1	14.0	temples chiang mai reddit
+3338	1	14.0	white temple chiang rai inside
+3339	1	14.0	restaurant chiang mai michelin
+3340	1	14.0	eden cafe chiang rai
+3341	1	14.0	marketplace chiang mai
+3342	1	14.0	fruit market chiang rai
+3343	1	14.0	central airport chiang mai
+3344	1	14.0	bangkok to chiang mai flight time
+3345	1	14.0	phuket to chiang rai distance
+3346	1	14.0	bus from chiang rai

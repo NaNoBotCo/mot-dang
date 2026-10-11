@@ -17,6 +17,10 @@ Three invariants:
    PASS: every check above was about what the pages CONTAIN, and a tree with
    no homepage contains nothing wrong. The file floor in standing_walk.sh
    (COUNT < 20000) cleared it too. See ESSENTIAL.
+4. Every site under docs/ carries a card in the register
+   (data/curated/sites.json, sites_layer.unregistered). Nan, 2026-09-28: all
+   new sites carry cards; a publish without one is refused, and the refusal
+   is addressed to the bot that posted it.
 
 WHY THERE IS NO CNAME CHECK ANY MORE. There was a fourth invariant here:
 docs/CNAME says motdang.net, "so a missing CNAME means the domain is about to
@@ -53,9 +57,11 @@ import time
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 
-# "ok" answers. "social" is a walled garden — unverifiable, not dead.
+# "ok" answers. "social" is a walled garden — unverifiable, not dead, and
+# "walled" is any other door shut to the checker (403/406/429) for the
+# same reason.
 # "redirect-offsite" lands somewhere real. Everything else is broken.
-ALIVE = {"ok", "social", "redirect-offsite"}
+ALIVE = {"ok", "social", "redirect-offsite", "walled"}
 
 HREF = re.compile(r'href="([^"]+)"')
 
@@ -72,6 +78,9 @@ HREF = re.compile(r'href="([^"]+)"')
 ESSENTIAL = {
     "index.html": 10_000,  # the front page — there is no other way in
     "style.css": 10_000,   # unstyled and broken look identical to a reader
+    "icons.svg": 10_000,   # every icon on every page is drawn from this file
+                           # (2026-09-10) — waived below for a tree built
+                           # before that, whose pages carry the sprite inline
     "md.js": 10_000,       # the ticker, the map mounts, all 12,353 place pages
     "map.html": 2_000,     # the three doorstep pages, linked from every header
     "my.html": 2_000,
@@ -140,13 +149,39 @@ def main():
     # stopped part-way is named as that, rather than as a clean-looking report
     # over whatever pages did get written.
     thin = []
-    for rel, floor in ESSENTIAL.items():
+    essential = dict(ESSENTIAL)
+    home = DOCS / "index.html"
+    if "icons.svg" not in (home.read_text(errors="ignore") if home.is_file() else ""):
+        essential.pop("icons.svg", None)      # pages that never point at it
+    for rel, floor in essential.items():
         f = DOCS / rel
         size = f.stat().st_size if f.is_file() else -1
         if size < floor:
             thin.append((rel, size))
 
-    pages = list(DOCS.rglob("*.html"))
+    # WO-75 — get/ is the toys themselves, published verbatim from the repos that
+    # build them. This suite is a check on the pages this site WRITES; making a
+    # third-party game pass it would mean editing the game. downloads_layer.py
+    # names any image without alt text in its own build line instead.
+    #
+    # WIDENED 2026-09-21 (Nan's call) to loop/, which is the same case: the Mae
+    # Hong Son loop is built by its own repo and installed here verbatim. Four
+    # of the places it lists have lost their websites — anusarnmarket.com,
+    # baanjangnak.com, 99thegalleryhotel.com and the BOT museum are all
+    # DNS-dead — and they are OSM `website` tags that minisite renders, not
+    # links this build writes. Holding them here stopped the WHOLE site
+    # publishing from 15:28 that day: ten hits of thirteen were under loop/.
+    # The right repair is link-health retirement inside mhs-loop, the way
+    # build.py already retires a dead link into a note with its archived copy.
+    # Until that exists, this suite does not police a site it does not build.
+    #
+    # ADD A PREFIX HERE ONLY FOR A DIRECTORY THIS BUILD DOES NOT WRITE. Every
+    # other installed minisite (ghost/, muay-thai/, roads/) passes today and
+    # stays policed; carving them out pre-emptively would be turning the gate
+    # down rather than telling the truth about who owns a page.
+    FOREIGN = ("get/", "loop/")
+    pages = [p for p in DOCS.rglob("*.html")
+             if not p.relative_to(DOCS).as_posix().startswith(FOREIGN)]
     hits, leaks = [], []
     for p in pages:
         text = p.read_text(errors="ignore")
@@ -163,12 +198,16 @@ def main():
     found = CANONICAL.search(home.read_text(errors="ignore")) if home.is_file() else None
     domain = found.group(1) if found else ""
 
-    print(f"essential files       {len(ESSENTIAL) - len(thin)}/{len(ESSENTIAL)} present and filled")
+    print(f"essential files       {len(essential) - len(thin)}/{len(essential)} present and filled")
     print(f"pages scanned         {len(pages)}")
     print(f"broken URLs on file   {len(broken)}")
     print(f"links to broken URLs  {len(hits)}")
     print(f"/Users/ path leaks    {len(leaks)}")
     print(f"front page domain     {domain or '(no canonical link)'}")
+    sys.path.insert(0, str(DOCS.parent))
+    import sites_layer
+    uncarded = sites_layer.unregistered(DOCS) if not thin else []
+    print(f"sites without a card  {len(uncarded)}")
 
     for where, href in hits[:10]:
         print("  broken link:", where, href)
@@ -195,7 +234,10 @@ def main():
                   f"needs fixing — wait for that build to finish and run this "
                   f"again.")
 
-    ok = not hits and not leaks and not thin and domain == DOMAIN
+    if uncarded:
+        print(sites_layer.refusal(uncarded))
+
+    ok = not hits and not leaks and not thin and not uncarded and domain == DOMAIN
     print("PASS" if ok else "FAIL")
     return 0 if ok else 1
 

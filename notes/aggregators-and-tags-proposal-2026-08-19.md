@@ -5,7 +5,7 @@ from an aggregation site, and then helped our site grow and their site grow
 with polite backlinks. Can we do that with any of the other shelves or
 categories (also TAGS — tags are how Quora got immense). Just plan."*
 
-**Nothing here is built.** To write it, ~95 fetches were made: robots.txt,
+To write it, ~95 fetches were made: robots.txt,
 sitemaps and terms pages of 22 candidate sites; the data.go.th catalogue API
 (all 795 datasets of the Chiang Mai and Chiang Rai provincial offices, 29 CSV
 heads read); and **two** detail pages on thailandtourismdirectory.go.th to see
@@ -277,7 +277,7 @@ Zero network. WO-15 can be built today.
   One `importers/import_<x>.py` each, snapshot-first, credit line per record,
   cp874 for CR, UA without "bot". Yardsticks (hotels 1,193 Mueang; tour
   operators 872; CR clinics 547) go to /stats.html as "what the province
-  counts vs what we hold".
+  counts vs the records held".
 - **WO-17 — Thailand Tourism Directory** *(step 0 is Nan's signup)*:
   `harvest_ttd.py` via the API (ProvinceCode 50/57 × Type 1–6) → counts first;
   page reads for contact fields only for returned ids, 8 s apart, once; fold-in

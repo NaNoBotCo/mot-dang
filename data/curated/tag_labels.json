@@ -1,0 +1,3751 @@
+{
+ "_readme": [
+  "Bilingual labels for MINED tags — the tags tags_mine.py mints from a field's own values.",
+  "Keyed by the mined family key in data/tags.json (`kind`, `trade`, …), then by the raw value.",
+  "A value with no row here still gets a tag: a Thai value keeps its Thai and shows an RTGS",
+  "reading beside it, an English value is de-snaked. Writing a row replaces both with wording",
+  "a person chose. `python3 tags_mine.py -v` prints what has no row yet, commonest first."
+ ],
+ "kind": {
+  "coffee_shop": {
+   "th": "ร้านกาแฟ",
+   "en": "Coffee shop",
+   "glyph": "☕"
+  },
+  "hotel": {
+   "th": "โรงแรม",
+   "en": "Hotel",
+   "glyph": "🏨"
+  },
+  "cafe": {
+   "th": "คาเฟ่",
+   "en": "Café",
+   "glyph": "☕"
+  },
+  "thai_restaurant": {
+   "th": "ร้านอาหารไทย",
+   "en": "Thai restaurant",
+   "glyph": "🍚"
+  },
+  "buddhist_temple": {
+   "th": "วัด",
+   "en": "Buddhist temple",
+   "glyph": "🛕"
+  },
+  "automotive_repair": {
+   "th": "อู่ซ่อมรถ",
+   "en": "Car repair",
+   "glyph": "🔧"
+  },
+  "beauty_salon": {
+   "th": "ร้านเสริมสวย",
+   "en": "Beauty salon",
+   "glyph": "💇"
+  },
+  "landmark_and_historical_building": {
+   "th": "โบราณสถาน-แลนด์มาร์ก",
+   "en": "Landmark or historic building",
+   "glyph": "🏛"
+  },
+  "central_government_office": {
+   "th": "สำนักงานราชการ",
+   "en": "Government office",
+   "glyph": "🏛"
+  },
+  "grocery_store": {
+   "th": "ร้านของชำ",
+   "en": "Grocery shop",
+   "glyph": "🛒"
+  },
+  "farm": {
+   "th": "ฟาร์ม",
+   "en": "Farm",
+   "glyph": "🌾"
+  },
+  "spas": {
+   "th": "สปา",
+   "en": "Spa",
+   "glyph": "💆"
+  },
+  "real_estate_service": {
+   "th": "นายหน้าอสังหาฯ",
+   "en": "Estate agent",
+   "glyph": "🏘"
+  },
+  "noodles_restaurant": {
+   "th": "ร้านก๋วยเตี๋ยว",
+   "en": "Noodle shop",
+   "glyph": "🍜"
+  },
+  "school": {
+   "th": "โรงเรียน",
+   "en": "School",
+   "glyph": "🏫"
+  },
+  "bed_and_breakfast": {
+   "th": "ที่พักพร้อมอาหารเช้า",
+   "en": "Bed & breakfast",
+   "glyph": "🛏"
+  },
+  "party_and_event_planning": {
+   "th": "รับจัดงาน",
+   "en": "Event planning",
+   "glyph": "🎪"
+  },
+  "car_dealer": {
+   "th": "เต็นท์รถ-ตัวแทนจำหน่ายรถ",
+   "en": "Car dealer",
+   "glyph": "🚗"
+  },
+  "bar": {
+   "th": "บาร์",
+   "en": "Bar",
+   "glyph": "🍺"
+  },
+  "community_services_non_profits": {
+   "th": "องค์กรชุมชน-มูลนิธิ",
+   "en": "Community group or charity",
+   "glyph": "🤝"
+  },
+  "clothing_store": {
+   "th": "ร้านเสื้อผ้า",
+   "en": "Clothes shop",
+   "glyph": "👕"
+  },
+  "hospital": {
+   "th": "โรงพยาบาล",
+   "en": "Hospital",
+   "glyph": "🏥"
+  },
+  "church_cathedral": {
+   "th": "โบสถ์คริสต์",
+   "en": "Church",
+   "glyph": "⛪"
+  },
+  "barber": {
+   "th": "ร้านตัดผมชาย",
+   "en": "Barber",
+   "glyph": "💈"
+  },
+  "resort": {
+   "th": "รีสอร์ต",
+   "en": "Resort",
+   "glyph": "🌴"
+  },
+  "bakery": {
+   "th": "ร้านเบเกอรี่",
+   "en": "Bakery",
+   "glyph": "🥐"
+  },
+  "religious_organization": {
+   "th": "องค์กรทางศาสนา",
+   "en": "Religious organisation",
+   "glyph": "🙏"
+  },
+  "fast_food_restaurant": {
+   "th": "ฟาสต์ฟู้ด",
+   "en": "Fast food",
+   "glyph": "🍔"
+  },
+  "lodge": {
+   "th": "เกสต์เฮาส์-ลอดจ์",
+   "en": "Lodge",
+   "glyph": "🏡"
+  },
+  "mobile_phone_store": {
+   "th": "ร้านมือถือ",
+   "en": "Mobile phone shop",
+   "glyph": "📱"
+  },
+  "agriculture": {
+   "th": "เกษตรกรรม",
+   "en": "Agriculture",
+   "glyph": "🌾"
+  },
+  "college_university": {
+   "th": "มหาวิทยาลัย-วิทยาลัย",
+   "en": "College or university",
+   "glyph": "🎓"
+  },
+  "tattoo_and_piercing": {
+   "th": "ร้านสัก-เจาะ",
+   "en": "Tattoo & piercing",
+   "glyph": "🖋"
+  },
+  "travel_services": {
+   "th": "บริษัททัวร์-บริการท่องเที่ยว",
+   "en": "Travel agent",
+   "glyph": "✈"
+  },
+  "agricultural_service": {
+   "th": "บริการการเกษตร",
+   "en": "Agricultural services",
+   "glyph": "🚜"
+  },
+  "furniture_store": {
+   "th": "ร้านเฟอร์นิเจอร์",
+   "en": "Furniture shop",
+   "glyph": "🪑"
+  },
+  "hair_salon": {
+   "th": "ร้านทำผม",
+   "en": "Hair salon",
+   "glyph": "💇"
+  },
+  "electronics": {
+   "th": "ร้านเครื่องใช้ไฟฟ้า-อิเล็กทรอนิกส์",
+   "en": "Electronics",
+   "glyph": "🔌"
+  },
+  "nail_salon": {
+   "th": "ร้านทำเล็บ",
+   "en": "Nail salon",
+   "glyph": "💅"
+  },
+  "bar_and_grill_restaurant": {
+   "th": "ร้านอาหารบาร์-ปิ้งย่าง",
+   "en": "Bar & grill",
+   "glyph": "🍖"
+  },
+  "japanese_restaurant": {
+   "th": "ร้านอาหารญี่ปุ่น",
+   "en": "Japanese restaurant",
+   "glyph": "🍣"
+  },
+  "buffet_restaurant": {
+   "th": "ร้านบุฟเฟ่ต์",
+   "en": "Buffet",
+   "glyph": "🍽"
+  },
+  "chinese_restaurant": {
+   "th": "ร้านอาหารจีน",
+   "en": "Chinese restaurant",
+   "glyph": "🥡"
+  },
+  "delicatessen": {
+   "th": "ร้านเดลี่",
+   "en": "Delicatessen",
+   "glyph": "🥪"
+  },
+  "massage_therapy": {
+   "th": "นวดบำบัด",
+   "en": "Massage therapy",
+   "glyph": "💆"
+  },
+  "steakhouse": {
+   "th": "ร้านสเต๊ก",
+   "en": "Steakhouse",
+   "glyph": "🥩"
+  },
+  "chicken_restaurant": {
+   "th": "ร้านไก่",
+   "en": "Chicken restaurant",
+   "glyph": "🍗"
+  },
+  "seafood_restaurant": {
+   "th": "ร้านอาหารทะเล",
+   "en": "Seafood restaurant",
+   "glyph": "🦐"
+  },
+  "asian_restaurant": {
+   "th": "ร้านอาหารเอเชีย",
+   "en": "Asian restaurant",
+   "glyph": "🥢"
+  },
+  "barbecue_restaurant": {
+   "th": "ร้านปิ้งย่าง-หมูกระทะ",
+   "en": "Barbecue",
+   "glyph": "🔥"
+  },
+  "home_developer": {
+   "th": "โครงการบ้านจัดสรร",
+   "en": "Housing developer",
+   "glyph": "🏗"
+  },
+  "pizza_restaurant": {
+   "th": "ร้านพิซซ่า",
+   "en": "Pizza",
+   "glyph": "🍕"
+  },
+  "diner": {
+   "th": "ร้านอาหารตามสั่ง",
+   "en": "Diner",
+   "glyph": "🍳"
+  },
+  "breakfast_and_brunch_restaurant": {
+   "th": "ร้านอาหารเช้า-บรันช์",
+   "en": "Breakfast & brunch",
+   "glyph": "🍳"
+  },
+  "liquor_store": {
+   "th": "ร้านขายเหล้า-เบียร์",
+   "en": "Off-licence",
+   "glyph": "🍾"
+  },
+  "theme_restaurant": {
+   "th": "ร้านอาหารธีม",
+   "en": "Theme restaurant",
+   "glyph": "🎭"
+  },
+  "health_spa": {
+   "th": "เฮลท์สปา",
+   "en": "Health spa",
+   "glyph": "🧖"
+  },
+  "convenience_store": {
+   "th": "ร้านสะดวกซื้อ",
+   "en": "Convenience store",
+   "glyph": "🏪"
+  },
+  "pharmacy": {
+   "th": "ร้านขายยา",
+   "en": "Pharmacy",
+   "glyph": "💊"
+  },
+  "bank": {
+   "th": "ธนาคาร",
+   "en": "Bank",
+   "glyph": "🏦"
+  },
+  "gas_station": {
+   "th": "ปั๊มน้ำมัน",
+   "en": "Petrol station",
+   "glyph": "⛽"
+  },
+  "car_wash": {
+   "th": "ร้านล้างรถ",
+   "en": "Car wash",
+   "glyph": "🚿"
+  },
+  "laundry_services": {
+   "th": "ร้านซักผ้า",
+   "en": "Laundry",
+   "glyph": "🧺"
+  },
+  "gym": {
+   "th": "ฟิตเนส-ยิม",
+   "en": "Gym",
+   "glyph": "🏋"
+  },
+  "market": {
+   "th": "ตลาด",
+   "en": "Market",
+   "glyph": "🧺"
+  },
+  "shopping_mall": {
+   "th": "ห้างสรรพสินค้า",
+   "en": "Shopping mall",
+   "glyph": "🛍"
+  },
+  "hardware_store": {
+   "th": "ร้านฮาร์ดแวร์-วัสดุก่อสร้าง",
+   "en": "Hardware shop",
+   "glyph": "🔨"
+  },
+  "motorcycle_dealer": {
+   "th": "ร้านมอเตอร์ไซค์",
+   "en": "Motorcycle dealer",
+   "glyph": "🏍"
+  },
+  "veterinarian": {
+   "th": "สัตวแพทย์",
+   "en": "Vet",
+   "glyph": "🐾"
+  },
+  "dentist": {
+   "th": "ทันตแพทย์",
+   "en": "Dentist",
+   "glyph": "🦷"
+  },
+  "doctor": {
+   "th": "คลินิกแพทย์",
+   "en": "Doctor",
+   "glyph": "🩺"
+  },
+  "police_station": {
+   "th": "สถานีตำรวจ",
+   "en": "Police station",
+   "glyph": "🚓"
+  },
+  "post_office": {
+   "th": "ไปรษณีย์",
+   "en": "Post office",
+   "glyph": "📮"
+  },
+  "library": {
+   "th": "ห้องสมุด",
+   "en": "Library",
+   "glyph": "📚"
+  },
+  "museum": {
+   "th": "พิพิธภัณฑ์",
+   "en": "Museum",
+   "glyph": "🏛"
+  },
+  "art_gallery": {
+   "th": "แกลเลอรี",
+   "en": "Art gallery",
+   "glyph": "🖼"
+  },
+  "park": {
+   "th": "สวนสาธารณะ",
+   "en": "Park",
+   "glyph": "🌳"
+  },
+  "sports_and_recreation_venue": {
+   "th": "สนามกีฬา-สถานที่ออกกำลังกาย",
+   "en": "Sports venue",
+   "glyph": "⚽"
+  },
+  "night_club": {
+   "th": "ไนต์คลับ",
+   "en": "Night club",
+   "glyph": "🎶"
+  },
+  "pub": {
+   "th": "ผับ",
+   "en": "Pub",
+   "glyph": "🍻"
+  },
+  "juice_bar": {
+   "th": "ร้านน้ำผลไม้",
+   "en": "Juice bar",
+   "glyph": "🥤"
+  },
+  "bubble_tea": {
+   "th": "ชานมไข่มุก",
+   "en": "Bubble tea",
+   "glyph": "🧋"
+  },
+  "ice_cream_shop": {
+   "th": "ร้านไอศกรีม",
+   "en": "Ice cream",
+   "glyph": "🍦"
+  },
+  "dessert_shop": {
+   "th": "ร้านขนมหวาน",
+   "en": "Dessert shop",
+   "glyph": "🍮"
+  },
+  "vegetarian_and_vegan_restaurant": {
+   "th": "ร้านมังสวิรัติ-เจ",
+   "en": "Vegetarian & vegan",
+   "glyph": "🌱"
+  },
+  "street_vendors": {
+   "th": "หาบเร่-แผงลอย",
+   "en": "Street vendor",
+   "glyph": "🛺"
+  },
+  "food_truck": {
+   "th": "รถขายอาหาร",
+   "en": "Food truck",
+   "glyph": "🚚"
+  },
+  "wholesale_store": {
+   "th": "ร้านขายส่ง",
+   "en": "Wholesaler",
+   "glyph": "📦"
+  },
+  "auto_parts_and_supplies": {
+   "th": "ร้านอะไหล่รถ",
+   "en": "Car parts",
+   "glyph": "🔩"
+  },
+  "tires": {
+   "th": "ร้านยางรถ",
+   "en": "Tyre shop",
+   "glyph": "🛞"
+  },
+  "car_rental": {
+   "th": "รถเช่า",
+   "en": "Car hire",
+   "glyph": "🚙"
+  },
+  "motorcycle_repair_shop": {
+   "th": "ร้านซ่อมมอเตอร์ไซค์",
+   "en": "Motorcycle repair",
+   "glyph": "🏍"
+  },
+  "bicycle_shop": {
+   "th": "ร้านจักรยาน",
+   "en": "Bicycle shop",
+   "glyph": "🚲"
+  },
+  "printing_services": {
+   "th": "โรงพิมพ์-รับพิมพ์งาน",
+   "en": "Printing",
+   "glyph": "🖨"
+  },
+  "photography": {
+   "th": "ร้านถ่ายรูป",
+   "en": "Photography",
+   "glyph": "📷"
+  },
+  "florist": {
+   "th": "ร้านดอกไม้",
+   "en": "Florist",
+   "glyph": "💐"
+  },
+  "pet_store": {
+   "th": "ร้านสัตว์เลี้ยง",
+   "en": "Pet shop",
+   "glyph": "🐕"
+  },
+  "jewelry_store": {
+   "th": "ร้านเครื่องประดับ",
+   "en": "Jewellery",
+   "glyph": "💍"
+  },
+  "optician": {
+   "th": "ร้านแว่นตา",
+   "en": "Optician",
+   "glyph": "👓"
+  },
+  "insurance_agency": {
+   "th": "ตัวแทนประกัน",
+   "en": "Insurance agent",
+   "glyph": "📄"
+  },
+  "lawyer": {
+   "th": "สำนักงานทนายความ",
+   "en": "Lawyer",
+   "glyph": "⚖"
+  },
+  "accountant": {
+   "th": "สำนักงานบัญชี",
+   "en": "Accountant",
+   "glyph": "🧾"
+  },
+  "advertising_agency": {
+   "th": "เอเจนซี่โฆษณา",
+   "en": "Advertising agency",
+   "glyph": "📣"
+  },
+  "construction_services": {
+   "th": "รับเหมาก่อสร้าง",
+   "en": "Building contractor",
+   "glyph": "🏗"
+  },
+  "electrician": {
+   "th": "ช่างไฟฟ้า",
+   "en": "Electrician",
+   "glyph": "💡"
+  },
+  "plumbing": {
+   "th": "ช่างประปา",
+   "en": "Plumber",
+   "glyph": "🚰"
+  },
+  "moving_company": {
+   "th": "บริการขนย้าย",
+   "en": "Removals",
+   "glyph": "📦"
+  },
+  "storage_facility": {
+   "th": "โกดัง-ที่เก็บของ",
+   "en": "Storage",
+   "glyph": "🗄"
+  },
+  "shipping_and_mailing_services": {
+   "th": "รับส่งพัสดุ",
+   "en": "Parcel & shipping",
+   "glyph": "📬"
+  },
+  "internet_cafe": {
+   "th": "ร้านอินเทอร์เน็ต",
+   "en": "Internet café",
+   "glyph": "🖥"
+  },
+  "computer_store": {
+   "th": "ร้านคอมพิวเตอร์",
+   "en": "Computer shop",
+   "glyph": "💻"
+  },
+  "book_store": {
+   "th": "ร้านหนังสือ",
+   "en": "Book shop",
+   "glyph": "📖"
+  },
+  "music_store": {
+   "th": "ร้านเครื่องดนตรี",
+   "en": "Music shop",
+   "glyph": "🎸"
+  },
+  "toy_store": {
+   "th": "ร้านของเล่น",
+   "en": "Toy shop",
+   "glyph": "🧸"
+  },
+  "sporting_goods": {
+   "th": "ร้านอุปกรณ์กีฬา",
+   "en": "Sports shop",
+   "glyph": "🏸"
+  },
+  "gift_shop": {
+   "th": "ร้านของฝาก-ของที่ระลึก",
+   "en": "Gift shop",
+   "glyph": "🎁"
+  },
+  "supermarket": {
+   "th": "ซูเปอร์มาร์เก็ต",
+   "en": "Supermarket",
+   "glyph": "🛒"
+  },
+  "butcher": {
+   "th": "ร้านขายเนื้อ",
+   "en": "Butcher",
+   "glyph": "🥩"
+  },
+  "fish_market": {
+   "th": "ตลาดปลา",
+   "en": "Fish market",
+   "glyph": "🐟"
+  },
+  "farmers_market": {
+   "th": "ตลาดเกษตรกร",
+   "en": "Farmers' market",
+   "glyph": "🥬"
+  },
+  "coworking_space": {
+   "th": "โคเวิร์กกิ้งสเปซ",
+   "en": "Co-working space",
+   "glyph": "🖥"
+  },
+  "language_school": {
+   "th": "โรงเรียนสอนภาษา",
+   "en": "Language school",
+   "glyph": "🗣"
+  },
+  "driving_school": {
+   "th": "โรงเรียนสอนขับรถ",
+   "en": "Driving school",
+   "glyph": "🚗"
+  },
+  "child_care_and_day_care": {
+   "th": "สถานรับเลี้ยงเด็ก",
+   "en": "Childcare & nursery",
+   "glyph": "🧒"
+  },
+  "elementary_school": {
+   "th": "โรงเรียนประถม",
+   "en": "Primary school",
+   "glyph": "🏫"
+  },
+  "high_school": {
+   "th": "โรงเรียนมัธยม",
+   "en": "Secondary school",
+   "glyph": "🏫"
+  },
+  "kindergarten": {
+   "th": "โรงเรียนอนุบาล",
+   "en": "Kindergarten",
+   "glyph": "🧸"
+  },
+  "physical_therapist": {
+   "th": "นักกายภาพบำบัด",
+   "en": "Physiotherapist",
+   "glyph": "🦵"
+  },
+  "medical_clinic": {
+   "th": "คลินิก",
+   "en": "Medical clinic",
+   "glyph": "🩺"
+  },
+  "traditional_chinese_medicine": {
+   "th": "แพทย์แผนจีน",
+   "en": "Chinese medicine",
+   "glyph": "🌿"
+  },
+  "yoga_studio": {
+   "th": "สตูดิโอโยคะ",
+   "en": "Yoga studio",
+   "glyph": "🧘"
+  },
+  "martial_arts_club": {
+   "th": "ค่ายมวย-ศิลปะการต่อสู้",
+   "en": "Martial arts",
+   "glyph": "🥊"
+  },
+  "swimming_pool": {
+   "th": "สระว่ายน้ำ",
+   "en": "Swimming pool",
+   "glyph": "🏊"
+  },
+  "golf_course": {
+   "th": "สนามกอล์ฟ",
+   "en": "Golf course",
+   "glyph": "⛳"
+  },
+  "campground": {
+   "th": "ลานกางเต็นท์",
+   "en": "Campsite",
+   "glyph": "⛺"
+  },
+  "hostel": {
+   "th": "โฮสเทล",
+   "en": "Hostel",
+   "glyph": "🛌"
+  },
+  "apartment_building": {
+   "th": "อพาร์ตเมนต์",
+   "en": "Apartment building",
+   "glyph": "🏢"
+  },
+  "condominium": {
+   "th": "คอนโดมิเนียม",
+   "en": "Condominium",
+   "glyph": "🏢"
+  },
+  "cemetery": {
+   "th": "สุสาน-ป่าช้า",
+   "en": "Cemetery",
+   "glyph": "🪦"
+  },
+  "funeral_services_and_cemeteries": {
+   "th": "บริการงานศพ",
+   "en": "Funeral services",
+   "glyph": "🕯"
+  },
+  "waterfall": {
+   "th": "น้ำตก",
+   "en": "Waterfall",
+   "glyph": "💦"
+  },
+  "hot_spring": {
+   "th": "น้ำพุร้อน",
+   "en": "Hot spring",
+   "glyph": "♨"
+  },
+  "mountain": {
+   "th": "ดอย-ภูเขา",
+   "en": "Mountain",
+   "glyph": "⛰"
+  },
+  "national_park": {
+   "th": "อุทยานแห่งชาติ",
+   "en": "National park",
+   "glyph": "🏞"
+  },
+  "zoo": {
+   "th": "สวนสัตว์",
+   "en": "Zoo",
+   "glyph": "🦁"
+  },
+  "movie_theater": {
+   "th": "โรงหนัง",
+   "en": "Cinema",
+   "glyph": "🎬"
+  },
+  "bus_station": {
+   "th": "สถานีขนส่ง",
+   "en": "Bus station",
+   "glyph": "🚌"
+  },
+  "train_station": {
+   "th": "สถานีรถไฟ",
+   "en": "Railway station",
+   "glyph": "🚉"
+  },
+  "airport": {
+   "th": "สนามบิน",
+   "en": "Airport",
+   "glyph": "✈"
+  },
+  "parking": {
+   "th": "ที่จอดรถ",
+   "en": "Car park",
+   "glyph": "🅿"
+  },
+  "atm": {
+   "th": "ตู้เอทีเอ็ม",
+   "en": "ATM",
+   "glyph": "🏧"
+  },
+  "currency_exchange": {
+   "th": "ร้านแลกเงิน",
+   "en": "Currency exchange",
+   "glyph": "💱"
+  },
+  "tailor": {
+   "th": "ร้านตัดเสื้อ",
+   "en": "Tailor",
+   "glyph": "🧵"
+  },
+  "shoe_store": {
+   "th": "ร้านรองเท้า",
+   "en": "Shoe shop",
+   "glyph": "👟"
+  },
+  "cannabis_dispensary": {
+   "th": "ร้านกัญชา",
+   "en": "Cannabis dispensary",
+   "glyph": "🌿"
+  },
+  "recycling_center": {
+   "th": "ร้านรับซื้อของเก่า",
+   "en": "Recycling & scrap",
+   "glyph": "♻"
+  },
+  "water_utility": {
+   "th": "ประปา-น้ำดื่ม",
+   "en": "Water supply",
+   "glyph": "💧"
+  },
+  "cooking_school": {
+   "th": "โรงเรียนสอนทำอาหาร",
+   "en": "Cookery school",
+   "glyph": "👩‍🍳"
+  },
+  "restaurant": {
+   "th": "ร้านอาหาร",
+   "en": "Restaurant",
+   "glyph": "🍽"
+  },
+  "tours": {
+   "th": "ทัวร์-นำเที่ยว",
+   "en": "Tours",
+   "glyph": "🧭"
+  },
+  "auto_parts_and_supply_store": {
+   "th": "อะไหล่รถยนต์",
+   "en": "Auto parts",
+   "glyph": "🔩"
+  },
+  "automotive_services_and_repair": {
+   "th": "ศูนย์บริการ-ซ่อมรถยนต์",
+   "en": "Car servicing",
+   "glyph": "🔧"
+  },
+  "motorcycle_repair": {
+   "th": "ซ่อมมอเตอร์ไซค์",
+   "en": "Motorcycle repair",
+   "glyph": "🏍"
+  },
+  "community_center": {
+   "th": "ศูนย์ชุมชน",
+   "en": "Community centre",
+   "glyph": "🏘"
+  },
+  "flowers_and_gifts_shop": {
+   "th": "ร้านดอกไม้-ของขวัญ",
+   "en": "Flowers & gifts",
+   "glyph": "💐"
+  },
+  "transportation": {
+   "th": "ขนส่ง",
+   "en": "Transport",
+   "glyph": "🚚"
+  },
+  "building_supply_store": {
+   "th": "ร้านวัสดุก่อสร้าง",
+   "en": "Building supplies",
+   "glyph": "🧱"
+  },
+  "arts_and_entertainment": {
+   "th": "ศิลปะ-บันเทิง",
+   "en": "Arts & entertainment",
+   "glyph": "🎭"
+  },
+  "health_and_medical": {
+   "th": "สุขภาพ-การแพทย์",
+   "en": "Health & medical",
+   "glyph": "🩺"
+  },
+  "auto_detailing": {
+   "th": "ขัดเคลือบสีรถ",
+   "en": "Car detailing",
+   "glyph": "✨"
+  },
+  "shopping_center": {
+   "th": "ศูนย์การค้า",
+   "en": "Shopping centre",
+   "glyph": "🛍"
+  },
+  "public_service_and_government": {
+   "th": "หน่วยงานราชการ",
+   "en": "Government office",
+   "glyph": "🏛"
+  },
+  "desserts": {
+   "th": "ของหวาน",
+   "en": "Desserts",
+   "glyph": "🍮"
+  },
+  "bank_credit_union": {
+   "th": "ธนาคาร-สหกรณ์",
+   "en": "Bank",
+   "glyph": "🏦"
+  },
+  "business_manufacturing_and_supply": {
+   "th": "ผลิต-จัดหาสินค้า",
+   "en": "Manufacturing & supply",
+   "glyph": "🏭"
+  },
+  "financial_service": {
+   "th": "บริการทางการเงิน",
+   "en": "Financial service",
+   "glyph": "💱"
+  },
+  "eyewear_and_optician": {
+   "th": "ร้านแว่นตา",
+   "en": "Eyewear & optician",
+   "glyph": "👓"
+  },
+  "tire_dealer_and_repair": {
+   "th": "ยางรถยนต์-ปะยาง",
+   "en": "Tyres",
+   "glyph": "🛞"
+  },
+  "arts_and_crafts": {
+   "th": "งานฝีมือ-ศิลปะ",
+   "en": "Arts & crafts",
+   "glyph": "🎨"
+  },
+  "preschool": {
+   "th": "เตรียมอนุบาล",
+   "en": "Preschool",
+   "glyph": "🧸"
+  },
+  "music_venue": {
+   "th": "เวทีดนตรี",
+   "en": "Music venue",
+   "glyph": "🎶"
+  },
+  "holiday_rental_home": {
+   "th": "บ้านพักให้เช่า",
+   "en": "Holiday rental",
+   "glyph": "🏡"
+  },
+  "flea_market": {
+   "th": "ตลาดนัด",
+   "en": "Flea market",
+   "glyph": "🧺"
+  },
+  "fashion": {
+   "th": "แฟชั่น",
+   "en": "Fashion",
+   "glyph": "👗"
+  },
+  "plastic_surgeon": {
+   "th": "ศัลยกรรมความงาม",
+   "en": "Plastic surgery",
+   "glyph": "💉"
+  },
+  "laundromat": {
+   "th": "ร้านสะดวกซัก",
+   "en": "Laundromat",
+   "glyph": "🧺"
+  },
+  "pet_services": {
+   "th": "บริการสัตว์เลี้ยง",
+   "en": "Pet services",
+   "glyph": "🐾"
+  },
+  "car_rental_agency": {
+   "th": "เช่ารถ",
+   "en": "Car hire",
+   "glyph": "🚗"
+  },
+  "active_life": {
+   "th": "กิจกรรมกลางแจ้ง",
+   "en": "Outdoor & active",
+   "glyph": "🚵"
+  },
+  "home_improvement_store": {
+   "th": "ร้านซ่อม-แต่งบ้าน",
+   "en": "Home improvement",
+   "glyph": "🔨"
+  },
+  "tutoring_center": {
+   "th": "ศูนย์ติว",
+   "en": "Tutoring",
+   "glyph": "📚"
+  },
+  "cosmetic_and_beauty_supplies": {
+   "th": "เครื่องสำอาง",
+   "en": "Cosmetics",
+   "glyph": "💄"
+  },
+  "tea_room": {
+   "th": "ห้องน้ำชา",
+   "en": "Tea room",
+   "glyph": "🍵"
+  },
+  "stadium_arena": {
+   "th": "สนามกีฬา",
+   "en": "Stadium",
+   "glyph": "🏟"
+  },
+  "campus_building": {
+   "th": "อาคารในมหาวิทยาลัย",
+   "en": "Campus building",
+   "glyph": "🏫"
+  },
+  "freight_and_cargo_service": {
+   "th": "ขนส่งสินค้า",
+   "en": "Freight",
+   "glyph": "📦"
+  },
+  "karaoke": {
+   "th": "คาราโอเกะ",
+   "en": "Karaoke",
+   "glyph": "🎤"
+  },
+  "used_car_dealer": {
+   "th": "รถมือสอง",
+   "en": "Used cars",
+   "glyph": "🚙"
+  },
+  "guest_house": {
+   "th": "เกสต์เฮาส์",
+   "en": "Guesthouse",
+   "glyph": "🏠"
+  },
+  "music_school": {
+   "th": "โรงเรียนสอนดนตรี",
+   "en": "Music school",
+   "glyph": "🎼"
+  },
+  "home_goods_store": {
+   "th": "ร้านของใช้ในบ้าน",
+   "en": "Home goods",
+   "glyph": "🛋"
+  },
+  "it_service_and_computer_repair": {
+   "th": "ซ่อมคอมพิวเตอร์-ไอที",
+   "en": "IT & computer repair",
+   "glyph": "💻"
+  },
+  "butcher_shop": {
+   "th": "ร้านขายเนื้อ",
+   "en": "Butcher",
+   "glyph": "🥩"
+  },
+  "diagnostic_services": {
+   "th": "ตรวจวินิจฉัย",
+   "en": "Diagnostics",
+   "glyph": "🔬"
+  },
+  "linen": {
+   "th": "ผ้าปูที่นอน-ผ้าโรงแรม",
+   "en": "Linen",
+   "glyph": "🛏"
+  },
+  "contractor": {
+   "th": "ผู้รับเหมา",
+   "en": "Contractor",
+   "glyph": "👷"
+  },
+  "nursery_and_gardening": {
+   "th": "ต้นไม้-จัดสวน",
+   "en": "Plants & gardening",
+   "glyph": "🌿"
+  },
+  "inn": {
+   "th": "โรงแรมเล็ก",
+   "en": "Inn",
+   "glyph": "🏨"
+  },
+  "police_department": {
+   "th": "สถานีตำรวจ",
+   "en": "Police station",
+   "glyph": "🚓"
+  },
+  "business_advertising": {
+   "th": "โฆษณา",
+   "en": "Advertising",
+   "glyph": "📢"
+  },
+  "fruits_and_vegetables": {
+   "th": "ผัก-ผลไม้",
+   "en": "Fruit & vegetables",
+   "glyph": "🥬"
+  },
+  "womens_clothing_store": {
+   "th": "เสื้อผ้าผู้หญิง",
+   "en": "Women's clothing",
+   "glyph": "👚"
+  },
+  "appliance_store": {
+   "th": "เครื่องใช้ไฟฟ้า",
+   "en": "Appliances",
+   "glyph": "🔌"
+  },
+  "fashion_accessories_store": {
+   "th": "เครื่องประดับแฟชั่น",
+   "en": "Fashion accessories",
+   "glyph": "👜"
+  },
+  "medical_center": {
+   "th": "ศูนย์การแพทย์",
+   "en": "Medical centre",
+   "glyph": "🏥"
+  },
+  "dance_club": {
+   "th": "ผับเต้นรำ",
+   "en": "Dance club",
+   "glyph": "🕺"
+  },
+  "engineering_services": {
+   "th": "วิศวกรรม",
+   "en": "Engineering",
+   "glyph": "📐"
+  },
+  "smoothie_juice_bar": {
+   "th": "น้ำผลไม้-สมูทตี้",
+   "en": "Juice & smoothies",
+   "glyph": "🥤"
+  },
+  "skin_care": {
+   "th": "ดูแลผิว",
+   "en": "Skin care",
+   "glyph": "🧴"
+  },
+  "salad_bar": {
+   "th": "สลัด",
+   "en": "Salad bar",
+   "glyph": "🥗"
+  },
+  "bookstore": {
+   "th": "ร้านหนังสือ",
+   "en": "Bookshop",
+   "glyph": "📖"
+  },
+  "real_estate_agent": {
+   "th": "นายหน้าอสังหาฯ",
+   "en": "Estate agent",
+   "glyph": "🏘"
+  },
+  "industrial_equipment": {
+   "th": "เครื่องจักรอุตสาหกรรม",
+   "en": "Industrial equipment",
+   "glyph": "⚙"
+  },
+  "sign_making": {
+   "th": "ทำป้าย",
+   "en": "Sign making",
+   "glyph": "🪧"
+  },
+  "department_store": {
+   "th": "ห้างสรรพสินค้า",
+   "en": "Department store",
+   "glyph": "🏬"
+  },
+  "appliance_repair_service": {
+   "th": "ซ่อมเครื่องใช้ไฟฟ้า",
+   "en": "Appliance repair",
+   "glyph": "🔧"
+  },
+  "physical_therapy": {
+   "th": "กายภาพบำบัด",
+   "en": "Physiotherapy",
+   "glyph": "🦵"
+  },
+  "naturopathic_holistic": {
+   "th": "แพทย์ทางเลือก",
+   "en": "Naturopathic & holistic",
+   "glyph": "🌿"
+  },
+  "agricultural_cooperatives": {
+   "th": "สหกรณ์การเกษตร",
+   "en": "Farm cooperative",
+   "glyph": "🌾"
+  },
+  "retirement_home": {
+   "th": "บ้านพักผู้สูงอายุ",
+   "en": "Retirement home",
+   "glyph": "🧓"
+  },
+  "health_food_store": {
+   "th": "อาหารเพื่อสุขภาพ",
+   "en": "Health food shop",
+   "glyph": "🥗"
+  },
+  "fishing_club": {
+   "th": "ตกปลา",
+   "en": "Fishing",
+   "glyph": "🎣"
+  },
+  "fabric_store": {
+   "th": "ร้านผ้า",
+   "en": "Fabric shop",
+   "glyph": "🧵"
+  },
+  "food_beverage_service_distribution": {
+   "th": "ส่งอาหาร-เครื่องดื่ม",
+   "en": "Food & drink distribution",
+   "glyph": "🚚"
+  },
+  "fish_farm": {
+   "th": "ฟาร์มปลา",
+   "en": "Fish farm",
+   "glyph": "🐟"
+  },
+  "rental_service": {
+   "th": "ให้เช่า",
+   "en": "Rental service",
+   "glyph": "🔑"
+  },
+  "hair_supply_stores": {
+   "th": "อุปกรณ์ทำผม",
+   "en": "Hair supplies",
+   "glyph": "💇"
+  },
+  "cannabis_clinic": {
+   "th": "คลินิกกัญชา",
+   "en": "Cannabis clinic",
+   "glyph": "🌱"
+  },
+  "commercial_industrial": {
+   "th": "พาณิชย์-อุตสาหกรรม",
+   "en": "Commercial & industrial",
+   "glyph": "🏭"
+  },
+  "medical_service_organizations": {
+   "th": "องค์กรบริการทางการแพทย์",
+   "en": "Medical services",
+   "glyph": "🩺"
+  },
+  "night_market": {
+   "th": "ตลาดกลางคืน",
+   "en": "Night market",
+   "glyph": "🌙"
+  },
+  "key_and_locksmith": {
+   "th": "ทำกุญแจ",
+   "en": "Locksmith",
+   "glyph": "🔑"
+  },
+  "day_care_preschool": {
+   "th": "เนอสเซอรี่",
+   "en": "Day care",
+   "glyph": "🧸"
+  },
+  "armed_forces_branch": {
+   "th": "หน่วยทหาร",
+   "en": "Armed forces",
+   "glyph": "🎖"
+  },
+  "software_development": {
+   "th": "พัฒนาซอฟต์แวร์",
+   "en": "Software development",
+   "glyph": "💻"
+  },
+  "soccer_field": {
+   "th": "สนามฟุตบอล",
+   "en": "Football pitch",
+   "glyph": "⚽"
+  },
+  "pet_groomer": {
+   "th": "ตัดขนสัตว์เลี้ยง",
+   "en": "Pet grooming",
+   "glyph": "✂"
+  },
+  "cottage": {
+   "th": "บ้านพักตากอากาศ",
+   "en": "Cottage",
+   "glyph": "🏡"
+  },
+  "auto_company": {
+   "th": "บริษัทรถยนต์",
+   "en": "Motor company",
+   "glyph": "🚗"
+  },
+  "legal_services": {
+   "th": "กฎหมาย",
+   "en": "Legal services",
+   "glyph": "⚖"
+  },
+  "hunting_and_fishing_supplies": {
+   "th": "อุปกรณ์ล่าสัตว์-ตกปลา",
+   "en": "Hunting & fishing supplies",
+   "glyph": "🎣"
+  },
+  "charity_organization": {
+   "th": "องค์กรการกุศล",
+   "en": "Charity",
+   "glyph": "🤝"
+  },
+  "bridge": {
+   "th": "สะพาน",
+   "en": "Bridge",
+   "glyph": "🌉"
+  },
+  "boxing_class": {
+   "th": "มวย",
+   "en": "Boxing",
+   "glyph": "🥊"
+  },
+  "auto_restoration_services": {
+   "th": "บูรณะรถเก่า",
+   "en": "Car restoration",
+   "glyph": "🛠"
+  },
+  "event_photography": {
+   "th": "ถ่ายภาพงาน",
+   "en": "Event photography",
+   "glyph": "📷"
+  },
+  "auto_glass_service": {
+   "th": "กระจกรถยนต์",
+   "en": "Auto glass",
+   "glyph": "🚘"
+  },
+  "wedding_planning": {
+   "th": "จัดงานแต่ง",
+   "en": "Wedding planning",
+   "glyph": "💒"
+  },
+  "shipping_center": {
+   "th": "รับส่งพัสดุ",
+   "en": "Parcel shop",
+   "glyph": "📮"
+  },
+  "dance_school": {
+   "th": "โรงเรียนสอนเต้น",
+   "en": "Dance school",
+   "glyph": "💃"
+  },
+  "childrens_clothing_store": {
+   "th": "เสื้อผ้าเด็ก",
+   "en": "Children's clothing",
+   "glyph": "🧒"
+  },
+  "womens_health_clinic": {
+   "th": "คลินิกสุขภาพสตรี",
+   "en": "Women's health clinic",
+   "glyph": "🩺"
+  },
+  "private_school": {
+   "th": "โรงเรียนเอกชน",
+   "en": "Private school",
+   "glyph": "🏫"
+  },
+  "musical_instrument_store": {
+   "th": "ร้านเครื่องดนตรี",
+   "en": "Instrument shop",
+   "glyph": "🎸"
+  },
+  "metal_fabricator": {
+   "th": "งานโลหะ",
+   "en": "Metal fabrication",
+   "glyph": "🔩"
+  },
+  "educational_services": {
+   "th": "บริการการศึกษา",
+   "en": "Educational services",
+   "glyph": "🎓"
+  },
+  "vitamins_and_supplements": {
+   "th": "วิตามิน-อาหารเสริม",
+   "en": "Vitamins & supplements",
+   "glyph": "💊"
+  },
+  "hvac_services": {
+   "th": "แอร์-ระบบระบายอากาศ",
+   "en": "Air-con & ventilation",
+   "glyph": "❄"
+  },
+  "hot_springs": {
+   "th": "น้ำพุร้อน",
+   "en": "Hot spring",
+   "glyph": "♨"
+  },
+  "car_stereo_store": {
+   "th": "เครื่องเสียงรถยนต์",
+   "en": "Car audio",
+   "glyph": "🔊"
+  },
+  "town_hall": {
+   "th": "ที่ว่าการอำเภอ",
+   "en": "Town hall",
+   "glyph": "🏛"
+  },
+  "jewelry_and_watches_manufacturer": {
+   "th": "ผลิตเครื่องประดับ-นาฬิกา",
+   "en": "Jewellery & watch making",
+   "glyph": "💍"
+  },
+  "dry_cleaning": {
+   "th": "ซักแห้ง",
+   "en": "Dry cleaning",
+   "glyph": "👔"
+  },
+  "computer_hardware_company": {
+   "th": "ฮาร์ดแวร์คอมพิวเตอร์",
+   "en": "Computer hardware",
+   "glyph": "🖥"
+  },
+  "bottled_water_company": {
+   "th": "น้ำดื่มบรรจุขวด",
+   "en": "Bottled water",
+   "glyph": "💧"
+  },
+  "telecommunications_company": {
+   "th": "โทรคมนาคม",
+   "en": "Telecoms",
+   "glyph": "📡"
+  },
+  "souvenir_shop": {
+   "th": "ร้านของที่ระลึก",
+   "en": "Souvenir shop",
+   "glyph": "🎁"
+  },
+  "industrial_company": {
+   "th": "บริษัทอุตสาหกรรม",
+   "en": "Industrial company",
+   "glyph": "🏭"
+  },
+  "banks": {
+   "th": "ธนาคาร",
+   "en": "Banks",
+   "glyph": "🏦"
+  },
+  "non_governmental_association": {
+   "th": "องค์กรพัฒนาเอกชน",
+   "en": "NGO",
+   "glyph": "🤝"
+  },
+  "middle_school": {
+   "th": "โรงเรียนมัธยมต้น",
+   "en": "Middle school",
+   "glyph": "🏫"
+  },
+  "laboratory_testing": {
+   "th": "ห้องแล็บ-ตรวจวิเคราะห์",
+   "en": "Laboratory testing",
+   "glyph": "🧪"
+  },
+  "chemical_plant": {
+   "th": "โรงงานเคมี",
+   "en": "Chemical plant",
+   "glyph": "⚗"
+  },
+  "candy_store": {
+   "th": "ร้านขนมหวาน",
+   "en": "Sweet shop",
+   "glyph": "🍬"
+  },
+  "cabin": {
+   "th": "กระท่อมพัก",
+   "en": "Cabin",
+   "glyph": "🛖"
+  },
+  "boutique": {
+   "th": "บูติก",
+   "en": "Boutique",
+   "glyph": "👗"
+  },
+  "atms": {
+   "th": "ตู้เอทีเอ็ม",
+   "en": "ATM",
+   "glyph": "🏧"
+  },
+  "art_museum": {
+   "th": "พิพิธภัณฑ์ศิลปะ",
+   "en": "Art museum",
+   "glyph": "🖼"
+  },
+  "antique_store": {
+   "th": "ร้านของเก่า",
+   "en": "Antiques",
+   "glyph": "🏺"
+  },
+  "lounge": {
+   "th": "เลานจ์",
+   "en": "Lounge",
+   "glyph": "🍸"
+  },
+  "home_service": {
+   "th": "บริการถึงบ้าน",
+   "en": "Home service",
+   "glyph": "🏠"
+  },
+  "botanical_garden": {
+   "th": "สวนพฤกษศาสตร์",
+   "en": "Botanical garden",
+   "glyph": "🌺"
+  },
+  "travel_company": {
+   "th": "บริษัททัวร์",
+   "en": "Travel company",
+   "glyph": "✈"
+  },
+  "thrift_store": {
+   "th": "ร้านมือสอง",
+   "en": "Thrift shop",
+   "glyph": "🧥"
+  },
+  "office_equipment": {
+   "th": "อุปกรณ์สำนักงาน",
+   "en": "Office equipment",
+   "glyph": "🖨"
+  },
+  "music_production": {
+   "th": "ผลิตเพลง",
+   "en": "Music production",
+   "glyph": "🎧"
+  },
+  "money_transfer_services": {
+   "th": "โอนเงิน",
+   "en": "Money transfer",
+   "glyph": "💸"
+  },
+  "information_technology_company": {
+   "th": "บริษัทไอที",
+   "en": "IT company",
+   "glyph": "💻"
+  },
+  "specialty_school": {
+   "th": "โรงเรียนเฉพาะทาง",
+   "en": "Specialty school",
+   "glyph": "🏫"
+  },
+  "monument": {
+   "th": "อนุสาวรีย์",
+   "en": "Monument",
+   "glyph": "🗿"
+  },
+  "media_news_company": {
+   "th": "สื่อ-ข่าว",
+   "en": "Media & news",
+   "glyph": "📰"
+  },
+  "home_cleaning": {
+   "th": "ทำความสะอาดบ้าน",
+   "en": "Home cleaning",
+   "glyph": "🧹"
+  },
+  "graphic_designer": {
+   "th": "กราฟิกดีไซน์",
+   "en": "Graphic design",
+   "glyph": "🎨"
+  },
+  "beer_bar": {
+   "th": "ร้านเบียร์",
+   "en": "Beer bar",
+   "glyph": "🍺"
+  },
+  "auto_body_shop": {
+   "th": "เคาะพ่นสีรถ",
+   "en": "Body shop",
+   "glyph": "🚗"
+  },
+  "specialty_foods": {
+   "th": "อาหารเฉพาะทาง",
+   "en": "Specialty foods",
+   "glyph": "🍯"
+  },
+  "nature_reserve": {
+   "th": "เขตอนุรักษ์",
+   "en": "Nature reserve",
+   "glyph": "🌳"
+  },
+  "lighting_store": {
+   "th": "ร้านโคมไฟ",
+   "en": "Lighting shop",
+   "glyph": "💡"
+  },
+  "landscaping": {
+   "th": "จัดสวน",
+   "en": "Landscaping",
+   "glyph": "🌳"
+  },
+  "acupuncture": {
+   "th": "ฝังเข็ม",
+   "en": "Acupuncture",
+   "glyph": "🪡"
+  },
+  "mens_clothing_store": {
+   "th": "เสื้อผ้าผู้ชาย",
+   "en": "Men's clothing",
+   "glyph": "👔"
+  },
+  "mattress_store": {
+   "th": "ร้านที่นอน",
+   "en": "Mattress shop",
+   "glyph": "🛏"
+  },
+  "auto_customization": {
+   "th": "แต่งรถ",
+   "en": "Car customisation",
+   "glyph": "🏎"
+  },
+  "architectural_designer": {
+   "th": "ออกแบบสถาปัตยกรรม",
+   "en": "Architectural design",
+   "glyph": "📐"
+  },
+  "water_park": {
+   "th": "สวนน้ำ",
+   "en": "Water park",
+   "glyph": "🌊"
+  },
+  "public_school": {
+   "th": "โรงเรียนรัฐบาล",
+   "en": "State school",
+   "glyph": "🏫"
+  },
+  "pilates_studio": {
+   "th": "พิลาทิส",
+   "en": "Pilates",
+   "glyph": "🧘"
+  },
+  "cupcake_shop": {
+   "th": "คัพเค้ก",
+   "en": "Cupcakes",
+   "glyph": "🧁"
+  },
+  "credit_union": {
+   "th": "สหกรณ์เครดิต",
+   "en": "Credit union",
+   "glyph": "🏦"
+  },
+  "caterer": {
+   "th": "จัดเลี้ยง",
+   "en": "Caterer",
+   "glyph": "🍱"
+  },
+  "urban_farm": {
+   "th": "ฟาร์มในเมือง",
+   "en": "Urban farm",
+   "glyph": "🌱"
+  },
+  "pawn_shop": {
+   "th": "โรงรับจำนำ",
+   "en": "Pawn shop",
+   "glyph": "💰"
+  },
+  "massage_school": {
+   "th": "โรงเรียนสอนนวด",
+   "en": "Massage school",
+   "glyph": "💆"
+  },
+  "donuts": {
+   "th": "โดนัท",
+   "en": "Donuts",
+   "glyph": "🍩"
+  },
+  "cocktail_bar": {
+   "th": "ค็อกเทลบาร์",
+   "en": "Cocktail bar",
+   "glyph": "🍸"
+  },
+  "baptist_church": {
+   "th": "โบสถ์แบ๊บติสต์",
+   "en": "Baptist church",
+   "glyph": "⛪"
+  },
+  "auditorium": {
+   "th": "หอประชุม",
+   "en": "Auditorium",
+   "glyph": "🎪"
+  },
+  "art_school": {
+   "th": "โรงเรียนสอนศิลปะ",
+   "en": "Art school",
+   "glyph": "🎨"
+  },
+  "sports_wear": {
+   "th": "ชุดกีฬา",
+   "en": "Sportswear",
+   "glyph": "👕"
+  },
+  "masonry_concrete": {
+   "th": "งานปูน",
+   "en": "Masonry & concrete",
+   "glyph": "🧱"
+  },
+  "home_and_garden": {
+   "th": "บ้าน-สวน",
+   "en": "Home & garden",
+   "glyph": "🏡"
+  },
+  "glass_and_mirror_sales_service": {
+   "th": "กระจก-อลูมิเนียม",
+   "en": "Glass & mirrors",
+   "glyph": "🪟"
+  },
+  "wine_bar": {
+   "th": "ไวน์บาร์",
+   "en": "Wine bar",
+   "glyph": "🍷"
+  },
+  "wildlife_sanctuary": {
+   "th": "เขตรักษาพันธุ์สัตว์ป่า",
+   "en": "Wildlife sanctuary",
+   "glyph": "🦌"
+  },
+  "screen_printing_t_shirt_printing": {
+   "th": "สกรีนเสื้อ",
+   "en": "Screen printing",
+   "glyph": "👕"
+  },
+  "river": {
+   "th": "แม่น้ำ",
+   "en": "River",
+   "glyph": "🏞"
+  },
+  "passport_and_visa_services": {
+   "th": "พาสปอร์ต-วีซ่า",
+   "en": "Passport & visa services",
+   "glyph": "🛂"
+  },
+  "embassy": {
+   "th": "สถานทูต-สถานกงสุล",
+   "en": "Embassy & consulate",
+   "glyph": "🏛"
+  },
+  "poultry_farm": {
+   "th": "ฟาร์มไก่",
+   "en": "Poultry farm",
+   "glyph": "🐔"
+  },
+  "pancake_house": {
+   "th": "แพนเค้ก",
+   "en": "Pancakes",
+   "glyph": "🥞"
+  },
+  "outdoor_gear": {
+   "th": "อุปกรณ์เดินป่า",
+   "en": "Outdoor gear",
+   "glyph": "🎒"
+  },
+  "mosque": {
+   "th": "มัสยิด",
+   "en": "Mosque",
+   "glyph": "🕌"
+  },
+  "lumber_store": {
+   "th": "ร้านไม้",
+   "en": "Timber yard",
+   "glyph": "🪵"
+  },
+  "interior_design": {
+   "th": "ออกแบบภายใน",
+   "en": "Interior design",
+   "glyph": "🛋"
+  },
+  "commercial_real_estate": {
+   "th": "อสังหาฯ เชิงพาณิชย์",
+   "en": "Commercial property",
+   "glyph": "🏢"
+  },
+  "amusement_park": {
+   "th": "สวนสนุก",
+   "en": "Amusement park",
+   "glyph": "🎡"
+  },
+  "wood_and_pulp": {
+   "th": "ไม้-เยื่อกระดาษ",
+   "en": "Wood & pulp",
+   "glyph": "🪵"
+  },
+  "sewing_and_alterations": {
+   "th": "รับตัดเย็บ-แก้เสื้อ",
+   "en": "Sewing & alterations",
+   "glyph": "🪡"
+  },
+  "merchandising_service": {
+   "th": "บริการจัดสินค้า",
+   "en": "Merchandising",
+   "glyph": "📦"
+  },
+  "installment_loans": {
+   "th": "สินเชื่อผ่อนชำระ",
+   "en": "Instalment loans",
+   "glyph": "💳"
+  },
+  "history_museum": {
+   "th": "พิพิธภัณฑ์ประวัติศาสตร์",
+   "en": "History museum",
+   "glyph": "🏛"
+  },
+  "bridal_shop": {
+   "th": "ชุดเจ้าสาว",
+   "en": "Bridal shop",
+   "glyph": "👰"
+  },
+  "shooting_range": {
+   "th": "สนามยิงปืน",
+   "en": "Shooting range",
+   "glyph": "🎯"
+  },
+  "pop_up_shop": {
+   "th": "ร้านป๊อปอัพ",
+   "en": "Pop-up shop",
+   "glyph": "🏪"
+  },
+  "playground": {
+   "th": "สนามเด็กเล่น",
+   "en": "Playground",
+   "glyph": "🛝"
+  },
+  "orthodontist": {
+   "th": "จัดฟัน",
+   "en": "Orthodontist",
+   "glyph": "🦷"
+  },
+  "meditation_center": {
+   "th": "สถานปฏิบัติธรรม",
+   "en": "Meditation centre",
+   "glyph": "🧘"
+  },
+  "internet_service_provider": {
+   "th": "ผู้ให้บริการอินเทอร์เน็ต",
+   "en": "Internet provider",
+   "glyph": "🌐"
+  },
+  "aquatic_pet_store": {
+   "th": "ร้านปลาสวยงาม",
+   "en": "Aquarium shop",
+   "glyph": "🐠"
+  },
+  "photography_store_and_services": {
+   "th": "ร้านถ่ายรูป",
+   "en": "Photography",
+   "glyph": "📷"
+  },
+  "pentecostal_church": {
+   "th": "โบสถ์เพนเทคอสต์",
+   "en": "Pentecostal church",
+   "glyph": "⛪"
+  },
+  "organic_grocery_store": {
+   "th": "ร้านออร์แกนิก",
+   "en": "Organic grocer",
+   "glyph": "🥬"
+  },
+  "medical_school": {
+   "th": "โรงเรียนแพทย์",
+   "en": "Medical school",
+   "glyph": "🩺"
+  },
+  "lake": {
+   "th": "ทะเลสาบ",
+   "en": "Lake",
+   "glyph": "🏞"
+  },
+  "homeless_shelter": {
+   "th": "บ้านพักคนไร้บ้าน",
+   "en": "Homeless shelter",
+   "glyph": "🏠"
+  },
+  "garbage_collection_service": {
+   "th": "เก็บขยะ",
+   "en": "Waste collection",
+   "glyph": "🗑"
+  },
+  "beer_garden": {
+   "th": "ลานเบียร์",
+   "en": "Beer garden",
+   "glyph": "🍻"
+  },
+  "orthopedist": {
+   "th": "กระดูก-ข้อ",
+   "en": "Orthopaedics",
+   "glyph": "🦴"
+  },
+  "optometrist": {
+   "th": "วัดสายตา",
+   "en": "Optometrist",
+   "glyph": "👁"
+  },
+  "marketing_agency": {
+   "th": "เอเจนซีการตลาด",
+   "en": "Marketing agency",
+   "glyph": "📈"
+  },
+  "general_dentistry": {
+   "th": "ทันตกรรมทั่วไป",
+   "en": "General dentistry",
+   "glyph": "🦷"
+  },
+  "food_delivery_service": {
+   "th": "ส่งอาหาร",
+   "en": "Food delivery",
+   "glyph": "🛵"
+  },
+  "fishmonger": {
+   "th": "ร้านปลา",
+   "en": "Fishmonger",
+   "glyph": "🐟"
+  },
+  "financial_advising": {
+   "th": "ที่ปรึกษาการเงิน",
+   "en": "Financial advice",
+   "glyph": "📊"
+  },
+  "environmental_conservation_organization": {
+   "th": "องค์กรอนุรักษ์",
+   "en": "Conservation group",
+   "glyph": "🌏"
+  },
+  "discount_store": {
+   "th": "ร้านราคาถูก",
+   "en": "Discount store",
+   "glyph": "🏷"
+  },
+  "costume_store": {
+   "th": "ร้านเช่าชุด",
+   "en": "Costume hire",
+   "glyph": "🎭"
+  },
+  "corporate_office": {
+   "th": "สำนักงานบริษัท",
+   "en": "Corporate office",
+   "glyph": "🏢"
+  },
+  "catholic_church": {
+   "th": "โบสถ์คาทอลิก",
+   "en": "Catholic church",
+   "glyph": "⛪"
+  },
+  "automotive_consultant": {
+   "th": "ที่ปรึกษายานยนต์",
+   "en": "Automotive consultant",
+   "glyph": "🚗"
+  },
+  "windows_installation": {
+   "th": "ติดตั้งหน้าต่าง",
+   "en": "Window fitting",
+   "glyph": "🪟"
+  },
+  "restaurant_equipment_and_supply": {
+   "th": "อุปกรณ์ร้านอาหาร",
+   "en": "Restaurant supplies",
+   "glyph": "🍳"
+  },
+  "mass_media": {
+   "th": "สื่อมวลชน",
+   "en": "Mass media",
+   "glyph": "📻"
+  },
+  "home_security": {
+   "th": "ระบบรักษาความปลอดภัยบ้าน",
+   "en": "Home security",
+   "glyph": "🔒"
+  },
+  "cinema": {
+   "th": "โรงหนัง",
+   "en": "Cinema",
+   "glyph": "🎬"
+  },
+  "beauty_product_supplier": {
+   "th": "ผู้จำหน่ายเครื่องสำอาง",
+   "en": "Beauty supplier",
+   "glyph": "💄"
+  },
+  "badminton_court": {
+   "th": "สนามแบดมินตัน",
+   "en": "Badminton court",
+   "glyph": "🏸"
+  },
+  "b2b_science_and_technology": {
+   "th": "วิทยาศาสตร์-เทคโนโลยี",
+   "en": "Science & technology",
+   "glyph": "🔬"
+  },
+  "theatre": {
+   "th": "โรงละคร",
+   "en": "Theatre",
+   "glyph": "🎭"
+  },
+  "solar_installation": {
+   "th": "ติดตั้งโซลาร์เซลล์",
+   "en": "Solar installation",
+   "glyph": "☀"
+  },
+  "pest_control_service": {
+   "th": "กำจัดปลวก-แมลง",
+   "en": "Pest control",
+   "glyph": "🐜"
+  },
+  "medical_research_and_development": {
+   "th": "วิจัยทางการแพทย์",
+   "en": "Medical research",
+   "glyph": "🔬"
+  },
+  "hobby_shop": {
+   "th": "ร้านงานอดิเรก",
+   "en": "Hobby shop",
+   "glyph": "🧩"
+  },
+  "fitness_trainer": {
+   "th": "เทรนเนอร์",
+   "en": "Fitness trainer",
+   "glyph": "🏋"
+  },
+  "eye_care_clinic": {
+   "th": "คลินิกตา",
+   "en": "Eye clinic",
+   "glyph": "👁"
+  },
+  "broadcasting_media_production": {
+   "th": "ผลิตสื่อ-ออกอากาศ",
+   "en": "Broadcast production",
+   "glyph": "📺"
+  },
+  "audio_visual_equipment_store": {
+   "th": "เครื่องเสียง-ภาพ",
+   "en": "Audio-visual equipment",
+   "glyph": "🔊"
+  },
+  "animal_shelter": {
+   "th": "บ้านพักสัตว์จรจัด",
+   "en": "Animal shelter",
+   "glyph": "🐕"
+  },
+  "waxing": {
+   "th": "แว็กซ์ขน",
+   "en": "Waxing",
+   "glyph": "🪒"
+  },
+  "television_service_providers": {
+   "th": "ผู้ให้บริการทีวี",
+   "en": "TV providers",
+   "glyph": "📺"
+  },
+  "pet_breeder": {
+   "th": "ฟาร์มเพาะสัตว์เลี้ยง",
+   "en": "Pet breeder",
+   "glyph": "🐩"
+  },
+  "outlet_store": {
+   "th": "เอาต์เล็ต",
+   "en": "Outlet store",
+   "glyph": "🏷"
+  },
+  "medical_supply": {
+   "th": "อุปกรณ์การแพทย์",
+   "en": "Medical supplies",
+   "glyph": "🩹"
+  },
+  "educational_research_institute": {
+   "th": "สถาบันวิจัยการศึกษา",
+   "en": "Education research",
+   "glyph": "🎓"
+  },
+  "dairy_farm": {
+   "th": "ฟาร์มโคนม",
+   "en": "Dairy farm",
+   "glyph": "🐄"
+  },
+  "chocolatier": {
+   "th": "ช็อกโกแลต",
+   "en": "Chocolatier",
+   "glyph": "🍫"
+  },
+  "arcade": {
+   "th": "ตู้เกม",
+   "en": "Arcade",
+   "glyph": "🕹"
+  },
+  "tree_services": {
+   "th": "ตัดแต่งต้นไม้",
+   "en": "Tree services",
+   "glyph": "🌳"
+  },
+  "superstore": {
+   "th": "ซูเปอร์สโตร์",
+   "en": "Superstore",
+   "glyph": "🛒"
+  },
+  "pediatrician": {
+   "th": "กุมารแพทย์",
+   "en": "Paediatrician",
+   "glyph": "🧒"
+  },
+  "motel": {
+   "th": "โมเทล",
+   "en": "Motel",
+   "glyph": "🏨"
+  },
+  "metal_supplier": {
+   "th": "ร้านเหล็ก",
+   "en": "Metal supplier",
+   "glyph": "🔩"
+  },
+  "electric_utility_provider": {
+   "th": "การไฟฟ้า",
+   "en": "Electricity provider",
+   "glyph": "⚡"
+  },
+  "automobile_leasing": {
+   "th": "ลีสซิ่งรถยนต์",
+   "en": "Car leasing",
+   "glyph": "🚗"
+  },
+  "religious_school": {
+   "th": "โรงเรียนศาสนา",
+   "en": "Religious school",
+   "glyph": "🕍"
+  },
+  "public_plaza": {
+   "th": "ลานสาธารณะ",
+   "en": "Public plaza",
+   "glyph": "🏛"
+  },
+  "property_management": {
+   "th": "บริหารอสังหาฯ",
+   "en": "Property management",
+   "glyph": "🏢"
+  },
+  "pet_sitting": {
+   "th": "รับฝากสัตว์เลี้ยง",
+   "en": "Pet sitting",
+   "glyph": "🐾"
+  },
+  "oil_change_station": {
+   "th": "เปลี่ยนถ่ายน้ำมันเครื่อง",
+   "en": "Oil change",
+   "glyph": "🛢"
+  },
+  "obstetrician_and_gynecologist": {
+   "th": "สูตินรีแพทย์",
+   "en": "Obstetrics & gynaecology",
+   "glyph": "🤰"
+  },
+  "motorcycle_rentals": {
+   "th": "เช่ามอเตอร์ไซค์",
+   "en": "Motorcycle hire",
+   "glyph": "🏍"
+  },
+  "logging_services": {
+   "th": "งานตัดไม้",
+   "en": "Logging",
+   "glyph": "🪓"
+  },
+  "hindu_temple": {
+   "th": "เทวสถานฮินดู",
+   "en": "Hindu temple",
+   "glyph": "🕉"
+  },
+  "gardener": {
+   "th": "คนสวน",
+   "en": "Gardener",
+   "glyph": "🌿"
+  },
+  "football_stadium": {
+   "th": "สนามฟุตบอล",
+   "en": "Football stadium",
+   "glyph": "🏟"
+  },
+  "business_management_services": {
+   "th": "บริหารธุรกิจ",
+   "en": "Business management",
+   "glyph": "📊"
+  },
+  "aromatherapy": {
+   "th": "อโรมาเธอราพี",
+   "en": "Aromatherapy",
+   "glyph": "🕯"
+  },
+  "abuse_and_addiction_treatment": {
+   "th": "บำบัดผู้ติดสารเสพติด",
+   "en": "Addiction treatment",
+   "glyph": "🫂"
+  },
+  "youth_organizations": {
+   "th": "องค์กรเยาวชน",
+   "en": "Youth organisation",
+   "glyph": "🧑"
+  },
+  "winery": {
+   "th": "โรงไวน์",
+   "en": "Winery",
+   "glyph": "🍇"
+  },
+  "truck_repair": {
+   "th": "ซ่อมรถบรรทุก",
+   "en": "Truck repair",
+   "glyph": "🚛"
+  },
+  "tennis_court": {
+   "th": "สนามเทนนิส",
+   "en": "Tennis court",
+   "glyph": "🎾"
+  },
+  "sightseeing_tour_agency": {
+   "th": "ทัวร์ชมเมือง",
+   "en": "Sightseeing tours",
+   "glyph": "🚌"
+  },
+  "restaurant_wholesale": {
+   "th": "ขายส่งร้านอาหาร",
+   "en": "Restaurant wholesale",
+   "glyph": "📦"
+  },
+  "pool_billiards": {
+   "th": "สนุกเกอร์-พูล",
+   "en": "Pool & billiards",
+   "glyph": "🎱"
+  },
+  "meat_wholesaler": {
+   "th": "ขายส่งเนื้อสัตว์",
+   "en": "Meat wholesaler",
+   "glyph": "🥩"
+  },
+  "machine_shop": {
+   "th": "ร้านกลึง",
+   "en": "Machine shop",
+   "glyph": "⚙"
+  },
+  "luggage_store": {
+   "th": "ร้านกระเป๋าเดินทาง",
+   "en": "Luggage shop",
+   "glyph": "🧳"
+  },
+  "hat_shop": {
+   "th": "ร้านหมวก",
+   "en": "Hat shop",
+   "glyph": "🎩"
+  },
+  "family_practice": {
+   "th": "คลินิกเวชปฏิบัติครอบครัว",
+   "en": "Family practice",
+   "glyph": "🩺"
+  },
+  "commercial_refrigeration": {
+   "th": "ห้องเย็น",
+   "en": "Commercial refrigeration",
+   "glyph": "❄"
+  },
+  "carpet_store": {
+   "th": "ร้านพรม",
+   "en": "Carpet shop",
+   "glyph": "🧶"
+  },
+  "car_window_tinting": {
+   "th": "ติดฟิล์มรถยนต์",
+   "en": "Window tinting",
+   "glyph": "🚘"
+  },
+  "bike_repair_maintenance": {
+   "th": "ซ่อมจักรยาน",
+   "en": "Bicycle repair",
+   "glyph": "🚲"
+  },
+  "bagel_shop": {
+   "th": "เบเกิล",
+   "en": "Bagel shop",
+   "glyph": "🥯"
+  },
+  "web_designer": {
+   "th": "ออกแบบเว็บ",
+   "en": "Web design",
+   "glyph": "🌐"
+  },
+  "swimming_instructor": {
+   "th": "สอนว่ายน้ำ",
+   "en": "Swimming instructor",
+   "glyph": "🏊"
+  },
+  "skate_shop": {
+   "th": "ร้านสเก็ต",
+   "en": "Skate shop",
+   "glyph": "🛹"
+  },
+  "skate_park": {
+   "th": "ลานสเก็ต",
+   "en": "Skate park",
+   "glyph": "🛹"
+  },
+  "roofing": {
+   "th": "งานหลังคา",
+   "en": "Roofing",
+   "glyph": "🏠"
+  },
+  "public_utility_company": {
+   "th": "สาธารณูปโภค",
+   "en": "Public utility",
+   "glyph": "💡"
+  },
+  "packing_supply": {
+   "th": "บรรจุภัณฑ์",
+   "en": "Packaging supplies",
+   "glyph": "📦"
+  },
+  "music_and_dvd_store": {
+   "th": "ร้านเพลง-ดีวีดี",
+   "en": "Music & DVD shop",
+   "glyph": "💿"
+  },
+  "health_department": {
+   "th": "สาธารณสุข",
+   "en": "Health department",
+   "glyph": "🏥"
+  },
+  "fire_department": {
+   "th": "สถานีดับเพลิง",
+   "en": "Fire station",
+   "glyph": "🚒"
+  },
+  "energy_company": {
+   "th": "บริษัทพลังงาน",
+   "en": "Energy company",
+   "glyph": "⚡"
+  },
+  "dermatologist": {
+   "th": "แพทย์ผิวหนัง",
+   "en": "Dermatologist",
+   "glyph": "🧴"
+  },
+  "credit_and_debt_counseling": {
+   "th": "ที่ปรึกษาหนี้สิน",
+   "en": "Debt counselling",
+   "glyph": "💳"
+  },
+  "courthouse": {
+   "th": "ศาล",
+   "en": "Courthouse",
+   "glyph": "⚖"
+  },
+  "carpenter": {
+   "th": "ช่างไม้",
+   "en": "Carpenter",
+   "glyph": "🪚"
+  },
+  "canoe_and_kayak_hire_service": {
+   "th": "เช่าเรือคายัค",
+   "en": "Kayak hire",
+   "glyph": "🛶"
+  },
+  "brewery": {
+   "th": "โรงเบียร์",
+   "en": "Brewery",
+   "glyph": "🍺"
+  },
+  "beach": {
+   "th": "ชายหาด",
+   "en": "Beach",
+   "glyph": "🏖"
+  },
+  "auto_manufacturers_and_distributors": {
+   "th": "ผู้ผลิต-จำหน่ายรถยนต์",
+   "en": "Car makers & distributors",
+   "glyph": "🚗"
+  },
+  "ambulance_and_ems_services": {
+   "th": "รถพยาบาล-กู้ชีพ",
+   "en": "Ambulance & EMS",
+   "glyph": "🚑"
+  },
+  "halal_restaurant": {
+   "th": "อาหารฮาลาล",
+   "en": "Halal",
+   "glyph": "🕌"
+  },
+  "vegetarian_restaurant": {
+   "th": "อาหารเจ-มังสวิรัติ",
+   "en": "Vegetarian",
+   "glyph": "🥬"
+  },
+  "dim_sum_restaurant": {
+   "th": "ติ่มซำ",
+   "en": "Dim sum",
+   "glyph": "🥟"
+  },
+  "health_food_restaurant": {
+   "th": "อาหารสุขภาพ",
+   "en": "Health food",
+   "glyph": "🥗"
+  },
+  "asian_fusion_restaurant": {
+   "th": "อาหารเอเชียฟิวชัน",
+   "en": "Asian fusion",
+   "glyph": "🥢"
+  },
+  "soup_restaurant": {
+   "th": "ซุป-ต้ม",
+   "en": "Soup",
+   "glyph": "🍲"
+  },
+  "burger_restaurant": {
+   "th": "เบอร์เกอร์",
+   "en": "Burgers",
+   "glyph": "🍔"
+  },
+  "comfort_food_restaurant": {
+   "th": "อาหารโฮมเมด",
+   "en": "Comfort food",
+   "glyph": "🍛"
+  }
+ },
+ "trade": {
+  "ตู้น้ำดื่มหยอดเหรียญ": {
+   "th": "ตู้น้ำดื่มหยอดเหรียญ",
+   "en": "Coin water dispenser",
+   "glyph": "💧"
+  },
+  "ตู้น้ำหยอดเหรียญ": {
+   "th": "ตู้น้ำหยอดเหรียญ",
+   "en": "Coin water dispenser",
+   "glyph": "💧"
+  },
+  "ตู้น้ำดื่ม": {
+   "th": "ตู้น้ำดื่ม",
+   "en": "Drinking-water dispenser",
+   "glyph": "💧"
+  },
+  "น้ำหยอดเหรียญ": {
+   "th": "น้ำหยอดเหรียญ",
+   "en": "Coin water",
+   "glyph": "💧"
+  },
+  "ซักผ้าหยอดเหรียญ": {
+   "th": "ซักผ้าหยอดเหรียญ",
+   "en": "Coin laundry",
+   "glyph": "🧺"
+  },
+  "เครื่องซักผ้าหยอดเหรียญ": {
+   "th": "เครื่องซักผ้าหยอดเหรียญ",
+   "en": "Coin washing machines",
+   "glyph": "🧺"
+  },
+  "ร้านซักผ้าหยอดเหรียญ": {
+   "th": "ร้านซักผ้าหยอดเหรียญ",
+   "en": "Coin laundrette",
+   "glyph": "🧺"
+  },
+  "ตู้ซักผ้าหยอดเหรียญ": {
+   "th": "ตู้ซักผ้าหยอดเหรียญ",
+   "en": "Coin laundry machine",
+   "glyph": "🧺"
+  },
+  "เครื่องซักหยอดเหรียญ": {
+   "th": "เครื่องซักหยอดเหรียญ",
+   "en": "Coin washer",
+   "glyph": "🧺"
+  },
+  "ร้านสะดวกซัก": {
+   "th": "ร้านสะดวกซัก",
+   "en": "Self-service laundrette",
+   "glyph": "🧺"
+  },
+  "สะดวกซัก": {
+   "th": "สะดวกซัก",
+   "en": "Self-service laundry",
+   "glyph": "🧺"
+  },
+  "ซักผ้าให้บริการตนเอง": {
+   "th": "ซักผ้าให้บริการตนเอง",
+   "en": "Self-service laundry",
+   "glyph": "🧺"
+  },
+  "ซักผ้า24ชั่วโมง": {
+   "th": "ซักผ้า 24 ชั่วโมง",
+   "en": "24-hour laundry",
+   "glyph": "🧺"
+  },
+  "ซักอบรีด": {
+   "th": "ซักอบรีด",
+   "en": "Wash, dry & press",
+   "glyph": "🧺"
+  },
+  "ซักแห้ง": {
+   "th": "ซักแห้ง",
+   "en": "Dry cleaning",
+   "glyph": "🧥"
+  },
+  "ซักผ้า": {
+   "th": "ซักผ้า",
+   "en": "Laundry",
+   "glyph": "🧺"
+  },
+  "ซักผ้ารายเดือน": {
+   "th": "ซักผ้ารายเดือน",
+   "en": "Monthly laundry service",
+   "glyph": "🧺"
+  },
+  "ซักรายเดือน": {
+   "th": "ซักรายเดือน",
+   "en": "Monthly laundry service",
+   "glyph": "🧺"
+  },
+  "ซ่อมมอเตอร์ไซค์": {
+   "th": "ซ่อมมอเตอร์ไซค์",
+   "en": "Motorbike repair",
+   "glyph": "🏍"
+  },
+  "ซ่อมรถมอเตอร์ไซค์": {
+   "th": "ซ่อมรถมอเตอร์ไซค์",
+   "en": "Motorbike repair",
+   "glyph": "🏍"
+  },
+  "ปะยางมอเตอร์ไซค์": {
+   "th": "ปะยางมอเตอร์ไซค์",
+   "en": "Motorbike puncture repair",
+   "glyph": "🛞"
+  },
+  "ปะยาง": {
+   "th": "ปะยาง",
+   "en": "Puncture repair",
+   "glyph": "🛞"
+  },
+  "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์": {
+   "th": "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์",
+   "en": "Motorbike oil change",
+   "glyph": "🛢"
+  },
+  "ถ่ายน้ำมันเครื่อง": {
+   "th": "ถ่ายน้ำมันเครื่อง",
+   "en": "Oil change",
+   "glyph": "🛢"
+  },
+  "ซ่อมจักรยาน": {
+   "th": "ซ่อมจักรยาน",
+   "en": "Bicycle repair",
+   "glyph": "🚲"
+  },
+  "รถเช่า": {
+   "th": "รถเช่า",
+   "en": "Vehicle hire",
+   "glyph": "🚙"
+  },
+  "ทำฟัน": {
+   "th": "ทำฟัน",
+   "en": "Dental work",
+   "glyph": "🦷"
+  },
+  "ร้านทำฟัน": {
+   "th": "ร้านทำฟัน",
+   "en": "Dental surgery",
+   "glyph": "🦷"
+  },
+  "จัดฟัน": {
+   "th": "จัดฟัน",
+   "en": "Braces & orthodontics",
+   "glyph": "🦷"
+  },
+  "อุดฟัน": {
+   "th": "อุดฟัน",
+   "en": "Fillings",
+   "glyph": "🦷"
+  },
+  "ขูดหินปูน": {
+   "th": "ขูดหินปูน",
+   "en": "Scale & polish",
+   "glyph": "🦷"
+  },
+  "ถอนฟัน": {
+   "th": "ถอนฟัน",
+   "en": "Extractions",
+   "glyph": "🦷"
+  },
+  "ฟอกสีฟัน": {
+   "th": "ฟอกสีฟัน",
+   "en": "Teeth whitening",
+   "glyph": "🦷"
+  },
+  "ไวนิล": {
+   "th": "ไวนิล",
+   "en": "Vinyl banners",
+   "glyph": "🪧"
+  },
+  "ป้าย": {
+   "th": "ป้าย",
+   "en": "Signmaking",
+   "glyph": "🪧"
+  },
+  "ป้ายไวนิล": {
+   "th": "ป้ายไวนิล",
+   "en": "Vinyl signs",
+   "glyph": "🪧"
+  },
+  "สติกเกอร์": {
+   "th": "สติกเกอร์",
+   "en": "Stickers",
+   "glyph": "🏷"
+  },
+  "ตรายาง": {
+   "th": "ตรายาง",
+   "en": "Rubber stamps",
+   "glyph": "🖃"
+  },
+  "นามบัตร": {
+   "th": "นามบัตร",
+   "en": "Business cards",
+   "glyph": "💳"
+  },
+  "ถ่ายเอกสาร": {
+   "th": "ถ่ายเอกสาร",
+   "en": "Photocopying",
+   "glyph": "🖨"
+  },
+  "ปริ้นงาน": {
+   "th": "ปริ้นงาน",
+   "en": "Printing",
+   "glyph": "🖨"
+  },
+  "เข้าเล่ม": {
+   "th": "เข้าเล่ม",
+   "en": "Binding",
+   "glyph": "📕"
+  },
+  "โรงพิมพ์": {
+   "th": "โรงพิมพ์",
+   "en": "Print house",
+   "glyph": "🖨"
+  },
+  "สิ่งพิมพ์": {
+   "th": "สิ่งพิมพ์",
+   "en": "Print work",
+   "glyph": "📄"
+  },
+  "เครื่องเขียน": {
+   "th": "เครื่องเขียน",
+   "en": "Stationery",
+   "glyph": "✏"
+  },
+  "หนังสือ": {
+   "th": "หนังสือ",
+   "en": "Books",
+   "glyph": "📚"
+  },
+  "ซ่อมทีวี": {
+   "th": "ซ่อมทีวี",
+   "en": "TV repair",
+   "glyph": "📺"
+  },
+  "ซ่อมเครื่องใช้ไฟฟ้า": {
+   "th": "ซ่อมเครื่องใช้ไฟฟ้า",
+   "en": "Appliance repair",
+   "glyph": "🔌"
+  },
+  "ซ่อมเครื่องซักผ้า": {
+   "th": "ซ่อมเครื่องซักผ้า",
+   "en": "Washing-machine repair",
+   "glyph": "🧺"
+  },
+  "ซ่อมตู้เย็น": {
+   "th": "ซ่อมตู้เย็น",
+   "en": "Fridge repair",
+   "glyph": "🧊"
+  },
+  "ซ่อมแอร์": {
+   "th": "ซ่อมแอร์",
+   "en": "Air-con repair",
+   "glyph": "❄"
+  },
+  "ซ่อมพัดลม": {
+   "th": "ซ่อมพัดลม",
+   "en": "Fan repair",
+   "glyph": "🌀"
+  },
+  "ซ่อมรองเท้า": {
+   "th": "ซ่อมรองเท้า",
+   "en": "Shoe repair",
+   "glyph": "👞"
+  },
+  "เปลี่ยนซิบ": {
+   "th": "เปลี่ยนซิป",
+   "en": "Zip replacement",
+   "glyph": "🧵"
+  },
+  "แก้ทรง": {
+   "th": "แก้ทรง",
+   "en": "Alterations",
+   "glyph": "🧵"
+  },
+  "ตัดสูท": {
+   "th": "ตัดสูท",
+   "en": "Suit tailoring",
+   "glyph": "🤵"
+  },
+  "อาหารสัตว์": {
+   "th": "อาหารสัตว์",
+   "en": "Animal feed",
+   "glyph": "🐾"
+  },
+  "อาหารแมว": {
+   "th": "อาหารแมว",
+   "en": "Cat food",
+   "glyph": "🐈"
+  },
+  "อาหารหมา": {
+   "th": "อาหารหมา",
+   "en": "Dog food",
+   "glyph": "🐕"
+  },
+  "อุปกรณ์สัตว์เลี้ยง": {
+   "th": "อุปกรณ์สัตว์เลี้ยง",
+   "en": "Pet supplies",
+   "glyph": "🐾"
+  },
+  "รักษาสัตว์": {
+   "th": "รักษาสัตว์",
+   "en": "Animal treatment",
+   "glyph": "🐾"
+  },
+  "ป่าช้า": {
+   "th": "ป่าช้า",
+   "en": "Burial ground",
+   "glyph": "🪦"
+  },
+  "สุสาน": {
+   "th": "สุสาน",
+   "en": "Cemetery",
+   "glyph": "🪦"
+  },
+  "ฌาปนกิจสถาน": {
+   "th": "ฌาปนกิจสถาน",
+   "en": "Crematorium",
+   "glyph": "🕯"
+  },
+  "ส่งแก๊ส": {
+   "th": "ส่งแก๊ส",
+   "en": "Gas delivery",
+   "glyph": "🔥"
+  },
+  "แก๊สหุงต้ม": {
+   "th": "แก๊สหุงต้ม",
+   "en": "Cooking gas",
+   "glyph": "🔥"
+  },
+  "แก๊สบ้าน": {
+   "th": "แก๊สบ้าน",
+   "en": "Household gas",
+   "glyph": "🔥"
+  },
+  "ทนายความ": {
+   "th": "ทนายความ",
+   "en": "Lawyer",
+   "glyph": "⚖"
+  },
+  "สังฆภัณฑ์": {
+   "th": "สังฆภัณฑ์",
+   "en": "Monastic supplies",
+   "glyph": "🛕"
+  },
+  "เครื่องอบผ้า": {
+   "th": "เครื่องอบผ้า",
+   "en": "Tumble dryers",
+   "glyph": "🧺"
+  },
+  "อบผ้าหยอดเหรียญ": {
+   "th": "อบผ้าหยอดเหรียญ",
+   "en": "Coin dryers",
+   "glyph": "🧺"
+  },
+  "อบผ้า": {
+   "th": "อบผ้า",
+   "en": "Tumble drying",
+   "glyph": "🧺"
+  },
+  "รีดผ้า": {
+   "th": "รีดผ้า",
+   "en": "Ironing",
+   "glyph": "👔"
+  },
+  "จัดฟันใส": {
+   "th": "จัดฟันใส",
+   "en": "Clear aligners",
+   "glyph": "🦷"
+  },
+  "หมอฟัน": {
+   "th": "หมอฟัน",
+   "en": "Dentist",
+   "glyph": "🦷"
+  },
+  "รักษาฟัน": {
+   "th": "รักษาฟัน",
+   "en": "Dental treatment",
+   "glyph": "🦷"
+  },
+  "รากฟันเทียม": {
+   "th": "รากฟันเทียม",
+   "en": "Dental implants",
+   "glyph": "🦷"
+  },
+  "ฟันปลอม": {
+   "th": "ฟันปลอม",
+   "en": "Dentures",
+   "glyph": "🦷"
+  },
+  "ประยางมอเตอร์ไซค์": {
+   "th": "ปะยางมอเตอร์ไซค์",
+   "en": "Motorbike puncture repair",
+   "glyph": "🛞"
+  },
+  "เปลี่ยนน้ำมันเครื่อง": {
+   "th": "เปลี่ยนน้ำมันเครื่อง",
+   "en": "Oil change",
+   "glyph": "🛢"
+  },
+  "เปลี่ยนน้ำมันเครื่องมอเตอร์ไซค์": {
+   "th": "เปลี่ยนน้ำมันเครื่องมอเตอร์ไซค์",
+   "en": "Motorbike oil change",
+   "glyph": "🛢"
+  },
+  "ถ่ายน้ำมันเครื่องมอเตอร์ไซต์": {
+   "th": "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์",
+   "en": "Motorbike oil change",
+   "glyph": "🛢"
+  },
+  "เปลี่ยนยาง": {
+   "th": "เปลี่ยนยาง",
+   "en": "Tyre replacement",
+   "glyph": "🛞"
+  },
+  "ล้างรถ": {
+   "th": "ล้างรถ",
+   "en": "Car wash",
+   "glyph": "🚿"
+  },
+  "ซ่อมรถยนต์": {
+   "th": "ซ่อมรถยนต์",
+   "en": "Car repair",
+   "glyph": "🔧"
+  },
+  "เคาะพ่นสี": {
+   "th": "เคาะพ่นสี",
+   "en": "Panel beating & respray",
+   "glyph": "🎨"
+  },
+  "แบตเตอรี่": {
+   "th": "แบตเตอรี่",
+   "en": "Batteries",
+   "glyph": "🔋"
+  },
+  "กุญแจ": {
+   "th": "กุญแจ",
+   "en": "Locksmith",
+   "glyph": "🔑"
+  },
+  "ตัดผม": {
+   "th": "ตัดผม",
+   "en": "Haircuts",
+   "glyph": "💇"
+  },
+  "สระไดร์": {
+   "th": "สระไดร์",
+   "en": "Wash & blow-dry",
+   "glyph": "💇"
+  },
+  "ทำเล็บ": {
+   "th": "ทำเล็บ",
+   "en": "Nails",
+   "glyph": "💅"
+  },
+  "ต่อขนตา": {
+   "th": "ต่อขนตา",
+   "en": "Eyelash extensions",
+   "glyph": "👁"
+  },
+  "สักคิ้ว": {
+   "th": "สักคิ้ว",
+   "en": "Eyebrow tattooing",
+   "glyph": "✏"
+  },
+  "นวดแผนไทย": {
+   "th": "นวดแผนไทย",
+   "en": "Thai massage",
+   "glyph": "💆"
+  },
+  "นวดเท้า": {
+   "th": "นวดเท้า",
+   "en": "Foot massage",
+   "glyph": "🦶"
+  },
+  "ตอกเส้น": {
+   "th": "ตอกเส้น",
+   "en": "Tok sen",
+   "glyph": "🪵"
+  },
+  "สปา": {
+   "th": "สปา",
+   "en": "Spa",
+   "glyph": "🧖"
+  },
+  "รับซื้อของเก่า": {
+   "th": "รับซื้อของเก่า",
+   "en": "Scrap & second-hand buying",
+   "glyph": "♻"
+  },
+  "รีไซเคิล": {
+   "th": "รีไซเคิล",
+   "en": "Recycling",
+   "glyph": "♻"
+  },
+  "รับเหมาก่อสร้าง": {
+   "th": "รับเหมาก่อสร้าง",
+   "en": "Building contractor",
+   "glyph": "🏗"
+  },
+  "ติดตั้งแอร์": {
+   "th": "ติดตั้งแอร์",
+   "en": "Air-con installation",
+   "glyph": "❄"
+  },
+  "ล้างแอร์": {
+   "th": "ล้างแอร์",
+   "en": "Air-con cleaning",
+   "glyph": "❄"
+  },
+  "กระจกรถ": {
+   "th": "กระจกรถ",
+   "en": "Car glass",
+   "glyph": "🪟"
+  },
+  "มุ้งลวด": {
+   "th": "มุ้งลวด",
+   "en": "Insect screens",
+   "glyph": "🪟"
+  },
+  "เหล็กดัด": {
+   "th": "เหล็กดัด",
+   "en": "Wrought ironwork",
+   "glyph": "🔩"
+  },
+  "หลังคา": {
+   "th": "หลังคา",
+   "en": "Roofing",
+   "glyph": "🏠"
+  },
+  "ประปา": {
+   "th": "ประปา",
+   "en": "Plumbing",
+   "glyph": "🚰"
+  },
+  "ไฟฟ้า": {
+   "th": "ไฟฟ้า",
+   "en": "Electrical work",
+   "glyph": "💡"
+  },
+  "รับจัดดอกไม้": {
+   "th": "รับจัดดอกไม้",
+   "en": "Floristry",
+   "glyph": "💐"
+  },
+  "ของชำร่วย": {
+   "th": "ของชำร่วย",
+   "en": "Wedding favours",
+   "glyph": "🎁"
+  },
+  "รับปริ้นสติกเกอร์": {
+   "th": "รับปริ้นสติกเกอร์",
+   "en": "Sticker printing",
+   "glyph": "🏷"
+  },
+  "เสื้อยืด": {
+   "th": "เสื้อยืด",
+   "en": "T-shirts",
+   "glyph": "👕"
+  },
+  "สกรีนเสื้อ": {
+   "th": "สกรีนเสื้อ",
+   "en": "Garment printing",
+   "glyph": "👕"
+  },
+  "ปักผ้า": {
+   "th": "ปักผ้า",
+   "en": "Embroidery",
+   "glyph": "🧵"
+  },
+  "ตัดเย็บ": {
+   "th": "ตัดเย็บ",
+   "en": "Sewing & tailoring",
+   "glyph": "🧵"
+  },
+  "ผ้าม่าน": {
+   "th": "ผ้าม่าน",
+   "en": "Curtains",
+   "glyph": "🪟"
+  },
+  "ขายอาหารสัตว์": {
+   "th": "ขายอาหารสัตว์",
+   "en": "Animal feed",
+   "glyph": "🐾"
+  },
+  "อาบน้ำตัดขน": {
+   "th": "อาบน้ำตัดขน",
+   "en": "Pet grooming",
+   "glyph": "🐩"
+  },
+  "ฝากเลี้ยงสัตว์": {
+   "th": "ฝากเลี้ยงสัตว์",
+   "en": "Pet boarding",
+   "glyph": "🐕"
+  },
+  "water": {
+   "th": "น้ำดื่ม",
+   "en": "Drinking water",
+   "glyph": "💧"
+  },
+  "Clean": {
+   "th": "ทำความสะอาด",
+   "en": "Cleaning",
+   "glyph": "🧽"
+  },
+  "fax": {
+   "th": "แฟกซ์",
+   "en": "Fax",
+   "glyph": "📠"
+  }
+ },
+ "facility": {
+  "government": {
+   "th": "รัฐ",
+   "en": "State-run",
+   "glyph": "🏛"
+  },
+  "private": {
+   "th": "เอกชน",
+   "en": "Private",
+   "glyph": "🏢"
+  },
+  "pharmacy": {
+   "th": "ร้านขายยา",
+   "en": "Pharmacy",
+   "glyph": "💊"
+  },
+  "health-station": {
+   "th": "โรงพยาบาลส่งเสริมสุขภาพตำบล",
+   "en": "Sub-district health station",
+   "glyph": "🏥"
+  },
+  "dentist": {
+   "th": "ทันตแพทย์",
+   "en": "Dentist",
+   "glyph": "🦷"
+  },
+  "hospital": {
+   "th": "โรงพยาบาล",
+   "en": "Hospital",
+   "glyph": "🏥"
+  },
+  "clinic": {
+   "th": "คลินิก",
+   "en": "Clinic",
+   "glyph": "🩺"
+  },
+  "doctors": {
+   "th": "คลินิกแพทย์",
+   "en": "Doctors",
+   "glyph": "🩺"
+  },
+  "optometrist": {
+   "th": "ร้านแว่น-ตรวจสายตา",
+   "en": "Optometrist",
+   "glyph": "👓"
+  },
+  "police": {
+   "th": "สถานีตำรวจ",
+   "en": "Police",
+   "glyph": "🚓"
+  },
+  "physio": {
+   "th": "กายภาพบำบัด",
+   "en": "Physiotherapy",
+   "glyph": "🦵"
+  },
+  "lpg-shop": {
+   "th": "ร้านแก๊ส",
+   "en": "LPG shop",
+   "glyph": "🔥"
+  },
+  "dental": {
+   "th": "ทันตกรรม",
+   "en": "Dental",
+   "glyph": "🦷"
+  },
+  "general": {
+   "th": "เวชปฏิบัติทั่วไป",
+   "en": "General practice",
+   "glyph": "🩺"
+  },
+  "skin": {
+   "th": "ผิวหนัง",
+   "en": "Skin",
+   "glyph": "🧴"
+  },
+  "thai-med": {
+   "th": "แพทย์แผนไทย",
+   "en": "Thai traditional medicine",
+   "glyph": "🌿"
+  },
+  "geriatric": {
+   "th": "ผู้สูงอายุ",
+   "en": "Geriatric",
+   "glyph": "🧓"
+  },
+  "chinese-med": {
+   "th": "แพทย์แผนจีน",
+   "en": "Chinese medicine",
+   "glyph": "🌿"
+  },
+  "paediatric": {
+   "th": "กุมารเวช",
+   "en": "Paediatric",
+   "glyph": "🧒"
+  },
+  "ortho": {
+   "th": "กระดูกและข้อ",
+   "en": "Orthopaedic",
+   "glyph": "🦴"
+  },
+  "lab": {
+   "th": "ห้องแล็บ",
+   "en": "Laboratory",
+   "glyph": "🧪"
+  },
+  "eye": {
+   "th": "จักษุ",
+   "en": "Eye",
+   "glyph": "👁"
+  },
+  "psych": {
+   "th": "จิตเวช",
+   "en": "Psychiatry",
+   "glyph": "🧠"
+  },
+  "addiction": {
+   "th": "บำบัดการเสพติด",
+   "en": "Addiction",
+   "glyph": "🚭"
+  },
+  "ent": {
+   "th": "หู คอ จมูก",
+   "en": "ENT",
+   "glyph": "👂"
+  },
+  "obgyn": {
+   "th": "สูตินรีเวช",
+   "en": "Obstetrics & gynaecology",
+   "glyph": "🤰"
+  },
+  "international": {
+   "th": "นานาชาติ",
+   "en": "International",
+   "glyph": "🌏"
+  },
+  "long-care": {
+   "th": "ดูแลระยะยาว",
+   "en": "Long-term care",
+   "glyph": "🧓"
+  },
+  "welfare": {
+   "th": "สงเคราะห์",
+   "en": "Welfare",
+   "glyph": "🤝"
+  },
+  "thai-medicine": {
+   "th": "แพทย์แผนไทย",
+   "en": "Thai medicine",
+   "glyph": "🌿"
+  },
+  "special": {
+   "th": "การศึกษาพิเศษ",
+   "en": "Special education",
+   "glyph": "🧩"
+  }
+ },
+ "specialty": {
+  "government": {
+   "th": "รัฐ",
+   "en": "State-run",
+   "glyph": "🏛"
+  },
+  "private": {
+   "th": "เอกชน",
+   "en": "Private",
+   "glyph": "🏢"
+  },
+  "pharmacy": {
+   "th": "ร้านขายยา",
+   "en": "Pharmacy",
+   "glyph": "💊"
+  },
+  "health-station": {
+   "th": "โรงพยาบาลส่งเสริมสุขภาพตำบล",
+   "en": "Sub-district health station",
+   "glyph": "🏥"
+  },
+  "dentist": {
+   "th": "ทันตแพทย์",
+   "en": "Dentist",
+   "glyph": "🦷"
+  },
+  "hospital": {
+   "th": "โรงพยาบาล",
+   "en": "Hospital",
+   "glyph": "🏥"
+  },
+  "clinic": {
+   "th": "คลินิก",
+   "en": "Clinic",
+   "glyph": "🩺"
+  },
+  "doctors": {
+   "th": "คลินิกแพทย์",
+   "en": "Doctors",
+   "glyph": "🩺"
+  },
+  "optometrist": {
+   "th": "ร้านแว่น-ตรวจสายตา",
+   "en": "Optometrist",
+   "glyph": "👓"
+  },
+  "police": {
+   "th": "สถานีตำรวจ",
+   "en": "Police",
+   "glyph": "🚓"
+  },
+  "physio": {
+   "th": "กายภาพบำบัด",
+   "en": "Physiotherapy",
+   "glyph": "🦵"
+  },
+  "lpg-shop": {
+   "th": "ร้านแก๊ส",
+   "en": "LPG shop",
+   "glyph": "🔥"
+  },
+  "dental": {
+   "th": "ทันตกรรม",
+   "en": "Dental",
+   "glyph": "🦷"
+  },
+  "general": {
+   "th": "เวชปฏิบัติทั่วไป",
+   "en": "General practice",
+   "glyph": "🩺"
+  },
+  "skin": {
+   "th": "ผิวหนัง",
+   "en": "Skin",
+   "glyph": "🧴"
+  },
+  "thai-med": {
+   "th": "แพทย์แผนไทย",
+   "en": "Thai traditional medicine",
+   "glyph": "🌿"
+  },
+  "geriatric": {
+   "th": "ผู้สูงอายุ",
+   "en": "Geriatric",
+   "glyph": "🧓"
+  },
+  "chinese-med": {
+   "th": "แพทย์แผนจีน",
+   "en": "Chinese medicine",
+   "glyph": "🌿"
+  },
+  "paediatric": {
+   "th": "กุมารเวช",
+   "en": "Paediatric",
+   "glyph": "🧒"
+  },
+  "ortho": {
+   "th": "กระดูกและข้อ",
+   "en": "Orthopaedic",
+   "glyph": "🦴"
+  },
+  "lab": {
+   "th": "ห้องแล็บ",
+   "en": "Laboratory",
+   "glyph": "🧪"
+  },
+  "eye": {
+   "th": "จักษุ",
+   "en": "Eye",
+   "glyph": "👁"
+  },
+  "psych": {
+   "th": "จิตเวช",
+   "en": "Psychiatry",
+   "glyph": "🧠"
+  },
+  "addiction": {
+   "th": "บำบัดการเสพติด",
+   "en": "Addiction",
+   "glyph": "🚭"
+  },
+  "ent": {
+   "th": "หู คอ จมูก",
+   "en": "ENT",
+   "glyph": "👂"
+  },
+  "obgyn": {
+   "th": "สูตินรีเวช",
+   "en": "Obstetrics & gynaecology",
+   "glyph": "🤰"
+  },
+  "ot": {
+   "th": "กิจกรรมบำบัด",
+   "en": "Occupational therapy",
+   "glyph": "🧠"
+  }
+ },
+ "sect": {
+  "maha-nikaya": {
+   "th": "มหานิกาย",
+   "en": "Maha Nikaya",
+   "glyph": "🛕"
+  },
+  "dhammayut": {
+   "th": "ธรรมยุต",
+   "en": "Dhammayut",
+   "glyph": "🛕"
+  },
+  "มหานิกาย": {
+   "th": "มหานิกาย",
+   "en": "Maha Nikaya",
+   "glyph": "🛕"
+  },
+  "ธรรมยุต": {
+   "th": "ธรรมยุต",
+   "en": "Dhammayut",
+   "glyph": "🛕"
+  },
+  "จีนนิกาย": {
+   "th": "จีนนิกาย",
+   "en": "Chinese Nikaya",
+   "glyph": "🛕"
+  }
+ },
+ "school": {
+  "state": {
+   "th": "โรงเรียนรัฐ",
+   "en": "State school",
+   "glyph": "🏫"
+  },
+  "private": {
+   "th": "โรงเรียนเอกชน",
+   "en": "Private school",
+   "glyph": "🏫"
+  },
+  "อนุบาล": {
+   "th": "อนุบาล",
+   "en": "Kindergarten",
+   "glyph": "🧸"
+  },
+  "ประถม": {
+   "th": "ประถมศึกษา",
+   "en": "Primary",
+   "glyph": "🏫"
+  },
+  "มัธยม": {
+   "th": "มัธยมศึกษา",
+   "en": "Secondary",
+   "glyph": "🏫"
+  },
+  "มัธยมต้น": {
+   "th": "มัธยมต้น",
+   "en": "Lower secondary",
+   "glyph": "🏫"
+  },
+  "มัธยมปลาย": {
+   "th": "มัธยมปลาย",
+   "en": "Upper secondary",
+   "glyph": "🏫"
+  },
+  "obec": {
+   "th": "โรงเรียนรัฐ สพฐ.",
+   "en": "OBEC state school",
+   "glyph": "🏫"
+  },
+  "monastic": {
+   "th": "โรงเรียนพระปริยัติธรรม",
+   "en": "Monastic school",
+   "glyph": "🛕"
+  }
+ },
+ "level": {
+  "state": {
+   "th": "โรงเรียนรัฐ",
+   "en": "State school",
+   "glyph": "🏫"
+  },
+  "private": {
+   "th": "โรงเรียนเอกชน",
+   "en": "Private school",
+   "glyph": "🏫"
+  },
+  "อนุบาล": {
+   "th": "อนุบาล",
+   "en": "Kindergarten",
+   "glyph": "🧸"
+  },
+  "ประถม": {
+   "th": "ประถมศึกษา",
+   "en": "Primary",
+   "glyph": "🏫"
+  },
+  "มัธยม": {
+   "th": "มัธยมศึกษา",
+   "en": "Secondary",
+   "glyph": "🏫"
+  },
+  "มัธยมต้น": {
+   "th": "มัธยมต้น",
+   "en": "Lower secondary",
+   "glyph": "🏫"
+  },
+  "มัธยมปลาย": {
+   "th": "มัธยมปลาย",
+   "en": "Upper secondary",
+   "glyph": "🏫"
+  }
+ },
+ "parking": {
+  "surface": {
+   "th": "จอดลานพื้น",
+   "en": "Surface parking",
+   "glyph": "🅿"
+  },
+  "underground": {
+   "th": "จอดใต้ดิน",
+   "en": "Underground parking",
+   "glyph": "🅿"
+  },
+  "multi-storey": {
+   "th": "จอดอาคาร",
+   "en": "Multi-storey parking",
+   "glyph": "🅿"
+  },
+  "rooftop": {
+   "th": "จอดดาดฟ้า",
+   "en": "Rooftop parking",
+   "glyph": "🅿"
+  },
+  "street_side": {
+   "th": "จอดริมถนน",
+   "en": "Street-side parking",
+   "glyph": "🅿"
+  },
+  "lane": {
+   "th": "จอดในซอย",
+   "en": "Lane parking",
+   "glyph": "🅿"
+  }
+ },
+ "cuisine": {
+  "coffee": {
+   "th": "กาแฟ",
+   "en": "Coffee",
+   "glyph": "☕"
+  },
+  "noodle": {
+   "th": "ก๋วยเตี๋ยว",
+   "en": "Noodles",
+   "glyph": "🍜"
+  },
+  "grill": {
+   "th": "ปิ้งย่าง",
+   "en": "Grill",
+   "glyph": "🔥"
+  },
+  "sandwich": {
+   "th": "แซนด์วิช",
+   "en": "Sandwiches",
+   "glyph": "🥪"
+  },
+  "local": {
+   "th": "อาหารพื้นเมือง",
+   "en": "Local food",
+   "glyph": "🍲"
+  },
+  "steak_house": {
+   "th": "สเต๊กเฮาส์",
+   "en": "Steakhouse",
+   "glyph": "🥩"
+  },
+  "smoothie": {
+   "th": "สมูทตี้",
+   "en": "Smoothies",
+   "glyph": "🥤"
+  },
+  "fish": {
+   "th": "ปลา",
+   "en": "Fish",
+   "glyph": "🐟"
+  },
+  "crepe": {
+   "th": "เครป",
+   "en": "Crêpes",
+   "glyph": "🥞"
+  },
+  "western": {
+   "th": "อาหารฝรั่ง",
+   "en": "Western",
+   "glyph": "🍽"
+  },
+  "pancake": {
+   "th": "แพนเค้ก",
+   "en": "Pancakes",
+   "glyph": "🥞"
+  },
+  "donut": {
+   "th": "โดนัท",
+   "en": "Donuts",
+   "glyph": "🍩"
+  },
+  "italian_pizza": {
+   "th": "พิซซ่าอิตาเลียน",
+   "en": "Italian pizza",
+   "glyph": "🍕"
+  },
+  "mediterranean": {
+   "th": "เมดิเตอร์เรเนียน",
+   "en": "Mediterranean",
+   "glyph": "🫒"
+  },
+  "spanish": {
+   "th": "อาหารสเปน",
+   "en": "Spanish",
+   "glyph": "🥘"
+  },
+  "middle_eastern": {
+   "th": "อาหารตะวันออกกลาง",
+   "en": "Middle Eastern",
+   "glyph": "🧆"
+  },
+  "bagel": {
+   "th": "เบเกิล",
+   "en": "Bagels",
+   "glyph": "🥯"
+  },
+  "burger": {
+   "th": "เบอร์เกอร์",
+   "en": "Burgers",
+   "glyph": "🍔"
+  }
+ },
+ "cuisine-overture": {
+  "thai_restaurant": {
+   "th": "อาหารไทย",
+   "en": "Thai",
+   "glyph": "🇹🇭"
+  },
+  "seafood_restaurant": {
+   "th": "อาหารทะเล",
+   "en": "Seafood",
+   "glyph": "🦐"
+  },
+  "halal_restaurant": {
+   "th": "อาหารฮาลาล",
+   "en": "Halal",
+   "glyph": "🕌"
+  },
+  "vegetarian_restaurant": {
+   "th": "อาหารเจ-มังสวิรัติ",
+   "en": "Vegetarian",
+   "glyph": "🥬"
+  },
+  "dim_sum_restaurant": {
+   "th": "ติ่มซำ",
+   "en": "Dim sum",
+   "glyph": "🥟"
+  },
+  "health_food_restaurant": {
+   "th": "อาหารสุขภาพ",
+   "en": "Health food",
+   "glyph": "🥗"
+  },
+  "asian_fusion_restaurant": {
+   "th": "อาหารเอเชียฟิวชัน",
+   "en": "Asian fusion",
+   "glyph": "🥢"
+  },
+  "theme_restaurant": {
+   "th": "ร้านอาหารธีม",
+   "en": "Themed restaurant",
+   "glyph": "🎪"
+  },
+  "soup_restaurant": {
+   "th": "ซุป-ต้ม",
+   "en": "Soup",
+   "glyph": "🍲"
+  },
+  "burger_restaurant": {
+   "th": "เบอร์เกอร์",
+   "en": "Burgers",
+   "glyph": "🍔"
+  },
+  "buffet_restaurant": {
+   "th": "บุฟเฟ่ต์",
+   "en": "Buffet",
+   "glyph": "🍽"
+  },
+  "bar_and_grill_restaurant": {
+   "th": "บาร์-ปิ้งย่าง",
+   "en": "Bar & grill",
+   "glyph": "🍖"
+  },
+  "fast_food_restaurant": {
+   "th": "ฟาสต์ฟู้ด",
+   "en": "Fast food",
+   "glyph": "🍟"
+  },
+  "comfort_food_restaurant": {
+   "th": "อาหารโฮมเมด",
+   "en": "Comfort food",
+   "glyph": "🍛"
+  },
+  "breakfast_and_brunch_restaurant": {
+   "th": "อาหารเช้า-บรันช์",
+   "en": "Breakfast & brunch",
+   "glyph": "🍳"
+  },
+  "thai": {
+   "th": "อาหารไทย",
+   "en": "Thai",
+   "glyph": "🇹🇭"
+  },
+  "fast_food": {
+   "th": "ฟาสต์ฟู้ด",
+   "en": "Fast food",
+   "glyph": "🍟"
+  },
+  "bar_and_grill": {
+   "th": "บาร์-ปิ้งย่าง",
+   "en": "Bar & grill",
+   "glyph": "🍖"
+  },
+  "buffet": {
+   "th": "บุฟเฟ่ต์",
+   "en": "Buffet",
+   "glyph": "🍽"
+  },
+  "seafood": {
+   "th": "อาหารทะเล",
+   "en": "Seafood",
+   "glyph": "🦐"
+  },
+  "burger": {
+   "th": "เบอร์เกอร์",
+   "en": "Burgers",
+   "glyph": "🍔"
+  },
+  "breakfast_and_brunch": {
+   "th": "อาหารเช้า-บรันช์",
+   "en": "Breakfast & brunch",
+   "glyph": "🍳"
+  },
+  "vegetarian": {
+   "th": "อาหารเจ-มังสวิรัติ",
+   "en": "Vegetarian",
+   "glyph": "🥬"
+  },
+  "soup": {
+   "th": "ซุป-ต้ม",
+   "en": "Soup",
+   "glyph": "🍲"
+  },
+  "halal": {
+   "th": "อาหารฮาลาล",
+   "en": "Halal",
+   "glyph": "🕌"
+  },
+  "dim_sum": {
+   "th": "ติ่มซำ",
+   "en": "Dim sum",
+   "glyph": "🥟"
+  },
+  "health_food": {
+   "th": "อาหารสุขภาพ",
+   "en": "Health food",
+   "glyph": "🥗"
+  },
+  "asian_fusion": {
+   "th": "อาหารเอเชียฟิวชัน",
+   "en": "Asian fusion",
+   "glyph": "🥢"
+  },
+  "theme": {
+   "th": "ร้านอาหารธีม",
+   "en": "Themed restaurant",
+   "glyph": "🎪"
+  },
+  "comfort_food": {
+   "th": "อาหารโฮมเมด",
+   "en": "Comfort food",
+   "glyph": "🍛"
+  },
+  "chicken": {
+   "th": "ไก่",
+   "en": "Chicken",
+   "glyph": "🍗"
+  },
+  "noodles": {
+   "th": "ก๋วยเตี๋ยว",
+   "en": "Noodles",
+   "glyph": "🍜"
+  },
+  "japanese": {
+   "th": "อาหารญี่ปุ่น",
+   "en": "Japanese",
+   "glyph": "🍣"
+  },
+  "chinese": {
+   "th": "อาหารจีน",
+   "en": "Chinese",
+   "glyph": "🥡"
+  },
+  "korean": {
+   "th": "อาหารเกาหลี",
+   "en": "Korean",
+   "glyph": "🍲"
+  },
+  "italian": {
+   "th": "อาหารอิตาเลียน",
+   "en": "Italian",
+   "glyph": "🍝"
+  },
+  "american": {
+   "th": "อาหารอเมริกัน",
+   "en": "American",
+   "glyph": "🍔"
+  },
+  "vietnamese": {
+   "th": "อาหารเวียดนาม",
+   "en": "Vietnamese",
+   "glyph": "🍲"
+  },
+  "barbecue": {
+   "th": "บาร์บีคิว",
+   "en": "Barbecue",
+   "glyph": "🍖"
+  },
+  "pizza": {
+   "th": "พิซซ่า",
+   "en": "Pizza",
+   "glyph": "🍕"
+  },
+  "sushi": {
+   "th": "ซูชิ",
+   "en": "Sushi",
+   "glyph": "🍣"
+  },
+  "persian_iranian": {
+   "th": "อาหารเปอร์เซีย",
+   "en": "Persian",
+   "glyph": "🍛"
+  },
+  "burmese": {
+   "th": "อาหารพม่า",
+   "en": "Burmese",
+   "glyph": "🍲"
+  },
+  "fish_and_chips": {
+   "th": "ฟิชแอนด์ชิปส์",
+   "en": "Fish & chips",
+   "glyph": "🍟"
+  }
+ },
+ "sub": {
+  "sport": {
+   "th": "กีฬา",
+   "en": "Sport",
+   "glyph": "🏅"
+  },
+  "golf": {
+   "th": "กอล์ฟ",
+   "en": "Golf",
+   "glyph": "⛳"
+  }
+ }
+}

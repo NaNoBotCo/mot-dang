@@ -1,0 +1,403 @@
+{"thai": "กัลยาณิวัฒนา", "reading": "Galyani Vadhana", "kind": "amphoe"}
+{"thai": "จอมทอง", "reading": "Chom Thong", "kind": "amphoe"}
+{"thai": "ดอยสะเก็ด", "reading": "Doi Saket", "kind": "amphoe"}
+{"thai": "ดอยหล่อ", "reading": "Doi Lo", "kind": "amphoe"}
+{"thai": "ดอยเต่า", "reading": "Doi Tao", "kind": "amphoe"}
+{"thai": "ฝาง", "reading": "Fang", "kind": "amphoe"}
+{"thai": "พร้าว", "reading": "Phrao", "kind": "amphoe"}
+{"thai": "สะเมิง", "reading": "Samoeng", "kind": "amphoe"}
+{"thai": "สันกำแพง", "reading": "San Kamphaeng", "kind": "amphoe"}
+{"thai": "สันทราย", "reading": "San Sai", "kind": "amphoe"}
+{"thai": "สันป่าตอง", "reading": "San Pa Tong", "kind": "amphoe"}
+{"thai": "สารภี", "reading": "Saraphi", "kind": "amphoe"}
+{"thai": "หางดง", "reading": "Hang Dong", "kind": "amphoe"}
+{"thai": "อมก๋อย", "reading": "Omkoi", "kind": "amphoe"}
+{"thai": "ฮอด", "reading": "Hot", "kind": "amphoe"}
+{"thai": "เชียงดาว", "reading": "Chiang Dao", "kind": "amphoe"}
+{"thai": "เมืองเชียงใหม่", "reading": "Mueang Chiang Mai", "kind": "amphoe"}
+{"thai": "เวียงแหง", "reading": "Wiang Haeng", "kind": "amphoe"}
+{"thai": "แม่ริม", "reading": "Mae Rim", "kind": "amphoe"}
+{"thai": "แม่วาง", "reading": "Mae Wang", "kind": "amphoe"}
+{"thai": "แม่ออน", "reading": "Mae On", "kind": "amphoe"}
+{"thai": "แม่อาย", "reading": "Mae Ai", "kind": "amphoe"}
+{"thai": "แม่แจ่ม", "reading": "Mae Chaem", "kind": "amphoe"}
+{"thai": "แม่แตง", "reading": "Mae Taeng", "kind": "amphoe"}
+{"thai": "ไชยปราการ", "reading": "Chai Prakan", "kind": "amphoe"}
+{"thai": "องค์การบริหารส่วนตำบลช้างเผือก", "reading": "Ongkan Brihan Suan Tambon Chang Phueak", "kind": "tambon"}
+{"thai": "เทศบาลตำบลช้างเผือก", "reading": "Municipality Tambon Chang Phueak", "kind": "tambon"}
+{"thai": "เทศบาลตำบลท่าศาลา", "reading": "Municipality Tambon Tha Sala", "kind": "tambon"}
+{"thai": "เทศบาลตำบลป่าแดด", "reading": "Municipality Tambon Pa Daet", "kind": "tambon"}
+{"thai": "เทศบาลตำบลฟ้าฮ่าม", "reading": "Municipality Tambon Fa Ham", "kind": "tambon"}
+{"thai": "เทศบาลตำบลสันทรายหลวง", "reading": "Municipality Tambon San Sai Luang", "kind": "tambon"}
+{"thai": "เทศบาลตำบลสันผีเสื้อ", "reading": "Municipality Tambon San Phisuea", "kind": "tambon"}
+{"thai": "เทศบาลตำบลสันพระเนตร", "reading": "Municipality Tambon San Phra Net", "kind": "tambon"}
+{"thai": "เทศบาลตำบลหนองจ๊อม", "reading": "Municipality Tambon Nongchom", "kind": "tambon"}
+{"thai": "เทศบาลตำบลหนองป่าครั่ง", "reading": "Municipality Tambon Nong Pa Khrang", "kind": "tambon"}
+{"thai": "เทศบาลตำบลหนองหอย", "reading": "Municipality Tambon Nong Hoi", "kind": "tambon"}
+{"thai": "เทศบาลนครเชียงใหม่", "reading": "Municipality Nakhon Chiang Mai", "kind": "tambon"}
+{"thai": "เทศบาลเมืองสุเทพ", "reading": "Municipality Mueang Suthep", "kind": "tambon"}
+{"thai": "เทศบาลเมืองแม่เหียะ", "reading": "Municipality Mueang Mae Hia", "kind": "tambon"}
+{"thai": "เทศบาลเมืองแม่โจ้", "reading": "Municipality Mueang Mae Jo", "kind": "tambon"}
+{"thai": "ขุนตาล", "reading": "Khun Tan", "kind": "amphoe"}
+{"thai": "ดอยหลวง", "reading": "Doi Luang", "kind": "amphoe"}
+{"thai": "ป่าแดด", "reading": "Pa Daet", "kind": "amphoe"}
+{"thai": "พญาเม็งราย", "reading": "Phaya Mengrai", "kind": "amphoe"}
+{"thai": "พาน", "reading": "Phan", "kind": "amphoe"}
+{"thai": "เชียงของ", "reading": "Chiang Khong", "kind": "amphoe"}
+{"thai": "เชียงแสน", "reading": "Chiang Saen", "kind": "amphoe"}
+{"thai": "เทิง", "reading": "Thoeng", "kind": "amphoe"}
+{"thai": "เมืองเชียงราย", "reading": "Mueang Chiang Rai", "kind": "amphoe"}
+{"thai": "เวียงชัย", "reading": "Wiang Chai", "kind": "amphoe"}
+{"thai": "เวียงป่าเป้า", "reading": "Wiang Pa Pao", "kind": "amphoe"}
+{"thai": "เวียงเชียงรุ้ง", "reading": "Wiang Chiang Rung", "kind": "amphoe"}
+{"thai": "เวียงแก่น", "reading": "Wiang Kaen", "kind": "amphoe"}
+{"thai": "แม่จัน", "reading": "Mae Chan", "kind": "amphoe"}
+{"thai": "แม่ฟ้าหลวง", "reading": "Mae Fah Luang", "kind": "amphoe"}
+{"thai": "แม่ลาว", "reading": "Mae Lao", "kind": "amphoe"}
+{"thai": "แม่สรวย", "reading": "Mae Suai", "kind": "amphoe"}
+{"thai": "แม่สาย", "reading": "Mae Sai", "kind": "amphoe"}
+{"thai": "เทศบาลนครเชียงราย", "reading": "Municipality Nakhon Chiang Rai", "kind": "tambon"}
+{"thai": "สุเทพ", "reading": "Suthep", "kind": "tambon"}
+{"thai": "ไชยสถาน", "reading": "Chaisathan", "kind": "tambon"}
+{"thai": "ฟ้าฮ่าม", "reading": "Fa Ham", "kind": "tambon"}
+{"thai": "ท่าศาลา", "reading": "Tha Sala", "kind": "tambon"}
+{"thai": "ช้างเผือก", "reading": "Chang Phueak", "kind": "tambon"}
+{"thai": "ศรีภูมิ", "reading": "Si Phum", "kind": "tambon"}
+{"thai": "ช้างม่อย", "reading": "Changmoi", "kind": "tambon"}
+{"thai": "แม่เหียะ", "reading": "Mae Hia", "kind": "tambon"}
+{"thai": "ช้างคลาน", "reading": "Chang Khlan", "kind": "tambon"}
+{"thai": "สันผักหวาน", "reading": "San Phak Wan", "kind": "tambon"}
+{"thai": "สันทรายน้อย", "reading": "San Sai Noi", "kind": "tambon"}
+{"thai": "หนองควาย", "reading": "Nong Khwai", "kind": "tambon"}
+{"thai": "หนองหาร", "reading": "Nong Han", "kind": "tambon"}
+{"thai": "บ้านแหวน", "reading": "Ban Waen", "kind": "tambon"}
+{"thai": "วัดเกต", "reading": "Wat Ket", "kind": "tambon"}
+{"thai": "ป่าตัน", "reading": "Pa Tan", "kind": "tambon"}
+{"thai": "หนองหอย", "reading": "Nong Hoi", "kind": "tambon"}
+{"thai": "สันผีเสื้อ", "reading": "San Phisuea", "kind": "tambon"}
+{"thai": "หนองป่าครั่ง", "reading": "Nong Pa Khrang", "kind": "tambon"}
+{"thai": "หายยา", "reading": "Haiya", "kind": "tambon"}
+{"thai": "ริมใต้", "reading": "Rimtai", "kind": "tambon"}
+{"thai": "สันพระเนตร", "reading": "San Phra Net", "kind": "tambon"}
+{"thai": "บ้านปง", "reading": "Ban Pong", "kind": "tambon"}
+{"thai": "หนองจ๊อม", "reading": "Nongchom", "kind": "tambon"}
+{"thai": "สันนาเม็ง", "reading": "San Nameng", "kind": "tambon"}
+{"thai": "แม่สา", "reading": "Mae Sa", "kind": "tambon"}
+{"thai": "ท่าวังตาล", "reading": "Tha Wang Tan", "kind": "tambon"}
+{"thai": "พระสิงห์", "reading": "Phra Sing", "kind": "tambon"}
+{"thai": "ออนเหนือ", "reading": "Onnuea", "kind": "tambon"}
+{"thai": "สันกลาง", "reading": "San Klang", "kind": "pinFrom"}
+{"thai": "สันกำแพง (geocode_local)", "reading": "San Kamphaeng (geocode_local)", "kind": "pinFrom"}
+{"thai": "เซ็นทรัล เชียงใหม่ แอร์พอร์ต (cm-osm-way-87710118)", "reading": "Central Chiang Mai Airport (cm-osm-way-87710118)", "kind": "pinFrom"}
+{"thai": "ตลาดคำเที่ยง", "reading": "Khamthiang Market", "kind": "pinFrom"}
+{"thai": "สันปูเลย", "reading": "San Pu Loei", "kind": "tambon"}
+{"thai": "ป่าไผ่", "reading": "Pa Phai", "kind": "tambon"}
+{"thai": "ปงตำ", "reading": "Pongtam", "kind": "tambon"}
+{"thai": "ดอนเปา", "reading": "Donpao", "kind": "tambon"}
+{"thai": "สบเตี๊ยะ", "reading": "Soptia", "kind": "tambon"}
+{"thai": "จอมทอง จังหวัดเชียงใหม่", "reading": "Chom Thong Changwat Chiang Mai", "kind": "pinFrom"}
+{"thai": "ข่วงเปา", "reading": "Khwongpao", "kind": "tambon"}
+{"thai": "สันกำแพง จังหวัดเชียงใหม่", "reading": "San Kamphaeng Changwat Chiang Mai", "kind": "pinFrom"}
+{"thai": "สันมหาพน", "reading": "San Mahapna", "kind": "tambon"}
+{"thai": "แม่แตง จังหวัดเชียงใหม่", "reading": "Mae Taeng Changwat Chiang Mai", "kind": "pinFrom"}
+{"thai": "เวียง", "reading": "Wiang", "kind": "tambon"}
+{"thai": "สบแม่ข่า", "reading": "Sopmaekha", "kind": "tambon"}
+{"thai": "บ่อแก้ว", "reading": "Bo Kwae", "kind": "tambon"}
+{"thai": "แม่คือ", "reading": "Mae Khue", "kind": "tambon"}
+{"thai": "แม่สูน", "reading": "Maesun", "kind": "tambon"}
+{"thai": "ยางเนิ้ง", "reading": "Yangnoeng", "kind": "tambon"}
+{"thai": "น้ำแพร่", "reading": "Nam Phrae", "kind": "tambon"}
+{"thai": "หนองผึ้ง", "reading": "Nong Phueng", "kind": "tambon"}
+{"thai": "แม่ทะลบ", "reading": "Maethalop", "kind": "tambon"}
+{"thai": "ขี้เหล็ก", "reading": "Khilek", "kind": "tambon"}
+{"thai": "แม่แรม", "reading": "Mae Raem", "kind": "tambon"}
+{"thai": "เชิงดอย", "reading": "Choengdoi", "kind": "tambon"}
+{"thai": "ต้นเปา", "reading": "Ton Pao", "kind": "tambon"}
+{"thai": "หนองบัว", "reading": "Nong Bua", "kind": "tambon"}
+{"thai": "มะขามหลวง", "reading": "Makhamluang", "kind": "tambon"}
+{"thai": "หนองแก๋ว", "reading": "Nongkwae", "kind": "tambon"}
+{"thai": "บ้านหลวง", "reading": "Ban Luang", "kind": "tambon"}
+{"thai": "บ้านสหกรณ์", "reading": "Ban Cooperative", "kind": "tambon"}
+{"thai": "ยุหว่า", "reading": "Yuwa", "kind": "tambon"}
+{"thai": "เชียงดาว จังหวัดเชียงใหม่", "reading": "Chiang Dao Changwat Chiang Mai", "kind": "pinFrom"}
+{"thai": "ดอนแก้ว", "reading": "Donkwae", "kind": "tambon"}
+{"thai": "ทรายมูล", "reading": "Saimun", "kind": "tambon"}
+{"thai": "ช่างเคิ่ง", "reading": "Changkhoeng", "kind": "tambon"}
+{"thai": "หนองแฝก", "reading": "Nong Faek", "kind": "tambon"}
+{"thai": "อินทขิล", "reading": "Inthakhin", "kind": "tambon"}
+{"thai": "สันโป่ง", "reading": "San Pong", "kind": "tambon"}
+{"thai": "ดอยแก้ว", "reading": "Doi Kwae", "kind": "tambon"}
+{"thai": "บ้านกลาง", "reading": "Ban Klang", "kind": "tambon"}
+{"thai": "สบเปิง", "reading": "Soppoeng", "kind": "tambon"}
+{"thai": "แม่นาจร", "reading": "Mae Na Chon", "kind": "tambon"}
+{"thai": "ยางคราม", "reading": "Yangkhram", "kind": "tambon"}
+{"thai": "เมืองนะ", "reading": "Mueang Na", "kind": "tambon"}
+{"thai": "บ้านกาด", "reading": "Ban Kat", "kind": "tambon"}
+{"thai": "ช่อแล", "reading": "Cholae", "kind": "tambon"}
+{"thai": "แม่อาย จังหวัดเชียงใหม่", "reading": "Mae Ai Changwat Chiang Mai", "kind": "pinFrom"}
+{"thai": "หนองแหย่ง", "reading": "Nongyaeng", "kind": "tambon"}
+{"thai": "แม่แฝกใหม่", "reading": "Mae Faek Mai", "kind": "tambon"}
+{"thai": "บ้านแม", "reading": "Ban Mae", "kind": "tambon"}
+{"thai": "แม่สาว", "reading": "Mae Sao", "kind": "tambon"}
+{"thai": "แม่วิน", "reading": "Mae Win", "kind": "tambon"}
+{"thai": "บ้านจันทร์", "reading": "Ban Chan", "kind": "tambon"}
+{"thai": "ม่อนปิ่น", "reading": "Mon Pin", "kind": "tambon"}
+{"thai": "น้ำบ่อหลวง", "reading": "Nam Bo Luang", "kind": "tambon"}
+{"thai": "โป่งแยง", "reading": "Pong Yaeng", "kind": "tambon"}
+{"thai": "โป่งน้ำร้อน", "reading": "Pong Nam Ron", "kind": "tambon"}
+{"thai": "แช่ช้าง", "reading": "Chaechang", "kind": "tambon"}
+{"thai": "บวกค้าง", "reading": "Buakkhang", "kind": "tambon"}
+{"thai": "ป่าบง", "reading": "Pa Bong", "kind": "tambon"}
+{"thai": "บ้านแปะ", "reading": "Ban Pae", "kind": "tambon"}
+{"thai": "แม่ตื่น", "reading": "Mae Tuen", "kind": "tambon"}
+{"thai": "ชมภู", "reading": "Chomphu", "kind": "tambon"}
+{"thai": "แม่สอย", "reading": "Mae Soi", "kind": "tambon"}
+{"thai": "ลวงเหนือ", "reading": "Luangnuea", "kind": "tambon"}
+{"thai": "แม่ข่า", "reading": "Mae Kha", "kind": "tambon"}
+{"thai": "สันทรายหลวง", "reading": "San Sai Luang", "kind": "tambon"}
+{"thai": "ร้องวัวแดง", "reading": "Rongwuadaeng", "kind": "tambon"}
+{"thai": "แม่นาวาง", "reading": "Mae Na Wang", "kind": "tambon"}
+{"thai": "หารแก้ว", "reading": "Hankwae", "kind": "tambon"}
+{"thai": "บ่อหลวง", "reading": "Bo Luang", "kind": "tambon"}
+{"thai": "สันป่าเปา", "reading": "San Pa Pao", "kind": "tambon"}
+{"thai": "ท่าวังพร้าว", "reading": "Tha Wang Phrao", "kind": "tambon"}
+{"thai": "เปียงหลวง", "reading": "Piangluang", "kind": "tambon"}
+{"thai": "มืดกา", "reading": "Muetka", "kind": "tambon"}
+{"thai": "ท่าเดื่อ", "reading": "Tha Duea", "kind": "tambon"}
+{"thai": "หนองตอง", "reading": "Nong Tong", "kind": "tambon"}
+{"thai": "ทุ่งต้อม", "reading": "Thung Tom", "kind": "tambon"}
+{"thai": "สองแคว", "reading": "Songkhwae", "kind": "tambon"}
+{"thai": "ศรีดงเย็น", "reading": "Sitngayen", "kind": "tambon"}
+{"thai": "วัดสวนดอก", "reading": "Wat Dok Garden", "kind": "pinFrom"}
+{"thai": "วัดพุทธนิมิตร", "reading": "Wat Phuttha Nimit Ra", "kind": "pinFrom"}
+{"thai": "วัดฉิมพลีวุฒาราม", "reading": "Wat Chimphli Wut Ram", "kind": "pinFrom"}
+{"thai": "เขื่อนผาก", "reading": "Khueanphak", "kind": "tambon"}
+{"thai": "วัดเขื่อนผาก", "reading": "Wat Khueanphak", "kind": "pinFrom"}
+{"thai": "เชียงดอย", "reading": "Chiangdoi", "kind": "tambon"}
+{"thai": "วัดดอยสัพพัญญู", "reading": "Wat Doi Sapphanyu", "kind": "pinFrom"}
+{"thai": "วัดเชตุพน", "reading": "Wat Chetupna", "kind": "pinFrom"}
+{"thai": "วัดศรีโสดา", "reading": "Wat Sisoda", "kind": "pinFrom"}
+{"thai": "วัดศรีบุญเรือง", "reading": "Wat Sibunrueang", "kind": "pinFrom"}
+{"thai": "วัดพระนอนป่าเก็ดถี่", "reading": "Wat Phra Non Paket Thi", "kind": "pinFrom"}
+{"thai": "ท่าตอน", "reading": "Tha Ton", "kind": "tambon"}
+{"thai": "วัดท่าตอน", "reading": "Wat Tha Ton", "kind": "pinFrom"}
+{"thai": "วัดแม่ริม", "reading": "Wat Mae Rim", "kind": "pinFrom"}
+{"thai": "วัดป่าไม้แดง", "reading": "Wat Pa Mai Daeng", "kind": "pinFrom"}
+{"thai": "วัดกู่", "reading": "Wat Ku", "kind": "pinFrom"}
+{"thai": "วัดกำแพงงาม", "reading": "Wat Kamphaengngam", "kind": "pinFrom"}
+{"thai": "วัดโขงขาว", "reading": "Wat Khongkhao", "kind": "pinFrom"}
+{"thai": "ท่าผา", "reading": "Tha Pha", "kind": "tambon"}
+{"thai": "แม่ศึก", "reading": "Mae Suek", "kind": "tambon"}
+{"thai": "กองแขก", "reading": "Kongkhaek", "kind": "tambon"}
+{"thai": "เมืองงาย", "reading": "Mueang Ngai", "kind": "tambon"}
+{"thai": "แม่นะ", "reading": "Mae Na", "kind": "tambon"}
+{"thai": "ปิงโค้ง", "reading": "Pingkhong", "kind": "tambon"}
+{"thai": "ทุ่งข้าวพวง", "reading": "Thung Khao Phuang", "kind": "tambon"}
+{"thai": "ป่าป้อง", "reading": "Pa Pong", "kind": "tambon"}
+{"thai": "สง่าบ้าน", "reading": "Sangaban", "kind": "tambon"}
+{"thai": "ป่าลาน", "reading": "Pa Lan", "kind": "tambon"}
+{"thai": "สำราญราษฎร์", "reading": "Samran Rat", "kind": "tambon"}
+{"thai": "ตลาดใหญ่", "reading": "Yai Market", "kind": "tambon"}
+{"thai": "แม่ฮ้อยเงิน", "reading": "Mae Ho Ya Ngoen", "kind": "tambon"}
+{"thai": "แม่โป่ง", "reading": "Mae Pong", "kind": "tambon"}
+{"thai": "ป่าเมี่ยง", "reading": "Pa Miang", "kind": "tambon"}
+{"thai": "เทพเสด็จ", "reading": "Thep Sedot", "kind": "tambon"}
+{"thai": "แม่หอพระ", "reading": "Mae Ho Phra", "kind": "tambon"}
+{"thai": "บ้านเป้า", "reading": "Ban Pao", "kind": "tambon"}
+{"thai": "ป่าแป๋", "reading": "Papae", "kind": "tambon"}
+{"thai": "เมืองก๋าย", "reading": "Mueang Ka Ya", "kind": "tambon"}
+{"thai": "กื้ดช้าง", "reading": "Kuetchang", "kind": "tambon"}
+{"thai": "สะลวง", "reading": "Saluang", "kind": "tambon"}
+{"thai": "ห้วยทราย", "reading": "Huai Sai", "kind": "tambon"}
+{"thai": "เหมืองแก้ว", "reading": "Mueangkwae", "kind": "tambon"}
+{"thai": "สะเมิงใต้", "reading": "Samoeng Tai", "kind": "tambon"}
+{"thai": "สะเมิงเหนือ", "reading": "Samoeng Nuea", "kind": "tambon"}
+{"thai": "แม่สาบ", "reading": "Mae Sap", "kind": "tambon"}
+{"thai": "ยั้งเมิน", "reading": "Yangmoen", "kind": "tambon"}
+{"thai": "แม่งอน", "reading": "Mae Ngon", "kind": "tambon"}
+{"thai": "แม่คะ", "reading": "Mae Kha", "kind": "tambon"}
+{"thai": "มะลิกา", "reading": "Malika", "kind": "tambon"}
+{"thai": "สันต้นหมื้อ", "reading": "San Ton Mue", "kind": "tambon"}
+{"thai": "ป่าตุ้ม", "reading": "Pa Tum", "kind": "tambon"}
+{"thai": "ป่าไหน่", "reading": "Panai", "kind": "tambon"}
+{"thai": "บ้านโป่ง", "reading": "Ban Pong", "kind": "tambon"}
+{"thai": "แม่แวน", "reading": "Mae Waen", "kind": "tambon"}
+{"thai": "แม่ปั๋ง", "reading": "Maepang", "kind": "tambon"}
+{"thai": "โหล่งขอด", "reading": "Longkhot", "kind": "tambon"}
+{"thai": "มะขุนหวาน", "reading": "Makhunwan", "kind": "tambon"}
+{"thai": "แม่ก๊า", "reading": "Maeka", "kind": "tambon"}
+{"thai": "ทุ่งสะโตก", "reading": "Thungsatok", "kind": "tambon"}
+{"thai": "ออนใต้", "reading": "Ontai", "kind": "tambon"}
+{"thai": "แม่ปูคา", "reading": "Mae Pu Kha", "kind": "tambon"}
+{"thai": "แม่แฝก", "reading": "Mae Faek", "kind": "tambon"}
+{"thai": "เมืองเล็น", "reading": "Mueang Len", "kind": "tambon"}
+{"thai": "ขุนคง", "reading": "Khunkhong", "kind": "tambon"}
+{"thai": "บ้านตาล", "reading": "Ban Tan", "kind": "tambon"}
+{"thai": "บ่อสลี", "reading": "Botli", "kind": "tambon"}
+{"thai": "บ้านแอ่น", "reading": "Ban Aen", "kind": "tambon"}
+{"thai": "บงตัน", "reading": "Bongtan", "kind": "tambon"}
+{"thai": "ม่อนจอง", "reading": "Mon Chong", "kind": "tambon"}
+{"thai": "ขัวมุง", "reading": "Khua Mung", "kind": "tambon"}
+{"thai": "ท่ากว้าง", "reading": "Tha Kwang", "kind": "tambon"}
+{"thai": "เมืองแหง", "reading": "Mueang Ngae", "kind": "tambon"}
+{"thai": "แสนไห", "reading": "Saenhai", "kind": "tambon"}
+{"thai": "ทุ่งปี๊", "reading": "Thungpi", "kind": "tambon"}
+{"thai": "ทุ่งรวงทอง", "reading": "Thung Ruang Thong", "kind": "tambon"}
+{"thai": "ออนกลาง", "reading": "Onklang", "kind": "tambon"}
+{"thai": "ห้วยแก้ว", "reading": "Huai Kaeo", "kind": "tambon"}
+{"thai": "แม่ทา", "reading": "Mae Tha", "kind": "tambon"}
+{"thai": "ทาเหนือ", "reading": "Thanuea", "kind": "tambon"}
+{"thai": "สันติสุข", "reading": "Santisuk", "kind": "tambon"}
+{"thai": "แม่แดด", "reading": "Mae Daet", "kind": "tambon"}
+{"thai": "แจ่มหลวง", "reading": "Chaemluang", "kind": "tambon"}
+{"thai": "เมืองคอง", "reading": "Mueang Kho Nga", "kind": "tambon"}
+{"thai": "ทุ่งหลวง", "reading": "Thung Luang", "kind": "tambon"}
+{"thai": "เชียงใหม่", "reading": "Chiang Mai", "kind": "city"}
+{"thai": "ตลาดขวัญ", "reading": "Khwan Market", "kind": "city"}
+{"thai": "แม่ริมใต้", "reading": "Mae Rim Tai", "kind": "tambon"}
+{"thai": "แม้ริม", "reading": "Maerim", "kind": "amphoe"}
+{"thai": "เขียงใหม่", "reading": "Khiangmai", "kind": "province"}
+{"thai": "ม.6 ต.สันผักหวาน", "reading": "Ma .6 Ta . San Phak Wan", "kind": "city"}
+{"thai": "เมือง", "reading": "Mueang", "kind": "amphoe"}
+{"thai": "วัดเกต Wat ket", "reading": "Wat Ket Wat ket", "kind": "tambon"}
+{"thai": "สันนาเม็ง อ.สันทราย จ.เชียงใหม่", "reading": "San Nameng A . San Sai Cha . Chiang Mai", "kind": "city"}
+{"thai": "ช้างม่อย เชียงใหม่", "reading": "Changmoi Chiang Mai", "kind": "city"}
+{"thai": "หมู่บ้านนาเม็ง", "reading": "Village Nameng", "kind": "city"}
+{"thai": "หมู่ 10 ตำบลแม่เหียะ อำเภอเมืองเชียงใหม่", "reading": "Mu 10 Tambon Mae Hia Amphoe Mueang Chiang Mai", "kind": "city"}
+{"thai": "เหมือง", "reading": "Mueang", "kind": "tambon"}
+{"thai": "ตำลบลสันกำแพง", "reading": "Tam Lop La San Kamphaeng", "kind": "city"}
+{"thai": "บ้านธิ อ.บ้านธิ จ.ลำพูน ประเทศไทย", "reading": "Ban Thi A . Ban Thi Cha . Lamphun Prathetthai", "kind": "city"}
+{"thai": "เหมืองง่า", "reading": "Mueangnga", "kind": "city"}
+{"thai": "บ้านต้นดู่", "reading": "Ban Ton Du", "kind": "city"}
+{"thai": "บ้านร้องขุ่น", "reading": "Ban Rong Khun", "kind": "city"}
+{"thai": "บ้านเสาหิน", "reading": "Ban Saohin", "kind": "city"}
+{"thai": "สุเทพ อ.เมือง จ.เชี่ยงใหม่", "reading": "Suthep A . Mueang Cha . Chiangmai", "kind": "city"}
+{"thai": "บ้านธิ", "reading": "Ban Thi", "kind": "tambon"}
+{"thai": "ลำพูน", "reading": "Lamphun", "kind": "province"}
+{"thai": "เมือง เชียงใหม่", "reading": "Mueang Chiang Mai", "kind": "city"}
+{"thai": "สุเทพ อ.เมือง จ.เชียงใหม่", "reading": "Suthep A . Mueang Cha . Chiang Mai", "kind": "city"}
+{"thai": "ซอย 3 ต.สุเทพ อ.เมือง จ.เชียงใหม่", "reading": "Soi 3 Ta . Suthep A . Mueang Cha . Chiang Mai", "kind": "city"}
+{"thai": "เหมือง เชียงใหม่", "reading": "Mueang Chiang Mai", "kind": "city"}
+{"thai": "ริมเหนือ", "reading": "Rimnuea", "kind": "city"}
+{"thai": "เมือง Mueang Chiang mai", "reading": "Mueang Mueang Chiang mai", "kind": "amphoe"}
+{"thai": "เมืองเชียงใหม่ จังหวัดเชียงใหม่", "reading": "Mueang Chiang Mai Changwat Chiang Mai", "kind": "city"}
+{"thai": "เมญ่า", "reading": "Meya", "kind": "pinFrom"}
+{"thai": "บ้านดอนชัย", "reading": "Ban Don Chai", "kind": "pinFrom"}
+{"thai": "ร้านซ่อมมอเตอร์ไซค์", "reading": "Ran Som Motorcycle", "kind": "pinFrom"}
+{"thai": ".ป่าแดด", "reading": ". Pa Daet", "kind": "pinFrom"}
+{"thai": "ริมกก", "reading": "Rimkok", "kind": "tambon"}
+{"thai": "ท่าสาย", "reading": "Tha Sai", "kind": "tambon"}
+{"thai": "รอบเวียง", "reading": "Ropwiang", "kind": "tambon"}
+{"thai": "เมืองชุม", "reading": "Mueang Chum", "kind": "tambon"}
+{"thai": "ป่าซาง", "reading": "Pa Sang", "kind": "tambon"}
+{"thai": "บ้านดู่", "reading": "Ban Du", "kind": "tambon"}
+{"thai": "ท่าสุด", "reading": "Tha Sut", "kind": "tambon"}
+{"thai": "เมืองเชียงราย (geocode_local)", "reading": "Mueang Chiang Rai (geocode_local)", "kind": "pinFrom"}
+{"thai": "โป่งงาม", "reading": "Pong Ngam", "kind": "tambon"}
+{"thai": "แม่กรณ์", "reading": "Maek", "kind": "tambon"}
+{"thai": "ทรายขาว", "reading": "Saikhao", "kind": "tambon"}
+{"thai": "ป่าตึง", "reading": "Pa Tueng", "kind": "tambon"}
+{"thai": "ศรีค้ำ", "reading": "Sikham", "kind": "tambon"}
+{"thai": "บ้านดุ่", "reading": "Ban Du", "kind": "tambon"}
+{"thai": "ห้วยชมภู", "reading": "Huai Chomphu", "kind": "tambon"}
+{"thai": "ปอ", "reading": "Po", "kind": "tambon"}
+{"thai": "โป่งผา", "reading": "Pong Pha", "kind": "tambon"}
+{"thai": "แม่เย็น", "reading": "Mae Yen", "kind": "tambon"}
+{"thai": "งิ้ว", "reading": "Ngio", "kind": "tambon"}
+{"thai": "เกาะช้าง", "reading": "Ko Chang", "kind": "tambon"}
+{"thai": "แม่สลองใน", "reading": "Maetlongnai", "kind": "tambon"}
+{"thai": "ตับเต่า", "reading": "Taptao", "kind": "tambon"}
+{"thai": "แม่สลองนอก", "reading": "Maetlongnok", "kind": "tambon"}
+{"thai": "ป่าก่อดำ", "reading": "Pa Ko Dam", "kind": "tambon"}
+{"thai": "ป่างิ้ว", "reading": "Pa Ngio", "kind": "tambon"}
+{"thai": "เทอดไทย", "reading": "Thoetthai", "kind": "tambon"}
+{"thai": "เมืองพาน", "reading": "Mueang Phan", "kind": "tambon"}
+{"thai": "ห้วยซ้อ", "reading": "Huai So", "kind": "tambon"}
+{"thai": "ยางฮอม", "reading": "Yanghom", "kind": "tambon"}
+{"thai": "ป่าอ้อดอนชัย", "reading": "Pa O Don Chai", "kind": "tambon"}
+{"thai": "เวียงพางคำ", "reading": "Wiangphangkham", "kind": "tambon"}
+{"thai": "แม่ยาว", "reading": "Mae Yao", "kind": "tambon"}
+{"thai": "ดงมะดะ", "reading": "Dongmada", "kind": "tambon"}
+{"thai": "นางแล", "reading": "Nanglae", "kind": "tambon"}
+{"thai": "ปงน้อย", "reading": "Pongnoi", "kind": "tambon"}
+{"thai": "ดอนศิลา", "reading": "Donsila", "kind": "tambon"}
+{"thai": "เม็งราย", "reading": "Mengrai", "kind": "tambon"}
+{"thai": "ทุ่งก่อ", "reading": "Thung Ko", "kind": "tambon"}
+{"thai": "กิ่งอำเภอเวียงเชียงรุ้ง", "reading": "King Amphoe Wiang Chiang Rung", "kind": "amphoe"}
+{"thai": "ไม้ยา", "reading": "Mai", "kind": "tambon"}
+{"thai": "ต้า", "reading": "Ta", "kind": "tambon"}
+{"thai": "ศรีเมืองชุม", "reading": "Si Mueang Chum", "kind": "tambon"}
+{"thai": "ห้วยสัก", "reading": "Huai Sak", "kind": "tambon"}
+{"thai": "ห้วยไคร้", "reading": "Huai Khai", "kind": "tambon"}
+{"thai": "สถาน", "reading": "Sathan", "kind": "tambon"}
+{"thai": "เจดีย์หลวง", "reading": "Chedi Luang", "kind": "tambon"}
+{"thai": "จันจว้าใต้", "reading": "Chanchawatai", "kind": "tambon"}
+{"thai": "แม่ข้าวต้ม", "reading": "Mae Khaotom", "kind": "tambon"}
+{"thai": "แม่อ้อ", "reading": "Mae O", "kind": "tambon"}
+{"thai": "ธารทอง", "reading": "Than Thong", "kind": "tambon"}
+{"thai": "แม่เจดีย์", "reading": "Mae Chedi", "kind": "tambon"}
+{"thai": "หล่ายงาว", "reading": "Laingao", "kind": "tambon"}
+{"thai": "แม่ลอย", "reading": "Mae Loi", "kind": "tambon"}
+{"thai": "ดอยงาม", "reading": "Doi Ngam", "kind": "tambon"}
+{"thai": "ดอยลาน", "reading": "Doi Lan", "kind": "tambon"}
+{"thai": "ดอยฮาง", "reading": "Doi Hang", "kind": "tambon"}
+{"thai": "ผางาม", "reading": "Pha Ngam", "kind": "tambon"}
+{"thai": "เวียงเหนือ", "reading": "Wiang Nuea", "kind": "tambon"}
+{"thai": "ดงมหาวัน", "reading": "Dongmahaona", "kind": "tambon"}
+{"thai": "ครึ่ง", "reading": "Khrueng", "kind": "tambon"}
+{"thai": "บุญเรือง", "reading": "Bunrueang", "kind": "tambon"}
+{"thai": "ศรีดอนชัย", "reading": "Si Don Chai", "kind": "tambon"}
+{"thai": "ริมโขง", "reading": "Rimkhong", "kind": "tambon"}
+{"thai": "ปล้อง", "reading": "Palong", "kind": "tambon"}
+{"thai": "เชียงเคี่ยน", "reading": "Chiangkhian", "kind": "tambon"}
+{"thai": "หงาว", "reading": "Ngao", "kind": "tambon"}
+{"thai": "สันทรายงาม", "reading": "San Sai Ngam", "kind": "tambon"}
+{"thai": "ศรีดอนไชย", "reading": "Sitonchai", "kind": "tambon"}
+{"thai": "หนองแรด", "reading": "Nong Raet", "kind": "tambon"}
+{"thai": "สันมะเค็ด", "reading": "Sanmakhet", "kind": "tambon"}
+{"thai": "เวียงห้าว", "reading": "Wiang Hao", "kind": "tambon"}
+{"thai": "หัวง้ม", "reading": "Huangma", "kind": "tambon"}
+{"thai": "เจริญเมือง", "reading": "Charoen Mueang", "kind": "tambon"}
+{"thai": "ป่าหุ่ง", "reading": "Pahung", "kind": "tambon"}
+{"thai": "ม่วงคำ", "reading": "Muangkham", "kind": "tambon"}
+{"thai": "ทานตะวัน", "reading": "Thantawan", "kind": "tambon"}
+{"thai": "โรงช้าง", "reading": "Rongchang", "kind": "tambon"}
+{"thai": "ป่าแงะ", "reading": "Pa Ngae", "kind": "tambon"}
+{"thai": "สันมะค่า", "reading": "San Makha", "kind": "tambon"}
+{"thai": "ศรีโพธิ์เงิน", "reading": "Si Pho Ngoen", "kind": "tambon"}
+{"thai": "จันจว้า", "reading": "Chanchawa", "kind": "tambon"}
+{"thai": "แม่คำ", "reading": "Mae Kham", "kind": "tambon"}
+{"thai": "ท่าข้าวเปลือก", "reading": "Tha Khaoplueak", "kind": "tambon"}
+{"thai": "จอมสวรรค์", "reading": "Chom Sawan", "kind": "tambon"}
+{"thai": "ป่าสัก", "reading": "Pa Sak", "kind": "tambon"}
+{"thai": "บ้านแซว", "reading": "Ban Saeo", "kind": "tambon"}
+{"thai": "ศรีดอนมูล", "reading": "Sitonmun", "kind": "tambon"}
+{"thai": "แม่เงิน", "reading": "Mae Ngoen", "kind": "tambon"}
+{"thai": "โยนก", "reading": "Yonka", "kind": "tambon"}
+{"thai": "บ้านด้าย", "reading": "Ban Dai", "kind": "tambon"}
+{"thai": "แม่พริก", "reading": "Mae Phrik", "kind": "tambon"}
+{"thai": "ศรีถ้อย", "reading": "Sitya", "kind": "tambon"}
+{"thai": "ท่าก๊อ", "reading": "Thaka", "kind": "tambon"}
+{"thai": "สันสลี", "reading": "Sansali", "kind": "tambon"}
+{"thai": "เวียงกาหลง", "reading": "Wiang Kalong", "kind": "tambon"}
+{"thai": "แม่เจดีย์ใหม่", "reading": "Mae Chedi Mai", "kind": "tambon"}
+{"thai": "แม่เปา", "reading": "Mae Pao", "kind": "tambon"}
+{"thai": "แม่ต๋ำ", "reading": "Maetam", "kind": "tambon"}
+{"thai": "ตาดควัน", "reading": "Tatkhwan", "kind": "tambon"}
+{"thai": "ม่วงยาย", "reading": "Muangyai", "kind": "tambon"}
+{"thai": "ท่าข้าม", "reading": "Tha Kham", "kind": "tambon"}
+{"thai": "ป่าตาล", "reading": "Pa Tan", "kind": "tambon"}
+{"thai": "จอมหมอกแก้ว", "reading": "Chom Mo Ka Kwae", "kind": "tambon"}
+{"thai": "บัวสลี", "reading": "Buatli", "kind": "tambon"}
+{"thai": "โป่งแพร่", "reading": "Pong Phrae", "kind": "tambon"}
+{"thai": "โชคชัย", "reading": "Chok Chai", "kind": "tambon"}
+{"thai": "หนองป่าก่อ", "reading": "Nong Pa Ko", "kind": "tambon"}
+{"thai": "เชียงราย", "reading": "Chiang Rai", "kind": "province"}
+{"thai": "พยาน", "reading": "Phayan", "kind": "amphoe"}
+{"thai": "เจดีหลวง", "reading": "J Di Luang", "kind": "tambon"}
+{"thai": "บ้านป่าซางใต้", "reading": "Ban Pa Sang Tai", "kind": "city"}
+{"thai": "เมืองพาน อ.พาน", "reading": "Mueang Phan A . Phan", "kind": "city"}
+{"thai": "แม่จัน เชียงราย", "reading": "Mae Chan Chiang Rai", "kind": "city"}
+{"thai": "เมืองเชียงราย เชียงราย", "reading": "Mueang Chiang Rai Chiang Rai", "kind": "city"}
+{"thai": "บ้านใหม่ทรายทอง", "reading": "Ban Mai Sai Thong", "kind": "city"}
+{"thai": "หมู่ 4 บ้านด้าย ตำบลเวียงชัย อำเภอเวียงชัย จังหวัดเชียงราย", "reading": "Mu 4 Ban Dai Tambon Wiang Chai Amphoe Wiang Chai Changwat Chiang Rai", "kind": "city"}

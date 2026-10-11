@@ -1,0 +1,4 @@
+{
+ "_readme": "Building facts stated by listers on the Listing Sheet, gleaned by glean.py. facts.load_all() merges this with facts.json; a value that disagrees with the record went to _incoming/glean-review-*.json instead.",
+ "facts": {}
+}

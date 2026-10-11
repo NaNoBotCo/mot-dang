@@ -289,7 +289,7 @@ let found=an.terms.length?index.search(an,0):[];''',
 //   3. a bare word that IS a tag's name (pizza, japanese, bitcoin, old city,
 //      michelin) — a filter only when the filtered set is not empty.
 // Routes 2 and 3 are SOFT: never to nothing. Route 1 is what the reader
-// asked for by name and may honestly answer zero.
+// asked for by name and may answer zero.
 const TAGKEY={};
 TAB.tags.forEach((t,i)=>{[t[0],t[1],t[2]].forEach(nm=>{const k=SEARCHCORE.norm(nm||'');if(k&&!TAGKEY[k])TAGKEY[k]={t:i};});});
 TAB.trade.forEach((t,i)=>{const k=SEARCHCORE.norm(t[0]||'');if(k&&!TAGKEY[k])TAGKEY[k]={tt:i};});
@@ -321,7 +321,7 @@ if(ivals('access').indexOf('parking')!==-1)wantShelves.add('parking');''',
 const ivals=k=>[].concat(IFILT[k]||[]);
 if(ivals('access').indexOf('parking')!==-1)wantShelves.add('parking');
 const TAGOF={diet:{vegetarian:'vegetarian',vegan:'vegan',halal:'halal'},access:{wheelchair:'wheelchair'},
-wifi:{yes:'wifi'},delivery:{yes:'delivery'},open:{late:'open-late'}};
+wifi:{yes:'wifi'},aircon:{yes:'air-con'},delivery:{yes:'delivery'},open:{late:'open-late'}};
 for(const k in TAGOF)for(const v of ivals(k)){const slug=TAGOF[k][v];if(!slug)continue;
 const ti=TAB.tags.findIndex(t=>t[0]===slug);if(ti>=0)pushTag({t:ti,soft:true,word:v});}''')
 
@@ -441,7 +441,7 @@ if(sizeDropped)says.push('<s>'+hx(sizeDropped.join(' '))+'</s>');''')
 
 hook("CANFILTER grows to every constraint the index answers",
      '''const CANFILTER={access:['parking']};''',
-     '''const CANFILTER={access:['parking','wheelchair'],diet:['vegetarian','vegan','halal'],wifi:['yes'],delivery:['yes'],open:['late']};''')
+     '''const CANFILTER={access:['parking','wheelchair'],diet:['vegetarian','vegan','halal'],wifi:['yes'],aircon:['yes'],delivery:['yes'],open:['late']};''')
 
 hook("chip: constraints the page could not use; parking sentence gone",
      '''const asked=Object.keys(IFILT).filter(k=>!canFilter(k));

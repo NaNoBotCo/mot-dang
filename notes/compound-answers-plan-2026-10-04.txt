@@ -1,0 +1,28 @@
+COMPOUND ANSWERS ON MOTDANG.NET — THE PLAN (2026-10-04)
+
+Your ask: "retatrutide" found nothing, and "retatrutide buy" found Power Buy. Have a better answer ready for searches like this, systemically, from listed medicines and popular compounds.
+
+WHAT EXISTS NOW
+
+1. The lexicon. data/curated/compounds.json, 171 substances in 20 classes: GLP-1 drugs and the obesity pipeline, research peptides, growth hormone, SARMs, anabolic steroids and their ancillaries, menopause and gender-affirming hormones, ED, hair, longevity, nootropics, ADHD stimulants, sleep and controlled medicines, biologics, skin, kratom, and the everyday medicines expats ask about. Each row carries what it is in English and Thai and every name a reader types: brands, codes like BPC-157, common misspellings. Sources: your own questions in the ChatGPT record, defiant.to's pages, Mot Dang's care registers, and the compounds people commonly look up.
+
+2. The register check. importers/fda_register.py looks each substance up on the Thai FDA's public drug search: how many products are registered, their Thai and English brand names, and the legal class that decides who may sell them (ยาอันตราย, the pharmacist sells it without a prescription; ยาควบคุมพิเศษ, a doctor's prescription). Substring hits that only look like matches (bpc inside a lozenge) are ignored for research compounds.
+
+3. The cards. importers/answers_compounds.py writes one answer per substance: what it is, whether Thailand registers it and in which class, how people get it here in practice, how to vet the seller, the cost where a page states it, the approved alternative when it is unregistered, Mot Dang's pages, and the quiet Defiant line. Peptides and anabolics lead with access, cost and vetting; legality takes one sentence.
+
+4. Search. The answer box catches the substance, its brands (Thai brand names from the register included), its codes, and one slip in a long name (two in a very long one): retatrutid, semaglutid. "buy", "where to get", ซื้อ and หาซื้อ now read as intent, not as a place name. That fix is LIVE.
+
+5. The loop. importers/compound_gaps.py reads the search box, /find and the reader assistant, and lists searches shaped like a drug or compound that no answer caught: notes/compound-gaps.txt, most asked first. Each real one becomes a row in the lexicon.
+
+6. The check. tests/test_answers.mjs holds what each query must reach and what must stay quiet (test drive, primo pizza, tren station, power buy).
+
+WAITING ON YOUR WORD (staged with the care answers)
+
+- Publish the compound cards with the care answers (one file each to R2).
+- Weekly, Mondays: refresh the register check and write the gap list.
+
+NEXT, IF YOU WANT THEM
+
+- Feed the cards to ask.motdang.net as prepared answers, so the assistant answers a compound by name without carrying all 171 in every prompt.
+- Thai generic names for each substance, hand-written.
+- Read the register's later pages for a fuller Thai brand vocabulary.

@@ -51,7 +51,7 @@
     var iso = y + '-' + String(m).padStart(2, '0') + '-' + String(d).padStart(2, '0');
     var mo = (SKY[iso] || {}).moon;
     if (!mo || mo.thai_day == null) return null;
-    return { day: +mo.thai_day, waning: !mo.waxing, wanPhra: !!mo.wan_phra };
+    return { day: +mo.thai_day, waning: !('thai_waxing' in mo ? mo.thai_waxing : mo.waxing), wanPhra: !!mo.wan_phra };
   }
   function seedFor(date, bead) {
     var y = date.getFullYear(), m = date.getMonth() + 1, d = date.getDate();

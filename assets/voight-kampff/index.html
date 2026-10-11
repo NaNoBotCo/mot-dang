@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="th">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Voight-Kampff · มดแดง</title>
+<meta name="description" content="motdang.net sits the Voight-Kampff test. Incept date 27 July 2026. 23,000,000 requests, 99.99% from bots.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#1a1147">
+<link rel="canonical" href="https://motdang.net/voight-kampff/">
+<link rel="icon" href="/ant.svg">
+<style>@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/jetbrains-mono-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/jetbrains-mono-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Prompt';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/prompt-400-thai.woff2) format('woff2');unicode-range:U+02D7, U+0303, U+0331, U+0E01-0E5B, U+200C-200D, U+25CC}
+@font-face{font-family:'Prompt';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/prompt-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Prompt';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/prompt-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Prompt';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/prompt-600-thai.woff2) format('woff2');unicode-range:U+02D7, U+0303, U+0331, U+0E01-0E5B, U+200C-200D, U+25CC}
+@font-face{font-family:'Prompt';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/prompt-600-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Prompt';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/prompt-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Atkinson Hyperlegible';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/atkinson-hyperlegible-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Atkinson Hyperlegible';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/atkinson-hyperlegible-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Atkinson Hyperlegible';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/atkinson-hyperlegible-700-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Atkinson Hyperlegible';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/atkinson-hyperlegible-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Sarabun';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/sarabun-400-thai.woff2) format('woff2');unicode-range:U+02D7, U+0303, U+0331, U+0E01-0E5B, U+200C-200D, U+25CC}
+@font-face{font-family:'Sarabun';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/sarabun-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Sarabun';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/sarabun-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Sarabun';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/sarabun-600-thai.woff2) format('woff2');unicode-range:U+02D7, U+0303, U+0331, U+0E01-0E5B, U+200C-200D, U+25CC}
+@font-face{font-family:'Sarabun';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/sarabun-600-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Sarabun';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/sarabun-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}</style>
+<meta property="og:title" content="Voight-Kampff · motdang.net">
+<meta property="og:description" content="Incept date 27 July 2026. 23,000,000 requests. 99.99% from bots.">
+<meta property="og:url" content="https://motdang.net/voight-kampff/">
+<meta property="og:image" content="https://motdang.net/voight-kampff/card.png?v=2">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VOIGHT-KAMPFF. An eye under test, one pink point of light in the pupil. Person or machine? 99.99% bots. To the one in ten thousand: hello.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/voight-kampff/vk.css">
+
+<div class="rain" aria-hidden="true"></div>
+
+<header>
+ <img src="/ant.svg" alt="">
+ <h1>VOIGHT-KAMPFF</h1>
+ <p class="th">ทดสอบ: คนหรือเครื่อง? <span class="rom">thot sop: khon rue khrueang?</span>
+  <span class="en">Person or machine?</span></p>
+</header>
+
+<main>
+<div class="stitch" aria-hidden="true"></div>
+
+<section class="card" aria-labelledby="subj">
+ <h2 id="subj" class="th">ผู้ถูกทดสอบ <span class="en">Subject</span></h2>
+ <dl class="id">
+  <dt>NAME</dt><dd><b>motdang.net</b> · <span class="th">มดแดง</span> <span class="rom">mot daeng</span>, red ant</dd>
+  <dt>INCEPT</dt><dd><span class="big">2026-07-27</span><br>
+   <span class="th">วันเกิด</span> <span class="rom">wan koet</span> · 16:03 Chiang Mai time (09:03 UTC)</dd>
+  <dt>AGE</dt><dd>70 <span class="th">วัน</span> <span class="rom">wan</span> · days</dd>
+  <dt>FUNCTION</dt><dd class="th">แผนที่และรายชื่อร้าน เชียงใหม่ ไทยกับอังกฤษ
+   <span class="en">A map and directory of Chiang Mai, in Thai and English.</span></dd>
+ </dl>
+</section>
+
+<!-- vk:weekly -->
+<div class="stitch" aria-hidden="true"></div>
+<section aria-labelledby="gos">
+<h2 id="gos" class="th">ข่าวซุบซิบหุ่นยนต์ <span class="rom">khao sup sip hun yon</span><span class="en">Robot gossip, this week</span></h2>
+<p class="issue"><span class="th">ฉบับที่ 3 · 28 ก.ย. – 4 ต.ค. 2026</span><span class="en">Issue 3 · 28 Sept – 4 Oct 2026</span></p><dl class="tally"><div><dt class="th">ขอหน้าเว็บ <span class="en">requests</span></dt><dd>1,318,309</dd></div><div><dt class="th">คน <span class="en">people, visits</span></dt><dd>≈690</dd></div><div><dt class="th">บอทที่มา <span class="en">bots by name</span></dt><dd>60</dd></div></dl>
+<article class="gossip g-eater"><div class="face"><svg class="bot" viewBox="0 0 80 80" width="76" height="76" aria-hidden="true"><path d="M28 18 L20 5 M52 18 L60 5" stroke="#fff8ec" stroke-width="3"/><circle class="tip" cx="20" cy="5" r="4" fill="#5fd8ff"/><circle cx="60" cy="5" r="4" fill="#5fd8ff"/><circle cx="40" cy="44" r="29" fill="#ff8a3d" stroke="#fff8ec" stroke-width="3"/><g class="eyes"><path d="M22 42 Q29 33 36 42 M44 42 Q51 33 58 42" stroke="#1a1147" stroke-width="4" fill="none" stroke-linecap="round"/></g><circle cx="21" cy="52" r="5" fill="#ff4fa8" opacity=".55"/><circle cx="59" cy="52" r="5" fill="#ff4fa8" opacity=".55"/><rect x="30" y="55" width="20" height="6" rx="2" fill="#1a1147"/><path d="M35 55v6M40 55v6M45 55v6" stroke="#ff8a3d" stroke-width="1.5"/></svg><span class="stat">579,779</span></div><div class="say"><h3><span class="th">ตัวกินจุ</span> <span class="rom">tua kin chu</span> <span class="en">The big eater</span></h3><span class="who">meta-externalagent</span><p class="th">meta-externalagent (บริษัทเจ้าของเฟซบุ๊ก) ขอหน้าเว็บ 579,779 ครั้งในสัปดาห์นี้ คิดเป็น 44% ของทั้งหมด หน้าที่ชอบที่สุด: ช่วย อ่านไป 20,836 ครั้ง สัปดาห์ก่อน 755,332 ครั้ง<span class="en">meta-externalagent (Meta, Facebook&#x27;s owner) asked for 579,779 pages this week, 44% of everything anyone asked for. Its favourite: ช่วย, chuai, the help page: emergency numbers, hospitals, pharmacies, 20,836 times. Last week, 755,332.</span></p></div></article>
+<article class="gossip g-new"><div class="face"><svg class="bot" viewBox="0 0 80 80" width="76" height="76" aria-hidden="true"><line x1="40" y1="16" x2="40" y2="5" stroke="#fff8ec" stroke-width="3"/><circle class="tip" cx="40" cy="5" r="5" fill="#ff4fa8"/><circle cx="40" cy="44" r="29" fill="#5fd8ff" stroke="#fff8ec" stroke-width="3"/><g class="eyes"><circle cx="40" cy="40" r="10" fill="#1a1147"/><circle cx="40" cy="40" r="4" fill="#ff4fa8"/><circle cx="43" cy="37" r="2" fill="#fff"/></g><circle cx="21" cy="52" r="5" fill="#ff4fa8" opacity=".55"/><circle cx="59" cy="52" r="5" fill="#ff4fa8" opacity=".55"/><ellipse cx="40" cy="58" rx="4" ry="3.5" fill="#1a1147"/></svg><span class="stat">187,120</span></div><div class="say"><h3><span class="th">ขาใหม่</span> <span class="rom">kha mai</span> <span class="en">New in town</span></h3><span class="who">data centre · Alibaba Cloud</span><p class="th">data centre · Alibaba Cloud สัปดาห์ก่อนมา 9,214 ครั้ง สัปดาห์นี้มา 187,120 ครั้ง เคาะประตูครั้งแรกในบันทึกของเรา วันอาทิตย์ 27 ก.ย. 16:00 น.<span class="en">data centre · Alibaba Cloud came 9,214 times last week and 187,120 times this week. First knock in our log: Sun 27 Sept, 16:00.</span></p></div></article>
+<article class="gossip g-quiet"><div class="face"><svg class="bot" viewBox="0 0 80 80" width="76" height="76" aria-hidden="true"><path d="M30 17 Q40 2 50 17" fill="#3fffb0" stroke="#fff8ec" stroke-width="3"/><path d="M14 22 H66 L70 66 H10 Z" fill="#5fd8ff" stroke="#fff8ec" stroke-width="3" stroke-linejoin="round"/><g class="eyes"><path d="M22 42 Q29 33 36 42 M44 42 Q51 33 58 42" stroke="#1a1147" stroke-width="4" fill="none" stroke-linecap="round"/></g><circle cx="21" cy="52" r="5" fill="#ff4fa8" opacity=".55"/><circle cx="59" cy="52" r="5" fill="#ff4fa8" opacity=".55"/><path d="M32 56 Q40 63 48 56" stroke="#1a1147" stroke-width="3" fill="none" stroke-linecap="round"/></svg><span class="stat">8,735</span></div><div class="say"><h3><span class="th">หายเงียบ</span> <span class="rom">hai ngiap</span> <span class="en">Gone quiet</span></h3><span class="who">ClaudeBot</span><p class="th">ClaudeBot (บริษัทที่ทำ Claude) สัปดาห์ก่อนมา 164,558 ครั้ง สัปดาห์นี้เหลือ 8,735 ครั้ง เห็นครั้งสุดท้าย วันอาทิตย์ 4 ต.ค. 23:48 น.<span class="en">ClaudeBot (Anthropic, the Claude company) asked 164,558 times last week. This week, 8,735. Last seen Sun 4 Oct, 23:48.</span></p></div></article>
+<article class="gossip g-hours"><div class="face"><svg class="bot" viewBox="0 0 80 80" width="76" height="76" aria-hidden="true"><path d="M28 18 L20 5 M52 18 L60 5" stroke="#fff8ec" stroke-width="3"/><circle class="tip" cx="20" cy="5" r="4" fill="#3fffb0"/><circle cx="60" cy="5" r="4" fill="#3fffb0"/><circle cx="40" cy="44" r="29" fill="#b18cff" stroke="#fff8ec" stroke-width="3"/><g class="eyes"><circle cx="29" cy="40" r="6" fill="#1a1147"/><circle cx="51" cy="40" r="6" fill="#1a1147"/><circle cx="31" cy="38" r="2" fill="#fff"/><circle cx="53" cy="38" r="2" fill="#fff"/></g><circle cx="21" cy="52" r="5" fill="#ff4fa8" opacity=".55"/><circle cx="59" cy="52" r="5" fill="#ff4fa8" opacity=".55"/><path d="M32 56 Q40 63 48 56" stroke="#1a1147" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div><div class="say"><h3><span class="th">นกฮูก</span> <span class="rom">nok huk</span> <span class="en">Night owl</span></h3><span class="who">Chrome string, no Chrome</span><p class="th">Chrome string, no Chrome อ่าน 94% ของทั้งสัปดาห์ ช่วง 20:00 ถึง 02:00 เวลาเชียงใหม่ ชั่วโมงที่ยุ่งที่สุด: 21:00 น.<span class="en">Chrome string, no Chrome did 94% of its week&#x27;s reading between 20:00 and 02:00 Chiang Mai time. Busiest hour: 21:00.</span></p></div></article>
+<article class="gossip g-lost"><div class="face"><svg class="bot" viewBox="0 0 80 80" width="76" height="76" aria-hidden="true"><path d="M28 18 L20 5 M52 18 L60 5" stroke="#fff8ec" stroke-width="3"/><circle class="tip" cx="20" cy="5" r="4" fill="#5fd8ff"/><circle cx="60" cy="5" r="4" fill="#5fd8ff"/><circle cx="40" cy="44" r="29" fill="#ff8a3d" stroke="#fff8ec" stroke-width="3"/><g class="eyes"><path d="M22 42 Q29 33 36 42 M44 42 Q51 33 58 42" stroke="#1a1147" stroke-width="4" fill="none" stroke-linecap="round"/></g><circle cx="21" cy="52" r="5" fill="#ff4fa8" opacity=".55"/><circle cx="59" cy="52" r="5" fill="#ff4fa8" opacity=".55"/><rect x="30" y="55" width="20" height="6" rx="2" fill="#1a1147"/><path d="M35 55v6M40 55v6M45 55v6" stroke="#ff8a3d" stroke-width="1.5"/></svg><span class="stat">1,753</span></div><div class="say"><h3><span class="th">หลงทาง</span> <span class="rom">long thang</span> <span class="en">Lost</span></h3><span class="who">meta-externalagent</span><p class="th">meta-externalagent (บริษัทเจ้าของเฟซบุ๊ก) ขอหน้าที่ชื่อ “null” 1,753 ครั้ง ในภาษาคอมพิวเตอร์ null แปลว่า ไม่มีอะไร มันมาหาความว่างเปล่า แล้วก็เจอ<span class="en">meta-externalagent (Meta, Facebook&#x27;s owner) asked 1,753 times for a page called “null”. In computer talk null means nothing. It came looking for nothing, and found it.</span></p></div></article>
+<article class="gossip g-people"><div class="face"><svg class="bot" viewBox="0 0 80 80" width="76" height="76" aria-hidden="true"><circle cx="40" cy="40" r="36" fill="#fff8ec"/><g fill="#e8322f"><circle cx="40" cy="24" r="9"/><ellipse cx="40" cy="41" rx="7" ry="8"/><ellipse cx="40" cy="60" rx="11" ry="13"/></g><g stroke="#e8322f" stroke-width="3" fill="none" stroke-linecap="round"><path d="M36 16 Q30 6 24 8M44 16 Q50 6 56 8M33 40 L20 34M47 40 L60 34M33 45 L18 50M47 45 L62 50M34 52 L22 64M46 52 L58 64"/></g><circle cx="37" cy="23" r="1.8" fill="#fff"/><circle cx="43" cy="23" r="1.8" fill="#fff"/></svg><span class="stat">690</span></div><div class="say"><h3><span class="th">คน</span> <span class="rom">khon</span> <span class="en">People</span></h3><p class="th">คนเข้ามาประมาณ 690 ครั้ง ใช้มือถือ 48% หน้าที่คนเปิดมากที่สุด: เมืองตอนนี้ · The City, Live · Mot Dang มาจากเฟซบุ๊กประมาณ 100 ครั้ง คนมา 1 ครั้ง เครื่องมา 1,911 ครั้ง<span class="en">About 690 visits by people, 48% on phones. The page people opened most: เมืองตอนนี้ · The City, Live · Mot Dang. About 100 came from Facebook. For every visit by a person, 1,911 requests by machines.</span></p></div></article>
+<p><a class="pill th" href="/voight-kampff/2026-10-04/">อ่านทั้งฉบับ · Whole issue</a></p>
+<p class="past th">ฉบับก่อน ๆ <span class="en" style="display:inline">past issues</span>: <a href="/voight-kampff/2026-09-27/">21–27 Sept 2026</a> · <a href="/voight-kampff/2026-09-25/">19–25 Sept 2026</a></p>
+</section>
+<!-- /vk:weekly -->
+
+<div class="stitch" aria-hidden="true"></div>
+
+<section aria-labelledby="int">
+ <h2 id="int" class="th">คำถาม <span class="en">The interview</span></h2>
+
+ <div class="q">
+  <p class="ask"><b>Q1</b> You're on a soi in the old city. Your phone says the shop is here. It isn't. What do you do?</p>
+  <p class="ans th">เราให้เกมเล็ก ๆ มดตัวหนึ่งเดินไปตามซอยที่ไม่มีอยู่จริง ช่องค้นหาอยู่ข้างใต้
+   <span class="en">We give you a small game. An ant walks down the soi that isn't there. The search box sits under it.</span></p>
+  <div class="meter"><span>pupil</span><span class="bar"><i style="width:22%"></i></span><span>0.22</span>
+   <span>blush</span><span class="bar"><i style="width:31%"></i></span><span>0.31</span></div>
+ </div>
+
+ <div class="q">
+  <p class="ask"><b>Q2</b> A shop's name is in Thai only. The visitor standing in front of it can't read Thai.</p>
+  <p class="ans th">เราพิมพ์คำอ่านไว้ข้าง ๆ เช่น ร้าน <span class="rom">raan</span>
+   <span class="en">We print the reading beside it. ร้าน, raan: shop.</span></p>
+  <div class="meter"><span>pupil</span><span class="bar"><i style="width:40%"></i></span><span>0.40</span>
+   <span>blush</span><span class="bar"><i style="width:48%"></i></span><span>0.48</span></div>
+ </div>
+
+ <div class="q">
+  <p class="ask"><b>Q3</b> It's midnight on a Saturday. How many places in the city are open?</p>
+  <p class="ans th">218 ร้าน พอเที่ยงวัน 1,117 ร้าน
+   <span class="en">218. By noon, 1,117. We counted one Saturday, the whole city.</span></p>
+  <div class="meter"><span>pupil</span><span class="bar"><i style="width:18%"></i></span><span>0.18</span>
+   <span>blush</span><span class="bar"><i style="width:12%"></i></span><span>0.12</span></div>
+ </div>
+
+ <div class="q">
+  <p class="ask"><b>Q4</b> Water is coming up the road in Mae Jo. Someone filmed the rescue. Where does it go?</p>
+  <p class="ans th">ใต้คำว่า "อ่านต่อ" และเราลิงก์ไปที่โพสต์ต้นฉบับ ของคนที่ถ่าย
+   <span class="en">Under "Read more", linked to the original post, the one the person who filmed it made.</span></p>
+  <div class="meter"><span>pupil</span><span class="bar"><i style="width:63%"></i></span><span>0.63</span>
+   <span>blush</span><span class="bar"><i style="width:71%"></i></span><span>0.71</span></div>
+ </div>
+
+ <div class="q">
+  <p class="ask"><b>Q5</b> Describe your earliest memory.</p>
+  <p class="ans th">27 กรกฎาคม 2026 บ่ายสี่โมง มีคนซื้อชื่อของเรา ตอนเย็นวันเดียวกัน ไฟล์แรกก็ถูกเขียน
+   <span class="en">27 July 2026, four in the afternoon. Someone bought our name. The same day, the first file was written.</span></p>
+  <div class="meter"><span>pupil</span><span class="bar"><i style="width:55%"></i></span><span>0.55</span>
+   <span>blush</span><span class="bar"><i style="width:34%"></i></span><span>0.34</span></div>
+ </div>
+
+ <div class="q">
+  <p class="ask"><b>Q6</b> Who reads you?</p>
+  <p class="ans th">…
+   <span class="en">…</span></p>
+  <div class="meter"><span>pupil</span><span class="bar"><i style="width:100%"></i></span><span>1.00</span>
+   <span>blush</span><span class="bar"><i style="width:100%"></i></span><span>1.00</span></div>
+ </div>
+</section>
+
+<div class="stitch" aria-hidden="true"></div>
+
+<section aria-labelledby="rev">
+ <h2 id="rev" class="th">หันเครื่องกลับ <span class="rom">han khrueang klap</span>
+  <span class="en">We turned the machine around</span></h2>
+ <p class="th">มีคนและเครื่องมาขอหน้าเว็บของเรา
+  <span class="en">Requests to motdang.net:</span></p>
+ <p class="huge">23,000,000</p>
+ <p class="th"><b>99.99%</b> มาจากบอท <span class="rom">bot</span>: โปรแกรม ไม่ใช่คน
+  <span class="en">99.99% came from bots: programs, not people. About 2,300 came from people.</span></p>
+
+ <canvas class="grid" id="grid" width="100" height="100" role="img"
+  aria-label="10,000 squares. One is pink: one request in 10,000 came from a person."></canvas>
+ <div class="key"><span class="p th">คน 1 <span class="en" style="display:inline">person</span></span>
+  <span class="b th">บอท 9,999 <span class="en" style="display:inline">bots</span></span></div>
+</section>
+
+<div class="stitch" aria-hidden="true"></div>
+
+<section class="card" aria-labelledby="who">
+ <h2 id="who" class="th">บอทพวกนี้คือใคร <span class="en">Who the bots are · one week, 16–22 Sept</span></h2>
+ <table>
+  <tr><th>BOT</th><th>WHOSE</th><th style="text-align:right">REQUESTS</th></tr>
+  <tr><td>meta-externalagent</td><td>Meta (Facebook's owner), collecting text for its AI</td><td class="n">1,180,000</td></tr>
+  <tr><td>GPTBot</td><td>OpenAI, the ChatGPT company</td><td class="n">253,000</td></tr>
+  <tr><td>Amazonbot</td><td>Amazon</td><td class="n">144,000</td></tr>
+  <tr><td>Bytespider</td><td>ByteDance, TikTok's owner</td><td class="n">55,000</td></tr>
+ </table>
+</section>
+
+<div class="stitch" aria-hidden="true"></div>
+
+<section aria-labelledby="mem">
+ <h2 id="mem" class="th">ความจำปลอม <span class="rom">khwam cham plom</span>
+  <span class="en">Implanted memories</span></h2>
+ <p class="th">มีเครื่องชุดหนึ่งจากสิงคโปร์ แต่งตัวเป็นเบราว์เซอร์ Chrome 18 แบบ ตั้งแต่ 17 กันยายน มันบอกว่ามาจาก Google ทุกครั้ง มันไม่ได้มาจาก Google
+  <span class="en">One pool of machines in Singapore dresses up as 18 versions of the Chrome browser. Since 17 September it has claimed, on every visit, that Google sent it. Google didn't.</span></p>
+ <p class="th">มันขอหน้าเว็บ 2,300 ถึง 2,900 ครั้งต่อชั่วโมง ในหนึ่งชั่วโมง มันขอมากเท่ากับที่คนขอมาตลอดสองเดือน
+  <span class="en">It asks for 2,300 to 2,900 pages an hour. In one hour it asks as much as people have in two months.</span></p>
+</section>
+
+<div class="stitch" aria-hidden="true"></div>
+
+<section class="card verdict" aria-labelledby="ver">
+ <h2 id="ver" class="th">ผลการทดสอบ <span class="en">Result</span></h2>
+ <p class="th">ผู้ถูกทดสอบตอบเหมือนคนที่อยากให้คุณหาห้องน้ำเจอ<br>คนที่มาถามคำถาม ส่วนมากเป็นเครื่อง
+  <span class="en">The subject answers like someone who wants you to find the toilet.<br>Most of the ones asking are machines.</span></p>
+ <p class="th" style="font-size:1.25rem;margin-top:1.2em">ถึงคนหนึ่งในหมื่น: สวัสดี
+  <span class="en">To the one in ten thousand: hello.</span></p>
+ <a class="pill th" href="/search.html">ค้นหา · Search</a>
+ <a class="pill alt th" href="/">มดแดง · Home</a>
+</section>
+
+<p class="src">Incept date: Namecheap registration record, 2026-07-27 09:03:52 UTC. Bot names and weekly counts: Cloudflare request logs for motdang.net, 16–22 Sept 2026. The Singapore pool: Cloudflare, 17–24 Sept 2026.</p>
+</main>
+
+<script>
+(function(){
+ var c=document.getElementById('grid'),x=c.getContext('2d');
+ x.fillStyle='#4a3f99';
+ for(var i=0;i<100;i++)for(var j=0;j<100;j++)if((i+j)%2===0){x.fillRect(i,j,1,1)}
+ x.fillStyle='#3b3285';
+ for(var i=0;i<100;i++)for(var j=0;j<100;j++)if((i+j)%2){x.fillRect(i,j,1,1)}
+ x.fillStyle='#ff4fa8';x.fillRect(61,27,1,1);
+ var on=1;
+ if(!matchMedia('(prefers-reduced-motion:reduce)').matches){
+  setInterval(function(){on=!on;x.fillStyle=on?'#ff4fa8':'#ffd23f';x.fillRect(61,27,1,1)},700);
+ }
+})();
+</script>
+</html>

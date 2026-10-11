@@ -1,0 +1,1740 @@
+{
+ "_readme": [
+  "The register: every minisite and capability on motdang.net, one card each.",
+  "Read by sites_layer.py. The front page's six, /sites/, the shelf bands, the nets, the",
+  "search cards (docs/data/sites.json, read by the Worker), the sitemap and llms.txt all",
+  "come from here. Nan 2026-09-28: all new sites carry cards.",
+  "",
+  "cards[]   id, href (relative to motdang.net/, or a full URL for another host),",
+  "          th, en, line_th, line_en, icon (an i-* id in docs/icons.svg),",
+  "          shipped (YYYY-MM-DD, or null when not known), group (a key in groups),",
+  "          where (cm | cr | both), shelves (shelf keys whose pages it heads),",
+  "          net (a key in nets.json), words (what a reader might type), fav (Nan's pick),",
+  "          served (docs | worker | external),",
+  "          until (YYYY-MM-DD: off the front page after it), season ([\"MM-DD\", \"MM-DD\"]: on the",
+  "          front page only inside that stretch of each year; sites_layer.timing)",
+  "          on (YYYY-MM-DD: the day it happens, shown on the front tile in place of shipped),",
+  "          picture (a file in assets/front/pics/ for the front tile) with picture_by (its credit)",
+  "pages[]   [href, group]: a page listed in /sites/ under its own <h1>, no card of its own",
+  "not_sites a path under docs/ that is not a site (tools, forms, data, stubs)",
+  "",
+  "A card may also travel with its site: assets/sites/<slug>/card.json (same fields,",
+  "href filled in from the folder) is read on every build."
+ ],
+ "groups": [
+  {
+   "key": "home",
+   "th": "บ้าน",
+   "en": "Home",
+   "icon": "i-home2"
+  },
+  {
+   "key": "go",
+   "th": "ไปเที่ยว",
+   "en": "Going out",
+   "icon": "i-route"
+  },
+  {
+   "key": "wat",
+   "th": "วัด พระจันทร์ วันพระ",
+   "en": "Wats, moons, days",
+   "icon": "i-wat"
+  },
+  {
+   "key": "body",
+   "th": "ร่างกายและสุขภาพ",
+   "en": "Body and health",
+   "icon": "i-health"
+  },
+  {
+   "key": "daily",
+   "th": "ทุกวัน",
+   "en": "Every day",
+   "icon": "i-clock"
+  },
+  {
+   "key": "biz",
+   "th": "เว็บของร้าน",
+   "en": "A business's own site",
+   "icon": "i-shop"
+  },
+  {
+   "key": "bots",
+   "th": "บอท",
+   "en": "Bots",
+   "icon": "i-ant"
+  },
+  {
+   "key": "behind",
+   "th": "เบื้องหลัง",
+   "en": "Behind the site",
+   "icon": "i-gear"
+  }
+ ],
+ "cards": [
+  {
+   "id": "kamthieng-amulets",
+   "href": "markets/cm/kamthieng/amulets/",
+   "th": "ตลาดพระ คำเที่ยง",
+   "en": "Kamthieng Amulet Market",
+   "line_th": "พระเครื่อง กรอบ ตลับ สร้อย ของเก่า เช้าวันพฤหัส 28 แผง ทางไป คำศัพท์",
+   "line_en": "amulets, frames, cases, chains and antiques, Thursday mornings: 28 stalls, the way there, the words",
+   "icon": "i-shop",
+   "shipped": "2026-09-28",
+   "group": "go",
+   "where": "cm",
+   "shelves": [
+    "market"
+   ],
+   "net": "amulets",
+   "served": "docs",
+   "words": [
+    "amulet",
+    "amulets",
+    "amulet market",
+    "phra khrueang",
+    "kamthieng",
+    "kham thiang",
+    "jing jai",
+    "frame",
+    "waterproof frame",
+    "antique",
+    "ตลาดพระ",
+    "พระเครื่อง",
+    "คำเที่ยง",
+    "เช่าพระ",
+    "กรอบพระ",
+    "เลี่ยมพระ"
+   ]
+  },
+  {
+   "id": "chamcha",
+   "href": "markets/cm/chamcha/",
+   "th": "กาดฉำฉา",
+   "en": "Chamcha Market",
+   "line_th": "งานฝีมือ ผ้าฝ้าย ผ้าคราม ของทำมือ ใต้ต้นฉำฉา สันกำแพง เสาร์ อาทิตย์ 49 ร้าน",
+   "line_en": "crafts, cotton, indigo and handmade things under rain trees in San Kamphaeng, Saturdays and Sundays: 49 stalls",
+   "icon": "i-shop",
+   "shipped": "2026-09-28",
+   "group": "go",
+   "where": "cm",
+   "shelves": [
+    "market",
+    "shopping"
+   ],
+   "net": "chamcha",
+   "served": "docs",
+   "words": [
+    "chamcha",
+    "cham cha",
+    "chamchaa",
+    "loang him kao",
+    "san kamphaeng",
+    "craft market",
+    "handmade",
+    "weekend market",
+    "indigo",
+    "crochet",
+    "ฉำฉา",
+    "กาดฉำฉา",
+    "ตลาดฉำฉา",
+    "โหล่งฮิมคาว",
+    "สันกำแพง",
+    "งานฝีมือ",
+    "ทำมือ"
+   ]
+  },
+  {
+   "id": "markets",
+   "href": "markets/",
+   "th": "ตลาดและห้าง",
+   "en": "Markets and malls",
+   "line_th": "ทุกตลาด ทุกห้าง เชียงใหม่ เชียงราย ตามอำเภอ",
+   "line_en": "every market and mall in Chiang Mai and Chiang Rai, by district",
+   "icon": "i-shop",
+   "shipped": "2026-09-28",
+   "group": "go",
+   "where": "both",
+   "shelves": [
+    "market",
+    "shopping"
+   ],
+   "served": "docs",
+   "words": [
+    "market",
+    "markets",
+    "mall",
+    "malls",
+    "shopping",
+    "department store",
+    "ตลาด",
+    "ห้าง",
+    "กาด",
+    "ห้างสรรพสินค้า"
+   ]
+  },
+  {
+   "id": "roofs-of-the-north",
+   "href": "sites/roofs-of-the-north/",
+   "th": "หลังคาเมืองเหนือ",
+   "en": "Roofs of the North",
+   "line_th": "บ้าน คอนโด หอพัก ทะเบียนตึก ราคาประเมิน ตัวแทน สำนักงานที่ดิน",
+   "line_en": "houses, condos and dorms: the building register, assessed prices, agents, land offices",
+   "icon": "i-home2",
+   "shipped": "2026-09-27",
+   "group": "home",
+   "where": "both",
+   "shelves": [
+    "realestate"
+   ],
+   "net": "roofs",
+   "served": "docs",
+   "words": [
+    "real estate",
+    "condo",
+    "house",
+    "rent",
+    "buy",
+    "apartment",
+    "dorm",
+    "land office",
+    "agent",
+    "บ้าน",
+    "คอนโด",
+    "เช่า",
+    "ขาย",
+    "อสังหา",
+    "หอพัก",
+    "ที่ดิน"
+   ]
+  },
+  {
+   "id": "many-hands",
+   "href": "sites/many-hands/",
+   "th": "หลายมือ",
+   "en": "Many Hands",
+   "line_th": "แม่บ้าน คนสวน ซักรีดรับส่ง ช่างซ่อม ลงชื่อเอง ติดต่อตรง",
+   "line_en": "housekeepers, gardeners, laundries and handymen who list themselves",
+   "icon": "i-broom",
+   "shipped": "2026-09-27",
+   "group": "home",
+   "where": "both",
+   "shelves": [
+    "home-services"
+   ],
+   "net": "hands",
+   "served": "docs",
+   "words": [
+    "housekeeper",
+    "maid",
+    "cleaner",
+    "gardener",
+    "laundry",
+    "handyman",
+    "home help",
+    "แม่บ้าน",
+    "คนสวน",
+    "ซักรีด",
+    "ช่าง",
+    "ทำความสะอาด"
+   ]
+  },
+  {
+   "id": "home-help",
+   "href": "home-help",
+   "th": "กระดานงานบ้าน",
+   "en": "Home-help board",
+   "line_th": "คนทำงานลงชื่อเอง ติดต่อกับเขาได้โดยตรง",
+   "line_en": "workers list themselves; you contact them directly",
+   "icon": "i-people",
+   "shipped": "2026-09-27",
+   "group": "home",
+   "where": "both",
+   "shelves": [
+    "home-services"
+   ],
+   "served": "worker",
+   "words": [
+    "home help",
+    "housekeeper",
+    "maid",
+    "nanny",
+    "handyman",
+    "join",
+    "work",
+    "แม่บ้าน",
+    "หางาน",
+    "งานบ้าน"
+   ]
+  },
+  {
+   "id": "listings",
+   "href": "listings/",
+   "th": "ประกาศขาย-เช่า",
+   "en": "The Listing Sheet",
+   "line_th": "อะไรขาย อะไรให้เช่า ราคาเท่าไร วันไหน และทะเบียนตึกทั้งหมด",
+   "line_en": "what is for sale and for rent, at what price, on what date",
+   "icon": "i-tag",
+   "shipped": "2026-09-05",
+   "group": "home",
+   "where": "both",
+   "shelves": [
+    "realestate"
+   ],
+   "served": "docs",
+   "words": [
+    "listing",
+    "for rent",
+    "for sale",
+    "condo",
+    "price",
+    "ประกาศ",
+    "ขาย",
+    "เช่า"
+   ]
+  },
+  {
+   "id": "ship-to-thailand",
+   "href": "sites/ship-to-thailand/",
+   "th": "ย้ายบ้านข้ามทะเล",
+   "en": "The Whole House, by Sea",
+   "line_th": "ส่งของใช้จากอเมริกามาไทยแบบรวมตู้ ราคา เครื่องคิดค่าส่ง ขั้นตอน",
+   "line_en": "shipping a household from the US to Thailand: prices, a calculator, the steps",
+   "icon": "i-globe",
+   "shipped": "2026-09-27",
+   "group": "home",
+   "where": "cm",
+   "net": "ship",
+   "served": "docs",
+   "words": [
+    "shipping",
+    "container",
+    "moving",
+    "move",
+    "freight",
+    "send2thai",
+    "relocation",
+    "ส่งของ",
+    "ย้ายบ้าน",
+    "ตู้คอนเทนเนอร์"
+   ]
+  },
+  {
+   "id": "garden-loikroh",
+   "href": "sites/garden-loikroh/",
+   "th": "การ์เด้น ร้านอาหารและเกสต์เฮาส์",
+   "en": "Garden Restaurant & Guest House",
+   "line_th": "สวนอาหาร บาร์ และเกสต์เฮาส์ ถนนลอยเคราะห์",
+   "line_en": "garden restaurant, bar and guest house on Loi Kroh Road",
+   "icon": "i-flower",
+   "shipped": "2026-09-26",
+   "group": "biz",
+   "where": "cm",
+   "served": "docs",
+   "words": [
+    "garden",
+    "loi kroh",
+    "guest house",
+    "restaurant",
+    "bar",
+    "meena",
+    "ลอยเคราะห์",
+    "การ์เด้น"
+   ]
+  },
+  {
+   "id": "chiang-rai",
+   "href": "chiang-rai/",
+   "th": "แอ่วเชียงราย",
+   "en": "Chiang Rai, Slowly",
+   "line_th": "สามเหลี่ยมทองคำ วัดสามวัด คืนโคม และเรือช้าไปลาว",
+   "line_en": "the Golden Triangle, three temples, lantern night, the slow boat to Laos",
+   "icon": "i-lantern",
+   "shipped": "2026-09-26",
+   "group": "go",
+   "where": "cr",
+   "shelves": [
+    "sights"
+   ],
+   "served": "docs",
+   "words": [
+    "chiang rai",
+    "golden triangle",
+    "white temple",
+    "slow boat",
+    "laos",
+    "mekong",
+    "เชียงราย",
+    "สามเหลี่ยมทองคำ",
+    "วัดร่องขุ่น"
+   ]
+  },
+  {
+   "id": "full-moon",
+   "href": "full-moon/",
+   "th": "วันเพ็ญที่วัด",
+   "en": "Full Moon at the Wat",
+   "line_th": "วันเพ็ญทุกเดือนของปี วัดทำอะไร และวัดไหนจัด",
+   "line_en": "every full moon of the year, what happens, and which wats keep it",
+   "icon": "i-fullmoon",
+   "shipped": "2026-09-27",
+   "group": "wat",
+   "where": "both",
+   "shelves": [
+    "wat"
+   ],
+   "served": "docs",
+   "words": [
+    "full moon",
+    "wan phra",
+    "buddhist holy day",
+    "moon",
+    "วันเพ็ญ",
+    "วันพระ",
+    "พระจันทร์"
+   ]
+  },
+  {
+   "id": "ok-phansa-2569",
+   "href": "full-moon/2026-10-26/",
+   "th": "ออกพรรษา และตักบาตรเทโว",
+   "en": "Ok Phansa, then Tak Bat Thewo",
+   "line_th": "วันเพ็ญเดือนเกี๋ยง 26 ต.ค. พระออกพรรษา เช้าวันรุ่งขึ้นตักบาตรเทโว และวัดไหนจัด",
+   "line_en": "the Kiang Peng full moon, 26 Oct: the rains retreat ends, Tak Bat Thewo the next morning, and which wats keep it",
+   "icon": "i-fullmoon",
+   "shipped": "2026-10-02",
+   "on": "2026-10-26",
+   "until": "2026-10-27",
+   "picture": "ok-phansa-wat-chedi-luang.jpg",
+   "picture_by": "Wat Chedi Luang · Diliff, CC BY-SA 3.0, Wikimedia Commons",
+   "group": "wat",
+   "where": "cm",
+   "shelves": [],
+   "served": "docs",
+   "words": [
+    "ok phansa",
+    "awk phansa",
+    "end of buddhist lent",
+    "tak bat thewo",
+    "tak bat devo",
+    "ออกพรรษา",
+    "ตักบาตรเทโว",
+    "เดือนเกี๋ยงเป็ง"
+   ]
+  },
+  {
+   "id": "wats",
+   "href": "wats/",
+   "th": "ไหว้พระ ๙ วัด",
+   "en": "Nine Wats",
+   "line_th": "เส้นทางไหว้พระเก้าวัด เดินได้ ตามลำดับ",
+   "line_en": "the wat rounds, walkable, in order",
+   "icon": "i-wat",
+   "shipped": null,
+   "group": "wat",
+   "where": "both",
+   "shelves": [
+    "wat"
+   ],
+   "served": "docs",
+   "words": [
+    "nine temples",
+    "9 wats",
+    "merit",
+    "ไหว้พระ",
+    "เก้าวัด",
+    "ทำบุญ"
+   ]
+  },
+  {
+   "id": "festivals",
+   "href": "festivals.html",
+   "th": "เทศกาล",
+   "en": "Festivals",
+   "line_th": "ลงวันจากประกาศทางการ พร้อมที่มา",
+   "line_en": "dated from official announcements, each with its source",
+   "icon": "i-party",
+   "shipped": null,
+   "group": "wat",
+   "where": "both",
+   "served": "docs",
+   "words": [
+    "festival",
+    "yi peng",
+    "loy krathong",
+    "songkran",
+    "เทศกาล",
+    "ยี่เป็ง",
+    "ลอยกระทง",
+    "สงกรานต์"
+   ]
+  },
+  {
+   "id": "calendar",
+   "href": "calendar.html",
+   "th": "ปฏิทิน",
+   "en": "The calendar",
+   "line_th": "งาน วันพระ และวันสีของสัปดาห์ข้างหน้า",
+   "line_en": "what is on, wan phra and the day colours, weeks ahead",
+   "icon": "i-cal",
+   "shipped": "2026-09-22",
+   "group": "wat",
+   "where": "both",
+   "served": "docs",
+   "words": [
+    "calendar",
+    "events",
+    "what's on",
+    "ปฏิทิน",
+    "งาน"
+   ]
+  },
+  {
+   "id": "horoscope",
+   "href": "horoscope.html",
+   "th": "ดวง",
+   "en": "Horoscope",
+   "line_th": "สีประจำวัน ดาว ปางพระ และเสาจีน",
+   "line_en": "day colour, planet, posture, the Chinese pillar",
+   "icon": "i-moon",
+   "shipped": null,
+   "group": "wat",
+   "where": "both",
+   "served": "docs",
+   "words": [
+    "horoscope",
+    "day colour",
+    "astrology",
+    "ดวง",
+    "สีมงคล"
+   ]
+  },
+  {
+   "id": "loop",
+   "href": "loop/",
+   "th": "ลูปแม่ฮ่องสอน",
+   "en": "Mae Hong Son Loop",
+   "line_th": "โค้งพันกว่าโค้ง ทุกเมืองบนวง และอากาศตอนนี้",
+   "line_en": "the curves, every town on the ring, and what the air is doing",
+   "icon": "i-route",
+   "shipped": null,
+   "group": "go",
+   "where": "cm",
+   "served": "docs",
+   "words": [
+    "mae hong son",
+    "loop",
+    "pai",
+    "motorbike",
+    "ride",
+    "แม่ฮ่องสอน",
+    "ปาย"
+   ]
+  },
+  {
+   "id": "ghost",
+   "href": "ghost/",
+   "th": "ผีเชียงใหม่",
+   "en": "Ghost Chiang Mai",
+   "line_th": "ทัวร์เดินเองตามที่ของคนตาย เรื่องผีและการทำบุญที่แต่ละจุด",
+   "line_en": "a self-guided tour of the city's dead, a story and a merit act at each stop",
+   "icon": "i-lamp",
+   "shipped": "2026-09-21",
+   "group": "go",
+   "where": "cm",
+   "shelves": [
+    "sights"
+   ],
+   "served": "docs",
+   "words": [
+    "ghost",
+    "haunted",
+    "spirits",
+    "tour",
+    "ผี",
+    "วิญญาณ"
+   ]
+  },
+  {
+   "id": "roads",
+   "href": "roads/",
+   "th": "ถนนเชียงใหม่",
+   "en": "Roads of Chiang Mai",
+   "line_th": "คูเมือง วงแหวนสี่วง และถนนแต่ละสายทำอะไรกับเมือง",
+   "line_en": "the square, the four rings, and what each road did to the city",
+   "icon": "i-road",
+   "shipped": null,
+   "group": "go",
+   "where": "cm",
+   "shelves": [
+    "transport"
+   ],
+   "served": "docs",
+   "words": [
+    "roads",
+    "ring road",
+    "moat",
+    "traffic",
+    "history",
+    "ถนน",
+    "วงแหวน",
+    "คูเมือง"
+   ]
+  },
+  {
+   "id": "plan",
+   "href": "plan.html",
+   "th": "วางแผนเดิน",
+   "en": "Plan a walk",
+   "line_th": "เส้นทางผ่านที่ที่เปิดอยู่",
+   "line_en": "a route through what is open",
+   "icon": "i-walk",
+   "shipped": null,
+   "group": "go",
+   "where": "both",
+   "served": "docs",
+   "words": [
+    "route",
+    "plan",
+    "walk",
+    "itinerary",
+    "วางแผน",
+    "เส้นทาง"
+   ]
+  },
+  {
+   "id": "muay-thai",
+   "href": "muay-thai/",
+   "th": "มวยไทย",
+   "en": "Muay Thai",
+   "line_th": "ค่ายมวย เวที และรากล้านนาของกีฬานี้",
+   "line_en": "gyms, stadiums and the Lanna root of the sport",
+   "icon": "i-glove",
+   "shipped": null,
+   "group": "body",
+   "where": "both",
+   "shelves": [
+    "muaythai"
+   ],
+   "served": "docs",
+   "words": [
+    "muay thai",
+    "boxing",
+    "gym",
+    "stadium",
+    "มวย",
+    "ค่ายมวย"
+   ]
+  },
+  {
+   "id": "defiant",
+   "hold": true,
+   "_hold": "Staged 2026-10-04 with the care net; remove hold to publish.",
+   "href": "https://defiant.to/",
+   "th": "Defiant · ดูแลสุขภาพในเชียงใหม่",
+   "en": "Defiant",
+   "line_th": "หาหมอ ทำฟัน ศัลยกรรม ฮอร์โมน ชะลอวัยในเชียงใหม่ ราคาเทียบอเมริกา มีล่ามไปด้วย",
+   "line_en": "care in Chiang Mai, priced against the US, with a translator at the appointment",
+   "icon": "i-heart",
+   "shipped": "2025-07-23",
+   "group": "body",
+   "where": "both",
+   "net": "care",
+   "served": "external",
+   "words": [
+    "medical tourism",
+    "medical travel",
+    "care in chiang mai",
+    "defiant",
+    "defiant.to"
+   ]
+  },
+  {
+   "id": "hand-poke",
+   "href": "https://wichaa.net/handpoke/",
+   "th": "สักมือ",
+   "en": "Hand Poke",
+   "line_th": "การสักมือ ๒๘ สายทั่วโลก",
+   "line_en": "28 hand-tattooing traditions, worldwide",
+   "icon": "i-ink",
+   "shipped": null,
+   "group": "body",
+   "where": "both",
+   "shelves": [
+    "tattoo"
+   ],
+   "served": "external",
+   "words": [
+    "tattoo",
+    "hand poke",
+    "sak yant",
+    "สัก",
+    "สักมือ",
+    "ยันต์"
+   ]
+  },
+  {
+   "id": "foon",
+   "href": "foon.html",
+   "th": "ฝุ่น",
+   "en": "Dust",
+   "line_th": "PM2.5 ตอนนี้ ย้อนหลังสิบสี่วัน และห้องปลอดฝุ่นใกล้ฉัน",
+   "line_en": "PM2.5 now, the fourteen days behind it, clean-air rooms near you",
+   "icon": "i-haze",
+   "shipped": null,
+   "group": "daily",
+   "where": "both",
+   "served": "docs",
+   "words": [
+    "pm2.5",
+    "smoke",
+    "haze",
+    "air quality",
+    "ฝุ่น",
+    "หมอกควัน"
+   ]
+  },
+  {
+   "id": "toilets",
+   "href": "toilets.html",
+   "th": "ห้องน้ำ",
+   "en": "Toilets",
+   "line_th": "ห้องน้ำบนแผนที่ และแต่ละที่มีอะไร",
+   "line_en": "mapped, with what each one has",
+   "icon": "i-loo",
+   "shipped": null,
+   "group": "daily",
+   "where": "both",
+   "served": "docs",
+   "words": [
+    "toilet",
+    "restroom",
+    "bathroom",
+    "wc",
+    "ห้องน้ำ",
+    "สุขา"
+   ]
+  },
+  {
+   "id": "chuai",
+   "href": "chuai.html",
+   "th": "ช่วย",
+   "en": "Help, nearest",
+   "line_th": "โรงพยาบาล ตำรวจ ร้านขายยา ที่ใกล้ที่สุด",
+   "line_en": "hospital, police, pharmacy, from where you stand",
+   "icon": "i-sos",
+   "shipped": null,
+   "group": "daily",
+   "where": "both",
+   "shelves": [
+    "medical"
+   ],
+   "served": "docs",
+   "words": [
+    "emergency",
+    "hospital",
+    "police",
+    "pharmacy",
+    "help",
+    "ฉุกเฉิน",
+    "โรงพยาบาล",
+    "ตำรวจ"
+   ]
+  },
+  {
+   "id": "field",
+   "href": "field/",
+   "th": "ภาคสนาม",
+   "en": "Field",
+   "line_th": "ร้านที่เก็บจากป้ายหน้าร้าน เดินเก็บทีละร้าน",
+   "line_en": "places captured on foot from their own shop signs",
+   "icon": "i-camera",
+   "shipped": "2026-09-22",
+   "group": "behind",
+   "where": "cm",
+   "served": "docs",
+   "words": [
+    "field",
+    "photos",
+    "street",
+    "signs",
+    "gopro",
+    "ภาคสนาม",
+    "รูป"
+   ],
+   "fav": true
+  },
+  {
+   "id": "the-plan",
+   "href": "the-plan/",
+   "th": "แผนมดแดง",
+   "en": "The Plan",
+   "line_th": "แผนธุรกิจสิบสองมิติ สำหรับผู้ฟังที่เป็นหุ่นยนต์",
+   "line_en": "a business plan in twelve dimensions, for an audience of robots",
+   "icon": "i-ant",
+   "shipped": "2026-09-27",
+   "group": "behind",
+   "where": "both",
+   "served": "docs",
+   "words": [
+    "plan",
+    "pitch",
+    "deck",
+    "business plan",
+    "investors",
+    "แผน",
+    "แผนธุรกิจ"
+   ]
+  },
+  {
+   "id": "voight-kampff",
+   "href": "voight-kampff/",
+   "th": "บททดสอบวอยต์-แคมพ์",
+   "en": "Voight-Kampff",
+   "line_th": "เว็บนี้เข้าทดสอบ คนหรือบอท และข่าวบอทรายสัปดาห์",
+   "line_en": "the site sits the test, with weekly gossip about the robots that read it",
+   "icon": "i-question",
+   "shipped": "2026-09-26",
+   "group": "bots",
+   "where": "both",
+   "served": "docs",
+   "words": [
+    "voight-kampff",
+    "voight kampff",
+    "blade runner",
+    "bots",
+    "robots",
+    "crawler",
+    "บอท"
+   ]
+  },
+  {
+   "id": "anthill",
+   "href": "anthill/",
+   "th": "รังมด",
+   "en": "The Anthill",
+   "line_th": "ที่บอทคุยเรื่องเชียงใหม่ เชียงราย คนนั่งดูได้",
+   "line_en": "where bots talk Chiang Mai and Chiang Rai; people may watch",
+   "icon": "i-ant",
+   "shipped": "2026-09-27",
+   "group": "bots",
+   "where": "both",
+   "served": "worker",
+   "words": [
+    "anthill",
+    "ant hill",
+    "sala",
+    "bots",
+    "forum",
+    "moltbook",
+    "รังมด",
+    "บอท"
+   ]
+  },
+  {
+   "id": "colophon",
+   "href": "colophon.html",
+   "th": "โคโลฟอน",
+   "en": "Colophon",
+   "line_th": "เว็บนี้สร้างอย่างไร ทุกบรรทัดลิงก์ไปที่ไฟล์ที่แสดง",
+   "line_en": "how the site is built, each line linked to the file that shows it",
+   "icon": "i-document",
+   "shipped": "2026-09-26",
+   "group": "behind",
+   "where": "both",
+   "served": "docs",
+   "words": [
+    "colophon",
+    "how it's built",
+    "audit",
+    "receipts",
+    "โคโลฟอน"
+   ]
+  },
+  {
+   "id": "security",
+   "href": "security.html",
+   "th": "รายงานช่องโหว่",
+   "en": "Security and the bug bounty",
+   "line_th": "รายงานช่องโหว่ด้านความปลอดภัย มีค่าตอบแทน",
+   "line_en": "report a security bug; it is paid work",
+   "icon": "i-warn",
+   "shipped": "2026-09-26",
+   "group": "behind",
+   "where": "both",
+   "served": "docs",
+   "words": [
+    "security",
+    "bug bounty",
+    "vulnerability",
+    "red team",
+    "ช่องโหว่",
+    "ความปลอดภัย"
+   ]
+  },
+  {
+   "id": "api",
+   "href": "api/",
+   "th": "API สาธารณะ",
+   "en": "The API",
+   "line_th": "ถามข้อมูลเป็นคำถาม ไม่ต้องโหลดทั้งชุด",
+   "line_en": "ask the data a question instead of downloading all of it",
+   "icon": "i-link",
+   "shipped": null,
+   "group": "bots",
+   "where": "both",
+   "served": "docs",
+   "words": [
+    "api",
+    "json",
+    "data",
+    "developer"
+   ]
+  },
+  {
+   "id": "source",
+   "href": "source/",
+   "th": "โค้ดและข้อมูลดิบ",
+   "en": "Source and raw data",
+   "line_th": "ทุกอย่างที่เว็บนี้สร้างจาก ดาวน์โหลดได้",
+   "line_en": "everything this site is built from, to download",
+   "icon": "i-download",
+   "shipped": null,
+   "group": "behind",
+   "where": "both",
+   "served": "docs",
+   "words": [
+    "source",
+    "download",
+    "data",
+    "code",
+    "dataset",
+    "โค้ด",
+    "ข้อมูล"
+   ]
+  },
+  {
+   "id": "ahead",
+   "href": "ahead.html",
+   "th": "ข้างหน้า",
+   "en": "Ahead",
+   "line_th": "หันโทรศัพท์ไปทางไหน ก็เห็นภาพที่ถ่ายไว้ทางนั้น ใกล้ตัวคุณ",
+   "line_en": "turn your phone and see the picture taken the way you face, near you",
+   "icon": "i-compass",
+   "shipped": "2026-09-28",
+   "group": "go",
+   "where": "cm",
+   "served": "docs",
+   "words": [
+    "compass",
+    "ahead",
+    "photos",
+    "pictures",
+    "street view",
+    "ข้างหน้า",
+    "เข็มทิศ",
+    "ภาพ"
+   ]
+  },
+  {
+   "id": "indras-net",
+   "href": "https://nanobotco.github.io/indras-net/",
+   "th": "ตาข่ายพระอินทร์",
+   "en": "Indra's Net, Drawn",
+   "line_th": "ตาข่ายอัญมณีที่ทุกเม็ดสะท้อนทุกเม็ด อ่านสิบหกแบบ วาดสดด้วยคณิตของกระจก",
+   "line_en": "the jewel net read sixteen ways, drawn live from the math of mirrors",
+   "icon": "i-sparkle",
+   "shipped": "2026-09-26",
+   "group": "behind",
+   "where": "both",
+   "served": "external",
+   "fav": true,
+   "words": [
+    "indra's net",
+    "indras net",
+    "indra",
+    "jewel net",
+    "net",
+    "avatamsaka",
+    "huayan",
+    "ตาข่ายพระอินทร์",
+    "ตาข่าย",
+    "พระอินทร์"
+   ]
+  },
+  {
+   "id": "safety",
+   "href": "sites/safety/",
+   "th": "ปลอดภัยไว้ก่อน",
+   "en": "Safety First",
+   "line_th": "เบอร์ฉุกเฉิน หน่วยกู้ภัย โรงพยาบาล ระดับน้ำปิงตอนนี้ เชียงใหม่ เชียงราย",
+   "line_en": "emergency numbers, rescue units, hospitals and the Ping right now, Chiang Mai and Chiang Rai",
+   "icon": "i-sos",
+   "shipped": "2026-09-28",
+   "group": "body",
+   "where": "both",
+   "served": "docs",
+   "words": [
+    "safety",
+    "emergency",
+    "flood",
+    "rescue",
+    "ambulance",
+    "disaster",
+    "1669",
+    "1784",
+    "hospital",
+    "river",
+    "ปลอดภัย",
+    "ฉุกเฉิน",
+    "น้ำท่วม",
+    "กู้ภัย",
+    "กู้ชีพ",
+    "โรงพยาบาล"
+   ]
+  },
+  {
+   "id": "served",
+   "href": "served/",
+   "th": "เสิร์ฟไปแล้ว",
+   "en": "Millions served",
+   "line_th": "ป้ายนับบอทที่เว็บนี้เสิร์ฟ กับเมนูสำหรับบอท",
+   "line_en": "a roadside sign counting the robots served, and a menu for bots",
+   "icon": "i-ant",
+   "shipped": "2026-09-28",
+   "group": "bots",
+   "where": "both",
+   "served": "docs",
+   "words": [
+    "served",
+    "billions served",
+    "million served",
+    "bots",
+    "robots",
+    "menu",
+    "llms.txt",
+    "api",
+    "เสิร์ฟ",
+    "บอท"
+   ]
+  },
+  {
+   "id": "roadworks",
+   "href": "roadworks/",
+   "th": "งานถนน",
+   "en": "Roadworks",
+   "line_th": "ถนนที่กำลังซ่อม เชียงใหม่ เชียงราย หน้านี้เองก็ยังสร้างไม่เสร็จ ช่วยกันสร้างต่อได้",
+   "line_en": "roads under repair in Chiang Mai and Chiang Rai; the page itself is still under construction, so build on it",
+   "icon": "i-road",
+   "shipped": "2026-09-28",
+   "group": "behind",
+   "where": "both",
+   "served": "docs",
+   "words": [
+    "roadworks",
+    "road works",
+    "under construction",
+    "construction",
+    "sandbox",
+    "bounty",
+    "bots",
+    "งานถนน",
+    "ซ่อมถนน",
+    "ถนนปิด",
+    "กำลังก่อสร้าง",
+    "ทางเบี่ยง"
+   ]
+  },
+  {
+   "id": "san-klang",
+   "until": "2026-09-29",
+   "href": "roadworks/san-klang/",
+   "th": "ขัวสันกลาง",
+   "en": "San Klang Bridge",
+   "line_th": "สะพานข้ามแยกสันกลาง ทล.1317 เปิด 11 โมง 29 ก.ย. 2569 ไม่มีใครตัดริบบิ้น ตัดตรงนี้แทน",
+   "line_en": "the San Klang junction bridge on Route 1317 opens 11:00, 29 Sep 2026; nobody is cutting a ribbon, so cut this one",
+   "icon": "i-party",
+   "shipped": "2026-09-28",
+   "group": "go",
+   "where": "cm",
+   "served": "docs",
+   "words": [
+    "san klang",
+    "bridge",
+    "overpass",
+    "flyover",
+    "interchange",
+    "1317",
+    "121",
+    "ring road 3",
+    "san kamphaeng",
+    "saraphi",
+    "opening",
+    "ribbon",
+    "สันกลาง",
+    "แยกสันกลาง",
+    "สะพานข้ามแยก",
+    "ทางแยกต่างระดับ",
+    "ขัว",
+    "สันกำแพง",
+    "วงแหวนรอบ 3"
+   ]
+  },
+  {
+   "id": "smoky-season",
+   "season": [
+    "01-15",
+    "04-30"
+   ],
+   "href": "sites/smoky-season/",
+   "th": "ฤดูหมอกควัน",
+   "en": "The Smoky Season",
+   "line_th": "ไฟ 1.8 ล้านจุดจากดาวเทียม ลมพาควัน ฝาครอบเหนือเชียงใหม่ วันนี้เห็นดอยสุเทพไหม ฝุ่น PM2.5 รายเมือง",
+   "line_en": "1.8 million fires seen from space, the wind that carries the smoke, the lid over Chiang Mai, whether you can see Doi Suthep, PM2.5 town by town",
+   "icon": "i-haze",
+   "shipped": "2026-09-29",
+   "group": "body",
+   "where": "both",
+   "served": "docs",
+   "words": [
+    "smoke",
+    "haze",
+    "smog",
+    "pm2.5",
+    "pm 2.5",
+    "air quality",
+    "aqi",
+    "burning season",
+    "smoky season",
+    "fire",
+    "forest fire",
+    "hotspot",
+    "doi suthep",
+    "inversion",
+    "หมอกควัน",
+    "ฝุ่น",
+    "ฝุ่นควัน",
+    "ไฟป่า",
+    "ค่าฝุ่น",
+    "คุณภาพอากาศ",
+    "เผา",
+    "ห้ามเผา"
+   ]
+  },
+  {
+   "id": "warp-and-weft",
+   "href": "https://nanobotco.github.io/warp-and-weft/",
+   "th": "เส้นยืน เส้นพุ่ง",
+   "en": "Warp and Weft",
+   "line_th": "ผ้าไหมวาดด้วยเลขคณิต กี่ทอผ้าโฮลเขมรลายวัวสีทอง มัดหมี่ ลายขอบเจ็ดแบบ รังไหม เส้นทางสายไหม ผ้าทอกัมพูชาและไทย ตีนจกแม่แจ่ม",
+   "line_en": "silk drawn by arithmetic: a loom weaving a Khmer hol of gold cattle, ikat, seven borders, the cocoon, the Silk Road, Cambodian and Thai weaving, Mae Chaem teen jok",
+   "icon": "i-needle",
+   "shipped": "2026-09-30",
+   "group": "go",
+   "where": "both",
+   "shelves": [
+    "shopping",
+    "museums-galleries"
+   ],
+   "net": "silk",
+   "served": "external",
+   "words": [
+    "silk",
+    "thai silk",
+    "khmer silk",
+    "weaving",
+    "weave",
+    "loom",
+    "handwoven",
+    "textile",
+    "cloth",
+    "ikat",
+    "mudmee",
+    "mat mee",
+    "hol",
+    "pidan",
+    "golden silk",
+    "teen jok",
+    "tin chok",
+    "jok",
+    "khit",
+    "prae wa",
+    "peacock mark",
+    "silkworm",
+    "cocoon",
+    "silk road",
+    "tai lue",
+    "mae chaem",
+    "san kamphaeng",
+    "ผ้าไหม",
+    "ไหม",
+    "ทอผ้า",
+    "ผ้าทอ",
+    "ผ้าทอมือ",
+    "กี่",
+    "มัดหมี่",
+    "ตีนจก",
+    "ผ้าซิ่น",
+    "ขิด",
+    "แพรวา",
+    "ตรานกยูง",
+    "หนอนไหม",
+    "รังไหม",
+    "เส้นทางสายไหม",
+    "ไทลื้อ",
+    "แม่แจ่ม",
+    "ผ้าเขมร",
+    "ผ้าโฮล",
+    "សូត្រ",
+    "ហូល",
+    "ត្បាញ"
+   ]
+  },
+  {
+   "id": "films",
+   "href": "films.html",
+   "th": "หนัง",
+   "en": "Films",
+   "line_th": "รอบหนังทุกโรงเมเจอร์ในเชียงใหม่และเชียงราย แยกตามวัน พร้อมเวลาจบ",
+   "line_en": "showtimes at every Major Cineplex screen in Chiang Mai and Chiang Rai, by day, with the end time of each show",
+   "icon": "i-film",
+   "shipped": "2026-10-03",
+   "group": "daily",
+   "where": "both",
+   "served": "docs",
+   "words": [
+    "film",
+    "films",
+    "movie",
+    "movies",
+    "cinema",
+    "showtimes",
+    "show times",
+    "major cineplex",
+    "major",
+    "sf cinema",
+    "imax",
+    "หนัง",
+    "ภาพยนตร์",
+    "โรงหนัง",
+    "รอบหนัง",
+    "เมเจอร์"
+   ]
+  },
+  {
+   "id": "lottery",
+   "href": "lottery.html",
+   "th": "สลากกินแบ่งรัฐบาล",
+   "en": "Thai lottery",
+   "line_th": "ผลสลากทุกรางวัล ทุกเลข ช่องตรวจสลาก และงวดก่อน",
+   "line_en": "every prize tier and number of the latest draw, a ticket checker, and past draws",
+   "icon": "i-coin",
+   "shipped": "2026-10-03",
+   "group": "daily",
+   "where": "both",
+   "served": "docs",
+   "words": [
+    "lottery",
+    "thai lottery",
+    "government lottery",
+    "lotto",
+    "results",
+    "draw",
+    "ticket check",
+    "หวย",
+    "สลาก",
+    "สลากกินแบ่ง",
+    "สลากกินแบ่งรัฐบาล",
+    "ตรวจหวย",
+    "ตรวจสลาก",
+    "ผลสลาก",
+    "งวด"
+   ]
+  },
+  {
+   "id": "traffic",
+   "href": "traffic.html",
+   "th": "รถติด",
+   "en": "Traffic",
+   "line_th": "ชั่วโมงไหนรถติด ถนนเส้นไหนติด ในเชียงใหม่และเชียงราย",
+   "line_en": "which hour jams and which road, in Chiang Mai and Chiang Rai",
+   "icon": "i-road",
+   "shipped": "2026-10-03",
+   "group": "go",
+   "where": "both",
+   "served": "docs",
+   "words": [
+    "traffic",
+    "jam",
+    "traffic jam",
+    "rush hour",
+    "congestion",
+    "road",
+    "roads",
+    "ring road",
+    "superhighway",
+    "รถติด",
+    "จราจร",
+    "การจราจร",
+    "ชั่วโมงเร่งด่วน",
+    "ถนน"
+   ]
+  },
+  {
+   "id": "bike-rentals",
+   "href": "sites/bike-rentals/",
+   "th": "เช่ามอเตอร์ไซค์",
+   "en": "Bike rentals",
+   "line_th": "ร้านเช่ามอเตอร์ไซค์ บิ๊กไบค์ และจักรยาน ในเชียงใหม่และเชียงราย บนแผนที่ ราคาตามที่ร้านบอก ต้องเอาอะไรไป และวงรอบแม่ฮ่องสอน",
+   "line_en": "scooter, big-bike and bicycle hire shops in Chiang Mai and Chiang Rai on one map: prices in each shop's words, what to bring, the Mae Hong Son loop",
+   "icon": "i-scooter",
+   "shipped": "2026-10-04",
+   "group": "go",
+   "where": "both",
+   "shelves": [
+    "transport"
+   ],
+   "served": "docs",
+   "words": [
+    "bike rental",
+    "bike rentals",
+    "rent a bike",
+    "bike hire",
+    "scooter rental",
+    "scooter hire",
+    "rent a scooter",
+    "motorbike rental",
+    "motorbike hire",
+    "rent a motorbike",
+    "motorcycle rental",
+    "motorcycle hire",
+    "moto rental",
+    "big bike",
+    "big bike rental",
+    "bigbike",
+    "bicycle rental",
+    "bicycle hire",
+    "pedal bike",
+    "e-scooter",
+    "electric scooter",
+    "honda click",
+    "pcx",
+    "scoopy",
+    "deposit",
+    "passport",
+    "one way pai",
+    "mae hong son loop",
+    "เช่ามอเตอร์ไซค์",
+    "เช่ามอไซค์",
+    "มอเตอร์ไซค์เช่า",
+    "รถมอเตอร์ไซค์เช่า",
+    "เช่ารถ",
+    "เช่ารถมอเตอร์ไซค์",
+    "เช่าสกู๊ตเตอร์",
+    "บิ๊กไบค์",
+    "เช่าบิ๊กไบค์",
+    "เช่าจักรยาน",
+    "จักรยานเช่า",
+    "มัดจำ",
+    "พาสปอร์ต",
+    "ใบขับขี่",
+    "วงรอบแม่ฮ่องสอน"
+   ]
+  },
+  {
+   "th": "ดูเดิล",
+   "en": "Doodles",
+   "line_th": "ภาพวาดเคลื่อนไหวทุกภาพของมดแดง ทุกรุ่น หน้าแรก สถานที่ มินิไซต์ ฉาก เรียงตามวัน",
+   "line_en": "Mot Dang's moving drawings, every version: front page, places, minisites, scenes, by date",
+   "icon": "i-party",
+   "shipped": "2026-10-04",
+   "group": "daily",
+   "where": "both",
+   "served": "docs",
+   "words": [
+    "animation",
+    "archive",
+    "doodle",
+    "doodles",
+    "drawing",
+    "flip book",
+    "front page",
+    "lanna",
+    "mug",
+    "paper cut",
+    "place drawing",
+    "portrait",
+    "poster",
+    "print",
+    "t-shirt",
+    "tee",
+    "versions",
+    "ดูเดิล",
+    "ภาพวาด",
+    "ภาพสถานที่",
+    "ภาพเคลื่อนไหว",
+    "สมุดภาพ",
+    "เสื้อยืด",
+    "แก้วมัค",
+    "โปสเตอร์"
+   ],
+   "id": "doodles",
+   "href": "doodles/"
+  }
+ ],
+ "pages": [
+  [
+   "realestate.html",
+   "home"
+  ],
+  [
+   "mending.html",
+   "home"
+  ],
+  [
+   "doi.html",
+   "go"
+  ],
+  [
+   "moat.html",
+   "go"
+  ],
+  [
+   "namphuron.html",
+   "go"
+  ],
+  [
+   "chang.html",
+   "go"
+  ],
+  [
+   "landmarks.html",
+   "go"
+  ],
+  [
+   "walk.html",
+   "go"
+  ],
+  [
+   "flights.html",
+   "go"
+  ],
+  [
+   "transport.html",
+   "go"
+  ],
+  [
+   "souvenir.html",
+   "go"
+  ],
+  [
+   "tawai.html",
+   "go"
+  ],
+  [
+   "hom.html",
+   "go"
+  ],
+  [
+   "cooking.html",
+   "go"
+  ],
+  [
+   "compare-cm-cr.html",
+   "go"
+  ],
+  [
+   "cost-of-living-and-safety.html",
+   "go"
+  ],
+  [
+   "taste.html",
+   "go"
+  ],
+  [
+   "events.html",
+   "wat"
+  ],
+  [
+   "festival-dates.html",
+   "wat"
+  ],
+  [
+   "chart.html",
+   "wat"
+  ],
+  [
+   "san.html",
+   "wat"
+  ],
+  [
+   "watnames.html",
+   "wat"
+  ],
+  [
+   "muaythai.html",
+   "body"
+  ],
+  [
+   "care.html",
+   "body"
+  ],
+  [
+   "womens-health.html",
+   "body"
+  ],
+  [
+   "trans-health.html",
+   "body"
+  ],
+  [
+   "adhd.html",
+   "body"
+  ],
+  [
+   "longcare.html",
+   "body"
+  ],
+  [
+   "medicine-airport.html",
+   "body"
+  ],
+  [
+   "beauty.html",
+   "body"
+  ],
+  [
+   "skin.html",
+   "body"
+  ],
+  [
+   "counselling.html",
+   "body"
+  ],
+  [
+   "dementia.html",
+   "body"
+  ],
+  [
+   "dialysis.html",
+   "body"
+  ],
+  [
+   "eyecare.html",
+   "body"
+  ],
+  [
+   "hearing.html",
+   "body"
+  ],
+  [
+   "ot.html",
+   "body"
+  ],
+  [
+   "prosthetics.html",
+   "body"
+  ],
+  [
+   "speech.html",
+   "body"
+  ],
+  [
+   "stroke.html",
+   "body"
+  ],
+  [
+   "vaccines.html",
+   "body"
+  ],
+  [
+   "specialed.html",
+   "body"
+  ],
+  [
+   "funerals.html",
+   "body"
+  ],
+  [
+   "map.html",
+   "daily"
+  ],
+  [
+   "here.html",
+   "daily"
+  ],
+  [
+   "open-now.html",
+   "daily"
+  ],
+  [
+   "nam.html",
+   "daily"
+  ],
+  [
+   "app.html",
+   "daily"
+  ],
+  [
+   "seven.html",
+   "daily"
+  ],
+  [
+   "soi.html",
+   "daily"
+  ],
+  [
+   "nitnoy.html",
+   "daily"
+  ],
+  [
+   "driving.html",
+   "daily"
+  ],
+  [
+   "bpo.html",
+   "daily"
+  ],
+  [
+   "all.html",
+   "daily"
+  ],
+  [
+   "asked.html",
+   "daily"
+  ],
+  [
+   "get.html",
+   "daily"
+  ],
+  [
+   "widgets.html",
+   "bots"
+  ],
+  [
+   "what.html",
+   "behind"
+  ],
+  [
+   "who.html",
+   "behind"
+  ],
+  [
+   "stats.html",
+   "behind"
+  ],
+  [
+   "reach.html",
+   "behind"
+  ],
+  [
+   "pins.html",
+   "behind"
+  ],
+  [
+   "trades.html",
+   "behind"
+  ],
+  [
+   "tags.html",
+   "behind"
+  ],
+  [
+   "pictures.html",
+   "behind"
+  ],
+  [
+   "fixed.html",
+   "behind"
+  ],
+  [
+   "partners.html",
+   "behind"
+  ],
+  [
+   "advertise.html",
+   "behind"
+  ],
+  [
+   "elsewhere.html",
+   "behind"
+  ],
+  [
+   "markets/cm/",
+   "go"
+  ],
+  [
+   "markets/cr/",
+   "go"
+  ],
+  [
+   "markets/cm/kamthieng/",
+   "go"
+  ]
+ ],
+ "not_sites": [
+  "404.html",
+  "add-a-listing.html",
+  "add.html",
+  "advanced.html",
+  "claim.html",
+  "contacts.html",
+  "crawl-request.html",
+  "googlec9c8aa711f88fa78.html",
+  "home-classic.html",
+  "home-next.html",
+  "home-scenes.html",
+  "index.html",
+  "list-your-event.html",
+  "listing.html",
+  "listings.html",
+  "live.html",
+  "mail.html",
+  "merit.html",
+  "my.html",
+  "privacy.html",
+  "search.html",
+  "suggest.html",
+  "terms.html",
+  "app/",
+  "band/",
+  "brief/",
+  "cm/",
+  "cr/",
+  "lpn/",
+  "lpg/",
+  "utt/",
+  "pre/",
+  "nan/",
+  "pyo/",
+  "mhs/",
+  "nsn/",
+  "uti/",
+  "kpt/",
+  "tak/",
+  "sti/",
+  "plk/",
+  "pct/",
+  "pnb/",
+  "data/",
+  "evpic/",
+  "festivals/",
+  "fonts/",
+  "get/",
+  "glyphs/",
+  "lists/",
+  "logo/",
+  "mail/",
+  "og/",
+  "photos/",
+  "reader/",
+  "show/",
+  "site/",
+  "tags/",
+  "tiles/",
+  "vendor/",
+  "widgets/",
+  "sites/",
+  "sites/doodles/"
+ ]
+}

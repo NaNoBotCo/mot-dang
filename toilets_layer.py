@@ -51,6 +51,16 @@ ACCESS = MODEL["access"]
 WINDOWS = MODEL["windows"]
 REPORTS = MODEL["reports"]
 
+# Nan's word (`stated`, 2026-09-23): places and kinds of place she has said
+# outright have a toilet. Not a habit, so not worded as one. A field report
+# still outranks it; it outranks the tier. Places first — a place's own word
+# is narrower than its kind's.
+_STATED = MODEL.get("stated") or {}
+SAID = ([{"key": p["id"], "th": p["th"], "en": p["en"]}
+         for p in _STATED.get("places") or [] if p.get("id")]
+        + [{"key": k["key"], "th": k["th"], "en": k["en"], "match": k.get("match") or {}}
+           for k in _STATED.get("kinds") or []])
+
 # Tiers whose door a stranger may walk through. The rest (a restaurant, a
 # hotel lobby) are real answers but ask something of the reader first, so they
 # are a second, larger file the page fetches only when it needs them — 215 KB
@@ -124,6 +134,58 @@ def tier_index(r):
             continue
         if "name_any" in m and not any(w.lower() in name for w in m["name_any"]):
             continue
+        return i
+    return None
+
+
+def _starts(name, w):
+    """`name` begins with `w` as a word. A Latin prefix must not run on into
+    another Latin letter — "big c" is not "big coffee" or "BIG Camera". Thai
+    is written without spaces, so a Thai prefix only has to begin the name."""
+    if not name.startswith(w):
+        return False
+    nxt = name[len(w):len(w) + 1]
+    return not (nxt and w[-1].isascii() and w[-1].isalpha()
+                and nxt.isascii() and nxt.isalpha())
+
+
+def said_index(r):
+    """Index into SAID when Nan has said this place, or its kind, has a
+    toilet; else None. Same match keys fleetsearch/crawl.py reads."""
+    for i, s in enumerate(SAID):
+        if "match" not in s:
+            if s["key"] == r.get("id"):
+                return i
+            continue
+        m = s["match"]
+        low = [str(r.get(k) or "").strip().lower() for k in ("name", "nameTh", "nameEn")]
+        low = [n for n in low if n]
+        subs, cats = set(r.get("sub") or []), set(r.get("cat") or [])
+        a = r.get("attrs") or {}
+        if m.get("sub") and not subs & set(m["sub"]):
+            continue
+        if m.get("cat") and not cats & set(m["cat"]):
+            continue
+        if m.get("not_sub") and subs & set(m["not_sub"]):
+            continue
+        if m.get("name_prefix") and not any(_starts(n, w.lower()) for n in low
+                                            for w in m["name_prefix"]):
+            continue
+        if m.get("not_name") and any(w.lower() in n for n in low for w in m["not_name"]):
+            continue
+        if m.get("brand_any"):
+            hay = " ".join(low + [str(a.get("brand") or "").lower(),
+                                  str(a.get("operator") or "").lower()])
+            if not any(w.lower() in hay for w in m["brand_any"]):
+                continue
+        if m.get("big"):
+            try:
+                big = (float(a.get("stars") or 0) >= 4 or int(a.get("rooms") or 0) >= 50
+                       or int(a.get("chainSize") or 0) >= 2)
+            except (TypeError, ValueError):
+                big = False
+            if not big:
+                continue
         return i
     return None
 
@@ -235,21 +297,25 @@ def bake(g, data):
 
     walk, cust = [], []
     per_tier = {}
-    n_reported = 0
+    n_reported = n_said = 0
     for prov in provinces:
         for r in data[prov]:
             if r.get("lat") is None:
                 continue
             i = tier_index(r)
-            if i is None:
+            s = said_index(r)
+            if i is None and s is None:
                 continue
-            t = TIERS[i]
+            t = TIERS[i] if i is not None else None
             rep = _report_of(r["id"], claims, reports)
             if rep:
                 n_reported += 1
             if rep == "toiletnone":      # somebody stood there and told us
                 continue
-            per_tier[t["key"]] = per_tier.get(t["key"], 0) + 1
+            if t:
+                per_tier[t["key"]] = per_tier.get(t["key"], 0) + 1
+            if s is not None and not rep:
+                n_said += 1
             th = r.get("nameTh") or r.get("name") or ""
             en = r.get("nameEn") or ""
             # The record id rides along because two of the three report doors
@@ -257,8 +323,12 @@ def bake(g, data):
             # resolve, and the web POST keys on it. It gzips to almost nothing
             # — every id shares the same "cm-osm-node-" head.
             row = [i, round(r["lat"], 5), round(r["lng"], 5), th, ("" if en == th else en),
-                   f'{prov}/{place_slug(r)}', r.get("hours") or "", rep, r["id"]]
-            (walk if t["key"] in WALK_IN else cust).append(row)
+                   f'{prov}/{place_slug(r)}', r.get("hours") or "", rep, r["id"], s]
+            # No tier, only her word: a kind she named (Big C, Makro, a wat
+            # filed under sights first) goes with the walk-ins, a single place
+            # with the customer doors.
+            walkin = t["key"] in WALK_IN if t else "match" in SAID[s]
+            (walk if walkin else cust).append(row)
 
     ver = []
     per_prov = {}
@@ -281,17 +351,22 @@ def bake(g, data):
         "generated": g["BUILD_DATE"],
         "note_en": ("Two kinds of row. `verified` is a toilet mapped at that "
                     "spot. `places` is a venue whose CLASS normally keeps one "
-                    "— a habit, never a claim about that building. A field "
-                    "report (last column) outranks the tier."),
+                    "— a habit, never a claim about that building. `said` "
+                    "indexes a place or kind that has one; it outranks the "
+                    "tier, and a field report outranks both. `tier` is null "
+                    "where only `said` holds."),
         "note_th": ("ข้อมูลสองแบบ — verified คือห้องน้ำที่มีคนปักหมุดไว้จริง "
                     "ส่วน places คือสถานที่ที่ประเภทของมันมักจะมีห้องน้ำ "
-                    "เป็นธรรมเนียมของประเภทนั้น ไม่ใช่การยืนยันรายแห่ง"),
+                    "เป็นธรรมเนียมของประเภทนั้น ไม่ใช่การยืนยันรายแห่ง "
+                    "ส่วน said คือที่หรือประเภทที่มีห้องน้ำ "
+                    "ชนะธรรมเนียมของประเภท และคำบอกจากคนที่ไปดูมาชนะทั้งสองอย่าง"),
         "tiers": tiers_out,
         "costs": COSTS, "access": ACCESS, "windows": WINDOWS,
         "reports": REPORTS,
+        "said": [{"key": x["key"], "th": x["th"], "en": x["en"]} for x in SAID],
         "walkMetresPerMinute": WALK_M_PER_MIN,
         "verified_columns": ["lat", "lng", "th", "en", "fee", "baht", "hours", "flags"],
-        "columns": ["tier", "lat", "lng", "th", "en", "href", "hours", "report", "id"],
+        "columns": ["tier", "lat", "lng", "th", "en", "href", "hours", "report", "id", "said"],
         "verified": ver,
         "places": walk,
         "customersFile": "data/toilets-customers.json",
@@ -335,7 +410,45 @@ def bake(g, data):
                     "columns": head["columns"], "places": cust},
                    ensure_ascii=False, separators=(",", ":")))
     return {"walk": len(walk), "cust": len(cust), "verified": len(ver),
-            "per_tier": per_tier, "per_prov": per_prov, "reported": n_reported}
+            "per_tier": per_tier, "per_prov": per_prov, "reported": n_reported,
+            "said": n_said}
+
+
+def doors(g, data):
+    """The doors anyone may walk through, as (lat, lng, payload) for
+    loo_road.prepare() — the same rows bake() writes to toilets.json
+    `places` plus the mapped points, read with the same helpers, so a place
+    page and the toilets page never disagree about what counts."""
+    claims = g.get("CLAIMS") or {}
+    reports = load_reports()
+    place_slug = g["place_slug"]
+    out = []
+    for prov in [p["key"] for p in g["PROVINCES"]]:
+        for r in data[prov]:
+            if r.get("lat") is None:
+                continue
+            i, s = tier_index(r), said_index(r)
+            if i is None and s is None:
+                continue
+            t = TIERS[i] if i is not None else None
+            if not (t["key"] in WALK_IN if t else "match" in SAID[s]):
+                continue
+            if _report_of(r["id"], claims, reports) == "toiletnone":
+                continue
+            th = r.get("nameTh") or r.get("name") or ""
+            en = r.get("nameEn") or ""
+            out.append((r["lat"], r["lng"], {
+                "id": r["id"], "e": t["emoji"] if t else "🚻",
+                "w": WINDOWS.get(t["window"]) if t else None,
+                "th": th, "en": "" if en == th else en,
+                "href": f"{prov}/p/{place_slug(r)}"}))
+        for v in verified_points(prov):
+            if "r" in v["flags"]:
+                continue
+            out.append((v["lat"], v["lng"], {
+                "id": "", "e": "🚻", "w": None, "th": v["th"] or "ห้องน้ำสาธารณะ",
+                "en": v["en"] or ("" if v["th"] else "Public toilet"), "href": ""}))
+    return out
 
 
 # ---------------------------------------------------------------- landmarks
@@ -366,6 +479,15 @@ def landmarks(g, data):
 CSS = """/* ห้องน้ำใกล้ฉัน — read at arm's length, in a hurry, one-handed.
    Type is deliberately larger than the rest of the site and the tap targets
    are deliberately bigger than they need to be on a desktop. */
+
+/* ใส่ไว้ที่หน้าจอโฮม — the door to the app, at the size of an offer rather
+   than the size of a footnote. */
+.looapp{margin:1rem 0 1.2rem;display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .9rem}
+.looappgo{display:inline-flex;align-items:center;min-height:44px;padding:.4rem 1.1rem;
+ border-radius:999px;border:2px solid var(--ant);background:var(--ant);color:#fff;
+ text-decoration:none;font-weight:600}
+.looappgo:hover,.looappgo:focus-visible{background:var(--ant-dark);border-color:var(--ant-dark);color:#fff}
+.looapk{font-size:.85rem;color:var(--mute)}
 /* The starting-point bar. It used to be one enormous button whose only job
    was to raise a permission dialog; it is now four equal doors, and the page
    behind it already works. */
@@ -440,6 +562,13 @@ CSS = """/* ห้องน้ำใกล้ฉัน — read at arm's length,
   border-radius:2rem;padding:.5rem .95rem;font:600 .98rem/1 var(--face-th),system-ui,sans-serif;
   color:#2A1E16}
 .loofilters button[aria-pressed=true]{background:#2A1E16;border-color:#2A1E16;color:#FAF3E7}
+.loomode{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;margin:.9rem 0 .2rem}
+.loomode button{flex:1 1 0;cursor:pointer;border:2px solid #A8371A;background:#FFFDF8;border-radius:12px;
+  min-height:48px;padding:.5rem .6rem;white-space:nowrap;font:700 1.02rem/1 var(--face-th),system-ui,sans-serif;color:#A8371A}
+.loomode button[aria-pressed=true]{background:#A8371A;color:#FFFDF8}
+.looroadnote{flex-basis:100%;font-size:.9rem;color:var(--mute)}
+.looroadnote:empty{display:none}
+.looroad{font-weight:400;font-size:.7em;color:#A8371A}
 
 .loolist{list-style:none;margin:.9rem 0 0;padding:0}
 .loorow{display:flex;gap:.8rem;align-items:flex-start;padding:.95rem .2rem;
@@ -453,6 +582,7 @@ CSS = """/* ห้องน้ำใกล้ฉัน — read at arm's length,
 .loometa{display:flex;flex-wrap:wrap;gap:.3rem;align-items:center;margin:.3rem 0 0}
 .lookline{flex-basis:100%;padding:.3rem .2rem 0}
 .loodist{font-weight:700;font-size:1.12rem}
+.loocrow{font-weight:400;font-size:.7em;color:var(--mute)}
 .loowalk{font-size:.9rem;color:#4A3B30}
 .loochip{font-size:.86rem;border-radius:2rem;padding:.18rem .6rem;
   border:1.5px solid #C9B79B;background:#FFFDF8;white-space:nowrap}
@@ -515,7 +645,7 @@ CSS = """/* ห้องน้ำใกล้ฉัน — read at arm's length,
 
 JS = r"""/* ห้องน้ำใกล้ฉัน. Everything is baked; the only thing this asks the
    network for is the second, larger file, and only if the reader taps for it.
-   The location never leaves the browser — there is nowhere on this site to
+   The location stays in the browser — there is nowhere on this site to
    send it.
 
    LOCATION IS NEVER A GATE. The page opens on a working list, sorted from a
@@ -528,6 +658,13 @@ JS = r"""/* ห้องน้ำใกล้ฉัน. Everything is baked; the
    permanently. */
 (function(){
 var D=null,MORE=null,here=null,filter='all',showCust=false;
+/* Road distance (Nan, 2026-10-02: "road distance away, not as the crow
+   flies"). road-near.js routes from the origin over the ~1 km squares of road
+   around it; ROAD answers for one origin and one mode, and a row it cannot
+   reach keeps its straight-line figure, labelled as such. */
+var ROAD=null,ROADKEY='',ROADWANT='',SEL=0,
+    MODE=(function(){try{return localStorage.getItem('md-loo-mode')==='ride'?'ride':'foot';}
+      catch(e){return 'foot';}})();
 var elBtn=document.getElementById('loogo'),elState=document.getElementById('loostate'),
     elList=document.getElementById('loolist'),elFilters=document.getElementById('loofilters'),
     elMore=document.getElementById('loomore'),elNear=document.getElementById('loonear'),
@@ -567,7 +704,7 @@ function hav(a,b,c,d){var R=6371000,p1=a*Math.PI/180,p2=c*Math.PI/180,
 
 /* Opening hours. Only the two shapes that actually appear often enough to be
    worth reading are parsed; anything else falls back to the class window and
-   is labelled as a habit, not as a fact. We never print a flat "closed" from a
+   is labelled as a habit, not as a fact. This does not print a flat "closed" from a
    habit — being wrong about that sends somebody walking the wrong way. */
 function stated(h){
   if(!h)return null;
@@ -600,14 +737,14 @@ function costChip(cost,baht){
    the numbered ticks post straight to the worker; GitHub is the developers'
    side entrance and always works. Nobody is sent to the wrong one. */
 function reportUrl(name,href,id){
-  var body='ห้องน้ำ / Toilet: '+name+'\n'+(href?location.origin+'/'+href+'.html\n':'')+
+  var body='ห้องน้ำ / Toilet: '+name+'\n'+(href?location.origin+'/'+pageOf(href)+'\n':'')+
     (id?'[id:'+id+']\n':'')+
     '\nที่นี่ใช้ได้ไหม เสียเงินเท่าไร / Can it be used, and what does it cost?\n\n'+
     D.reports.map(function(r,i){return (i+1)+'. '+r.emoji+' '+r.th+' / '+r.en;}).join('\n')+
     '\n\nลบข้อที่ไม่ใช่ออก แล้วส่งได้เลย / Delete the lines that do not apply, then send.\n';
-  // Was a GitHub issue — the developers' side entrance, which stopped being an
-  // entrance at all when the account was hidden. The ants' own door takes the
-  // same text and needs no account.
+  // Was a GitHub issue, which asked a reader to hold a developer's account
+  // before they could report a broken toilet. The site's own form takes the
+  // same text and asks for no sign-in anywhere.
   return 'suggest.html?kind=correction'+(id?'&id='+encodeURIComponent(id):'')+
     '&t='+encodeURIComponent(body);
 }
@@ -665,14 +802,15 @@ function normalise(){
       cost:v[4],baht:v[5],hours:v[6],flags:v[7]||'',href:'',tier:null});
   });
   var add=function(p){
-    var t=D.tiers[p[0]];
-    var cost=t.cost,baht=0,acc=t.access;
-    var rep=p[7];
+    /* tier is null on a row only her word brought in (D.said) */
+    var t=p[0]==null?null:D.tiers[p[0]];
+    var cost=t?t.cost:'',baht=0,acc=t?t.access:'';
+    var rep=p[7],said=(!rep&&p[9]!=null&&D.said)?D.said[p[9]]:null;
     if(rep){var R=D.reports.filter(function(x){return x.key===rep;})[0];
       if(R&&R.sets){if(R.sets.cost)cost=R.sets.cost;if(R.sets.access)acc=R.sets.access;
         if(R.sets.baht)baht=R.sets.baht;}}
-    out.push({kind:rep?'f':'t',lat:p[1],lng:p[2],th:p[3],en:p[4],cost:cost,baht:baht,
-      hours:p[6],flags:'',href:p[5],tier:t,access:acc,id:p[8]||''});
+    out.push({kind:rep?'f':said?'s':'t',lat:p[1],lng:p[2],th:p[3],en:p[4],cost:cost,baht:baht,
+      hours:p[6],flags:'',href:p[5],tier:t,access:acc,id:p[8]||'',said:said});
   };
   D.places.forEach(add);
   if(showCust&&MORE)MORE.places.forEach(add);
@@ -701,6 +839,15 @@ function render(){
      more than the nudge was worth. Confidence is already on every row, in the
      "mapped" and "checked by a person" chips; the reader can weigh it. */
   rows.sort(function(a,b){return a.d-b.d;});
+  /* Road is never shorter than the crow, so the 150 nearest by crow hold the
+     40 nearest by road unless the city is very strange. */
+  rows=rows.slice(0,150);
+  var key=roadKey();
+  if(ROAD&&ROADKEY===key){
+    rows.forEach(function(x){x.r=ROAD.to(x.lat,x.lng);});
+    rows.sort(function(a,b){var ra=a.r==null?Infinity:a.r,rb=b.r==null?Infinity:b.r;
+      return ra!==rb?ra-rb:a.d-b.d;});
+  }else{rows.forEach(function(x){x.r=null;});if(ROADKEY!==key)loadRoad(key);}
   rows=rows.slice(0,40);
   if(!rows.length){elList.innerHTML='<li class="loorow"><div class="loobody">'+
     bi('ไม่พบในตัวกรองนี้ ลองเอาตัวกรองออก','Nothing matches that filter — try clearing it')+
@@ -714,11 +861,24 @@ function render(){
     var t=x.tier,o=openness(x,t),chips=[];
     /* The number once, not once per language — "80 ม. · เดิน ~1 นาที · 80 ม.
        · ~1 min walk" spent two lines saying 80 twice. */
-    chips.push('<span class="loodist">'+esc(fmtD(x.d))+'</span>'+
-      '<span class="loowalk">'+bi('เดิน ~'+Math.max(1,Math.round(x.d/D.walkMetresPerMinute))+' นาที',
-        '~'+Math.max(1,Math.round(x.d/D.walkMetresPerMinute))+' min walk')+'</span>');
+    /* Straight-line, and the minutes are a floor: the walk follows streets,
+       and the moat is crossable only at its gates and bridges (Nan,
+       2026-09-23: nearest is by road). Said on the figure itself. */
+    if(x.r!=null){
+      var rm=Math.max(1,Math.round(x.r/(MODE==='ride'?RIDE_M_PER_MIN:D.walkMetresPerMinute)));
+      chips.push('<span class="loodist" title="ระยะตามถนน · distance by road">'+
+        esc(fmtD(x.r))+' <small class="looroad">'+bi('ตามถนน','by road')+'</small></span>'+
+        '<span class="loowalk">'+(MODE==='ride'?bi('ขี่ ~'+rm+' นาที','~'+rm+' min by scooter')
+          :bi('เดิน ~'+rm+' นาที','~'+rm+' min walk'))+'</span>');
+    }else{
+    var wm=Math.max(1,Math.round(x.d/D.walkMetresPerMinute));
+    chips.push('<span class="loodist" title="ระยะเส้นตรง · straight-line distance">'+
+      esc(fmtD(x.d))+' <small class="loocrow">'+bi('เส้นตรง','straight-line')+'</small></span>'+
+      '<span class="loowalk">'+bi('เดินอย่างน้อย ~'+wm+' นาที','walk ≥ ~'+wm+' min')+'</span>');
+    }
     if(x.kind==='v')chips.push('<span class="loochip sure">'+bi('ปักหมุดไว้แล้ว','mapped')+'</span>');
     if(x.kind==='f')chips.push('<span class="loochip sure">'+bi('มีคนไปดูมา','checked by a person')+'</span>');
+    if(x.kind==='s')chips.push('<span class="loochip sure">🚻 '+bi(x.said.th,x.said.en)+'</span>');
     chips.push(costChip(x.cost,x.baht));
     if(o)chips.push('<span class="loochip '+(o.on?'open':'shut')+'">'+
       (o.sure?bi(o.on?'เปิดอยู่':'ปิดแล้ว',o.on?'open now':'closed now')
@@ -729,7 +889,7 @@ function render(){
        and four bilingual links wrapped to a hundred pixels on a phone — which
        on this page costs a whole result you could otherwise have seen. */
     var nm=x.en&&x.en!==x.th?bi(x.th,x.en):'<span class="th">'+esc(x.th)+'</span>';
-    if(x.href)nm='<a href="'+esc(x.href)+'.html">'+nm+'</a>';
+    if(x.href)nm='<a href="'+esc(pageOf(x.href))+'">'+nm+'</a>';
     var acts=[],nom=x.th||x.en;
     if(x.href)acts.push('<a href="plan.html?stops='+encodeURIComponent(x.href.split('/')[0]+':'+
       x.href.split('/').slice(1).join('/'))+'">'+bi('เดินไปยังไง','walk me there')+'</a>');
@@ -737,8 +897,10 @@ function render(){
       bi('บอกมดแดง','tell the ants')+'</a>');
     if(!x.id||!D.reportEndpoint)acts.push('<a href="'+esc(reportUrl(nom,x.href,x.id))+
       '" rel="noopener">'+bi('บอกมดแดง','tell the ants')+'</a>');
+    /* A row carrying her word gets no habit sentence: the habit is what
+       her word replaces. The class sentence waits for a row that leans on it. */
     var tk=t?t.key:'_mapped',basis='';
-    if(!toldTier[tk]){toldTier[tk]=1;
+    if(!toldTier[tk]&&x.kind!=='s'&&(t||x.kind==='v')){toldTier[tk]=1;
       basis='<p class="loobasis">'+(t?bi(t.basis_th,t.basis_en):
         bi('ห้องน้ำสาธารณะที่มีคนปักหมุดไว้ในแผนที่เปิด',
            'A public toilet somebody mapped in OpenStreetMap.'))+'</p>';}
@@ -752,7 +914,35 @@ function render(){
   if(elMap)drawMap(rows,elMap);
 }
 
+/* `href` is <province>/<slug>; the page lives at <province>/p/<slug>.html.
+   Linking the bare form 404'd every name on this list (found 2026-10-02). */
+function pageOf(h){var i=h.indexOf('/');return h.slice(0,i)+'/p/'+h.slice(i+1)+'.html';}
 function fmtD(m){return m<1000?Math.round(m/10)*10+' ม.':(m/1000).toFixed(1)+' กม.';}
+
+var RIDE_M_PER_MIN=300;    // 18 km/h, plan.html's ride pace
+function roadKey(){return here?here.lat.toFixed(5)+','+here.lng.toFixed(5)+','+MODE:'';}
+/* One search per origin and mode. Starts close and widens only if too few
+   doors fall inside it: a city reader gets an answer from a few small
+   squares, a reader out by the rice fields waits for more of them. */
+function loadRoad(key){
+  if(ROADWANT===key||!window.MDROAD)return;
+  ROADWANT=key;
+  var o=here,mode=MODE,ladder=mode==='ride'?[4000,10000,25000]:[1800,4500,9000];
+  var near=normalise().map(function(x){return [hav(o.lat,o.lng,x.lat,x.lng),x];})
+    .sort(function(a,b){return a[0]-b[0];}).slice(0,60);
+  setRoadNote('busy');
+  (function step(i){
+    MDROAD.from(o.lat,o.lng,{mode:mode,reach:ladder[i]}).then(function(R){
+      if(ROADWANT!==key)return;
+      var got=R?near.filter(function(p){return R.to(p[1].lat,p[1].lng)!=null;}).length:0;
+      if(R&&got<10&&i+1<ladder.length){step(i+1);return;}
+      ROAD=R;ROADKEY=key;SEL=0;setRoadNote(R?'':'none');render();
+    }).catch(function(){if(ROADWANT===key){ROAD=null;ROADKEY=key;setRoadNote('none');render();}});
+  })(0);
+}
+function setRoadNote(st){var el=document.getElementById('looroadnote');if(!el)return;
+  el.innerHTML=st==='busy'?bi('กำลังวัดระยะตามถนน…','Measuring along the roads…')
+    :st==='none'?bi('ที่นี่ไม่มีข้อมูลถนน ระยะเป็นเส้นตรง','No road data here — distances are straight-line'):'';}
 
 /* The origin's name in whichever language is showing. Used in alt text and
    on the map face, where a two-language string would not fit. */
@@ -843,6 +1033,19 @@ function drawMap(rows,host){
      under it is dragged. Always true here — the basemap cannot be rotated. */
   p.push('<g data-mdfix="1" opacity=".75"><path d="M'+(S-20)+' '+(PAD-6)+' l5 13 -5-3 -5 3Z" fill="#6B584A"/>'+
     '<text x="'+(S-20)+'" y="'+(PAD+22)+'" font-size="9" fill="#6B584A" text-anchor="middle">N</text></g>');
+  /* The way there, along the roads, to the selected row (the nearest until
+     a pin is tapped). Drawn under the pins so it never hides one. */
+  var sel=shown[SEL]||shown[0];
+  if(ROAD&&ROADKEY===roadKey()&&sel&&sel.r!=null){
+    var route=ROAD.path(sel.lat,sel.lng);
+    if(route&&route.length>1){
+      var pts=route.map(function(c){var q=px(c[0],c[1]);return q[0].toFixed(1)+','+q[1].toFixed(1);}).join(' ');
+      p.push('<polyline class="looroute" points="'+pts+'" fill="none" stroke="#FFFDF8" stroke-width="7" '+
+        'stroke-linecap="round" stroke-linejoin="round" opacity=".9" vector-effect="non-scaling-stroke"/>');
+      p.push('<polyline class="looroute" points="'+pts+'" fill="none" stroke="#D4552C" stroke-width="4" '+
+        'stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>');
+    }
+  }
   /* Pins furthest-first, so the nearest ones land on top of the pile. */
   shown.slice().reverse().forEach(function(x){
     var i=shown.indexOf(x),q=px(x.lat,x.lng);
@@ -899,6 +1102,7 @@ function drawMap(rows,host){
   el.querySelectorAll('.loopin').forEach(function(g){
     var go=function(){
       var li=elList.children[+g.dataset.pin]; if(!li)return;
+      if(SEL!==+g.dataset.pin){SEL=+g.dataset.pin;drawMap(rows,host);}
       li.scrollIntoView({block:'center'});
       li.classList.add('loohit');
       setTimeout(function(){li.classList.remove('loohit');},1400);
@@ -929,15 +1133,15 @@ function drawMap(rows,host){
 function setOrigin(o){
   here=o;
   /* A GPS fix is never written to disk. The promise on this page is that the
-     coordinate stays in the browser and is never stored; localStorage is
+     coordinate stays in the browser and is held in memory only; localStorage is
      storage. Landmarks and dropped pins are the reader's own choice of a
      public place and persist happily. */
   if(o.src==='gps')store('md-loo-origin',null);
   else store('md-loo-origin',{lat:o.lat,lng:o.lng,th:o.th,en:o.en,src:o.src,prov:o.prov||''});
   elState.className='loostate';
   elState.innerHTML=o.src==='gps'
-    ? bi('เรียงจากใกล้ที่สุด · ระยะเป็นเส้นตรง เดินจริงไกลกว่านี้',
-         'Nearest first. Distances are straight-line — the walk is longer, especially across the moat.')
+    ? bi('เรียงจากใกล้ที่สุด ตามระยะทางบนถนน',
+         'Nearest first, by the distance along the roads.')
     : bi('เรียงจาก '+(o.th||o.en)+' · แตะแผนที่หรือเลือกที่อื่นเพื่อย้ายจุดตั้งต้น',
          'Measured from '+(o.en||o.th)+'. Tap the map or pick another spot to move it.');
   render();
@@ -1048,14 +1252,35 @@ function boot(){
   var saved=recall('md-loo-origin');
   here=(saved&&typeof saved.lat==='number'&&typeof saved.lng==='number'&&saved.src!=='gps')
     ? saved : DEFAULTS.cm;
+  /* ?at=lat,lng&th=…&en=… — a place page's "toilets from here" door. The
+     place is the starting point; the reader can still move it. */
+  var qs=null;try{qs=new URLSearchParams(location.search);}catch(e){}
+  var at=qs&&qs.get('at'),fromPlace=false;
+  if(at){var c=at.split(',').map(Number);
+    if(c.length===2&&isFinite(c[0])&&isFinite(c[1])&&Math.abs(c[0])<=90&&Math.abs(c[1])<=180){
+      here={lat:c[0],lng:c[1],th:(qs.get('th')||'').slice(0,120),
+            en:(qs.get('en')||qs.get('th')||'').slice(0,120),src:'place'};fromPlace=true;}}
+  var elMode=document.getElementById('loomode');
+  if(elMode)elMode.querySelectorAll('button[data-mode]').forEach(function(b){
+    b.setAttribute('aria-pressed',b.dataset.mode===MODE?'true':'false');
+    b.addEventListener('click',function(){
+      if(MODE===b.dataset.mode)return;MODE=b.dataset.mode;
+      try{localStorage.setItem('md-loo-mode',MODE);}catch(e){}
+      elMode.querySelectorAll('button[data-mode]').forEach(function(x){
+        x.setAttribute('aria-pressed',x===b?'true':'false');});
+      render();});});
 
   /* Ask the browser what it already knows, so the button never promises
      something the OS has already refused. Where this is unsupported the
      button stays — the dialog in front of it is still the reader's own
-     choice, and a wrongly-hidden control is worse than an honest one. */
+     choice, and a wrongly-hidden control is worse than a visible one. */
   if(navigator.permissions&&navigator.permissions.query){
     try{navigator.permissions.query({name:'geolocation'}).then(function(st){
       if(st.state==='denied')killGps();
+      /* Already allowed in this browser: the reader answered the question
+         before, so the list goes straight to where they stand. Not on a
+         place page's door, which asked for that place. */
+      else if(st.state==='granted'&&!fromPlace)useLocation();
       st.onchange=function(){if(st.state==='denied')killGps();};
     }).catch(function(){});}catch(e){}
   }
@@ -1134,16 +1359,16 @@ def build_page(g, stats, marks):
     bi, att, esc = g["bi"], g["att"], g["esc"]
     page, share_block = g["page"], g["share_block"]
 
-    walkin_total = sum(v for k, v in stats["per_tier"].items() if k in WALK_IN)
+    walkin_total = stats["walk"]
 
     lede_th = ("บางครั้งคำถามมีข้อเดียว — ห้องน้ำที่ใกล้ที่สุดอยู่ไหน ใช้ได้เลยไหม เสียเงินเท่าไร "
                "หน้านี้ตอบแค่นั้น รายการพร้อมใช้ตั้งแต่เปิดหน้า ไม่ต้องเปิดตำแหน่ง "
-               "ถ้าเลือกใช้ตำแหน่งจริง ตำแหน่งนั้นอยู่ในเครื่องคุณเท่านั้น ไม่ถูกส่งออกไปไหน และไม่ถูกเก็บไว้")
+               "ถ้าเลือกใช้ตำแหน่งจริง รายการจะเรียงตามตำแหน่งนั้น")
     lede_en = ("Sometimes there is only one question — where is the nearest one, "
                "may I use it, what does it cost. This page answers that and "
                "nothing else. The list works the moment the page opens, with no "
-               "location and nothing to allow. If you do share your position, it "
-               "never leaves this device — not sent anywhere, not stored.")
+               "location and nothing to allow. Share your position and the list "
+               "sorts by it.")
 
     near_items = "".join(
         f'<li><a href="#" data-lat="{m["lat"]}" data-lng="{m["lng"]}" '
@@ -1170,10 +1395,11 @@ def build_page(g, stats, marks):
         f'แห่งเดียวเท่านั้นที่บอกราคาไว้ว่าเก็บเท่าไร ราคา ๕–๑๐ บาทจึงเป็นความรู้ตามประเภท '
         f'ที่รอให้คนที่ไปจริงมาแก้ · ชั้นของที่พึ่งอีก {walkin_total:,} แห่งที่ใครก็เดินเข้าได้ '
         f'และอีก {stats["cust"]:,} แห่งที่ให้ลูกค้าใช้ มาจากธรรมเนียมของประเภทสถานที่ '
-        f'ไม่ใช่การยืนยันรายแห่ง — เขียนไว้แบบนั้นทุกบรรทัด · '
-        f'ระยะทางเป็นเส้นตรง ไม่ใช่ระยะเดินจริง ข้ามคูเมืองต้องอ้อมไปประตู '
-        f'ดู<a href="walk.html">แผนที่ระยะเดิน</a>ประกอบ · '
-        f'คำบอกจากคนที่ไปจริงชนะการเดาจากประเภทเสมอ รวมถึงคำว่า "ที่นี่ไม่มี" '
+        f'เป็นส่วนใหญ่ ไม่ใช่การยืนยันรายแห่ง · '
+        f'ระยะทางวัดตามถนนจากแผนที่เปิด เดินได้ทั้งสองทางของถนนวันเวย์ '
+        f'ขี่ได้เฉพาะทางที่รถวิ่ง ข้ามคูเมืองได้ที่ประตูและสะพาน '
+        f'ที่ที่ยังไม่มีข้อมูลถนนบอกเป็นระยะเส้นตรง · '
+        f'คำบอกจากคนที่ไปจริงชนะการเดาจากประเภท รวมถึงคำว่า "ที่นี่ไม่มี" '
         f'ซึ่งเป็นทางเดียวที่จะเอาการเดาที่ผิดออกจากรายการได้')
     method_en = (
         f'Toilets actually mapped in OpenStreetMap: {stats["per_prov"].get("cm", 0)} in '
@@ -1181,11 +1407,12 @@ def build_page(g, stats, marks):
         f'and yet exactly one of the Chiang Mai points records what it charges. '
         f'The 5-10 baht figure is therefore class knowledge waiting on somebody '
         f'who went. The {walkin_total:,} walk-in places and {stats["cust"]:,} '
-        f'customer ones come from the habit of a class of venue, never from a '
-        f'check on that building — and every line says so. Distances are '
-        f'straight-line, not walking distance; the moat is crossable only at the '
-        f'bridges and gates, so see <a href="walk.html">the walking-pace maps</a>. '
-        f'A report from someone who stood there outranks the class every time, '
+        f'customer ones come mostly from the habit of a class of venue rather '
+        f'than a check on that building. Distances follow the roads in '
+        f'OpenStreetMap: on foot either way down a one-way street, by scooter '
+        f'only the way the traffic runs, across the moat at its gates and bridges. '
+        f'Where no road data reaches, a row says straight-line. '
+        f'A report from someone who stood there outranks the class, '
         f'including the one that says there is none — which is the only way a '
         f'wrong guess comes off this page.')
 
@@ -1206,14 +1433,13 @@ def build_page(g, stats, marks):
              "หรือ “ที่นี่ไม่มี” จบในแตะเดียว ไม่ต้องพิมพ์ ไม่ต้องสมัครอะไร",
              "Every row carries a “tell the ants” button — one of five answers: "
              "free, 5 baht, 10 baht, customers only, or none here. One tap, no "
-             "typing, no account.") + "</p></div>"),
+             "typing.") + "</p></div>"),
         ('<div class="module"><h3>' + bi("เจ้าของร้านยืนยันเองได้", "Owners can say so themselves")
          + "</h3><p>" + bi(
              "ถ้าเป็นร้านของคุณ ยืนยันร้านแล้วติ๊กเรื่องห้องน้ำไปพร้อมกันได้เลย "
-             "คำของเจ้าของชนะการเดาจากประเภทเสมอ",
+             "คำของเจ้าของชนะการเดาจากประเภท",
              "If it is your place, claim it and tick the toilet answer at the "
-             "same time. The owner's word beats our guess about the class every "
-             "time.") + f'</p><p><a class="pill" href="claim.html">'
+             "same time. The owner's word beats our guess about the class.") + f'</p><p><a class="pill" href="claim.html">'
          + bi("ยืนยันร้านของคุณ", "Claim your place") + "</a></p></div>"),
     ]
     if g.get("LINE_OA_ID"):
@@ -1239,10 +1465,8 @@ def build_page(g, stats, marks):
     # Hoisted, not inlined: build.py and this layer run on Python 3.9, where a
     # multi-line expression inside an f-string is a SyntaxError.
     gate_note = bi(
-        "ตำแหน่งของคุณอยู่ในเครื่องคุณเท่านั้น ไม่ถูกส่งออกไปไหน และไม่ถูกเก็บไว้ "
-        "ใช้เพื่อเรียงลำดับในหน้านี้อย่างเดียว",
-        "Your location never leaves this device. It is not sent anywhere and "
-        "not stored — it only sorts this list.")
+        "ตำแหน่งของคุณใช้เรียงลำดับรายการนี้",
+        "Your location sorts this list.")
 
     order_note = bi(
         "เรียงตามความแน่นอนของประเภท แล้วจึงตามเวลาที่เปิด ไม่ได้เรียงตามความสวยงามของห้อง",
@@ -1291,9 +1515,17 @@ def build_page(g, stats, marks):
         + bi("ไม่ต้อง", "Not now") + "</button>"
         f'</div></div></div>'
 
-        f'<p class="tinynote">📱 <a href="app.html">'
-        + bi("มีแบบแอปด้วย — แผนที่ทั้งเมืองอยู่ในเครื่อง ไม่ต้องมีเน็ต",
-             "Also as an app — the whole map in your pocket, no signal needed")
+        # ใส่ไว้ที่หน้าจอโฮม (Nan, 2026-09-17: the toilet finder "should be easy
+        # to find, and you should be able to download it to your homescreen
+        # very easily and for free"). It was a tinynote — the smallest type on
+        # the page, pointing at a page that led with an Android file. The door
+        # goes to /app/ now, which is the finder itself and carries the
+        # one-tap install; app.html stays for the Android build behind it.
+        f'<p class="looapp"><a class="looappgo" href="app/">'
+        + bi("ใส่ไว้ที่หน้าจอโฮม — ฟรี ใช้ได้ตอนไม่มีเน็ต",
+             "Put it on your home screen — free, works with no signal")
+        + '</a> <a class="looapk" href="app.html">'
+        + bi("แบบไฟล์แอนดรอยด์", "the Android file")
         + "</a></p>"
         # The which-way panel. map_shell wraps it so MapLibre can mount over
         # the drawn SVG once a basemap exists; with none configured this is
@@ -1301,6 +1533,11 @@ def build_page(g, stats, marks):
         # same way. One constructor, one place tiles are ever configured.
         + map_shell.mount("loomap", cls="loomap mdmap", prov="cm",
                           zoom=15, label=g["bi_text"]("แผนที่บอกทิศ", "Which way panel"))
+        + f'<div id="loomode" class="loomode" role="group" '
+        f'aria-label="{att(g["bi_text"]("ไปยังไง", "How you are going"))}">'
+        f'<button type="button" data-mode="foot" aria-pressed="true">🚶 {bi("เดิน", "walk")}</button>'
+        f'<button type="button" data-mode="ride" aria-pressed="false">🛵 {bi("ขี่", "scooter")}</button>'
+        f'<span id="looroadnote" class="looroadnote" aria-live="polite"></span></div>'
         + f'<div id="loofilters" class="loofilters" hidden role="group" '
         f'aria-label="{att(g["bi_text"]("ตัวกรอง", "Filters"))}">{filters}</div>'
         f'<ol id="loolist" class="loolist"></ol>'
@@ -1335,6 +1572,7 @@ def build_page(g, stats, marks):
                 # body actually mounts a map, so it cannot be forgotten and
                 # cannot be added twice.
                 extra_head='<link rel="stylesheet" href="toilets.css">'
+                           '<script src="road-near.js" defer></script>'
                            '<script src="toilets.js" defer></script>')
 
 
@@ -1346,10 +1584,13 @@ def emit(g, data):
     marks = landmarks(g, data)
     (docs / "toilets.css").write_text(CSS)
     (docs / "toilets.js").write_text(JS)
+    import loo_road
+    n_tiles = loo_road.emit(g)
+    loo_road.emit_doors(docs, doors(g, data))
     (docs / "toilets.html").write_text(build_page(g, stats, marks))
-    walkin = sum(v for k, v in stats["per_tier"].items() if k in WALK_IN)
-    return (f'{stats["verified"]} mapped + {walkin} walk-in + '
-            f'{stats["cust"]} customer-only, {len(marks)} landmarks')
+    return (f'{stats["verified"]} mapped + {stats["walk"]} walk-in + '
+            f'{stats["cust"]} customer-only ({stats["said"]} on her word), '
+            f'{len(marks)} landmarks, {n_tiles:,} road squares')
 
 
 if __name__ == "__main__":

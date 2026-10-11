@@ -1,0 +1,23 @@
+SKIN TAG REMOVAL — call list for Palida (Nan's ask, 23 Sept)
+Built 27 Sept from motdang.net/api/v1/search. Nothing has been called.
+
+Two pages name the service (query ตัดติ่งเนื้อ):
+  ไทมส์คลินิกเวชกรรม / Times Clinic   motdang.net/cm/p/times-clinic-cmcuratedtimesclinic.html
+  OPD ศูนย์ศรีพัฒน์ / Sriphat Center   motdang.net/cm/p/opd-sriphat-center-1103996217.html
+
+Skin clinics in Chiang Mai to call (query คลินิกผิวหนัง, 69 results, these name skin work):
+  คลินิกผิวหนัง แพทย์เอกราช            motdang.net/cm/p/07001714418330231667.html        phone held
+  VW Skin consult by Dr. Tor           motdang.net/cm/p/vw-skin-consult-by-dr-tor-i-dermatology-aesthetics-wellness-41531637494684623143669.html   phone held
+  Skin Solution Clinic (พญ.กุลวดี)      motdang.net/cm/p/skin-solution-clinic-3511075580024976840743849.html   phone held
+  Skin Dream Clinic                    motdang.net/cm/p/skin-dream-clinic-42715894528272082487011.html   phone held
+  Narada Clinic                        motdang.net/cm/p/narada-clinic-668012404.html      phone held
+  Pachara Clinic                       motdang.net/cm/p/pachara-clinic-411355067.html     phone held
+  Ratika Skin Clinic                   motdang.net/cm/p/ratika-skin-clinic-3421245746.html   no phone
+  Skin Centre                          motdang.net/cm/p/skin-centre-679152513.html        no phone
+  Sarinya Clinic                       motdang.net/cm/p/sarinya-clinic-3420998761.html    website only
+  Skin clinic                          motdang.net/cm/p/skin-clinic-6611483885.html       no phone
+  Mai SkinsoulS                        motdang.net/cm/p/mai-skinsouls-812873194805241632393.html   no phone
+
+The data does not say which of these remove skin tags; only the first two pages mention it.
+The other 50-odd results are hospitals and beauty clinics (botox, filler, surgery).
+Question to ask each: รับตัดติ่งเนื้อไหมคะ ราคาเท่าไหร่ ต้องนัดล่วงหน้าไหม

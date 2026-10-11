@@ -1,0 +1,555 @@
+{
+ "landmarks": [
+  {
+   "key": "tham-luang",
+   "en": "Tham Luang cave",
+   "th": "ถ้ำหลวงนางนอน",
+   "lat": 20.3816674,
+   "lng": 99.8683325,
+   "record": null,
+   "pin": "OSM natural=cave_entrance node 3761342690 (Wikidata Q14752104). Record cr-ovt-189ba14f (ถ้ำหลวงเชียงราย, a park POI) sits ~50 m away; not used.",
+   "src": "https://www.openstreetmap.org/node/3761342690",
+   "note_en": "Karst cave beneath Doi Nang Non, on the Myanmar border.",
+   "note_th": "ถ้ำหินปูนใต้ดอยนางนอน ติดชายแดนเมียนมา"
+  },
+  {
+   "key": "friendship-1",
+   "en": "Friendship Bridge 1",
+   "th": "สะพานมิตรภาพแห่งที่ 1",
+   "lat": 20.4446562,
+   "lng": 99.8803866,
+   "record": null,
+   "pin": "OSM man_made=bridge way 1456754171, centre over the Sai river. Wikivoyage prints 20.4445, 99.8803. Record cr-ovt-fba8b04e carries the name but is filed as food, ~100 m south; not used.",
+   "src": "https://www.openstreetmap.org/way/1456754171",
+   "note_en": "Border bridge to Tachileik, Myanmar.",
+   "note_th": "สะพานข้ามพรมแดนไปท่าขี้เหล็ก เมียนมา"
+  },
+  {
+   "key": "friendship-2",
+   "en": "Friendship Bridge 2",
+   "th": "สะพานมิตรภาพแห่งที่ 2",
+   "lat": 20.4485167,
+   "lng": 99.9046331,
+   "record": null,
+   "pin": "OSM man_made=bridge way 1414015772; no matching record.",
+   "src": "https://www.openstreetmap.org/way/1414015772",
+   "note_en": "",
+   "note_th": ""
+  },
+  {
+   "key": "friendship-lao",
+   "en": "Thai–Lao Friendship Bridge 4",
+   "th": "สะพานมิตรภาพไทย–ลาว 4",
+   "lat": 20.2139715,
+   "lng": 100.453114,
+   "record": null,
+   "pin": "OSM man_made=bridge way 1560875800 (Wikidata Q581198), centre over the Mekong. Record cr-osm-node-11652971569 (same name) sits ~300 m west on the Thai approach; not used.",
+   "src": "https://www.openstreetmap.org/way/1560875800",
+   "note_en": "Mekong highway bridge, opened 11 December 2013.",
+   "note_th": "สะพานข้ามแม่น้ำโขง เปิดใช้ 11 ธันวาคม 2556"
+  },
+  {
+   "key": "clock-tower",
+   "en": "Clock Tower",
+   "th": "หอนาฬิกาเชียงราย",
+   "lat": 19.9071628,
+   "lng": 99.8309886,
+   "record": "cr-curated-clock-tower",
+   "pin": "Record cr-curated-clock-tower matches but is approx (19.9074, 99.8309, ~30 m off); coordinates taken from OSM way 487637817 (man_made=tower).",
+   "src": "https://www.openstreetmap.org/way/487637817",
+   "note_en": "",
+   "note_th": ""
+  },
+  {
+   "key": "golden-triangle",
+   "en": "Golden Triangle",
+   "th": "สามเหลี่ยมทองคำ",
+   "lat": 20.3512149,
+   "lng": 100.0827443,
+   "record": "cr-osm-node-4359090389",
+   "pin": "Record = OSM historic=monument node 4359090389, inscription 'สามเหลี่ยมทองคำ / Golden Triangle'. The hilltop viewpoint is a separate OSM node 361391252 (20.3536224, 100.0812531).",
+   "src": "https://www.openstreetmap.org/node/4359090389",
+   "note_en": "Sign reads สามเหลี่ยมทองคำ / Golden Triangle.",
+   "note_th": "ป้ายเขียนว่า สามเหลี่ยมทองคำ / Golden Triangle"
+  },
+  {
+   "key": "golden-buddha",
+   "en": "Phra Chiang Saen Si Phaendin",
+   "th": "พระเชียงแสนสี่แผ่นดิน",
+   "lat": 20.3523708,
+   "lng": 100.0830552,
+   "record": "cr-osm-node-361391554",
+   "pin": "Record = OSM node 361391554, named 'Biggest Buddha' / พระประธาน, riverside at Sop Ruak; ~95 m north of House of Opium, as Wikipedia describes. Identity inferred from the name and placement.",
+   "src": "https://en.wikipedia.org/wiki/Ban_Sop_Ruak",
+   "note_en": "Huge golden Buddha seated on a boat, Mekong bank at the Ruak mouth.",
+   "note_th": "พระพุทธรูปทององค์ใหญ่ประทับบนเรือ ริมโขงปากแม่น้ำรวก"
+  },
+  {
+   "key": "kings-romans",
+   "en": "Kings Romans (Laos)",
+   "th": "คิงส์โรมันส์ (ลาว)",
+   "lat": 20.3405023,
+   "lng": 100.0971178,
+   "record": null,
+   "pin": "OSM amenity=casino node 10296873609, name:en Kings Romans Casino. Laos, so not in cr.json.",
+   "src": "https://www.openstreetmap.org/node/10296873609",
+   "note_en": "SEZ created 2007 by the Lao government with Kings Romans Group.",
+   "note_th": "เขตเศรษฐกิจพิเศษตั้งปี 2550 โดยรัฐบาลลาวร่วมกับกลุ่มคิงส์โรมันส์"
+  },
+  {
+   "key": "hall-of-opium",
+   "en": "Hall of Opium",
+   "th": "หอฝิ่น",
+   "lat": 20.362898,
+   "lng": 100.0729539,
+   "record": "cr-osm-way-137648101",
+   "pin": "Record = OSM museum building way 137648101. Wikivoyage prints 20.363677, 100.073688; Wikidata 20.36445, 100.07349.",
+   "src": "https://www.openstreetmap.org/way/137648101",
+   "note_en": "Open Tue–Sun 08:30–16:30 (Wikivoyage).",
+   "note_th": "เปิดอังคาร–อาทิตย์ 08:30–16:30 (Wikivoyage)"
+  },
+  {
+   "key": "house-of-opium",
+   "en": "House of Opium",
+   "th": "บ้านฝิ่น",
+   "lat": 20.3515154,
+   "lng": 100.0816032,
+   "record": "cr-osm-node-775981375",
+   "pin": "Record = OSM tourism=museum node 775981375; Wikivoyage prints 20.3515, 100.0816.",
+   "src": "https://www.openstreetmap.org/node/775981375",
+   "note_en": "Small privately owned opium museum in Ban Sop Ruak.",
+   "note_th": "พิพิธภัณฑ์ฝิ่นขนาดเล็กของเอกชน ในบ้านสบรวก"
+  },
+  {
+   "key": "black-house",
+   "en": "Baan Dam (Black House)",
+   "th": "บ้านดำ",
+   "lat": 19.9912364,
+   "lng": 99.861018,
+   "record": "cr-osm-way-393447653",
+   "pin": "Record = OSM way 393447653; Wikidata Q109941651 gives 19.9921, 99.8607.",
+   "src": "https://www.openstreetmap.org/way/393447653",
+   "note_en": "Private art museum designed by Thawan Duchanee.",
+   "note_th": "พิพิธภัณฑ์ศิลปะเอกชน ออกแบบโดยถวัลย์ ดัชนี"
+  },
+  {
+   "key": "blue-temple",
+   "en": "Wat Rong Suea Ten (Blue Temple)",
+   "th": "วัดร่องเสือเต้น",
+   "lat": 19.923357,
+   "lng": 99.8417552,
+   "record": "cr-osm-way-458258686",
+   "pin": "Record = OSM way 458258686; Wikidata Q81648240 gives 19.92337, 99.84173.",
+   "src": "https://www.wikidata.org/wiki/Q81648240",
+   "note_en": "Buddhist temple known for its modern artistic design.",
+   "note_th": "วัดที่มีชื่อเสียงด้านศิลปะสมัยใหม่"
+  },
+  {
+   "key": "white-temple",
+   "en": "Wat Rong Khun (White Temple)",
+   "th": "วัดร่องขุ่น",
+   "lat": 19.82428550720215,
+   "lng": 99.76299285888672,
+   "record": "cr-ovt-1a46f49f-6b4d-4864-9b53-b96688c04ab0",
+   "pin": "Record cr-ovt-1a46f49f (Overture POI 'วัดร่องขุ่น - Wat Rong Khun - White Temple'); ~30 m from Wikidata Q496543 (19.82424, 99.76329) and OSM way 204897611.",
+   "src": "https://www.wikidata.org/wiki/Q496543",
+   "note_en": "Created by Chalermchai Kositpipat, opened to visitors in 1997.",
+   "note_th": "สร้างโดยเฉลิมชัย โฆษิตพิพัฒน์ เปิดให้ชมปี 2540"
+  },
+  {
+   "key": "mangrai-monument",
+   "en": "King Mangrai Monument",
+   "th": "อนุสาวรีย์พญามังราย",
+   "lat": 19.9104462,
+   "lng": 99.8401041,
+   "record": "cr-osm-node-2622028552",
+   "pin": "Record = OSM historic=memorial node 2622028552.",
+   "src": "https://www.openstreetmap.org/node/2622028552",
+   "note_en": "Mangrai was the first king of Lan Na.",
+   "note_th": "พญามังรายเป็นกษัตริย์องค์แรกของล้านนา"
+  },
+  {
+   "key": "walking-street",
+   "en": "Saturday Walking Street",
+   "th": "ถนนคนเดินวันเสาร์",
+   "lat": 19.90870952606201,
+   "lng": 99.83567810058594,
+   "record": "cr-ovt-fad28811-2656-4b89-ab32-c50f823e599c",
+   "a": [
+    19.9088719,
+    99.8379522
+   ],
+   "b": null,
+   "pin": "Point = record cr-ovt-fad28811 on Thanalai Rd (not a computed midpoint; lovethailand prints 19.908673, 99.830550). 'a' = Nong Si Chaeng intersection, OSM way 1105785059, the east end per lovethailand. 'b' (Government Savings Bank intersection) could not be placed on Thanalai Rd: left null.",
+   "src": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/567-Kad-Chiang-Hai-Ram-Luk-(Walking-Street).html",
+   "note_en": "Saturdays 16:00–23:00, about 1–1.5 km of Thanalai Road.",
+   "note_th": "ทุกวันเสาร์ 16:00–23:00 ยาวราว 1–1.5 กม. บนถนนธนาลัย"
+  },
+  {
+   "key": "walking-street-sun",
+   "en": "Sunday Walking Street",
+   "th": "ถนนคนเดินวันอาทิตย์",
+   "lat": 19.901111,
+   "lng": 99.81945,
+   "record": "cr-osm-node-3993692374",
+   "pin": "Record = OSM marketplace node 3993692374 'Sunday Walking Street', addr:street ถนนสันโค้งน้อย, opening_hours Su 17:00-23:00. A second OSM node 4122938292 sits 220 m east (Su 16:00-21:00).",
+   "src": "https://www.thaiholidayguide.com/attraction/chiang-rai-walking-street/",
+   "note_en": "Smaller Sunday-night market on San Khong Noi Road, near Wat Chetuphon.",
+   "note_th": "ตลาดคืนวันอาทิตย์บนถนนสันโค้งน้อย ใกล้วัดเชตุพน"
+  },
+  {
+   "key": "bus-1",
+   "en": "Bus Terminal 1",
+   "th": "สถานีขนส่ง แห่งที่ 1",
+   "lat": 19.9046593,
+   "lng": 99.834473,
+   "record": "cr-osm-way-105137199",
+   "pin": "Record = OSM way 105137199.",
+   "src": "https://www.openstreetmap.org/way/105137199",
+   "note_en": "",
+   "note_th": ""
+  },
+  {
+   "key": "bus-2",
+   "en": "Bus Terminal 2",
+   "th": "สถานีขนส่ง แห่งที่ 2",
+   "lat": 19.8581307,
+   "lng": 99.8210589,
+   "record": "cr-osm-way-256549552",
+   "pin": "Record = OSM way 256549552.",
+   "src": "https://www.openstreetmap.org/way/256549552",
+   "note_en": "",
+   "note_th": ""
+  },
+  {
+   "key": "airport",
+   "en": "Mae Fah Luang–Chiang Rai International Airport (CEI), terminal",
+   "th": "อาคารผู้โดยสาร ท่าอากาศยานแม่ฟ้าหลวง เชียงราย",
+   "lat": 19.9542993,
+   "lng": 99.8791788,
+   "record": "cr-osm-way-87458645",
+   "pin": "Record = OSM terminal building way 87458645.",
+   "src": "https://www.openstreetmap.org/way/87458645",
+   "note_en": "",
+   "note_th": ""
+  },
+  {
+   "key": "indoor-market",
+   "en": "Kad Luang, Municipal Market 1",
+   "th": "กาดหลวง ตลาดสดเทศบาล ๑",
+   "lat": 19.9094565,
+   "lng": 99.829871,
+   "record": "cr-osm-way-387050901",
+   "pin": "Chosen over Municipal Fresh Market 2 (OSM way 168740849, by the bus terminal) because a source calls it the province's largest fresh market, with a main building. Not fully enclosed: stalls run indoors and out. Position = record/OSM way 387050901; lovethailand prints 19.9079, 99.8329, ~350 m off.",
+   "src": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/691-Kad-Municipality-(Kad-Luang).html",
+   "note_en": "Largest fresh market in Chiang Rai Province; open about 04:00–20:00.",
+   "note_th": "ตลาดสดใหญ่ที่สุดในจังหวัดเชียงราย เปิดราว 04:00–20:00"
+  },
+  {
+   "key": "night-bazaar",
+   "en": "Night Bazaar",
+   "th": "ไนท์บาซาร์",
+   "lat": 19.9053147,
+   "lng": 99.8340658,
+   "record": "cr-osm-relation-5724992",
+   "pin": "Record = OSM marketplace relation 5724992.",
+   "src": "https://www.openstreetmap.org/relation/5724992",
+   "note_en": "",
+   "note_th": ""
+  },
+  {
+   "key": "mae-sai-market",
+   "en": "Mae Sai border market",
+   "th": "ตลาดชายแดนแม่สาย",
+   "lat": 20.4440801,
+   "lng": 99.8799324,
+   "record": "cr-osm-way-1114786468",
+   "pin": "Record = OSM marketplace way 1114786468, name:en 'Covered Market', ~75 m west of Friendship Bridge 1. No Thai name in OSM; the market's own name is not confirmed.",
+   "src": "https://www.openstreetmap.org/way/1114786468",
+   "note_en": "",
+   "note_th": ""
+  },
+  {
+   "key": "guanyin",
+   "en": "Guanyin, Wat Huai Pla Kang",
+   "th": "กวนอิม วัดห้วยปลากั้ง",
+   "lat": 19.9485554,
+   "lng": 99.8056896,
+   "record": null,
+   "pin": "OSM way 374914592 (Wikidata Q108207981, 19.94859, 99.80568). Record cr-ovt-4150dbce (เจ้าแม่กวนอิม) ~55 m east; not used.",
+   "src": "https://www.wikidata.org/wiki/Q108207981",
+   "note_en": "Thai Wikipedia gives about 79 m, like a 25–26 storey building.",
+   "note_th": "วิกิพีเดียไทยระบุสูงราว 79 เมตร เท่าตึก 25–26 ชั้น"
+  },
+  {
+   "key": "doi-chom-thong",
+   "en": "Wat Phra That Doi Chom Thong",
+   "th": "วัดพระธาตุดอยจอมทอง",
+   "lat": 19.9157247,
+   "lng": 99.8227682,
+   "record": "cr-osm-node-2622028410",
+   "pin": "Record = OSM node 2622028410 (Wikidata Q475254). The Navel City Pillar is its own record, cr-osm-node-2622028414 (19.9150356, 99.8227206), ~75 m south.",
+   "src": "https://www.wikidata.org/wiki/Q475254",
+   "note_en": "The Navel City Pillar, built 1987, stands in the temple complex.",
+   "note_th": "เสาสะดือเมือง สร้างปี 2530 อยู่ในบริเวณวัด"
+  },
+  {
+   "key": "phra-kaew",
+   "en": "Wat Phra Kaew",
+   "th": "วัดพระแก้ว",
+   "lat": 19.9116621,
+   "lng": 99.8270162,
+   "record": "cr-osm-way-487642776",
+   "pin": "Record = OSM way 487642776 (Wikidata Q842276, 19.9118, 99.8279).",
+   "src": "https://www.wikidata.org/wiki/Q842276",
+   "note_en": "Where the Emerald Buddha was found; royal temple since 1978.",
+   "note_th": "ที่พบพระแก้วมรกต เป็นพระอารามหลวงตั้งแต่ปี 2521"
+  },
+  {
+   "key": "doi-tung",
+   "en": "Doi Tung",
+   "th": "ดอยตุง",
+   "lat": 20.287285,
+   "lng": 99.8095588,
+   "record": "cr-osm-way-222739926",
+   "pin": "Record = OSM way 222739926 (Royal Villa). Garden: OSM way 222740812 (20.2888493, 99.8096747). Thai Wikipedia prints 20.288306, 99.809806.",
+   "src": "https://th.wikipedia.org/wiki/พระตำหนักดอยตุง",
+   "note_en": "On a Doi Nang Non ridge, about 1,200 m, Ban Akha Pa Kluay.",
+   "note_th": "บนสันเขาดอยนางนอน สูงราว 1,200 ม. บ้านอาข่าป่ากล้วย"
+  },
+  {
+   "key": "chiang-saen",
+   "en": "Wat Pa Sak, Chiang Saen",
+   "th": "วัดป่าสัก เชียงแสน",
+   "lat": 20.2740817,
+   "lng": 100.0770421,
+   "record": "cr-osm-way-1380457904",
+   "pin": "Record = OSM archaeological_site way 1380457904; Wikidata Q13452399 gives 20.273022, 100.077564. A second record, cr-osm-way-772845002, sits ~300 m north; not used. Nearest wall gate: ประตูเชียงแสน, OSM node 2326555296 (20.2737904, 100.0783705).",
+   "src": "https://www.wikidata.org/wiki/Q13452399",
+   "note_en": "Just outside the old walls; named for 300 teaks planted at founding.",
+   "note_th": "อยู่นอกกำแพงเมืองเก่า ชื่อมาจากต้นสัก 300 ต้นที่ปลูกตอนสร้าง"
+  },
+  {
+   "key": "singha-park",
+   "en": "Singha Park",
+   "th": "สิงห์ปาร์ค",
+   "lat": 19.8600698,
+   "lng": 99.7344876,
+   "record": "cr-osm-way-325727411",
+   "pin": "Record = OSM way 325727411 (centroid of the park area, not the entrance).",
+   "src": "https://www.openstreetmap.org/way/325727411",
+   "note_en": "",
+   "note_th": ""
+  }
+ ],
+ "villages": [
+  {
+   "key": "mae-salong",
+   "en": "Santikhiri (Doi Mae Salong)",
+   "th": "สันติคีรี (ดอยแม่สลอง)",
+   "lat": 20.1628444,
+   "lng": 99.6257624,
+   "record": null,
+   "pin": "OSM place=village node 361401189 'แม่สลอง'. Wikipedia prints 20.1656, 99.6264.",
+   "src": "https://www.openstreetmap.org/node/361401189",
+   "people_en": "Yunnanese Chinese (Kuomintang descendants)",
+   "people_th": "ชาวจีนยูนนาน (ลูกหลานทหารจีนคณะชาติ)",
+   "note_en": "Settled by Kuomintang remnants expelled from Burma in 1961.",
+   "note_th": "ตั้งรกรากโดยทหารจีนคณะชาติที่ถูกขับจากพม่าปี 2504"
+  },
+  {
+   "key": "ruammit",
+   "en": "Ban Ruammit",
+   "th": "บ้านรวมมิตร",
+   "lat": 19.9605955,
+   "lng": 99.7093064,
+   "record": null,
+   "pin": "OSM place=village node 775968290; lovethailand prints 19.960097, 99.710855. Record cr-osm-node-1445529061 is the elephant camp, not the village.",
+   "src": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/347-Karen-Ruammit-House.html",
+   "people_en": "Karen",
+   "people_th": "กะเหรี่ยง",
+   "note_en": "On the left bank of the Kok River, Mae Yao subdistrict.",
+   "note_th": "ริมฝั่งซ้ายแม่น้ำกก ตำบลแม่ยาว"
+  },
+  {
+   "key": "pha-hi",
+   "en": "Ban Pha Hi",
+   "th": "บ้านผาฮี้",
+   "lat": 20.3613384,
+   "lng": 99.8321376,
+   "record": null,
+   "pin": "OSM place=village node 11757885951. Record cr-osm-node-11122851274 ('Pha Hi village' viewpoint, 20.352645, 99.8252889) is ~1.2 km south-west.",
+   "src": "https://www.thaiholidayguide.com/attraction/ban-pha-hi/",
+   "people_en": "Akha",
+   "people_th": "อาข่า",
+   "note_en": "About 1,200 m up; Arabica coffee replaced opium.",
+   "note_th": "สูงราว 1,200 ม. ปลูกกาแฟอาราบิก้าแทนฝิ่น"
+  },
+  {
+   "key": "lorcha",
+   "en": "Ban Lorcha",
+   "th": "บ้านหล่อชา",
+   "lat": 20.1021671,
+   "lng": 99.6040128,
+   "record": null,
+   "pin": "OSM place=village node 619178635 'บ้านหล่อชา / Ban Lo Cha'; lovethailand prints 20.103180, 99.603549.",
+   "src": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/535-Ban-Lorcha.html",
+   "people_en": "Akha",
+   "people_th": "อาข่า",
+   "note_en": "Community-based tourism village off Highway 1089, Mae Chan.",
+   "note_th": "หมู่บ้านท่องเที่ยวโดยชุมชน ริมทางหลวง 1089 แม่จัน"
+  },
+  {
+   "key": "therd-thai",
+   "en": "Ban Therd Thai (Ban Hin Taek)",
+   "th": "บ้านเทอดไทย (บ้านหินแตก)",
+   "lat": 20.2437683,
+   "lng": 99.6633269,
+   "record": null,
+   "pin": "OSM place=village node 484645202; Wikipedia prints 20.2471, 99.659; lovethailand prints 20.252100, 99.653900.",
+   "src": "https://en.wikipedia.org/wiki/Ban_Hin_Taek",
+   "people_en": "Akha (founders, predominant); also Shan, Yunnanese, Lisu, Lahu",
+   "people_th": "อาข่า (ผู้ก่อตั้ง กลุ่มหลัก) และไทใหญ่ จีนยูนนาน ลีซู ลาหู่",
+   "note_en": "Believed the first Akha village in Thailand, founded 1903; Khun Sa's former base.",
+   "note_th": "เชื่อว่าเป็นหมู่บ้านอาข่าแห่งแรกในไทย ตั้งปี 2446 เคยเป็นฐานขุนส่า"
+  },
+  {
+   "key": "saen-charoen",
+   "en": "Ban Saen Charoen",
+   "th": "บ้านแสนเจริญ",
+   "lat": 19.7322411,
+   "lng": 99.5257939,
+   "record": null,
+   "pin": "OSM place=village node 2629948626, in Wawi area. lovethailand's Lan Sao Kod page says Wawi, Mae Suai but prints 20.352054, 99.826018 (the Pha Hi area); not used.",
+   "src": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/552-Lan-Sao-Kod.html",
+   "people_en": "Akha",
+   "people_th": "อาข่า",
+   "note_en": "Akha song ground (Lan Sao Kod) run by the village.",
+   "note_th": "ลานสาวกอด ลานร้องเพลงของชาวอาข่า ดูแลโดยชุมชน"
+  },
+  {
+   "key": "akha-pa-kluay",
+   "en": "Ban Akha Pa Kluay (Doi Tung)",
+   "th": "บ้านอาข่าป่ากล้วย",
+   "lat": 20.2934743,
+   "lng": 99.8158115,
+   "record": null,
+   "pin": "OSM place=village node 2172550398.",
+   "src": "https://th.wikipedia.org/wiki/พระตำหนักดอยตุง",
+   "people_en": "Akha",
+   "people_th": "อาข่า",
+   "note_en": "Doi Tung Royal Villa stands in this village, Moo 7.",
+   "note_th": "พระตำหนักดอยตุงตั้งอยู่ในหมู่ 7 หมู่บ้านนี้"
+  },
+  {
+   "key": "doi-pu-khai",
+   "en": "Musoe Doi Pu Khai",
+   "th": "มูเซอดอยปูไข่",
+   "lat": 20.013534,
+   "lng": 99.684273,
+   "record": null,
+   "pin": "Coordinates printed by lovethailand; no OSM place node found.",
+   "src": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/346-Musoe-Doi-Pu-Khai.html",
+   "people_en": "Lahu (Musoe)",
+   "people_th": "ลาหู่ (มูเซอ)",
+   "note_en": "Lahu community with homestays, Ban Du, Mueang Chiang Rai.",
+   "note_th": "ชุมชนลาหู่ มีโฮมสเตย์ ตำบลบ้านดู่ อำเภอเมืองเชียงราย"
+  },
+  {
+   "key": "doi-chang",
+   "en": "Ban Doi Chang",
+   "th": "บ้านดอยช้าง",
+   "lat": 19.8174166,
+   "lng": 99.5577511,
+   "record": null,
+   "pin": "OSM place=village node 1636589943; lovethailand prints 19.823929, 99.572884.",
+   "src": "https://www.lovethailand.org/travel/t/2-เชียงราย/551-ดอยช้าง.html",
+   "people_en": "Lisu and Akha (Hmong lived here first)",
+   "people_th": "ลีซู และอาข่า (เดิมเป็นที่อยู่ของม้ง)",
+   "note_en": "Lisu settled 1915, Akha 1983; first home of the Hmong.",
+   "note_th": "ลีซูตั้งหมู่บ้านปี 2458 อาข่าเข้ามาปี 2526 เดิมเป็นถิ่นม้ง"
+  }
+ ],
+ "ferries": [
+  {
+   "en": "Golden Triangle (Sop Ruak) pier to Don Sao island market, Laos",
+   "th": "ท่าเรือสามเหลี่ยมทองคำ (สบรวก) – เกาะดอนซาว ลาว",
+   "from": [
+    20.3512903,
+    100.0832508
+   ],
+   "to": [
+    20.3294494,
+    100.0950906
+   ],
+   "src": "https://www.openstreetmap.org/way/222313598",
+   "note_en": "OSM ferry line; Don Xao Island node sits at 20.3262672, 100.0978759.",
+   "note_th": "เส้นเรือตาม OSM เกาะดอนซาวอยู่ที่ 20.3263, 100.0979"
+  },
+  {
+   "en": "Sop Ruak to Golden Triangle Port, Kings Romans SEZ, Laos",
+   "th": "สบรวก – ท่าเรือสามเหลี่ยมทองคำ เขตเศรษฐกิจพิเศษ ลาว",
+   "from": [
+    20.3512903,
+    100.0832508
+   ],
+   "to": [
+    20.3545346,
+    100.0858333
+   ],
+   "src": "https://www.openstreetmap.org/way/1271205824",
+   "note_en": "OSM names this crossing 'Chiang Saen Port - Golden Triangle'.",
+   "note_th": "OSM ตั้งชื่อเส้นนี้ว่า Chiang Saen Port - Golden Triangle"
+  },
+  {
+   "en": "Chiang Saen port to Don Sao and the Golden Triangle (boat trip)",
+   "th": "ท่าเรือเชียงแสน – ดอนซาว – สามเหลี่ยมทองคำ",
+   "from": [
+    20.2749481,
+    100.0887042
+   ],
+   "to": [
+    20.3512903,
+    100.0832508
+   ],
+   "via": [
+    20.3294494,
+    100.0950906
+   ],
+   "src": "https://www.openstreetmap.org/way/222314442",
+   "note_en": "Boats run from Ban Sop Ruak to Chiang Saen town on Mekong tours.",
+   "note_th": "มีเรือจากบ้านสบรวกไปตัวเมืองเชียงแสน ในทัวร์ล่องโขง"
+  },
+  {
+   "en": "Chiang Saen port to Ton Pheung, Laos (local crossing)",
+   "th": "ท่าเรือเชียงแสน – ต้นผึ้ง ลาว",
+   "from": [
+    20.2749481,
+    100.0887042
+   ],
+   "to": [
+    20.2910564,
+    100.0973956
+   ],
+   "src": "https://www.openstreetmap.org/node/12098205502",
+   "note_en": "Lao terminal is tagged 'Boat to Thailand (only for locals)'.",
+   "note_th": "ท่าฝั่งลาวระบุว่า เรือไปไทย เฉพาะคนท้องถิ่น"
+  },
+  {
+   "en": "Chiang Khong–Huay Xai passenger ferry (old crossing)",
+   "th": "เรือข้ามฟากเชียงของ–ห้วยทราย",
+   "from": [
+    20.2756231,
+    100.4063165
+   ],
+   "to": [
+    20.2761854,
+    100.4105155
+   ],
+   "src": "https://www.openstreetmap.org/way/27158348",
+   "note_en": "OSM note: use allowed for Thai citizens only.",
+   "note_th": "หมายเหตุใน OSM: ใช้ได้เฉพาะคนไทย"
+  }
+ ],
+ "_comment": "The Chiang Rai doodle map's landmarks, hill villages and Mekong crossings, gleaned 2026-10-03 from motdang's own records, OpenStreetMap, Wikidata and the page in each row's src; pin says where each position comes from. Display names shortened by hand."
+}

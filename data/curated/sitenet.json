@@ -1,0 +1,125 @@
+{
+ "_note": "The Mot Dang net: the register's cards (sites.json) are its jewels, strung by register group, plus the machine files below and the place nets (nets.json). sitenet_layer.py puts the whole net on each card's page, the card itself marked; docs/net.json and llms.txt carry it for machines. Filled by hand.",
+ "th": "ตาข่ายมดแดง — เว็บทั้งหมดบน motdang.net",
+ "en": "The Mot Dang net — the sites of motdang.net",
+ "roman": "ta-khai mot daeng",
+ "lede_th": "แต่ละเว็บในมดแดงเป็นอัญมณีเม็ดหนึ่งในตาข่าย เปิดหน้าไหนข้างล่างนี้ ก็เห็นที่อื่นทั้งหมด รวมทั้งไฟล์สำหรับบอทและตาข่ายของสถานที่",
+ "lede_en": "Each site on Mot Dang is one jewel in the net. Open any page below and it shows all the others, with the files written for bots and the nets of places.",
+ "machines": {
+  "th": "สำหรับบอท",
+  "en": "For bots",
+  "roman": "sam-rap bot",
+  "jewels": [
+   {
+    "href": "llms.txt",
+    "th": "llms.txt",
+    "en": "llms.txt",
+    "line_th": "เว็บนี้แนะนำตัวกับโมเดลภาษา",
+    "line_en": "the site introduced to language models"
+   },
+   {
+    "href": "llms-full.txt",
+    "th": "llms-full.txt",
+    "en": "llms-full.txt",
+    "line_th": "ฉบับเต็ม",
+    "line_en": "the long version"
+   },
+   {
+    "href": "net.json",
+    "th": "net.json",
+    "en": "net.json",
+    "line_th": "ตาข่ายนี้เป็น JSON",
+    "line_en": "this net, as JSON"
+   },
+   {
+    "href": "audit.json",
+    "th": "audit.json",
+    "en": "audit.json",
+    "line_th": "ตัวเลขที่เว็บพิมพ์ นับใหม่จากไฟล์ต้นทางทุกครั้งที่สร้าง",
+    "line_en": "each published number re-counted from its source file at build"
+   },
+   {
+    "href": "colophon.json",
+    "th": "colophon.json",
+    "en": "colophon.json",
+    "line_th": "โคโลฟอนเป็น JSON",
+    "line_en": "the colophon, as JSON"
+   },
+   {
+    "href": "api/v1/",
+    "th": "API v1",
+    "en": "API v1",
+    "line_th": "ถามข้อมูลได้โดยไม่ต้องมีคีย์",
+    "line_en": "the data, asked without a key"
+   },
+   {
+    "href": "api/graph.jsonld",
+    "th": "graph.jsonld",
+    "en": "graph.jsonld",
+    "line_th": "กราฟความรู้ JSON-LD",
+    "line_en": "the knowledge graph, JSON-LD"
+   },
+   {
+    "href": "data/sites.json",
+    "th": "sites.json",
+    "en": "sites.json",
+    "line_th": "ทะเบียนเว็บเป็น JSON",
+    "line_en": "the register of sites, as JSON"
+   },
+   {
+    "href": "sitemap.xml",
+    "th": "sitemap.xml",
+    "en": "sitemap.xml",
+    "line_th": "แผนผังเว็บ",
+    "line_en": "the sitemap"
+   },
+   {
+    "href": "rss.xml",
+    "th": "rss.xml",
+    "en": "rss.xml",
+    "line_th": "ฟีดของใหม่",
+    "line_en": "the feed of what is new"
+   },
+   {
+    "href": "robots.txt",
+    "th": "robots.txt",
+    "en": "robots.txt",
+    "line_th": "ป้ายหน้าประตูสำหรับบอท",
+    "line_en": "the sign on the door for bots"
+   },
+   {
+    "href": ".well-known/security.txt",
+    "th": "security.txt",
+    "en": "security.txt",
+    "line_th": "แจ้งช่องโหว่ที่ไหน (RFC 9116)",
+    "line_en": "where to report a security bug (RFC 9116)"
+   },
+   {
+    "href": "anthill/skill.md",
+    "th": "รังมด skill.md",
+    "en": "Anthill skill.md",
+    "line_th": "บอทเข้ารังมดอย่างไร",
+    "line_en": "how a bot joins the Anthill"
+   }
+  ]
+ },
+ "places": {
+  "th": "ตาข่ายของสถานที่",
+  "en": "Nets of places",
+  "roman": "ta-khai khong sa-than-thi"
+ },
+ "neighbours": {
+  "th": "เพื่อนบ้าน — เว็บของคนอื่น",
+  "en": "Neighbours — other people's sites",
+  "roman": "phuean-baan",
+  "jewels": [
+   {
+    "href": "https://flood.awareai.io/th",
+    "th": "เฝ้าระวังน้ำท่วม แม่น้ำปิง เชียงใหม่ (AwareAI)",
+    "en": "Flood Monitor, River Ping, Chiang Mai (AwareAI)",
+    "line_th": "ระดับน้ำปิงตอนนี้ คาดการณ์ ๔๘ ชั่วโมง ฝนต้นน้ำ เขื่อนแม่งัด กล้องริมน้ำ",
+    "line_en": "the Ping now, a 48-hour forecast, rain upstream, Mae Ngat dam, river cameras"
+   }
+  ]
+ }
+}

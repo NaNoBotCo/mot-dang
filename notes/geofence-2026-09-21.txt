@@ -1,0 +1,157 @@
+GEOFENCING on every page, and DISTANCE in search
+2026-09-21 · built on your word after the town test
+
+Your ask: "geofence on every page, then distance in search."
+
+==============================================================================
+THE ONE NUMBER THAT SHAPED BOTH
+==============================================================================
+
+  Cloudflare told the site where this connection was, and it was wrong by
+  6 km. It said 18.790, 98.985 — Chiang Mai, near the old city. The house it
+  was sent from is at 18.789, 99.045. Measured today, straight off the live
+  edge.
+
+  So the network's guess is a CITY, not a person. It is enough to put you in
+  Chiang Mai rather than Chiang Rai, enough to pick pictures near you, enough
+  to sort a list. It is not enough to print "2.4 km" at anybody.
+
+  Both halves below therefore draw the same line twice:
+
+    the network's guess   "ใกล้ๆ · nearby" under 1.5 km, "~6 km" above,
+                          and the page says whose guess it is
+    your own position     "400 m", "6.4 km" — a real number, on a tap
+
+==============================================================================
+1. THE GEOFENCE now reaches every page
+==============================================================================
+
+  Before: one page — the front page — carried the meta the edge fills in.
+  Now: all of them. Nothing was rebuilt and nothing was re-uploaded; the
+  Worker fills it as the page streams past.
+
+  And a page that says where IT is now says how far that is from you. Under
+  the heading of any place page:
+
+      ~6 กม. · ~6 km ตะวันออก · E — จากตำแหน่งโดยประมาณของเครือข่าย
+      Chiang Mai · from your network's rough position
+
+  It works with JavaScript off, because the Worker writes it, not the page.
+  It costs no extra fetch: the coordinate is already in the page's head, in
+  the schema.org block, and the heading comes after it — one pass.
+
+  WHAT IS DELIBERATELY NOT DONE: a directory page that lists a hundred places
+  carries a hundred coordinates and is not standing at any of them, so it
+  gets no line. The hub pages over 2 MB are skipped entirely — walking a
+  68 MB page to learn it is a list is not worth the time.
+
+  A page carrying your city is marked private, so no shared cache can hold
+  one reader's copy for the next.
+
+==============================================================================
+2. DISTANCE IN SEARCH
+==============================================================================
+
+  76,847 of the 105,813 pages in the index — 73% — now carry their own
+  coordinate, read from what each page publishes about itself.
+
+  On the results page:
+
+    เรียง · Sort now offers ใกล้ที่สุด · Nearest, and it appears only when
+    the site knows where you are.
+
+    Every result that has a pin carries its distance and direction, in the
+    rounding the position has earned.
+
+    A 📍 button asks your browser for your real position and reloads the same
+    address with it. That button is the only script the search page carries,
+    and it is written only when a distance is on offer.
+
+  A page with no coordinate is UNMEASURED, not far: it sorts last, and it is
+  never dropped from an answer.
+
+  Distance is computed with longitude scaled by the cosine of the latitude,
+  so a place due east is not ranked closer than one the same distance north.
+  Over the whole province the error against the true curve is under half a
+  percent; even to Bangkok it is 583 km against 585.
+
+==============================================================================
+MEASURED, LIVE
+==============================================================================
+
+  The geofence, on ordinary pages:
+
+    /cm/p/aroy-garden…        ~16 กม. · ~16 km ตะวันออก · E    291 ms
+    /cm/p/doi-luang-coffee…   ~5 กม. · ~5 km ตะวันออกเฉียงใต้ · SE   525 ms
+    /cm/index.html            no line, and correctly so — a directory
+    /                         no line; the meta is there
+    /cm/tag/parking.html      no line; a 2.5 MB page is skipped by the guard
+
+  The distance in search, from the old city:
+
+    massage, nearest, network guess   ~2 กม. · ~4 กม. · ~5 กม.     157 ms
+    nail, nearest, exact position     1.6 กม. · 4.0 กม. · 4.0 กม.  186 ms
+
+  Tests: 39 query language · 47 search end to end · 15 the geofence line ·
+  12 crawler and wiring. All green. The three older Worker suites still green.
+
+==============================================================================
+TWO THINGS YOU SHOULD KNOW
+==============================================================================
+
+  1. THE FRONT PAGE YOU TESTED IS NOT THE PAGE THAT IS LIVE.
+
+     The front page was rebuilt at 16:18 today and the routine site sync
+     carried it out at 17:54. The new one has no geofence: no position, no
+     pictures that follow you, no NEAR. The queue still lists that page as
+     HELD on a red gate — the build-and-publish path took it live anyway,
+     which is worth knowing on its own.
+
+     The 2026-09-19 page is saved whole, and putting it back is one command.
+     The choice is in the queue as C82. I did not make it: the front page is
+     yours.
+
+     What I did do: the position now arrives on every page from the Worker,
+     written into the head when the page itself carries no tag. So whichever
+     front page you keep, it has a position to work from.
+
+  2. THE PINS ARE 3,705 OF 76,847, AND CLOUDFLARE IS WHY.
+
+     Loading the coordinates needs D1's import endpoint, and this afternoon
+     it answered 502 Bad Gateway and then locked the whole database —
+     every query, not just the import — and took motdang.net/find down for
+     25 minutes. A chunk that had taken 17 seconds was still running after
+     ten minutes. I stopped it, the search came straight back, and I left
+     the rest unloaded rather than trade a working search for coordinates.
+
+     Distance therefore works today for the pages that have a coordinate and
+     is simply absent for the others — unmeasured is not far, the same rule
+     the rest of the search keeps.
+
+     Finishing is one command and about ten minutes, and it will make the
+     search blink while it runs. Worth doing at a quiet hour, not at seven
+     in the evening.
+
+     One lasting change came out of it: a reload now writes over the live
+     rows instead of building a second copy and swapping. The old way held
+     two 660 MB indexes at once, which is the state the database was in when
+     it fell over.
+
+==============================================================================
+WHAT THIS OPENS, IF YOU WANT IT
+==============================================================================
+
+  The site now knows, on every page, roughly where the reader is standing and
+  exactly where the page is. Three things become small:
+
+    · "ใกล้ๆ นี่" on a place page — the five nearest places of the same kind,
+      drawn from the 6,580 grid cells that already exist.
+    · a distance column on every shelf and tag page, same rounding rules.
+    · "ใกล้ฉัน" as a door on the front page that goes straight to a search
+      sorted by distance, with no typing at all.
+
+  TIMELINESS IS THE OTHER HALF AND IT IS CAPPED BY DATA: opening hours are
+  held for 4,003 of 62,895 Chiang Mai records, 6.4%. "Open now" can only
+  ever speak for those, and your rule is that unknown is never drawn as
+  closed. Widening it is a harvest against the Thai-named registers, which
+  is a piece of work in its own right and not a day's job.

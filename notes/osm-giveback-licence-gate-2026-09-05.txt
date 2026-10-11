@@ -15,7 +15,7 @@ Provenance in this corpus is RECORD-level: `sources[]` says where the record
 came from, never where a FIELD came from.  OSM asks the opposite question —
 "what is the source of this tag" — one field at a time.  For a record with
 an OSM source and a second source, we cannot prove which of the two gave the
-phone number, so we cannot honestly answer OSM's question about it.
+phone number, so we cannot answer OSM's question about it.
 
 That is not a reason to stop.  It is the reason the giveable set is 517
 records today rather than 6,667, and it names the fix: per-field provenance,
@@ -143,7 +143,7 @@ WHAT I WOULD DO NEXT, IN ORDER
 ────────────────────────────────────────────────────────────────────────────
 WHAT I DID NOT DO
 ────────────────────────────────────────────────────────────────────────────
-No edit, no upload, no account, no changeset, and nothing sent.  I DID read
+No edit, no upload, no sign-in, no changeset, and nothing sent.  I DID read
 the DGA licence text (the 5-page English PDF of 10 June 2021) and the OBEC
 dataset page, and the summary above is what those documents say.  I have not
 read a separate gdcatalog terms page — gdcatalog.go.th/pages/terms-of-use is

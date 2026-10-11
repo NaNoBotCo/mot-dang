@@ -158,7 +158,7 @@ pinVia is also how geocode_local now knows to keep these OUT OF ITS OWN
 GAZETTEER: a centroid built from inferred points would site the next inference
 on the last one, and the error would compound quietly, run after run.
 
-THE HONEST CEILING
+THE MEASURED CEILING
 ------------------------------------------------------------------------------
 
 

@@ -33,9 +33,9 @@ rule at a stove:
 
 **The school states its own sessions, its own prices, its own pickup radius —
 or the page says nobody has stated them. And no sorting of kitchens into
-tourist and real, school and activity.** A farm class in San Sai with a
+who they are thought to be for, school and activity.** A farm class in San Sai with a
 minivan and a twelve-seat kitchen on Rachadamnoen Soi 5 are both cooking
-schools; the menu is the menu. "Which one is authentic" is a tourist question
+schools; the menu is the menu. "Which one is the true one" is a question
 this site does not answer (`feedback_no_tourist_framing`). What it answers is
 *which days, from when, posted at how much, by whose word, seen on what date,
 and what kind of class it calls itself*.

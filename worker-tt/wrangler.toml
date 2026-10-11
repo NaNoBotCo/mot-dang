@@ -1,0 +1,11 @@
+# TomTom traffic-flow tiles for motdang.net's maps (Nan, 2026-10-03: "tom tom information should appear lots of
+# places on the site, such as any place id that includes a map"). Her TomTom key is a Worker secret
+# (TOMTOM_KEY), so it never reaches a page. Separate from mot-dang-site so a tile change never redeploys the site.
+name = "motdang-traffic-tiles"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+routes = [
+  { pattern = "motdang.net/tt/*", zone_name = "motdang.net" },
+]

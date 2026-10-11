@@ -23,10 +23,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 APIS = ["https://overpass-api.de/api/interpreter",
         "https://overpass.kumi.systems/api/interpreter"]
-# The contact URL is the live site — the repository link it used to carry
-# went dead when the account was hidden (the No-GitHub rule reaching the one
-# string it had missed), and a server operator who looks a crawler up should
-# find a working page.
+# The contact URL is the live site, not a repository link: a server operator
+# who looks this crawler up should land on a page that explains it and works
+# for anyone, signed in or not.
 UA = "mot-dang-directory/1.0 (+https://motdang.net; gentle one-off harvest)"
 PAUSE = 12                          # seconds between queries — slower and more subtle
 RETRY_PAUSE = 45
@@ -56,7 +55,7 @@ PROVINCE_AREA = {
     "cm": "TH-50",   # เชียงใหม่ Chiang Mai
     "cr": "TH-57",   # เชียงราย Chiang Rai
 }
-# province-wide in EVERY province, Chiang Mai's near ring included.
+# province-wide in every province, Chiang Mai's near ring included.
 # `schools` joined them on 2026-08-18: the OBEC register names schools in
 # Omkoi, Mae Chaem, Fang and Chiang Dao, all of them far outside the ring, and
 # a shelf that carried the state's record for a village school while the crawl
@@ -81,12 +80,36 @@ PROVINCE_AREA = {
 # eight belong to whole districts the box has never seen.
 WIDE_GROUPS = {"stations", "cannabis", "medical", "schools", "reading", "making",
                "elephants", "hotsprings", "views", "shrines",
+               # WO-50: see the note on the `clothing` group. A near ring round
+               # the moat is the shape that made the tailor shelf a register of
+               # the Night Bazaar, and a size 47 is scarce and scattered by
+               # construction — the same argument the elephants won.
+               "clothing",
                # WO-27: all three residential/government doors are province-
                # wide. The Land Office branches are in the amphoes, Mae Jo's
                # dorms are outside Chiang Mai's near ring, and a housing
                # estate is suburban by definition — a ring drawn round the
                # moat would miss the whole point of each.
-               "government", "dormitory", "moobaan"}
+               "government", "dormitory", "moobaan",
+               # WO-54: a copy shop stands at the gate of whichever office
+               # wants the copies — อำเภอ, ตม., the university — and those
+               # gates are in every amphoe.
+               "paper",
+               # WO-56 batch: see the six groups at the foot of QUERIES.
+               "funeral", "bikes", "laundry", "mend", "utilities", "driving",
+               "optician",
+               # WO-67: province-wide, though parking is the one thing on this
+               # list that is genuinely DENSE in the near ring — which is the
+               # usual argument for keeping a group on it. Two things beat it.
+               # The census counts only 1,230 amenity=parking across the whole
+               # of TH-50, which is no larger than `schools` and well inside
+               # what one province-wide query answers; and the places a person
+               # most needs told where to leave a vehicle are precisely the
+               # ones outside the ring — Doi Suthep, the Mae Rim markets, the
+               # hot springs, a trailhead. A near ring here would answer the
+               # moat, which is the one part of town where everybody already
+               # knows.
+               "parking"}
 
 # Provinces crawled province-wide for every group. Chiang Rai is here on Nan's
 # instruction: a directory that only knows Mueang is not a directory for
@@ -457,6 +480,135 @@ QUERIES = {
                    'nwr["name"~"เครื่องเขิน|แกะสลัก|จักสาน|ตุงล้านนา|กระดาษสา|'
                    'ศิลาดล|เครื่องเงิน|ผ้าทอ|ร่มบ่อสร้าง|หัตถกรรม"]',
                    'nwr["name"~"handicraft|celadon|lacquer|woodcarv|silversmith",i]'],
+    # WO-50, Nan's go 2026-08-31. THE LARGEST SHELF THIS CRAWL HAS NEVER ASKED
+    # FOR. shop=clothes and shop=shoes have never appeared in this dict, in any
+    # group, since the file was written — and the census taken 2026-08-07 counts
+    # 134 shop=clothes in TH-50 and 72 in TH-57, which makes clothes the SIXTH
+    # most common shop value in Chiang Mai, above supermarket, above car, above
+    # bakery. Two hundred and six records that the directory has never once
+    # been in a position to hold. The `shopping` group asks for six selectors —
+    # doityourself, hardware, gift, second_hand, herbalist, alternative — and
+    # not one of them is a clothes shop. That is not an empty shelf; it is an
+    # unasked question, and it is the fifth time this file has had to write
+    # that sentence (เสริมสวย, the notary, ห้องเสื้อ, ห้องซ้อม, and now this).
+    #
+    # WIDE, in both provinces, against the house default. Chiang Mai's near
+    # ring holds the density and is the right shape for cafes and hairdressers,
+    # and it is exactly the WRONG shape here, because WO-49 measured what a
+    # ring does to a clothing trade the day before this order was written:
+    # seven of the ten shops on the tailor shelf sat inside 600 m of the Night
+    # Bazaar, and the shelf came out a register of the visitor trade. A ring
+    # drawn round the moat asks the one square kilometre where clothes are sold
+    # to farang. The reader this order is for — the man who takes a 47, the
+    # woman who takes a 42 — is not served in that square kilometre, and a shop
+    # that carries his size in Hang Dong or San Kamphaeng is not less findable
+    # for being outside the box. Scarce and scattered is the same argument the
+    # elephants and the hot springs already won.
+    #
+    # NAMED ONLY, on the parks rule: an unnamed shop=clothes node is a dot, and
+    # nameless is dropped downstream anyway. shop=sports and shop=outdoor are
+    # here rather than in `fitness` because this order wants them as SHOPS —
+    # the sports chains are where a EU 46 boot is actually stocked in this city,
+    # which is a retail fact, not a fitness one. shop=bag rides along because
+    # OSM here uses it for the leather shops that also carry belts past 42 in.
+    "clothing":   ['nwr["shop"="clothes"]["name"]', 'nwr["shop"="shoes"]["name"]',
+                   'nwr["shop"="boutique"]["name"]', 'nwr["shop"="bag"]["name"]',
+                   'nwr["shop"="sports"]["name"]', 'nwr["shop"="outdoor"]["name"]'],
+    # WO-54, 2026-09-04. The paper trades — copy shop, print shop, translator,
+    # visa agent — none of which any group had ever asked for. The census
+    # (cache/census) holds shop=copyshop 43 in Chiang Mai and 12 in Chiang
+    # Rai, craft=printer 1, office=visa 1, office=translation 1, and the
+    # directory held ZERO of all of them: the single OSM copy shop on the
+    # site ("Printing, internet service") was filed under repair/tech. The
+    # name selectors catch the shop=yes majority: ถ่ายเอกสาร is a compound
+    # with no ordinary-word collision; รับแปล and ศูนย์แปล likewise (bare แปล
+    # is NOT asked — it is in บ้านแปลง and a dozen wats).
+    "paper":      ['nwr["shop"="copyshop"]', 'nwr["amenity"="copyshop"]',
+                   'nwr["craft"="printer"]["name"]', 'nwr["shop"="printing"]["name"]',
+                   'nwr["office"~"^(translator|translation|visa)$"]["name"]',
+                   'nwr["name"~"ถ่ายเอกสาร|รับแปล|ศูนย์แปล|โรงพิมพ์"]'],
+    # WO-56 batch (2026-09-04), Nan's "add all of these one by one". Six
+    # trades the census (cache/census) counts in the hundreds that no group
+    # has ever asked for — the same unasked-question shape as clothes
+    # (WO-50) and copy shops (WO-54). Counts are TH-50 / TH-57:
+    #   shop=funeral_directors 52 / 123, amenity=crematorium 89 / 14
+    #   shop=bicycle 63 / 20, amenity=bicycle_rental 36 / 4,
+    #   amenity=motorcycle_rental 13 / 3 (the transport group asked only for
+    #   the shop= spelling, of which there is ONE), shop=motorcycle 140 / 77
+    #   shop=laundry 158 / 55 (the crafts group asks named-only inside the
+    #   near ring; the shelf holds 80)
+    #   craft=shoemaker 7, shop=shoe_repair 1, shop=sewing 1,
+    #   shop=electronics_repair 2 + craft 3, shop=appliance 1 / 5
+    #   shop=water 5, shop=gas 2 / 4
+    #   amenity=driving_school 5 / 3
+    # All WIDE and named-only on the parks rule; nameless is dropped at
+    # import anyway. Funeral directors are named for the family that runs
+    # them and sit in every amphoe, which is the scarce-and-scattered
+    # argument the elephants won.
+    "funeral":    ['nwr["shop"="funeral_directors"]["name"]',
+                   'nwr["amenity"="crematorium"]["name"]',
+                   'nwr["name"~"ฌาปนสถาน|สุสาน|โลงศพ|ฮวงซุ้ย"]'],
+    "bikes":      ['nwr["shop"="bicycle"]["name"]', 'nwr["amenity"="bicycle_rental"]["name"]',
+                   'nwr["shop"="bicycle_repair"]["name"]',
+                   'nwr["amenity"="motorcycle_rental"]["name"]',
+                   'nwr["shop"="motorcycle"]["name"]',
+                   'nwr["name"~"เช่ามอเตอร์ไซค์|เช่ารถมอ|เช่าจักรยาน|ร้านจักรยาน"]'],
+    "laundry":    ['nwr["shop"="laundry"]["name"]', 'nwr["shop"="dry_cleaning"]["name"]',
+                   'nwr["amenity"="laundry"]["name"]',
+                   'nwr["name"~"ซักรีด|สะดวกซัก|ซักอบรีด|ซักผ้าหยอดเหรียญ|laundry|laundromat",i]'],
+    "mend":       ['nwr["craft"="shoemaker"]["name"]', 'nwr["shop"="shoe_repair"]["name"]',
+                   'nwr["shop"="sewing"]["name"]', 'nwr["craft"="sewing"]["name"]',
+                   'nwr["shop"="electronics_repair"]["name"]', 'nwr["craft"="electronics_repair"]["name"]',
+                   'nwr["shop"="appliance"]["name"]',
+                   'nwr["name"~"ซ่อมรองเท้า|ซ่อมเครื่องใช้ไฟฟ้า|ซ่อมจักร|ซ่อมแอร์|ซ่อมตู้เย็น|ซ่อมนาฬิกา"]'],
+    # NOT ส่งน้ำ. The first run asked for it and got twenty-three irrigation
+    # canals: คลองส่งน้ำ is a canal, ถนนเลียบคลองส่งน้ำ the road beside one,
+    # and ฝ่ายส่งน้ำและบำรุงรักษา the Royal Irrigation Department's own office.
+    # One word, two trades, and the wrong one is the whole northern valley —
+    # the teak/steak trap of WO-50 in Thai. น้ำดื่ม (drinking water) is the
+    # word a water shop writes on itself and collides with nothing.
+    "utilities":  ['nwr["shop"="water"]["name"]', 'nwr["shop"="gas"]["name"]',
+                   'nwr["name"~"น้ำดื่ม|ร้านแก๊ส|ส่งแก๊ส|แก๊สหุงต้ม|ตู้น้ำหยอดเหรียญ"]'],
+    "driving":    ['nwr["amenity"="driving_school"]["name"]',
+                   'nwr["name"~"สอนขับรถ|โรงเรียนสอนขับ"]'],
+    # WO-57. The optician shelf held ONE record while the census counts
+    # shop=optician 66 in TH-50 and 19 in TH-57 — the sixth unasked
+    # question (เสริมสวย, notary, ห้องเสื้อ, ห้องซ้อม, clothes, copyshop,
+    # and now the glasses shops). The medical group asks for
+    # healthcare=optometrist, which nobody here uses; the retail tag is
+    # shop=optician and it has never been in any group.
+    "optician":   ['nwr["shop"="optician"]', 'nwr["healthcare"="optometrist"]',
+                   'nwr["name"~"ร้านแว่น|แว่นตา|หอแว่น|ทัศนมาตร"]',
+                   'nwr["name"~"optic|eyewear|glasses",i]'],
+    # WO-67 (Michael, 2026-09-06). He typed "parking for motorcycle near
+    # taphae gate" and the site answered with elephant camps. Two of the three
+    # faults behind that were in the search page; this is the third, and the
+    # only one that makes the answer exist: the directory held ZERO parking
+    # among 22,351 places, and the word "parking" was in the query engine's
+    # constraint list with no column behind it.
+    #
+    # The census (cache/census/, 2026-08-07) has been holding the answer the
+    # whole time: amenity=parking 1,230 in TH-50 and 402 in TH-57,
+    # motorcycle_parking 106 and 26, bicycle_parking 16 and 6,
+    # parking_entrance 9 and 1. Not one of those tags has ever been in a
+    # group, so not one was ever asked for.
+    #
+    # NO ["name"] FILTER ANYWHERE HERE, and that is the whole design. A car
+    # park is the commonest genuinely-unnamed place in OSM — most of these
+    # are a polygon behind a shop with a surface tag and nothing else — and a
+    # name filter would have returned the handful with signboards and called
+    # it the answer. Nan, 2026-09-06: "Of course we want unnamed lots to
+    # publish!" The importer names them from what they DO carry (operator,
+    # street, type) and the bearings layer says where they are; see the
+    # parking fence in import_overpass.py.
+    #
+    # parking_entrance is the mouth of a multi-storey — it is where you
+    # actually turn in, and on the ground it is often the only part of the
+    # structure that is signed.
+    "parking":    ['nwr["amenity"="parking"]',
+                   'nwr["amenity"="motorcycle_parking"]',
+                   'nwr["amenity"="bicycle_parking"]',
+                   'nwr["amenity"="parking_entrance"]'],
 }
 
 
@@ -517,7 +669,7 @@ def fetch_wide(group, selectors, scope, timeout=240):
     is kept as `incomplete` in the returned document, so the data survives AND
     the file says out loud that it is short. Same reasoning as OverpassRemark:
     the thing to fear is not a failure, it is a cache file that looks whole.
-    Only a group where EVERY selector failed still raises, because that is a
+    Only a group where every selector failed still raises, because that is a
     group with nothing in it and no reason to be believed.
     """
     merged, seen, incomplete = [], set(), []

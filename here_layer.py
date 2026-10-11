@@ -313,7 +313,7 @@ def build_page(g, data, v, near_v):
         f'<p id="h-sharebox" class="hsharebox" hidden></p>'
         f'<label class="hauto"><input type="checkbox" id="h-auto"> '
         f'{bi("เริ่มหาตำแหน่งทันทีเมื่อเปิดหน้านี้", "Start locating as soon as this page opens")}</label>'
-        f'<p class="quiet hpriv">{bi("ตำแหน่งของคุณอยู่ในเครื่องคุณเท่านั้น ไม่ถูกส่งไปไหน ไม่ถูกเก็บ และไม่อยู่ในลิงก์ของหน้านี้ — ยกเว้นลิงก์ที่คุณกดปุ่ม “ส่งจุดนี้” สร้างเอง", "Your position stays on this device: not sent anywhere, not stored, and not in this page’s address — the only link that carries it is the one you make with “Send this spot”.")}</p>'
+        f'<p class="quiet hpriv">{bi("ตำแหน่งของคุณใช้เรียงหน้านี้ ลิงก์ที่มีตำแหน่งอยู่ด้วยมีแค่ลิงก์ที่คุณสร้างเองด้วยปุ่ม “ส่งจุดนี้”", "Your position sorts this page. The one link that carries it is the one you make with “Send this spot”.")}</p>'
         f'<div class="hdir">'
         f'<h2>{bi("ประตูและแจ่งเมือง", "Gates and corners")}</h2>'
         f'<ul class="hgates">{glist}</ul>'
@@ -333,9 +333,9 @@ def build_page(g, data, v, near_v):
     # of this page is that the map is the first thing under the header.
     return page("ตรงนี้ · Here", body, depth=0, path="here.html", hub=False,
                 desc=lede_th,
-                extra_head=f'<link rel="stylesheet" href="here.css?v={v}">'
-                           f'<script src="near.js?v={near_v}" defer></script>'
-                           f'<script src="here.js?v={v}" defer></script>')
+                extra_head=f'<link rel="stylesheet" href="here.css">'
+                           f'<script src="near.js" defer></script>'
+                           f'<script src="here.js" defer></script>')
 
 
 CSS = """/* /here.html — the page that opens on the reader. */
@@ -553,7 +553,10 @@ function row(d,r){
       (st===1?'<span class="hopen yes">'+bi('เปิดอยู่','open now')+'</span>':'')+
       (st===0?'<span class="hopen no">'+bi('ปิดอยู่ (ตามเวลาที่แจ้ง)','closed now (by its posted hours)')+'</span>':'')+
       (soon?'<span class="hsoon">'+soon+'</span>':'')+
-      '<a href="geo:'+a+','+b+'?q='+a+','+b+'('+label+')">🧭 '+bi('นำทาง','navigate')+'</a>'+
+      '<a href="https:'+'//www.google.com/maps/search/?api=1&query='+a+','+b+'" rel="noopener">Google Maps</a>'+
+      '<a href="https:'+'//maps.apple.com/?ll='+a+','+b+'&q='+label+'" rel="noopener">Apple Maps</a>'+
+      '<a href="geo:'+a+','+b+'?q='+a+','+b+'('+label+')">Geo URI / Apps</a>'+
+      '<button type="button" class="copylink hbtn" style="padding:0 .3rem" data-url="'+a+','+b+'" data-done="'+esc(bi('คัดลอกแล้ว','Copied'))+'">📍 '+bi('คัดลอกพิกัด','Copy coordinates')+'</button>'+
       '<a href="'+root()+'plan.html?stops='+encodeURIComponent(r[2]+':'+r[3])+'">🚶 '+bi('วางแผนเดิน','route')+'</a>'+
       (r[10]?MDNear.tel(r[10]):'')+
     '</span></div>';}
@@ -629,7 +632,7 @@ function paintPoints(groups){
         var dd=(p.x-pt.x)*(p.x-pt.x)+(p.y-pt.y)*(p.y-pt.y);if(dd<bd){bd=dd;best=ft;}});
       var pr=best.properties||{},nm=[pr.th,pr.en].filter(Boolean).join(' · ');
       var l=CATS[pr.cat];
-      if(window.MDCARD)MDCARD.show({name:nm,sub:l?(l[0]+' · '+l[1]):'',
+      if(window.MDCARD)window.MDCARD.show({name:nm,sub:l?(l[0]+' · '+l[1]):'',
         href:root()+pr.prov+'/p/'+pr.slug+'.html',plan:pr.prov+':'+pr.slug,
         rank:pr.rank?pr.rank:'',dist:farText(+pr.d)+' '+ARROWS[sector(bearing(here.lat,here.lng,best.geometry.coordinates[1],best.geometry.coordinates[0]))]},el);
     });
@@ -651,7 +654,7 @@ if(el&&window.MDMAP)MDMAP.ready(el,function(m){map=m;if(here){paintYou();draw();
    simply silent, every arrow stays exactly as it was — the static bearing is
    the answer, and the live one is a better way of reading the same number.
 
-   The heading never leaves the device, is never stored and never goes into a
+   The heading stays on the device, is held in memory only, and does not go into a
    URL. Same rules as the position it turns beside. */
 var facing=null, faceOn=false, faceEv=null;
 function headingOf(e){

@@ -1,0 +1,468 @@
+{
+ "measured": "2026-09-17",
+ "api": "https://motdang.net/api/v1/search",
+ "jobs": [
+  {
+   "q": "เหรียญรางวัล",
+   "th": "สั่งเหรียญรางวัล 400 เหรียญ ให้โครงการว่ายน้ำ",
+   "en": "Order 400 medals for the swim programme",
+   "pointTh": "พิมพ์คำว่า “เหรียญรางวัล” คำเดียว ได้ร้านที่รับทำ — และได้เจ้าที่สอง ไว้เทียบราคา",
+   "pointEn": "One Thai word for “medal” finds the shop — and a second supplier to price against.",
+   "total": 2,
+   "tier": "exact",
+   "notes": [
+    "segmented",
+    "widened"
+   ],
+   "ms": 3633,
+   "results": [
+    {
+     "name": "เชียงใหม่โทรฟี่ จำหน่ายถ้วยรางวัล โล่ เหรียญ อุปกรณ์กีฬา เครื่องออกกำลังกาย",
+     "nameEn": null,
+     "url": "https://motdang.net/cm/p/376961147882621372.html",
+     "confidence": "third-party",
+     "updatedAt": "2026-09-07",
+     "antRank": 3,
+     "has": [
+      "nameTh",
+      "phone",
+      "fresh"
+     ]
+    },
+    {
+     "name": "ร้านมิตรเจริญ",
+     "nameEn": null,
+     "url": "https://motdang.net/cm/p/1287903344685664008703857.html",
+     "confidence": "third-party",
+     "updatedAt": "2026-09-07",
+     "antRank": 2,
+     "has": [
+      "nameTh",
+      "fresh"
+     ]
+    }
+   ]
+  },
+  {
+   "q": "bespoke tailor",
+   "th": "หาช่างตัดสูทสั่งตัด ก่อนกลางเดือนตุลาคม",
+   "en": "Find a bespoke tailor before mid-October",
+   "pointTh": "ถามเป็นภาษาอังกฤษ ได้ร้านที่เขียนชื่อตัวเองเป็นภาษาอังกฤษ ทั้งสองร้าน",
+   "pointEn": "Asked in English, answered with the two shops that write their own name in English.",
+   "total": 2,
+   "tier": "exact",
+   "notes": [
+    "widened"
+   ],
+   "ms": 4743,
+   "results": [
+    {
+     "name": "Signature Bespoke Tailor Chiang Mai",
+     "nameEn": "Signature Bespoke Tailor Chiang Mai",
+     "url": "https://motdang.net/cm/p/signature-bespoke-tailor-chiang-mai-cmcuratedfbsignaturebespoketailor.html",
+     "confidence": "curated",
+     "updatedAt": "2026-09-08",
+     "antRank": 3,
+     "has": [
+      "nameEn",
+      "phone",
+      "fresh"
+     ]
+    },
+    {
+     "name": "Vinzent Bespoke Tailor",
+     "nameEn": "Vinzent Bespoke Tailor",
+     "url": "https://motdang.net/cm/p/vinzent-bespoke-tailor-6267479377452878186266240597.html",
+     "confidence": "third-party",
+     "updatedAt": "2026-09-07",
+     "antRank": 4,
+     "has": [
+      "nameEn",
+      "phone",
+      "web",
+      "fresh"
+     ]
+    }
+   ]
+  },
+  {
+   "q": "จดทะเบียนบริษัท",
+   "th": "จดทะเบียนบริษัท เดือนตุลาคม",
+   "en": "Register the company in October",
+   "pointTh": "หกราย ทุกรายเป็นข้อมูลที่คนไปยืนดูเอง ไม่ใช่ข้อมูลที่เครื่องลอกมา",
+   "pointEn": "Six firms, every one of them entered by hand rather than copied by a crawler.",
+   "total": 6,
+   "tier": "exact",
+   "notes": [
+    "segmented"
+   ],
+   "ms": 3386,
+   "results": [
+    {
+     "name": "เชียงใหม่ ลานนา บิสสิเนส เซอร์วิสเซส (CLBS)",
+     "nameEn": "Chiangmai Lanna Business Services Ltd (CLBS)",
+     "url": "https://motdang.net/cm/p/chiangmai-lanna-business-services-ltd-clbs-cmcuratedbpoclbs.html",
+     "confidence": "curated",
+     "updatedAt": "2026-09-04",
+     "antRank": 5,
+     "has": [
+      "nameTh",
+      "nameEn",
+      "phone",
+      "web",
+      "fresh"
+     ]
+    },
+    {
+     "name": "SANS Chiang Mai — บัญชี วีซ่า และบริการธุรกิจ",
+     "nameEn": "SANS Chiang Mai — accounting, visas and business services",
+     "url": "https://motdang.net/cm/p/sans-chiang-mai-accounting-visas-and-business-services-cmcuratedbposans.html",
+     "confidence": "curated",
+     "updatedAt": "2026-09-04",
+     "antRank": 5,
+     "has": [
+      "nameTh",
+      "nameEn",
+      "phone",
+      "web",
+      "fresh"
+     ]
+    },
+    {
+     "name": "เอโอ บัญชีธุรกิจ",
+     "nameEn": null,
+     "url": "https://motdang.net/cm/p/16823.html",
+     "confidence": "curated",
+     "updatedAt": "2026-09-04",
+     "antRank": 4,
+     "has": [
+      "nameTh",
+      "phone",
+      "hours",
+      "fresh"
+     ]
+    }
+   ]
+  },
+  {
+   "q": "ทนายความ",
+   "th": "หาทนายที่เชียงใหม่",
+   "en": "Find the Chiang Mai lawyer",
+   "pointTh": "หนึ่งร้อยยี่สิบสามราย เรียงตามชื่อที่ตรงคำ ไม่ใช่ตามค่าโฆษณา",
+   "pointEn": "123 of them, ordered by how well the name matches — nobody paid to be at the top.",
+   "total": 123,
+   "tier": "exact",
+   "notes": [
+    "widened"
+   ],
+   "ms": 3548,
+   "results": [
+    {
+     "name": "สำนักงานฤทธิชัย ทนายความ",
+     "nameEn": null,
+     "url": "https://motdang.net/cm/p/15321.html",
+     "confidence": "curated",
+     "updatedAt": "2026-09-04",
+     "antRank": 4,
+     "has": [
+      "nameTh",
+      "phone",
+      "hours",
+      "fresh"
+     ]
+    },
+    {
+     "name": "ชุติพนธ์ ทนายความ",
+     "nameEn": null,
+     "url": "https://motdang.net/cm/p/11731.html",
+     "confidence": "curated",
+     "updatedAt": "2026-09-04",
+     "antRank": 4,
+     "has": [
+      "nameTh",
+      "phone",
+      "hours",
+      "fresh"
+     ]
+    },
+    {
+     "name": "สำนักงานอภิชาติทนายความและเพื่อน",
+     "nameEn": null,
+     "url": "https://motdang.net/cm/p/12205.html",
+     "confidence": "curated",
+     "updatedAt": "2026-09-04",
+     "antRank": 4,
+     "has": [
+      "nameTh",
+      "phone",
+      "hours",
+      "fresh"
+     ]
+    }
+   ]
+  },
+  {
+   "q": "rajavey hospital",
+   "th": "นัดหมอที่ราชเวช — สะกดจากความจำ",
+   "en": "Book at Rajavej — spelled from memory",
+   "pointTh": "สะกดผิด คนละภาษากับชื่อร้าน ได้คำตอบเดียว และถูก",
+   "pointEn": "Misspelled, in the wrong script, and it comes back with one answer — the right one.",
+   "total": 1,
+   "tier": "loose",
+   "notes": [
+    "widened"
+   ],
+   "ms": 3605,
+   "results": [
+    {
+     "name": "โรงพยาบาลราชเวช เชียงใหม่",
+     "nameEn": "Rajavej Chiang Mai Hospital",
+     "url": "https://motdang.net/cm/p/rajavej-chiang-mai-hospital-97675282.html",
+     "confidence": "crawled",
+     "updatedAt": "2026-08-16",
+     "antRank": 5,
+     "has": [
+      "nameTh",
+      "nameEn",
+      "phone",
+      "line",
+      "web"
+     ]
+    }
+   ]
+  },
+  {
+   "q": "amulet shop",
+   "th": "หาร้านพระเครื่อง",
+   "en": "Find amulet shops",
+   "pointTh": "พิมพ์อังกฤษ เครื่องไปหยิบคำว่า “พระเครื่อง” มาให้",
+   "pointEn": "Typed in English; the engine reached for the Thai word พระเครื่อง on its own.",
+   "total": 3,
+   "tier": "thesaurus",
+   "notes": [
+    "widened"
+   ],
+   "ms": 3468,
+   "results": [
+    {
+     "name": "พระเครื่องสวัสดี",
+     "nameEn": null,
+     "url": "https://motdang.net/cm/p/27385460456787171655382.html",
+     "confidence": "third-party",
+     "updatedAt": "2026-09-07",
+     "antRank": 4,
+     "has": [
+      "nameTh",
+      "phone",
+      "web",
+      "fresh"
+     ]
+    },
+    {
+     "name": "ร้านบารมี108 ขายกรอบทอง ขายตลับทองพระเครื่อง รับซื้อทอง นาค เงิน ใกล้ฉัน",
+     "nameEn": null,
+     "url": "https://motdang.net/cm/p/108-69047580415685725326941302.html",
+     "confidence": "third-party",
+     "updatedAt": "2026-09-07",
+     "antRank": 4,
+     "has": [
+      "nameTh",
+      "phone",
+      "web",
+      "fresh"
+     ]
+    },
+    {
+     "name": "ชมรมพระเครื่อง เมืองขุนตาล",
+     "nameEn": null,
+     "url": "https://motdang.net/cr/p/04381445817178498.html",
+     "confidence": "third-party",
+     "updatedAt": "2026-09-07",
+     "antRank": 2,
+     "has": [
+      "nameTh",
+      "fresh"
+     ]
+    }
+   ]
+  },
+  {
+   "q": "ร้านกรอบพระ",
+   "th": "หาร้านทำกรอบพระ",
+   "en": "Find somewhere to frame them",
+   "pointTh": "ภาษาไทยไม่เว้นวรรค เครื่องตัดเป็น ร้าน + กรอบ + พระ ได้เอง",
+   "pointEn": "Thai is written without spaces; the engine split it into ร้าน · กรอบ · พระ itself.",
+   "total": 2,
+   "tier": "exact",
+   "notes": [
+    "segmented",
+    "widened"
+   ],
+   "ms": 3410,
+   "results": [
+    {
+     "name": "ร้านมหากบกรอบพระ กรอบพระแม่แตงเชียงใหม่",
+     "nameEn": null,
+     "url": "https://motdang.net/cm/p/24728444445796582827117.html",
+     "confidence": "third-party",
+     "updatedAt": "2026-09-07",
+     "antRank": 3,
+     "has": [
+      "nameTh",
+      "phone",
+      "fresh"
+     ]
+    },
+    {
+     "name": "บิล กรอบพระลายสุโขทัย",
+     "nameEn": null,
+     "url": "https://motdang.net/cm/p/6320139642591820395936.html",
+     "confidence": "third-party",
+     "updatedAt": "2026-09-07",
+     "antRank": 3,
+     "has": [
+      "nameTh",
+      "phone",
+      "fresh"
+     ]
+    }
+   ]
+  },
+  {
+   "q": "แปลเอกสาร",
+   "th": "แปลเอกสาร",
+   "en": "Get documents translated",
+   "pointTh": "ยี่สิบหกราย ส่วนใหญ่มีวันที่อ่านกำกับไว้ต้นเดือนนี้",
+   "pointEn": "26 of them, most read this month, each carrying the date it was read.",
+   "total": 26,
+   "tier": "exact",
+   "notes": [
+    "widened"
+   ],
+   "ms": 3630,
+   "results": [
+    {
+     "name": "ศูนย์แปลเอกสาร เอเชีย ทรานสเลชั่น เซอร์วิส",
+     "nameEn": null,
+     "url": "https://motdang.net/cm/p/26553.html",
+     "confidence": "curated",
+     "updatedAt": "2026-09-04",
+     "antRank": 3,
+     "has": [
+      "nameTh",
+      "phone",
+      "fresh"
+     ]
+    },
+    {
+     "name": "ศูนย์แปลเอกสาร ลานนาการแปล",
+     "nameEn": null,
+     "url": "https://motdang.net/cm/p/488.html",
+     "confidence": "curated",
+     "updatedAt": "2026-09-04",
+     "antRank": 4,
+     "has": [
+      "nameTh",
+      "phone",
+      "web",
+      "fresh"
+     ]
+    },
+    {
+     "name": "SEC Global เรียนต่อต่างประเทศ ทำวีซ่า แปลเอกสาร เชียงใหม่ Visa & Translation",
+     "nameEn": null,
+     "url": "https://motdang.net/cm/p/sec-global-visa-translation-376995144861534301042.html",
+     "confidence": "third-party",
+     "updatedAt": "2026-09-07",
+     "antRank": 3,
+     "has": [
+      "nameTh",
+      "phone",
+      "fresh"
+     ]
+    }
+   ]
+  },
+  {
+   "q": "ร้านกาแฟนั่งทำงานได้",
+   "th": "หาที่นั่งทำงาน",
+   "en": "Find somewhere to sit and work",
+   "pointTh": "ทั้งประโยค เครื่องอ่านออกว่าอยากได้อะไร แล้วไปเจอ coworking",
+   "pointEn": "A whole sentence. The engine reads what is being asked for and lands on a coworking space.",
+   "total": 1,
+   "tier": "thesaurus",
+   "notes": [
+    "segmented",
+    "stopwords",
+    "widened"
+   ],
+   "ms": 4654,
+   "results": [
+    {
+     "name": "เยลโล่ว์ โคเวิร์คกิ้ง  Coworking Space",
+     "nameEn": null,
+     "url": "https://motdang.net/cm/p/coworking-space-21891.html",
+     "confidence": "curated",
+     "updatedAt": "2026-09-04",
+     "antRank": 3,
+     "has": [
+      "nameTh",
+      "phone",
+      "fresh"
+     ]
+    }
+   ]
+  },
+  {
+   "q": "ถ้วยรางวัล",
+   "th": "ถ้วยรางวัล — คำที่เครื่องยังทำได้ไม่ดี",
+   "en": "Trophies — the word this engine still handles badly",
+   "pointTh": "ถ้วย ไปชนกับ cup ในชื่อร้านกาแฟ เครื่องบอกเองว่าใช้ชั้น “คำพ้อง” ซึ่งเป็นชั้นที่กว้างที่สุด",
+   "pointEn": "ถ้วย (a cup) collided with Cup in a café's name. The engine says on its own that it fell back to the widest layer.",
+   "total": 60,
+   "tier": "thesaurus",
+   "notes": [
+    "widened"
+   ],
+   "ms": 3288,
+   "results": [
+    {
+     "name": "Cup & Cake",
+     "nameEn": "Cup & Cake",
+     "url": "https://motdang.net/cm/p/cup-cake-2685512392.html",
+     "confidence": "crawled",
+     "updatedAt": "2026-07-27",
+     "antRank": 1,
+     "has": [
+      "nameEn"
+     ]
+    },
+    {
+     "name": "Happy Cup",
+     "nameEn": "Happy Cup",
+     "url": "https://motdang.net/cm/p/happy-cup-2881830813.html",
+     "confidence": "crawled",
+     "updatedAt": "2026-07-27",
+     "antRank": 2,
+     "has": [
+      "nameEn",
+      "phone"
+     ]
+    },
+    {
+     "name": "Cup Fine Day",
+     "nameEn": "Cup Fine Day",
+     "url": "https://motdang.net/cm/p/cup-fine-day-3023579106.html",
+     "confidence": "crawled",
+     "updatedAt": "2026-07-27",
+     "antRank": 3,
+     "has": [
+      "nameEn",
+      "phone",
+      "hours"
+     ]
+    }
+   ]
+  }
+ ]
+}

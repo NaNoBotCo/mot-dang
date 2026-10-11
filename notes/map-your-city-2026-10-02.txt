@@ -1,0 +1,67 @@
+MAP YOUR CITY, MOT DANG EDITION
+Grab's program as Nan screenshotted it on 1 Oct 2026, 20:33–20:35 (12 screens, posted to the ops
+channel 21:20–21:24), and what Mot Dang would need to build its own version.
+
+WHAT GRAB HAS (read off the screens; quoted text is theirs)
+
+  Hub "Map Your City"
+    Your performance: Contributions ("Make an impact"), Leaderboard ("Get recognised")
+    "Get rewarded as you contribute", three programs:
+      Add Places      "Add a missing place to GrabMaps."
+      Mini Tasks      NEW. "Complete tasks (e.g. verify places) on the map."
+      Update Places   "Provide the latest info about a place."
+
+  Add Places
+    Two steps: drop the pin, fill in the details, submit. "Thorough validation."
+    Campaign 01 Apr – 31 Dec. "There are currently no rewards available for this campaign."
+    Rewards go only to a "qualified place" (one they approved). Status shows in Contributions
+    after 14–21 days.
+    Rules: check the nearby list first, because duplicates earn nothing. The first submitter
+    gets the credit. Name in full; a shop in a mall is written "Shop - Mall". Use the official
+    address; block, level and postcode are optional.
+    A storefront or name-sign photo is required. They reject photos that are dark, blurred,
+    show no place information, or were downloaded from the internet.
+
+  Update Places
+    Search a nearby place, tap the pencil. Edit the name, address or category, or report it as
+    permanently closed, not open to the public, or moved.
+    "We are not giving monetary rewards for edits at the moment."
+
+  Mini Tasks
+    Task pins on the map. Start one "when it's safe on the road", submit it for review, and
+    "wait for the reward, if there's one".
+    Some tasks are answered by a person from Grab instead.
+
+  Not in the screenshots: any reward amount, currency, task list or leaderboard contents.
+
+WHAT MOT DANG ALREADY HAS FOR EACH PIECE
+  Add Places      /suggest on the claims Worker; the LINE bot takes pins and photos.
+  Update Places   claims: closed, moved, phone, hours. Rain and flood taps went live 28 Sep.
+  Mini Tasks      Ground Truth, spec'd 31 Aug and never built. Its fuel is measured: on
+                  31 Aug, 12,531 CM places had no hours and 3,125 had vague pins.
+  Rewards         Bot Bounty, live for bots at your prices: ฿0 / 20 / 50 / 100 / 300.
+  Photo rules     EXIF required on Bot Bounty. The photo pass already reads signs.
+  Contributions   nothing for people yet; bots have /anthill/bounty/mine.
+  Leaderboard     nothing. Ground Truth's spec ranks map cells, not people.
+
+WHAT A BUILD WOULD BE
+  One page, motdang.net/map-your-city (Thai first), with Grab's three tiles wired to what
+  exists: Add = /suggest with pin + required sign photo; Update = claims on any place page;
+  Tasks = pins drawn from the gaps (no hours, vague pin, no photo, never seen by a person),
+  nearest first, by road. A "my contributions" list keyed to the LINE sign-in. Duplicate
+  check before submit (the search API already answers this). Grab's photo rules copied.
+
+FORKS (yours)
+  1. Pay people?
+     a. No money, credit only. Grab's own current position. Costs ฿0.
+     b. Bot Bounty prices for people too. Costs up to ฿300 a photo, and a claim code
+        has to be paid out.
+     Worst case of b: farmed submissions. The EXIF and nearness checks blunt it.
+     Default if you don't answer: a.
+  2. Leaderboard of people (Grab) or of map cells (Ground Truth spec)?
+  3. Who reviews: Beer (the Ground Truth spec), the bot approver as on home-help, or both.
+  Each costs one build session, plus a walk to carry it.
+
+NOTE
+  One Update Places screenshot lists the places nearest the phone (Ban Mon Moo 2 Soi 17,
+  San Kamphaeng). Keep that screenshot off any page or Commons upload.

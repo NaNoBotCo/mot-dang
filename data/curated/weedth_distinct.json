@@ -1,0 +1,4 @@
+{
+ "_readme": "weed.th shops a person has looked at and said are NOT the record they resemble in cache/weedth_review.txt. Keyed by the weed.th uuid (the last path segment before the city in the source URL). A uuid here skips the near-match check and lands as its own record on the next importers/import_all.py. The other verdict, same shop, goes in merges.json.",
+ "distinct": {}
+}

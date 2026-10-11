@@ -1,0 +1,145 @@
+FULL 3,346-QUERY DEMAND, BUCKETED BY THEME → TIER
+Source: keyword-searches-cm-cr-2026-09-26-FULL.json (3346 queries)
+Demand weight = sum of surfaced_in_N (how broadly Google auto-suggested it — a popularity proxy, NOT volume).
+
+PER TIER — share of demand:
+  Tier 5 — other / unclassified                        1776 queries · weight 2644 (54%)
+  Tier 1 — trade/service directory (motdang home turf)  549 queries · weight  726 (14%)
+  Tier 0 — findability (content exists)                 337 queries · weight  524 (10%)
+  Tier 3 — orientation / decision (FORK, hers)          280 queries · weight  393 (8%)
+  Tier 2 — routing / journey answers                    260 queries · weight  348 (7%)
+  Tier 4 — weather (DECLINED per Nan 2026-09-26)        144 queries · weight  212 (4%)
+
+PER TIER — share of CLASSIFIED demand (the noisy long tail removed; base weight 2203):
+  Tier 1 — trade/service directory (motdang home turf)   wt 726  (33%)   -> WO-100
+  Tier 0 — findability, content already exists           wt 524  (24%)   -> WO-99
+  Tier 3 — orientation / decision (FORK, hers)           wt 393  (18%)   -> fork
+  Tier 2 — routing / journey answers                     wt 348  (16%)   -> WO-101
+  Tier 4 — weather                                       wt 212  (10%)   -> declined 2026-09-26
+  READ: Tier 0 + Tier 1 = 57% of real demand is content motdang already holds or is built to make.
+        The gap is being found and extending to Chiang Rai, not building new capability.
+
+PER THEME — count · weight (ranked by weight):
+  [T5] other/unclassified         1776 q · wt 2644
+  [T0] named sight/place           275 q · wt  438
+  [T2] routing/journey             260 q · wt  348
+  [T1] food/eat                    252 q · wt  330
+  [T1] lodging                     165 q · wt  225
+  [T4] weather/when                144 q · wt  212
+  [T1] trade/service (where-X)     132 q · wt  171
+  [T3] itinerary/things to do      107 q · wt  158
+  [T3] cost/living/relocate        108 q · wt  133
+  [T3] safety/worth/compare         65 q · wt  102
+  [T0] map/practical                62 q · wt   86
+
+TOP EXAMPLES PER THEME (surfaced_in_N ≥ 2):
+
+— [T5] other/unclassified
+     4× chiang mai 60 mulberry
+     4× เชียงใหม่0องศา
+     4× chiang rai municipality school 6
+     4× เชียงใหม่ 90
+     4× เชียงใหม่ 106 lyrics
+     4× เชียงใหม่ 60
+     4× เชียงใหม่ 2025
+     4× เชียงใหม่ 6
+
+— [T0] named sight/place
+     7× chiang mai university
+     6× chiang mai night safari
+     5× chiang mai zoo
+     4× chiang rai white temple
+     4× chiang rai golden triangle
+     4× chiang mai zoo tickets
+     4× chiang mai zoo reviews
+     4× chiang mai elephant sanctuary
+
+— [T2] routing/journey
+     8× chiang mai to bangkok
+     5× chiang rai to bangkok
+     5× chiang mai to chiang rai
+     4× chiang mai airport
+     4× chiang mai international airport
+     4× chiang rai to chiang mai
+     3× chiang rai day trip from chiang mai
+     3× chiangrai airport
+
+— [T1] food/eat
+     4× chiang mai night market
+     4× chiang mai night bazaar
+     4× chiang mai food
+     4× what to eat in chiang rai
+     3× chiang rai khao soi
+     3× chiang rai off the beaten path
+     3× chiangmai night bazaar
+     3× chiang mai yoga retreat
+
+— [T1] lodging
+     3× chiang mai 5 star hotels
+     3× chiang rai karen village
+     3× chiang mai marriott hotel
+     3× chiang mai 99 the gallery hotel
+     3× chiang mai orchid hotel
+     3× chiangrai hotel
+     3× chiangmai hill hotel
+     3× chiang mai 99 heritage hotel
+
+— [T4] weather/when
+     5× chiang rai weather
+     5× chiang mai weather
+     5× chiang rai weather forecast 30 days
+     4× chiang rai temperature
+     4× chiang mai weather forecast
+     3× chiangmai weather
+     3× chiang rai 4 seasons
+     3× chiang mai 4 seasons
+
+— [T1] trade/service (where-X)
+     4× chiang mai klaimor hospital
+     3× chiangrai prachanukroh hospital
+     3× chiangmai ram hospital
+     3× chiang rai gym
+     2× chiangmai sport clinic
+     2× chiang mai ram hospital
+     2× chiangrai hospital
+     2× chiangmai 89 dental clinic
+
+— [T3] itinerary/things to do
+     4× เชียงใหม่ 1 day trip
+     3× chiang rai 2 day itinerary
+     3× chiang mai 5 day itinerary
+     3× chiang rai day tour
+     3× chiang mai 4 day itinerary
+     3× chiang rai 4 days itinerary
+     3× chiang mai 3 days
+     3× chiang mai 3 days 2 nights
+
+— [T3] cost/living/relocate
+     6× cost of living in chiang rai
+     4× chiang mai population
+     3× chiang rai expat community
+     3× chiang rai population
+     3× chiang rai population 2025
+     3× chiang rai expat club
+     2× chiang rai visa run
+     2× chiang mai visa shop
+
+— [T3] safety/worth/compare
+     7× is chiang rai safe
+     6× is it worth visiting chiang rai
+     6× what is chiang rai known for
+     4× difference between chiang mai and chiang rai
+     3× chiangrai vs ratchaburi
+     3× is chiang rai worth visiting
+     2× chiang rai vs chiang mai
+     2× chiangrai vs chonburi
+
+— [T0] map/practical
+     4× chiang mai map
+     4× chiang mai zip code
+     3× chiang rai districts
+     3× chiang rai zip code
+     3× chiang rai on map
+     3× chiang rai on thailand map
+     2× chiang rai map
+     2× chiang rai province

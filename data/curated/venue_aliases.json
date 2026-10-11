@@ -11,15 +11,15 @@
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "alt pingriver": {
-      "place_id": "cm-newsletter-alt-pingriver",
+      "place_id": "cm-ovt-6593c790-1a69-4870-a5a2-de2454897760",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "anantara chiang mai resort": {
-      "place_id": "cm-newsletter-anantara-cm-resort",
+      "place_id": "cm-ovt-a6aa378c-63cf-4e2f-8759-cf93cf1b2389",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "anantara resort": {
-      "place_id": "cm-newsletter-anantara-cm-resort",
+      "place_id": "cm-ovt-a6aa378c-63cf-4e2f-8759-cf93cf1b2389",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "archers chiang mai": {
@@ -87,7 +87,7 @@
       "why": "Catalogue name is 'CrossFit Chiang Mai (CFCNX)', 51/26 Chotana Road."
     },
     "chiang mai gymkhana club": {
-      "place_id": "cm-newsletter-gymkhana-club-cm",
+      "place_id": "cm-ovt-28b604a8-7234-4683-99fc-3b57cf7cc69b",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "chiang mai hall": {
@@ -95,11 +95,15 @@
       "why": "The Big Bad Wolf book fair's hall, inside Central Airport Plaza."
     },
     "chiang mai marriott hotel": {
-      "place_id": "cm-newsletter-chiang-mai-marriott",
+      "place_id": "cm-ovt-6d7e8de2-c469-4466-8dcb-6ef073733cdd",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
+    "chiang mai railway station park": {
+      "place_id": "cm-osm-way-249673656",
+      "why": "Chiang Mai Railway Park, สวนสาธารณะรถไฟเชียงใหม่, the park beside the station. A Meetup skate-and-draw afternoon wrote it 'Chiang Mai Railway Station Park', 2026-10-10."
+    },
     "chiang mai university auditorium": {
-      "place_id": "cm-newsletter-cmu-auditorium",
+      "place_id": "cm-ovt-edcf45e8-6a55-4a00-8076-8600f559d245",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "china kitchen": {
@@ -141,11 +145,11 @@
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "cross chiang mai riverside": {
-      "place_id": "cm-newsletter-cross-cm-riverside",
+      "place_id": "cm-ovt-393f6da4-e5db-4f2a-b5bd-bc5393754613",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "cross chiang mai riverside hotel": {
-      "place_id": "cm-newsletter-cross-cm-riverside",
+      "place_id": "cm-ovt-393f6da4-e5db-4f2a-b5bd-bc5393754613",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "crossfit chiang mai": {
@@ -169,7 +173,7 @@
       "why": "Catalogue name is 'The Dhara Dhevi Chiang Mai'."
     },
     "dojo yoga pilates": {
-      "place_id": "cm-newsletter-dojo-yoga-pilates",
+      "place_id": "cm-ovt-f51d84a6-25b4-4c23-90e0-8342ab09a415",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "dream star academy football club": {
@@ -185,11 +189,11 @@
       "why": "Catalogue name is 'Eastin Tan'."
     },
     "eat rincome": {
-      "place_id": "cm-newsletter-eat-at-rincome",
+      "place_id": "cm-ovt-aa6f888a-7de0-44d1-b144-193df602aff5",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "eat rincome restaurant": {
-      "place_id": "cm-newsletter-eat-at-rincome",
+      "place_id": "cm-ovt-aa6f888a-7de0-44d1-b144-193df602aff5",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "emotion club": {
@@ -226,23 +230,23 @@
       "approx": true
     },
     "gaj kitchen and bar": {
-      "place_id": "cm-newsletter-gaj-kitchen-bar",
+      "place_id": "cm-ovt-5be03e5e-ebb6-49a9-8cd3-76e06ba59749",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "game tree": {
-      "place_id": "cm-newsletter-game-tree-cafe",
+      "place_id": "cm-ovt-da16aa2c-2753-427a-ae9d-a13902d04906",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "game tree cafe": {
-      "place_id": "cm-newsletter-game-tree-cafe",
+      "place_id": "cm-ovt-da16aa2c-2753-427a-ae9d-a13902d04906",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "game tree café": {
-      "place_id": "cm-newsletter-game-tree-cafe",
+      "place_id": "cm-ovt-da16aa2c-2753-427a-ae9d-a13902d04906",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "gooman s cnx": {
-      "place_id": "cm-newsletter-goomans-cnx",
+      "place_id": "cm-ovt-fc1e4943-1dcc-499b-8496-75f87e33647b",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "graphic heaven": {
@@ -250,7 +254,7 @@
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "gymkhana club": {
-      "place_id": "cm-newsletter-gymkhana-club-cm",
+      "place_id": "cm-ovt-28b604a8-7234-4683-99fc-3b57cf7cc69b",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "happy allergy bakery": {
@@ -270,11 +274,11 @@
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "kindred studio": {
-      "place_id": "cm-newsletter-kindred-studio",
+      "place_id": "cm-ovt-65454c68-23a6-4837-822c-8439a4ea9460",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "la friandise": {
-      "place_id": "cm-newsletter-la-friandise",
+      "place_id": "cm-ovt-f507bd3b-cebc-471e-8a62-53c55fecfc36",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "lecker cafe bistro": {
@@ -300,7 +304,7 @@
       "why": "The Saturday Slowcial run starts opposite this café on the CMU campus; Google resolves the map link to 239 ถ.ห้วยแก้ว."
     },
     "maa yoga studio spa": {
-      "place_id": "cm-newsletter-maa-yoga-studio",
+      "place_id": "cm-ovt-6e228c19-ca1c-468b-ae17-c6f18d4de76e",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "magnolia cafe": {
@@ -312,7 +316,7 @@
       "why": "Exact name match blocked only because 'café' is a stop token, leaving one distinctive token."
     },
     "mitt studio": {
-      "place_id": "cm-newsletter-mitt-studio",
+      "place_id": "cm-ovt-ebf9b777-67ac-45c9-a3e8-9133f6747824",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "moment s notice jazz club": {
@@ -332,7 +336,7 @@
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "old chiangmai cultural center": {
-      "place_id": "cm-newsletter-old-cm-cultural-center",
+      "place_id": "cm-ovt-fa79653a-30de-4d67-90dd-1d0f6efd0393",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "padel club chiang mai": {
@@ -340,15 +344,15 @@
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "puravida": {
-      "place_id": "cm-newsletter-puravida-one-nimman",
+      "place_id": "cm-ovt-f70debbf-37a7-4c74-bdb4-08cc35b99576",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "realspace": {
-      "place_id": "cm-newsletter-realspace-cnx",
+      "place_id": "cm-ovt-a8e92d65-298a-4431-ab65-e3d365b2027e",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "recharge at maa yoga studio spa": {
-      "place_id": "cm-newsletter-maa-yoga-studio",
+      "place_id": "cm-ovt-6e228c19-ca1c-468b-ae17-c6f18d4de76e",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "red cnx": {
@@ -356,11 +360,11 @@
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "red room 199": {
-      "place_id": "cm-newsletter-red-room-199",
+      "place_id": "cm-ovt-8694a6f1-7ca2-46da-b969-318274145bb7",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "rong sa dang": {
-      "place_id": "cm-newsletter-rong-sa-dang",
+      "place_id": "cm-ovt-63a79649-b054-4ff2-8d6d-152e2702132f",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "sacred grounds": {
@@ -407,15 +411,15 @@
       "why": "The spelling the newsletter's dated listings use."
     },
     "sip at ping": {
-      "place_id": "cm-newsletter-sip-at-ping",
+      "place_id": "cm-ovt-ccf4b31f-9b87-4f6b-8b1c-3da5ef1f3420",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "sip at ping restaurant": {
-      "place_id": "cm-newsletter-sip-at-ping",
+      "place_id": "cm-ovt-ccf4b31f-9b87-4f6b-8b1c-3da5ef1f3420",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "skugga vineyard": {
-      "place_id": "cm-newsletter-skugga-vineyard",
+      "place_id": "cm-ovt-f231a66c-156a-4259-a90f-afd2832b9bd9",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "soi dog blues": {
@@ -492,7 +496,7 @@
       "why": "Newsletter writes it 'The Mellowship' and 'The Mellowship 20:30'; the catalogue holds the full name."
     },
     "the old city spa": {
-      "place_id": "cm-newsletter-the-old-city-spa",
+      "place_id": "cm-ovt-cc00dd7f-e55b-4c2f-a9af-10f3077208c5",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "thedencnx": {
@@ -500,7 +504,7 @@
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "theoldcityspa": {
-      "place_id": "cm-newsletter-the-old-city-spa",
+      "place_id": "cm-ovt-cc00dd7f-e55b-4c2f-a9af-10f3077208c5",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "tiki torch": {
@@ -566,7 +570,7 @@
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "ศ นย ว ฒนธรรมเช ยงใหม": {
-      "place_id": "cm-newsletter-old-cm-cultural-center",
+      "place_id": "cm-ovt-fa79653a-30de-4d67-90dd-1d0f6efd0393",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "สนามก ฬาเทศบาลตำบลส เทพ": {
@@ -574,11 +578,11 @@
       "why": "สนามกีฬาเทศบาลตำบลสุเทพ — 18 m from the pin the Lanna Rugby map link resolves to."
     },
     "สโมสรย มคานาเช ยงใหม": {
-      "place_id": "cm-newsletter-gymkhana-club-cm",
+      "place_id": "cm-ovt-28b604a8-7234-4683-99fc-3b57cf7cc69b",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "หอประช มมหาว ทยาล ยเช ยงใหม": {
-      "place_id": "cm-newsletter-cmu-auditorium",
+      "place_id": "cm-ovt-edcf45e8-6a55-4a00-8076-8600f559d245",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "หอศ ลป คณะว จ ตรศ ลป มหาว ทยาล ยเช ยงใหม": {
@@ -586,7 +590,7 @@
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "อน นตรา เช ยงใหม ร สอร ท": {
-      "place_id": "cm-newsletter-anantara-cm-resort",
+      "place_id": "cm-ovt-a6aa378c-63cf-4e2f-8759-cf93cf1b2389",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "เช ยงใหม ฮอลล": {
@@ -598,12 +602,322 @@
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "โรงแรมเช ยงใหม แมร ออท": {
-      "place_id": "cm-newsletter-chiang-mai-marriott",
+      "place_id": "cm-ovt-6d7e8de2-c469-4466-8dcb-6ef073733cdd",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
     },
     "โรงแสดง": {
-      "place_id": "cm-newsletter-rong-sa-dang",
+      "place_id": "cm-ovt-63a79649-b054-4ff2-8d6d-152e2702132f",
       "why": "Newsletter venue added to the catalogue 2026-08-31 from the 31 Aug issue; this is a spelling it used."
+    },
+    "boy blues rock bar": {
+      "place_id": "cm-osm-node-6909510786",
+      "why": "Spelling used by the 21 Sep 2026 newsletter issue for a place the catalogue already holds."
+    },
+    "alliance française chiang mai": {
+      "place_id": "cm-ovt-91cda041-8341-4468-9100-eecd20529a7d",
+      "why": "Spelling used by the 21 Sep 2026 newsletter issue for a place the catalogue already holds."
+    },
+    "chef s together by aod dan": {
+      "place_id": "cm-osm-node-11328679116",
+      "why": "Spelling used by the 21 Sep 2026 newsletter issue for a place the catalogue already holds."
+    },
+    "eudemonia elements": {
+      "place_id": "cm-ovt-52766b96-38b1-4b91-9ef4-7ee51beaea07",
+      "why": "Spelling used by the 21 Sep 2026 newsletter issue for a place the catalogue already holds."
+    },
+    "chiang mai sauna eudemonia elements": {
+      "place_id": "cm-ovt-52766b96-38b1-4b91-9ef4-7ee51beaea07",
+      "why": "Spelling used by the 21 Sep 2026 newsletter issue for a place the catalogue already holds."
+    },
+    "mae ping physical therapy": {
+      "place_id": "cm-curated-maepingpt",
+      "why": "Spelling used by the 21 Sep 2026 newsletter issue for a place the catalogue already holds."
+    },
+    "ombra caffe": {
+      "place_id": "cm-osm-node-4505551231",
+      "why": "Spelling used by the 21 Sep 2026 newsletter issue for a place the catalogue already holds."
+    },
+    "rare finds bookstore café": {
+      "place_id": "cm-osm-node-11237668937",
+      "why": "Spelling used by the 21 Sep 2026 newsletter issue for a place the catalogue already holds."
+    },
+    "sritana condo 2": {
+      "place_id": "cm-ovt-d73de084-39e4-4097-a75a-c19f7dade508",
+      "why": "Spelling used by the 21 Sep 2026 newsletter issue for a place the catalogue already holds. The meeting is at the coffee shop attached to the building.",
+      "approx": true
+    },
+    "step science technology park cmu": {
+      "place_id": "cm-osm-way-726606026",
+      "why": "Spelling used by the 21 Sep 2026 newsletter issue for a place the catalogue already holds."
+    },
+    "the cocoon": {
+      "place_id": "cm-ovt-32f00a93-e35b-44f0-8807-d45de01d6103",
+      "why": "Spelling used by the 21 Sep 2026 newsletter issue for a place the catalogue already holds."
+    },
+    "the riverside bar restaurant": {
+      "place_id": "cm-osm-node-6163753689",
+      "why": "Spelling used by the 21 Sep 2026 newsletter issue for a place the catalogue already holds. The record is the venue's outside area.",
+      "approx": true
+    },
+    "acis": {
+      "place_id": "cm-newsletter-acis",
+      "why": "Newsletter venue added to the catalogue 2026-09-23 from the 21 Sep issue; this is a spelling it used."
+    },
+    "alphabet city pizza co": {
+      "place_id": "cm-newsletter-alphabet-city-pizza",
+      "why": "Newsletter venue added to the catalogue 2026-09-23 from the 21 Sep issue; this is a spelling it used."
+    },
+    "amore italian food pizza by the pool": {
+      "place_id": "cm-newsletter-amore-hang-dong",
+      "why": "Newsletter venue added to the catalogue 2026-09-23 from the 21 Sep issue; this is a spelling it used."
+    },
+    "chiang mai city craft space": {
+      "place_id": "cm-newsletter-cm-city-craft-space",
+      "why": "Newsletter venue added to the catalogue 2026-09-23 from the 21 Sep issue; this is a spelling it used."
+    },
+    "doctor prince mahidol museum": {
+      "place_id": "cm-newsletter-prince-mahidol-museum",
+      "why": "Newsletter venue added to the catalogue 2026-09-23 from the 21 Sep issue; this is a spelling it used."
+    },
+    "fahlanna art museum": {
+      "place_id": "cm-newsletter-fahlanna-art-museum",
+      "why": "Newsletter venue added to the catalogue 2026-09-23 from the 21 Sep issue; this is a spelling it used."
+    },
+    "ganesha house chiang mai": {
+      "place_id": "cm-newsletter-ganesha-house",
+      "why": "Newsletter venue added to the catalogue 2026-09-23 from the 21 Sep issue; this is a spelling it used."
+    },
+    "ovs wine cellar": {
+      "place_id": "cm-newsletter-ovs-wine-cellar",
+      "why": "Newsletter venue added to the catalogue 2026-09-23 from the 21 Sep issue; this is a spelling it used."
+    },
+    "studio 94": {
+      "place_id": "cm-newsletter-studio-94",
+      "why": "Newsletter venue added to the catalogue 2026-09-23 from the 21 Sep issue; this is a spelling it used."
+    },
+    "the happy frog secret": {
+      "place_id": "cm-newsletter-happy-frog-secret",
+      "why": "Newsletter venue added to the catalogue 2026-09-23 from the 21 Sep issue; this is a spelling it used."
+    },
+    "wat aranyawas wat ban pong": {
+      "place_id": "cm-newsletter-wat-aranyawas-ban-pong",
+      "why": "Newsletter venue added to the catalogue 2026-09-23 from the 21 Sep issue; this is a spelling it used."
+    },
+    "charming home chiang mai": {
+      "place_id": "cm-newsletter-charming-home",
+      "why": "Newsletter venue added to the catalogue 2026-09-23 from the 21 Sep issue; this is a spelling it used."
+    },
+    "wat aranyawas": {
+      "place_id": "cm-newsletter-wat-aranyawas-ban-pong",
+      "why": "Newsletter venue added to the catalogue 2026-09-23 from the 21 Sep issue; this is a spelling it used."
+    },
+    "jarid restaurant": {
+      "place_id": "cm-osm-node-6000554887",
+      "why": "Newsletter venue, 28 Sep issue (read 2026-09-29): the listing says Jarid Restaurant, Art Mai Hotel, Nimman Soi 3; OSM 'Jarid Thai Food & Fine Wines' sits at the Art Mai pin."
+    },
+    "traidhos tennis academy": {
+      "place_id": "cm-ovt-c0330bd5-a8b3-42fd-b017-0ec66a1d0ff5",
+      "why": "Newsletter venue, 28 Sep issue (read 2026-09-29): the academy is on the Traidhos / Prem campus in Mae Rim; pinned to the campus, not a court.",
+      "approx": true
+    },
+    "chiang mai city arts cultural centre": {
+      "place_id": "cm-osm-relation-17998804",
+      "why": "Newsletter venue, 28 Sep issue (read 2026-09-29): หอศิลปวัฒนธรรมเมืองเชียงใหม่, behind the Three Kings Monument, as the listing places it."
+    },
+    "why not restaurant": {
+      "place_id": "cm-osm-node-1797043367",
+      "why": "Newsletter venue, 28 Sep issue (read 2026-09-29): Why Not? Italian restaurant, Nimman; the old-city Why Not is a different place."
+    },
+    "meeting room art café": {
+      "place_id": "cm-osm-node-11407178346",
+      "why": "Newsletter venue, 28 Sep issue (read 2026-09-29): OSM 'The Meeting Room', old city.",
+      "approx": true
+    },
+    "thailand national sports university chiang mai campus": {
+      "place_id": "cm-osm-node-12520530701",
+      "why": "Newsletter venue, 28 Sep issue (read 2026-09-29): TNSU Chiang Mai campus, the Yunnan Cup basketball venue."
+    },
+    "huay tung tao reservoir": {
+      "place_id": "cm-osm-relation-9227296",
+      "why": "Newsletter venue, 28 Sep issue (read 2026-09-29): ทะเลสาบห้วยตึงเฒ่า."
+    },
+    "chiang mai railway park": {
+      "place_id": "cm-osm-way-249673656",
+      "why": "Newsletter venue, 28 Sep issue (read 2026-09-29): สวนสาธารณะรถไฟเชียงใหม่."
+    },
+    "comedara restaurant": {
+      "place_id": "cm-ovt-d16fb5d8-5803-4af3-8090-4e0bc6fc41c2",
+      "why": "Newsletter venue, 28 Sep issue (read 2026-09-29): คำดารา (Comedara), Wat Ket."
+    },
+    "mövenpick suriwongse hotel chiang mai": {
+      "place_id": "cm-osm-way-99685196",
+      "why": "Newsletter venue, 28 Sep issue (read 2026-09-29): OSM still carries the hotel's older name, Suriwongse Hotel Chiang Mai."
+    },
+    "aruntara riverside boutique hotel": {
+      "place_id": "cm-osm-node-2648578461",
+      "why": "Newsletter venue, 28 Sep issue (read 2026-09-29): OSM 'Aruntara', on the river.",
+      "approx": true
+    },
+    "melodic cnx": {
+      "place_id": "cm-newsletter-melodic-cnx",
+      "why": "Newsletter venue, 28 Sep issue (read 2026-09-29): record added from this issue."
+    },
+    "extend bar": {
+      "place_id": "cm-ovt-f91147b8-d3d4-4e99-bbdc-2ed07048c570",
+      "why": "Meetup title 'Expat Karaoke Thursdays @ Extend Bar'; the catalogue's 'The Extend Bar CNX', Ratchawithi Rd. Checked 2026-10-04."
+    },
+    "narit astronomy park": {
+      "place_id": "cm-ovt-e24ee664-fb30-40c4-86e5-bdb609c80e94",
+      "approx": true,
+      "why": "Newsletter venue; NARIT's Don Kaeo, Mae Rim campus (260 Moo 4), where the astronomy park stands. Checked 2026-10-04."
+    },
+    "chiang mai university cmu entrance": {
+      "place_id": "cm-osm-way-189632187",
+      "approx": true,
+      "why": "Meetup sunset walk meets at a CMU entrance; pinned to the university. 2026-10-04."
+    },
+    "cmu campus ang kaew reservoir": {
+      "place_id": "cm-osm-relation-14520615",
+      "why": "Newsletter venue; Ang Kaew reservoir on the CMU campus. Checked 2026-10-04."
+    },
+    "four seasons": {
+      "place_id": "cm-osm-way-305818862",
+      "why": "Spelling used by the 2026-10-05 newsletter issue. The resort in Mae Rim; its restaurants KHAO and NORTH are named in the same listings."
+    },
+    "the four seasons": {
+      "place_id": "cm-osm-way-305818862",
+      "why": "Spelling used by the 2026-10-05 newsletter issue."
+    },
+    "centara riverside chiang mai": {
+      "place_id": "cm-osm-way-97675281",
+      "why": "Spelling used by the 2026-10-05 newsletter issue."
+    },
+    "tcdc": {
+      "place_id": "cm-osm-way-672587607",
+      "why": "Spelling used by the 2026-10-05 newsletter issue. TCDC Chiang Mai, 1st floor exhibition room."
+    },
+    "gad lanna": {
+      "place_id": "cm-osm-way-494956255",
+      "why": "Spelling used by the 2026-10-05 newsletter issue. The Gad Lanna is the InterContinental Mae Ping's own restaurant."
+    },
+    "chiang mai marriott at favola": {
+      "place_id": "cm-osm-node-4866129712",
+      "why": "Spelling used by the 2026-10-05 newsletter issue. Favola, 2nd floor of the Chiang Mai Marriott."
+    },
+    "cnx cigars nimman soi 11": {
+      "place_id": "cm-newsletter-cnx-cigars",
+      "why": "Spelling used by the 2026-10-05 newsletter issue."
+    },
+    "rimping meta mall": {
+      "place_id": "cm-osm-way-1421481385",
+      "why": "Spelling used by the 2026-10-05 newsletter issue. The Rimping grocery store inside Meta Mall.",
+      "approx": true
+    },
+    "chiang mai pao park": {
+      "place_id": "cm-osm-way-953259054",
+      "why": "Spelling used by the 2026-10-05 newsletter issue. 'Chiang Mai PAO Park on the Canal Road opposite side of the International Exhibition & Convention Centre'."
+    },
+    "renegades": {
+      "place_id": "cm-osm-way-793158513",
+      "why": "Spelling used by the 2026-10-05 newsletter issue. 'A spacious and comfortable sports bar and restaurant in the old city'; the record is at 47 Moon Muang Rd."
+    },
+    "living a dream cafe": {
+      "place_id": "cm-osm-way-311212963",
+      "why": "Spelling used by the 2026-10-05 newsletter issue."
+    },
+    "simple pleasures café in doi saket": {
+      "place_id": "cm-osm-node-11061444505",
+      "why": "Spelling used by the 2026-10-05 newsletter issue."
+    },
+    "simple pleasures cafe in doi saket": {
+      "place_id": "cm-osm-node-11061444505",
+      "why": "Spelling used by the 2026-10-05 newsletter issue."
+    },
+    "panij tennis courts": {
+      "place_id": "cm-newsletter-panij-tennis-court",
+      "why": "Spelling used by the 2026-10-05 newsletter issue."
+    },
+    "chit hole brewing chiang mai": {
+      "place_id": "cm-newsletter-chit-hole-brewing",
+      "why": "Spelling used by the 2026-10-05 newsletter issue."
+    },
+    "boonma cargo logistics complex": {
+      "place_id": "cm-newsletter-italasia-warehouse",
+      "why": "Spelling used by the 2026-10-05 newsletter issue."
+    },
+    "italasia warehouse": {
+      "place_id": "cm-newsletter-italasia-warehouse",
+      "why": "Spelling used by the 2026-10-05 newsletter issue."
+    },
+    "boonthavorn private garden": {
+      "place_id": "cm-newsletter-boonthavorn-garden",
+      "why": "Spelling used by the 2026-10-05 newsletter issue."
+    },
+    "boonthavorn gardens": {
+      "place_id": "cm-newsletter-boonthavorn-garden",
+      "why": "Spelling used by the 2026-10-05 newsletter issue."
+    },
+    "chiang mai university mae hia campus": {
+      "place_id": "cm-newsletter-cmu-mae-hia-campus",
+      "why": "Spelling used by the 2026-10-05 newsletter issue."
+    },
+    "mae hia campus": {
+      "place_id": "cm-newsletter-cmu-mae-hia-campus",
+      "why": "Spelling used by the 2026-10-05 newsletter issue."
+    },
+    "berngdin organic farm": {
+      "place_id": "cm-newsletter-berngdin-organic-farm",
+      "why": "Spelling used by the 2026-10-05 newsletter issue."
+    },
+    "bergndin farm": {
+      "place_id": "cm-newsletter-berngdin-organic-farm",
+      "why": "Spelling used by the 2026-10-05 newsletter issue."
+    },
+    "the cad cultural centre mae on": {
+      "place_id": "cm-newsletter-cad-cultural-centre",
+      "why": "Spelling used by the 2026-10-05 newsletter issue."
+    },
+    "the cad cultural centre": {
+      "place_id": "cm-newsletter-cad-cultural-centre",
+      "why": "Spelling used by the 2026-10-05 newsletter issue."
+    },
+    "golden land at the loft café": {
+      "place_id": "cm-newsletter-loft-cafe-golden-land",
+      "why": "Spelling used by the 2026-10-05 newsletter issue."
+    },
+    "golden land at the loft cafe": {
+      "place_id": "cm-newsletter-loft-cafe-golden-land",
+      "why": "Spelling used by the 2026-10-05 newsletter issue."
+    },
+    "wat phathat suthiyan doi saket": {
+      "place_id": "cm-newsletter-wat-phathat-suthiyan",
+      "why": "Spelling used by the 2026-10-05 newsletter issue."
+    },
+    "i love banthi": {
+      "place_id": "lpn-newsletter-i-love-banthi",
+      "why": "Spelling used by the 2026-10-05 newsletter issue."
+    },
+    "rimping mee choke": {
+      "place_id": "cm-osm-way-193818582",
+      "why": "Spelling used by the 2026-10-05 newsletter issue. The Rimping grocery store inside Meechok Plaza.",
+      "approx": true
+    },
+    "rimping mee chok": {
+      "place_id": "cm-osm-way-193818582",
+      "why": "Spelling used by the 2026-10-05 newsletter issue. The Rimping grocery store inside Meechok Plaza.",
+      "approx": true
+    },
+    "mövenpick suriwongse hotel": {
+      "place_id": "cm-osm-way-99685196",
+      "why": "Spelling used by the 2026-10-05 newsletter issue. Mövenpick Suriwongse Hotel Chiang Mai, 110 Changklan Road — the Suriwongse Hotel's current name."
+    },
+    "movenpick suriwongse hotel": {
+      "place_id": "cm-osm-way-99685196",
+      "why": "Spelling used by the 2026-10-05 newsletter issue. Same hotel, without the umlaut."
+    },
+    "unity concord international school": {
+      "place_id": "cm-opec-2340",
+      "why": "Spelling used by the 2026-10-05 newsletter issue. โรงเรียนนานาชาติยูนิตี้ คอนคอร์ด in the OPEC register."
     }
   },
   "_missing_from_catalogue": {
@@ -619,6 +933,21 @@
         "name": "NARIT Astronomy Park",
         "seen_in": "payap-lll excursion listing",
         "why_open": "อุทยานดาราศาสตร์สิรินธร, Mae Rim. Nothing in either province's crawl carries NARIT or สดร in any spelling."
+      },
+      {
+        "name": "Rimping Mee Choke",
+        "seen_in": "steve-newsletter 2026-09-21",
+        "why_open": "Rimping supermarket branch at Mee Choke mall; the catalogue holds ten Rimping branches and none is labelled Mee Choke — which one it is needs a pin, not a guess."
+      },
+      {
+        "name": "I Love Banthi",
+        "seen_in": "steve-newsletter 2026-09-21",
+        "why_open": "Moonlight Sky Lantern venue, 24–25 Nov 2026; Ban Thi is in Lamphun, outside the two provinces the catalogue covers."
+      },
+      {
+        "name": "Boonthavorn Private Garden",
+        "seen_in": "steve-newsletter 2026-09-28",
+        "why_open": "Citylife Garden Fair, 21 Nov 2026. The catalogue holds Boonthavorn stores and an apartment block; which site the private garden is needs a pin, not a guess."
       }
     ]
   }

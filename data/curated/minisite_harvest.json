@@ -1,0 +1,56 @@
+{
+ "about": "Her minisites that animate, and the doodle each became (tools/minisite_animations.py). state: harvested | pending | out (with why). A harvested drawing was upgraded past the original first.",
+ "sites": {
+  "warp-and-weft": {
+   "state": "harvested",
+   "doodle": "doodles.js weaving (loom + weaver, place pages and events)",
+   "date": "2026-10-02"
+  },
+  "melodies-and-motifs": {
+   "state": "harvested",
+   "doodle": "doodles.js akha (headdress + singer); doodler-akha.js akha, akha-swing",
+   "date": "2026-10-02"
+  },
+  "expedite": {
+   "state": "harvested",
+   "doodle": "doodler-arts.js expedite (band)",
+   "date": "2026-10-02",
+   "th": "\u0e27\u0e31\u0e19\u0e19\u0e35\u0e49 \u00b7 \u0e19\u0e31\u0e01\u0e1a\u0e38\u0e0d\u0e40\u0e2d\u0e47\u0e01\u0e0b\u0e4c\u0e40\u0e1b\u0e14\u0e34\u0e15",
+   "en": "Hodie \u00b7 Saint Expedite"
+  },
+  "city-live": {
+   "state": "out",
+   "why": "the front page's own map"
+  },
+  "blinky-fidget-notranslate-hold": {
+   "state": "out",
+   "why": "a held copy of blinky-fidget"
+  },
+  "all-factored": {
+   "state": "harvested",
+   "doodle": "doodler-site-all-factored.js all-factored",
+   "date": "2026-10-04",
+   "th": "\u0e41\u0e22\u0e01\u0e2b\u0e21\u0e14\u0e41\u0e25\u0e49\u0e27",
+   "en": "All Factored"
+  },
+  "bag-knots": {
+   "state": "harvested",
+   "doodle": "doodler-site-bag-knots.js bag-knots",
+   "date": "2026-10-06"
+  },
+  "ban-sabai": {
+   "state": "harvested",
+   "doodle": "doodler-site-ban-sabai.js ban-sabai",
+   "date": "2026-10-07"
+  },
+  "basque-tables": {
+   "state": "out",
+   "why": "No drawing worth taking; only fade-ins and static SVG maps"
+  },
+  "bayeux-tapestry": {
+   "state": "harvested",
+   "doodle": "doodler-site-bayeux-tapestry.js bayeux-tapestry",
+   "date": "2026-10-08"
+  }
+ }
+}

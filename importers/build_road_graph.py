@@ -15,6 +15,7 @@ exist for one mode and not the other.
 
     python3 importers/crawl_roads.py        # first
     python3 importers/build_road_graph.py   # then this
+    python3 importers/build_road_graph.py --wide   # + cache/roads/wide/ → road_graph_wide.json
 
 Writes data/road_graph.json (and build.py copies it into docs/). Intermediate
 "shape" nodes are folded into edge geometry, so the graph carries junctions
@@ -95,7 +96,14 @@ def hav(a, b):
 
 
 def main():
+    global OUT
     tiles = sorted(CACHE.glob("*.json"))
+    if "--wide" in sys.argv[1:]:
+        # The core tiles plus crawl_roads.py --wide's, into their own file: the
+        # way-there strip (waypics_layer.py) reads it; plan.html and the city-map
+        # frame keep reading road_graph.json.
+        tiles += sorted((CACHE / "wide").glob("*.json"))
+        OUT = ROOT / "data" / "road_graph_wide.json"
     if not tiles:
         print("no tiles in cache/roads/ — run importers/crawl_roads.py first", file=sys.stderr)
         return 1

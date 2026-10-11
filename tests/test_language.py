@@ -54,6 +54,12 @@ want("body.lang-" not in SRC,
      "a body.lang- selector is back; the pre-paint script cannot reach <body>")
 want("const B=document.documentElement" in SRC,
      "md.js sets the language on document.body again")
+# <html lang> is served "th" and follows the choice: "en" for English, "th"
+# for Thai and for both — before paint, and on every click of the toggle.
+want("_r.lang='en'" in head,
+     "the head script leaves <html lang> at th for a reader who chose English")
+want("B.lang=v==='en'?'en':'th'" in SRC,
+     "mdSetLang no longer sets <html lang>")
 
 # ---------------------------------------------------------------------------
 # 2. Nothing may hide or show a language except through a lang class

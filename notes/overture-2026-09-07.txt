@@ -11,7 +11,7 @@ holds. Fork B: admit the places it holds that Mot Dang does not.
 WHAT IT IS
 ----------
 Overture Maps Places, release 2026-08-19.0, CDLA-Permissive 2.0, off a public
-S3 bucket with no account. In Chiang Mai and Chiang Rai it is 96,870 rows and
+S3 bucket open without a sign-in. In Chiang Mai and Chiang Rai it is 96,870 rows and
 **99% of them come from Meta** — they are Facebook business pages, carrying the
 phone and address the page itself states.
 
@@ -74,7 +74,7 @@ WHAT IT REFUSES TO DO, AND THE MEASUREMENTS BEHIND EACH REFUSAL
    **p90 5,551 m**, above the ±3,000 m this repo publishes at. Requiring
    confidence >= 0.8 gave p90 3,896 m. Still over. 85 records could have had a
    pin tonight and about a quarter of them would have been the wrong place, so
-   they keep their honest absence.
+   they keep their stated absence.
 
 3. IT NEVER OVERWRITES. Only empty fields are filled. Survey, register,
    curated correction and an owner's claim all outrank it and all run later.
@@ -88,7 +88,7 @@ WHAT IT REFUSES TO DO, AND THE MEASUREMENTS BEHIND EACH REFUSAL
    because 50 m of a Chiang Mai soi is several shops.
 
 5. IT IS NEVER GIVEABLE TO OPENSTREETMAP. The source type is `directory`, so
-   provenance.py classes it FORBIDDEN and the give-back gate refuses it
+   provenance.py classes it FORBIDDEN and the give-back gate drops it
    without being told. Correct: CDLA-Permissive is not ODbL and Meta's rows
    are not ours to relicense. The cost was counted before it was taken — on
    2026-09-07 no record in the catalogue had a giveable or licence-waiting

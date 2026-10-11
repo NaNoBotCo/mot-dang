@@ -41,7 +41,7 @@ What this deliberately does NOT do:
     who measured it; "very hot" is nobody's measurement.
   * Repeat a cure. What the water is said to be good for is the operator's
     or the tradition's claim and renders as a claim. No health advice.
-  * Sort springs into natural and commercial, hidden and touristy — no line
+  * Sort springs into natural and commercial, hidden and heavily visited — no line
     on this site sorts places into real and otherwise.
 """
 import argparse

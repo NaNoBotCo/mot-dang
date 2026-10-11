@@ -53,7 +53,7 @@ def sh(args, env=None, **kw):
     return subprocess.run(args, capture_output=True, text=True, env=env, **kw)
 
 
-# Repositories that must never leave this machine, whoever is asking and
+# Repositories that stay on this machine, whoever is asking and
 # however private the destination. Medical and court material: the standing
 # rule is LOCAL ONLY, and "her own bucket" is not an exemption from it.
 #

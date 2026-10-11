@@ -1,0 +1,95 @@
+SENT 2026-09-18 18:29 (client: 'send the dga letter', 2026-09-18)
+From: Nan <nan@motdang.net>
+To: contact@dga.or.th
+Reply-To: nan@motdang.net
+Resend id: 01a0b447-b825-75a8-b88c-4ea9983218cb
+Subject: ขออนุญาตยืนยันเงื่อนไขการใช้ข้อมูล DGA Open Government License สำหรับนำเข้าสู่ OpenStreetMap · Confirming DGA Open Government License terms for use in OpenStreetMap
+
+เรียน สำนักงานพัฒนารัฐบาลดิจิทัล (สพร.)
+
+ดิฉันจัดทำ มดแดง (motdang.net) สารบัญเมืองแบบเปิดสำหรับจังหวัดเชียงใหม่และ
+เชียงราย เผยแพร่เป็นภาษาไทยเป็นหลัก ไม่มีค่าใช้จ่าย ไม่มีการติดตามผู้ใช้ และ
+เปิดให้นำข้อมูลไปใช้ต่อได้
+
+ปัจจุบันสารบัญนี้มีรายการที่มาจากชุดข้อมูลบน data.go.th จำนวน 6,150 รายการ
+ได้แก่ ทะเบียนวัดของสำนักงานพระพุทธศาสนาแห่งชาติ ทะเบียนโรงเรียนของ สพฐ.
+ทะเบียนใบอนุญาตโรงเรียนเอกชนของ สป.ศธ. ระบบ CITIZENinfo และชุดข้อมูลอื่น ๆ
+ทุกรายการอ้างอิงแหล่งที่มาไว้ครบถ้วนตามเงื่อนไขของสัญญาอนุญาต
+
+ดิฉันประสงค์จะนำ "ชื่อสถานที่และที่อยู่" จากชุดข้อมูลเหล่านี้ไปเพิ่มลงใน
+OpenStreetMap ซึ่งเป็นแผนที่เสรีที่ทุกคนแก้ไขได้ และเป็นฐานข้อมูลที่แผนที่
+จำนวนมากทั่วโลกนำไปใช้ต่อ ข้อมูลใน OpenStreetMap เผยแพร่ภายใต้สัญญาอนุญาต
+Open Database License (ODbL) และการให้เครดิตแหล่งที่มาทำในระดับ "แหล่งข้อมูล"
+คือระบุไว้ในหน้ารายชื่อผู้ร่วมสนับสนุนของโครงการ ไม่ได้ระบุรายรายการ
+
+ดิฉันได้อ่านข้อกำหนดและเงื่อนไขการให้ใช้ข้อมูล (DGA Open Government License
+ฉบับที่ 1.0 ลงวันที่ 10 มิถุนายน 2564) โดยละเอียดแล้ว และเข้าใจว่า
+
+  ๑. สัญญาอนุญาตให้สิทธิแบบไม่จำกัดอาณาเขตและไม่จำกัดระยะเวลา โดยไม่ต้อง
+     ขออนุญาตเพิ่มเติมและไม่มีค่าธรรมเนียม
+  ๒. ผู้ใช้สามารถนำข้อมูลไป "ประมวลผลร่วมกับข้อมูลอื่น" ได้
+  ๓. ไม่มีเงื่อนไขให้ต้องเผยแพร่ต่อภายใต้สัญญาอนุญาตเดียวกัน (share-alike)
+  ๔. หน้าที่ที่คงอยู่คือการอ้างอิงแหล่งที่มา และในกรณีที่ไม่อาจระบุหน่วยงาน
+     เจ้าของข้อมูลเป็นรายหน่วยได้ เงื่อนไขกำหนดข้อความอ้างอิงกลางไว้ว่า
+     "สิทธิในการใช้ข้อมูลเป็นไปตามข้อกำหนดและเงื่อนไขการให้ใช้ข้อมูลของ
+     ศูนย์กลางข้อมูลเปิดภาครัฐ"
+
+จึงเรียนมาเพื่อขอความอนุเคราะห์ยืนยันเป็นลายลักษณ์อักษรว่า ความเข้าใจข้างต้น
+ถูกต้อง และ สพร. ไม่ขัดข้องที่จะให้นำข้อมูลที่เผยแพร่ภายใต้สัญญาอนุญาตนี้
+ไปรวมไว้ใน OpenStreetMap ภายใต้ ODbL โดยให้เครดิตในระดับแหล่งข้อมูล
+หากมีหน่วยงานเจ้าของข้อมูลรายใดที่ต้องขอความยินยอมแยกต่างหาก ขอความกรุณา
+แจ้งให้ทราบด้วย จะได้ติดต่อไปตามลำดับ
+
+หนังสือยืนยันฉบับนี้จะถูกแนบไว้ในหน้าบันทึกการนำเข้าข้อมูลของ OpenStreetMap
+เพื่อให้ตรวจสอบย้อนกลับได้ และจะไม่มีการนำเข้าข้อมูลใด ๆ ก่อนได้รับคำตอบ
+
+ขอแสดงความนับถือ
+Nan Peacock
+มดแดง · motdang.net
+
+————————————————————————————————————————
+
+Dear Digital Government Development Agency,
+
+I build Mot Dang (motdang.net), an open, Thai-first city directory for Chiang
+Mai and Chiang Rai. It is free to read and publishes its whole corpus for
+reuse.
+
+The directory currently holds 6,150 records drawn from datasets on data.go.th
+— ONAB's temple register, OBEC's school register, the Ministry of Education's
+private-school licence register, CITIZENinfo, and others. Every record states
+its source, as the licence requires.
+
+I would like to contribute the NAMES and ADDRESSES from those datasets to
+OpenStreetMap, the free editable map whose database is used by a great many
+other maps worldwide. OpenStreetMap publishes under the Open Database License
+(ODbL), and gives credit at the level of the SOURCE — a named entry on the
+project's contributors page — rather than record by record.
+
+I have read the Terms and Conditions for DGA Open Government License, version
+1.0 of 10 June 2021, and I understand them to say:
+
+  1. The rights granted are non-exclusive, without limitation of territory or
+     period, requiring no further authorization and no fee.
+  2. A user may "usefully process the Data by means of ... gathering the Data
+     therefrom together with other data."
+  3. There is no share-alike condition and no restriction on redistribution
+     under a different licence.
+  4. The standing obligation is attribution, and where the producing
+     organization cannot be identified individually the Terms themselves
+     prescribe a blanket reference: "The right to Use the Data is subject to
+     the terms and conditions for DGA Open Government License."
+
+May I ask you to confirm in writing that this reading is correct, and that DGA
+has no objection to data published under this licence being incorporated into
+OpenStreetMap under ODbL with attribution given at source level. If any
+individual publishing agency must be asked separately, I would be grateful to
+be told which, so I can write to them in turn.
+
+Your reply would be attached to the OpenStreetMap import documentation so that
+the permission is publicly checkable. No data will be uploaded before we hear
+from you.
+
+With respect,
+Nan Peacock
+Mot Dang · motdang.net

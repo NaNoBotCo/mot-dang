@@ -1,2694 +1,6 @@
 {
- "generated": "2026-08-01",
+ "generated": "2026-09-26",
  "days": {
-  "2026-08-01": {
-   "moon": {
-    "age": 18.203,
-    "frac": 0.6164,
-    "illum": 0.8721,
-    "phase_th": "ข้างแรม",
-    "phase_en": "Waning",
-    "waxing": false,
-    "thai_day": 4,
-    "wan_phra": false,
-    "thai_label_th": "แรม 4 ค่ำ",
-    "thai_label_en": "waning day 4"
-   },
-   "jupiter": {
-    "tilt": 0.6637,
-    "dist_au": 6.3007,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -4.7483,
-      "y": 0.0413,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 7.789,
-      "y": -0.0297,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 12.7703,
-      "y": -0.1242,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -20.6735,
-      "y": -0.2127,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-08-02": {
-   "moon": {
-    "age": 19.203,
-    "frac": 0.65026,
-    "illum": 0.7932,
-    "phase_th": "ข้างแรม",
-    "phase_en": "Waning",
-    "waxing": false,
-    "thai_day": 5,
-    "wan_phra": false,
-    "thai_label_th": "แรม 5 ค่ำ",
-    "thai_label_en": "waning day 5"
-   },
-   "jupiter": {
-    "tilt": 0.6548,
-    "dist_au": 6.3002,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 3.0396,
-      "y": -0.0602,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -6.7035,
-      "y": -0.0152,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 2.1486,
-      "y": -0.201,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -25.1407,
-      "y": -0.1523,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-08-03": {
-   "moon": {
-    "age": 20.203,
-    "frac": 0.68412,
-    "illum": 0.7011,
-    "phase_th": "ข้างแรม",
-    "phase_en": "Waning",
-    "waxing": false,
-    "thai_day": 6,
-    "wan_phra": false,
-    "thai_label_th": "แรม 6 ค่ำ",
-    "thai_label_en": "waning day 6"
-   },
-   "jupiter": {
-    "tilt": 0.646,
-    "dist_au": 6.2994,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -0.7151,
-      "y": 0.0685,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -5.4283,
-      "y": 0.0338,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -10.0115,
-      "y": -0.1325,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -26.0841,
-      "y": -0.0732,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-08-04": {
-   "moon": {
-    "age": 21.203,
-    "frac": 0.71799,
-    "illum": 0.5999,
-    "phase_th": "ข้างแรม",
-    "phase_en": "Waning",
-    "waxing": false,
-    "thai_day": 7,
-    "wan_phra": false,
-    "thai_label_th": "แรม 7 ค่ำ",
-    "thai_label_en": "waning day 7"
-   },
-   "jupiter": {
-    "tilt": 0.6371,
-    "dist_au": 6.2985,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -1.575,
-      "y": -0.0661,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 8.5216,
-      "y": 0.0021,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -14.9526,
-      "y": 0.0291,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -23.3813,
-      "y": 0.0135,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-08-05": {
-   "moon": {
-    "age": 22.203,
-    "frac": 0.75185,
-    "illum": 0.4942,
-    "phase_th": "ข้างแรมครึ่งดวง",
-    "phase_en": "Last quarter",
-    "waxing": false,
-    "thai_day": 8,
-    "wan_phra": true,
-    "thai_label_th": "แรม 8 ค่ำ",
-    "thai_label_en": "waning day 8"
-   },
-   "jupiter": {
-    "tilt": 0.6283,
-    "dist_au": 6.2973,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 3.7714,
-      "y": 0.0523,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 1.8426,
-      "y": -0.031,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -9.129,
-      "y": 0.1662,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -17.4281,
-      "y": 0.096,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-08-06": {
-   "moon": {
-    "age": 23.203,
-    "frac": 0.78571,
-    "illum": 0.3887,
-    "phase_th": "ข้างแรม",
-    "phase_en": "Waning",
-    "waxing": false,
-    "thai_day": 9,
-    "wan_phra": false,
-    "thai_label_th": "แรม 9 ค่ำ",
-    "thai_label_en": "waning day 9"
-   },
-   "jupiter": {
-    "tilt": 0.6193,
-    "dist_au": 6.296,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -5.2054,
-      "y": -0.0315,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -9.4729,
-      "y": 0.0108,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 3.2439,
-      "y": 0.1818,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -9.0695,
-      "y": 0.1636,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-08-07": {
-   "moon": {
-    "age": 24.203,
-    "frac": 0.81957,
-    "illum": 0.2883,
-    "phase_th": "ข้างแรม",
-    "phase_en": "Waning",
-    "waxing": false,
-    "thai_day": 10,
-    "wan_phra": false,
-    "thai_label_th": "แรม 10 ค่ำ",
-    "thai_label_en": "waning day 10"
-   },
-   "jupiter": {
-    "tilt": 0.6104,
-    "dist_au": 6.2944,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 5.9124,
-      "y": 0.0051,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 1.4923,
-      "y": 0.0246,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 13.3078,
-      "y": 0.0683,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 0.5334,
-      "y": 0.2081,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-08-08": {
-   "moon": {
-    "age": 25.203,
-    "frac": 0.85344,
-    "illum": 0.1974,
-    "phase_th": "ข้างแรม",
-    "phase_en": "Waning",
-    "waxing": false,
-    "thai_day": 11,
-    "wan_phra": false,
-    "thai_label_th": "แรม 11 ค่ำ",
-    "thai_label_en": "waning day 11"
-   },
-   "jupiter": {
-    "tilt": 0.6014,
-    "dist_au": 6.2926,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -5.562,
-      "y": 0.0205,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 8.6799,
-      "y": -0.0185,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 13.8823,
-      "y": -0.0907,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 10.0633,
-      "y": 0.2245,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-08-09": {
-   "moon": {
-    "age": 26.203,
-    "frac": 0.8873,
-    "illum": 0.1202,
-    "phase_th": "ข้างแรม",
-    "phase_en": "Waning",
-    "waxing": false,
-    "thai_day": 12,
-    "wan_phra": false,
-    "thai_label_th": "แรม 12 ค่ำ",
-    "thai_label_en": "waning day 12"
-   },
-   "jupiter": {
-    "tilt": 0.5924,
-    "dist_au": 6.2907,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 4.3981,
-      "y": -0.0426,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -5.1911,
-      "y": -0.0141,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 4.5311,
-      "y": -0.1812,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 18.2346,
-      "y": 0.2117,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-08-10": {
-   "moon": {
-    "age": 27.203,
-    "frac": 0.92116,
-    "illum": 0.0601,
-    "phase_th": "ข้างแรม",
-    "phase_en": "Waning",
-    "waxing": false,
-    "thai_day": 13,
-    "wan_phra": false,
-    "thai_label_th": "แรม 13 ค่ำ",
-    "thai_label_en": "waning day 13"
-   },
-   "jupiter": {
-    "tilt": 0.5834,
-    "dist_au": 6.2885,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -2.4075,
-      "y": 0.057,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -6.9062,
-      "y": 0.0223,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -8.0705,
-      "y": -0.1401,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 23.9522,
-      "y": 0.1726,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-08-11": {
-   "moon": {
-    "age": 28.203,
-    "frac": 0.95503,
-    "illum": 0.0198,
-    "phase_th": "ข้างแรม",
-    "phase_en": "Waning",
-    "waxing": false,
-    "thai_day": 14,
-    "wan_phra": false,
-    "thai_label_th": "แรม 14 ค่ำ",
-    "thai_label_en": "waning day 14"
-   },
-   "jupiter": {
-    "tilt": 0.5744,
-    "dist_au": 6.2861,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 0.1678,
-      "y": -0.062,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 7.548,
-      "y": 0.0045,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -14.8477,
-      "y": 0.0001,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 26.4517,
-      "y": 0.1128,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-08-12": {
-   "moon": {
-    "age": 29.203,
-    "frac": 0.98889,
-    "illum": 0.0012,
-    "phase_th": "เดือนดับ",
-    "phase_en": "New moon",
-    "waxing": false,
-    "thai_day": 15,
-    "wan_phra": true,
-    "thai_label_th": "แรม 15 ค่ำ",
-    "thai_label_en": "waning day 15"
-   },
-   "jupiter": {
-    "tilt": 0.5653,
-    "dist_au": 6.2835,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 2.2657,
-      "y": 0.0565,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 3.7005,
-      "y": -0.0208,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -10.9264,
-      "y": 0.1366,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 25.3893,
-      "y": 0.0405,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-08-13": {
-   "moon": {
-    "age": 0.672,
-    "frac": 0.02275,
-    "illum": 0.0051,
-    "phase_th": "เดือนดับ",
-    "phase_en": "New moon",
-    "waxing": true,
-    "thai_day": 1,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 1 ค่ำ",
-    "thai_label_en": "waxing day 1"
-   },
-   "jupiter": {
-    "tilt": 0.5562,
-    "dist_au": 6.2808,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -4.1638,
-      "y": -0.0427,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -9.2506,
-      "y": 0.0049,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 0.8382,
-      "y": 0.1723,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 20.8926,
-      "y": -0.0346,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-08-14": {
-   "moon": {
-    "age": 1.672,
-    "frac": 0.05662,
-    "illum": 0.0313,
-    "phase_th": "ข้างขึ้น",
-    "phase_en": "Waxing",
-    "waxing": true,
-    "thai_day": 2,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 2 ค่ำ",
-    "thai_label_en": "waxing day 2"
-   },
-   "jupiter": {
-    "tilt": 0.5471,
-    "dist_au": 6.2778,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 5.5284,
-      "y": 0.0216,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -0.4524,
-      "y": 0.0163,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 12.0119,
-      "y": 0.085,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 13.5527,
-      "y": -0.103,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-08-15": {
-   "moon": {
-    "age": 2.672,
-    "frac": 0.09048,
-    "illum": 0.0786,
-    "phase_th": "ข้างขึ้น",
-    "phase_en": "Waxing",
-    "waxing": true,
-    "thai_day": 3,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 3 ค่ำ",
-    "thai_label_en": "waxing day 3"
-   },
-   "jupiter": {
-    "tilt": 0.538,
-    "dist_au": 6.2746,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -5.8789,
-      "y": 0.0015,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 9.1906,
-      "y": -0.0102,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 14.623,
-      "y": -0.0599,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 4.3522,
-      "y": -0.156,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-08-16": {
-   "moon": {
-    "age": 3.672,
-    "frac": 0.12434,
-    "illum": 0.145,
-    "phase_th": "ข้างขึ้น",
-    "phase_en": "Waxing",
-    "waxing": true,
-    "thai_day": 4,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 4 ค่ำ",
-    "thai_label_en": "waxing day 4"
-   },
-   "jupiter": {
-    "tilt": 0.5288,
-    "dist_au": 6.2712,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 5.3696,
-      "y": -0.0241,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -3.4598,
-      "y": -0.0091,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 6.7833,
-      "y": -0.1582,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -5.4496,
-      "y": -0.1872,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-08-17": {
-   "moon": {
-    "age": 4.672,
-    "frac": 0.15821,
-    "illum": 0.2273,
-    "phase_th": "ข้างขึ้น",
-    "phase_en": "Waxing",
-    "waxing": true,
-    "thai_day": 5,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 5 ค่ำ",
-    "thai_label_en": "waxing day 5"
-   },
-   "jupiter": {
-    "tilt": 0.5196,
-    "dist_au": 6.2676,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -3.8831,
-      "y": 0.042,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -8.09,
-      "y": 0.0124,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -5.9246,
-      "y": -0.1408,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -14.4925,
-      "y": -0.1931,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-08-18": {
-   "moon": {
-    "age": 5.672,
-    "frac": 0.19207,
-    "illum": 0.322,
-    "phase_th": "ข้างขึ้น",
-    "phase_en": "Waxing",
-    "waxing": true,
-    "thai_day": 6,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 6 ค่ำ",
-    "thai_label_en": "waxing day 6"
-   },
-   "jupiter": {
-    "tilt": 0.5105,
-    "dist_au": 6.2638,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 1.8945,
-      "y": -0.0524,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 6.2486,
-      "y": 0.0025,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -14.3545,
-      "y": -0.0233,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -21.5054,
-      "y": -0.1736,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-08-19": {
-   "moon": {
-    "age": 6.672,
-    "frac": 0.22593,
-    "illum": 0.4247,
-    "phase_th": "ข้างขึ้นครึ่งดวง",
-    "phase_en": "First quarter",
-    "waxing": true,
-    "thai_day": 7,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 7 ค่ำ",
-    "thai_label_en": "waxing day 7"
-   },
-   "jupiter": {
-    "tilt": 0.5013,
-    "dist_au": 6.2598,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 0.5633,
-      "y": 0.0541,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 5.3931,
-      "y": -0.0106,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -12.4381,
-      "y": 0.1075,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -25.5021,
-      "y": -0.1323,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-08-20": {
-   "moon": {
-    "age": 7.672,
-    "frac": 0.2598,
-    "illum": 0.5308,
-    "phase_th": "ข้างขึ้นครึ่งดวง",
-    "phase_en": "First quarter",
-    "waxing": true,
-    "thai_day": 8,
-    "wan_phra": true,
-    "thai_label_th": "ขึ้น 8 ค่ำ",
-    "thai_label_en": "waxing day 8"
-   },
-   "jupiter": {
-    "tilt": 0.492,
-    "dist_au": 6.2556,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -2.7545,
-      "y": -0.0473,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -8.6366,
-      "y": 0.0032,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -1.5916,
-      "y": 0.1579,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -25.925,
-      "y": -0.0752,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-08-21": {
-   "moon": {
-    "age": 8.672,
-    "frac": 0.29366,
-    "illum": 0.6354,
-    "phase_th": "ข้างขึ้น",
-    "phase_en": "Waxing",
-    "waxing": true,
-    "thai_day": 9,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 9 ค่ำ",
-    "thai_label_en": "waxing day 9"
-   },
-   "jupiter": {
-    "tilt": 0.4828,
-    "dist_au": 6.2512,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 4.6611,
-      "y": 0.0326,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -2.3763,
-      "y": 0.0066,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 10.399,
-      "y": 0.095,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -22.727,
-      "y": -0.0104,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-08-22": {
-   "moon": {
-    "age": 9.672,
-    "frac": 0.32752,
-    "illum": 0.734,
-    "phase_th": "ข้างขึ้น",
-    "phase_en": "Waxing",
-    "waxing": true,
-    "thai_day": 10,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 10 ค่ำ",
-    "thai_label_en": "waxing day 10"
-   },
-   "jupiter": {
-    "tilt": 0.4735,
-    "dist_au": 6.2466,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -5.6732,
-      "y": -0.0138,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 9.301,
-      "y": -0.0057,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 14.9771,
-      "y": -0.0331,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -16.3757,
-      "y": 0.0535,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-08-23": {
-   "moon": {
-    "age": 10.672,
-    "frac": 0.36139,
-    "illum": 0.8221,
-    "phase_th": "ข้างขึ้น",
-    "phase_en": "Waxing",
-    "waxing": true,
-    "thai_day": 11,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 11 ค่ำ",
-    "thai_label_en": "waxing day 11"
-   },
-   "jupiter": {
-    "tilt": 0.4643,
-    "dist_au": 6.2418,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 5.8705,
-      "y": -0.007,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -1.5856,
-      "y": -0.0011,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 8.8515,
-      "y": -0.1336,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -7.7677,
-      "y": 0.1085,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-08-24": {
-   "moon": {
-    "age": 11.672,
-    "frac": 0.39525,
-    "illum": 0.8956,
-    "phase_th": "ข้างขึ้น",
-    "phase_en": "Waxing",
-    "waxing": true,
-    "thai_day": 12,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 12 ค่ำ",
-    "thai_label_en": "waxing day 12"
-   },
-   "jupiter": {
-    "tilt": 0.455,
-    "dist_au": 6.2369,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -5.0114,
-      "y": 0.0258,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -8.9299,
-      "y": 0.0052,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -3.6288,
-      "y": -0.1356,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 1.9019,
-      "y": 0.1479,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-08-25": {
-   "moon": {
-    "age": 12.672,
-    "frac": 0.42911,
-    "illum": 0.9512,
-    "phase_th": "ข้างขึ้น",
-    "phase_en": "Waxing",
-    "waxing": true,
-    "thai_day": 13,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 13 ค่ำ",
-    "thai_label_en": "waxing day 13"
-   },
-   "jupiter": {
-    "tilt": 0.4457,
-    "dist_au": 6.2317,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 3.4529,
-      "y": -0.0396,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 4.6822,
-      "y": -0.0034,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -13.4858,
-      "y": -0.0406,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 11.3161,
-      "y": 0.1676,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-08-26": {
-   "moon": {
-    "age": 13.672,
-    "frac": 0.46298,
-    "illum": 0.9865,
-    "phase_th": "ข้างขึ้น",
-    "phase_en": "Waxing",
-    "waxing": true,
-    "thai_day": 14,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 14 ค่ำ",
-    "thai_label_en": "waxing day 14"
-   },
-   "jupiter": {
-    "tilt": 0.4364,
-    "dist_au": 6.2263,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -1.1844,
-      "y": 0.0466,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 6.848,
-      "y": -0.0016,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -13.6185,
-      "y": 0.0803,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 19.2036,
-      "y": 0.1661,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-08-27": {
-   "moon": {
-    "age": 14.672,
-    "frac": 0.49684,
-    "illum": 0.9999,
-    "phase_th": "เดือนเพ็ญ",
-    "phase_en": "Full moon",
-    "waxing": true,
-    "thai_day": 15,
-    "wan_phra": true,
-    "thai_label_th": "ขึ้น 15 ค่ำ",
-    "thai_label_en": "waxing day 15"
-   },
-   "jupiter": {
-    "tilt": 0.4271,
-    "dist_au": 6.2208,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -1.1044,
-      "y": -0.0459,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -7.6595,
-      "y": 0.006,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -3.9679,
-      "y": 0.14,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 24.5083,
-      "y": 0.1444,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-08-28": {
-   "moon": {
-    "age": 15.672,
-    "frac": 0.5307,
-    "illum": 0.9907,
-    "phase_th": "ข้างแรม",
-    "phase_en": "Waning",
-    "waxing": false,
-    "thai_day": 1,
-    "wan_phra": false,
-    "thai_label_th": "แรม 1 ค่ำ",
-    "thai_label_en": "waning day 1"
-   },
-   "jupiter": {
-    "tilt": 0.4178,
-    "dist_au": 6.215,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 3.389,
-      "y": 0.0377,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -4.196,
-      "y": -0.0033,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 8.525,
-      "y": 0.0985,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 26.5171,
-      "y": 0.1059,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-08-29": {
-   "moon": {
-    "age": 16.672,
-    "frac": 0.56457,
-    "illum": 0.9594,
-    "phase_th": "ข้างแรม",
-    "phase_en": "Waning",
-    "waxing": false,
-    "thai_day": 2,
-    "wan_phra": false,
-    "thai_label_th": "แรม 2 ค่ำ",
-    "thai_label_en": "waning day 2"
-   },
-   "jupiter": {
-    "tilt": 0.4084,
-    "dist_au": 6.2091,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -4.9661,
-      "y": -0.024,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 9.0089,
-      "y": -0.0054,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 14.9413,
-      "y": -0.0111,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 24.9485,
-      "y": 0.056,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-08-30": {
-   "moon": {
-    "age": 17.672,
-    "frac": 0.59843,
-    "illum": 0.9074,
-    "phase_th": "ข้างแรม",
-    "phase_en": "Waning",
-    "waxing": false,
-    "thai_day": 3,
-    "wan_phra": false,
-    "thai_label_th": "แรม 3 ค่ำ",
-    "thai_label_en": "waning day 3"
-   },
-   "jupiter": {
-    "tilt": 0.3991,
-    "dist_au": 6.2029,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 5.8598,
-      "y": 0.0068,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 0.3498,
-      "y": 0.0086,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 10.6821,
-      "y": -0.1089,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 19.997,
-      "y": 0.0011,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-08-31": {
-   "moon": {
-    "age": 18.672,
-    "frac": 0.63229,
-    "illum": 0.837,
-    "phase_th": "ข้างแรม",
-    "phase_en": "Waning",
-    "waxing": false,
-    "thai_day": 4,
-    "wan_phra": false,
-    "thai_label_th": "แรม 4 ค่ำ",
-    "thai_label_en": "waning day 4"
-   },
-   "jupiter": {
-    "tilt": 0.3897,
-    "dist_au": 6.1966,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -5.6946,
-      "y": 0.0107,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -9.3929,
-      "y": 0.0016,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -1.2438,
-      "y": -0.1256,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 12.3134,
-      "y": -0.0519,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-09-01": {
-   "moon": {
-    "age": 19.672,
-    "frac": 0.66615,
-    "illum": 0.7514,
-    "phase_th": "ข้างแรม",
-    "phase_en": "Waning",
-    "waxing": false,
-    "thai_day": 5,
-    "wan_phra": false,
-    "thai_label_th": "แรม 5 ค่ำ",
-    "thai_label_en": "waning day 5"
-   },
-   "jupiter": {
-    "tilt": 0.3804,
-    "dist_au": 6.1901,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 4.7078,
-      "y": -0.0255,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 2.9187,
-      "y": -0.0121,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -12.2665,
-      "y": -0.0519,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 2.9364,
-      "y": -0.0966,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-09-02": {
-   "moon": {
-    "age": 20.672,
-    "frac": 0.70002,
-    "illum": 0.6545,
-    "phase_th": "ข้างแรม",
-    "phase_en": "Waning",
-    "waxing": false,
-    "thai_day": 7,
-    "wan_phra": false,
-    "thai_label_th": "แรม 7 ค่ำ",
-    "thai_label_en": "waning day 7"
-   },
-   "jupiter": {
-    "tilt": 0.371,
-    "dist_au": 6.1834,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -2.8232,
-      "y": 0.0359,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 8.003,
-      "y": 0.0047,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -14.4432,
-      "y": 0.0562,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -6.8479,
-      "y": -0.1278,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-09-03": {
-   "moon": {
-    "age": 21.672,
-    "frac": 0.73388,
-    "illum": 0.5506,
-    "phase_th": "ข้างแรมครึ่งดวง",
-    "phase_en": "Last quarter",
-    "waxing": false,
-    "thai_day": 8,
-    "wan_phra": true,
-    "thai_label_th": "แรม 8 ค่ำ",
-    "thai_label_en": "waning day 8"
-   },
-   "jupiter": {
-    "tilt": 0.3616,
-    "dist_au": 6.1765,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 0.6396,
-      "y": -0.0398,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -6.3638,
-      "y": 0.0126,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -6.2378,
-      "y": 0.1201,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -15.6745,
-      "y": -0.142,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-09-04": {
-   "moon": {
-    "age": 22.672,
-    "frac": 0.76774,
-    "illum": 0.4444,
-    "phase_th": "ข้างแรมครึ่งดวง",
-    "phase_en": "Last quarter",
-    "waxing": false,
-    "thai_day": 9,
-    "wan_phra": false,
-    "thai_label_th": "แรม 9 ค่ำ",
-    "thai_label_en": "waning day 9"
-   },
-   "jupiter": {
-    "tilt": 0.3522,
-    "dist_au": 6.1694,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 1.8257,
-      "y": 0.0372,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -5.8356,
-      "y": -0.0119,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 6.4355,
-      "y": 0.0964,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -22.3022,
-      "y": -0.1382,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-09-05": {
-   "moon": {
-    "age": 23.672,
-    "frac": 0.80161,
-    "illum": 0.3407,
-    "phase_th": "ข้างแรม",
-    "phase_en": "Waning",
-    "waxing": false,
-    "thai_day": 10,
-    "wan_phra": false,
-    "thai_label_th": "แรม 10 ค่ำ",
-    "thai_label_en": "waning day 10"
-   },
-   "jupiter": {
-    "tilt": 0.3429,
-    "dist_au": 6.1621,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -3.8235,
-      "y": -0.0288,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 8.3306,
-      "y": -0.0094,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 14.52,
-      "y": 0.0054,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -25.7985,
-      "y": -0.1176,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-09-06": {
-   "moon": {
-    "age": 24.672,
-    "frac": 0.83547,
-    "illum": 0.2442,
-    "phase_th": "ข้างแรม",
-    "phase_en": "Waning",
-    "waxing": false,
-    "thai_day": 11,
-    "wan_phra": false,
-    "thai_label_th": "แรม 11 ค่ำ",
-    "thai_label_en": "waning day 11"
-   },
-   "jupiter": {
-    "tilt": 0.3335,
-    "dist_au": 6.1546,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 5.342,
-      "y": 0.0161,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 2.2621,
-      "y": 0.0187,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 12.23,
-      "y": -0.0856,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -25.6787,
-      "y": -0.0833,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-09-07": {
-   "moon": {
-    "age": 25.672,
-    "frac": 0.86933,
-    "illum": 0.1593,
-    "phase_th": "ข้างแรม",
-    "phase_en": "Waning",
-    "waxing": false,
-    "thai_day": 12,
-    "wan_phra": false,
-    "thai_label_th": "แรม 12 ค่ำ",
-    "thai_label_en": "waning day 12"
-   },
-   "jupiter": {
-    "tilt": 0.3241,
-    "dist_au": 6.147,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -5.8753,
-      "y": -0.0015,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -9.4626,
-      "y": 0.0024,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 1.1655,
-      "y": -0.1118,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -21.977,
-      "y": -0.0402,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-09-08": {
-   "moon": {
-    "age": 26.672,
-    "frac": 0.9032,
-    "illum": 0.0897,
-    "phase_th": "ข้างแรม",
-    "phase_en": "Waning",
-    "waxing": false,
-    "thai_day": 13,
-    "wan_phra": false,
-    "thai_label_th": "แรม 13 ค่ำ",
-    "thai_label_en": "waning day 13"
-   },
-   "jupiter": {
-    "tilt": 0.3147,
-    "dist_au": 6.1391,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 5.5523,
-      "y": -0.0124,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 1.0355,
-      "y": -0.0226,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -10.7327,
-      "y": -0.057,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -15.2265,
-      "y": 0.0061,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-09-09": {
-   "moon": {
-    "age": 27.672,
-    "frac": 0.93706,
-    "illum": 0.0386,
-    "phase_th": "ข้างแรม",
-    "phase_en": "Waning",
-    "waxing": false,
-    "thai_day": 14,
-    "wan_phra": false,
-    "thai_label_th": "แรม 14 ค่ำ",
-    "thai_label_en": "waning day 14"
-   },
-   "jupiter": {
-    "tilt": 0.3053,
-    "dist_au": 6.1311,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -4.2102,
-      "y": 0.0239,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 8.8115,
-      "y": 0.0075,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -14.8876,
-      "y": 0.0362,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -6.3808,
-      "y": 0.0501,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-09-10": {
-   "moon": {
-    "age": 28.672,
-    "frac": 0.97092,
-    "illum": 0.0083,
-    "phase_th": "เดือนดับ",
-    "phase_en": "New moon",
-    "waxing": false,
-    "thai_day": 15,
-    "wan_phra": true,
-    "thai_label_th": "แรม 15 ค่ำ",
-    "thai_label_en": "waning day 15"
-   },
-   "jupiter": {
-    "tilt": 0.2959,
-    "dist_au": 6.1229,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 2.3245,
-      "y": -0.0306,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -4.8076,
-      "y": 0.0223,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -8.3316,
-      "y": 0.0996,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 3.3381,
-      "y": 0.0867,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-09-11": {
-   "moon": {
-    "age": 0.141,
-    "frac": 0.00479,
-    "illum": 0.0002,
-    "phase_th": "เดือนดับ",
-    "phase_en": "New moon",
-    "waxing": true,
-    "thai_day": 1,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 1 ค่ำ",
-    "thai_label_en": "waxing day 1"
-   },
-   "jupiter": {
-    "tilt": 0.2865,
-    "dist_au": 6.1145,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 0.1094,
-      "y": 0.0323,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -7.2266,
-      "y": -0.0179,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 4.1956,
-      "y": 0.0894,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 12.6057,
-      "y": 0.112,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-09-12": {
-   "moon": {
-    "age": 1.141,
-    "frac": 0.03865,
-    "illum": 0.0147,
-    "phase_th": "ข้างขึ้น",
-    "phase_en": "Waxing",
-    "waxing": true,
-    "thai_day": 2,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 2 ค่ำ",
-    "thai_label_en": "waxing day 2"
-   },
-   "jupiter": {
-    "tilt": 0.2771,
-    "dist_au": 6.106,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -2.3495,
-      "y": -0.0286,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 7.2996,
-      "y": -0.0174,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 13.7322,
-      "y": 0.0163,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 20.1733,
-      "y": 0.1237,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-09-13": {
-   "moon": {
-    "age": 2.141,
-    "frac": 0.07251,
-    "illum": 0.051,
-    "phase_th": "ข้างขึ้น",
-    "phase_en": "Waxing",
-    "waxing": true,
-    "thai_day": 3,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 3 ค่ำ",
-    "thai_label_en": "waxing day 3"
-   },
-   "jupiter": {
-    "tilt": 0.2677,
-    "dist_au": 6.0972,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 4.3658,
-      "y": 0.0204,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 4.0704,
-      "y": 0.0276,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 13.4614,
-      "y": -0.0648,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 25.0246,
-      "y": 0.1211,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-09-14": {
-   "moon": {
-    "age": 3.141,
-    "frac": 0.10638,
-    "illum": 0.1076,
-    "phase_th": "ข้างขึ้น",
-    "phase_en": "Waxing",
-    "waxing": true,
-    "thai_day": 4,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 4 ค่ำ",
-    "thai_label_en": "waxing day 4"
-   },
-   "jupiter": {
-    "tilt": 0.2583,
-    "dist_au": 6.0883,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -5.5418,
-      "y": -0.0096,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -9.1401,
-      "y": 0.0075,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 3.5404,
-      "y": -0.0959,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 26.5023,
-      "y": 0.1048,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-09-15": {
-   "moon": {
-    "age": 4.141,
-    "frac": 0.14024,
-    "illum": 0.1819,
-    "phase_th": "ข้างขึ้น",
-    "phase_en": "Waxing",
-    "waxing": true,
-    "thai_day": 5,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 5 ค่ำ",
-    "thai_label_en": "waxing day 5"
-   },
-   "jupiter": {
-    "tilt": 0.2489,
-    "dist_au": 6.0792,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 5.917,
-      "y": -0.002,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -0.8852,
-      "y": -0.0334,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -8.9242,
-      "y": -0.0568,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 24.3969,
-      "y": 0.0772,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-09-16": {
-   "moon": {
-    "age": 5.141,
-    "frac": 0.1741,
-    "illum": 0.2705,
-    "phase_th": "ข้างขึ้น",
-    "phase_en": "Waxing",
-    "waxing": true,
-    "thai_day": 6,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 6 ค่ำ",
-    "thai_label_en": "waxing day 6"
-   },
-   "jupiter": {
-    "tilt": 0.2396,
-    "dist_au": 6.0699,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -5.226,
-      "y": 0.0128,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 9.2422,
-      "y": 0.006,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -14.9461,
-      "y": 0.0211,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 18.9715,
-      "y": 0.0417,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-09-17": {
-   "moon": {
-    "age": 6.141,
-    "frac": 0.20797,
-    "illum": 0.3695,
-    "phase_th": "ข้างขึ้น",
-    "phase_en": "Waxing",
-    "waxing": true,
-    "thai_day": 7,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 7 ค่ำ",
-    "thai_label_en": "waxing day 7"
-   },
-   "jupiter": {
-    "tilt": 0.2302,
-    "dist_au": 6.0605,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 3.8044,
-      "y": -0.0204,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -3.0593,
-      "y": 0.034,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -10.2015,
-      "y": 0.0799,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 10.9464,
-      "y": 0.0025,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-09-18": {
-   "moon": {
-    "age": 7.141,
-    "frac": 0.24183,
-    "illum": 0.4743,
-    "phase_th": "ข้างขึ้นครึ่งดวง",
-    "phase_en": "First quarter",
-    "waxing": true,
-    "thai_day": 8,
-    "wan_phra": true,
-    "thai_label_th": "ขึ้น 8 ค่ำ",
-    "thai_label_en": "waxing day 8"
-   },
-   "jupiter": {
-    "tilt": 0.2208,
-    "dist_au": 6.0509,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -1.6098,
-      "y": 0.0246,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -8.3138,
-      "y": -0.0203,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 1.8622,
-      "y": 0.0787,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": 1.4084,
-      "y": -0.0361,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-09-19": {
-   "moon": {
-    "age": 8.141,
-    "frac": 0.27569,
-    "illum": 0.5804,
-    "phase_th": "ข้างขึ้นครึ่งดวง",
-    "phase_en": "First quarter",
-    "waxing": true,
-    "thai_day": 9,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 9 ค่ำ",
-    "thai_label_en": "waxing day 9"
-   },
-   "jupiter": {
-    "tilt": 0.2115,
-    "dist_au": 6.0411,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -0.6757,
-      "y": -0.0243,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 5.9643,
-      "y": -0.0285,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 12.6013,
-      "y": 0.0217,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -8.3245,
-      "y": -0.0697,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-09-20": {
-   "moon": {
-    "age": 9.141,
-    "frac": 0.30956,
-    "illum": 0.6828,
-    "phase_th": "ข้างขึ้น",
-    "phase_en": "Waxing",
-    "waxing": true,
-    "thai_day": 10,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 10 ค่ำ",
-    "thai_label_en": "waxing day 10"
-   },
-   "jupiter": {
-    "tilt": 0.2021,
-    "dist_au": 6.0311,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 3.0195,
-      "y": 0.0202,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 5.6981,
-      "y": 0.0342,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 14.3431,
-      "y": -0.0476,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -16.8919,
-      "y": -0.0945,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-09-21": {
-   "moon": {
-    "age": 10.141,
-    "frac": 0.34342,
-    "illum": 0.7769,
-    "phase_th": "ข้างขึ้น",
-    "phase_en": "Waxing",
-    "waxing": true,
-    "thai_day": 11,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 11 ค่ำ",
-    "thai_label_en": "waxing day 11"
-   },
-   "jupiter": {
-    "tilt": 0.1928,
-    "dist_au": 6.021,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -4.7279,
-      "y": -0.0131,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -8.4439,
-      "y": 0.0167,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": 5.8076,
-      "y": -0.079,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -23.0868,
-      "y": -0.1081,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-09-22": {
-   "moon": {
-    "age": 11.141,
-    "frac": 0.37728,
-    "illum": 0.8586,
-    "phase_th": "ข้างขึ้น",
-    "phase_en": "Waxing",
-    "waxing": true,
-    "thai_day": 12,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 12 ค่ำ",
-    "thai_label_en": "waxing day 12"
-   },
-   "jupiter": {
-    "tilt": 0.1835,
-    "dist_au": 6.0107,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 5.7755,
-      "y": 0.0046,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -2.7623,
-      "y": -0.0432,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -6.9037,
-      "y": -0.0519,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -26.0352,
-      "y": -0.1091,
-      "front": false
-     }
-    ]
-   }
-  },
-  "2026-09-23": {
-   "moon": {
-    "age": 12.141,
-    "frac": 0.41114,
-    "illum": 0.9241,
-    "phase_th": "ข้างขึ้น",
-    "phase_en": "Waxing",
-    "waxing": true,
-    "thai_day": 13,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 13 ค่ำ",
-    "thai_label_en": "waxing day 13"
-   },
-   "jupiter": {
-    "tilt": 0.1742,
-    "dist_au": 6.0003,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -5.7859,
-      "y": 0.0041,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": 9.282,
-      "y": 0.0,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -14.6271,
-      "y": 0.0111,
-      "front": false
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -25.3335,
-      "y": -0.0976,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-09-24": {
-   "moon": {
-    "age": 13.141,
-    "frac": 0.44501,
-    "illum": 0.9704,
-    "phase_th": "ข้างขึ้น",
-    "phase_en": "Waxing",
-    "waxing": true,
-    "thai_day": 14,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 14 ค่ำ",
-    "thai_label_en": "waxing day 14"
-   },
-   "jupiter": {
-    "tilt": 0.1649,
-    "dist_au": 5.9897,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": 4.9542,
-      "y": -0.0111,
-      "front": false
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -1.1953,
-      "y": 0.0464,
-      "front": false
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -11.8028,
-      "y": 0.0623,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -21.0968,
-      "y": -0.0753,
-      "front": true
-     }
-    ]
-   }
-  },
-  "2026-09-25": {
-   "moon": {
-    "age": 14.141,
-    "frac": 0.47887,
-    "illum": 0.9956,
-    "phase_th": "เดือนเพ็ญ",
-    "phase_en": "Full moon",
-    "waxing": true,
-    "thai_day": 15,
-    "wan_phra": true,
-    "thai_label_th": "ขึ้น 15 ค่ำ",
-    "thai_label_en": "waxing day 15"
-   },
-   "jupiter": {
-    "tilt": 0.1556,
-    "dist_au": 5.9789,
-    "sats": [
-     {
-      "en": "Io",
-      "th": "ไอโอ",
-      "x": -3.1836,
-      "y": 0.016,
-      "front": true
-     },
-     {
-      "en": "Europa",
-      "th": "ยูโรปา",
-      "x": -9.0557,
-      "y": -0.0184,
-      "front": true
-     },
-     {
-      "en": "Ganymede",
-      "th": "แกนีมีด",
-      "x": -0.5039,
-      "y": 0.0657,
-      "front": true
-     },
-     {
-      "en": "Callisto",
-      "th": "คัลลิสโต",
-      "x": -13.9374,
-      "y": -0.0448,
-      "front": true
-     }
-    ]
-   }
-  },
   "2026-09-26": {
    "moon": {
     "age": 15.141,
@@ -2697,10 +9,12 @@
     "phase_th": "เดือนเพ็ญ",
     "phase_en": "Full moon",
     "waxing": false,
-    "thai_day": 1,
-    "wan_phra": false,
-    "thai_label_th": "แรม 1 ค่ำ",
-    "thai_label_en": "waning day 1"
+    "thai_waxing": true,
+    "thai_month": 10,
+    "thai_day": 15,
+    "wan_phra": true,
+    "thai_label_th": "ขึ้น 15 ค่ำ",
+    "thai_label_en": "waxing day 15"
    },
    "jupiter": {
     "tilt": 0.1464,
@@ -2745,10 +59,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 2,
+    "thai_waxing": false,
+    "thai_month": 10,
+    "thai_day": 1,
     "wan_phra": false,
-    "thai_label_th": "แรม 2 ค่ำ",
-    "thai_label_en": "waning day 2"
+    "thai_label_th": "แรม 1 ค่ำ",
+    "thai_label_en": "waning day 1"
    },
    "jupiter": {
     "tilt": 0.1371,
@@ -2793,10 +109,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 3,
+    "thai_waxing": false,
+    "thai_month": 10,
+    "thai_day": 2,
     "wan_phra": false,
-    "thai_label_th": "แรม 3 ค่ำ",
-    "thai_label_en": "waning day 3"
+    "thai_label_th": "แรม 2 ค่ำ",
+    "thai_label_en": "waning day 2"
    },
    "jupiter": {
     "tilt": 0.1279,
@@ -2841,10 +159,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 4,
+    "thai_waxing": false,
+    "thai_month": 10,
+    "thai_day": 3,
     "wan_phra": false,
-    "thai_label_th": "แรม 4 ค่ำ",
-    "thai_label_en": "waning day 4"
+    "thai_label_th": "แรม 3 ค่ำ",
+    "thai_label_en": "waning day 3"
    },
    "jupiter": {
     "tilt": 0.1187,
@@ -2889,10 +209,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 5,
+    "thai_waxing": false,
+    "thai_month": 10,
+    "thai_day": 4,
     "wan_phra": false,
-    "thai_label_th": "แรม 5 ค่ำ",
-    "thai_label_en": "waning day 5"
+    "thai_label_th": "แรม 4 ค่ำ",
+    "thai_label_en": "waning day 4"
    },
    "jupiter": {
     "tilt": 0.1095,
@@ -2937,10 +259,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 6,
+    "thai_waxing": false,
+    "thai_month": 10,
+    "thai_day": 5,
     "wan_phra": false,
-    "thai_label_th": "แรม 6 ค่ำ",
-    "thai_label_en": "waning day 6"
+    "thai_label_th": "แรม 5 ค่ำ",
+    "thai_label_en": "waning day 5"
    },
    "jupiter": {
     "tilt": 0.1003,
@@ -2985,10 +309,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 7,
+    "thai_waxing": false,
+    "thai_month": 10,
+    "thai_day": 6,
     "wan_phra": false,
-    "thai_label_th": "แรม 7 ค่ำ",
-    "thai_label_en": "waning day 7"
+    "thai_label_th": "แรม 6 ค่ำ",
+    "thai_label_en": "waning day 6"
    },
    "jupiter": {
     "tilt": 0.0912,
@@ -3033,10 +359,12 @@
     "phase_th": "ข้างแรมครึ่งดวง",
     "phase_en": "Last quarter",
     "waxing": false,
-    "thai_day": 8,
-    "wan_phra": true,
-    "thai_label_th": "แรม 8 ค่ำ",
-    "thai_label_en": "waning day 8"
+    "thai_waxing": false,
+    "thai_month": 10,
+    "thai_day": 7,
+    "wan_phra": false,
+    "thai_label_th": "แรม 7 ค่ำ",
+    "thai_label_en": "waning day 7"
    },
    "jupiter": {
     "tilt": 0.082,
@@ -3081,10 +409,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 9,
-    "wan_phra": false,
-    "thai_label_th": "แรม 9 ค่ำ",
-    "thai_label_en": "waning day 9"
+    "thai_waxing": false,
+    "thai_month": 10,
+    "thai_day": 8,
+    "wan_phra": true,
+    "thai_label_th": "แรม 8 ค่ำ",
+    "thai_label_en": "waning day 8"
    },
    "jupiter": {
     "tilt": 0.0729,
@@ -3129,10 +459,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 10,
+    "thai_waxing": false,
+    "thai_month": 10,
+    "thai_day": 9,
     "wan_phra": false,
-    "thai_label_th": "แรม 10 ค่ำ",
-    "thai_label_en": "waning day 10"
+    "thai_label_th": "แรม 9 ค่ำ",
+    "thai_label_en": "waning day 9"
    },
    "jupiter": {
     "tilt": 0.0638,
@@ -3177,10 +509,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 11,
+    "thai_waxing": false,
+    "thai_month": 10,
+    "thai_day": 10,
     "wan_phra": false,
-    "thai_label_th": "แรม 11 ค่ำ",
-    "thai_label_en": "waning day 11"
+    "thai_label_th": "แรม 10 ค่ำ",
+    "thai_label_en": "waning day 10"
    },
    "jupiter": {
     "tilt": 0.0548,
@@ -3225,10 +559,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 12,
+    "thai_waxing": false,
+    "thai_month": 10,
+    "thai_day": 11,
     "wan_phra": false,
-    "thai_label_th": "แรม 12 ค่ำ",
-    "thai_label_en": "waning day 12"
+    "thai_label_th": "แรม 11 ค่ำ",
+    "thai_label_en": "waning day 11"
    },
    "jupiter": {
     "tilt": 0.0458,
@@ -3273,10 +609,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 13,
+    "thai_waxing": false,
+    "thai_month": 10,
+    "thai_day": 12,
     "wan_phra": false,
-    "thai_label_th": "แรม 13 ค่ำ",
-    "thai_label_en": "waning day 13"
+    "thai_label_th": "แรม 12 ค่ำ",
+    "thai_label_en": "waning day 12"
    },
    "jupiter": {
     "tilt": 0.0368,
@@ -3321,10 +659,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 14,
+    "thai_waxing": false,
+    "thai_month": 10,
+    "thai_day": 13,
     "wan_phra": false,
-    "thai_label_th": "แรม 14 ค่ำ",
-    "thai_label_en": "waning day 14"
+    "thai_label_th": "แรม 13 ค่ำ",
+    "thai_label_en": "waning day 13"
    },
    "jupiter": {
     "tilt": 0.0278,
@@ -3369,10 +709,12 @@
     "phase_th": "เดือนดับ",
     "phase_en": "New moon",
     "waxing": false,
-    "thai_day": 15,
-    "wan_phra": true,
-    "thai_label_th": "แรม 15 ค่ำ",
-    "thai_label_en": "waning day 15"
+    "thai_waxing": false,
+    "thai_month": 10,
+    "thai_day": 14,
+    "wan_phra": false,
+    "thai_label_th": "แรม 14 ค่ำ",
+    "thai_label_en": "waning day 14"
    },
    "jupiter": {
     "tilt": 0.0189,
@@ -3417,10 +759,12 @@
     "phase_th": "เดือนดับ",
     "phase_en": "New moon",
     "waxing": true,
-    "thai_day": 1,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 1 ค่ำ",
-    "thai_label_en": "waxing day 1"
+    "thai_waxing": false,
+    "thai_month": 10,
+    "thai_day": 15,
+    "wan_phra": true,
+    "thai_label_th": "แรม 15 ค่ำ",
+    "thai_label_en": "waning day 15"
    },
    "jupiter": {
     "tilt": 0.01,
@@ -3465,10 +809,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 2,
+    "thai_waxing": true,
+    "thai_month": 11,
+    "thai_day": 1,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 2 ค่ำ",
-    "thai_label_en": "waxing day 2"
+    "thai_label_th": "ขึ้น 1 ค่ำ",
+    "thai_label_en": "waxing day 1"
    },
    "jupiter": {
     "tilt": 0.0011,
@@ -3513,10 +859,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 3,
+    "thai_waxing": true,
+    "thai_month": 11,
+    "thai_day": 2,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 3 ค่ำ",
-    "thai_label_en": "waxing day 3"
+    "thai_label_th": "ขึ้น 2 ค่ำ",
+    "thai_label_en": "waxing day 2"
    },
    "jupiter": {
     "tilt": -0.0078,
@@ -3561,10 +909,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 4,
+    "thai_waxing": true,
+    "thai_month": 11,
+    "thai_day": 3,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 4 ค่ำ",
-    "thai_label_en": "waxing day 4"
+    "thai_label_th": "ขึ้น 3 ค่ำ",
+    "thai_label_en": "waxing day 3"
    },
    "jupiter": {
     "tilt": -0.0166,
@@ -3609,10 +959,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 5,
+    "thai_waxing": true,
+    "thai_month": 11,
+    "thai_day": 4,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 5 ค่ำ",
-    "thai_label_en": "waxing day 5"
+    "thai_label_th": "ขึ้น 4 ค่ำ",
+    "thai_label_en": "waxing day 4"
    },
    "jupiter": {
     "tilt": -0.0253,
@@ -3657,10 +1009,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 6,
+    "thai_waxing": true,
+    "thai_month": 11,
+    "thai_day": 5,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 6 ค่ำ",
-    "thai_label_en": "waxing day 6"
+    "thai_label_th": "ขึ้น 5 ค่ำ",
+    "thai_label_en": "waxing day 5"
    },
    "jupiter": {
     "tilt": -0.034,
@@ -3705,10 +1059,12 @@
     "phase_th": "ข้างขึ้นครึ่งดวง",
     "phase_en": "First quarter",
     "waxing": true,
-    "thai_day": 7,
+    "thai_waxing": true,
+    "thai_month": 11,
+    "thai_day": 6,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 7 ค่ำ",
-    "thai_label_en": "waxing day 7"
+    "thai_label_th": "ขึ้น 6 ค่ำ",
+    "thai_label_en": "waxing day 6"
    },
    "jupiter": {
     "tilt": -0.0427,
@@ -3753,10 +1109,12 @@
     "phase_th": "ข้างขึ้นครึ่งดวง",
     "phase_en": "First quarter",
     "waxing": true,
-    "thai_day": 8,
-    "wan_phra": true,
-    "thai_label_th": "ขึ้น 8 ค่ำ",
-    "thai_label_en": "waxing day 8"
+    "thai_waxing": true,
+    "thai_month": 11,
+    "thai_day": 7,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 7 ค่ำ",
+    "thai_label_en": "waxing day 7"
    },
    "jupiter": {
     "tilt": -0.0514,
@@ -3801,10 +1159,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 9,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 9 ค่ำ",
-    "thai_label_en": "waxing day 9"
+    "thai_waxing": true,
+    "thai_month": 11,
+    "thai_day": 8,
+    "wan_phra": true,
+    "thai_label_th": "ขึ้น 8 ค่ำ",
+    "thai_label_en": "waxing day 8"
    },
    "jupiter": {
     "tilt": -0.06,
@@ -3849,10 +1209,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 10,
+    "thai_waxing": true,
+    "thai_month": 11,
+    "thai_day": 9,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 10 ค่ำ",
-    "thai_label_en": "waxing day 10"
+    "thai_label_th": "ขึ้น 9 ค่ำ",
+    "thai_label_en": "waxing day 9"
    },
    "jupiter": {
     "tilt": -0.0685,
@@ -3897,10 +1259,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 11,
+    "thai_waxing": true,
+    "thai_month": 11,
+    "thai_day": 10,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 11 ค่ำ",
-    "thai_label_en": "waxing day 11"
+    "thai_label_th": "ขึ้น 10 ค่ำ",
+    "thai_label_en": "waxing day 10"
    },
    "jupiter": {
     "tilt": -0.077,
@@ -3945,10 +1309,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 12,
+    "thai_waxing": true,
+    "thai_month": 11,
+    "thai_day": 11,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 12 ค่ำ",
-    "thai_label_en": "waxing day 12"
+    "thai_label_th": "ขึ้น 11 ค่ำ",
+    "thai_label_en": "waxing day 11"
    },
    "jupiter": {
     "tilt": -0.0855,
@@ -3993,10 +1359,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 13,
+    "thai_waxing": true,
+    "thai_month": 11,
+    "thai_day": 12,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 13 ค่ำ",
-    "thai_label_en": "waxing day 13"
+    "thai_label_th": "ขึ้น 12 ค่ำ",
+    "thai_label_en": "waxing day 12"
    },
    "jupiter": {
     "tilt": -0.0939,
@@ -4041,10 +1409,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 14,
+    "thai_waxing": true,
+    "thai_month": 11,
+    "thai_day": 13,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 14 ค่ำ",
-    "thai_label_en": "waxing day 14"
+    "thai_label_th": "ขึ้น 13 ค่ำ",
+    "thai_label_en": "waxing day 13"
    },
    "jupiter": {
     "tilt": -0.1023,
@@ -4089,10 +1459,12 @@
     "phase_th": "เดือนเพ็ญ",
     "phase_en": "Full moon",
     "waxing": true,
-    "thai_day": 15,
-    "wan_phra": true,
-    "thai_label_th": "ขึ้น 15 ค่ำ",
-    "thai_label_en": "waxing day 15"
+    "thai_waxing": true,
+    "thai_month": 11,
+    "thai_day": 14,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 14 ค่ำ",
+    "thai_label_en": "waxing day 14"
    },
    "jupiter": {
     "tilt": -0.1106,
@@ -4137,10 +1509,12 @@
     "phase_th": "เดือนเพ็ญ",
     "phase_en": "Full moon",
     "waxing": false,
-    "thai_day": 1,
-    "wan_phra": false,
-    "thai_label_th": "แรม 1 ค่ำ",
-    "thai_label_en": "waning day 1"
+    "thai_waxing": true,
+    "thai_month": 11,
+    "thai_day": 15,
+    "wan_phra": true,
+    "thai_label_th": "ขึ้น 15 ค่ำ",
+    "thai_label_en": "waxing day 15"
    },
    "jupiter": {
     "tilt": -0.1189,
@@ -4185,10 +1559,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 2,
+    "thai_waxing": false,
+    "thai_month": 11,
+    "thai_day": 1,
     "wan_phra": false,
-    "thai_label_th": "แรม 2 ค่ำ",
-    "thai_label_en": "waning day 2"
+    "thai_label_th": "แรม 1 ค่ำ",
+    "thai_label_en": "waning day 1"
    },
    "jupiter": {
     "tilt": -0.1271,
@@ -4233,10 +1609,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 3,
+    "thai_waxing": false,
+    "thai_month": 11,
+    "thai_day": 2,
     "wan_phra": false,
-    "thai_label_th": "แรม 3 ค่ำ",
-    "thai_label_en": "waning day 3"
+    "thai_label_th": "แรม 2 ค่ำ",
+    "thai_label_en": "waning day 2"
    },
    "jupiter": {
     "tilt": -0.1353,
@@ -4281,10 +1659,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 4,
+    "thai_waxing": false,
+    "thai_month": 11,
+    "thai_day": 3,
     "wan_phra": false,
-    "thai_label_th": "แรม 4 ค่ำ",
-    "thai_label_en": "waning day 4"
+    "thai_label_th": "แรม 3 ค่ำ",
+    "thai_label_en": "waning day 3"
    },
    "jupiter": {
     "tilt": -0.1434,
@@ -4329,10 +1709,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 5,
+    "thai_waxing": false,
+    "thai_month": 11,
+    "thai_day": 4,
     "wan_phra": false,
-    "thai_label_th": "แรม 5 ค่ำ",
-    "thai_label_en": "waning day 5"
+    "thai_label_th": "แรม 4 ค่ำ",
+    "thai_label_en": "waning day 4"
    },
    "jupiter": {
     "tilt": -0.1515,
@@ -4377,10 +1759,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 6,
+    "thai_waxing": false,
+    "thai_month": 11,
+    "thai_day": 5,
     "wan_phra": false,
-    "thai_label_th": "แรม 6 ค่ำ",
-    "thai_label_en": "waning day 6"
+    "thai_label_th": "แรม 5 ค่ำ",
+    "thai_label_en": "waning day 5"
    },
    "jupiter": {
     "tilt": -0.1595,
@@ -4425,10 +1809,12 @@
     "phase_th": "ข้างแรมครึ่งดวง",
     "phase_en": "Last quarter",
     "waxing": false,
-    "thai_day": 7,
+    "thai_waxing": false,
+    "thai_month": 11,
+    "thai_day": 6,
     "wan_phra": false,
-    "thai_label_th": "แรม 7 ค่ำ",
-    "thai_label_en": "waning day 7"
+    "thai_label_th": "แรม 6 ค่ำ",
+    "thai_label_en": "waning day 6"
    },
    "jupiter": {
     "tilt": -0.1674,
@@ -4473,10 +1859,12 @@
     "phase_th": "ข้างแรมครึ่งดวง",
     "phase_en": "Last quarter",
     "waxing": false,
-    "thai_day": 8,
-    "wan_phra": true,
-    "thai_label_th": "แรม 8 ค่ำ",
-    "thai_label_en": "waning day 8"
+    "thai_waxing": false,
+    "thai_month": 11,
+    "thai_day": 7,
+    "wan_phra": false,
+    "thai_label_th": "แรม 7 ค่ำ",
+    "thai_label_en": "waning day 7"
    },
    "jupiter": {
     "tilt": -0.1753,
@@ -4521,10 +1909,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 9,
-    "wan_phra": false,
-    "thai_label_th": "แรม 9 ค่ำ",
-    "thai_label_en": "waning day 9"
+    "thai_waxing": false,
+    "thai_month": 11,
+    "thai_day": 8,
+    "wan_phra": true,
+    "thai_label_th": "แรม 8 ค่ำ",
+    "thai_label_en": "waning day 8"
    },
    "jupiter": {
     "tilt": -0.1831,
@@ -4569,10 +1959,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 11,
+    "thai_waxing": false,
+    "thai_month": 11,
+    "thai_day": 9,
     "wan_phra": false,
-    "thai_label_th": "แรม 11 ค่ำ",
-    "thai_label_en": "waning day 11"
+    "thai_label_th": "แรม 9 ค่ำ",
+    "thai_label_en": "waning day 9"
    },
    "jupiter": {
     "tilt": -0.1909,
@@ -4617,10 +2009,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 12,
+    "thai_waxing": false,
+    "thai_month": 11,
+    "thai_day": 10,
     "wan_phra": false,
-    "thai_label_th": "แรม 12 ค่ำ",
-    "thai_label_en": "waning day 12"
+    "thai_label_th": "แรม 10 ค่ำ",
+    "thai_label_en": "waning day 10"
    },
    "jupiter": {
     "tilt": -0.1986,
@@ -4665,10 +2059,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 13,
+    "thai_waxing": false,
+    "thai_month": 11,
+    "thai_day": 11,
     "wan_phra": false,
-    "thai_label_th": "แรม 13 ค่ำ",
-    "thai_label_en": "waning day 13"
+    "thai_label_th": "แรม 11 ค่ำ",
+    "thai_label_en": "waning day 11"
    },
    "jupiter": {
     "tilt": -0.2062,
@@ -4713,10 +2109,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 14,
+    "thai_waxing": false,
+    "thai_month": 11,
+    "thai_day": 12,
     "wan_phra": false,
-    "thai_label_th": "แรม 14 ค่ำ",
-    "thai_label_en": "waning day 14"
+    "thai_label_th": "แรม 12 ค่ำ",
+    "thai_label_en": "waning day 12"
    },
    "jupiter": {
     "tilt": -0.2137,
@@ -4761,10 +2159,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 15,
-    "wan_phra": true,
-    "thai_label_th": "แรม 15 ค่ำ",
-    "thai_label_en": "waning day 15"
+    "thai_waxing": false,
+    "thai_month": 11,
+    "thai_day": 13,
+    "wan_phra": false,
+    "thai_label_th": "แรม 13 ค่ำ",
+    "thai_label_en": "waning day 13"
    },
    "jupiter": {
     "tilt": -0.2212,
@@ -4809,10 +2209,12 @@
     "phase_th": "เดือนดับ",
     "phase_en": "New moon",
     "waxing": true,
-    "thai_day": 1,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 1 ค่ำ",
-    "thai_label_en": "waxing day 1"
+    "thai_waxing": false,
+    "thai_month": 11,
+    "thai_day": 14,
+    "wan_phra": true,
+    "thai_label_th": "แรม 14 ค่ำ",
+    "thai_label_en": "waning day 14"
    },
    "jupiter": {
     "tilt": -0.2286,
@@ -4857,10 +2259,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 2,
+    "thai_waxing": true,
+    "thai_month": 12,
+    "thai_day": 1,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 2 ค่ำ",
-    "thai_label_en": "waxing day 2"
+    "thai_label_th": "ขึ้น 1 ค่ำ",
+    "thai_label_en": "waxing day 1"
    },
    "jupiter": {
     "tilt": -0.236,
@@ -4905,10 +2309,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 3,
+    "thai_waxing": true,
+    "thai_month": 12,
+    "thai_day": 2,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 3 ค่ำ",
-    "thai_label_en": "waxing day 3"
+    "thai_label_th": "ขึ้น 2 ค่ำ",
+    "thai_label_en": "waxing day 2"
    },
    "jupiter": {
     "tilt": -0.2433,
@@ -4953,10 +2359,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 4,
+    "thai_waxing": true,
+    "thai_month": 12,
+    "thai_day": 3,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 4 ค่ำ",
-    "thai_label_en": "waxing day 4"
+    "thai_label_th": "ขึ้น 3 ค่ำ",
+    "thai_label_en": "waxing day 3"
    },
    "jupiter": {
     "tilt": -0.2505,
@@ -5001,10 +2409,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 5,
+    "thai_waxing": true,
+    "thai_month": 12,
+    "thai_day": 4,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 5 ค่ำ",
-    "thai_label_en": "waxing day 5"
+    "thai_label_th": "ขึ้น 4 ค่ำ",
+    "thai_label_en": "waxing day 4"
    },
    "jupiter": {
     "tilt": -0.2576,
@@ -5049,10 +2459,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 6,
+    "thai_waxing": true,
+    "thai_month": 12,
+    "thai_day": 5,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 6 ค่ำ",
-    "thai_label_en": "waxing day 6"
+    "thai_label_th": "ขึ้น 5 ค่ำ",
+    "thai_label_en": "waxing day 5"
    },
    "jupiter": {
     "tilt": -0.2646,
@@ -5097,10 +2509,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 7,
+    "thai_waxing": true,
+    "thai_month": 12,
+    "thai_day": 6,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 7 ค่ำ",
-    "thai_label_en": "waxing day 7"
+    "thai_label_th": "ขึ้น 6 ค่ำ",
+    "thai_label_en": "waxing day 6"
    },
    "jupiter": {
     "tilt": -0.2716,
@@ -5145,10 +2559,12 @@
     "phase_th": "ข้างขึ้นครึ่งดวง",
     "phase_en": "First quarter",
     "waxing": true,
-    "thai_day": 8,
-    "wan_phra": true,
-    "thai_label_th": "ขึ้น 8 ค่ำ",
-    "thai_label_en": "waxing day 8"
+    "thai_waxing": true,
+    "thai_month": 12,
+    "thai_day": 7,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 7 ค่ำ",
+    "thai_label_en": "waxing day 7"
    },
    "jupiter": {
     "tilt": -0.2784,
@@ -5193,10 +2609,12 @@
     "phase_th": "ข้างขึ้นครึ่งดวง",
     "phase_en": "First quarter",
     "waxing": true,
-    "thai_day": 9,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 9 ค่ำ",
-    "thai_label_en": "waxing day 9"
+    "thai_waxing": true,
+    "thai_month": 12,
+    "thai_day": 8,
+    "wan_phra": true,
+    "thai_label_th": "ขึ้น 8 ค่ำ",
+    "thai_label_en": "waxing day 8"
    },
    "jupiter": {
     "tilt": -0.2852,
@@ -5241,10 +2659,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 10,
+    "thai_waxing": true,
+    "thai_month": 12,
+    "thai_day": 9,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 10 ค่ำ",
-    "thai_label_en": "waxing day 10"
+    "thai_label_th": "ขึ้น 9 ค่ำ",
+    "thai_label_en": "waxing day 9"
    },
    "jupiter": {
     "tilt": -0.2919,
@@ -5289,10 +2709,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 11,
+    "thai_waxing": true,
+    "thai_month": 12,
+    "thai_day": 10,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 11 ค่ำ",
-    "thai_label_en": "waxing day 11"
+    "thai_label_th": "ขึ้น 10 ค่ำ",
+    "thai_label_en": "waxing day 10"
    },
    "jupiter": {
     "tilt": -0.2986,
@@ -5337,10 +2759,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 12,
+    "thai_waxing": true,
+    "thai_month": 12,
+    "thai_day": 11,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 12 ค่ำ",
-    "thai_label_en": "waxing day 12"
+    "thai_label_th": "ขึ้น 11 ค่ำ",
+    "thai_label_en": "waxing day 11"
    },
    "jupiter": {
     "tilt": -0.3051,
@@ -5385,10 +2809,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 13,
+    "thai_waxing": true,
+    "thai_month": 12,
+    "thai_day": 12,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 13 ค่ำ",
-    "thai_label_en": "waxing day 13"
+    "thai_label_th": "ขึ้น 12 ค่ำ",
+    "thai_label_en": "waxing day 12"
    },
    "jupiter": {
     "tilt": -0.3116,
@@ -5433,10 +2859,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 14,
+    "thai_waxing": true,
+    "thai_month": 12,
+    "thai_day": 13,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 14 ค่ำ",
-    "thai_label_en": "waxing day 14"
+    "thai_label_th": "ขึ้น 13 ค่ำ",
+    "thai_label_en": "waxing day 13"
    },
    "jupiter": {
     "tilt": -0.3179,
@@ -5481,10 +2909,12 @@
     "phase_th": "เดือนเพ็ญ",
     "phase_en": "Full moon",
     "waxing": true,
-    "thai_day": 15,
-    "wan_phra": true,
-    "thai_label_th": "ขึ้น 15 ค่ำ",
-    "thai_label_en": "waxing day 15"
+    "thai_waxing": true,
+    "thai_month": 12,
+    "thai_day": 14,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 14 ค่ำ",
+    "thai_label_en": "waxing day 14"
    },
    "jupiter": {
     "tilt": -0.3242,
@@ -5529,10 +2959,12 @@
     "phase_th": "เดือนเพ็ญ",
     "phase_en": "Full moon",
     "waxing": false,
-    "thai_day": 1,
-    "wan_phra": false,
-    "thai_label_th": "แรม 1 ค่ำ",
-    "thai_label_en": "waning day 1"
+    "thai_waxing": true,
+    "thai_month": 12,
+    "thai_day": 15,
+    "wan_phra": true,
+    "thai_label_th": "ขึ้น 15 ค่ำ",
+    "thai_label_en": "waxing day 15"
    },
    "jupiter": {
     "tilt": -0.3304,
@@ -5577,10 +3009,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 2,
+    "thai_waxing": false,
+    "thai_month": 12,
+    "thai_day": 1,
     "wan_phra": false,
-    "thai_label_th": "แรม 2 ค่ำ",
-    "thai_label_en": "waning day 2"
+    "thai_label_th": "แรม 1 ค่ำ",
+    "thai_label_en": "waning day 1"
    },
    "jupiter": {
     "tilt": -0.3364,
@@ -5625,10 +3059,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 3,
+    "thai_waxing": false,
+    "thai_month": 12,
+    "thai_day": 2,
     "wan_phra": false,
-    "thai_label_th": "แรม 3 ค่ำ",
-    "thai_label_en": "waning day 3"
+    "thai_label_th": "แรม 2 ค่ำ",
+    "thai_label_en": "waning day 2"
    },
    "jupiter": {
     "tilt": -0.3424,
@@ -5673,10 +3109,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 4,
+    "thai_waxing": false,
+    "thai_month": 12,
+    "thai_day": 3,
     "wan_phra": false,
-    "thai_label_th": "แรม 4 ค่ำ",
-    "thai_label_en": "waning day 4"
+    "thai_label_th": "แรม 3 ค่ำ",
+    "thai_label_en": "waning day 3"
    },
    "jupiter": {
     "tilt": -0.3483,
@@ -5721,10 +3159,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 5,
+    "thai_waxing": false,
+    "thai_month": 12,
+    "thai_day": 4,
     "wan_phra": false,
-    "thai_label_th": "แรม 5 ค่ำ",
-    "thai_label_en": "waning day 5"
+    "thai_label_th": "แรม 4 ค่ำ",
+    "thai_label_en": "waning day 4"
    },
    "jupiter": {
     "tilt": -0.3541,
@@ -5769,10 +3209,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 6,
+    "thai_waxing": false,
+    "thai_month": 12,
+    "thai_day": 5,
     "wan_phra": false,
-    "thai_label_th": "แรม 6 ค่ำ",
-    "thai_label_en": "waning day 6"
+    "thai_label_th": "แรม 5 ค่ำ",
+    "thai_label_en": "waning day 5"
    },
    "jupiter": {
     "tilt": -0.3598,
@@ -5817,10 +3259,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 7,
+    "thai_waxing": false,
+    "thai_month": 12,
+    "thai_day": 6,
     "wan_phra": false,
-    "thai_label_th": "แรม 7 ค่ำ",
-    "thai_label_en": "waning day 7"
+    "thai_label_th": "แรม 6 ค่ำ",
+    "thai_label_en": "waning day 6"
    },
    "jupiter": {
     "tilt": -0.3654,
@@ -5865,10 +3309,12 @@
     "phase_th": "ข้างแรมครึ่งดวง",
     "phase_en": "Last quarter",
     "waxing": false,
-    "thai_day": 8,
-    "wan_phra": true,
-    "thai_label_th": "แรม 8 ค่ำ",
-    "thai_label_en": "waning day 8"
+    "thai_waxing": false,
+    "thai_month": 12,
+    "thai_day": 7,
+    "wan_phra": false,
+    "thai_label_th": "แรม 7 ค่ำ",
+    "thai_label_en": "waning day 7"
    },
    "jupiter": {
     "tilt": -0.3709,
@@ -5913,10 +3359,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 9,
-    "wan_phra": false,
-    "thai_label_th": "แรม 9 ค่ำ",
-    "thai_label_en": "waning day 9"
+    "thai_waxing": false,
+    "thai_month": 12,
+    "thai_day": 8,
+    "wan_phra": true,
+    "thai_label_th": "แรม 8 ค่ำ",
+    "thai_label_en": "waning day 8"
    },
    "jupiter": {
     "tilt": -0.3762,
@@ -5961,10 +3409,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 10,
+    "thai_waxing": false,
+    "thai_month": 12,
+    "thai_day": 9,
     "wan_phra": false,
-    "thai_label_th": "แรม 10 ค่ำ",
-    "thai_label_en": "waning day 10"
+    "thai_label_th": "แรม 9 ค่ำ",
+    "thai_label_en": "waning day 9"
    },
    "jupiter": {
     "tilt": -0.3815,
@@ -6009,10 +3459,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 11,
+    "thai_waxing": false,
+    "thai_month": 12,
+    "thai_day": 10,
     "wan_phra": false,
-    "thai_label_th": "แรม 11 ค่ำ",
-    "thai_label_en": "waning day 11"
+    "thai_label_th": "แรม 10 ค่ำ",
+    "thai_label_en": "waning day 10"
    },
    "jupiter": {
     "tilt": -0.3867,
@@ -6057,10 +3509,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 12,
+    "thai_waxing": false,
+    "thai_month": 12,
+    "thai_day": 11,
     "wan_phra": false,
-    "thai_label_th": "แรม 12 ค่ำ",
-    "thai_label_en": "waning day 12"
+    "thai_label_th": "แรม 11 ค่ำ",
+    "thai_label_en": "waning day 11"
    },
    "jupiter": {
     "tilt": -0.3917,
@@ -6105,10 +3559,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 13,
+    "thai_waxing": false,
+    "thai_month": 12,
+    "thai_day": 12,
     "wan_phra": false,
-    "thai_label_th": "แรม 13 ค่ำ",
-    "thai_label_en": "waning day 13"
+    "thai_label_th": "แรม 12 ค่ำ",
+    "thai_label_en": "waning day 12"
    },
    "jupiter": {
     "tilt": -0.3966,
@@ -6153,10 +3609,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 14,
+    "thai_waxing": false,
+    "thai_month": 12,
+    "thai_day": 13,
     "wan_phra": false,
-    "thai_label_th": "แรม 14 ค่ำ",
-    "thai_label_en": "waning day 14"
+    "thai_label_th": "แรม 13 ค่ำ",
+    "thai_label_en": "waning day 13"
    },
    "jupiter": {
     "tilt": -0.4015,
@@ -6201,10 +3659,12 @@
     "phase_th": "เดือนดับ",
     "phase_en": "New moon",
     "waxing": false,
-    "thai_day": 15,
-    "wan_phra": true,
-    "thai_label_th": "แรม 15 ค่ำ",
-    "thai_label_en": "waning day 15"
+    "thai_waxing": false,
+    "thai_month": 12,
+    "thai_day": 14,
+    "wan_phra": false,
+    "thai_label_th": "แรม 14 ค่ำ",
+    "thai_label_en": "waning day 14"
    },
    "jupiter": {
     "tilt": -0.4062,
@@ -6249,10 +3709,12 @@
     "phase_th": "เดือนดับ",
     "phase_en": "New moon",
     "waxing": true,
-    "thai_day": 1,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 1 ค่ำ",
-    "thai_label_en": "waxing day 1"
+    "thai_waxing": false,
+    "thai_month": 12,
+    "thai_day": 15,
+    "wan_phra": true,
+    "thai_label_th": "แรม 15 ค่ำ",
+    "thai_label_en": "waning day 15"
    },
    "jupiter": {
     "tilt": -0.4108,
@@ -6297,10 +3759,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 2,
+    "thai_waxing": true,
+    "thai_month": 1,
+    "thai_day": 1,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 2 ค่ำ",
-    "thai_label_en": "waxing day 2"
+    "thai_label_th": "ขึ้น 1 ค่ำ",
+    "thai_label_en": "waxing day 1"
    },
    "jupiter": {
     "tilt": -0.4152,
@@ -6345,10 +3809,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 3,
+    "thai_waxing": true,
+    "thai_month": 1,
+    "thai_day": 2,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 3 ค่ำ",
-    "thai_label_en": "waxing day 3"
+    "thai_label_th": "ขึ้น 2 ค่ำ",
+    "thai_label_en": "waxing day 2"
    },
    "jupiter": {
     "tilt": -0.4196,
@@ -6393,10 +3859,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 4,
+    "thai_waxing": true,
+    "thai_month": 1,
+    "thai_day": 3,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 4 ค่ำ",
-    "thai_label_en": "waxing day 4"
+    "thai_label_th": "ขึ้น 3 ค่ำ",
+    "thai_label_en": "waxing day 3"
    },
    "jupiter": {
     "tilt": -0.4238,
@@ -6441,10 +3909,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 5,
+    "thai_waxing": true,
+    "thai_month": 1,
+    "thai_day": 4,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 5 ค่ำ",
-    "thai_label_en": "waxing day 5"
+    "thai_label_th": "ขึ้น 4 ค่ำ",
+    "thai_label_en": "waxing day 4"
    },
    "jupiter": {
     "tilt": -0.428,
@@ -6489,10 +3959,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 6,
+    "thai_waxing": true,
+    "thai_month": 1,
+    "thai_day": 5,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 6 ค่ำ",
-    "thai_label_en": "waxing day 6"
+    "thai_label_th": "ขึ้น 5 ค่ำ",
+    "thai_label_en": "waxing day 5"
    },
    "jupiter": {
     "tilt": -0.4319,
@@ -6537,10 +4009,12 @@
     "phase_th": "ข้างขึ้นครึ่งดวง",
     "phase_en": "First quarter",
     "waxing": true,
-    "thai_day": 7,
+    "thai_waxing": true,
+    "thai_month": 1,
+    "thai_day": 6,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 7 ค่ำ",
-    "thai_label_en": "waxing day 7"
+    "thai_label_th": "ขึ้น 6 ค่ำ",
+    "thai_label_en": "waxing day 6"
    },
    "jupiter": {
     "tilt": -0.4358,
@@ -6585,10 +4059,12 @@
     "phase_th": "ข้างขึ้นครึ่งดวง",
     "phase_en": "First quarter",
     "waxing": true,
-    "thai_day": 8,
-    "wan_phra": true,
-    "thai_label_th": "ขึ้น 8 ค่ำ",
-    "thai_label_en": "waxing day 8"
+    "thai_waxing": true,
+    "thai_month": 1,
+    "thai_day": 7,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 7 ค่ำ",
+    "thai_label_en": "waxing day 7"
    },
    "jupiter": {
     "tilt": -0.4395,
@@ -6633,10 +4109,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 9,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 9 ค่ำ",
-    "thai_label_en": "waxing day 9"
+    "thai_waxing": true,
+    "thai_month": 1,
+    "thai_day": 8,
+    "wan_phra": true,
+    "thai_label_th": "ขึ้น 8 ค่ำ",
+    "thai_label_en": "waxing day 8"
    },
    "jupiter": {
     "tilt": -0.4432,
@@ -6681,10 +4159,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 10,
+    "thai_waxing": true,
+    "thai_month": 1,
+    "thai_day": 9,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 10 ค่ำ",
-    "thai_label_en": "waxing day 10"
+    "thai_label_th": "ขึ้น 9 ค่ำ",
+    "thai_label_en": "waxing day 9"
    },
    "jupiter": {
     "tilt": -0.4467,
@@ -6729,10 +4209,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 11,
+    "thai_waxing": true,
+    "thai_month": 1,
+    "thai_day": 10,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 11 ค่ำ",
-    "thai_label_en": "waxing day 11"
+    "thai_label_th": "ขึ้น 10 ค่ำ",
+    "thai_label_en": "waxing day 10"
    },
    "jupiter": {
     "tilt": -0.45,
@@ -6777,10 +4259,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 12,
+    "thai_waxing": true,
+    "thai_month": 1,
+    "thai_day": 11,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 12 ค่ำ",
-    "thai_label_en": "waxing day 12"
+    "thai_label_th": "ขึ้น 11 ค่ำ",
+    "thai_label_en": "waxing day 11"
    },
    "jupiter": {
     "tilt": -0.4532,
@@ -6825,10 +4309,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 13,
+    "thai_waxing": true,
+    "thai_month": 1,
+    "thai_day": 12,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 13 ค่ำ",
-    "thai_label_en": "waxing day 13"
+    "thai_label_th": "ขึ้น 12 ค่ำ",
+    "thai_label_en": "waxing day 12"
    },
    "jupiter": {
     "tilt": -0.4563,
@@ -6873,10 +4359,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 14,
+    "thai_waxing": true,
+    "thai_month": 1,
+    "thai_day": 13,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 14 ค่ำ",
-    "thai_label_en": "waxing day 14"
+    "thai_label_th": "ขึ้น 13 ค่ำ",
+    "thai_label_en": "waxing day 13"
    },
    "jupiter": {
     "tilt": -0.4593,
@@ -6921,10 +4409,12 @@
     "phase_th": "เดือนเพ็ญ",
     "phase_en": "Full moon",
     "waxing": true,
-    "thai_day": 15,
-    "wan_phra": true,
-    "thai_label_th": "ขึ้น 15 ค่ำ",
-    "thai_label_en": "waxing day 15"
+    "thai_waxing": true,
+    "thai_month": 1,
+    "thai_day": 14,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 14 ค่ำ",
+    "thai_label_en": "waxing day 14"
    },
    "jupiter": {
     "tilt": -0.4622,
@@ -6969,10 +4459,12 @@
     "phase_th": "เดือนเพ็ญ",
     "phase_en": "Full moon",
     "waxing": false,
-    "thai_day": 1,
-    "wan_phra": false,
-    "thai_label_th": "แรม 1 ค่ำ",
-    "thai_label_en": "waning day 1"
+    "thai_waxing": true,
+    "thai_month": 1,
+    "thai_day": 15,
+    "wan_phra": true,
+    "thai_label_th": "ขึ้น 15 ค่ำ",
+    "thai_label_en": "waxing day 15"
    },
    "jupiter": {
     "tilt": -0.4649,
@@ -7017,10 +4509,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 2,
+    "thai_waxing": false,
+    "thai_month": 1,
+    "thai_day": 1,
     "wan_phra": false,
-    "thai_label_th": "แรม 2 ค่ำ",
-    "thai_label_en": "waning day 2"
+    "thai_label_th": "แรม 1 ค่ำ",
+    "thai_label_en": "waning day 1"
    },
    "jupiter": {
     "tilt": -0.4674,
@@ -7065,10 +4559,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 3,
+    "thai_waxing": false,
+    "thai_month": 1,
+    "thai_day": 2,
     "wan_phra": false,
-    "thai_label_th": "แรม 3 ค่ำ",
-    "thai_label_en": "waning day 3"
+    "thai_label_th": "แรม 2 ค่ำ",
+    "thai_label_en": "waning day 2"
    },
    "jupiter": {
     "tilt": -0.4699,
@@ -7113,10 +4609,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 4,
+    "thai_waxing": false,
+    "thai_month": 1,
+    "thai_day": 3,
     "wan_phra": false,
-    "thai_label_th": "แรม 4 ค่ำ",
-    "thai_label_en": "waning day 4"
+    "thai_label_th": "แรม 3 ค่ำ",
+    "thai_label_en": "waning day 3"
    },
    "jupiter": {
     "tilt": -0.4722,
@@ -7161,10 +4659,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 5,
+    "thai_waxing": false,
+    "thai_month": 1,
+    "thai_day": 4,
     "wan_phra": false,
-    "thai_label_th": "แรม 5 ค่ำ",
-    "thai_label_en": "waning day 5"
+    "thai_label_th": "แรม 4 ค่ำ",
+    "thai_label_en": "waning day 4"
    },
    "jupiter": {
     "tilt": -0.4744,
@@ -7209,10 +4709,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 6,
+    "thai_waxing": false,
+    "thai_month": 1,
+    "thai_day": 5,
     "wan_phra": false,
-    "thai_label_th": "แรม 6 ค่ำ",
-    "thai_label_en": "waning day 6"
+    "thai_label_th": "แรม 5 ค่ำ",
+    "thai_label_en": "waning day 5"
    },
    "jupiter": {
     "tilt": -0.4764,
@@ -7257,10 +4759,12 @@
     "phase_th": "ข้างแรมครึ่งดวง",
     "phase_en": "Last quarter",
     "waxing": false,
-    "thai_day": 7,
+    "thai_waxing": false,
+    "thai_month": 1,
+    "thai_day": 6,
     "wan_phra": false,
-    "thai_label_th": "แรม 7 ค่ำ",
-    "thai_label_en": "waning day 7"
+    "thai_label_th": "แรม 6 ค่ำ",
+    "thai_label_en": "waning day 6"
    },
    "jupiter": {
     "tilt": -0.4783,
@@ -7305,10 +4809,12 @@
     "phase_th": "ข้างแรมครึ่งดวง",
     "phase_en": "Last quarter",
     "waxing": false,
-    "thai_day": 8,
-    "wan_phra": true,
-    "thai_label_th": "แรม 8 ค่ำ",
-    "thai_label_en": "waning day 8"
+    "thai_waxing": false,
+    "thai_month": 1,
+    "thai_day": 7,
+    "wan_phra": false,
+    "thai_label_th": "แรม 7 ค่ำ",
+    "thai_label_en": "waning day 7"
    },
    "jupiter": {
     "tilt": -0.48,
@@ -7353,10 +4859,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 9,
-    "wan_phra": false,
-    "thai_label_th": "แรม 9 ค่ำ",
-    "thai_label_en": "waning day 9"
+    "thai_waxing": false,
+    "thai_month": 1,
+    "thai_day": 8,
+    "wan_phra": true,
+    "thai_label_th": "แรม 8 ค่ำ",
+    "thai_label_en": "waning day 8"
    },
    "jupiter": {
     "tilt": -0.4817,
@@ -7401,10 +4909,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 10,
+    "thai_waxing": false,
+    "thai_month": 1,
+    "thai_day": 9,
     "wan_phra": false,
-    "thai_label_th": "แรม 10 ค่ำ",
-    "thai_label_en": "waning day 10"
+    "thai_label_th": "แรม 9 ค่ำ",
+    "thai_label_en": "waning day 9"
    },
    "jupiter": {
     "tilt": -0.4831,
@@ -7449,10 +4959,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 11,
+    "thai_waxing": false,
+    "thai_month": 1,
+    "thai_day": 10,
     "wan_phra": false,
-    "thai_label_th": "แรม 11 ค่ำ",
-    "thai_label_en": "waning day 11"
+    "thai_label_th": "แรม 10 ค่ำ",
+    "thai_label_en": "waning day 10"
    },
    "jupiter": {
     "tilt": -0.4845,
@@ -7497,10 +5009,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 12,
+    "thai_waxing": false,
+    "thai_month": 1,
+    "thai_day": 11,
     "wan_phra": false,
-    "thai_label_th": "แรม 12 ค่ำ",
-    "thai_label_en": "waning day 12"
+    "thai_label_th": "แรม 11 ค่ำ",
+    "thai_label_en": "waning day 11"
    },
    "jupiter": {
     "tilt": -0.4857,
@@ -7545,10 +5059,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 13,
+    "thai_waxing": false,
+    "thai_month": 1,
+    "thai_day": 12,
     "wan_phra": false,
-    "thai_label_th": "แรม 13 ค่ำ",
-    "thai_label_en": "waning day 13"
+    "thai_label_th": "แรม 12 ค่ำ",
+    "thai_label_en": "waning day 12"
    },
    "jupiter": {
     "tilt": -0.4867,
@@ -7593,10 +5109,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 15,
-    "wan_phra": true,
-    "thai_label_th": "แรม 15 ค่ำ",
-    "thai_label_en": "waning day 15"
+    "thai_waxing": false,
+    "thai_month": 1,
+    "thai_day": 13,
+    "wan_phra": false,
+    "thai_label_th": "แรม 13 ค่ำ",
+    "thai_label_en": "waning day 13"
    },
    "jupiter": {
     "tilt": -0.4876,
@@ -7641,10 +5159,12 @@
     "phase_th": "เดือนดับ",
     "phase_en": "New moon",
     "waxing": true,
-    "thai_day": 1,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 1 ค่ำ",
-    "thai_label_en": "waxing day 1"
+    "thai_waxing": false,
+    "thai_month": 1,
+    "thai_day": 14,
+    "wan_phra": true,
+    "thai_label_th": "แรม 14 ค่ำ",
+    "thai_label_en": "waning day 14"
    },
    "jupiter": {
     "tilt": -0.4884,
@@ -7689,10 +5209,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 2,
+    "thai_waxing": true,
+    "thai_month": 2,
+    "thai_day": 1,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 2 ค่ำ",
-    "thai_label_en": "waxing day 2"
+    "thai_label_th": "ขึ้น 1 ค่ำ",
+    "thai_label_en": "waxing day 1"
    },
    "jupiter": {
     "tilt": -0.4891,
@@ -7737,10 +5259,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 3,
+    "thai_waxing": true,
+    "thai_month": 2,
+    "thai_day": 2,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 3 ค่ำ",
-    "thai_label_en": "waxing day 3"
+    "thai_label_th": "ขึ้น 2 ค่ำ",
+    "thai_label_en": "waxing day 2"
    },
    "jupiter": {
     "tilt": -0.4896,
@@ -7785,10 +5309,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 4,
+    "thai_waxing": true,
+    "thai_month": 2,
+    "thai_day": 3,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 4 ค่ำ",
-    "thai_label_en": "waxing day 4"
+    "thai_label_th": "ขึ้น 3 ค่ำ",
+    "thai_label_en": "waxing day 3"
    },
    "jupiter": {
     "tilt": -0.4899,
@@ -7833,10 +5359,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 5,
+    "thai_waxing": true,
+    "thai_month": 2,
+    "thai_day": 4,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 5 ค่ำ",
-    "thai_label_en": "waxing day 5"
+    "thai_label_th": "ขึ้น 4 ค่ำ",
+    "thai_label_en": "waxing day 4"
    },
    "jupiter": {
     "tilt": -0.4902,
@@ -7881,10 +5409,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 6,
+    "thai_waxing": true,
+    "thai_month": 2,
+    "thai_day": 5,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 6 ค่ำ",
-    "thai_label_en": "waxing day 6"
+    "thai_label_th": "ขึ้น 5 ค่ำ",
+    "thai_label_en": "waxing day 5"
    },
    "jupiter": {
     "tilt": -0.4902,
@@ -7929,10 +5459,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 7,
+    "thai_waxing": true,
+    "thai_month": 2,
+    "thai_day": 6,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 7 ค่ำ",
-    "thai_label_en": "waxing day 7"
+    "thai_label_th": "ขึ้น 6 ค่ำ",
+    "thai_label_en": "waxing day 6"
    },
    "jupiter": {
     "tilt": -0.4902,
@@ -7977,10 +5509,12 @@
     "phase_th": "ข้างขึ้นครึ่งดวง",
     "phase_en": "First quarter",
     "waxing": true,
-    "thai_day": 8,
-    "wan_phra": true,
-    "thai_label_th": "ขึ้น 8 ค่ำ",
-    "thai_label_en": "waxing day 8"
+    "thai_waxing": true,
+    "thai_month": 2,
+    "thai_day": 7,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 7 ค่ำ",
+    "thai_label_en": "waxing day 7"
    },
    "jupiter": {
     "tilt": -0.49,
@@ -8025,10 +5559,12 @@
     "phase_th": "ข้างขึ้นครึ่งดวง",
     "phase_en": "First quarter",
     "waxing": true,
-    "thai_day": 9,
-    "wan_phra": false,
-    "thai_label_th": "ขึ้น 9 ค่ำ",
-    "thai_label_en": "waxing day 9"
+    "thai_waxing": true,
+    "thai_month": 2,
+    "thai_day": 8,
+    "wan_phra": true,
+    "thai_label_th": "ขึ้น 8 ค่ำ",
+    "thai_label_en": "waxing day 8"
    },
    "jupiter": {
     "tilt": -0.4897,
@@ -8073,10 +5609,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 10,
+    "thai_waxing": true,
+    "thai_month": 2,
+    "thai_day": 9,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 10 ค่ำ",
-    "thai_label_en": "waxing day 10"
+    "thai_label_th": "ขึ้น 9 ค่ำ",
+    "thai_label_en": "waxing day 9"
    },
    "jupiter": {
     "tilt": -0.4892,
@@ -8121,10 +5659,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 11,
+    "thai_waxing": true,
+    "thai_month": 2,
+    "thai_day": 10,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 11 ค่ำ",
-    "thai_label_en": "waxing day 11"
+    "thai_label_th": "ขึ้น 10 ค่ำ",
+    "thai_label_en": "waxing day 10"
    },
    "jupiter": {
     "tilt": -0.4886,
@@ -8169,10 +5709,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 12,
+    "thai_waxing": true,
+    "thai_month": 2,
+    "thai_day": 11,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 12 ค่ำ",
-    "thai_label_en": "waxing day 12"
+    "thai_label_th": "ขึ้น 11 ค่ำ",
+    "thai_label_en": "waxing day 11"
    },
    "jupiter": {
     "tilt": -0.4879,
@@ -8217,10 +5759,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 13,
+    "thai_waxing": true,
+    "thai_month": 2,
+    "thai_day": 12,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 13 ค่ำ",
-    "thai_label_en": "waxing day 13"
+    "thai_label_th": "ขึ้น 12 ค่ำ",
+    "thai_label_en": "waxing day 12"
    },
    "jupiter": {
     "tilt": -0.4871,
@@ -8265,10 +5809,12 @@
     "phase_th": "ข้างขึ้น",
     "phase_en": "Waxing",
     "waxing": true,
-    "thai_day": 14,
+    "thai_waxing": true,
+    "thai_month": 2,
+    "thai_day": 13,
     "wan_phra": false,
-    "thai_label_th": "ขึ้น 14 ค่ำ",
-    "thai_label_en": "waxing day 14"
+    "thai_label_th": "ขึ้น 13 ค่ำ",
+    "thai_label_en": "waxing day 13"
    },
    "jupiter": {
     "tilt": -0.4861,
@@ -8313,10 +5859,12 @@
     "phase_th": "เดือนเพ็ญ",
     "phase_en": "Full moon",
     "waxing": true,
-    "thai_day": 15,
-    "wan_phra": true,
-    "thai_label_th": "ขึ้น 15 ค่ำ",
-    "thai_label_en": "waxing day 15"
+    "thai_waxing": true,
+    "thai_month": 2,
+    "thai_day": 14,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 14 ค่ำ",
+    "thai_label_en": "waxing day 14"
    },
    "jupiter": {
     "tilt": -0.485,
@@ -8361,10 +5909,12 @@
     "phase_th": "เดือนเพ็ญ",
     "phase_en": "Full moon",
     "waxing": false,
-    "thai_day": 1,
-    "wan_phra": false,
-    "thai_label_th": "แรม 1 ค่ำ",
-    "thai_label_en": "waning day 1"
+    "thai_waxing": true,
+    "thai_month": 2,
+    "thai_day": 15,
+    "wan_phra": true,
+    "thai_label_th": "ขึ้น 15 ค่ำ",
+    "thai_label_en": "waxing day 15"
    },
    "jupiter": {
     "tilt": -0.4838,
@@ -8409,10 +5959,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 2,
+    "thai_waxing": false,
+    "thai_month": 2,
+    "thai_day": 1,
     "wan_phra": false,
-    "thai_label_th": "แรม 2 ค่ำ",
-    "thai_label_en": "waning day 2"
+    "thai_label_th": "แรม 1 ค่ำ",
+    "thai_label_en": "waning day 1"
    },
    "jupiter": {
     "tilt": -0.4824,
@@ -8457,10 +6009,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 3,
+    "thai_waxing": false,
+    "thai_month": 2,
+    "thai_day": 2,
     "wan_phra": false,
-    "thai_label_th": "แรม 3 ค่ำ",
-    "thai_label_en": "waning day 3"
+    "thai_label_th": "แรม 2 ค่ำ",
+    "thai_label_en": "waning day 2"
    },
    "jupiter": {
     "tilt": -0.4809,
@@ -8505,10 +6059,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 4,
+    "thai_waxing": false,
+    "thai_month": 2,
+    "thai_day": 3,
     "wan_phra": false,
-    "thai_label_th": "แรม 4 ค่ำ",
-    "thai_label_en": "waning day 4"
+    "thai_label_th": "แรม 3 ค่ำ",
+    "thai_label_en": "waning day 3"
    },
    "jupiter": {
     "tilt": -0.4793,
@@ -8553,10 +6109,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 5,
+    "thai_waxing": false,
+    "thai_month": 2,
+    "thai_day": 4,
     "wan_phra": false,
-    "thai_label_th": "แรม 5 ค่ำ",
-    "thai_label_en": "waning day 5"
+    "thai_label_th": "แรม 4 ค่ำ",
+    "thai_label_en": "waning day 4"
    },
    "jupiter": {
     "tilt": -0.4776,
@@ -8601,10 +6159,12 @@
     "phase_th": "ข้างแรม",
     "phase_en": "Waning",
     "waxing": false,
-    "thai_day": 6,
+    "thai_waxing": false,
+    "thai_month": 2,
+    "thai_day": 5,
     "wan_phra": false,
-    "thai_label_th": "แรม 6 ค่ำ",
-    "thai_label_en": "waning day 6"
+    "thai_label_th": "แรม 5 ค่ำ",
+    "thai_label_en": "waning day 5"
    },
    "jupiter": {
     "tilt": -0.4758,
@@ -8636,6 +6196,2806 @@
       "th": "คัลลิสโต",
       "x": 23.6887,
       "y": 0.2196,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-01-28": {
+   "moon": {
+    "age": 21.019,
+    "frac": 0.71177,
+    "illum": 0.619,
+    "phase_th": "ข้างแรม",
+    "phase_en": "Waning",
+    "waxing": false,
+    "thai_waxing": false,
+    "thai_month": 2,
+    "thai_day": 6,
+    "wan_phra": false,
+    "thai_label_th": "แรม 6 ค่ำ",
+    "thai_label_en": "waning day 6"
+   },
+   "jupiter": {
+    "tilt": -0.4738,
+    "dist_au": 4.3871,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -2.0276,
+      "y": 0.0441,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -0.6891,
+      "y": -0.1501,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 4.393,
+      "y": 0.0895,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 17.6481,
+      "y": 0.2722,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-01-29": {
+   "moon": {
+    "age": 22.019,
+    "frac": 0.74563,
+    "illum": 0.5137,
+    "phase_th": "ข้างแรมครึ่งดวง",
+    "phase_en": "Last quarter",
+    "waxing": false,
+    "thai_waxing": false,
+    "thai_month": 2,
+    "thai_day": 7,
+    "wan_phra": false,
+    "thai_label_th": "แรม 7 ค่ำ",
+    "thai_label_en": "waning day 7"
+   },
+   "jupiter": {
+    "tilt": -0.4718,
+    "dist_au": 4.3832,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 4.0281,
+      "y": -0.035,
+      "front": true
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 9.3653,
+      "y": 0.0363,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -8.277,
+      "y": 0.1011,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 9.1072,
+      "y": 0.286,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-01-30": {
+   "moon": {
+    "age": 23.019,
+    "frac": 0.7795,
+    "illum": 0.4079,
+    "phase_th": "ข้างแรมครึ่งดวง",
+    "phase_en": "Last quarter",
+    "waxing": false,
+    "thai_waxing": false,
+    "thai_month": 2,
+    "thai_day": 8,
+    "wan_phra": true,
+    "thai_label_th": "แรม 8 ค่ำ",
+    "thai_label_en": "waning day 8"
+   },
+   "jupiter": {
+    "tilt": -0.4696,
+    "dist_au": 4.3796,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -5.4585,
+      "y": 0.0191,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -2.8488,
+      "y": 0.1388,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -14.9069,
+      "y": 0.0393,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -0.7345,
+      "y": 0.2587,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-01-31": {
+   "moon": {
+    "age": 24.019,
+    "frac": 0.81336,
+    "illum": 0.3062,
+    "phase_th": "ข้างแรม",
+    "phase_en": "Waning",
+    "waxing": false,
+    "thai_waxing": false,
+    "thai_month": 2,
+    "thai_day": 9,
+    "wan_phra": false,
+    "thai_label_th": "แรม 9 ค่ำ",
+    "thai_label_en": "waning day 9"
+   },
+   "jupiter": {
+    "tilt": -0.4673,
+    "dist_au": 4.3764,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 5.8928,
+      "y": -0.0015,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -8.1253,
+      "y": -0.0867,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -10.701,
+      "y": -0.0502,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -10.4677,
+      "y": 0.1943,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-02-01": {
+   "moon": {
+    "age": 25.019,
+    "frac": 0.84722,
+    "illum": 0.2132,
+    "phase_th": "ข้างแรม",
+    "phase_en": "Waning",
+    "waxing": false,
+    "thai_waxing": false,
+    "thai_month": 2,
+    "thai_day": 10,
+    "wan_phra": false,
+    "thai_label_th": "แรม 10 ค่ำ",
+    "thai_label_en": "waning day 10"
+   },
+   "jupiter": {
+    "tilt": -0.4649,
+    "dist_au": 4.3734,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -5.3912,
+      "y": -0.0175,
+      "front": true
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 6.3099,
+      "y": -0.0993,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 1.2473,
+      "y": -0.1026,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -18.6877,
+      "y": 0.1021,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-02-02": {
+   "moon": {
+    "age": 26.019,
+    "frac": 0.88109,
+    "illum": 0.1332,
+    "phase_th": "ข้างแรม",
+    "phase_en": "Waning",
+    "waxing": false,
+    "thai_waxing": false,
+    "thai_month": 2,
+    "thai_day": 11,
+    "wan_phra": false,
+    "thai_label_th": "แรม 11 ค่ำ",
+    "thai_label_en": "waning day 11"
+   },
+   "jupiter": {
+    "tilt": -0.4624,
+    "dist_au": 4.3708,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 3.9517,
+      "y": 0.0323,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 5.7238,
+      "y": 0.1293,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 12.2958,
+      "y": -0.081,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -24.2015,
+      "y": -0.0044,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-02-03": {
+   "moon": {
+    "age": 27.019,
+    "frac": 0.91495,
+    "illum": 0.0697,
+    "phase_th": "ข้างแรม",
+    "phase_en": "Waning",
+    "waxing": false,
+    "thai_waxing": false,
+    "thai_month": 2,
+    "thai_day": 12,
+    "wan_phra": false,
+    "thai_label_th": "แรม 12 ค่ำ",
+    "thai_label_en": "waning day 12"
+   },
+   "jupiter": {
+    "tilt": -0.4598,
+    "dist_au": 4.3685,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -1.8935,
+      "y": -0.0423,
+      "front": true
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -8.3841,
+      "y": 0.0524,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 14.4395,
+      "y": -0.0017,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -26.217,
+      "y": -0.1096,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-02-04": {
+   "moon": {
+    "age": 28.019,
+    "frac": 0.94881,
+    "illum": 0.0256,
+    "phase_th": "ข้างแรม",
+    "phase_en": "Waning",
+    "waxing": false,
+    "thai_waxing": false,
+    "thai_month": 2,
+    "thai_day": 13,
+    "wan_phra": false,
+    "thai_label_th": "แรม 13 ค่ำ",
+    "thai_label_en": "waning day 13"
+   },
+   "jupiter": {
+    "tilt": -0.4572,
+    "dist_au": 4.3665,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -0.5555,
+      "y": 0.0446,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -2.2203,
+      "y": -0.1462,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 6.0784,
+      "y": 0.0777,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -24.4558,
+      "y": -0.1983,
+      "front": true
+     }
+    ]
+   }
+  },
+  "2027-02-05": {
+   "moon": {
+    "age": 29.019,
+    "frac": 0.98268,
+    "illum": 0.003,
+    "phase_th": "เดือนดับ",
+    "phase_en": "New moon",
+    "waxing": false,
+    "thai_waxing": false,
+    "thai_month": 2,
+    "thai_day": 14,
+    "wan_phra": false,
+    "thai_label_th": "แรม 14 ค่ำ",
+    "thai_label_en": "waning day 14"
+   },
+   "jupiter": {
+    "tilt": -0.4544,
+    "dist_au": 4.3648,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 2.8069,
+      "y": -0.04,
+      "front": true
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 9.4381,
+      "y": 0.0109,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -6.7203,
+      "y": 0.0997,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -19.1933,
+      "y": -0.258,
+      "front": true
+     }
+    ]
+   }
+  },
+  "2027-02-06": {
+   "moon": {
+    "age": 0.488,
+    "frac": 0.01654,
+    "illum": 0.0027,
+    "phase_th": "เดือนดับ",
+    "phase_en": "New moon",
+    "waxing": true,
+    "thai_waxing": false,
+    "thai_month": 2,
+    "thai_day": 15,
+    "wan_phra": true,
+    "thai_label_th": "แรม 15 ค่ำ",
+    "thai_label_en": "waning day 15"
+   },
+   "jupiter": {
+    "tilt": -0.4515,
+    "dist_au": 4.3634,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -4.7053,
+      "y": 0.028,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -1.3396,
+      "y": 0.1443,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -14.6134,
+      "y": 0.0493,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -11.2033,
+      "y": -0.2805,
+      "front": true
+     }
+    ]
+   }
+  },
+  "2027-02-07": {
+   "moon": {
+    "age": 1.488,
+    "frac": 0.0504,
+    "illum": 0.0249,
+    "phase_th": "ข้างขึ้น",
+    "phase_en": "Waxing",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 3,
+    "thai_day": 1,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 1 ค่ำ",
+    "thai_label_en": "waxing day 1"
+   },
+   "jupiter": {
+    "tilt": -0.4485,
+    "dist_au": 4.3624,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 5.7099,
+      "y": -0.0125,
+      "front": true
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -8.7729,
+      "y": -0.0636,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -11.8755,
+      "y": -0.0358,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -1.6307,
+      "y": -0.2631,
+      "front": true
+     }
+    ]
+   }
+  },
+  "2027-02-08": {
+   "moon": {
+    "age": 2.488,
+    "frac": 0.08427,
+    "illum": 0.0685,
+    "phase_th": "ข้างขึ้น",
+    "phase_en": "Waxing",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 3,
+    "thai_day": 2,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 2 ค่ำ",
+    "thai_label_en": "waxing day 2"
+   },
+   "jupiter": {
+    "tilt": -0.4455,
+    "dist_au": 4.3616,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -5.834,
+      "y": -0.0059,
+      "front": true
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 5.0789,
+      "y": -0.1142,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -0.5379,
+      "y": -0.0939,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 8.1717,
+      "y": -0.2089,
+      "front": true
+     }
+    ]
+   }
+  },
+  "2027-02-09": {
+   "moon": {
+    "age": 3.488,
+    "frac": 0.11813,
+    "illum": 0.1315,
+    "phase_th": "ข้างขึ้น",
+    "phase_en": "Waxing",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 3,
+    "thai_day": 3,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 3 ค่ำ",
+    "thai_label_en": "waxing day 3"
+   },
+   "jupiter": {
+    "tilt": -0.4423,
+    "dist_au": 4.3612,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 4.9305,
+      "y": 0.0221,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 6.8769,
+      "y": 0.1121,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 11.1901,
+      "y": -0.0841,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 16.8379,
+      "y": -0.1259,
+      "front": true
+     }
+    ]
+   }
+  },
+  "2027-02-10": {
+   "moon": {
+    "age": 4.488,
+    "frac": 0.15199,
+    "illum": 0.2112,
+    "phase_th": "ข้างขึ้น",
+    "phase_en": "Waxing",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 3,
+    "thai_day": 4,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 4 ค่ำ",
+    "thai_label_en": "waxing day 4"
+   },
+   "jupiter": {
+    "tilt": -0.4391,
+    "dist_au": 4.3611,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -3.2458,
+      "y": -0.0351,
+      "front": true
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -7.5835,
+      "y": 0.0734,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 14.8177,
+      "y": -0.0145,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 23.1647,
+      "y": -0.026,
+      "front": true
+     }
+    ]
+   }
+  },
+  "2027-02-11": {
+   "moon": {
+    "age": 5.488,
+    "frac": 0.18585,
+    "illum": 0.3039,
+    "phase_th": "ข้างขึ้น",
+    "phase_en": "Waxing",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 3,
+    "thai_day": 5,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 5 ค่ำ",
+    "thai_label_en": "waxing day 5"
+   },
+   "jupiter": {
+    "tilt": -0.4358,
+    "dist_au": 4.3613,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 0.9514,
+      "y": 0.0416,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -3.6864,
+      "y": -0.1374,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 7.6764,
+      "y": 0.0642,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 26.2747,
+      "y": 0.0766,
+      "front": true
+     }
+    ]
+   }
+  },
+  "2027-02-12": {
+   "moon": {
+    "age": 6.488,
+    "frac": 0.21972,
+    "illum": 0.4054,
+    "phase_th": "ข้างขึ้น",
+    "phase_en": "Waxing",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 3,
+    "thai_day": 6,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 6 ค่ำ",
+    "thai_label_en": "waxing day 6"
+   },
+   "jupiter": {
+    "tilt": -0.4325,
+    "dist_au": 4.3619,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 1.404,
+      "y": -0.0415,
+      "front": true
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 9.257,
+      "y": -0.0136,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -5.0648,
+      "y": 0.0952,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 25.7243,
+      "y": 0.1677,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-02-13": {
+   "moon": {
+    "age": 7.488,
+    "frac": 0.25358,
+    "illum": 0.5113,
+    "phase_th": "ข้างขึ้นครึ่งดวง",
+    "phase_en": "First quarter",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 3,
+    "thai_day": 7,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 7 ค่ำ",
+    "thai_label_en": "waxing day 7"
+   },
+   "jupiter": {
+    "tilt": -0.429,
+    "dist_au": 4.3627,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -3.6465,
+      "y": 0.0339,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 0.205,
+      "y": 0.1448,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -14.1076,
+      "y": 0.0571,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 21.5709,
+      "y": 0.2343,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-02-14": {
+   "moon": {
+    "age": 8.488,
+    "frac": 0.28744,
+    "illum": 0.6166,
+    "phase_th": "ข้างขึ้น",
+    "phase_en": "Waxing",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 3,
+    "thai_day": 8,
+    "wan_phra": true,
+    "thai_label_th": "ขึ้น 8 ค่ำ",
+    "thai_label_en": "waxing day 8"
+   },
+   "jupiter": {
+    "tilt": -0.4255,
+    "dist_au": 4.3639,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 5.1541,
+      "y": -0.0217,
+      "front": true
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -9.1791,
+      "y": -0.0395,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -12.8781,
+      "y": -0.0213,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 14.3771,
+      "y": 0.2671,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-02-15": {
+   "moon": {
+    "age": 9.488,
+    "frac": 0.32131,
+    "illum": 0.7166,
+    "phase_th": "ข้างขึ้น",
+    "phase_en": "Waxing",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 3,
+    "thai_day": 9,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 9 ค่ำ",
+    "thai_label_en": "waxing day 9"
+   },
+   "jupiter": {
+    "tilt": -0.422,
+    "dist_au": 4.3654,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -5.9001,
+      "y": 0.005,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 3.7104,
+      "y": -0.1246,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -2.3133,
+      "y": -0.083,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 5.1407,
+      "y": 0.2614,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-02-16": {
+   "moon": {
+    "age": 10.488,
+    "frac": 0.35517,
+    "illum": 0.8069,
+    "phase_th": "ข้างขึ้น",
+    "phase_en": "Waxing",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 3,
+    "thai_day": 10,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 10 ค่ำ",
+    "thai_label_en": "waxing day 10"
+   },
+   "jupiter": {
+    "tilt": -0.4184,
+    "dist_au": 4.3672,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 5.5866,
+      "y": 0.0112,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 7.8464,
+      "y": 0.0921,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 9.9257,
+      "y": -0.0844,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -4.8294,
+      "y": 0.2181,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-02-17": {
+   "moon": {
+    "age": 11.488,
+    "frac": 0.38903,
+    "illum": 0.8833,
+    "phase_th": "ข้างขึ้น",
+    "phase_en": "Waxing",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 3,
+    "thai_day": 11,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 11 ค่ำ",
+    "thai_label_en": "waxing day 11"
+   },
+   "jupiter": {
+    "tilt": -0.4147,
+    "dist_au": 4.3693,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -4.3904,
+      "y": -0.026,
+      "front": true
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -6.575,
+      "y": 0.0911,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 14.9835,
+      "y": -0.0258,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -14.1037,
+      "y": 0.1437,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-02-18": {
+   "moon": {
+    "age": 12.488,
+    "frac": 0.4229,
+    "illum": 0.9425,
+    "phase_th": "ข้างขึ้น",
+    "phase_en": "Waxing",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 3,
+    "thai_day": 12,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 12 ค่ำ",
+    "thai_label_en": "waxing day 12"
+   },
+   "jupiter": {
+    "tilt": -0.411,
+    "dist_au": 4.3717,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 2.3979,
+      "y": 0.0357,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -5.0532,
+      "y": -0.1246,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 9.1623,
+      "y": 0.0499,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -21.3365,
+      "y": 0.0491,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-02-19": {
+   "moon": {
+    "age": 13.488,
+    "frac": 0.45676,
+    "illum": 0.9817,
+    "phase_th": "ข้างขึ้น",
+    "phase_en": "Waxing",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 3,
+    "thai_day": 13,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 13 ค่ำ",
+    "thai_label_en": "waxing day 13"
+   },
+   "jupiter": {
+    "tilt": -0.4072,
+    "dist_au": 4.3744,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -0.093,
+      "y": -0.0397,
+      "front": true
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 8.826,
+      "y": -0.0365,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -3.3382,
+      "y": 0.0881,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -25.4809,
+      "y": -0.0517,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-02-20": {
+   "moon": {
+    "age": 14.488,
+    "frac": 0.49062,
+    "illum": 0.9991,
+    "phase_th": "เดือนเพ็ญ",
+    "phase_en": "Full moon",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 3,
+    "thai_day": 14,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 14 ค่ำ",
+    "thai_label_en": "waxing day 14"
+   },
+   "jupiter": {
+    "tilt": -0.4034,
+    "dist_au": 4.3775,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -2.3474,
+      "y": 0.0366,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 1.7483,
+      "y": 0.1406,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -13.4003,
+      "y": 0.0622,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -25.9452,
+      "y": -0.1439,
+      "front": true
+     }
+    ]
+   }
+  },
+  "2027-02-21": {
+   "moon": {
+    "age": 15.488,
+    "frac": 0.52449,
+    "illum": 0.9941,
+    "phase_th": "เดือนเพ็ญ",
+    "phase_en": "Full moon",
+    "waxing": false,
+    "thai_waxing": true,
+    "thai_month": 3,
+    "thai_day": 15,
+    "wan_phra": true,
+    "thai_label_th": "ขึ้น 15 ค่ำ",
+    "thai_label_en": "waxing day 15"
+   },
+   "jupiter": {
+    "tilt": -0.3996,
+    "dist_au": 4.3808,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 4.2594,
+      "y": -0.0281,
+      "front": true
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -9.333,
+      "y": -0.0153,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -13.7,
+      "y": -0.0076,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -22.6794,
+      "y": -0.2143,
+      "front": true
+     }
+    ]
+   }
+  },
+  "2027-02-22": {
+   "moon": {
+    "age": 16.488,
+    "frac": 0.55835,
+    "illum": 0.9668,
+    "phase_th": "ข้างแรม",
+    "phase_en": "Waning",
+    "waxing": false,
+    "thai_waxing": false,
+    "thai_month": 3,
+    "thai_day": 1,
+    "wan_phra": false,
+    "thai_label_th": "แรม 1 ค่ำ",
+    "thai_label_en": "waning day 1"
+   },
+   "jupiter": {
+    "tilt": -0.3957,
+    "dist_au": 4.3845,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -5.5828,
+      "y": 0.0143,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 2.2361,
+      "y": -0.1304,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -4.0636,
+      "y": -0.0705,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -16.1755,
+      "y": -0.2532,
+      "front": true
+     }
+    ]
+   }
+  },
+  "2027-02-23": {
+   "moon": {
+    "age": 17.488,
+    "frac": 0.59221,
+    "illum": 0.9184,
+    "phase_th": "ข้างแรม",
+    "phase_en": "Waning",
+    "waxing": false,
+    "thai_waxing": false,
+    "thai_month": 3,
+    "thai_day": 2,
+    "wan_phra": false,
+    "thai_label_th": "แรม 2 ค่ำ",
+    "thai_label_en": "waning day 2"
+   },
+   "jupiter": {
+    "tilt": -0.3918,
+    "dist_au": 4.3884,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 5.8763,
+      "y": 0.0007,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 8.6089,
+      "y": 0.0703,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 8.5115,
+      "y": -0.0819,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -7.3785,
+      "y": -0.2556,
+      "front": true
+     }
+    ]
+   }
+  },
+  "2027-02-24": {
+   "moon": {
+    "age": 18.488,
+    "frac": 0.62608,
+    "illum": 0.8512,
+    "phase_th": "ข้างแรม",
+    "phase_en": "Waning",
+    "waxing": false,
+    "thai_waxing": false,
+    "thai_month": 3,
+    "thai_day": 3,
+    "wan_phra": false,
+    "thai_label_th": "แรม 3 ค่ำ",
+    "thai_label_en": "waning day 3"
+   },
+   "jupiter": {
+    "tilt": -0.3878,
+    "dist_au": 4.3927,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -5.254,
+      "y": -0.016,
+      "front": true
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -5.3812,
+      "y": 0.1048,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 14.935,
+      "y": -0.0351,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 2.4548,
+      "y": -0.2218,
+      "front": true
+     }
+    ]
+   }
+  },
+  "2027-02-25": {
+   "moon": {
+    "age": 19.488,
+    "frac": 0.65994,
+    "illum": 0.7681,
+    "phase_th": "ข้างแรม",
+    "phase_en": "Waning",
+    "waxing": false,
+    "thai_waxing": false,
+    "thai_month": 3,
+    "thai_day": 4,
+    "wan_phra": false,
+    "thai_label_th": "แรม 4 ค่ำ",
+    "thai_label_en": "waning day 4"
+   },
+   "jupiter": {
+    "tilt": -0.3838,
+    "dist_au": 4.3972,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 3.6908,
+      "y": 0.0278,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -6.2854,
+      "y": -0.1084,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 10.5281,
+      "y": 0.0355,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 11.9469,
+      "y": -0.1572,
+      "front": true
+     }
+    ]
+   }
+  },
+  "2027-02-26": {
+   "moon": {
+    "age": 20.488,
+    "frac": 0.6938,
+    "illum": 0.6729,
+    "phase_th": "ข้างแรม",
+    "phase_en": "Waning",
+    "waxing": false,
+    "thai_waxing": false,
+    "thai_month": 3,
+    "thai_day": 5,
+    "wan_phra": false,
+    "thai_label_th": "แรม 5 ค่ำ",
+    "thai_label_en": "waning day 5"
+   },
+   "jupiter": {
+    "tilt": -0.3798,
+    "dist_au": 4.4021,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -1.5904,
+      "y": -0.0351,
+      "front": true
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 8.1526,
+      "y": -0.0569,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -1.548,
+      "y": 0.0789,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 19.7783,
+      "y": -0.0713,
+      "front": true
+     }
+    ]
+   }
+  },
+  "2027-02-27": {
+   "moon": {
+    "age": 21.488,
+    "frac": 0.72767,
+    "illum": 0.5699,
+    "phase_th": "ข้างแรมครึ่งดวง",
+    "phase_en": "Last quarter",
+    "waxing": false,
+    "thai_waxing": false,
+    "thai_month": 3,
+    "thai_day": 6,
+    "wan_phra": false,
+    "thai_label_th": "แรม 6 ค่ำ",
+    "thai_label_en": "waning day 6"
+   },
+   "jupiter": {
+    "tilt": -0.3758,
+    "dist_au": 4.4072,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -0.8885,
+      "y": 0.0362,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 3.2544,
+      "y": 0.1322,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -12.4921,
+      "y": 0.0648,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 24.8663,
+      "y": 0.0235,
+      "front": true
+     }
+    ]
+   }
+  },
+  "2027-02-28": {
+   "moon": {
+    "age": 22.488,
+    "frac": 0.76153,
+    "illum": 0.4638,
+    "phase_th": "ข้างแรมครึ่งดวง",
+    "phase_en": "Last quarter",
+    "waxing": false,
+    "thai_waxing": false,
+    "thai_month": 3,
+    "thai_day": 7,
+    "wan_phra": false,
+    "thai_label_th": "แรม 7 ค่ำ",
+    "thai_label_en": "waning day 7"
+   },
+   "jupiter": {
+    "tilt": -0.3718,
+    "dist_au": 4.4127,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 3.0798,
+      "y": -0.0316,
+      "front": true
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -9.2275,
+      "y": 0.008,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -14.3306,
+      "y": 0.0048,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 26.5025,
+      "y": 0.1139,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-03-01": {
+   "moon": {
+    "age": 23.488,
+    "frac": 0.79539,
+    "illum": 0.3593,
+    "phase_th": "ข้างแรม",
+    "phase_en": "Waning",
+    "waxing": false,
+    "thai_waxing": false,
+    "thai_month": 3,
+    "thai_day": 8,
+    "wan_phra": true,
+    "thai_label_th": "แรม 8 ค่ำ",
+    "thai_label_en": "waning day 8"
+   },
+   "jupiter": {
+    "tilt": -0.3678,
+    "dist_au": 4.4184,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -4.8977,
+      "y": 0.0213,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 0.6911,
+      "y": -0.1317,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -5.7716,
+      "y": -0.0571,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 24.447,
+      "y": 0.1872,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-03-02": {
+   "moon": {
+    "age": 24.488,
+    "frac": 0.82926,
+    "illum": 0.2612,
+    "phase_th": "ข้างแรม",
+    "phase_en": "Waning",
+    "waxing": false,
+    "thai_waxing": false,
+    "thai_month": 3,
+    "thai_day": 9,
+    "wan_phra": false,
+    "thai_label_th": "แรม 9 ค่ำ",
+    "thai_label_en": "waning day 9"
+   },
+   "jupiter": {
+    "tilt": -0.3637,
+    "dist_au": 4.4244,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 5.7766,
+      "y": -0.0085,
+      "front": true
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 9.1419,
+      "y": 0.0476,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 6.9602,
+      "y": -0.077,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 18.9675,
+      "y": 0.2331,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-03-03": {
+   "moon": {
+    "age": 25.488,
+    "frac": 0.86312,
+    "illum": 0.1738,
+    "phase_th": "ข้างแรม",
+    "phase_en": "Waning",
+    "waxing": false,
+    "thai_waxing": false,
+    "thai_month": 3,
+    "thai_day": 10,
+    "wan_phra": false,
+    "thai_label_th": "แรม 10 ค่ำ",
+    "thai_label_en": "waning day 10"
+   },
+   "jupiter": {
+    "tilt": -0.3597,
+    "dist_au": 4.4307,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -5.7779,
+      "y": -0.0061,
+      "front": true
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -4.0281,
+      "y": 0.1145,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 14.6651,
+      "y": -0.0421,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 10.8103,
+      "y": 0.2454,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-03-04": {
+   "moon": {
+    "age": 26.488,
+    "frac": 0.89698,
+    "illum": 0.1011,
+    "phase_th": "ข้างแรม",
+    "phase_en": "Waning",
+    "waxing": false,
+    "thai_waxing": false,
+    "thai_month": 3,
+    "thai_day": 11,
+    "wan_phra": false,
+    "thai_label_th": "แรม 11 ค่ำ",
+    "thai_label_en": "waning day 11"
+   },
+   "jupiter": {
+    "tilt": -0.3556,
+    "dist_au": 4.4373,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 4.7439,
+      "y": 0.0188,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -7.35,
+      "y": -0.0898,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 11.7462,
+      "y": 0.0216,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 1.1181,
+      "y": 0.2223,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-03-05": {
+   "moon": {
+    "age": 27.488,
+    "frac": 0.93085,
+    "illum": 0.0465,
+    "phase_th": "ข้างแรม",
+    "phase_en": "Waning",
+    "waxing": false,
+    "thai_waxing": false,
+    "thai_month": 3,
+    "thai_day": 12,
+    "wan_phra": false,
+    "thai_label_th": "แรม 12 ค่ำ",
+    "thai_label_en": "waning day 12"
+   },
+   "jupiter": {
+    "tilt": -0.3516,
+    "dist_au": 4.4442,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -2.9922,
+      "y": -0.0285,
+      "front": true
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 7.2483,
+      "y": -0.0744,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 0.2782,
+      "y": 0.0682,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -8.7325,
+      "y": 0.1674,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-03-06": {
+   "moon": {
+    "age": 28.488,
+    "frac": 0.96471,
+    "illum": 0.0122,
+    "phase_th": "ข้างแรม",
+    "phase_en": "Waning",
+    "waxing": false,
+    "thai_waxing": false,
+    "thai_month": 3,
+    "thai_day": 13,
+    "wan_phra": false,
+    "thai_label_th": "แรม 13 ค่ำ",
+    "thai_label_en": "waning day 13"
+   },
+   "jupiter": {
+    "tilt": -0.3476,
+    "dist_au": 4.4514,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 0.6382,
+      "y": 0.033,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 4.6841,
+      "y": 0.1204,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -11.3913,
+      "y": 0.0649,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -17.3234,
+      "y": 0.0889,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-03-07": {
+   "moon": {
+    "age": 29.488,
+    "frac": 0.99857,
+    "illum": 0.0,
+    "phase_th": "เดือนดับ",
+    "phase_en": "New moon",
+    "waxing": false,
+    "thai_waxing": false,
+    "thai_month": 3,
+    "thai_day": 14,
+    "wan_phra": true,
+    "thai_label_th": "แรม 14 ค่ำ",
+    "thai_label_en": "waning day 14"
+   },
+   "jupiter": {
+    "tilt": -0.3435,
+    "dist_au": 4.4588,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 1.6873,
+      "y": -0.0322,
+      "front": true
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -8.8592,
+      "y": 0.0296,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -14.7594,
+      "y": 0.0155,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -23.4116,
+      "y": -0.0016,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-03-08": {
+   "moon": {
+    "age": 0.958,
+    "frac": 0.03243,
+    "illum": 0.0103,
+    "phase_th": "ข้างขึ้น",
+    "phase_en": "Waxing",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 4,
+    "thai_day": 1,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 1 ค่ำ",
+    "thai_label_en": "waxing day 1"
+   },
+   "jupiter": {
+    "tilt": -0.3395,
+    "dist_au": 4.4665,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -3.8822,
+      "y": 0.0258,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -0.8877,
+      "y": -0.1289,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -7.4217,
+      "y": -0.0435,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -26.1189,
+      "y": -0.0907,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-03-09": {
+   "moon": {
+    "age": 1.958,
+    "frac": 0.0663,
+    "illum": 0.0428,
+    "phase_th": "ข้างขึ้น",
+    "phase_en": "Waxing",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 4,
+    "thai_day": 2,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 2 ค่ำ",
+    "thai_label_en": "waxing day 2"
+   },
+   "jupiter": {
+    "tilt": -0.3355,
+    "dist_au": 4.4745,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 5.2874,
+      "y": -0.0158,
+      "front": true
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 9.4265,
+      "y": 0.0248,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 5.2778,
+      "y": -0.0702,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -25.0665,
+      "y": -0.1655,
+      "front": true
+     }
+    ]
+   }
+  },
+  "2027-03-10": {
+   "moon": {
+    "age": 2.958,
+    "frac": 0.10016,
+    "illum": 0.0958,
+    "phase_th": "ข้างขึ้น",
+    "phase_en": "Waxing",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 4,
+    "thai_day": 3,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 3 ค่ำ",
+    "thai_label_en": "waxing day 3"
+   },
+   "jupiter": {
+    "tilt": -0.3316,
+    "dist_au": 4.4827,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -5.9214,
+      "y": 0.0028,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -2.5465,
+      "y": 0.1202,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 14.1678,
+      "y": -0.0469,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -20.4289,
+      "y": -0.2155,
+      "front": true
+     }
+    ]
+   }
+  },
+  "2027-03-11": {
+   "moon": {
+    "age": 3.958,
+    "frac": 0.13402,
+    "illum": 0.1671,
+    "phase_th": "ข้างขึ้น",
+    "phase_en": "Waxing",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 4,
+    "thai_day": 4,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 4 ค่ำ",
+    "thai_label_en": "waxing day 4"
+   },
+   "jupiter": {
+    "tilt": -0.3276,
+    "dist_au": 4.4912,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 5.4829,
+      "y": 0.0097,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -8.2137,
+      "y": -0.0696,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 12.8025,
+      "y": 0.0088,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -12.8889,
+      "y": -0.234,
+      "front": true
+     }
+    ]
+   }
+  },
+  "2027-03-12": {
+   "moon": {
+    "age": 4.958,
+    "frac": 0.16789,
+    "illum": 0.2533,
+    "phase_th": "ข้างขึ้น",
+    "phase_en": "Waxing",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 4,
+    "thai_day": 5,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 5 ค่ำ",
+    "thai_label_en": "waxing day 5"
+   },
+   "jupiter": {
+    "tilt": -0.3237,
+    "dist_au": 4.4999,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -4.2052,
+      "y": -0.0207,
+      "front": true
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 6.1293,
+      "y": -0.0885,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 2.1256,
+      "y": 0.0566,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -3.5331,
+      "y": -0.219,
+      "front": true
+     }
+    ]
+   }
+  },
+  "2027-03-13": {
+   "moon": {
+    "age": 5.958,
+    "frac": 0.20175,
+    "illum": 0.3507,
+    "phase_th": "ข้างขึ้น",
+    "phase_en": "Waxing",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 4,
+    "thai_day": 6,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 6 ค่ำ",
+    "thai_label_en": "waxing day 6"
+   },
+   "jupiter": {
+    "tilt": -0.3198,
+    "dist_au": 4.5089,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 2.1329,
+      "y": 0.0278,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 5.9991,
+      "y": 0.1057,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -10.1001,
+      "y": 0.0628,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 6.3175,
+      "y": -0.1733,
+      "front": true
+     }
+    ]
+   }
+  },
+  "2027-03-14": {
+   "moon": {
+    "age": 6.958,
+    "frac": 0.23561,
+    "illum": 0.4549,
+    "phase_th": "ข้างขึ้นครึ่งดวง",
+    "phase_en": "First quarter",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 4,
+    "thai_day": 7,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 7 ค่ำ",
+    "thai_label_en": "waxing day 7"
+   },
+   "jupiter": {
+    "tilt": -0.316,
+    "dist_au": 4.5182,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 0.1693,
+      "y": -0.0304,
+      "front": true
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -8.2298,
+      "y": 0.0491,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -14.968,
+      "y": 0.0243,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 15.2902,
+      "y": -0.1039,
+      "front": true
+     }
+    ]
+   }
+  },
+  "2027-03-15": {
+   "moon": {
+    "age": 7.958,
+    "frac": 0.26948,
+    "illum": 0.561,
+    "phase_th": "ข้างขึ้นครึ่งดวง",
+    "phase_en": "First quarter",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 4,
+    "thai_day": 8,
+    "wan_phra": true,
+    "thai_label_th": "ขึ้น 8 ค่ำ",
+    "thai_label_en": "waxing day 8"
+   },
+   "jupiter": {
+    "tilt": -0.3122,
+    "dist_au": 4.5276,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -2.5958,
+      "y": 0.0276,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -2.4581,
+      "y": -0.1225,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -8.9803,
+      "y": -0.0303,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 22.1478,
+      "y": -0.0208,
+      "front": true
+     }
+    ]
+   }
+  },
+  "2027-03-16": {
+   "moon": {
+    "age": 8.958,
+    "frac": 0.30334,
+    "illum": 0.6645,
+    "phase_th": "ข้างขึ้น",
+    "phase_en": "Waxing",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 4,
+    "thai_day": 9,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 9 ค่ำ",
+    "thai_label_en": "waxing day 9"
+   },
+   "jupiter": {
+    "tilt": -0.3084,
+    "dist_au": 4.5374,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 4.4328,
+      "y": -0.0207,
+      "front": true
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 9.4466,
+      "y": 0.0027,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 3.4926,
+      "y": -0.0621,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 25.9448,
+      "y": 0.0642,
+      "front": true
+     }
+    ]
+   }
+  },
+  "2027-03-17": {
+   "moon": {
+    "age": 9.958,
+    "frac": 0.3372,
+    "illum": 0.7605,
+    "phase_th": "ข้างขึ้น",
+    "phase_en": "Waxing",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 4,
+    "thai_day": 10,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 10 ค่ำ",
+    "thai_label_en": "waxing day 10"
+   },
+   "jupiter": {
+    "tilt": -0.3047,
+    "dist_au": 4.5473,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -5.6656,
+      "y": 0.0102,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -0.9711,
+      "y": 0.122,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 13.4457,
+      "y": -0.0494,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 26.1484,
+      "y": 0.1391,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-03-18": {
+   "moon": {
+    "age": 10.958,
+    "frac": 0.37107,
+    "illum": 0.8447,
+    "phase_th": "ข้างขึ้น",
+    "phase_en": "Waxing",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 4,
+    "thai_day": 11,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 11 ค่ำ",
+    "thai_label_en": "waxing day 11"
+   },
+   "jupiter": {
+    "tilt": -0.301,
+    "dist_au": 4.5575,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 5.8502,
+      "y": 0.0013,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -8.8458,
+      "y": -0.0486,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 13.6765,
+      "y": -0.0024,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 22.7175,
+      "y": 0.1935,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-03-19": {
+   "moon": {
+    "age": 11.958,
+    "frac": 0.40493,
+    "illum": 0.9134,
+    "phase_th": "ข้างขึ้น",
+    "phase_en": "Waxing",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 4,
+    "thai_day": 12,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 12 ค่ำ",
+    "thai_label_en": "waxing day 12"
+   },
+   "jupiter": {
+    "tilt": -0.2974,
+    "dist_au": 4.5679,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -5.1436,
+      "y": -0.0126,
+      "front": true
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 4.8186,
+      "y": -0.0993,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 3.9723,
+      "y": 0.0449,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 16.1086,
+      "y": 0.2199,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-03-20": {
+   "moon": {
+    "age": 12.958,
+    "frac": 0.43879,
+    "illum": 0.9635,
+    "phase_th": "ข้างขึ้น",
+    "phase_en": "Waxing",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 4,
+    "thai_day": 13,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 13 ค่ำ",
+    "thai_label_en": "waxing day 13"
+   },
+   "jupiter": {
+    "tilt": -0.2939,
+    "dist_au": 4.5786,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 3.4929,
+      "y": 0.0214,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 7.1587,
+      "y": 0.089,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -8.6242,
+      "y": 0.059,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": 7.2313,
+      "y": 0.2147,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-03-21": {
+   "moon": {
+    "age": 13.958,
+    "frac": 0.47266,
+    "illum": 0.9926,
+    "phase_th": "เดือนเพ็ญ",
+    "phase_en": "Full moon",
+    "waxing": true,
+    "thai_waxing": true,
+    "thai_month": 4,
+    "thai_day": 14,
+    "wan_phra": false,
+    "thai_label_th": "ขึ้น 14 ค่ำ",
+    "thai_label_en": "waxing day 14"
+   },
+   "jupiter": {
+    "tilt": -0.2904,
+    "dist_au": 4.5894,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -1.3748,
+      "y": -0.0265,
+      "front": true
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -7.3468,
+      "y": 0.066,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -14.9438,
+      "y": 0.031,
+      "front": false
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -2.6713,
+      "y": 0.1788,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-03-22": {
+   "moon": {
+    "age": 14.958,
+    "frac": 0.50652,
+    "illum": 0.9996,
+    "phase_th": "เดือนเพ็ญ",
+    "phase_en": "Full moon",
+    "waxing": false,
+    "thai_waxing": true,
+    "thai_month": 4,
+    "thai_day": 15,
+    "wan_phra": true,
+    "thai_label_th": "ขึ้น 15 ค่ำ",
+    "thai_label_en": "waxing day 15"
+   },
+   "jupiter": {
+    "tilt": -0.2869,
+    "dist_au": 4.6005,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -1.1187,
+      "y": 0.0271,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": -3.9762,
+      "y": -0.113,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": -10.4293,
+      "y": -0.0181,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -12.188,
+      "y": 0.1175,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-03-23": {
+   "moon": {
+    "age": 15.958,
+    "frac": 0.54038,
+    "illum": 0.984,
+    "phase_th": "ข้างแรม",
+    "phase_en": "Waning",
+    "waxing": false,
+    "thai_waxing": false,
+    "thai_month": 4,
+    "thai_day": 1,
+    "wan_phra": false,
+    "thai_label_th": "แรม 1 ค่ำ",
+    "thai_label_en": "waning day 1"
+   },
+   "jupiter": {
+    "tilt": -0.2835,
+    "dist_au": 4.6117,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": 3.2619,
+      "y": -0.0234,
+      "front": true
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 9.191,
+      "y": -0.0181,
+      "front": true
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 1.6152,
+      "y": -0.0531,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -19.951,
+      "y": 0.0399,
+      "front": false
+     }
+    ]
+   }
+  },
+  "2027-03-24": {
+   "moon": {
+    "age": 16.958,
+    "frac": 0.57425,
+    "illum": 0.9466,
+    "phase_th": "ข้างแรม",
+    "phase_en": "Waning",
+    "waxing": false,
+    "thai_waxing": false,
+    "thai_month": 4,
+    "thai_day": 2,
+    "wan_phra": false,
+    "thai_label_th": "แรม 2 ค่ำ",
+    "thai_label_en": "waning day 2"
+   },
+   "jupiter": {
+    "tilt": -0.2802,
+    "dist_au": 4.6232,
+    "sats": [
+     {
+      "en": "Io",
+      "th": "ไอโอ",
+      "x": -5.0165,
+      "y": 0.0156,
+      "front": false
+     },
+     {
+      "en": "Europa",
+      "th": "ยูโรปา",
+      "x": 0.656,
+      "y": 0.1204,
+      "front": false
+     },
+     {
+      "en": "Ganymede",
+      "th": "แกนีมีด",
+      "x": 12.4941,
+      "y": -0.0501,
+      "front": true
+     },
+     {
+      "en": "Callisto",
+      "th": "คัลลิสโต",
+      "x": -24.8434,
+      "y": -0.0426,
       "front": false
      }
     ]

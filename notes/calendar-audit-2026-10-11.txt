@@ -1,0 +1,57 @@
+MOT DANG — SURFACES THAT TELL TIME (audit, 2026-10-11)
+Read-only audit of the code at 2a1e88dabf. Line numbers are assets/front/front.js unless named.
+
+FRONT PAGE
+
+1. Doodle clock (#doodle). doodleEvent 1404, ddChoices 1485, doodle() 1502–2224 (dial 1619, rain drops ~1630, event tags 1638–1656, gears 1658, hands 1670, words 1808, skyPop 2032, datePop 2050, setAt/turned 2125–2140, CLK 2210). Answers: what is on today, what is hour X like (rain, sun, moon, Thai date). State AT, SPRING, HOLD, CH/CI; localStorage md-dd-seen, md-said-dry, md-dv:<id>@v; reads md-cal. Data: front/events.json, front/doodle.json, front/doodle_alt.json, data/sky.json, weather.json, air.json, front/ridge.json. Duplicates: "today's events" computed four ways (clock tags start-day only; ddChoices up to 9 within 40 km; onAt 1794 ±30 min; viewList('now') 551, 2 h). Rain hours repeat #fc; the moon line repeats big(). datePop is the only place on the front with B.E., C.S. and the Lanna month.
+
+2. Fortnight grid (#month, #mgrid) and day list (#mday). month() 559–660, mcells 679, viewList 549, weekend 542, pickDay/dayStep/pageStep/setCity 1087–1112, calAt 665, hover tip 1151, openInFortnight 1306. State MSEL, MVIEW, MF, MOFF, MCITY, MMORE, MLIT, CALAT; sessionStorage md-map-city; localStorage md-home-ab, md-cal. Data: events.json, soon.json (festival labels), sky.json (wan phra), ahead.json (cell art kinds), weather.json. Duplicates: Now/Tonight/Weekend chips repeat #jump, weekend arithmetic written twice (542, 2229). Festival labels from soon.json, capped at 4 (front_layer 1035), so later fortnights lose them. "The full calendar ↓" (651) goes to #day= in the old list; the drawer's "The full calendar" (2328) goes to /calendar.html. The only surface filtered by city.
+
+3. Festival ribbon (#ahead). ahead() 966, aheadFrame 1002, glyph/scene 896/944, icsDay 882. State AH{sel, marks, fx, all}. Data front/ahead.json. Duplicates: big() counts down to the next 2 festivals; festivals.html coming_up; the lit "14 days" band repeats the fortnight. Actions: add to calendar, the festival's page.
+
+4. Old list (#soon: #big, #calbar, #cal, #calmore, #calnote, #lanterns). FILTER/SHOWN/TOP 369, cal() 463, clicks 1188–1212, findEv/showDay/go/route 2239–2258, big() 2267, lanterns 2279. State FILTER, SHOWN, ME (md-cal); hash #ev= / #day=. Data events.json, soon.json, sky.json. Duplicates: same events, evHtml and score as #mday, a separate filter, no city. cal() 470 ends an event with no end time at start + 2 h; span() 1399 keeps all-day events to midnight. Every hash link (share URL 1299, search, doodle) lands here, not in the fortnight. big() counts days by UTC Date.parse; smoky() 2302 also UTC.
+
+5. #jump chips. jump() 2227. Counts today, tomorrow, weekend from events.json. Duplicates #mbar. Not filtered by city.
+
+6. Forecast (#fc). wx.js drawHours 375, drawDays 427, drawAir 548, MDWX 618; fallback forecast() 271. localStorage md-wx-city, md-wx-span, md-air-place. Data weather.json, air.json. Own bkk/today/dayWord/dateStr/month arrays (wx.js 22–42). A third city switch beside MCITY and the map's.
+
+7. Tiles (tiles.js). Films filmsPrep 419 (showtimes.json, refreshed every 60 s at 565); flights FMODE 96, stale after 14 h (98); lottery draw date lottoCap 524; roads fresh 2 h (285). Own bkk/hhmm/ymd/dayStr (17–24) and freshness rules.
+
+OTHER PAGES
+
+8. /festivals.html written twice: build.py build_festivals_page 17025 (17065), then festivals_layer.emit 999 overwrites it (1019). Also festivals/<id>.html (571), festivals.ics (383), the year wheel (164, own wan phra pass 139), coming_up 804, season_banner 876. Four date resolvers for one festival canon: festivals_layer.occurrence 760, front_layer bake_ahead 1107–1126, bake_events soon 1031, answers_layer (festival-dates.html, 803). The <!--MD:COMINGUP--> marker is absent from the current front: that strip is dead. /ahead.html (ahead_layer.py) is a compass photo page, not dates.
+
+9. Event pages: no per-event page; e.page points into minisites or the source. Listings: /events.html (build.py build_events_page 15189, also events.ics, events.geojson, docs/data/events.json); /calendar.html (home_next.calendar_page 1540, homebits calendar 195, agenda 318, _cal_data 268, its own dedupe); /home-classic.html; nownear_layer.strip 181 on every page header from docs/data/today.json; event history on place pages (build.py 13921–13950).
+
+10. Opening hours and "open now": /open-now.html (answers_layer 343), here_layer weekMinute 512, build.py MDHOURS 4598–4647 and nowMin 7633/7820, explore_layer weekMinute 718, api_layer _schedule_table 119, nitnoy_layer (24-hour drag), home_layer open_slots 146 and nextMarket 876, daily_layer.open_curve 226. Data data/open_lamps.json. The week-minute sum is written 3 times; nitnoy's hour drag is the same gesture as turning the clock.
+
+11. Minisites: no sites/thai-time on this disk. yipeng_layer.py is standalone (build.py does not call it), own moon_svg 229 and _thai_date 295. fullmoon_layer (build.py 23023) reads curated/full_moon.json, a separate moon-date source. Front #feed sites() 2305 shows on/until dates from front/sites.json.
+
+12. shelflife.py (today 52, fresh 61, guard 67) guards weather, air, showtimes, crypto/fx in build.py. front.js and tiles.js keep their own cut-offs.
+
+ORDER AND ACTIONS
+score() 380: completeness (fields ÷ 8) + nearness (1 − km/8) + 1.2 × reader opens over 30 days + 1.5 × personal (category opens, +1.5 kept, +0.5 venue) + 0.3 if pictured − 0.15 if weekly. It writes e.sc, e.km, e.why into objects both lists share. cal(): by score, or distance when "near" is on. month(): by score, top 6, then "+N more". viewList: date, start, score. Clock tags: the pick, then fields held, then start.
+Event card evHtml 429–461: breadcrumbs, heart, source/host, map, add to calendar (not for all-day), keep, not for me, hide this kind. Opened card richEv 1255: countdown (cdHtml 1237), on the map, share, guide me (directions), Grab (grabUrl 1241). "map" and "on the map" are the same action, shown twice. Clock slip evPop 1973: Calendar, Map, Add to calendar, Share, Guide me, This doodle, Grab, votes.
+
+DATE CODE KEPT MORE THAN ONCE
+- JS Bangkok/ymd helpers: front.js 19–24, 175, 420, 880–889, 1399, 1451–1453; wx.js 22–42; tiles.js 17–24; share_layer.py inline 96–106; bkk() also in home_next.py 559, flights_layer.py 722, traffic_layer.py 494, films_layer.py 537.
+- span(): front.js 1399, tools/doodler_pick.mjs 33, share_layer.py 106, publish/calfind.js 70.
+- Thai month arrays: about 40 in about 30 files (front.js 25 and 2048, wx.js 31, tiles.js 22, homebits 394/609, festivals_layer 76/446, build.py 14084/14519/16812/16814, fullmoon 56, ...).
+- Buddhist Era +543: about 70 in about 28 files.
+- Weekday colours: written by importers/make_fortune.py; read by build.py, festivals_layer, home_next, daily_layer, hom_layer, homebits, home_layer. Not on the front.
+- Lunar and wan phra: importers/thai_lunar.py 37–59, importers/make_sky.py moon_for 49, festivals_layer 139, front.js datePop 2054–2058.
+- Python Bangkok time: about 45 files. front_layer bakes with dt.date.today() (the machine's date) at 957 and 1094.
+
+DATA FILES (writer → readers)
+- data/events.json: importers/harvest_events.py → front_layer 943, build.py 13198, homebits 268, festivals_layer, home_next, share_layer, event_links, event_ledger, doodler_pick.mjs.
+- data/event_ledger.json: importers/event_ledger.py → build.py 13921, event_venues, harvest_events.
+- data/curated/event_extras.json: by hand → front_layer 944, build.py 13211–13224, event_links (merged twice, separately).
+- data/curated/events_cr.json: by hand → harvest_events.
+- data/festivals.json (38): by hand → build.py 329, festivals_layer, front_layer 1029/1122, home_next 516, fullmoon_layer 45.
+- data/festival_calendar.json (17 rows): by hand → front_layer 1034/1096, answers_layer 151, home_next, build.py, traffic_layer.
+- data/festival_dates.json: importers/harvest_festivals.py → festivals_layer 293, answers_layer, home_layer, yipeng_layer.
+- data/sky.json (180 days): importers/make_sky.py → front.js 2351, homebits, home_next 236, daily_layer, build.py.
+- data/curated/full_moon.json: by hand → fullmoon_layer.
+- data/curated/ahead.json: by hand → front_layer 1095.
+- Front bakes (front_layer.py): events.json 1027, soon.json 1036 (first 4 festival rows), doodle.json 1041, aired.json 1042, ahead.json 1148.
+- Festival dates in four files; events in four shapes (data/events.json, docs/data/events.json, front/events.json, today.json).

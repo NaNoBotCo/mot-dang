@@ -2,12 +2,18 @@
 # cards, section art. NOT place photos: those come from harvest_commons.py and
 # have to depict the actual place. These are the city, chosen by eye.
 #
-# Two forms are accepted, because that is how she sent them:
+# Four forms are accepted:
 #   https://share.google/<id>          a shared Google Image result
 #   https://commons.wikimedia.org/...  a Commons file page, any URL shape
+#   https://unsplash.com/photos/...    an Unsplash photograph (needs the key)
+#   https://www.flickr.com/photos/...  a Flickr photograph (needs no key)
 # Every share.google link she sent turned out to land on Commons, which is the
 # only reason they can be used at all — Google Images itself licenses nothing.
-# Anything that resolves off Commons is reported and dropped, never guessed at.
+# Anything that resolves off these four is reported and dropped; the code does not guess.
+#
+# On Flickr: most of its Creative Commons photographs are NonCommercial or
+# NoDerivatives, and those are refused by name — paste them anyway if you like,
+# the run will say so rather than silently skipping them.
 #
 # Re-resolve with:  python3 importers/import_image_picks.py
 

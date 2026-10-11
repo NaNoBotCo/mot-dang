@@ -95,7 +95,7 @@ THIS DISK. It is never a claim about the city.
   is one of the five universal ants and a commons record can almost never earn
   it, so these kinds realistically cap at 8 of 9. It is left universal because
   moving it would reorder the strip on every shop page, and the shopping axis has
-  not been moved. The honest fix, when you want it, is a
+  not been moved. The fuller fix, when you want it, is a
   `vouched` path — a keeper recorded (the wat that tends the shrine, the tambon
   that keeps the well, the family on the donor plaque) earning the same ant.
 
@@ -184,7 +184,7 @@ THIS DISK. It is never a claim about the city.
         ท่ารถ                  tha rot                  the vehicle landing — a depot, larger than a stop
         ศาลาพักร้อน            sala phak ron            a rest pavilion, not tied to a vehicle
       source: OSM highway=bus_stop · public_transport=platform · amenity=shelter + shelter_type=public_transport · amenity=bus_station; then the เทศบาล asset list for the ศาลาที่พักผู้โดยสาร, which is where the built ones are numbered
-      note:   Chiang Mai's real network is รถแดง, which has NO fixed stops — that is the point of it. So a stop record here is honest only if it says which of the two it is: a built, numbered shelter, or a place people are known to wait.
+      note:   Chiang Mai's real network is รถแดง, which has NO fixed stops — that is the point of it. So a stop record here holds only if it says which of the two it is: a built, numbered shelter, or a place people are known to wait.
 
   ── 3.4  WELLS, WEIRS AND WATER POINTS — บ่อน้ำ · ฝาย · ตู้น้ำ
       held today: 0
@@ -232,7 +232,7 @@ THIS DISK. It is never a claim about the city.
             songthaew and bus stopping points. One OSM pull (highway=bus_stop,
             public_transport=platform, amenity=shelter + shelter_type=
             public_transport), then the เทศบาล asset list, which is where the
-            BUILT and NUMBERED ศาลาที่พักผู้โดยสาร are. Honesty rule for this
+            BUILT and NUMBERED ศาลาที่พักผู้โดยสาร are. Candour rule for this
             class: Chiang Mai's real network is รถแดง and it HAS no fixed stops
             — that is the point of it. So a record here must say which of the
             two it is: a built shelter, or a place people are known to wait.

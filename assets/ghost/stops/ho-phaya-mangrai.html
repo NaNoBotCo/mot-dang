@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ho Phaya Mangrai — Ghost Chiang Mai</title>
+<meta name="description" content="Mangrai, founder of Chiang Mai, killed by a lightning strike in the market — B.E. 1854, 1311 CE, aged 72">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://motdang.net/ghost/stops/">
+<style>
+:root{
+ --bg:#f7f3ea;--panel:#fffdf8;--ink:#14121c;--mute:#5f5870;--line:#e2dacb;--chip:#efe7d6;
+ --hot:#6d3fb0;--sun:#c8880c;--jade:#0f6f66;--sky:#1a5fa8;--ember:#b3341f;
+ --focus:#0a4fd1;--shadow:rgba(20,18,28,.12);
+ --w1:#6d3fb0;--w2:#0f6f66;--w3:#c8880c;--w4:#b3341f;
+ --display:"Avenir Next Condensed","HelveticaNeue-CondensedBold","Arial Narrow Bold",
+   "Franklin Gothic Heavy",Impact,system-ui,sans-serif;
+ --body:"Avenir Next",Avenir,"Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif;
+ --thai:"Noto Sans Thai","Leelawadee UI","Thonburi","Sukhumvit Set","Krungthep",Tahoma,sans-serif;
+ --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+ --bg:#0f0d14;--panel:#171423;--ink:#f2ecdd;--mute:#a79ec0;--line:#2c2740;--chip:#231f33;
+ --hot:#b79bff;--sun:#ffc846;--jade:#3fd0bd;--sky:#77b6ff;--ember:#ff7a5e;
+ --focus:#8ab4f8;--shadow:rgba(0,0,0,.55);
+ --w1:#b79bff;--w2:#3fd0bd;--w3:#ffc846;--w4:#ff7a5e;}}
+:root[data-theme="dark"]{
+ --bg:#0f0d14;--panel:#171423;--ink:#f2ecdd;--mute:#a79ec0;--line:#2c2740;--chip:#231f33;
+ --hot:#b79bff;--sun:#ffc846;--jade:#3fd0bd;--sky:#77b6ff;--ember:#ff7a5e;
+ --focus:#8ab4f8;--shadow:rgba(0,0,0,.55);
+ --w1:#b79bff;--w2:#3fd0bd;--w3:#ffc846;--w4:#ff7a5e;}
+*{box-sizing:border-box}
+html{font-size:18px;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.62;
+ -webkit-text-size-adjust:100%}
+:lang(th),.th{font-family:var(--thai);line-height:1.85}
+a{color:var(--hot);text-decoration-thickness:.08em;text-underline-offset:.18em}
+a:hover{color:var(--ember)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:5px}
+img{max-width:100%;height:auto}
+hr{border:0;border-top:2px solid var(--line);margin:2rem 0}
+
+/* ---- frame */
+header.top{border-bottom:2px solid var(--ink);position:sticky;top:0;z-index:30;background:var(--bg)}
+@media (max-width:52rem){header.top{position:static}}
+header.top .in{max-width:66rem;margin:0 auto;padding:.5rem 1rem;display:flex;gap:.4rem 1rem;
+ align-items:center;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:800;font-size:1.2rem;letter-spacing:.01em;
+ text-transform:uppercase;text-decoration:none;color:var(--ink);white-space:nowrap}
+.brand b{color:var(--hot)}
+header.top nav{display:flex;gap:.1rem .6rem;flex-wrap:wrap;font-size:.72rem;
+ text-transform:uppercase;letter-spacing:.06em;font-weight:800}
+header.top nav a{text-decoration:none;color:var(--mute);padding:.15rem 0}
+header.top nav a:hover,header.top nav a[aria-current]{color:var(--ink);box-shadow:inset 0 -3px 0 var(--hot)}
+main{max-width:66rem;margin:0 auto;padding:1rem 1rem 5rem}
+footer.bot{border-top:2px solid var(--line);margin-top:3rem}
+footer.bot .in{max-width:66rem;margin:0 auto;padding:1.4rem 1rem 3rem;font-size:.8rem;color:var(--mute)}
+footer.bot a{color:var(--mute)}
+footer.bot p{max-width:46rem}
+
+/* ---- type */
+h1{font-family:var(--display);font-size:clamp(2.1rem,6.5vw,4rem);line-height:.97;margin:.4rem 0 .3rem;
+ font-weight:800;letter-spacing:-.01em;text-transform:uppercase}
+h1 .kind{display:block;font-size:clamp(.6rem,1.6vw,.72rem);color:var(--hot);letter-spacing:.3em;
+ margin-bottom:.55rem;font-weight:800}
+h1 .thai{display:block;font-family:var(--thai);font-size:clamp(1rem,2.6vw,1.5rem);
+ text-transform:none;letter-spacing:0;color:var(--mute);font-weight:400;margin-top:.45rem}
+h2{font-family:var(--display);font-size:clamp(1.3rem,3vw,1.75rem);margin:2.2rem 0 .5rem;font-weight:800;
+ text-transform:uppercase;border-bottom:3px solid var(--ink);padding-bottom:.2rem}
+h3{font-family:var(--display);font-size:1.08rem;margin:1.3rem 0 .3rem;font-weight:800;text-transform:uppercase}
+.lede{font-size:clamp(1.05rem,2.3vw,1.28rem);max-width:42rem;margin:.4rem 0 1rem}
+.mute{color:var(--mute)}.small{font-size:.82rem}
+p{margin:.6rem 0;max-width:42rem}
+.prose p{margin:.9rem 0}
+blockquote{margin:1rem 0;padding:.2rem 0 .2rem 1rem;border-left:4px solid var(--sun);color:var(--mute);
+ font-style:italic;max-width:40rem}
+
+/* ---- big numbers */
+.slab{display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));
+ border:3px solid var(--ink);margin:1.2rem 0;background:var(--bg)}
+.slab div{padding:.75rem .8rem;border-right:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+.slab b{display:block;font-family:var(--display);font-size:clamp(1.9rem,5.5vw,2.9rem);line-height:.92;
+ font-weight:800;color:var(--hot)}
+.slab span{display:block;font-size:.66rem;text-transform:uppercase;letter-spacing:.14em;
+ color:var(--mute);font-weight:800;margin-top:.25rem}
+.slab div:last-child{border-right:0}
+
+/* ---- parallax bands: photograph, scrim, tint, type. The fixed attachment is the trick. */
+.band{position:relative;isolation:isolate;
+ margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);width:100vw;
+ min-height:clamp(260px,52vh,520px);display:grid;align-items:center;
+ background-size:cover;background-position:center;background-repeat:no-repeat;
+ background-attachment:fixed;background-color:#0b0910;
+ border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);margin-block:2.6rem}
+.band::before{content:"";position:absolute;inset:0;z-index:-2;
+ background:linear-gradient(180deg,rgba(7,5,12,.82) 0%,rgba(7,5,12,.34) 38%,
+  rgba(7,5,12,.48) 62%,rgba(7,5,12,.88) 100%)}
+.band::after{content:"";position:absolute;inset:0;z-index:-1;mix-blend-mode:multiply;
+ background:radial-gradient(120% 90% at 22% 32%,rgba(109,63,176,.28),transparent 62%),
+  linear-gradient(90deg,rgba(11,9,16,.55),transparent 55%)}
+.band .in{max-width:66rem;margin:0 auto;padding:clamp(2rem,6vw,4.2rem) 1rem;width:100%}
+.band .kicker{display:block;font-family:var(--display);font-size:.7rem;font-weight:800;
+ letter-spacing:.34em;text-transform:uppercase;color:#d7bcff;margin-bottom:.7rem}
+.band h2{font-family:var(--display);font-size:clamp(1.9rem,6vw,3.5rem);line-height:.98;
+ margin:0 0 .5rem;border:0;color:#fff;text-transform:uppercase;letter-spacing:-.01em;
+ text-shadow:0 2px 26px rgba(0,0,0,.6);max-width:22ch}
+.band p{color:#efe6dc;font-size:clamp(1rem,2.2vw,1.2rem);max-width:34ch;margin:.3rem 0 0;
+ text-shadow:0 1px 14px rgba(0,0,0,.75)}
+.band .big{font-family:var(--display);font-size:clamp(3rem,11vw,7rem);line-height:.86;
+ font-weight:800;color:#fff;margin:0;text-shadow:0 3px 34px rgba(0,0,0,.6);letter-spacing:-.02em}
+.band .big small{display:block;font-family:var(--body);font-size:.16em;letter-spacing:.24em;
+ text-transform:uppercase;color:#d7bcff;margin-top:.5rem;font-weight:800}
+.band .cred{position:absolute;right:0;bottom:0;z-index:1;font-size:.6rem;color:#cbc0d8;
+ background:rgba(7,5,12,.74);padding:.22rem .5rem;max-width:74%}
+.band .cred a{color:#e2d6ef}
+.band .btn{margin-top:1.2rem}
+.band.right .in{text-align:right;display:flex;flex-direction:column;align-items:flex-end}
+.band.right::after{background:radial-gradient(120% 90% at 78% 32%,rgba(109,63,176,.28),transparent 62%),
+ linear-gradient(270deg,rgba(11,9,16,.55),transparent 55%)}
+.band.tall{min-height:clamp(340px,72vh,680px)}
+.band.short{min-height:clamp(200px,34vh,320px)}
+@media (pointer:coarse),(prefers-reduced-motion:reduce){.band{background-attachment:scroll}}
+@media print{.band{display:none}}
+
+/* ---- linked images: background, scrim, spacer, text. The whole box is the link. */
+.shot{position:relative;display:block;overflow:hidden;text-decoration:none;
+ background-color:#0b0910;isolation:isolate}
+.shot .bg{position:absolute;inset:0;background-size:cover;background-position:center;
+ background-repeat:no-repeat;transition:scale .9s cubic-bezier(.2,.7,.2,1)}
+.shot .scrim{position:absolute;inset:0;background:linear-gradient(180deg,
+ rgba(7,5,12,.08) 0%,rgba(7,5,12,.16) 40%,rgba(7,5,12,.62) 72%,rgba(7,5,12,.92) 100%)}
+.shot .sp{display:block;padding-top:62%}
+.shot .tx{position:absolute;left:0;right:0;bottom:0;padding:.5rem .7rem;color:#fff;
+ font-family:var(--display);font-weight:800;font-size:1.02rem;line-height:1.12;
+ letter-spacing:-.01em;text-shadow:0 2px 14px rgba(0,0,0,.85)}
+.shot .tx small{display:block;font-family:var(--body);font-size:.62rem;font-weight:700;
+ letter-spacing:.14em;text-transform:uppercase;color:#d7bcff;margin-bottom:.2rem}
+.shot:hover .bg{scale:1.05}
+.shot:hover .tx{text-decoration:underline;text-underline-offset:.16em}
+.shot:focus-visible{outline:3px solid var(--sun);outline-offset:-3px}
+figure.thumb{margin:0;position:relative}
+figure.thumb h3{margin:0;font-size:1rem}
+figure.thumb .cred{position:absolute;right:0;top:0;z-index:1;font-size:.56rem;
+ color:#cbc0d8;background:rgba(7,5,12,.74);padding:.14rem .38rem;max-width:74%;line-height:1.25}
+figure.thumb .cred a{color:#e2d6ef}
+.card figure.thumb{margin:-.8rem -.9rem .6rem;border-bottom:2px solid var(--line)}
+@media (prefers-reduced-motion:reduce){.shot .bg{transition:none}.shot:hover .bg{scale:1}}
+
+/* the fill is a background too: anchored to the window, the box scrolls through it */
+.box{border:3px solid var(--ink);padding:1rem 1.1rem;margin:1.4rem 0;
+ background-image:linear-gradient(140deg,color-mix(in srgb,var(--hot) 13%,transparent),
+  color-mix(in srgb,var(--sun) 15%,transparent));
+ background-attachment:fixed;background-size:cover}
+.box h3{margin-top:0}
+.box p:last-child{margin-bottom:0}
+@media (pointer:coarse),(prefers-reduced-motion:reduce){.box{background-attachment:scroll}}
+
+/* ---- pictures */
+figure.shotf{margin:1.2rem 0;border:3px solid var(--ink);background:var(--panel)}
+figure.shotf img{display:block;width:100%;height:auto}
+figure.shotf figcaption{padding:.5rem .8rem;font-size:.72rem;color:var(--mute);border-top:2px solid var(--line)}
+figure.shotf figcaption a{color:var(--mute)}
+
+/* ---- cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(16.5rem,1fr));gap:.9rem;margin:1rem 0}
+.card{border:2px solid var(--line);background:var(--panel);padding:.8rem .9rem;position:relative}
+.card:hover{border-color:var(--ink);box-shadow:4px 4px 0 var(--shadow)}
+.card h3{margin:.1rem 0 .2rem;font-size:1rem}
+.card h3 a{text-decoration:none;color:var(--ink)}.card h3 a:hover{color:var(--hot)}
+.card .th{font-size:.84rem;color:var(--mute);margin:0 0 .3rem}
+.card p{font-size:.85rem;margin:.25rem 0;max-width:none}
+.tags{display:flex;gap:.3rem;flex-wrap:wrap;margin:.45rem 0 0}
+.tag{font-size:.64rem;text-transform:uppercase;letter-spacing:.09em;font-weight:800;background:var(--chip);
+ color:var(--mute);padding:.13rem .42rem;border-radius:3px}
+.tag.walk{background:var(--w2);color:#04211e}
+.tag.ride{background:var(--w3);color:#241a02}
+.tag.scoot{background:var(--ember);color:#fff}
+.tag.drive{background:var(--w1);color:#fff}
+.tag.none{background:var(--w4);color:#fff}
+
+/* ---- the ordered route */
+ol.route{list-style:none;padding:0;margin:1.2rem 0;counter-reset:l}
+ol.route>li{border-left:5px solid var(--hot);padding:.1rem 0 1.1rem 1rem;margin:0 0 .8rem;position:relative;
+ background:linear-gradient(90deg,color-mix(in srgb,var(--hot) 8%,transparent),transparent 45%)}
+ol.route>li::before{counter-increment:l;content:counter(l);position:absolute;left:-1.45rem;top:.1rem;
+ font-family:var(--display);font-weight:800;font-size:.9rem;color:#fff;background:var(--hot);
+ width:1.5rem;height:1.5rem;display:grid;place-items:center;border-radius:99px}
+ol.route .hd{display:flex;gap:.55rem;align-items:baseline;flex-wrap:wrap}
+ol.route .hd a{font-family:var(--display);font-size:1.15rem;font-weight:800;text-decoration:none;
+ color:var(--ink);text-transform:uppercase}
+ol.route .hd a:hover{color:var(--hot)}
+ol.route .hd .th{font-size:.9rem;color:var(--mute)}
+ol.route .leg{font-size:.72rem;color:var(--mute);font-weight:800;letter-spacing:.07em;
+ text-transform:uppercase;margin:.2rem 0 0}
+ol.route p{font-size:.92rem;margin:.3rem 0 0}
+ol.route .do{font-size:.9rem;margin:.45rem 0 0;padding:.45rem .6rem;border-left:3px solid var(--sun);
+ background:color-mix(in srgb,var(--sun) 10%,transparent)}
+ol.route .do b{font-family:var(--display);text-transform:uppercase;letter-spacing:.04em;font-size:.82rem;
+ color:var(--mute);display:block}
+
+/* ---- facts table at the head of a stop */
+dl.facts{display:grid;grid-template-columns:max-content 1fr;gap:.3rem .9rem;margin:1rem 0;font-size:.88rem;
+ border-top:2px solid var(--line);border-bottom:2px solid var(--line);padding:.7rem 0}
+dl.facts dt{font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:var(--mute);
+ padding-top:.18rem}
+dl.facts dd{margin:0}
+@media (max-width:34rem){dl.facts{grid-template-columns:1fr;gap:.1rem}dl.facts dd{margin-bottom:.5rem}}
+
+/* ---- doubt */
+.doubt{border:2px dashed var(--line);padding:.7rem .85rem;margin:1.2rem 0;font-size:.9rem;
+ color:var(--mute);max-width:44rem}
+.doubt b{font-family:var(--display);text-transform:uppercase;letter-spacing:.08em;font-size:.76rem;
+ color:var(--ember);display:block;margin-bottom:.2rem}
+
+/* ---- map */
+figure.map{margin:1.4rem 0;border:3px solid var(--ink);background:var(--panel);overflow:hidden}
+figure.map svg{display:block;width:100%;height:auto}
+figure.map figcaption{padding:.55rem .8rem;font-size:.76rem;color:var(--mute);border-top:2px solid var(--line)}
+.ground{fill:var(--panel)}
+.ht{fill:none;stroke:var(--sun);stroke-width:.6;opacity:.35}
+.ht5{stroke-width:1.1;opacity:.55}
+.wa{fill:var(--sky);opacity:.55;stroke:var(--sky);stroke-width:1.8;stroke-linejoin:round}
+.wl{fill:none;stroke:var(--sky);opacity:.55;stroke-linecap:round;stroke-linejoin:round}
+.wl.river{stroke-width:3}.wl.canal{stroke-width:1.4}
+.rd{fill:none;stroke:var(--mute);opacity:.38;stroke-linecap:round;stroke-linejoin:round}
+.wall{fill:none;stroke:var(--ember);stroke-width:2;stroke-dasharray:4 3;opacity:.7}
+.north{font-family:var(--display);font-size:11px;font-weight:800;fill:var(--ink)}
+.osm{font-size:8px;fill:var(--mute);font-family:var(--body)}
+.rt{fill:none;stroke:var(--hot);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round;opacity:.85}
+.rt.case{stroke:var(--panel);stroke-width:6;opacity:.9}
+.rt.yards{stroke-width:1.8;stroke-dasharray:1 4}
+.pt{fill:var(--sun);stroke:var(--ink);stroke-width:1.4;paint-order:stroke}
+.pt.off{fill:var(--panel)}
+.plabel{font-family:var(--display);font-size:11px;font-weight:800;fill:var(--ink);
+ paint-order:stroke;stroke:var(--panel);stroke-width:3px;text-transform:uppercase}
+.scalebar line{stroke:var(--mute);stroke-width:1.5}
+.scalebar text{font-size:9px;fill:var(--mute);font-family:var(--body);font-weight:700}
+
+/* ---- tables */
+table{border-collapse:collapse;width:100%;font-size:.86rem;margin:.9rem 0}
+th,td{text-align:left;padding:.38rem .55rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.68rem;text-transform:uppercase;letter-spacing:.09em;color:var(--mute);font-weight:800;
+ border-bottom:2px solid var(--line)}
+.scroll{overflow-x:auto}
+tr:hover td{background:color-mix(in srgb,var(--sun) 9%,transparent)}
+
+/* ---- buttons */
+.btn{display:inline-block;font-family:var(--display);font-weight:800;text-transform:uppercase;
+ letter-spacing:.07em;font-size:.86rem;padding:.55rem 1rem;border:3px solid var(--ink);
+ background:var(--hot);color:#fff;text-decoration:none}
+.btn:hover{background:var(--ink);color:var(--bg)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--bg)}
+.btnrow{display:flex;gap:.6rem;flex-wrap:wrap;margin:1rem 0}
+
+/* ---- the bestiary */
+.lore{display:grid;gap:1rem;margin:1rem 0}
+.lore article{border:2px solid var(--line);background:var(--panel);padding:.85rem 1rem}
+.lore h3{margin:0 0 .1rem;font-size:1.05rem}
+.lore .nm{font-family:var(--thai);font-size:1.15rem;color:var(--ink);margin:0 0 .1rem}
+.lore .rt{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);
+ font-weight:800;margin:0 0 .5rem}
+.lore p{font-size:.95rem;max-width:46rem}
+.lore .src{font-size:.7rem;color:var(--mute);margin-top:.5rem}
+.lore .src a{color:var(--mute)}
+.gset{border-top:3px solid var(--ink);margin-top:2.2rem;padding-top:.4rem}
+.gset .glede{color:var(--mute);max-width:44rem;margin:.2rem 0 .6rem}
+
+/* ---- merit list */
+.acts{display:grid;gap:1rem;margin:1rem 0}
+.acts article{border:2px solid var(--line);background:var(--panel);padding:.85rem 1rem}
+.acts h3{margin:0 0 .2rem}
+.acts .th{font-family:var(--thai);color:var(--mute);font-size:.95rem;margin:0 0 .5rem}
+.acts ol{margin:.5rem 0;padding-left:1.15rem;font-size:.9rem}
+.acts ol li{margin:.25rem 0}
+.acts .cost{font-family:var(--mono);font-size:.82rem;color:var(--ember);font-weight:700}
+.acts .words{font-family:var(--thai);background:var(--chip);padding:.4rem .6rem;margin:.5rem 0 0;font-size:.95rem}
+
+
+/* ---- the ghost story: the one block on a stop page that is told rather than reported */
+.ghost{margin:1.6rem 0;border:3px solid var(--ink);background:var(--panel);
+ background-image:linear-gradient(160deg,color-mix(in srgb,var(--hot) 16%,transparent),
+  color-mix(in srgb,var(--sky) 10%,transparent) 55%,transparent);
+ background-attachment:fixed;background-size:cover;padding:1rem 1.15rem 1.1rem}
+.ghost>b{display:block;font-family:var(--display);text-transform:uppercase;letter-spacing:.16em;
+ font-size:.7rem;color:var(--hot);margin-bottom:.45rem}
+.ghost p{font-size:1.04rem;line-height:1.68;max-width:44rem;margin:.55rem 0}
+.ghost p:first-of-type{margin-top:0}
+.ghost .tier{display:inline-block;font-size:.6rem;font-weight:800;letter-spacing:.11em;
+ text-transform:uppercase;padding:.14rem .45rem;border-radius:3px;background:var(--chip);
+ color:var(--mute);margin-top:.7rem}
+.ghost .tier.cited{background:var(--jade);color:#04211e}
+@media (pointer:coarse),(prefers-reduced-motion:reduce){.ghost{background-attachment:scroll}}
+ol.route .gh{font-size:.9rem;margin:.45rem 0 0;padding:.45rem .6rem;border-left:3px solid var(--hot);
+ background:color-mix(in srgb,var(--hot) 9%,transparent);color:var(--ink)}
+ol.route .gh b{font-family:var(--display);text-transform:uppercase;letter-spacing:.04em;font-size:.8rem;
+ color:var(--mute);display:block}
+.rite{border:3px dashed var(--ember);padding:.9rem 1.05rem;margin:1.4rem 0}
+.rite>b{display:block;font-family:var(--display);text-transform:uppercase;letter-spacing:.1em;
+ font-size:.78rem;color:var(--ember);margin-bottom:.3rem}
+.rite .th{font-family:var(--thai);color:var(--mute);margin:0 0 .5rem}
+.rite dl.facts{margin-top:.8rem;border-bottom:0;padding-bottom:0}
+
+@media print{
+ header.top,footer.bot,.btnrow{display:none}
+ body{background:#fff;color:#000;font-size:11pt}
+ main{max-width:none}
+ ol.route>li{break-inside:avoid}
+}
+</style>
+<header class="top"><div class="in">
+<a class="brand" href="/ghost/">Ghost <b>Chiang Mai</b></a>
+<nav><a href="/ghost/">The routes</a><a href="/ghost/walk/">On foot</a><a href="/ghost/ride/">By bicycle</a><a href="/ghost/scoot/">On a scooter</a><a href="/ghost/drive/">With a driver</a><a href="/ghost/stops/" aria-current="page">Every stop</a><a href="/ghost/lore/">The rest of them</a><a href="/ghost/merit/">Making merit</a><a href="/ghost/pictures/">Your pictures</a><a href="/ghost/sources/">Sources</a></nav>
+</div></header>
+<main>
+
+<h1><span class="kind">Where the lightning landed</span>Ho Phaya Mangrai
+<span class="thai" lang="th">หอพญามังราย</span></h1>
+
+<dl class="facts">
+<dt>Where</dt><dd>Ratchadamnoen Road, Si Phum, a short block east of the Three Kings square · <a href="https://www.openstreetmap.org/?mlat=18.78828&amp;mlon=98.98788#map=17/18.78828/98.98788">18.78828, 98.98788</a> <span class="mute small">from CMHY.city</span></dd>
+<dt>Open</dt><dd>Open air, unstaffed, any hour</dd>
+<dt>Cost</dt><dd>Free</dd>
+<dt>Who is dead</dt><dd>Mangrai, founder of Chiang Mai, killed by a lightning strike in the market — B.E. 1854, 1311 CE, aged 72</dd>
+<dt>On</dt><dd><a href="/ghost/walk/">On foot</a></dd>
+</dl>
+<div class="prose"><p>He had built the city fifteen years earlier and was walking through its market when the storm came in. The Thai chronicle entry is one sentence long: struck by lightning, dead in the middle of the town.</p><p>A Lanna-roofed shrine stands under a big bodhi tree on Ratchadamnoen with a cast figure of him inside, in the dress of an old northern king. The building is modern — CMHY dates it to 1975, put up when the earlier marker became awkward to reach.</p><p>Nobody walks past it. People stop, kneel on the concrete, and talk to him.</p></div>
+<section class="ghost"><b>What is said to be there</b><p>He did not leave. In the northern reckoning a lord who dies in his own town becomes its เสื้อเมือง — the spirit of the place, wearing the office he held — and goes on running it from wherever he was put down. That is why the offerings at this shrine are not requests. People come and tell him things: what has been built, what has been sold off, who is in charge now. Seven hundred years of a city reporting to its founder on a street corner.</p><span class="tier tradition">The kind of dead this kind of place holds, in northern reckoning</span></section>
+
+<div class="doubt"><b>Where this is argued</b>Three spots claim the strike. chiangmai1.com names the ruins of Wat Sadue Muang near the Tilokarat hall, a collapsed chedi behind a royal residence by a bodhi tree, and a later memorial at the Klang Wiang intersection. The shrine you are standing at is the one people use. It may not be the one it happened at.</div>
+<h2>Making merit here</h2>
+<p>A khan tang. He is not being asked for a favour so much as reported to — the city&#x27;s founder, told how his city is doing. Flowers and candles in pairs, set down, then pour the water at the root of the bodhi tree.</p>
+<ul><li><a href="/ghost/merit/#khan-tang">Khan tang — the tray for a spirit</a> <span class="th" lang="th">ขันตั้ง</span> — Paired flowers and candles on a tray, set down in front of a spirit or a teacher. <span class="mute small">30–150 ฿ ready-made at the shrine. Less if you assemble it.</span></li><li><a href="/ghost/merit/#yat-nam">Pouring the water</a> <span class="th" lang="th">กรวดน้ำ</span> — Pour a thin stream of water while the chanting runs, and say who it is for. <span class="mute small">Nothing.</span></li></ul>
+<figure class="shotf"><img src="/ghost/images/ho-phaya-mangrai/king-mangrai-shrine-teble.jpg" alt="Ho Phaya Mangrai" loading="lazy"><figcaption>Јован Вуковић · <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a> · <a href="https://commons.wikimedia.org/wiki/File%3AKing_Mangrai_shrine_-_teble.jpg">Commons</a></figcaption></figure>
+<div class="box"><h3>Yours would be better</h3>
+<p>Every picture here was taken by someone else for some other reason.
+<a href="https://commons.wikimedia.org/wiki/Special:UploadWizard?uselang=en">Upload yours to Commons</a> under a free licence and the next
+build of this page will use it, with your name on it.</p></div>
+<h2>Sources for this stop</h2><div class="scroll"><table><tr><th>What</th><th>Who published it</th><th>Note</th></tr><tr><td><a href="https://th.wikipedia.org/wiki/พญามังราย">พญามังราย</a></td><td>Wikipedia (ไทย)</td><td class="mute"></td></tr><tr><td><a href="https://www.cmhy.city/place/40986-King-Mangrai-Shrine">ศาลพญามังรายเชียงใหม่ / King Mangrai Shrine</a></td><td>CMHY.city</td><td class="mute">gives the street, the sub-district and a coordinate, and dates the present shrine to 1975</td></tr><tr><td><a href="https://www.chiangmai1.com/chiang_mai/sub/mangrai.shtml">King Mangrai in Chiang Mai</a></td><td>chiangmai1.com</td><td class="mute">names three candidate spots for the strike and says Chai Songkhram raised a chedi on it</td></tr><tr><td><a href="https://en.wikipedia.org/wiki/Mangrai">Mangrai</a></td><td>Wikipedia</td><td class="mute"></td></tr><tr><td><a href="https://lannernews.com/31102566-02/">ผี ไม่ได้มีแค่สยองขวัญ เมื่อ &#x27;ผีล้านนา&#x27; คือการปกปักรักษา</a></td><td>Lanner</td><td class="mute">the Lanna split between ผีดี and ผีร้าย, and what เสื้อบ้าน เสื้อเมือง are</td></tr><tr><td><a href="https://he02.tci-thaijo.org/index.php/Veridian-E-Journal/article/download/8547/7297">คำเรียกผีและความเชื่อเรื่องผีในภาษาไทยถิ่นเหนือ</a></td><td>Veridian E-Journal, Silpakorn University</td><td class="mute">the northern names for the dead, collected and classified</td></tr></table></div>
+
+</main>
+<footer class="bot"><div class="in">
+<p><b>Ghost Chiang Mai</b> · ผีเจียงใหม่ — A self-guided tour of the city&#x27;s dead, on foot, by bicycle, or with a driver — and what to do at each stop.</p>
+<p>Words and data on this site: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+Take them, change them, keep the credit. Photographs carry their own licences, printed beside each one.
+Coordinates from <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, ODbL.</p>
+<p>Corrections, and pictures for the stops that have none: <a href="mailto:nan@motdang.net">nan@motdang.net</a>.
+<a href="/ghost/sources/">Every source is listed.</a></p>
+</div></footer>
+</html>

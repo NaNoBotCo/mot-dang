@@ -81,6 +81,8 @@ CSS = """
 .mo-code pre{overflow-x:auto;background:var(--card-alt);border:1px solid var(--warm-border);
   border-radius:.5rem;padding:.6rem .8rem;line-height:1.5}
 .mo-svgtxt{font-family:inherit}
+#moatmap .mo-svgtxt{paint-order:stroke;stroke:#fffdf8;stroke-width:3px;stroke-linejoin:round}
+#moatmap{margin:0}
 @media (max-width:640px){.mo-gloss{font-size:.86rem}.mo-verdict{font-size:1.2rem}}
 """
 
@@ -280,19 +282,29 @@ def emit(g, data):
 
         ring = " ".join("%.1f,%.1f" % (X(p[1]), Y(p[0])) for p in MOAT_POLY)
         # the water band: the corner ring, widened outward a touch to draw as
-        # a band of water (the corners bound the water — build.py's rule)
+        # a band of water (the corners bound the water — build.py's rule).
+        # Both are the no-tiles picture only (class mdmap-bg): once the
+        # basemap is under the drawing, its own water is the moat, and a
+        # quadrilateral through four pins would sit beside it rather than on
+        # it — the แจ่งหัวลิน record's pin is the middle of a 300 m wall
+        # ruin, ~190 m east of the corner.
         fat = 1.055
         ring_out = " ".join(
             "%.1f,%.1f" % (X(clng + (p[1] - clng) * fat), Y(clat + (p[0] - clat) * fat))
             for p in MOAT_POLY)
         parts = [
-            '<polygon points="%s" fill="var(--jade-a)" stroke="var(--jade)" '
-            'stroke-width="1.5"/>' % ring_out,
-            '<polygon points="%s" fill="var(--paper)" stroke="var(--ant-dark)" '
-            'stroke-width="2.5" stroke-dasharray="7 4"/>' % ring,
+            '<rect class="mdmap-bg" width="%.0f" height="%.0f" fill="var(--paper)"/>'
+            % (W, H),
+            '<polygon class="mdmap-bg" points="%s" fill="var(--jade-a)" '
+            'stroke="var(--jade)" stroke-width="1.5"/>' % ring_out,
+            '<polygon class="mdmap-bg" points="%s" fill="var(--paper)" '
+            'stroke="var(--ant-dark)" stroke-width="2.5" stroke-dasharray="7 4"/>' % ring,
         ]
         for glat, glng, gth, gen, kind in crossings:
             x, y = X(glng), Y(glat)
+            # A crossing is a symbol and a name: held at its drawn size while
+            # the ground zooms (map_shell's data-mdpin).
+            parts.append('<g data-mdpin="%.1f,%.1f">' % (x, y))
             if kind == "gate":
                 parts.append('<rect x="%.1f" y="%.1f" width="12" height="12" '
                              'fill="var(--paper)" stroke="var(--ink)" '
@@ -318,7 +330,7 @@ def emit(g, data):
                 lx = min(max(lx, 76), W - 76)
             parts.append('<text class="mo-svgtxt" x="%.1f" y="%.1f" '
                          'text-anchor="%s" font-size="13" fill="var(--ink)">'
-                         '%s</text>' % (lx, ly, anch, esc(gth)))
+                         '%s</text></g>' % (lx, ly, anch, esc(gth)))
         # centre label
         parts.append('<text class="mo-svgtxt" x="%.1f" y="%.1f" text-anchor="middle" '
                      'font-size="17" fill="var(--ink-soft)">ในเวียง</text>'
@@ -326,25 +338,28 @@ def emit(g, data):
         parts.append('<text class="mo-svgtxt" x="%.1f" y="%.1f" text-anchor="middle" '
                      'font-size="11" fill="var(--mute)">nai wiang — inside</text>'
                      % (W / 2, H / 2 + 12))
-        # mountain west, river east
-        parts.append('<text class="mo-svgtxt" x="8" y="%.1f" font-size="12" '
+        # mountain west, river east: pointers off the frame, so they belong
+        # to the frame and stay put when the ground pans (data-mdfix)
+        parts.append('<text class="mo-svgtxt" data-mdfix="1" x="8" y="%.1f" font-size="12" '
                      'fill="var(--jade-ink)">◀ ดอยสุเทพ%s</text>'
                      % (H / 2 + 40, " ~%.0f กม." % doi_km if doi_km else ""))
-        parts.append('<text class="mo-svgtxt" x="%.1f" y="%.1f" font-size="12" '
+        parts.append('<text class="mo-svgtxt" data-mdfix="1" x="%.1f" y="%.1f" font-size="12" '
                      'text-anchor="end" fill="var(--link)">แม่น้ำปิง ▶</text>'
                      % (W - 8, H / 2 + 40))
-        # north arrow + scale bar (500 m)
-        parts.append('<g stroke="var(--ink)" stroke-width="2" fill="none">'
+        # north arrow + scale bar (500 m); the bar is true at the drawn zoom
+        # only, so the shell hides it once the reader zooms away
+        parts.append('<g data-mdfix="1"><g stroke="var(--ink)" stroke-width="2" fill="none">'
                      '<line x1="%.1f" y1="34" x2="%.1f" y2="14"/>'
                      '<path d="M %.1f 20 L %.1f 14 L %.1f 20" fill="var(--ink)"/></g>'
                      '<text class="mo-svgtxt" x="%.1f" y="46" text-anchor="middle" '
-                     'font-size="11" fill="var(--ink)">เหนือ</text>'
+                     'font-size="11" fill="var(--ink)">เหนือ</text></g>'
                      % (W - 40, W - 40, W - 45, W - 40, W - 35, W - 40))
         sx = 500.0 / (111320 * KX) / (e - w) * W
-        parts.append('<line x1="16" y1="%.1f" x2="%.1f" y2="%.1f" '
+        parts.append('<g class="mdmap-scale" data-mdfix="1">'
+                     '<line x1="16" y1="%.1f" x2="%.1f" y2="%.1f" '
                      'stroke="var(--ink)" stroke-width="2"/>'
                      '<text class="mo-svgtxt" x="16" y="%.1f" font-size="11" '
-                     'fill="var(--ink)">500 ม.</text>'
+                     'fill="var(--ink)">500 ม.</text></g>'
                      % (H - 16, 16 + sx, H - 16, H - 24))
         lbl = bi_text(
             "แผนที่คูเมืองตามหมุดจริงในสารบัญ — สี่แจ่ง ห้าประตู รวมเก้าทางข้าม "
@@ -352,9 +367,13 @@ def emit(g, data):
             "The moat drawn to scale from the catalogue's own pins: four "
             "chaeng corners, five gates — nine named crossings. Doi Suthep "
             "lies west, the Ping river east.")
-        return ('<svg role="img" aria-label="%s" viewBox="0 0 %d %d" '
-                'xmlns="http://www.w3.org/2000/svg">%s</svg>'
-                % (att(lbl), W, round(H), "".join(parts)))
+        svg = ('<svg role="img" aria-label="%s" viewBox="0 0 %d %d" '
+               'xmlns="http://www.w3.org/2000/svg">%s</svg>'
+               % (att(lbl), W, round(H), "".join(parts)))
+        # On the site's own basemap (cm-cr.pmtiles), at the drawing's scale.
+        import map_shell
+        return map_shell.mount("moatmap", svg, lat=(n + s) / 2, lng=(w + e) / 2,
+                               mpu=(e - w) * 111320.0 * KX / W)
 
     def rings_svg():
         """The two counter-rotating one-way rings, schematic."""
@@ -670,7 +689,7 @@ def emit(g, data):
             "แผนภูมิรหัสไปรษณีย์: ที่อยู่ฝั่งในส่วนใหญ่เขียน 50200 "
             "แต่รหัสเดียวกันพบนอกเวียงด้วย — ใช้ตัดออกได้ ใช้ยืนยันไม่ได้",
             "Postcode bar: most inside addresses read 50200, but the same "
-            "code spills outside the water — it can rule out, never rule in.")
+            "code spills outside the water — it can rule out, not rule in.")
         return ('<svg role="img" aria-label="%s" viewBox="0 0 %d %d" '
                 'xmlns="http://www.w3.org/2000/svg">%s</svg>'
                 % (att(lbl), W, H, "".join(parts)))
@@ -770,7 +789,7 @@ if(b0)b0.addEventListener('click',function(){n=0;showPar();});
 
     def catch(th, en):
         return ('<p class="mo-catch"><span class="lbl">'
-                + bi("ข้อควรระวัง", "the catch") + "</span> — "
+                + bi("จุดอ่อน", "the catch") + "</span> — "
                 + bi(th, en) + "</p>")
 
     gloss_html = ('<table class="mo-gloss"><tbody>' + "".join(
@@ -958,10 +977,10 @@ if(b0)b0.addEventListener('click',function(){n=0;showPar();});
                   "road, or it is time to turn around.")
               + "</p>"
               + fig(rings_svg(),
-                    "วัดจากทิศวันเวย์ของทั้งแปดสายในสแนปช็อตถนนของมดเอง (๒๗ ส.ค. ๒๕๖๙) "
+                    "วัดจากทิศวันเวย์ของทั้งแปดสายในสแนปช็อตถนนของเราเอง (๒๗ ส.ค. ๒๕๖๙) "
                     "— ไม่มีสายไหนแย้ง",
                     "Measured from the one-way bearings of all eight roads in "
-                    "the ants' own road snapshot (2026-08-27) — not one "
+                    "our own road snapshot (2026-08-27) — not one "
                     "dissents.")
               + catch("จักรยานกับคนเดินไม่ผูกกับวันเวย์ — ดูรถยนต์เป็นหลัก "
                       "และตีสี่ถนนว่างก็ต้องรอคันแรกผ่านก่อน",
@@ -1009,7 +1028,7 @@ if(b0)b0.addEventListener('click',function(){n=0;showPar();});
                   "รหัสเป็น 50200 → ยังสรุปไม่ได้ "
                   "ส่วนชื่อตำบล: ที่อยู่ฝั่งในที่ระบุตำบลไว้ มีแต่ ศรีภูมิ กับ พระสิงห์ "
                   "(นับจากสารบัญเองตอนสร้างหน้านี้)",
-                  f"In the ants' own records, of the {pc_in} inside addresses "
+                  f"In our own records, of the {pc_in} inside addresses "
                   f"that carry a postcode, {pc_pct}% read 50200 — but 50200 "
                   f"also turns up {pc_out_50200:,} times outside the water. "
                   "So the clue works one direction only: not-50200 → almost "
@@ -1020,7 +1039,7 @@ if(b0)b0.addEventListener('click',function(){n=0;showPar();});
               + "</p>"
               + fig(postcode_svg(),
                     "เครื่องมือตัดออก ไม่ใช่เครื่องมือยืนยัน",
-                    "A ruling-out tool, never a ruling-in one")
+                    "A ruling-out tool, not a ruling-in one")
               + catch("ป้ายร้านชอบเขียนที่อยู่สาขาแรกไว้ — กระดาษบอกที่อยู่ของกระดาษ "
                       "ไม่ใช่ที่อยู่ของเท้าคุณ",
                       "Shop signs love printing the FIRST branch's address — "
@@ -1075,7 +1094,7 @@ if(b0)b0.addEventListener('click',function(){n=0;showPar();});
                       "with any other way as your check digit."))
 
         # ---- ๙ ask ----------------------------------------------------------
-        + way("๙", "ถามคน แล้วก็ถามเครื่อง", "Ask a person, then the machine",
+        + way("๙", "ถามคน แล้วก็ถามเครื่อง", "Ask a person, then the machine",  # stylecheck: allow — the name of the ninth way
               "ระยะศูนย์เมตร — คำตอบเด็ดขาด", "zero metres — the decisive clue",
               "<p>" + bi(
                   "ทางที่เก่าแก่ที่สุดยังไวที่สุด: ถามใครก็ได้ว่า ในเวียงก่อ "
@@ -1094,9 +1113,9 @@ if(b0)b0.addEventListener('click',function(){n=0;showPar();});
               + '<p class="mo-verdict" id="mo-verdict"></p>'
               + '<p class="mo-detail" id="mo-detail"></p>'
               + '<p class="mo-quiet">' + bi(
-                  "คิดในหน้านี้จบ — พิกัดไม่ออกจากเครื่องของคุณ และมดไม่เก็บอะไรทั้งนั้น",
-                  "Computed on this page — your position never leaves your "
-                  "device, and the ants keep nothing.")
+                  "คิดในหน้านี้จบ — พิกัดไม่ออกจากเครื่องของคุณ",
+                  "Computed on this page — your position does not leave your "
+                  "device.")
               + "</p><noscript><p>" + bi(
                   "ไม่มีสคริปต์ก็รู้ได้ — เก้าทางข้างบนทำงานด้วยตาเปล่าทั้งหมด "
                   "พิกัดสี่แจ่งพิมพ์ไว้ในกล่องถัดไปสำหรับเทียบมือ",

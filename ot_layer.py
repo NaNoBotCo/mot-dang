@@ -268,7 +268,7 @@ def emit(g, data):
         "whose memory is going — by an occupational therapist, who here holds a Healing "
         "Arts licence. This page was read from each place's own site. Every row carries "
         "a grade naming who is speaking: the place itself, a directory, or the usual "
-        "door. This is not medical advice. Where a place says "
+        "door. Where a place says "
         "nothing, that is silence — never a 'no'.")
 
     census = bi(
@@ -307,7 +307,7 @@ def emit(g, data):
         f'{reg_html}'
         f'{gloss_html}'
         f'{unread_html}'
-        f'<p class="ot-note">{bi("มดแดงเป็นสารบัญของสถานที่ ไม่ใช่คำแนะนำทางการแพทย์ ไม่ใช่การส่งต่อคนไข้ และไม่ใช่การรับรองคุณภาพ ข้อมูลบางส่วนมาจาก OpenStreetMap (ODbL 1.0)", "Mot Dang is a directory of places. It is not medical advice, not a referral, and not a quality guarantee. Some facility data is derived from OpenStreetMap (ODbL 1.0), © OpenStreetMap contributors.")}</p>'
+        f'<p class="ot-note">{bi("มดแดงเป็นสารบัญของสถานที่ ข้อมูลบางส่วนมาจาก OpenStreetMap (ODbL 1.0)", "Mot Dang is a directory of places. Some facility data is derived from OpenStreetMap (ODbL 1.0), © OpenStreetMap contributors.")}</p>'
         f'<p class="ot-note"><a href="care.html">{bi("ดูแลต่อเนื่อง — แผนกที่โรงพยาบาลบอกเอง", "ongoing care — the departments hospitals state")}</a> · '
         f'<a href="adhd.html">{bi("สมาธิสั้น — ทะเบียนจิตเวช", "ADHD — the psychiatric register")}</a> · '
         f'<a href="longcare.html">{bi("ดูแลระยะยาว — พักฟื้น บ้านพักคนชรา", "long-term care — convalescence, nursing homes")}</a> · '

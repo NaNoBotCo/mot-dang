@@ -1,0 +1,3951 @@
+{
+ "_readme": "Thai FDA drug register, one lookup a compound (importers/fda_register.py).",
+ "source": "https://pertento.fda.moph.go.th/FDA_SEARCH_DRUG/SEARCH_DRUG/FRM_SEARCH_DRUG.aspx",
+ "fetched": "2026-10-04",
+ "rows": {
+  "semaglutide": {
+   "query": "semaglutide",
+   "total": 23,
+   "page_active": 17,
+   "page_rows": 20,
+   "classes": {
+    "ยาควบคุมพิเศษ": 14,
+    "ยาอันตราย": 3
+   },
+   "class": [
+    "special",
+    "dangerous"
+   ],
+   "brands_en": [
+    "OZEMPIC",
+    "WEGOVY FLEXTOUCH",
+    "WEGOVY",
+    "RYBELSUS",
+    "PLOSBRIO",
+    "POVIZTRA"
+   ],
+   "brands_th": [
+    "โอเซ็มพิค",
+    "วีโกวี เฟล็กซ์ทัช",
+    "วีโกวี",
+    "รีเบลซุส",
+    "พลอสบรีโอ",
+    "โพวิซทรา"
+   ],
+   "forms": [
+    "SOLUTION FOR INJECTION",
+    "TABLET"
+   ]
+  },
+  "retatrutide": {
+   "query": "retatrutide",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "bpc-157": {
+   "query": "bpc-157",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "testosterone": {
+   "query": "testosterone",
+   "total": 122,
+   "page_active": 5,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 2,
+    "ยาควบคุมพิเศษ": 3
+   },
+   "class": [
+    "dangerous",
+    "special"
+   ],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": [
+    "CAPSULE HARD",
+    "CAPSULE, HARD",
+    "COATED TABLET",
+    "COMPRESSED TABLET",
+    "STERILE SOLUTION"
+   ]
+  },
+  "estriol": {
+   "query": "estriol",
+   "total": 18,
+   "page_active": 1,
+   "page_rows": 18,
+   "classes": {
+    "ยาอันตราย": 1
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": [
+    "COMPRESSED TABLET",
+    "CREAM",
+    "FILM - COATED TABLET",
+    "STERILE POWDER",
+    "STERILE SUSPENSION"
+   ]
+  },
+  "tirzepatide": {
+   "query": "tirzepatide",
+   "total": 12,
+   "page_active": 12,
+   "page_rows": 12,
+   "classes": {
+    "ยาควบคุมพิเศษ": 12
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "MOUNJARO"
+   ],
+   "brands_th": [
+    "มอนจาโร"
+   ],
+   "forms": [
+    "SOLUTION FOR INJECTION"
+   ]
+  },
+  "liraglutide": {
+   "query": "liraglutide",
+   "total": 6,
+   "page_active": 2,
+   "page_rows": 6,
+   "classes": {
+    "ยาควบคุมพิเศษ": 2
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "SAXENDA",
+    "XULTOPHY"
+   ],
+   "brands_th": [
+    "แซคเซ็นดา",
+    "เซาโทฟาย"
+   ],
+   "forms": [
+    "SOLUTION FOR INJECTION",
+    "STERILE SOLUTION"
+   ]
+  },
+  "dulaglutide": {
+   "query": "dulaglutide",
+   "total": 14,
+   "page_active": 2,
+   "page_rows": 14,
+   "classes": {
+    "ยาอันตราย": 2
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "TRULICITY"
+   ],
+   "brands_th": [
+    "ทรูลิซิตี้"
+   ],
+   "forms": [
+    "SOLUTION FOR INJECTION"
+   ]
+  },
+  "cagrilintide": {
+   "query": "cagrilintide",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "orforglipron": {
+   "query": "orforglipron",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "survodutide": {
+   "query": "survodutide",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "mazdutide": {
+   "query": "mazdutide",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "tb-500": {
+   "query": "thymosin beta",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "ghk-cu": {
+   "query": "ghk-cu",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "ipamorelin": {
+   "query": "ipamorelin",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "cjc-1295": {
+   "query": "cjc-1295",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "sermorelin": {
+   "query": "sermorelin",
+   "total": 1,
+   "page_active": 0,
+   "page_rows": 1,
+   "classes": {
+    "ยาควบคุมพิเศษ": 1
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "GEREF"
+   ],
+   "brands_th": [
+    "-"
+   ],
+   "forms": [
+    "STERILE POWDER"
+   ]
+  },
+  "tesamorelin": {
+   "query": "tesamorelin",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "mots-c": {
+   "query": "mots-c",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "epitalon": {
+   "query": "epitalon",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "thymosin alpha-1": {
+   "query": "thymalfasin",
+   "total": 3,
+   "page_active": 1,
+   "page_rows": 3,
+   "classes": {
+    "ยาควบคุมพิเศษ": 1
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "ZADAXIN"
+   ],
+   "brands_th": [
+    "ซาดาซิน"
+   ],
+   "forms": [
+    "STERILE POWDER"
+   ]
+  },
+  "pt-141": {
+   "query": "bremelanotide",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "melanotan ii": {
+   "query": "melanotan",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "aod-9604": {
+   "query": "aod-9604",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "kisspeptin": {
+   "query": "kisspeptin",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "selank": {
+   "query": "selank",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "semax": {
+   "query": "semax",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "ss-31": {
+   "query": "elamipretide",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "dihexa": {
+   "query": "dihexa",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "5-amino-1mq": {
+   "query": "5-amino-1mq",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "ll-37": {
+   "query": "ll-37",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "kpv": {
+   "query": "kpv",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "pinealon": {
+   "query": "pinealon",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "follistatin": {
+   "query": "follistatin",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "igf-1 lr3": {
+   "query": "mecasermin",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "somatropin": {
+   "query": "somatropin",
+   "total": 32,
+   "page_active": 7,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 2,
+    "ยาควบคุมพิเศษ": 5
+   },
+   "class": [
+    "dangerous",
+    "special"
+   ],
+   "brands_en": [
+    "SAIZEN LIQUID",
+    "EUTROPIN(TM) INJ.",
+    "NORDITROPIN",
+    "SCITROPIN A [5 MG/1.5 ML (15 IU)]",
+    "EUTROPIN S PEN INJ."
+   ],
+   "brands_th": [
+    "-",
+    "ไซโทรปิน เอ [น้ำยาสำหรับฉีด"
+   ],
+   "forms": [
+    "POWDER AND SOLVENT FOR SOLUTION FOR INJECTION",
+    "POWDER FOR SOLUTION FOR INJECTION",
+    "SOLUTION FOR INJECTION",
+    "STERILE POWDER",
+    "STERILE SOLUTION"
+   ]
+  },
+  "mk-677": {
+   "query": "ibutamoren",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "ostarine": {
+   "query": "enobosarm",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "rad-140": {
+   "query": "testolone",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "lgd-4033": {
+   "query": "ligandrol",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "cardarine": {
+   "query": "501516",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "yk-11": {
+   "query": "yk-11",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "s-23": {
+   "query": "s-23",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "sr9009": {
+   "query": "sr9009",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "nandrolone": {
+   "query": "nandrolone",
+   "total": 24,
+   "page_active": 0,
+   "page_rows": 20,
+   "classes": {
+    "ยาควบคุมพิเศษ": 3,
+    "ยาอันตราย": 17
+   },
+   "class": [
+    "special",
+    "dangerous"
+   ],
+   "brands_en": [
+    "NORABON",
+    "NANDRO 250",
+    "DUROBOLIC INJECTION",
+    "DECA-DURABOLIN",
+    "DECA-DURABOLIN (50 MG/ML)",
+    "KERATYL"
+   ],
+   "brands_th": [
+    "นอราบอน",
+    "-",
+    "เดคา-ดูราโบลิน",
+    "เดคาดูราโบลิน (50 มก./มล.)",
+    "เดคาดูราโบลิน",
+    "ดูราโบลิน"
+   ],
+   "forms": [
+    "LIQUID OPHTHALMIC",
+    "OIL SOLUTION",
+    "SOLUTION FOR INJECTION",
+    "STERILE EMULSION",
+    "STERILE SOLUTION"
+   ]
+  },
+  "trenbolone": {
+   "query": "trenbolone",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "oxandrolone": {
+   "query": "oxandrolone",
+   "total": 1,
+   "page_active": 0,
+   "page_rows": 1,
+   "classes": {
+    "ยาอันตราย": 1
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "LONAVAR"
+   ],
+   "brands_th": [
+    "-"
+   ],
+   "forms": [
+    "COMPRESSED TABLET"
+   ]
+  },
+  "stanozolol": {
+   "query": "stanozolol",
+   "total": 31,
+   "page_active": 1,
+   "page_rows": 20,
+   "classes": {
+    "ยาควบคุมพิเศษ": 1
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "STANOZOLOL TABLETS"
+   ],
+   "brands_th": [
+    "สตาโนโซลอล เม็ด"
+   ],
+   "forms": [
+    "CAPSULE SOFT",
+    "CAPSULE, SOFT",
+    "COMPRESSED TABLET",
+    "TABLET",
+    "capsule soft"
+   ]
+  },
+  "methandrostenolone": {
+   "query": "metandienone",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "boldenone": {
+   "query": "boldenone",
+   "total": 1,
+   "page_active": 0,
+   "page_rows": 1,
+   "classes": {
+    "ยาอันตราย": 1
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "BOLDELENE"
+   ],
+   "brands_th": [
+    "-"
+   ],
+   "forms": [
+    "STERILE SOLUTION"
+   ]
+  },
+  "drostanolone": {
+   "query": "drostanolone",
+   "total": 1,
+   "page_active": 0,
+   "page_rows": 1,
+   "classes": {
+    "ยาอันตราย": 1
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "ANDRACTIM"
+   ],
+   "brands_th": [
+    "แอนแดร็กพิม"
+   ],
+   "forms": [
+    "GEL"
+   ]
+  },
+  "methenolone": {
+   "query": "methenolone",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "oxymetholone": {
+   "query": "oxymetholone",
+   "total": 26,
+   "page_active": 1,
+   "page_rows": 20,
+   "classes": {
+    "ยาควบคุมพิเศษ": 1
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "ANDROMED"
+   ],
+   "brands_th": [
+    "แอนโดรเมด"
+   ],
+   "forms": [
+    "CAPSULE SOFT",
+    "CAPSULE, SOFT",
+    "COMPRESSED TABLET",
+    "TABLET",
+    "capsule soft"
+   ]
+  },
+  "mesterolone": {
+   "query": "mesterolone",
+   "total": 12,
+   "page_active": 0,
+   "page_rows": 12,
+   "classes": {
+    "ยาอันตราย": 8,
+    "ยาควบคุมพิเศษ": 4
+   },
+   "class": [
+    "dangerous",
+    "special"
+   ],
+   "brands_en": [
+    "PROVIRONUM",
+    "MESVIRON 25",
+    "DONHON"
+   ],
+   "brands_th": [
+    "โปรวีโรนุ่ม",
+    "-",
+    "ดอนฮวน",
+    "ดอนฮอน"
+   ],
+   "forms": [
+    "CAPSULE HARD",
+    "COMPRESSED TABLET",
+    "TABLET"
+   ]
+  },
+  "turinabol": {
+   "query": "chlorodehydromethyl",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "dhea": {
+   "query": "dhea",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "anastrozole": {
+   "query": "anastrozole",
+   "total": 16,
+   "page_active": 6,
+   "page_rows": 16,
+   "classes": {
+    "ยาควบคุมพิเศษ": 6
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "ANAST",
+    "ANASTROZOLE 1 EURODRUG",
+    "ANASVITAE",
+    "AREMED 1",
+    "ARIMIDEX",
+    "ANASTROZOLE SANDOZ"
+   ],
+   "brands_th": [
+    "อนาสท์",
+    "เอนาสวีเต้",
+    "-",
+    "อาริมิเด็กซ์"
+   ],
+   "forms": [
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET"
+   ]
+  },
+  "letrozole": {
+   "query": "letrozole",
+   "total": 23,
+   "page_active": 8,
+   "page_rows": 20,
+   "classes": {
+    "ยาควบคุมพิเศษ": 8
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "LETROZOLE TABLETS USP",
+    "TROZET KABI",
+    "LETOV 2.5",
+    "FEMARA",
+    "LETROVITAE",
+    "LETROZOLE 2.5 EURODRUG"
+   ],
+   "brands_th": [
+    "ยาเม็ดเล็ทโทรโซล",
+    "-",
+    "ฟีเมร่า",
+    "เลโทรวิเต้",
+    "เลโทรโซล 2.5 ยูโรดรัก",
+    "เลโทรโซล อัลโวเจน"
+   ],
+   "forms": [
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET"
+   ]
+  },
+  "exemestane": {
+   "query": "exemestane",
+   "total": 7,
+   "page_active": 3,
+   "page_rows": 7,
+   "classes": {
+    "ยาควบคุมพิเศษ": 3
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "EXAMEST",
+    "EXESIN 25",
+    "AROMASIN"
+   ],
+   "brands_th": [
+    "เอ็กซ์ซาเมส",
+    "-"
+   ],
+   "forms": [
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET",
+    "SUGAR COATED TABLET"
+   ]
+  },
+  "tamoxifen": {
+   "query": "tamoxifen",
+   "total": 75,
+   "page_active": 3,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 1,
+    "ยาควบคุมพิเศษ": 2
+   },
+   "class": [
+    "dangerous",
+    "special"
+   ],
+   "brands_en": [
+    "TAMODEX 20",
+    "BD-FUTURE",
+    "NOVOFEN 20"
+   ],
+   "brands_th": [
+    "ทาโมเด๊ก 20",
+    "-"
+   ],
+   "forms": [
+    "COMPRESSED TABLET",
+    "FILM - COATED TABLET",
+    "TABLET"
+   ]
+  },
+  "clomiphene": {
+   "query": "clomifene",
+   "total": 2,
+   "page_active": 2,
+   "page_rows": 2,
+   "classes": {
+    "ยาอันตราย": 2
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "OVA-MIT",
+    "DUINUM"
+   ],
+   "brands_th": [
+    "โอวา - มิท",
+    "ดูอินั่ม"
+   ],
+   "forms": [
+    "COMPRESSED TABLET",
+    "TABLET"
+   ]
+  },
+  "hcg": {
+   "query": "chorionic",
+   "total": 47,
+   "page_active": 1,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 1
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "IVF-C INJ."
+   ],
+   "brands_th": [
+    "ไอวีเอฟ-ซี ชนิดฉีด 5000 ไอยู"
+   ],
+   "forms": [
+    "POWDER",
+    "STERILE POWDER"
+   ]
+  },
+  "cabergoline": {
+   "query": "cabergoline",
+   "total": 1,
+   "page_active": 1,
+   "page_rows": 1,
+   "classes": {
+    "ยาอันตราย": 1
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "CABERGOL TABLET"
+   ],
+   "brands_th": [
+    "-"
+   ],
+   "forms": [
+    "TABLET"
+   ]
+  },
+  "bromocriptine": {
+   "query": "bromocriptine",
+   "total": 7,
+   "page_active": 3,
+   "page_rows": 7,
+   "classes": {
+    "ยาอันตราย": 3
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "SUPLAC",
+    "BROMOCRIPTINE MESYLATE TABLETS USP",
+    "PARLODEL"
+   ],
+   "brands_th": [
+    "ซูแพลค",
+    "-"
+   ],
+   "forms": [
+    "COMPRESSED TABLET",
+    "TABLET"
+   ]
+  },
+  "estradiol": {
+   "query": "estradiol",
+   "total": 620,
+   "page_active": 3,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 2,
+    "ยาควบคุมพิเศษ": 1
+   },
+   "class": [
+    "dangerous",
+    "special"
+   ],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": [
+    "COMPRESSED TABLET",
+    "FILM - COATED TABLET",
+    "GEL",
+    "STERILE SOLUTION",
+    "SUGAR COATED TABLET"
+   ]
+  },
+  "progesterone": {
+   "query": "progesterone",
+   "total": 219,
+   "page_active": 7,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 7
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": [
+    "CAPSULE, SOFT",
+    "COMPRESSED TABLET",
+    "STERILE SOLUTION",
+    "STERILE SUSPENSION",
+    "STERILE SUSPENSION FOR INJECTION"
+   ]
+  },
+  "dydrogesterone": {
+   "query": "dydrogesterone",
+   "total": 23,
+   "page_active": 5,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 5
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "DROGESTON",
+    "DYDROGESTERONE INTEGA",
+    "DUPHASTON",
+    "DYDROXEL"
+   ],
+   "brands_th": [
+    "โดรเจสตัน",
+    "ไดโดรเจสเตอโรน อินเทกา",
+    "ดูฟาสตัน",
+    "ดีดรอกเซล"
+   ],
+   "forms": [
+    "COMPRESSED TABLET",
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET",
+    "ORAL DROPS, POWDER FOR SUSPENSION"
+   ]
+  },
+  "drospirenone": {
+   "query": "drospirenone",
+   "total": 31,
+   "page_active": 12,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 12
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "SLINDA",
+    "HERZ",
+    "LIPZ ED",
+    "DERAREZ",
+    "LIPZ",
+    "ZONIA"
+   ],
+   "brands_th": [
+    "สลินดา",
+    "เฮอร์ซ",
+    "ลิปซ์ อีดี",
+    "เดอราเรซ",
+    "ลิปซ์",
+    "โซเนีย"
+   ],
+   "forms": [
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET"
+   ]
+  },
+  "tibolone": {
+   "query": "tibolone",
+   "total": 5,
+   "page_active": 1,
+   "page_rows": 5,
+   "classes": {
+    "ยาอันตราย": 1
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "LIVIAL"
+   ],
+   "brands_th": [
+    "ลิเวียล"
+   ],
+   "forms": [
+    "COMPRESSED TABLET"
+   ]
+  },
+  "conjugated estrogens": {
+   "query": "conjugated",
+   "total": 73,
+   "page_active": 1,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 1
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "ESTROMON F.C. TABLETS"
+   ],
+   "brands_th": [
+    "-"
+   ],
+   "forms": [
+    "FILM - COATED TABLET",
+    "STERILE POWDER",
+    "SUGAR COATED TABLET",
+    "VACCINES",
+    "VAGINAL CREAM"
+   ]
+  },
+  "levonorgestrel": {
+   "query": "levonorgestrel",
+   "total": 153,
+   "page_active": 9,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 9
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": [
+    "COMPRESSED TABLET",
+    "TABLET"
+   ]
+  },
+  "lynestrenol": {
+   "query": "lynestrenol",
+   "total": 25,
+   "page_active": 3,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 3
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "NESTOL",
+    "DAILYTON",
+    "EXLUTON"
+   ],
+   "brands_th": [
+    "เนสทอล",
+    "เดลิต้อน",
+    "-"
+   ],
+   "forms": [
+    "COMPRESSED TABLET",
+    "FILM - COATED TABLET",
+    "TABLET"
+   ]
+  },
+  "desogestrel": {
+   "query": "desogestrel",
+   "total": 75,
+   "page_active": 9,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 9
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "CERAZETTE",
+    "LESCILON 21",
+    "RITA 21",
+    "RITA 28",
+    "FEMINE 30",
+    "ELAVEN 21"
+   ],
+   "brands_th": [
+    "-",
+    "เลสซิลอน 21",
+    "ริต้า 21",
+    "ริต้า 28",
+    "ฟีมีน 30",
+    "อีลาเวน 21"
+   ],
+   "forms": [
+    "COMPRESSED TABLET",
+    "FILM - COATED TABLET",
+    "TABLET",
+    "compressed tablet"
+   ]
+  },
+  "medroxyprogesterone": {
+   "query": "medroxyprogesterone",
+   "total": 125,
+   "page_active": 6,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 6
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "MANODEPO TABLETS",
+    "DEPO - M",
+    "ENAF-150 (1 ML)",
+    "DEPOMOXIE",
+    "DEPO - PROGESTA"
+   ],
+   "brands_th": [
+    "ยาเม็ดมาโนเดปโป",
+    "ดีโป - เอ็ม",
+    "อีนาฟ-150 (1 มล.)",
+    "ดีโปมาคซี่",
+    "เด๊ปโป-โปรเจสต้า"
+   ],
+   "forms": [
+    "COMPRESSED TABLET",
+    "STERILE SOLUTION",
+    "STERILE SUSPENSION",
+    "STERILE SUSPENSION FOR INJECTION",
+    "SUSPENSION FOR INJECTION"
+   ]
+  },
+  "spironolactone": {
+   "query": "spironolactone",
+   "total": 47,
+   "page_active": 8,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 8
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "S-TONE 25",
+    "S-TONE 100",
+    "ALTONE TABLETS",
+    "ALDACTONE",
+    "SPIRONEX",
+    "SPIRONEX 100"
+   ],
+   "brands_th": [
+    "เอส-โตน 25",
+    "เอส-โตน 100",
+    "แอลตอน เม็ด",
+    "อัลแดคโตน",
+    "-",
+    "ไฮเลส 25"
+   ],
+   "forms": [
+    "CAPSULE HARD",
+    "COMPRESSED TABLET",
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET",
+    "GASTRO-RESISTANT TABLET"
+   ]
+  },
+  "cyproterone": {
+   "query": "cyproterone",
+   "total": 74,
+   "page_active": 4,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 4
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "GALE",
+    "ANDROCUR",
+    "PREME 28",
+    "SASHA"
+   ],
+   "brands_th": [
+    "เกล",
+    "แอนโดรคัวร์",
+    "พรีม 28",
+    "ซาชา"
+   ],
+   "forms": [
+    "COATED TABLET",
+    "COMPRESSED TABLET",
+    "SUGAR COATED TABLET",
+    "TABLET"
+   ]
+  },
+  "bicalutamide": {
+   "query": "bicalutamide",
+   "total": 23,
+   "page_active": 2,
+   "page_rows": 20,
+   "classes": {
+    "ยาควบคุมพิเศษ": 2
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "BICAL-50",
+    "BICATERO 50"
+   ],
+   "brands_th": [
+    "-"
+   ],
+   "forms": [
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET"
+   ]
+  },
+  "sildenafil": {
+   "query": "sildenafil",
+   "total": 48,
+   "page_active": 11,
+   "page_rows": 20,
+   "classes": {
+    "ยาควบคุมพิเศษ": 11
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "SILDERA",
+    "SILDENAFIL GPO (20 MG)",
+    "SINAFIL - 100",
+    "SIDEGRA (50 MG)",
+    "SINAFIL-50",
+    "SILATIO"
+   ],
+   "brands_th": [
+    "ซิลเดอร่า",
+    "ซิลเดนาฟิล จีพีโอ (20 มิลลิกรัม)",
+    "ไซนาฟิล - 100",
+    "ซิเดกรา (50 มิลลิกรัม)",
+    "ไซนาฟิล-50",
+    "สิลาทิโอ"
+   ],
+   "forms": [
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET"
+   ]
+  },
+  "tadalafil": {
+   "query": "tadalafil",
+   "total": 35,
+   "page_active": 4,
+   "page_rows": 20,
+   "classes": {
+    "ยาควบคุมพิเศษ": 4
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "TALAFIL-5",
+    "TALAFIL-10",
+    "TALAFIL-20",
+    "CASEY 5"
+   ],
+   "brands_th": [
+    "ทาลาฟิล-5",
+    "ทาลาฟิล-10",
+    "ทาลาฟิล-20",
+    "เคซี่ 5"
+   ],
+   "forms": [
+    "CAPSULE, SOFT",
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET"
+   ]
+  },
+  "vardenafil": {
+   "query": "vardenafil",
+   "total": 10,
+   "page_active": 0,
+   "page_rows": 10,
+   "classes": {
+    "ยาควบคุมพิเศษ": 10
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "LEVITRA(R) 5",
+    "LEVITRA 10",
+    "LEVITRA 5",
+    "LEVITRA 20"
+   ],
+   "brands_th": [
+    "เลวิตรา(R) 5",
+    "เลวิตรา 10",
+    "เลวิตรา 5",
+    "เลวิตรา 20"
+   ],
+   "forms": [
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET"
+   ]
+  },
+  "finasteride": {
+   "query": "finasteride",
+   "total": 40,
+   "page_active": 12,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 12
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "FIRIDE (1 MG TABLET)",
+    "STERCIA - 5",
+    "BENSTAT",
+    "PROSTAT 1",
+    "FIRIDE (5 MG TABLET)",
+    "GPO-FINAX (5)"
+   ],
+   "brands_th": [
+    "ฟิรายด์ ชนิดเม็ด",
+    "-",
+    "เบ็นสแตท",
+    "โปรสแตท 1",
+    "ฟิรายด์ (ชนิดเม็ด",
+    "จีพีโอ-ฟิแนกซ์ (5)"
+   ],
+   "forms": [
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET"
+   ]
+  },
+  "dutasteride": {
+   "query": "dutasteride",
+   "total": 16,
+   "page_active": 9,
+   "page_rows": 16,
+   "classes": {
+    "ยาอันตราย": 9
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "UROKA",
+    "DUTASTERIDE LOTUS",
+    "DUTASTERIDE NIKP SOFT CAP",
+    "DUTASVITAE",
+    "DUTERIDE",
+    "DUTRIDE"
+   ],
+   "brands_th": [
+    "ยูโรกา",
+    "ดูแทสเทอไรด์ โลตัส",
+    "ดูแทสเทอไรด์ นิคพี ยาแคปซูลชนิดนิ่ม",
+    "ดูแทสวีไทด์",
+    "ดูเทอไรด์",
+    "ดูไทรด์"
+   ],
+   "forms": [
+    "CAPSULE HARD",
+    "CAPSULE SOFT",
+    "CAPSULE, HARD",
+    "CAPSULE, SOFT"
+   ]
+  },
+  "minoxidil": {
+   "query": "minoxidil",
+   "total": 146,
+   "page_active": 9,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 9
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "SM-1 TM",
+    "SM-2 TM",
+    "MODIL",
+    "Moxidil",
+    "AO FORTE",
+    "MINOR TOPICAL SOLUTION"
+   ],
+   "brands_th": [
+    "เอสเอ็ม-วัน ทีเอ็ม",
+    "เอสเอ็ม-ทู ทีเอ็ม",
+    "โมดิล",
+    "โมซิดิล",
+    "เอโอ ฟอร์ท",
+    "มินอร์ ชนิดน้ำสำหรับทา"
+   ],
+   "forms": [
+    "ALCOHOLIC SOLUTION",
+    "AQEOUS SOLUTION",
+    "AQUEOUS SOLUTION",
+    "COMPRESSED TABLET",
+    "CUTANEOUS SOLUTION"
+   ]
+  },
+  "metformin": {
+   "query": "metformin",
+   "total": 315,
+   "page_active": 8,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 8
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "METFORMIN HYDROCHLORIDE",
+    "SIAMFORMET (500 MG TABLET)",
+    "AFORMIN-850",
+    "GLUCOLOC",
+    "METSTARMIN 850",
+    "MAXFORMIN-500"
+   ],
+   "brands_th": [
+    "เมทฟอร์มิน ฮัยโดรคลอไรด์",
+    "ไซแอมฟอร์เมท (500 มก. ชนิดเม็ด)",
+    "เอฟอร์มิน-850",
+    "กลูโคล็อค",
+    "เมทสตาร์มิน 850",
+    "แม็กโฟรมิน-500"
+   ],
+   "forms": [
+    "COMPRESSED TABLET",
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET",
+    "TABLET"
+   ]
+  },
+  "rapamycin": {
+   "query": "sirolimus",
+   "total": 12,
+   "page_active": 1,
+   "page_rows": 12,
+   "classes": {
+    "ยาอันตราย": 1
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "RAPAMUNE TABLETS (1MG)"
+   ],
+   "brands_th": [
+    "-"
+   ],
+   "forms": [
+    "AQEOUS SOLUTION",
+    "STERILE SOLUTION",
+    "SUGAR COATED TABLET"
+   ]
+  },
+  "acarbose": {
+   "query": "acarbose",
+   "total": 8,
+   "page_active": 0,
+   "page_rows": 8,
+   "classes": {
+    "ยาอันตราย": 8
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "GLUCOBAY 50",
+    "GLUCOBAY"
+   ],
+   "brands_th": [
+    "กลูโคเบ 50",
+    "กลูโคเบ",
+    "-"
+   ],
+   "forms": [
+    "COMPRESSED TABLET"
+   ]
+  },
+  "nmn": {
+   "query": "nmn",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "nicotinamide riboside": {
+   "query": "nicotinamide riboside",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "nad+": {
+   "query": "nicotinamide adenine",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "spermidine": {
+   "query": "spermidine",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "fisetin": {
+   "query": "fisetin",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "dasatinib": {
+   "query": "dasatinib",
+   "total": 38,
+   "page_active": 12,
+   "page_rows": 20,
+   "classes": {
+    "ยาควบคุมพิเศษ": 12
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "DASAMIA 20",
+    "DASAMIA 50",
+    "DASAMIA 70",
+    "DASAMIA 100",
+    "DASATINIB STADA",
+    "DASATINIB SCIGEN"
+   ],
+   "brands_th": [
+    "-",
+    "ไทโคดาส 50",
+    "ไทโคดาส 70"
+   ],
+   "forms": [
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET"
+   ]
+  },
+  "coenzyme q10": {
+   "query": "ubidecarenone",
+   "total": 12,
+   "page_active": 8,
+   "page_rows": 12,
+   "classes": {
+    "ยาอันตราย": 7,
+    "ยาที่ไม่ใช่ยาอันตรายหรือยาควบคุมพิเศษ": 1
+   },
+   "class": [
+    "dangerous",
+    "ยาที่ไม่ใช่ยาอันตรายหรือยาควบคุมพิเศษ"
+   ],
+   "brands_en": [
+    "ALERTEN 50 EMULCAP",
+    "REJU-Q",
+    "DECAQUINON",
+    "BIO - QUINONE Q10",
+    "BIO QUINONE Q10",
+    "BLACKMORES COQ10"
+   ],
+   "brands_th": [
+    "-",
+    "รีจู-คิว",
+    "เดคา-ควิน่อน",
+    "แบลคมอร์ส โคคิวเทน"
+   ],
+   "forms": [
+    "CAPSULE HARD",
+    "CAPSULE SOFT",
+    "CAPSULE, SOFT",
+    "COATED TABLET",
+    "SUGAR COATED TABLET"
+   ]
+  },
+  "glutathione": {
+   "query": "glutathione",
+   "total": 4,
+   "page_active": 2,
+   "page_rows": 4,
+   "classes": {
+    "ยาที่ไม่ใช่ยาอันตรายหรือยาควบคุมพิเศษ": 1,
+    "ยาอันตราย": 1
+   },
+   "class": [
+    "ยาที่ไม่ใช่ยาอันตรายหรือยาควบคุมพิเศษ",
+    "dangerous"
+   ],
+   "brands_en": [
+    "GLUTATHIONE TABLETS",
+    "BSS PLUS"
+   ],
+   "brands_th": [
+    "-"
+   ],
+   "forms": [
+    "COATED TABLET",
+    "LIQUID OPHTHALMIC",
+    "STERILE SOLUTION"
+   ]
+  },
+  "methylene blue": {
+   "query": "methylene blue",
+   "total": 32,
+   "page_active": 2,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 2
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "METHYLENE BLUE INJECTION",
+    "METHYLENE BLUE INJECTION, USP"
+   ],
+   "brands_th": [
+    "เมทิลีนบลู สำหรับฉีด",
+    "-"
+   ],
+   "forms": [
+    "CAPSULE HARD",
+    "SOLUTION FOR INJECTION",
+    "STERILE SOLUTION",
+    "SUGAR COATED TABLET"
+   ]
+  },
+  "low-dose naltrexone": {
+   "query": "naltrexone",
+   "total": 8,
+   "page_active": 2,
+   "page_rows": 8,
+   "classes": {
+    "ยาควบคุมพิเศษ": 2
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": [
+    "FILM - COATED TABLET",
+    "PROLONGED-RELEASE TABLET",
+    "STERILE SOLUTION",
+    "TABLET"
+   ]
+  },
+  "ivermectin": {
+   "query": "ivermectin",
+   "total": 268,
+   "page_active": 8,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 8
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "VERMECTIN (6 MG TABLET)",
+    "IVERMED",
+    "VERMECTIN INJECTION",
+    "IVER-6 TABLET",
+    "VERMECTIN (18 MG TABLET)",
+    "MECTINPHAR"
+   ],
+   "brands_th": [
+    "เวอร์เม็คติน (6 มิลลิกรัม ชนิดเม็ด)",
+    "ไอเวอร์เมด",
+    "เวอร์เม็คติน ชนิดฉีด",
+    "ไอเวอร์-6 ชนิดเม็ด",
+    "เวอร์เม็คติน (18 มิลลิกรัม ชนิดเม็ด)",
+    "เม็คตินฟาร์"
+   ],
+   "forms": [
+    "COMPRESSED COATING TABLET",
+    "COMPRESSED TABLET",
+    "FILM - COATED TABLET",
+    "POWDER",
+    "PREMIX FOR MEDICATED FEEDING STUFF"
+   ]
+  },
+  "modafinil": {
+   "query": "modafinil",
+   "total": 2,
+   "page_active": 2,
+   "page_rows": 2,
+   "classes": {
+    "ยาควบคุมพิเศษ": 2
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "NUVIGIL (250 MG)",
+    "NUVIGIL (150 MG)"
+   ],
+   "brands_th": [
+    "นูวิจิล (250 MG)",
+    "นูวิจิล (150 MG)"
+   ],
+   "forms": [
+    "TABLET"
+   ]
+  },
+  "armodafinil": {
+   "query": "armodafinil",
+   "total": 2,
+   "page_active": 2,
+   "page_rows": 2,
+   "classes": {
+    "ยาควบคุมพิเศษ": 2
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "NUVIGIL (250 MG)",
+    "NUVIGIL (150 MG)"
+   ],
+   "brands_th": [
+    "นูวิจิล (250 MG)",
+    "นูวิจิล (150 MG)"
+   ],
+   "forms": [
+    "TABLET"
+   ]
+  },
+  "piracetam": {
+   "query": "piracetam",
+   "total": 60,
+   "page_active": 6,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 6
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "EMBOL CAPSULES",
+    "NEUTROMED",
+    "NOOCETAM CAPSULE",
+    "CETAMPIL-800",
+    "NOOCETAM 800",
+    "SCARDA-800"
+   ],
+   "brands_th": [
+    "-",
+    "นิวโทรเมด",
+    "นูซีแทม แคปซูล",
+    "ซีแทมพิล-800",
+    "นูซีแทม 800",
+    "สคาร์ดา-800"
+   ],
+   "forms": [
+    "AQEOUS SOLUTION",
+    "CAPSULE HARD",
+    "CAPSULE, HARD",
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET"
+   ]
+  },
+  "phenibut": {
+   "query": "phenibut",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "amphetamine": {
+   "query": "amphetamine",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "lisdexamfetamine": {
+   "query": "lisdexamfetamine",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "methylphenidate": {
+   "query": "methylphenidate",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "atomoxetine": {
+   "query": "atomoxetine",
+   "total": 25,
+   "page_active": 0,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 7,
+    "ยาควบคุมพิเศษ": 13
+   },
+   "class": [
+    "dangerous",
+    "special"
+   ],
+   "brands_en": [
+    "STRATTERA"
+   ],
+   "brands_th": [
+    "-"
+   ],
+   "forms": [
+    "CAPSULE HARD",
+    "CAPSULE, HARD"
+   ]
+  },
+  "zolpidem": {
+   "query": "zolpidem",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "alprazolam": {
+   "query": "alprazolam",
+   "total": 3,
+   "page_active": 0,
+   "page_rows": 3,
+   "classes": {
+    "ยาอันตราย": 3
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "XANAX",
+    "XANAN"
+   ],
+   "brands_th": [
+    "-"
+   ],
+   "forms": [
+    "COMPRESSED TABLET"
+   ]
+  },
+  "clonazepam": {
+   "query": "clonazepam",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "diazepam": {
+   "query": "diazepam",
+   "total": 37,
+   "page_active": 0,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 20
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "DIAZEPAM TABLET",
+    "DIAPINE",
+    "DIAZEPAM",
+    "DIAZEPAM CAPSULES",
+    "DIAZEPAM TABLETS",
+    "V. DAY ZEPAM (TABLETS"
+   ],
+   "brands_th": [
+    "-",
+    "ไดอาซีแพม แท็ปเบลต",
+    "วี.เดย์ เซแพม ชนิดเม็ด",
+    "ซีแพม",
+    "ไดแพม 2",
+    "ไดเซเปี้ยน"
+   ],
+   "forms": [
+    "CAPSULE HARD",
+    "COMPRESSED TABLET",
+    "FILM - COATED TABLET",
+    "SUGAR COATED TABLET"
+   ]
+  },
+  "lorazepam": {
+   "query": "lorazepam",
+   "total": 11,
+   "page_active": 0,
+   "page_rows": 11,
+   "classes": {
+    "ยาอันตราย": 11
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "LORAZENE",
+    "SOMNIA 1",
+    "HAWKCOPAX",
+    "LORA - P2",
+    "LORA - P 1",
+    "SOMNIA 2"
+   ],
+   "brands_th": [
+    "ลอราซีน",
+    "ซอมเนีย 1",
+    "ฮ๊อคโคแพ๊กส์",
+    "-",
+    "ซอมเนีย 2",
+    "ลอร์เซ็พ"
+   ],
+   "forms": [
+    "COMPRESSED TABLET",
+    "SUGAR COATED TABLET"
+   ]
+  },
+  "melatonin": {
+   "query": "melatonin",
+   "total": 4,
+   "page_active": 2,
+   "page_rows": 4,
+   "classes": {
+    "ยาอันตราย": 2
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "MELODIN PR",
+    "CIRCADIN"
+   ],
+   "brands_th": [
+    "-"
+   ],
+   "forms": [
+    "PROLONGED-RELEASE TABLET",
+    "SUSTAINED RELEASE TABLET"
+   ]
+  },
+  "tramadol": {
+   "query": "tramadol",
+   "total": 194,
+   "page_active": 5,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 3,
+    "ยาควบคุมพิเศษ": 2
+   },
+   "class": [
+    "dangerous",
+    "special"
+   ],
+   "brands_en": [
+    "TRAMADIL INJECTION",
+    "TRAUMED",
+    "MADOLCAP",
+    "TADOL",
+    "TRAMADOL"
+   ],
+   "brands_th": [
+    "ทรามาดิล ชนิดฉีด",
+    "ทรอเมด",
+    "มาดอลแคป",
+    "ทาดอล",
+    "ทรามาดอล"
+   ],
+   "forms": [
+    "CAPSULE",
+    "CAPSULE HARD",
+    "CAPSULE, HARD",
+    "STERILE SOLUTION"
+   ]
+  },
+  "ketamine": {
+   "query": "ketamine",
+   "total": 16,
+   "page_active": 0,
+   "page_rows": 16,
+   "classes": {
+    "ยาควบคุมพิเศษ": 12,
+    "ยาอันตราย": 4
+   },
+   "class": [
+    "special",
+    "dangerous"
+   ],
+   "brands_en": [
+    "KETAMINE P",
+    "KETAMINE P 50",
+    "CATANOX",
+    "KATASIA",
+    "KETAVA (",
+    "CALYPSOL"
+   ],
+   "brands_th": [
+    "เคตามีน พี",
+    "เคตามีน - พี",
+    "-",
+    "คาตาเซีย",
+    "-คาลิบโซล",
+    "เคตาลาร์"
+   ],
+   "forms": [
+    "STERILE SOLUTION"
+   ]
+  },
+  "kratom": {
+   "query": null,
+   "total": null,
+   "note": "not a modern medicine; not looked up"
+  },
+  "adalimumab": {
+   "query": "adalimumab",
+   "total": 16,
+   "page_active": 10,
+   "page_rows": 16,
+   "classes": {
+    "ยาควบคุมพิเศษ": 10
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "HYRIMOZ HCF",
+    "AMGEVITA",
+    "IDACIO",
+    "HULIO",
+    "HYRIMOZ",
+    "PAMERA 40"
+   ],
+   "brands_th": [
+    "-",
+    "อะดาลิมูแมบ โลตัส พีเอฟพี",
+    "อะดาลิมูแมบ โลตัส พีเอฟเอส"
+   ],
+   "forms": [
+    "SOLUTION FOR INJECTION",
+    "STERILE SOLUTION"
+   ]
+  },
+  "secukinumab": {
+   "query": "secukinumab",
+   "total": 7,
+   "page_active": 1,
+   "page_rows": 7,
+   "classes": {
+    "ยาควบคุมพิเศษ": 1
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "SCAPHO (SOLUTION FOR INJECTION)"
+   ],
+   "brands_th": [],
+   "forms": [
+    "POWDER FOR SOLUTION FOR INJECTION",
+    "SOLUTION FOR INJECTION"
+   ]
+  },
+  "ixekizumab": {
+   "query": "ixekizumab",
+   "total": 6,
+   "page_active": 2,
+   "page_rows": 6,
+   "classes": {
+    "ยาควบคุมพิเศษ": 2
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "TALTZ"
+   ],
+   "brands_th": [
+    "ทอลซ์"
+   ],
+   "forms": [
+    "SOLUTION FOR INJECTION",
+    "SOLUTION FOR SOLUTION FOR INJECTION"
+   ]
+  },
+  "tildrakizumab": {
+   "query": "tildrakizumab",
+   "total": 1,
+   "page_active": 1,
+   "page_rows": 1,
+   "classes": {
+    "ยาควบคุมพิเศษ": 1
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "ILUMYA"
+   ],
+   "brands_th": [
+    "-"
+   ],
+   "forms": [
+    "SOLUTION FOR INJECTION IN PRE-FILLED SYRINGE"
+   ]
+  },
+  "risankizumab": {
+   "query": "risankizumab",
+   "total": 0,
+   "page_active": 0,
+   "page_rows": 0,
+   "classes": {},
+   "class": [],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": []
+  },
+  "ustekinumab": {
+   "query": "ustekinumab",
+   "total": 10,
+   "page_active": 6,
+   "page_rows": 10,
+   "classes": {
+    "ยาควบคุมพิเศษ": 6
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "STELARA",
+    "YESINTEK",
+    "USTEFAV",
+    "STEQEYMA"
+   ],
+   "brands_th": [
+    "-",
+    "สเตลาร่า"
+   ],
+   "forms": [
+    "CONCENTRATE FOR SOLUTION FOR INFUSION",
+    "SOLUTION FOR INJECTION",
+    "STERILE SOLUTION"
+   ]
+  },
+  "dupilumab": {
+   "query": "dupilumab",
+   "total": 3,
+   "page_active": 2,
+   "page_rows": 3,
+   "classes": {
+    "ยาอันตราย": 2
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "DUPIXENT"
+   ],
+   "brands_th": [
+    "-"
+   ],
+   "forms": [
+    "SOLUTION FOR INJECTION"
+   ]
+  },
+  "guselkumab": {
+   "query": "guselkumab",
+   "total": 2,
+   "page_active": 2,
+   "page_rows": 2,
+   "classes": {
+    "ยาควบคุมพิเศษ": 2
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "TREMFYA",
+    "TREMFYA IV"
+   ],
+   "brands_th": [
+    "-"
+   ],
+   "forms": [
+    "CONCENTRATE FOR SOLUTION FOR INFUSION",
+    "SOLUTION FOR INJECTION"
+   ]
+  },
+  "botulinum toxin": {
+   "query": "botulinum",
+   "total": 49,
+   "page_active": 13,
+   "page_rows": 20,
+   "classes": {
+    "ยาควบคุมพิเศษ": 13
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "NEURONOX",
+    "XEOMIN (100 UNITS)",
+    "BTXA 100 UNITS",
+    "LETYBO INJ. 50 UNITS",
+    "RE N TOX™ INJECTION 100 UNITS",
+    "LETYBO INJ. 100 UNITS"
+   ],
+   "brands_th": [
+    "นิวโรน็อกซ์",
+    "-",
+    "บีทีเอ็กซ์เอ 100 ยูนิต",
+    "เบียนอก 100 ยูนิต",
+    "เมตาท็อกซ์"
+   ],
+   "forms": [
+    "LARGE VOLUME PARENTERALS",
+    "LYOPHILISATE FOR SOLUTION FOR INJECTION",
+    "POWDER FOR SOLUTION FOR INJECTION",
+    "STERILE POWDER"
+   ]
+  },
+  "isotretinoin": {
+   "query": "isotretinoin",
+   "total": 83,
+   "page_active": 11,
+   "page_rows": 20,
+   "classes": {
+    "ยาควบคุมพิเศษ": 11
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "ISONIN 10",
+    "ISOTRETINOIN 20 MCP",
+    "ROACTA 10",
+    "ISOTEN 10",
+    "ACNETREX 20",
+    "ROACTA 20"
+   ],
+   "brands_th": [
+    "-",
+    "ไอโสเตรติโนอิน 20 เอ็มซีพี",
+    "โรแอ็คตา 10",
+    "ไอโซเท็น 10",
+    "โรแอ็คตา 20"
+   ],
+   "forms": [
+    "CAPSULE SOFT",
+    "CAPSULE, SOFT"
+   ]
+  },
+  "tretinoin": {
+   "query": "tretinoin",
+   "total": 172,
+   "page_active": 8,
+   "page_rows": 20,
+   "classes": {
+    "ยาควบคุมพิเศษ": 4,
+    "ยาอันตราย": 4
+   },
+   "class": [
+    "special",
+    "dangerous"
+   ],
+   "brands_en": [
+    "ISONIN 10",
+    "Bangkoklab Tretinoin cream",
+    "ISOTRETINOIN 20 MCP",
+    "BLC Tretinoin cream",
+    "ROACTA 10",
+    "ISOTEN 10"
+   ],
+   "brands_th": [
+    "-",
+    "บางกอกแล็ป เทรติโนอิน ครีม 0.05%",
+    "ไอโสเตรติโนอิน 20 เอ็มซีพี",
+    "บีแอลซี เทรติโนอิน ครีม 0.05%",
+    "โรแอ็คตา 10",
+    "บางกอกแล็ป เทรติโนอิน ครีม 0.025%"
+   ],
+   "forms": [
+    "CAPSULE SOFT",
+    "CAPSULE, SOFT",
+    "CREAM",
+    "GEL"
+   ]
+  },
+  "hydroquinone": {
+   "query": "hydroquinone",
+   "total": 48,
+   "page_active": 4,
+   "page_rows": 20,
+   "classes": {
+    "ยาที่ไม่ใช่ยาควบคุมพิเศษ/ยาอันตราย/ยาสามัญประจำบ้าน": 2,
+    "ยาอันตราย": 2
+   },
+   "class": [
+    "ยาที่ไม่ใช่ยาควบคุมพิเศษ/ยาอันตราย/ยาสามัญประจำบ้าน",
+    "dangerous"
+   ],
+   "brands_en": [
+    "PERSA TINA",
+    "DELANIN CREAM",
+    "MELLODERM - HQ"
+   ],
+   "brands_th": [
+    "เปอรฺ์ซาทินา",
+    "ครีมดีลานิน",
+    "เมลโลเดิร์ม - เอชคิว 2%",
+    "เมลโลเดิร์ม - เอชคิว"
+   ],
+   "forms": [
+    "CREAM",
+    "GEL",
+    "LOTION"
+   ]
+  },
+  "tranexamic acid": {
+   "query": "tranexamic acid",
+   "total": 122,
+   "page_active": 6,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 6
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "J-A",
+    "TRAMIC 500",
+    "TRAMIC 250",
+    "AXAMIN",
+    "TRAZEN",
+    "TRANEX-STAR"
+   ],
+   "brands_th": [
+    "เจ-เอ",
+    "ทรามิค 500",
+    "-",
+    "เอ็กซามิน",
+    "ทราเซน",
+    "ทรานเน็ก-สตาร์"
+   ],
+   "forms": [
+    "CAPSULE HARD",
+    "CAPSULE, HARD",
+    "COMPRESSED TABLET",
+    "HARD CAPSULE"
+   ]
+  },
+  "atorvastatin": {
+   "query": "atorvastatin",
+   "total": 134,
+   "page_active": 12,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 12
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "X-TIN",
+    "AVOTAS 20",
+    "CHLOVAS-ZIS 10",
+    "CHLOVAS-ZIS 20",
+    "CHLOVAS-ZIS 40",
+    "CHLOVAS-ZIS 80"
+   ],
+   "brands_th": [
+    "เอ็ก-ติน",
+    "อะโวแทส 20",
+    "คลอวาส-ซิส 10",
+    "คลอวาส-ซิส 20",
+    "คลอวาส-ซิส 40",
+    "คลอวาส-ซิส 80"
+   ],
+   "forms": [
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET"
+   ]
+  },
+  "rosuvastatin": {
+   "query": "rosuvastatin",
+   "total": 85,
+   "page_active": 17,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 17
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "SUROTIN (20 MG TABLET)",
+    "ROSTIN 10",
+    "ROVAS 20",
+    "ROSTIN 20",
+    "ROVAS 10",
+    "ROSUVA-20"
+   ],
+   "brands_th": [
+    "ซูโรติน (20 มก. ชนิดเม็ด)",
+    "รอสติน 10",
+    "โรวาส 20",
+    "รอสติน 20",
+    "โรวาส 10",
+    "โรซูว่า-20"
+   ],
+   "forms": [
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET"
+   ]
+  },
+  "levothyroxine": {
+   "query": "levothyroxine",
+   "total": 30,
+   "page_active": 7,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 7
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "PONDTROXIN",
+    "THYROSIT",
+    "PATROXIN",
+    "EUTHYROX 25 UG",
+    "ELTROXIN (TABLETS",
+    "ROVEXINE-25"
+   ],
+   "brands_th": [
+    "พอนด์ทร๊อกซิน",
+    "ไธโรซิท",
+    "พาทร็อกซิน",
+    "ยูไธร็อกซ์",
+    "-"
+   ],
+   "forms": [
+    "COMPRESSED TABLET",
+    "TABLET"
+   ]
+  },
+  "liothyronine": {
+   "query": "liothyronine",
+   "total": 2,
+   "page_active": 0,
+   "page_rows": 2,
+   "classes": {
+    "ยาอันตราย": 2
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "LYONINE",
+    "TERTROXIN"
+   ],
+   "brands_th": [
+    "ไลโอนีน",
+    "เทอร์ทร็อกซิน"
+   ],
+   "forms": [
+    "COMPRESSED TABLET"
+   ]
+  },
+  "omeprazole": {
+   "query": "omeprazole",
+   "total": 222,
+   "page_active": 7,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 7
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "OMEPAC",
+    "GASTROSEC-20",
+    "Omeprazole-BKD",
+    "LOZOL",
+    "LOACID",
+    "NYCACID"
+   ],
+   "brands_th": [
+    "โอมิแพค",
+    "แกสโตรเซค-20",
+    "โอเมพราโซล-บีเคดี",
+    "โลโซล",
+    "โลเอซิด",
+    "ไนคาซิด"
+   ],
+   "forms": [
+    "CAPSULE HARD",
+    "CAPSULE, HARD",
+    "GASTRO-RESISTANT CAPSULE, HARD",
+    "HARD CAPSULE",
+    "STERILE POWDER"
+   ]
+  },
+  "amlodipine": {
+   "query": "amlodipine",
+   "total": 201,
+   "page_active": 3,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 3
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "AMVAS 10",
+    "AMLOPINE 10",
+    "AMLOPINE"
+   ],
+   "brands_th": [
+    "แอมวาส 10",
+    "แอมโลปิน 10",
+    "แอมโลปิน"
+   ],
+   "forms": [
+    "COMPRESSED TABLET",
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET",
+    "TABLET"
+   ]
+  },
+  "losartan": {
+   "query": "losartan",
+   "total": 48,
+   "page_active": 13,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 13
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "LOSARTAN GPO (100 MG)",
+    "LANZAAR 50",
+    "TANZARIL 100",
+    "TANZARIL",
+    "LANZAAR 100",
+    "LOSARTAN GPO (50 MG)"
+   ],
+   "brands_th": [
+    "โลซาร์แทน จีพีโอ (100 มิลลิกรัม)",
+    "แลนซาร์ 50",
+    "แทนซาริล 100",
+    "แทนซาริล",
+    "แลนซาร์ 100",
+    "โลซาร์แทน จีพีโอ (50 มิลลิกรัม)"
+   ],
+   "forms": [
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET"
+   ]
+  },
+  "telmisartan": {
+   "query": "telmisartan",
+   "total": 31,
+   "page_active": 8,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 5,
+    "ยาควบคุมพิเศษ": 3
+   },
+   "class": [
+    "dangerous",
+    "special"
+   ],
+   "brands_en": [
+    "MICARDIS",
+    "TELDAY-40 (TELMISARTAN TABLETS)",
+    "TELDAY-80 (TELMISARTAN TABLETS)",
+    "SEMINTRA (4 MG/ML ORAL SOLUTION FOR CATS)",
+    "TWYNSTA TABLETS 40/5 MG",
+    "TWYNSTA TABLETS 40/10 MG."
+   ],
+   "brands_th": [
+    "-",
+    "เทลเดย์-40",
+    "เทลเดย์-80",
+    "เซมินทรา (4 มิลลิกรัม/มิลลิลิตร ยาน้ำชนิดกินสำหรับแมว)",
+    "ทวินสตา 40/5 มก.",
+    "ทวินสตา 40/10 มก."
+   ],
+   "forms": [
+    "COMPRESSED TABLET",
+    "ORAL SOLUTION",
+    "TABLET",
+    "compressed tablet"
+   ]
+  },
+  "propranolol": {
+   "query": "propranolol",
+   "total": 183,
+   "page_active": 2,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 2
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "BETALOL"
+   ],
+   "brands_th": [
+    "เบตาลอล"
+   ],
+   "forms": [
+    "COMPRESSED TABLET",
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET"
+   ]
+  },
+  "ivabradine": {
+   "query": "ivabradine",
+   "total": 15,
+   "page_active": 4,
+   "page_rows": 15,
+   "classes": {
+    "ยาอันตราย": 4
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "BRALON 5",
+    "IVAFAST 7.5",
+    "CORALAN"
+   ],
+   "brands_th": [
+    "บราลอน 5",
+    "ไอวาฟาส 7.5",
+    "-"
+   ],
+   "forms": [
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET"
+   ]
+  },
+  "fludrocortisone": {
+   "query": "fludrocortisone",
+   "total": 8,
+   "page_active": 1,
+   "page_rows": 8,
+   "classes": {
+    "ยาควบคุมพิเศษ": 1
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "FLORINEF"
+   ],
+   "brands_th": [
+    "ฟลอริเนฟ"
+   ],
+   "forms": [
+    "COMPRESSED TABLET",
+    "LIQUID OTIC"
+   ]
+  },
+  "midodrine": {
+   "query": "midodrine",
+   "total": 5,
+   "page_active": 1,
+   "page_rows": 5,
+   "classes": {
+    "ยาอันตราย": 1
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "MIDORINE TABLETS \"P.L.\""
+   ],
+   "brands_th": [
+    "-"
+   ],
+   "forms": [
+    "COMPRESSED TABLET",
+    "TABLET"
+   ]
+  },
+  "sertraline": {
+   "query": "sertraline",
+   "total": 33,
+   "page_active": 10,
+   "page_rows": 20,
+   "classes": {
+    "ยาควบคุมพิเศษ": 1,
+    "ยาอันตราย": 9
+   },
+   "class": [
+    "special",
+    "dangerous"
+   ],
+   "brands_en": [
+    "SERTRA",
+    "SERTRALINE GPO",
+    "ZOTALINE",
+    "STARIN (50 MG TABLET)",
+    "SELROTINE",
+    "SISALON 50"
+   ],
+   "brands_th": [
+    "เซอร์ตรา",
+    "เซอร์ตราลีน จีพีโอ",
+    "โซทาลีน",
+    "สตาริน (50 มิลลิกรัม ชนิดเม็ด)",
+    "เซลโรทีน",
+    "ซิซาลอน 50"
+   ],
+   "forms": [
+    "AQUEOUS SOLUTION",
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET",
+    "ORODISPERSIBLE TABLET"
+   ]
+  },
+  "escitalopram": {
+   "query": "escitalopram",
+   "total": 44,
+   "page_active": 16,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 15,
+    "ยาควบคุมพิเศษ": 1
+   },
+   "class": [
+    "dangerous",
+    "special"
+   ],
+   "brands_en": [
+    "EXITIN (10 MG)",
+    "ESLOPRAM 10",
+    "ESLOPRAM 15",
+    "ESLOPRAM 20",
+    "ESCITALOPRAM TABLETS",
+    "ESCIPAM"
+   ],
+   "brands_th": [
+    "อิซิทิน (10 มิลลิกรัม)",
+    "เอซโลแพม 10",
+    "เอซโลแพม 15",
+    "เอซโลแพม 20",
+    "-",
+    "เอสซิแพม"
+   ],
+   "forms": [
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET"
+   ]
+  },
+  "fluoxetine": {
+   "query": "fluoxetine",
+   "total": 147,
+   "page_active": 3,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 3
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "OXSAC",
+    "ANZAC"
+   ],
+   "brands_th": [
+    "-",
+    "แอนแซ็ค"
+   ],
+   "forms": [
+    "CAPSULE HARD",
+    "CAPSULE, HARD",
+    "COMPRESSED TABLET"
+   ]
+  },
+  "bupropion": {
+   "query": "bupropion",
+   "total": 11,
+   "page_active": 3,
+   "page_rows": 11,
+   "classes": {
+    "ยาอันตราย": 2,
+    "ยาควบคุมพิเศษ": 1
+   },
+   "class": [
+    "dangerous",
+    "special"
+   ],
+   "brands_en": [
+    "WELLBUTRIN XL (24 HOUR)",
+    "CONTRAVE"
+   ],
+   "brands_th": [
+    "-"
+   ],
+   "forms": [
+    "PROLONGED-RELEASE TABLET",
+    "SUSTAINED RELEASE TABLET"
+   ]
+  },
+  "venlafaxine": {
+   "query": "venlafaxine",
+   "total": 31,
+   "page_active": 6,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 6
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "DESFOXINE (EXTENDED-RELEASE TABLET)",
+    "VALOSINE S.R. CAPSULES",
+    "EFEXOR XR",
+    "NEUROFAX SR 37.5"
+   ],
+   "brands_th": [
+    "เดสโฟซีน (ชนิดเม็ดออกฤทธิ์นาน)",
+    "-"
+   ],
+   "forms": [
+    "CAPSULE HARD",
+    "CAPSULE, HARD",
+    "COMPRESSED TABLET",
+    "EXTENDED RELEASE CAPSULE",
+    "EXTENDED RELEASE TABLET"
+   ]
+  },
+  "mirtazapine": {
+   "query": "mirtazapine",
+   "total": 17,
+   "page_active": 6,
+   "page_rows": 17,
+   "classes": {
+    "ยาควบคุมพิเศษ": 1,
+    "ยาอันตราย": 5
+   },
+   "class": [
+    "special",
+    "dangerous"
+   ],
+   "brands_en": [
+    "เมอราซอล (30 มก. ชนิดเม็ด)",
+    "ZAMIR 15",
+    "ZAMIR 30",
+    "ZYMRON",
+    "REMERON SOLTAB"
+   ],
+   "brands_th": [
+    "MERASAL (30 mg Tablet)",
+    "ซาเมียร์ 15",
+    "ซาเมียร์ 30",
+    "-"
+   ],
+   "forms": [
+    "COMPRESSED TABLET",
+    "FILM - COATED TABLET",
+    "ORALLY DISINTEGRATING TABLET",
+    "ORODISPERSIBLE TABLET"
+   ]
+  },
+  "gabapentin": {
+   "query": "gabapentin",
+   "total": 81,
+   "page_active": 16,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 16
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "NEUPENTIN 600 TAB",
+    "GAPENTIN",
+    "BERLONTIN 100",
+    "BERLONTIN 600",
+    "GABAPENTIN GPO (100 mg)",
+    "GABAPENTIN GPO (300 MG)"
+   ],
+   "brands_th": [
+    "นิวเพนติน 600",
+    "กาเพ็นติน",
+    "เบอร์ลอนทิน 100",
+    "เบอร์ลอนทิน 600",
+    "กาบาเพนติน จีพีโอ (100 มก.)",
+    "กาบาเพนติน จีพีโอ (300 มก.)"
+   ],
+   "forms": [
+    "CAPSULE",
+    "CAPSULE HARD",
+    "CAPSULE, HARD",
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET"
+   ]
+  },
+  "pregabalin": {
+   "query": "pregabalin",
+   "total": 108,
+   "page_active": 17,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 17
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "POBALIN 25",
+    "PRERICA 75",
+    "NEURICA 75",
+    "LYBALIN",
+    "NEURICA 150",
+    "PREGABALIN GPO (75 MG)"
+   ],
+   "brands_th": [
+    "โปบาลิน 25",
+    "พรีริก้า 75",
+    "นิวริก้า 75",
+    "ไลบาลิน",
+    "นิวริก้า 150",
+    "พรีกาบาลิน จีพีโอ (75 มิลลิกรัม)"
+   ],
+   "forms": [
+    "CAPSULE HARD",
+    "CAPSULE, HARD"
+   ]
+  },
+  "doxycycline": {
+   "query": "doxycycline",
+   "total": 307,
+   "page_active": 6,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 6
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "N.L DOXY CAPSULES",
+    "VIDOXCIN",
+    "DOXYLCAP",
+    "DOXYTAB",
+    "DOXY H.K.",
+    "DOXIMED"
+   ],
+   "brands_th": [
+    "เอ็น.แอล.ด็อกซี่ แคปซูล",
+    "ไวด๊อกซิน",
+    "ด๊อกซิลแคป",
+    "ด็อกซี่แทบ",
+    "ด็อกซี่ เอช.เค.",
+    "ด๊อกซี่เมด"
+   ],
+   "forms": [
+    "CAPSULE HARD",
+    "CAPSULE, HARD",
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET"
+   ]
+  },
+  "amoxicillin": {
+   "query": "amoxicillin",
+   "total": 1375,
+   "page_active": 6,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 6
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "AURAMOX 500",
+    "IBIAMOX (250 MG/5 ML ORAL SUSPENSION)",
+    "COAMOX 125 ORANGE",
+    "COAMOX 125 DRY SYRUP",
+    "MOXXO FORTE DRY SYRUP",
+    "COAMOX 250 ORANGE"
+   ],
+   "brands_th": [
+    "ออรามอกซ์ 500",
+    "ไอบีอาม็อกซ์ (250 มก./5 มล. ชนิดน้ำแขวนตะกอน)",
+    "โคอะมอกซ์ 125 ออเรนจ์",
+    "-",
+    "ม็อกซ์โซ ฟอร์ท ดราย ไซรัป",
+    "โคอะมอกซ์ 250 ออเรนจ์"
+   ],
+   "forms": [
+    "CAPSULE HARD",
+    "CAPSULE, HARD",
+    "DRY SYRUP",
+    "HARD CAPSULE",
+    "POWDER"
+   ]
+  },
+  "azithromycin": {
+   "query": "azithromycin",
+   "total": 73,
+   "page_active": 14,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 14
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "AZITABB",
+    "AZYCIN",
+    "ONZET-P (FOR ORAL SUSPENSION)",
+    "MILZITH",
+    "AZITO DRY SYRUP",
+    "ATOZIN"
+   ],
+   "brands_th": [
+    "อะซิแท็บ",
+    "อาซัยซิน",
+    "ออนเซ็ท-พี (สำหรับละลายน้ำ ได้ยาน้ำแขวนตะกอน)",
+    "มิลซิท",
+    "อะซิโท ดราย ไซรัป",
+    "เอโทซิน"
+   ],
+   "forms": [
+    "-",
+    "CAPSULE",
+    "CAPSULE HARD",
+    "CAPSULE, HARD",
+    "DRY SUSPENSION"
+   ]
+  },
+  "ciprofloxacin": {
+   "query": "ciprofloxacin",
+   "total": 323,
+   "page_active": 6,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 5,
+    "ยาควบคุมพิเศษ": 1
+   },
+   "class": [
+    "dangerous",
+    "special"
+   ],
+   "brands_en": [
+    "CIPRODEE",
+    "CIPON 500",
+    "CIPROM-M",
+    "CIPROFLOX - 500",
+    "CIPROXIN (500 MG)",
+    "CIFLOXIN (250 MG TABLET)"
+   ],
+   "brands_th": [
+    "ไซโปรดี",
+    "ไซปอน 500",
+    "ไซพร็อม - เอ็ม",
+    "ซิโปรฟล็อกซ์ - 500",
+    "ซิโปรซิน",
+    "ไซฟล็อกซิน (250 มก. ชนิดเม็ด)"
+   ],
+   "forms": [
+    "-",
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET",
+    "STERILE SOLUTION"
+   ]
+  },
+  "prednisolone": {
+   "query": "prednisolone",
+   "total": 444,
+   "page_active": 2,
+   "page_rows": 20,
+   "classes": {
+    "ยาควบคุมพิเศษ": 2
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "PREDNISOLONE"
+   ],
+   "brands_th": [
+    "เพรดนิโซโลน"
+   ],
+   "forms": [
+    "COMPRESSED TABLET",
+    "CREAM",
+    "FILM - COATED TABLET",
+    "LIQUID OPHTHALMIC",
+    "TABLET"
+   ]
+  },
+  "salbutamol": {
+   "query": "salbutamol",
+   "total": 285,
+   "page_active": 5,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 5
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "STARBUMOL",
+    "SALBUTAMOL",
+    "SULBUTA - N",
+    "RESPIMOL",
+    "SALMOL SYRUP"
+   ],
+   "brands_th": [
+    "สตาร์บูมอล",
+    "ซัลบูตามอล",
+    "ซัลบูตา - เอ็น",
+    "เรสพิมอล",
+    "ซัลมอล ชนิดน้ำเชื่อม"
+   ],
+   "forms": [
+    "AEROSOL",
+    "COMPRESSED TABLET",
+    "FILM - COATED TABLET",
+    "INHALER",
+    "SYRUP"
+   ]
+  },
+  "montelukast": {
+   "query": "montelukast",
+   "total": 46,
+   "page_active": 14,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 14
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "MONTELUKAST GPO",
+    "ASTAIR",
+    "MONKAST-10",
+    "MONKAST-5",
+    "MONTULAIR 10",
+    "MONLAKAST"
+   ],
+   "brands_th": [
+    "มอนทีลูคัส จีพีโอ",
+    "แอสแต",
+    "มอนคาสท์-10",
+    "มอนคาสท์-5",
+    "มอนทูแลร์ 10",
+    "มอนลาคาส"
+   ],
+   "forms": [
+    "CHEWABLE TABLET",
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET",
+    "GRANULES"
+   ]
+  },
+  "cetirizine": {
+   "query": "cetirizine",
+   "total": 253,
+   "page_active": 8,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 8
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "CETIRIZINE TABLET",
+    "CYZINE",
+    "SETIN (10 MG TABLET)",
+    "ZYTINE SYRUP",
+    "STARTEC",
+    "S-TEC TABLET"
+   ],
+   "brands_th": [
+    "เซไทริซีน ชนิดเม็ด",
+    "-",
+    "เซติน (10 มก. ชนิดเม็ด)",
+    "ไซทีน ซัยรับ",
+    "สตาร์เทค",
+    "เอส-เทค ชนิดเม็ด"
+   ],
+   "forms": [
+    "CAPSULE, SOFT",
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET",
+    "ORAL SOLUTION",
+    "SYRUP"
+   ]
+  },
+  "loratadine": {
+   "query": "loratadine",
+   "total": 257,
+   "page_active": 11,
+   "page_rows": 20,
+   "classes": {
+    "ยาที่ไม่ใช่ยาอันตรายหรือยาควบคุมพิเศษ": 2,
+    "ยาอันตราย": 9
+   },
+   "class": [
+    "ยาที่ไม่ใช่ยาอันตรายหรือยาควบคุมพิเศษ",
+    "dangerous"
+   ],
+   "brands_en": [
+    "Z-DEEN (10 MG TABLET)",
+    "DESLORA SYRUP",
+    "DESTA SYRUP",
+    "ARIDINE",
+    "RITYNE",
+    "STARTYNE"
+   ],
+   "brands_th": [
+    "ซี-ดีน (10 มก. ชนิดเม็ด)",
+    "เดสลอร่า ไซรัพ",
+    "เดสต้า ไซรัป",
+    "อาริดีน",
+    "ไรทีน",
+    "สตาร์ทีน"
+   ],
+   "forms": [
+    "COMPRESSED COATING TABLET",
+    "COMPRESSED TABLET",
+    "FILM - COATED TABLET",
+    "SYRUP",
+    "TABLET"
+   ]
+  },
+  "pseudoephedrine": {
+   "query": "pseudoephedrine",
+   "total": 438,
+   "page_active": 0,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 20
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "SUPRAPHED",
+    "MAXIPHED SYRUP",
+    "SUDO - MED",
+    "SUDO SYRUP",
+    "PSEUDOEPHEDRINE",
+    "RHINOPHED TABLETS"
+   ],
+   "brands_th": [
+    "ซูปราเฟด",
+    "แม็กซิเฟด ไซรัพ",
+    "สูโด เม็ด",
+    "สูโด ไซรัป",
+    "สูโดอีฟีดรีน",
+    "ไรโนเฟ็ต"
+   ],
+   "forms": [
+    "COMPRESSED TABLET",
+    "ELIXIR",
+    "FILM - COATED TABLET",
+    "SYRUP"
+   ]
+  },
+  "oseltamivir": {
+   "query": "oseltamivir",
+   "total": 22,
+   "page_active": 8,
+   "page_rows": 20,
+   "classes": {
+    "ยาควบคุมพิเศษ": 8
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "GPO-A-FLU (CAPSULE",
+    "GPO-A-FLU",
+    "GPO-A-FLU (6 MG/ML)",
+    "FLUKARE 30",
+    "FLUKARE 45",
+    "FLUKARE 75"
+   ],
+   "brands_th": [
+    "จีพีโอ-เอ-ฟลู (แคปซูล",
+    "จีพีโอ-เอ-ฟลู",
+    "จีพีโอ-เอ-ฟลู (6 มิลลิกรัม/ มิลลิลิตร)",
+    "-",
+    "ทามิฟลู (75 มก. แคปซูล)"
+   ],
+   "forms": [
+    "CAPSULE HARD",
+    "CAPSULE, HARD",
+    "DRY SYRUP",
+    "HARD CAPSULE",
+    "POWDER"
+   ]
+  },
+  "emtricitabine/tenofovir": {
+   "query": "tenofovir",
+   "total": 59,
+   "page_active": 11,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 3,
+    "ยาควบคุมพิเศษ": 8
+   },
+   "class": [
+    "dangerous",
+    "special"
+   ],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": [
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET"
+   ]
+  },
+  "ondansetron": {
+   "query": "ondansetron",
+   "total": 57,
+   "page_active": 7,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 7
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "ONDANZET",
+    "ONDRAN",
+    "ONSIA INJECTION",
+    "DANTRON 8",
+    "ZETRON",
+    "ONSIA (4MG TABLET)"
+   ],
+   "brands_th": [
+    "ออนแดนเซ็ท",
+    "ออนแดรน",
+    "ออนเซีย ชนิดฉีด",
+    "แดนตรอน 8",
+    "ซีตรอน",
+    "ออนเซีย (ชนิดเม็ด"
+   ],
+   "forms": [
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET",
+    "SOLUTION FOR INJECTION",
+    "SOLUTION FOR INJECTION/INFUSION",
+    "SOLUTION FOR SOLUTION FOR INJECTION"
+   ]
+  },
+  "domperidone": {
+   "query": "domperidone",
+   "total": 222,
+   "page_active": 5,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 4,
+    "ยาที่ไม่ใช่ยาอันตรายหรือยาควบคุมพิเศษ": 1
+   },
+   "class": [
+    "dangerous",
+    "ยาที่ไม่ใช่ยาอันตรายหรือยาควบคุมพิเศษ"
+   ],
+   "brands_en": [
+    "DOMILIUM",
+    "MORIDON SUSPENSION",
+    "MOLAX SUSPENSION",
+    "MORIDON-M",
+    "DOPERAN"
+   ],
+   "brands_th": [
+    "โดมิเลี่ยม",
+    "โมริดอน ซัสเพนชั่น",
+    "โมแลกซ์ ยาน้ำแขวนตะกอน",
+    "โมริดอน-เอ็ม",
+    "โดเพอราน"
+   ],
+   "forms": [
+    "COMPRESSED TABLET",
+    "ORAL SUSPENSION",
+    "SUSPENSION",
+    "SYRUP",
+    "TABLET"
+   ]
+  },
+  "memantine": {
+   "query": "memantine",
+   "total": 40,
+   "page_active": 10,
+   "page_rows": 20,
+   "classes": {
+    "ยาควบคุมพิเศษ": 10
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "MEMANTIA 10",
+    "MEMXA 10",
+    "MEMO-10",
+    "MEMANXA 10",
+    "MEMANTIA ORAL SOLUTION",
+    "MEMANTINE HYDROCHLORIDE TABLETS"
+   ],
+   "brands_th": [
+    "เมแมนเทีย 10",
+    "เมมซ่า 10",
+    "มีโม-10",
+    "มีแมนซ่า 10",
+    "เมแมนเทีย ยาน้ำสำหรับรับประทาน",
+    "-"
+   ],
+   "forms": [
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET",
+    "ORAL SOLUTION"
+   ]
+  },
+  "donepezil": {
+   "query": "donepezil",
+   "total": 81,
+   "page_active": 14,
+   "page_rows": 20,
+   "classes": {
+    "ยาควบคุมพิเศษ": 12,
+    "ยาอันตราย": 2
+   },
+   "class": [
+    "special",
+    "dangerous"
+   ],
+   "brands_en": [
+    "DONEPEZIL HYDROCHLORIDE TABLETS",
+    "NEPZIL-5",
+    "NEPZIL-10",
+    "CEPTIA",
+    "TONIZEP 5",
+    "DORACEPT (5 MG)"
+   ],
+   "brands_th": [
+    "-",
+    "เนพซิล-5",
+    "เนพซิล-10",
+    "เซพเทีย",
+    "โทนิเซ็พ 5",
+    "โดราเซปต์ (5 มิลลิกรัม)"
+   ],
+   "forms": [
+    "COMPRESSED TABLET",
+    "COMPRESSED TABLETS",
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET",
+    "ORALLY DISINTEGRATING TABLET"
+   ]
+  },
+  "colchicine": {
+   "query": "colchicine",
+   "total": 49,
+   "page_active": 10,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 10
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "COCHIC",
+    "ZORIC",
+    "COLCHICINE TABLETS (0.6 MG)",
+    "PROCHIC",
+    "GOUTICHINE",
+    "PIPCHICINE"
+   ],
+   "brands_th": [
+    "โคชิก",
+    "โซริค",
+    "โคลชิซีน ชนิดเม็ด (0.6 มก)",
+    "โปรชิค",
+    "เกาติชิน",
+    "พิพชิซิน"
+   ],
+   "forms": [
+    "COMPRESSED TABLET",
+    "TABLET"
+   ]
+  },
+  "allopurinol": {
+   "query": "allopurinol",
+   "total": 145,
+   "page_active": 6,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 6
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "ALLONOL",
+    "ALLOSTAR-100",
+    "ALLO 100",
+    "PURIDE",
+    "PURINOL",
+    "ALLOPURINOL TABLETS"
+   ],
+   "brands_th": [
+    "อัลโลนอล",
+    "อัลโลสตาร์-100",
+    "อัลโล 100",
+    "พูไรด์",
+    "พูรินอล",
+    "แอลโลพิวรินอล ชนิดเม็ด"
+   ],
+   "forms": [
+    "COMPRESSED TABLET",
+    "SUSTAINED RELEASE TABLET",
+    "TABLET"
+   ]
+  },
+  "apixaban": {
+   "query": "apixaban",
+   "total": 38,
+   "page_active": 20,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 20
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "MEIPIXA",
+    "APCLOT (2.5 MG TABLET)",
+    "APCLOT (5 MG TABLET)",
+    "AXIBEL",
+    "IBIXAN 2.5",
+    "IBIXAN 5"
+   ],
+   "brands_th": [
+    "เมพิซ่า",
+    "แอพคลอท (2.5 มก. ชนิดเม็ด)",
+    "แอพคลอท (5 มก. ชนิดเม็ด)",
+    "อะซิเบล",
+    "ไอบิแซน 2.5",
+    "ไอบิแซน 5"
+   ],
+   "forms": [
+    "FILM-COATED TABLET"
+   ]
+  },
+  "warfarin": {
+   "query": "warfarin",
+   "total": 65,
+   "page_active": 3,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 3
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "MAFORAN",
+    "MORFARIN-3",
+    "MORFARIN-5"
+   ],
+   "brands_th": [
+    "มาฟอแรน",
+    "มอร์ฟาริน-3",
+    "มอร์ฟาริน-5"
+   ],
+   "forms": [
+    "-",
+    "COMPRESSED TABLET"
+   ]
+  },
+  "insulin glargine": {
+   "query": "glargine",
+   "total": 26,
+   "page_active": 6,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 6
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [],
+   "brands_th": [],
+   "forms": [
+    "SOLUTION FOR INJECTION",
+    "STERILE SOLUTION"
+   ]
+  },
+  "empagliflozin": {
+   "query": "empagliflozin",
+   "total": 36,
+   "page_active": 20,
+   "page_rows": 20,
+   "classes": {
+    "ยาอันตราย": 20
+   },
+   "class": [
+    "dangerous"
+   ],
+   "brands_en": [
+    "EMPAZIN",
+    "EPPLE 10",
+    "EPPLE 25",
+    "COZINE 25",
+    "COZINE 10",
+    "EMPAZTO 10"
+   ],
+   "brands_th": [
+    "เอ็มพาซิน",
+    "เอ็ปเปิ้ล 10",
+    "เอ็ปเปิ้ล 25",
+    "โคซีน 25",
+    "โคซีน 10",
+    "เอ็มปาซโต้ 10"
+   ],
+   "forms": [
+    "FILM-COATED TABLET"
+   ]
+  },
+  "dapagliflozin": {
+   "query": "dapagliflozin",
+   "total": 19,
+   "page_active": 14,
+   "page_rows": 19,
+   "classes": {
+    "ยาอันตราย": 12,
+    "ยาควบคุมพิเศษ": 2
+   },
+   "class": [
+    "dangerous",
+    "special"
+   ],
+   "brands_en": [
+    "FLOZINA (10 MG)",
+    "DAPFIGA 5",
+    "GLIFLOZIN TABLET (10 MG)",
+    "DAPFIGA 10",
+    "EDISTRIDE (10 MG FILM-COATED TABLETS)",
+    "DAPAZOX 5"
+   ],
+   "brands_th": [
+    "โฟลซินา (10 มิลลิกรัม)",
+    "แดปฟิก้า 5",
+    "กลิโฟลซิน ชนิดเม็ด (10 มิลลิกรัม)",
+    "แดปฟิก้า 10",
+    "เอดิสไทรด์ (10 มิลลิกรัม ยาเม็ดชนิดเคลือบฟิล์ม)",
+    "ดาพาซ็อกซ์ 5"
+   ],
+   "forms": [
+    "FILM - COATED TABLET",
+    "FILM-COATED TABLET",
+    "SUSTAINED RELEASE TABLET"
+   ]
+  },
+  "misoprostol": {
+   "query": "misoprostol",
+   "total": 10,
+   "page_active": 5,
+   "page_rows": 10,
+   "classes": {
+    "ยาควบคุมพิเศษ": 5
+   },
+   "class": [
+    "special"
+   ],
+   "brands_en": [
+    "CYTOTEC",
+    "MISOPROSTOL TABLETS",
+    "ACE MISO",
+    "MISOMIFE-FEM COMBO",
+    "MEDABON"
+   ],
+   "brands_th": [
+    "ไซโตเท็ค",
+    "-"
+   ],
+   "forms": [
+    "COMPRESSED TABLET",
+    "TABLET",
+    "compressed tablet"
+   ]
+  }
+ }
+}

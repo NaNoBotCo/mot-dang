@@ -1,0 +1,161 @@
+{
+ "yat-nam": {
+  "name": "Pouring the water",
+  "th": "กรวดน้ำ",
+  "nth": "หยาดน้ำ (yàat nám)",
+  "one_line": "Pour a thin stream of water while the chanting runs, and say who it is for.",
+  "how": [
+   "Buy or borrow a small jug. Any bottle does.",
+   "While a monk chants, pour a thread of water — slow, unbroken — into a cup, a bowl, or onto the ground at the foot of a tree.",
+   "Hold the dead person in mind and name them, silently or aloud.",
+   "When the chanting stops, tip the rest out at the root of a tree."
+  ],
+  "cost": "Nothing.",
+  "words": "อิทัง เม ญาตีนัง โหตุ — let this be for my relatives.",
+  "note": "This is the act that moves merit from you to someone dead. Every other act on this page ends with it."
+ },
+ "tan-khan-khao": {
+  "name": "Tan khan khao — the tray of rice",
+  "th": "ตานขันข้าว",
+  "nth": "ตานขันเข้า",
+  "one_line": "A tray of food handed to a monk in a named dead person's name.",
+  "how": [
+   "Make up or buy a tray: rice, a savoury dish, a sweet, water, sometimes a flower, a candle and incense.",
+   "Write the dead person's name on a slip and put it on the tray, or tell the monk.",
+   "Hand it over in the morning, before the monks eat — before about 11 a.m.",
+   "The monk chants; you pour the water."
+  ],
+  "cost": "50–200 ฿ for a tray bought at the wat gate. Made at home it costs what the food costs.",
+  "when": "Any morning. Most households do it at Pi Mai Mueang (Songkran), at Ok Phansa, and on the anniversary of a death.",
+  "note": "The Lanna form. In the north this, not the incense stick, is what people mean by making merit for the dead.",
+  "sources": [
+   "matichon-khankhao",
+   "openbase-khankhao"
+  ]
+ },
+ "tan-tung": {
+  "name": "Offering a tung",
+  "th": "ตานตุง",
+  "nth": "ตุง",
+  "one_line": "A long narrow banner, raised at the wat, offered in a dead person's name.",
+  "how": [
+   "Buy a tung at the wat or at Ton Lam Yai market — paper, cloth, or metal.",
+   "Write the name on the tail.",
+   "Hand it to the wat to be hung, or hang it on the pole yourself where the wat puts them."
+  ],
+  "cost": "20–150 ฿ paper or cloth. A metal one runs higher.",
+  "note": "The northern telling is that the banner hangs down far enough for the dead to take hold of and climb.",
+  "sources": [
+   "cmru-culture"
+  ]
+ },
+ "pang-pratip": {
+  "name": "Lighting a pang pratip",
+  "th": "ผางประทีป",
+  "one_line": "A small clay saucer with a wick, lit at the base of a chedi.",
+  "how": [
+   "Buy a handful at the wat or at any market in the weeks before Yi Peng.",
+   "Fill with wax or oil if it is not already filled; light it; set it down on the terrace, the wall, or the chedi's base.",
+   "Do not leave it where it can catch."
+  ],
+  "cost": "5–20 ฿ each.",
+  "when": "Any time. In quantity at Yi Peng, on the full moon of the twelfth northern month.",
+  "note": "The lamps are for the dark, and the dark is where the dead are said to be."
+ },
+ "bangsukun": {
+  "name": "Pha bangsukun — the cloth",
+  "th": "ผ้าบังสุกุล",
+  "one_line": "A length of cloth laid out for a monk to take up, on behalf of someone dead.",
+  "how": [
+   "Ask at the wat office for บังสุกุล. Bring a robe-length of cloth, or buy one there.",
+   "Lay it where the monk directs — over a coffin, a photograph, a reliquary, or a bare mat.",
+   "The monk takes it up and chants the four lines about what is impermanent."
+  ],
+  "cost": "150–500 ฿ for the cloth.",
+  "note": "The oldest of these acts and the plainest: a rag picked up off the ground, which is what the word means."
+ },
+ "khan-tang": {
+  "name": "Khan tang — the tray for a spirit",
+  "th": "ขันตั้ง",
+  "nth": "ขันห้า / ขันแปด",
+  "one_line": "Paired flowers and candles on a tray, set down in front of a spirit or a teacher.",
+  "how": [
+   "Count in pairs. Five pairs of flowers and five pairs of candles is the small tray; eight pairs is the larger one.",
+   "Add betel, a little rice, a coin.",
+   "Set it down, kneel, say what you came for. Take the tray away with you or leave it, as the shrine keeper directs."
+  ],
+  "cost": "30–150 ฿ ready-made at the shrine. Less if you assemble it.",
+  "note": "This one is not Buddhist merit. It is what you hand a spirit who was here before the wats were, and it is what the shrines on this route are actually set up to receive."
+ },
+ "khan-dok": {
+  "name": "Sai khan dok — flowers in the bowl",
+  "th": "ใส่ขันดอก",
+  "one_line": "Drop flowers into each of the bowls set out around the pillar.",
+  "how": [
+   "Take a bunch from the sellers at the gate.",
+   "Walk the row of bowls and put a few blooms in each.",
+   "Some bowls carry a name — a guardian, a direction, a year of birth. Read the labels."
+  ],
+  "cost": "20–50 ฿ a bunch.",
+  "when": "The eight days of Bun Inthakhin, ending on the full moon of the eighth northern month (late May). Outside those days the bowls are not out.",
+  "note": "For the city pillar, not for a person."
+ },
+ "suep-chata": {
+  "name": "Suep chata — extending the thread",
+  "th": "สืบชะตา",
+  "one_line": "A rite that lengthens a life, a house, a river or a town.",
+  "how": [
+   "Arranged with the wat in advance, not walked into.",
+   "A tripod of poles, banana stems, a thread that runs from the chanting down to whoever is sitting under it."
+  ],
+  "cost": "By arrangement with the wat.",
+  "note": "Listed here because two of the stops on this route are places where the rite is done for the whole city, not for a person."
+ },
+ "song-khro": {
+  "name": "Song khro — sending it away",
+  "th": "ส่งเคราะห์",
+  "one_line": "Misfortune loaded onto a raft or a tray and carried out of the house.",
+  "how": [
+   "A tray or a small raft, a scrap of the person's clothing or hair, rice, a figure standing in for them.",
+   "Set down at a crossroads, a river, or outside the wall — outward, always.",
+   "Done by a spirit doctor or a lay elder rather than by a monk."
+  ],
+  "cost": "By arrangement.",
+  "note": "The old city gates were the outward. Suan Prung was the one the dead went through."
+ },
+ "unclaimed": {
+  "name": "Paying for the unclaimed dead",
+  "th": "ทำบุญศพไร้ญาติ",
+  "one_line": "Money to the rescue foundation that collects bodies nobody claims, and buries or burns them.",
+  "how": [
+   "Chiang Mai's foundations keep a donation box at their stations and take transfers.",
+   "Ask for ศพไร้ญาติ — the unclaimed.",
+   "Some years a foundation holds a mass cremation for the year's accumulated dead and takes names then."
+  ],
+  "cost": "Whatever you put in.",
+  "note": "For a route about people who died without anyone to light a lamp for them, this is the act that matches."
+ },
+ "sweep": {
+  "name": "Sweeping",
+  "th": "กวาดลานวัด",
+  "one_line": "Pick up a broom that is already leaning there and sweep.",
+  "how": [
+   "Brooms sit against the wall at most of these wats.",
+   "Sweep the terrace, the path, the leaf fall under the bodhi tree. Put the broom back."
+  ],
+  "cost": "Nothing.",
+  "note": "Counts. Nobody will stop you, and at the quiet wats on this route it is the most useful thing a visitor does all day."
+ },
+ "tile": {
+  "name": "Buying a tile",
+  "th": "ทำบุญกระเบื้อง",
+  "one_line": "Write a name on a roof tile that goes onto a building.",
+  "how": [
+   "Where a wat is re-roofing there is a stack of tiles and a marker pen.",
+   "Write the dead person's name, your own, or both.",
+   "Pay what the sign asks and set the tile on the pile."
+  ],
+  "cost": "Usually 50–100 ฿ a tile; the sign says.",
+  "note": "Only available where there is work going on. Two or three of these stops have a stack out at any given time."
+ }
+}

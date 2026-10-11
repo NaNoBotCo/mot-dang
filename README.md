@@ -1,8 +1,12 @@
 # มดแดง Mot Dang — Chiang Mai · Chiang Rai city directory
 
 Thai-first, 1997-directory-genre city index + GIS. The dataset is the product;
-the directory pages and (later) the map are two lenses on it. Chiang Mai is the
-full build-out; Chiang Rai is a wireframe that grows.
+the directory pages and (later) the map are two lenses on it. Two provinces,
+both real: Chiang Mai 62,848 records, Chiang Rai 25,398 (counted 2026-09-18).
+Chiang Rai was a wireframe in August and stopped being one; it is ahead of
+Chiang Mai on pins (99.6% against 99.3%) and on Thai in the name (78.1% against
+66.8%), level on Facebook pages, a few points behind on phone and address. A
+smaller province, not a thinner one — say it that way.
 
 ## Quickstart
 
@@ -99,9 +103,9 @@ crawl's clothes.
   from 1 to 109. The hit curve flattens past 30m (73 at 20m, 79 at 30m, 87 at
   50m) — the extra hits at 50m are bank lobbies across the road, so 30m is where
   evidence stops and guessing starts.
-- **Filter chips are AND, not OR** — the question is always "a cash machine
-  *and* somewhere to sit". The heading count follows the filter, so it says what
-  is on screen.
+- **Filter chips are AND today** — "a cash machine *and* somewhere to sit".
+  The heading count follows the filter, so it says what is on screen. OR is not
+  built, not refused; WO-75's boolean engine has both.
 - **The vocabulary lives in three files** (schema, worker, build) because a
   Cloudflare Worker cannot read the repo at request time.
   [tests/test_facets.py](tests/test_facets.py) fails if they drift: an

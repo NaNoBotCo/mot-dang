@@ -30,7 +30,7 @@ is a lie the map tells confidently:
              is the tier that reaches the Latin-script addresses nothing else
              touches, and it took coverage from 53% to 87%.
   tambon   — the subdistrict, preferably with its อำเภอ.
-  none     — nothing matched. Returns None. A record with no pin is honest; an
+  none     — nothing matched. Returns None. A record with no pin states what is known; an
              invented one is not.
 
 Tried in that order, precise first. Measured over 1,452 surveyed places that
@@ -62,6 +62,38 @@ ROAD_WORDS = (
     "st", "highway", "hwy",
 )
 THAI = re.compile(r"[ก-๙]")
+CORROBORATE_SLACK = 1.5      # same figure bearings_layer uses for the same question
+
+
+def _sign(norm_key):
+    """The key as whoever painted the sign might have spelt it.
+
+    Thai romanisation does not agree with itself, and the disagreements are
+    RULES, not a list of spellings (WO-68's lesson: `th?a\\s*ph?ae` covers
+    Tha Phae / Thapae / Thaphae / Tapae in one pattern). Three of them cover
+    nearly every road in the catalogue:
+
+      * the h after t, p and k — an aspirate the sign may or may not write:
+        Thapae / Tapae, Kaeo / Kaew, Phra / Pra
+      * the space — Wua Lai / Wualai, Chang Klan / Changklan
+      * a closing y or w for i or o — Huay Kaew / Huai Kaeo, Nimmanhaemin /
+        Nimmanhemin is a different fault and is left to the alias table.
+
+    Applied to BOTH sides, so the index and the address meet in the middle.
+    Latin only: Thai script spells one way. Empty for a key shorter than six
+    letters once folded, the same floor by_flat uses — a short key matches a
+    road by chance.
+    """
+    if not norm_key or THAI.search(norm_key):
+        return ""
+    toks = []
+    for t in norm_key.split():
+        t = re.sub(r"(?<=[tpk])h", "", t)
+        t = re.sub(r"y$", "i", t)
+        t = re.sub(r"w$", "o", t)
+        toks.append(t)
+    flat = "".join(toks)
+    return flat if (len(flat) >= 6 or len(norm_key) >= 6) else ""
 
 
 def _norm(s):
@@ -121,12 +153,44 @@ class Gazetteer:
                 continue
             pts = [(r["lat"], r["lng"])
                    for r in json.load(open(f, encoding="utf-8"))
-                   if r.get("lat") and (r.get("geoPrecision") or "exact") == "exact"]
+                   if r.get("lat") and (r.get("geoPrecision") or "exact") == "exact"
+                   and not (r.get("attrs") or {}).get("pinVia")]
             if pts:
                 self._cent[prov] = (sum(p[0] for p in pts) / len(pts),
                                     sum(p[1] for p in pts) / len(pts))
+        # อำเภอ centres and radii, from OSM boundary relations
+        # (data/curated/admin_areas.json, importers/crawl_admin.py). The
+        # district is the one witness almost every Thai address carries —
+        # "อ.ฝาง" — and until 2026-09-07 nothing here read it, which is how a
+        # Fang school was placed on the Chiang Mai city stub of ถนนโชตนา.
+        self.amphoe = {}
+        try:
+            _adm = json.load(open(os.path.join(ROOT, "data", "curated",
+                                               "admin_areas.json"),
+                                  encoding="utf-8"))
+            for prov, tiers in (_adm.get("areas") or {}).items():
+                for name, v in (tiers.get("amphoe") or {}).items():
+                    if isinstance(v, list) and len(v) >= 3:
+                        self.amphoe[(prov, name)] = (v[0], v[1], int(v[2]))
+        except (OSError, ValueError):
+            pass
         self.by_name = {}
+        self.by_flat = {}
+        self.by_sign = {}
         self.mislabelled = []
+        # data/curated/street_aliases.json — spellings the rules above cannot
+        # reach (Nimmanhaemin / Nimmanhemin / นิมมาน), hand-written, slug-keyed.
+        # Read once here so an alias indexes exactly like the road's own name.
+        aliases = {}
+        try:
+            _al = json.load(open(os.path.join(ROOT, "data", "curated",
+                                              "street_aliases.json"),
+                                 encoding="utf-8"))
+            for slug, names in _al.items():
+                if not slug.startswith("_"):
+                    aliases[slug] = list(names)
+        except (OSError, ValueError):
+            pass
         for s in streets:
             if not s.get("geom"):
                 continue
@@ -154,6 +218,7 @@ class Gazetteer:
                      "labelled": s.get("province"), "pt": pt, "length": length}
             names = [s.get("name"), s.get("nameEn"), s.get("key")]
             names += list(s.get("aliases") or []) + list(s.get("alsoSpelled") or [])
+            names += aliases.get(s["slug"], [])
             for n in names:
                 k = _norm(n)
                 # A key holds every road that answers to it, not the first one
@@ -162,6 +227,21 @@ class Gazetteer:
                 # for the other.
                 if k:
                     self.by_name.setdefault(k, []).append(entry)
+                    # THAI ROMANISATION DOES NOT AGREE WITH ITSELF ABOUT SPACES.
+                    # streets.json holds "Thapae Road" and "Wua Lai"; the
+                    # addresses people write say "Tha Phae Rd" and "Wualai Rd".
+                    # Neither pair matched, so the two busiest roads in the old
+                    # city reached no address at all and every shop on them fell
+                    # through to a postcode centroid 4 km wide. A second index
+                    # with the spaces taken out, checked only when the exact one
+                    # finds nothing, costs one dict and answers both.
+                    if not THAI.search(k):
+                        flat = k.replace(" ", "")
+                        if len(flat) >= 6:
+                            self.by_flat.setdefault(flat, []).append(entry)
+                        sg = _sign(k)
+                        if sg:
+                            self.by_sign.setdefault(sg, []).append(entry)
         # ---- landmarks: the catalogue siting itself --------------------------
         #
         # An address that names a place we ALREADY HOLD needs no inference at
@@ -176,7 +256,7 @@ class Gazetteer:
         # indexed at all rather than resolved by a coin flip.
         self.landmarks = {}
         seen_name = {}
-        # EVERY road name, including the 484 with no geometry. The first guard
+        # every road name, including the 484 with no geometry. The first guard
         # only knew roads we could draw, so พหลโยธิน — a highway we hold no
         # line for — stayed indexed as a landmark and answered for every
         # address along it, 52 km out.
@@ -214,7 +294,8 @@ class Gazetteer:
             if not os.path.exists(f):
                 continue
             for r in json.load(open(f, encoding="utf-8")):
-                if (r.get("geoPrecision") or "exact") != "exact" or not r.get("lat"):
+                if ((r.get("geoPrecision") or "exact") != "exact"
+                        or (r.get("attrs") or {}).get("pinVia")) or not r.get("lat"):
                     continue
                 for n in (r.get("name"), r.get("nameEn"), r.get("nameTh")):
                     k = _norm(n)
@@ -230,7 +311,7 @@ class Gazetteer:
                     # that highway then matched that one branch. Five of them
                     # landed 49-52 km out, each stating ±150 m. If the name is
                     # in the street index it is a road here, whatever else also
-                    # answers to it, and the street tier is the honest handler.
+                    # answers to it, and the street tier is the fitting handler.
                     if k in self.by_name or k in road_keys or k in admin_keys:
                         continue
                     if re.match(r"^(tambon|amphoe|chang wat|changwat|ตำบล|อำเภอ|จังหวัด)\b", k):
@@ -285,12 +366,13 @@ class Gazetteer:
                 # a centroid built from guesses, siting the next guess. An
                 # approximate pin is an output of this module and must never
                 # become an input to it.
-                if (r.get("geoPrecision") or "exact") != "exact":
+                if ((r.get("geoPrecision") or "exact") != "exact"
+                        or (r.get("attrs") or {}).get("pinVia")):
                     continue
                 a = r.get("attrs") or {}
                 t = _norm(a.get("subdistrict"))
                 if t and r.get("lat"):
-                    acc.setdefault(t, []).append((r["lat"], r["lng"]))
+                    acc.setdefault((prov, t), []).append((r["lat"], r["lng"]))
         # A TAMBON CENTROID IS ONLY WORTH ANYTHING IF THE TAMBON IS ONE PLACE.
         #
         # เวียง is the commonest subdistrict name in the north — Mueang Chiang
@@ -332,7 +414,8 @@ class Gazetteer:
             if not os.path.exists(f):
                 continue
             for r in json.load(open(f, encoding="utf-8")):
-                if (r.get("geoPrecision") or "exact") != "exact" or not r.get("lat"):
+                if ((r.get("geoPrecision") or "exact") != "exact"
+                        or (r.get("attrs") or {}).get("pinVia")) or not r.get("lat"):
                     continue
                 code = ((r.get("attrs") or {}).get("postcode") or "").strip()
                 if re.fullmatch(r"\d{5}", code):
@@ -359,11 +442,13 @@ class Gazetteer:
                 sd, dd = w.get("tambon_th"), w.get("amphoe_th")
                 if not (r and r.get("lat") and sd):
                     continue
-                if (r.get("geoPrecision") or "exact") != "exact":
+                if ((r.get("geoPrecision") or "exact") != "exact"
+                        or (r.get("attrs") or {}).get("pinVia")):
                     continue
-                acc.setdefault(_norm(sd), []).append((r["lat"], r["lng"]))
+                rp = r.get("province")
+                acc.setdefault((rp, _norm(sd)), []).append((r["lat"], r["lng"]))
                 if dd:
-                    pair.setdefault(_norm(f"{sd} {dd}"), []).append((r["lat"], r["lng"]))
+                    pair.setdefault((rp, _norm(f"{sd} {dd}")), []).append((r["lat"], r["lng"]))
 
         # A ตำบล+อำเภอ pair names exactly one place, so two points are enough to
         # site it. A BARE ตำบล does not, and relaxing it to two was a mistake
@@ -372,6 +457,13 @@ class Gazetteer:
         # district's เวียง entirely. The pair is trusted at two; the bare name
         # has to show three and survive the spread test, because the thing being
         # tested is whether the NAME is unique, not whether the points are tight.
+        #
+        # AND A SUBDISTRICT NAME BELONGS TO A PROVINCE. ป่าแดด is a ตำบล in
+        # Mueang Chiang Mai and an อำเภอ in Chiang Rai; keyed on the bare name
+        # the Chiang Mai centroid answered "ต.ป่าแดด อ.ป่าแดด จ.เชียงราย" and
+        # put a school, a hospital and two more 139 km away while declaring
+        # ±1,365 m. The province was already known at every call site and was
+        # simply not being used, so the key now carries it.
         SPREAD_MAX_M = 6000
         for t, pts in list(pair.items()) + list(acc.items()):
             if len(pts) < (2 if t in pair else 3):
@@ -381,7 +473,7 @@ class Gazetteer:
             ds = sorted(_haversine((la, ln), p) for p in pts)
             # With a handful of points the 90th percentile is optimistic — it
             # simply drops the one that would have told the truth. Under four,
-            # the widest is the honest number.
+            # the widest is the defensible number.
             spread = ds[-1] if len(ds) < 4 else ds[int(len(ds) * 0.9)]
             if spread > SPREAD_MAX_M:
                 continue
@@ -394,14 +486,26 @@ class Gazetteer:
         than the road it hangs off: "Moon Muang Rd Lane 6" should land on the
         lane, not on the 1.6 km road.
         """
+        # A NAME WITH A DISTRICT WORD IN FRONT OF IT IS A DISTRICT. Half the
+        # tambon of the city are also roads — ช้างเผือก, สุเทพ, ช้างคลาน — and
+        # "ถนนโชตนา ต.ช้างเผือก" was answered by Changpuak Road because the
+        # longer name won. The address said which was which; read it.
+        address = re.sub(r"(?:ตำบล|ต\.|อำเภอ|อ\.|จังหวัด|จ\.|แขวง|เขต)\s*[ก-๙]+",
+                         " ", address or "")
+        # Latin: only the word AFTER a district word — "Moon Muang Rd" is a
+        # road and keeps its muang.
+        address = re.sub(r"\b(?:tambon|amphoe|amphur|changwat|district)\s+(?:(?:mueang|muang)\s+)?[a-z]+",
+                         " ", address, flags=re.I)
         norm_addr = _norm(address)
         if not norm_addr:
             return None
         best = None
-        for k, entries in self.by_name.items():
-            if len(k) < 4:
-                continue
-            if not re.search(r"(?:^| )" + re.escape(k) + r"(?:$| )", norm_addr):
+        if not hasattr(self, "_name_re"):
+            self._name_re = {k: re.compile(r"(?:^| )" + re.escape(k) + r"(?:$| )")
+                             for k in self.by_name if len(k) >= 4}
+        for k, rx in self._name_re.items():
+            entries = self.by_name[k]
+            if not rx.search(norm_addr):
                 continue
             # Among roads sharing this name, the one in the province we were
             # told about. If none is, the match is refused rather than guessed:
@@ -413,17 +517,142 @@ class Gazetteer:
             e = max(pool, key=lambda x: x["length"])
             if best is None or len(k) > len(best[0]):
                 best = (k, e)
+        # THE LONGEST NAME WINS ACROSS ALL THREE PASSES, not the first pass
+        # that finds anything. "Huay Kaew Rd, Suthep" used to return Suthep
+        # Road from the exact pass — the tambon's name is also a road's — and
+        # never reach the pass that knew Huay Kaew was Huaykaew Road.
+        exact = best
+        # Space-blind second pass. Word boundaries are gone once the spaces
+        # are, so the key has to be long enough that a chance substring is not
+        # a road: six characters, the same floor the exact pass uses at four
+        # plus the two a boundary would have bought.
+        flat_addr = norm_addr.replace(" ", "")
+        sign_addr = _sign(norm_addr)
+        for k, entries in list(self.by_flat.items()) + list(self.by_sign.items()):
+            hay = sign_addr if (k in self.by_sign and k not in self.by_flat) else flat_addr
+            if not hay or k not in hay:
+                continue
+            pool = [e for e in entries if not province or e["province"] == province]
+            if not pool:
+                continue
+            e = max(pool, key=lambda x: x["length"])
+            if best is None or len(k) > len(best[0]):
+                best = (k, e)
+        if exact is not None and best is not None and len(best[0]) <= len(exact[0]):
+            return exact
         return best
 
-    def _tambon_of(self, address):
+    def _amphoe_of(self, address, province=None):
+        """The อำเภอ an address names, as (lat, lng, radius_m, name) or None."""
+        if not self.amphoe:
+            return None
+        m = re.search(r"(?:อำเภอ|อ\.)\s*([ก-๙]+)", address or "")
+        names = [m.group(1)] if m else []
+        # "เมืองเชียงใหม่" is written without the อ. more often than with it
+        for k in ("เมืองเชียงใหม่", "เมืองเชียงราย"):
+            if k in (address or "") and k not in names:
+                names.append(k)
+        for nm in names:
+            for prov in ([province] if province else ("cm", "cr")):
+                v = self.amphoe.get((prov, nm))
+                if v:
+                    return v + (nm,)
+        return None
+
+    # A Thai postcode's first two digits name its province: 50 Chiang Mai,
+    # 57 Chiang Rai. That is a structured field, not a name, which is the
+    # whole point — see stands_off_our_ground().
+    _OUR_POSTCODE = ("50", "57")
+    _OUR_PROVINCE_NAMED = re.compile(
+        r"เชียงใหม่|เชียงราย|\bchiang\s*mai\b|\bchiang\s*rai\b", re.I)
+
+    def stands_off_our_ground(self, address):
+        """True when the address's own postcode puts it outside CM and CR.
+
+        The postcode tier's premise is that a five-digit code names one
+        delivery area and cannot be confused. 58130 is written on อำเภอปาย in
+        Mae Hong Son AND on อำเภอกัลยาณิวัฒนา in Chiang Mai — the mountain
+        postal route, not a typo. Our centroid for it is the mean of sixteen
+        Galyani Vadhana schools, so every Pai address it answered landed on one
+        point 40.5 km away, and the admin-polygon pass then stamped
+        อ.กัลยาณิวัฒนา over a Mae Hong Son shop.
+
+        The contradiction guard below could not catch it: it asks whether the
+        postcode disagrees with the named district, and อำเภอปาย resolves to no
+        district we hold, so there was nothing to disagree with.
+
+        READ THE POSTCODE, NOT THE PROVINCE NAME. Matching province names was
+        tried first and is a trap this module already warns about for roads:
+        พะเยา sits inside the building name สันพะเยาแมนชั่น, แพร่ inside the
+        Hang Dong tambon น้ำแพร่ / Nam Phrae, and ลำพูน is a Chiang Mai road.
+        Thai does not space its words, so there is no boundary to anchor to.
+        158 addresses were refused that way and most were ours. The first two
+        digits of the postcode are a field, and they cannot be a road.
+
+        A NAMED PROVINCE STILL OVERRIDES, in the one direction that is safe:
+        อ.กัลยาณิวัฒนา writes จ.เชียงใหม่ beside its 58130, so an address that
+        says one of ours is kept whatever its postcode says.
+        """
+        if not address:
+            return False
+        code = self._trailing_postcode(address)
+        if not code or code[:2] in self._OUR_POSTCODE:
+            return False
+        return not self._OUR_PROVINCE_NAMED.search(address)
+
+    @staticmethod
+    def _trailing_postcode(address):
+        """The five digits at the END of an address, or None.
+
+        NOT every five-digit run: this field is pasted from map apps, so
+        "@18.79687,98.96510" and "18.80390, 99.09122" offer four candidates
+        between them and none is a postcode, and a house number opens an
+        address where a postcode closes it. So a decimal part is skipped, and
+        the last candidate is the only one read — refusing a record's pin on a
+        misread house number would be this guard doing the harm it exists to
+        prevent.
+        """
+        best = None
+        for m in re.finditer(r"(?<!\d)(\d{5})(?!\d)", address):
+            i = m.start()
+            if i and address[i - 1] in ".@/":
+                continue
+            if re.match(r"\s*[.,]\s*\d", address[m.end():]):
+                continue
+            best = m
+        if best is None:
+            return None
+        # A postcode trails. Anything with a long run of address left after it
+        # is a house number that happened to be five digits — "15125 Soi Mu
+        # Ban Namphueng Vlg". Measured over the 10,895 records whose confirmed
+        # postcode appears in their own address: 99% carry 20 characters or
+        # fewer after it, the median none at all. Erring short only ever means
+        # a record KEEPS its pin, which is the safe way for this to be wrong.
+        if len(address) - best.end() > 20:
+            return None
+        # Thai postcodes run 10xxx to 96xxx. "ถนน hiway04301" is a highway.
+        if not 10 <= int(best.group(1)[:2]) <= 96:
+            return None
+        return best.group(1)
+
+    def _tambon_of(self, address, province=None):
+        def look(key):
+            if province:
+                return self.tambon.get((province, key))
+            hits = [v for (p, k), v in self.tambon.items() if k == key]
+            # No province given and the name lives in both: refuse. One of the
+            # two answers is 139 km wrong and nothing here can say which.
+            return hits[0] if len(hits) == 1 else None
+
         # ตำบล X อำเภอ Y first, because half the north shares subdistrict names
         # and the pair is the thing that is actually unique.
         m = re.search(r"(?:ตำบล|ต\.)\s*([ก-๙]+).{0,12}?(?:อำเภอ|อ\.)\s*([ก-๙]+)",
                       address)
         if m:
             k = _norm(f"{m.group(1)} {m.group(2)}")
-            if k in self.tambon:
-                la, ln, n, spread = self.tambon[k]
+            got = look(k)
+            if got:
+                la, ln, n, spread = got
                 return {"lat": round(la, 6), "lng": round(ln, 6),
                         "precision": "tambon", "via": "tambon-amphoe-centroid",
                         "uncertainty_m": spread,
@@ -431,8 +660,9 @@ class Gazetteer:
         for chunk in re.split(r"[,ๆ]| อ\.| อำเภอ|amphoe|tambon|ตำบล|ต\.", address,
                               flags=re.I):
             t = _norm(chunk)
-            if t in self.tambon:
-                la, ln, n, spread = self.tambon[t]
+            got = look(t)
+            if got:
+                la, ln, n, spread = got
                 return {"lat": round(la, 6), "lng": round(ln, 6),
                         "precision": "tambon", "via": "tambon-centroid",
                         "uncertainty_m": spread, "matched": chunk.strip(),
@@ -495,6 +725,11 @@ class Gazetteer:
         """-> dict(lat, lng, precision, via, uncertainty_m, matched) or None."""
         if not address:
             return None
+        # Off our ground entirely — see stands_off_our_ground(). Refused before
+        # any tier runs, because the landmark and street tiers are keyed by
+        # name and a name repeats across provinces.
+        if self.stands_off_our_ground(address):
+            return None
         lm = self.landmark_of(address, province)
         if lm:
             _, (la, ln, nm, unc) = lm
@@ -502,7 +737,26 @@ class Gazetteer:
                     "precision": "landmark", "via": "address-names-a-place-we-hold",
                     "uncertainty_m": unc, "matched": nm}
         hit = self.street_of(address, province)
-        tb = self._tambon_of(address)
+        tb = self._tambon_of(address, province)
+        am = self._amphoe_of(address, province)
+        # THE DISTRICT IS A WITNESS BEFORE ANYTHING ELSE. A road name that
+        # stands outside the named อำเภอ is a road of the same name somewhere
+        # else — ถนนโชตนา in Fang is not the city stub we hold a line for —
+        # so the match is refused, and the address goes on to be placed by
+        # what it does name.
+        if hit and am:
+            _, e = hit
+            far = _haversine((e["pt"][0], e["pt"][1]), (am[0], am[1]))
+            if far > am[2] + max(e["length"] / 2, 25):
+                hit = None
+        # ...and the same witness against the tambon: ต.หางดง in อ.ฮอด is not
+        # the Hang Dong everybody knows, and the centroid keyed by name alone
+        # sat 72 km from the school. A tambon outside its stated district is
+        # the wrong tambon.
+        if tb and am:
+            far = _haversine((tb["lat"], tb["lng"]), (am[0], am[1]))
+            if far > am[2] + tb["uncertainty_m"]:
+                tb = None
         if hit:
             _, e = hit
             street = {"lat": round(e["pt"][0], 6), "lng": round(e["pt"][1], 6),
@@ -523,12 +777,41 @@ class Gazetteer:
             if tb:
                 apart = _haversine((street["lat"], street["lng"]),
                                    (tb["lat"], tb["lng"]))
-                if apart > street["uncertainty_m"] + tb["uncertainty_m"]:
+                # ×1.5: a tambon's stated uncertainty is a spread about its
+                # centre, and a road on the tambon's EDGE is the ordinary
+                # case, not a disagreement — Thapae Road was being refused
+                # against Si Phum. The 8 km wrong-soi case is still 5× out.
+                if apart > CORROBORATE_SLACK * (street["uncertainty_m"] + tb["uncertainty_m"]):
                     tb = dict(tb)
                     tb["via"] = "tambon-centroid (street match disagreed)"
                     tb["rejected_street"] = street["matched"]
                     tb["disagreement_m"] = int(apart)
                     return tb
+                return street
+            # NO TAMBON TO CHECK AGAINST. The postcode is the second witness;
+            # and with no witness at all the street is not allowed to be
+            # confident. The worst five of every --validate run were one
+            # failure: ถนนโชตนา in อ.ฝาง, matched to the city stub of a road
+            # that runs 128 km north, declared ±280 m because the uncertainty
+            # is half the length of the fragment WE HOLD, not of the road.
+            # An unwitnessed street answers at ±3,000 m or more, which is
+            # above the publish cap — so it is not published, rather than
+            # published wrong.
+            pc = re.search(r"\b(\d{5})\b", address)
+            if pc and province and (province, pc.group(1)) in self.postcode:
+                la, ln, n, spread = self.postcode[(province, pc.group(1))]
+                apart = _haversine((street["lat"], street["lng"]), (la, ln))
+                if apart <= street["uncertainty_m"] + spread:
+                    return street
+                return {"lat": round(la, 6), "lng": round(ln, 6),
+                        "precision": "postcode",
+                        "via": "postcode-centroid (street match disagreed)",
+                        "uncertainty_m": spread, "matched": pc.group(1),
+                        "from_places": n, "rejected_street": street["matched"],
+                        "disagreement_m": int(apart)}
+            street = dict(street)
+            street["uncertainty_m"] = max(street["uncertainty_m"], 3000)
+            street["via"] = "address-street-match (unwitnessed)"
             return street
         if tb:
             return tb
@@ -538,10 +821,26 @@ class Gazetteer:
         m = re.search(r"\b(\d{5})\b", address)
         if m and province and (province, m.group(1)) in self.postcode:
             la, ln, n, spread = self.postcode[(province, m.group(1))]
-            return {"lat": round(la, 6), "lng": round(ln, 6),
-                    "precision": "postcode", "via": "postcode-centroid",
-                    "uncertainty_m": spread, "matched": m.group(1),
-                    "from_places": n}
+            # A POSTCODE IS NEVER ±400 m. The spread is measured from the
+            # surveyed pins that carry the code, and three pins on one soi
+            # make a tight centroid for an area that is 50 km across (50310,
+            # อมก๋อย, declared ±400 m and 53 km out). Floor it, and floor it
+            # harder when few pins built it.
+            spread = max(spread, 1500 if n >= 6 else 5000)
+            # a postcode that contradicts the named district is a typo in the
+            # address (50200 written on an อมก๋อย health station), not a place
+            if not (am and _haversine((la, ln), (am[0], am[1])) > am[2] + spread):
+                return {"lat": round(la, 6), "lng": round(ln, 6),
+                        "precision": "postcode", "via": "postcode-centroid",
+                        "uncertainty_m": spread, "matched": m.group(1),
+                        "from_places": n}
+        # The district itself, coarsest of all and says so: a radius
+        # of 15–30 km never clears the publish cap, so this tier places a
+        # record for "near me" in the assistant's sense and nowhere on a map.
+        if am:
+            return {"lat": round(am[0], 6), "lng": round(am[1], 6),
+                    "precision": "amphoe", "via": "amphoe-centroid",
+                    "uncertainty_m": am[2], "matched": am[3]}
         return None
 
 
@@ -558,7 +857,8 @@ def validate(limit=0):
             # scoring against those is marking your own homework — it reported
             # a "median 0 m" tambon tier, which is exactly what you get when
             # the answer key was copied from the candidate.
-            if (r.get("geoPrecision") or "exact") != "exact":
+            if ((r.get("geoPrecision") or "exact") != "exact"
+                        or (r.get("attrs") or {}).get("pinVia")):
                 continue
             if not r.get("lat") or not r.get("address"):
                 continue
@@ -574,7 +874,7 @@ def validate(limit=0):
             if limit and len(errs) >= limit:
                 break
     print(f"ground truth: {tested} places carry an address AND a surveyed pin")
-    for prec in ("landmark", "street", "postcode", "tambon", "none"):
+    for prec in ("landmark", "street", "postcode", "tambon", "amphoe", "none"):
         v = by_prec.get(prec) or []
         if prec == "none":
             print(f"  {prec:8s} {len(v):5d}  (no match — returns None, nothing invented)")
@@ -591,7 +891,7 @@ def validate(limit=0):
     # A median is not the point. This site publishes a pin WITH the distance it
     # might be wrong by, so the question a reader's trust rests on is whether
     # that stated distance actually covers the truth. A 13 km miss on a road
-    # 27 km long, declared as ±13.5 km, is an honest answer. A 300 m miss
+    # 27 km long, declared as ±13.5 km, is a defensible answer. A 300 m miss
     # declared as ±25 m is not, however much better it looks in a median.
     if errs:
         covered = sum(1 for d, _, _, _, u in errs if d <= u)

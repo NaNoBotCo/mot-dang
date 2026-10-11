@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style data-omelette-injected>html,body{background:transparent}</style><script data-omelette-injected>(()=>{{const n=new URLSearchParams(location.search).get("theme");if(n==="light"||n==="dark"){document.documentElement.dataset.theme=n}}{if(new URLSearchParams(location.search).get("_omthumb")==="1"){const n=(f)=>{const g=f.focus;if(!g)return;f.focus=function(h){g.call(this,{...h,preventScroll:true})}};n(HTMLElement.prototype);n(SVGElement.prototype);if(typeof MathMLElement!=="undefined"){n(MathMLElement.prototype)}const d=(f)=>{f.removeAttribute("autofocus");f.inert=true;if(!(f instanceof HTMLElement))f.removeAttribute("tabindex")};const p=(f)=>{if(f.hasAttribute("autofocus"))d(f);for(const g of f.querySelectorAll("[autofocus]")){d(g)}};p(document.documentElement);new MutationObserver((f)=>{for(const g of f){for(const h of g.addedNodes){if(h.nodeType===1)p(h)}}}).observe(document,{childList:true,subtree:true})}}{const n=()=>{try{if(document.querySelector('meta[name="color-scheme"]'))return;const d=getComputedStyle(document.documentElement).getPropertyValue("color-scheme").trim();if(d&&d!=="normal")return;const p=(y)=>{if(!y)return null;const m=getComputedStyle(y).backgroundColor.match(/^rgba?\(\s*(\d+)[,\s]+(\d+)[,\s]+(\d+)(?:[,\s/]+([\d.]+%?))?\s*\)$/);if(!m)return null;const w=m[4]==null?1:parseFloat(m[4])/(m[4].endsWith("%")?100:1);if(w<0.99)return null;return[+m[1],+m[2],+m[3]]};const f=p(document.body)||p(document.documentElement);if(!f)return;const g=(y)=>{const m=y/255;return m<=0.04045?m/12.92:((m+0.055)/1.055)**2.4};const h=0.2126*g(f[0])+0.7152*g(f[1])+0.0722*g(f[2]);document.documentElement.style.setProperty("color-scheme",h<0.4?"dark":"light")}catch{}};if(document.readyState==="complete")n();else window.addEventListener("load",n)}var I=[];var B=false;var K=false;var C=()=>{};if(K===true){try{const n=setTimeout.bind(window);const d=1e4;const p=15;const f=1e4;const g=120000;const h=200;const y=(o)=>{try{let r;if(typeof o==="string")r=o;else if(o instanceof URL)r=o.href;else if(typeof Request!=="undefined"&&o instanceof Request)r=o.url;else return null;if(!r)return null;const l=document.baseURI;const i=new URL(r,l);if(i.protocol!=="http:"&&i.protocol!=="https:")return null;if(i.origin!==new URL(l).origin)return null;return i.origin+i.pathname}catch{return null}};const m=new Map;const w=(o)=>{let r=m.get(o);if(!r){if(m.size>=h){const l=m.keys().next().value;if(l!==undefined)m.delete(l)}r={fails:[],until:0,cooldown:f,hard:false};m.set(o,r)}return r};const R=(o)=>{const r=m.get(o);return r!==undefined&&r.until>Date.now()};const O=(o,r)=>{const l=Date.now();const i=w(o);if(r)i.hard=true;if(i.until>l)return;i.fails.push(l);while(i.fails.length>0&&i.fails[0]<=l-d)i.fails.shift();if(i.fails.length>=p){i.until=l+i.cooldown;if(i.hard)i.cooldown=Math.min(i.cooldown*2,g);i.fails.length=0;try{n(()=>{try{S(true)}catch{}},i.until-l+100)}catch{}console.warn("[omelette] asset circuit breaker: pausing requests to "+o+" for "+Math.round((i.until-l)/1000)+"s after "+p+" failures in "+d/1000+"s")}};const e=(o)=>{m.delete(o)};const t=100;const a=new WeakMap;const u=new Set;let s=null;const S=(o)=>{for(const r of Array.from(u)){try{const l=a.get(r);if(l===undefined){u.delete(r);continue}if(o){const i=y(l);if(i!==null&&R(i))continue}a.delete(r);u.delete(r);if(s!==null)s.call(r,l)}catch{}}};C=()=>{try{m.clear();S(false)}catch{}};document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")C()});const _=window.fetch;if(typeof _==="function"){const o=function(...r){let l=null;try{l=y(r[0])}catch{}if(l!==null&&R(l)){let c;try{if(r[1]&&r[1].signal!==undefined){c=r[1].signal||undefined}else if(typeof Request!=="undefined"&&r[0]instanceof Request){c=r[0].signal||undefined}}catch{c=undefined}return new Promise((k,b)=>{const E=()=>{try{return c.reason!==undefined?c.reason:new DOMException("The operation was aborted.","AbortError")}catch{return new DOMException("The operation was aborted.","AbortError")}};try{if(c&&c.aborted){b(E());return}}catch{}let T=false;const j=()=>{if(T)return;T=true;b(E())};try{if(c)c.addEventListener("abort",j,{once:true})}catch{}n(()=>{if(T)return;T=true;try{if(c)c.removeEventListener("abort",j)}catch{}let L;try{L=new Response(null,{status:429,statusText:"Too Many Requests",headers:{"Retry-After":"10"}})}catch{L={ok:false,status:429}}k(L)},250)})}const i=_.apply(window,r);if(l!==null){const c=l;i.then((k)=>{try{if(k.ok)e(c);else if(k.status===401||k.status===403||k.status===404||k.status===429){O(c,k.status!==404)}}catch{}},()=>{})}return i};window.fetch=o}const v=Object.getOwnPropertyDescriptor(HTMLImageElement.prototype,"src");if(v!==undefined&&v.set!==undefined&&v.get!==undefined){const o=v.set;s=o;Object.defineProperty(HTMLImageElement.prototype,"src",{configurable:true,enumerable:v.enumerable,get:v.get,set(r){const l=`${r}`;try{const i=y(l);if(i!==null&&R(i)){a.set(this,l);if(u.size<t)u.add(this);return}}catch{}try{a.delete(this);u.delete(this)}catch{}o.call(this,l)}})}try{const o=HTMLImageElement.prototype.setAttribute;HTMLImageElement.prototype.setAttribute=function(r,l){if(arguments.length<2){o.apply(this,arguments);return}if(typeof r==="string"&&r.toLowerCase()==="src"){const i=`${l}`;try{const c=y(i);if(c!==null&&R(c)){a.set(this,i);if(u.size<t)u.add(this);return}a.delete(this);u.delete(this)}catch{}o.call(this,r,i);return}o.call(this,r,l)}}catch{}window.addEventListener("error",(o)=>{try{const r=o.target;if(r instanceof HTMLImageElement){const l=y(r.currentSrc||r.src||"");if(l!==null)O(l,true)}}catch{}},true);window.addEventListener("load",(o)=>{try{const r=o.target;if(r instanceof HTMLImageElement){const l=y(r.currentSrc||r.src||"");if(l!==null)e(l);const i=a.get(r);if(i!==undefined){let c=false;try{c=new URL(i,document.baseURI).href===new URL(r.currentSrc||r.src||"",document.baseURI).href}catch{c=false}if(c){a.delete(r);u.delete(r)}}}}catch{}},true)}catch{}}var J=30000;var G=3000;document.addEventListener("DOMContentLoaded",()=>{const n=window.Babel;const d="om-src-id";if(n&&n.registerPlugin&&!(n.availablePlugins&&n.availablePlugins[d])){n.registerPlugin(d,({types:h})=>({visitor:{JSXOpeningElement(y,m){const w=y.node;if(w.name&&w.name.type==="JSXMemberExpression")return;for(let t=0;t<w.attributes.length;t++){const a=w.attributes[t];if(a.type==="JSXAttribute"&&a.name&&a.name.name==="data-om-id")return}const R=m.file&&m.file.opts&&m.file.opts.filename||"?";const O=w.loc&&w.loc.start;const e=`jsx:${R}:${w.start??0}:${O?O.line:0}:${O?O.column+1:0}`;w.attributes.push(h.jsxAttribute(h.jsxIdentifier("data-om-id"),h.stringLiteral(e)))}}}))}const p="om-text-extract";let f=false;if(B&&n&&n.registerPlugin&&!(n.availablePlugins&&n.availablePlugins[p])){const h=window.React;if(h&&h.useSyncExternalStore&&h.createElement){f=true;const y={};const m=new Set;let w=0;window.__omTextO=y;window.__omTextSet=(e)=>{for(const t in e){const a=e[t];if(a==null)delete y[t];else y[t]=a}w++;m.forEach((t)=>t())};const R=(e)=>{m.add(e);return()=>m.delete(e)};const O=()=>w;window.__OmT=function e(t){h.useSyncExternalStore(R,O,O);return h.createElement("span",{"data-om-text":t.i,className:"__om-t"},t.i in y?y[t.i]:t.children)};n.registerPlugin(p,({types:e})=>{const t={style:1,script:1,noscript:1,textarea:1,title:1,option:1,text:1,tspan:1,textPath:1};const a={placeholder:1,alt:1,title:1,label:1,"aria-label":1,"aria-description":1,"aria-placeholder":1};const u=(o,r)=>e.logicalExpression("??",e.memberExpression(e.logicalExpression("||",e.memberExpression(e.identifier("window"),e.identifier("__omTextO")),e.objectExpression([])),e.stringLiteral(o),true),r);const s=(o)=>o.file&&o.file.opts&&o.file.opts.filename||"?";const S=(o)=>o.file&&o.file.code||"";const _=(o,r)=>{const l=(c)=>c&&c.start!=null&&c.end!=null&&(c.type==="StringLiteral"||c.type==="TemplateLiteral"&&c.expressions.length===0)?[c.start,c.end]:null;const i=l(r);if(i)return i;if(r&&r.type==="Identifier"){const c=o.scope.getBinding(r.name);if(c&&c.constant&&c.path.node.type==="VariableDeclarator"){return l(c.path.node.init)}}return null};const v=(o,r,l)=>{const i=o.node;let c=false;const k=(E,T)=>{c=true;return e.jsxElement(e.jsxOpeningElement(e.jsxIdentifier("__OmT"),[e.jsxAttribute(e.jsxIdentifier("i"),e.stringLiteral(E))],false),e.jsxClosingElement(e.jsxIdentifier("__OmT")),[T],false)};const b=i.children.map((E)=>{if(E.type==="JSXText"){if(E.start==null||E.end==null)return E;const T=l.slice(E.start,E.end);const j=T.length-T.trimStart().length;const L=T.length-T.trimEnd().length;if(j+L>=T.length)return E;return k(`txt:${r}:${E.start+j}:${E.end-L}`,E)}if(E.type==="JSXExpressionContainer"){const T=_(o,E.expression);if(T)return k(`str:${r}:${T[0]}:${T[1]}`,E)}return E});if(c)i.children=b};return{visitor:{JSXOpeningElement(o,r){const l=o.node;const i=s(r);const c={};for(let k=0;k<l.attributes.length;k++){const b=l.attributes[k];if(b.type!=="JSXAttribute"||!b.name)continue;const E=b.name.name;if(!a[E])continue;if(!b.value||b.value.type!=="StringLiteral")continue;if(b.value.start==null||b.value.end==null)continue;const T=`txt:${i}:${b.value.start}:${b.value.end}`;c[E]=T;b.value=e.jsxExpressionContainer(u(T,e.stringLiteral(b.value.value)))}if(Object.keys(c).length){l.attributes.push(e.jsxAttribute(e.jsxIdentifier("data-om-text-attrs"),e.stringLiteral(JSON.stringify(c))))}},JSXElement(o,r){const l=o.node.openingElement;const i=l&&l.name&&l.name.name;if(i==="__OmT")return;if(typeof i==="string"&&t[i])return;v(o,s(r),S(r))},JSXFragment(o,r){v(o,s(r),S(r))}}}})}}const g=f?["transform-react-jsx-source",d,p]:["transform-react-jsx-source",d];document.querySelectorAll('script[type="text/babel"],script[type="text/jsx"]').forEach((h,y)=>{const m=h.getAttribute("data-plugins")||"";const w=g.filter((R)=>m.indexOf(R)<0);if(w.length){h.setAttribute("data-plugins",m?`${m},${w.join(",")}`:w.join(","))}if(!h.hasAttribute("data-filename")){h.setAttribute("data-filename",h.getAttribute("src")||`inline-${y}`)}})});var A=window.parent;var U="not editable here — open the project in the Claude Design editor to save";var W=()=>Promise.resolve({persisted:false,noHost:true,reason:U});var H=W;var M="data/storage.json";var z=()=>{try{const n=new URL(document.baseURI);const d=n.pathname.match(/\/projects\/([^/]+)\/serve\//);if(d)return d[1];return n.hostname.split(".")[0]||""}catch{return location.hostname.split(".")[0]||""}};var Z=()=>{try{const n=new URL(document.baseURI);const d=n.pathname.indexOf("/serve/");if(d>=0)return n.origin+n.pathname.slice(0,d+"/serve/".length)+M}catch{}return"./"+M};var x=null;var N=()=>{if(!x){x=fetch(Z(),{cache:"no-store"}).then((n)=>{if(n.ok)return n.text();return n.status===404?"":null}).catch(()=>null).then((n)=>{if(n===null){x=null;return null}const d=new Map;if(!n)return d;let p;try{p=JSON.parse(n)}catch{console.warn("[omelette.storage] "+M+" is not valid JSON; treating the store as unreadable so a save cannot overwrite the "+"hand-edited bytes. Fix the JSON (or delete the file) to re-enable persistence.");x=null;return null}if(p===null||typeof p!=="object"||Array.isArray(p)){console.warn("[omelette.storage] "+M+" doesn't hold a JSON object; treating the store as unreadable so a save cannot "+"overwrite the hand-edited bytes. Make the top level a JSON object to re-enable persistence.");x=null;return null}const f=p;if("data"in f){const g=f.data;if(g===null||typeof g!=="object"||Array.isArray(g)){console.warn("[omelette.storage] "+M+' has a "data" field that is not a JSON object; treating the store as unreadable so a '+'save cannot overwrite the hand-edited bytes. Make "data" a JSON object to re-enable persistence.');x=null;return null}const h=f._meta;const y=h!==null&&typeof h==="object"?h.project:undefined;if(typeof y==="string"&&y!==""&&y!==z())return d;for(const m of Object.keys(g))d.set(m,g[m]);return d}for(const g of Object.keys(f)){if(g!=="_meta")d.set(g,f[g])}return d})}return x};var F=(n)=>H(M,JSON.stringify({_meta:{project:z(),version:1},data:Object.fromEntries(n)},null,2));var D=Promise.resolve();var $=(n)=>{const d=D.then(n);D=d.then(()=>{return},()=>{return});return d};var V=/sk-(?:ant-)?[A-Za-z0-9_-]{16,}|AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9]{20,}|xox[a-z]-[A-Za-z0-9][A-Za-z0-9-]{9,}|AIza[0-9A-Za-z_-]{30,}|-----BEGIN [A-Z ]*PRIVATE KEY-----/;var Y=/password|passwd|secret|api[_-]?key|access[_-]?token|auth[_-]?token|credential/i;var Q=(n,d,p)=>{if(V.test(d)||Y.test(n)&&typeof p==="string"&&p.length>=8){console.warn('[omelette.storage] the value for "'+n+'" looks like a credential. The storage file is a plaintext project file — visible to '+"everyone with project access and copied when the project is duplicated. Do not store secrets here.")}};var q={persisted:false,reason:"could not load the existing store — not overwriting it"};var X={persisted:false,reason:"stored value changed since a failed read — re-read this key before saving"};var P=new Set;var ee={get:(n)=>{if(typeof n!=="string"){return Promise.reject(new TypeError("storage.get: key must be a string"))}return $(N).then((d)=>{if(d===null){P.add(n);return null}P.delete(n);if(!d.has(n))return null;const p=d.get(n);return p==null?null:JSON.parse(JSON.stringify(p))})},set:(n,d)=>{if(typeof n!=="string"){return Promise.reject(new TypeError("storage.set: key must be a string"))}let p;try{p=JSON.stringify(d)}catch(g){return Promise.reject(new TypeError("storage.set: value must be JSON-serializable ("+String(g)+")"))}if(p===undefined){return Promise.reject(new TypeError("storage.set: value must be JSON-serializable"))}Q(n,p,d);const f=JSON.parse(p);return $(()=>N().then((g)=>{if(g===null)return q;if(P.has(n)){if(g.has(n))return X;P.delete(n)}g.set(n,f);return F(g)}))},delete:(n)=>{if(typeof n!=="string"){return Promise.reject(new TypeError("storage.delete: key must be a string"))}return $(()=>N().then((d)=>{if(d===null)return q;if(P.has(n)){if(d.has(n))return X;P.delete(n)}d.delete(n);return F(d)}))},keys:()=>$(N).then((n)=>n===null?[]:Array.from(n.keys()))};window.omelette={writeFile:(n,d)=>H(n,d).then((p)=>{if(!p.persisted&&!p.noHost){throw new Error(p.reason||"write failed")}}),storage:ee};if(A&&A!==window){const n=(e,t)=>{try{A.postMessage({__omelette_log:true,type:e,data:t},"*")}catch{}};["log","warn","error"].forEach((e)=>{const t=console[e];console[e]=(...a)=>{const u=a.map((s)=>{try{return typeof s==="object"?JSON.stringify(s):String(s)}catch{try{return String(s)}catch{return"[unstringifiable]"}}}).join(" ");n(e,u);t.apply(console,a)}});window.addEventListener("error",(e)=>{const t=e.target;if(t&&t!==window&&t.tagName){const a=t.src||t.href||"";n("resource_error",`${t.tagName} failed to load: ${a}`)}else{n("error",`${e.message||"Unknown error"} at ${e.filename||"?"}:${e.lineno||0}:${e.colno||0}`)}},true);window.addEventListener("unhandledrejection",(e)=>{const t=e.reason;const a=t instanceof Error?`${t.message} ${t.stack}`:String(t);n("error",`Unhandled rejection: ${a}`)});window.addEventListener("click",(e)=>{if(e.defaultPrevented||e.button!==0)return;if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;const t=e.composedPath?e.composedPath():[];const a=["button","input","select","textarea","summary","label"];let u=null;for(const v of t){if(!(v instanceof Element))continue;if(v.localName==="a"){if(!(v instanceof HTMLAnchorElement))return;u=v;break}if(a.indexOf(v.localName)!==-1)return}if(!u)return;if(u.isContentEditable)return;const s=u.closest("[contenteditable]");if(s&&s.getAttribute("contenteditable")!=="false")return;const S=(u.getAttribute("target")||"_self").toLowerCase();if(S!=="_self"&&S!=="_top"&&S!=="_parent")return;let _;try{_=new URL(u.href)}catch{return}if(_.protocol!=="http:"&&_.protocol!=="https:")return;if(location.origin==="null")return;if(_.origin===location.origin)return;e.preventDefault();window.open(_.href,"_blank","noopener,noreferrer")});const d=()=>{try{A.postMessage({type:"omelette:height",height:document.documentElement.scrollHeight},"*")}catch{}};if(window.ResizeObserver)new ResizeObserver(d).observe(document.documentElement);const p=()=>{d();if(!document.querySelector('script[type="text/babel"],script[type="text/jsx"]'))return;const e=()=>document.getElementById("root")||document.querySelector("body > div[id]");const t=e()?.firstElementChild??null;let a=0;const u=()=>{const s=e();if(s&&s.firstElementChild!==t||++a>30){d();return}setTimeout(u,100)};setTimeout(u,100)};if(document.readyState==="complete")p();else window.addEventListener("load",p);const f={};let g=0;const h=(e)=>new Promise((t,a)=>{if(!I.length){a(new Error("claude.complete: no parent origin"));return}const u=`c${++g}`;const s=()=>setTimeout(()=>{delete f[u];a(new Error(`claude.complete: no data for ${J/1000}s`))},J);const S=s();f[u]={resolve:t,reject:a,text:"",t:S,arm:s};try{for(const _ of I){A.postMessage({__om_api:true,id:u,body:e},_)}}catch(_){clearTimeout(S);delete f[u];a(_)}});const y=8;const m=async(e,t)=>{if(!Array.isArray(e.messages)){throw new Error("claude.complete: tools require a messages array")}const a=e.messages.slice();const u={...e,tools:e.tools.map((_)=>{if(_===null||typeof _!=="object")return _;const v={};for(const o of Object.keys(_)){if(typeof _[o]!=="function")v[o]=_[o]}return v})};const s=u.tool_choice;const S=s!=null&&(s.type==="any"||s.type==="tool")?{...u,tool_choice:s.disable_parallel_tool_use!==undefined?{type:"auto",disable_parallel_tool_use:s.disable_parallel_tool_use}:{type:"auto"}}:u;for(let _=0;_<y;_++){const v=await h({..._===0?u:S,messages:a});const o=v.message;const r=o&&Array.isArray(o.content)?o.content:null;const l=r?r.filter((c)=>c?.type==="tool_use"):[];if(o?.stop_reason!=="tool_use"||l.length===0){return v.text}const i=[];for(const c of l){const k=t.get(c.name);if(!k){i.push({type:"tool_result",tool_use_id:c.id,content:`no handler for tool "${c.name}"`,is_error:true});continue}try{const b=await k(c.input);const E=typeof b==="string"?b:O(b)??"";i.push({type:"tool_result",tool_use_id:c.id,content:E})}catch(b){i.push({type:"tool_result",tool_use_id:c.id,content:String(b?.message??b??"tool handler failed"),is_error:true})}}a.push({role:"assistant",content:r},{role:"user",content:i})}throw new Error(`claude.complete: exceeded ${y} tool turns`)};window.claude={complete(e){const t=e;if(t!==null&&typeof t==="object"&&Array.isArray(t.tools)&&t.tools.some((a)=>a!==null&&typeof a==="object"&&typeof a.run==="function")){const a=new Map;for(const u of t.tools){if(u!==null&&typeof u==="object"&&typeof u.run==="function"){a.set(String(u.name),u.run)}}return m(t,a)}return h(e).then((a)=>a.text)}};const w={};let R=0;H=(e,t)=>new Promise((a)=>{if(!I.length){a({persisted:false,noHost:true,reason:U});return}const u=`f${++R}`;const s=setTimeout(()=>{delete w[u];a({persisted:false,noHost:true,reason:U})},G);w[u]={settle:a,t:s};try{for(const S of I){A.postMessage({__om_file:true,id:u,op:"write",path:e,content:t},S)}}catch{clearTimeout(s);delete w[u];a({persisted:false,noHost:true,reason:U})}});const O=(e)=>{try{return JSON.stringify(e)}catch{return JSON.stringify(String(e))}};window.addEventListener("message",(e)=>{if(I.indexOf(e.origin)<0)return;if(e.source!==A)return;const t=e.data;if(!t)return;if(t.type==="omelette-preview-refresh"){if(typeof t.token!=="string"||!/^[0-9a-f.-]+(\.(rc|pr-[0-9]+))?(\.[0-9]+\.[0-9a-f]{16})?$/.test(t.token))return;const s=Math.max(1,Math.floor((t.expiresAt||0)-Date.now()/1000));document.cookie="__Host-omelette-preview="+t.token+"; Path=/; Secure; SameSite=None; Partitioned; Max-Age="+s;C();return}if(t.__om_file_r){const s=w[t.id];if(!s)return;clearTimeout(s.t);delete w[t.id];s.settle(t.ok?{persisted:true}:{persisted:false,reason:t.error||"write failed"});return}if(t.__om_api_r){const s=f[t.id];if(!s)return;if(t.error!=null){clearTimeout(s.t);delete f[t.id];s.reject(new Error(t.error));return}if(t.chunk!=null){clearTimeout(s.t);s.t=s.arm();s.text+=t.chunk;return}if(t.done){clearTimeout(s.t);delete f[t.id];s.resolve({text:t.text!=null?t.text:s.text,message:t.message});return}return}if(!t.__om_eval)return;const a=t;const u=(s)=>{e.source.postMessage({...s,__om_eval_r:1,id:a.id},e.origin)};try{const s=(0,eval)(a.code);if(s&&typeof s.then==="function"){s.then((S)=>u({ok:1,v:O(S)}),(S)=>u({ok:0,e:String(S)}))}else{u({ok:1,v:O(s)})}}catch(s){u({ok:0,e:String(s)})}})}})();
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="design_doc_mode" content="canvas">
+  <link rel="stylesheet" href="_ds/nocturne-95c7330e-2aaa-436e-af61-299b27f736b8/styles.css">
+  <script src="_ds/nocturne-95c7330e-2aaa-436e-af61-299b27f736b8/_ds_bundle.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <style>
+    :root { --font-body: "Inter", "Noto Sans Thai", system-ui, sans-serif; --font-heading: "Inter", "Noto Sans Thai", system-ui, sans-serif; }
+    html, body { background: #101120; min-height: 100%; }
+    a { color: var(--color-accent); } a:hover { color: var(--color-accent-300); }
+  </style>
+</helmet>
+<section style="display:flex;flex-wrap:wrap;gap:64px;align-items:flex-start;padding:64px;font-family:var(--font-body);color:var(--color-text)">
+  <div style="width:100%;max-width:760px;display:flex;flex-direction:column;gap:8px">
+    <div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-500)">Turn 2 · Homepage, motdang's own look · "1996 google.com" — near-zero words</div>
+    <h2 style="font-size:26px;margin:0">มดแดง as a search box</h2>
+    <p style="color:var(--color-neutral-400);max-width:64ch;font-size:14px">Mobile first, both audiences. Everything the current homepage does survives, but only 9 visible words remain — icons, numerals and the two city names carry the rest. Palette inferred from the brand (red ant on paper); send a screenshot if it should differ.</p>
+  </div>
+
+  <!-- ══ 2a · Mobile home, zero-word ══ -->
+  <div id="2a" style="display:flex;flex-direction:column;gap:16px;width:390px">
+    <div style="display:flex;align-items:baseline;gap:10px">
+      <span style="border:1px solid var(--color-accent);color:var(--color-accent);border-radius:6px;padding:2px 8px;font-size:12px;font-weight:500">2a</span>
+      <h4 style="margin:0;font-size:17px;white-space:nowrap">Home — mobile · 9 words</h4>
+    </div>
+    <div style="width:390px;height:720px;background:#faf8f2;color:#211d18;border-radius:14px;box-shadow:0 0 0 1px #d8d2c4,0 10px 30px rgba(0,0,0,0.45);display:flex;flex-direction:column;font-family:'Inter','Noto Sans Thai',system-ui,sans-serif">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid #d8d2c4;border-radius:8px;font-size:15px;color:#6e675c" title="อ่านง่าย · Easy read">อา</span>
+        <span style="display:inline-flex;border:1px solid #d8d2c4;border-radius:8px;overflow:hidden;font-size:12px">
+          <span style="padding:10px 12px;background:#f0e9dc;color:#211d18">ไทย</span>
+          <span style="padding:10px 12px;color:#8a8274;border-left:1px solid #d8d2c4">+EN</span>
+          <span style="padding:10px 12px;color:#8a8274;border-left:1px solid #d8d2c4">EN</span>
+        </span>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:0 24px;margin-top:-30px">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+          <span style="font-size:44px;font-weight:600;color:#c62f22;letter-spacing:-0.01em">มดแดง</span>
+          <span style="font-size:11px;letter-spacing:0.34em;color:#8a8274;margin-left:0.34em">MOT DANG</span>
+        </div>
+        <div style="width:100%;display:flex;align-items:center;gap:12px;background:#ffffff;border:1px solid #d8d2c4;border-radius:999px;padding:15px 20px;box-shadow:0 2px 8px rgba(60,50,30,0.08)">
+          <i class="ph ph-magnifying-glass" style="color:#c62f22;font-size:19px"></i>
+          <span style="flex:1"></span>
+          <i class="ph ph-microphone" style="color:#b3aa99;font-size:18px"></i>
+        </div>
+        <div style="display:flex;border:1px solid #d8d2c4;border-radius:999px;overflow:hidden;font-size:14px">
+          <span style="padding:11px 14px;background:#f0e9dc;color:#211d18;white-space:nowrap">เชียงใหม่ <span style="color:#8a8274;font-size:12px">63,745</span></span>
+          <span style="padding:11px 14px;color:#8a8274;border-left:1px solid #d8d2c4;white-space:nowrap">เชียงราย <span style="font-size:12px">25,679</span></span>
+        </div>
+        <div style="display:flex;gap:14px">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border:1px solid #d8d2c4;border-radius:12px;background:#fff" title="แผนที่ · Map"><i class="ph ph-map-trifold" style="font-size:22px;color:#211d18"></i></span>
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border:1px solid #d8d2c4;border-radius:12px;background:#fff" title="ปฏิทิน · Events"><i class="ph ph-calendar-dots" style="font-size:22px;color:#211d18"></i></span>
+          <span style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:52px;height:52px;border:1px solid #d8d2c4;border-radius:12px;background:#fff;font-size:11px;line-height:1.15;color:#211d18" title="อากาศ · Weather + PM2.5">24°<span style="color:#3c8a3f">9</span></span>
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border:1.5px solid #c62f22;border-radius:12px;background:#fff" title="ฉุกเฉิน · Emergency"><i class="ph ph-phone-call" style="font-size:22px;color:#c62f22"></i></span>
+        </div>
+        <a href="#1a" style="font-size:14px;color:#c62f22;text-underline-offset:3px">ทุกชั้น ทุกหมวด →</a>
+      </div>
+      <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:10px 16px;padding:16px;font-size:11px;color:#b3aa99;white-space:nowrap">
+        <span title="เพิ่มข้อมูล · add a place"><i class="ph ph-plus-circle" style="font-size:15px"></i></span>
+        <span title="คุยกับมด · chat"><i class="ph ph-chats-circle" style="font-size:15px"></i></span>
+        <span title="โค้ดและข้อมูลดิบ · source"><i class="ph ph-code" style="font-size:15px"></i></span>
+        <span>API</span><span>CC BY 4.0</span><span>© OSM</span><span>2569-09-08</span>
+      </div>
+    </div>
+    <sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}">
+      <div style="background:var(--color-surface);border-radius:var(--radius-md);padding:16px 18px;font-size:13px;line-height:1.7;color:var(--color-neutral-300);display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-500)">Spec notes</div>
+        <div>· Visible words: มดแดง, ไทย/+EN/EN, เชียงใหม่, เชียงราย, ทุกชั้น ทุกหมวด, อา — nine. Everything else is icon, numeral or symbol; every icon carries a bilingual title/aria-label, surfaced as a tooltip on desktop and long-press on mobile.</div>
+        <div>· The search box IS the homepage: it searches names, shelves, tags, sois and phone numbers, so the 28 shelf links can leave the surface. First tap shows the shelf list as suggestions before any typing — the directory is still one tap away.</div>
+        <div>· ทุกชั้น ทุกหมวด → all.html keeps the full 28-shelf index plus all secondary indexes; nothing dropped.</div>
+        <div>· Red is reserved for the brand, the search affordance and emergency. Emergency icon opens the sheet from 1b.</div>
+        <div>· Easy-read is the "อา" toggle: 18px body, larger targets, tooltips become always-visible labels — the zero-word surface grows words back for whoever needs them.</div>
+        <div>· City choice persists; weather/PM2.5 tile links to widgets. Footer keeps add/chat/source/API/licence/date as icons + numerals.</div>
+      </div>
+    </sc-if>
+  </div>
+
+  <!-- ══ 2b · Desktop home, zero-word ══ -->
+  <div id="2b" style="display:flex;flex-direction:column;gap:16px;width:1000px">
+    <div style="display:flex;align-items:baseline;gap:10px">
+      <span style="border:1px solid var(--color-accent);color:var(--color-accent);border-radius:6px;padding:2px 8px;font-size:12px;font-weight:500">2b</span>
+      <h4 style="margin:0;font-size:17px;white-space:nowrap">Home — desktop · same 9 words</h4>
+    </div>
+    <div style="width:1000px;height:640px;background:#faf8f2;color:#211d18;border-radius:14px;box-shadow:0 0 0 1px #d8d2c4,0 10px 30px rgba(0,0,0,0.45);display:flex;flex-direction:column;font-family:'Inter','Noto Sans Thai',system-ui,sans-serif">
+      <div style="display:flex;justify-content:flex-end;align-items:center;gap:12px;padding:16px 20px">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid #d8d2c4;border-radius:8px;font-size:14px;color:#6e675c" title="อ่านง่าย · Easy read">อา</span>
+        <span style="display:inline-flex;border:1px solid #d8d2c4;border-radius:8px;overflow:hidden;font-size:12px">
+          <span style="padding:9px 12px;background:#f0e9dc;color:#211d18">ไทย</span>
+          <span style="padding:9px 12px;color:#8a8274;border-left:1px solid #d8d2c4">+EN</span>
+          <span style="padding:9px 12px;color:#8a8274;border-left:1px solid #d8d2c4">EN</span>
+        </span>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;margin-top:-40px">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+          <span style="font-size:58px;font-weight:600;color:#c62f22;letter-spacing:-0.01em">มดแดง</span>
+          <span style="font-size:12px;letter-spacing:0.4em;color:#8a8274;margin-left:0.4em">MOT DANG</span>
+        </div>
+        <div style="width:560px;display:flex;align-items:center;gap:12px;background:#ffffff;border:1px solid #d8d2c4;border-radius:999px;padding:15px 22px;box-shadow:0 2px 8px rgba(60,50,30,0.08)">
+          <i class="ph ph-magnifying-glass" style="color:#c62f22;font-size:19px"></i>
+          <span style="flex:1"></span>
+          <span style="font-size:11px;color:#b3aa99;border:1px solid #d8d2c4;border-radius:4px;padding:1px 7px">/</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:18px">
+          <span style="display:inline-flex;border:1px solid #d8d2c4;border-radius:999px;overflow:hidden;font-size:14px">
+            <span style="padding:10px 20px;background:#f0e9dc;color:#211d18;white-space:nowrap">เชียงใหม่ <span style="color:#8a8274;font-size:12px">63,745</span></span>
+            <span style="padding:10px 20px;color:#8a8274;border-left:1px solid #d8d2c4;white-space:nowrap">เชียงราย <span style="font-size:12px">25,679</span></span>
+          </span>
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border:1px solid #d8d2c4;border-radius:12px;background:#fff" title="แผนที่ · Map"><i class="ph ph-map-trifold" style="font-size:20px;color:#211d18"></i></span>
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border:1px solid #d8d2c4;border-radius:12px;background:#fff" title="ปฏิทิน · Events"><i class="ph ph-calendar-dots" style="font-size:20px;color:#211d18"></i></span>
+          <span style="display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:46px;height:46px;border:1px solid #d8d2c4;border-radius:12px;background:#fff;font-size:10.5px;line-height:1.15;color:#211d18" title="อากาศ · Weather + PM2.5">24°<span style="color:#3c8a3f">9</span></span>
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border:1.5px solid #c62f22;border-radius:12px;background:#fff" title="ฉุกเฉิน · Emergency"><i class="ph ph-phone-call" style="font-size:20px;color:#c62f22"></i></span>
+        </div>
+        <a href="#1a" style="font-size:14px;color:#c62f22;text-underline-offset:3px">ทุกชั้น ทุกหมวด →</a>
+      </div>
+      <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:10px 18px;padding:18px;font-size:11px;color:#b3aa99;white-space:nowrap">
+        <span title="เพิ่มข้อมูล · add a place"><i class="ph ph-plus-circle" style="font-size:15px"></i></span>
+        <span title="คุยกับมด · chat"><i class="ph ph-chats-circle" style="font-size:15px"></i></span>
+        <span title="โค้ดและข้อมูลดิบ · source"><i class="ph ph-code" style="font-size:15px"></i></span>
+        <span>API</span><span>CC BY 4.0</span><span>© OpenStreetMap</span><span>2569-09-08</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 2c · Written spec ══ -->
+  <div id="2c" style="display:flex;flex-direction:column;gap:16px;width:560px">
+    <div style="display:flex;align-items:baseline;gap:10px">
+      <span style="border:1px solid var(--color-accent);color:var(--color-accent);border-radius:6px;padding:2px 8px;font-size:12px;font-weight:500">2c</span>
+      <h4 style="margin:0;font-size:17px;white-space:nowrap">Written spec</h4>
+    </div>
+    <div style="background:var(--color-bg);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:24px 26px;display:flex;flex-direction:column;gap:18px;font-size:13px;line-height:1.7;color:var(--color-neutral-300)">
+      <div>
+        <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-500);margin-bottom:6px">Word budget</div>
+        Nine visible words, all functional: brand (1), language modes (3), cities (2), the every-shelf link (2), easy-read glyph (1). Numerals, icons and symbols are exempt — they read in both languages at once, which is how a bilingual page gets to near-zero words without picking a side.
+      </div>
+      <div>
+        <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-500);margin-bottom:6px">Icon legend · accessible names</div>
+        Map trifold → แผนที่ · Map. Calendar → ปฏิทิน · Events. 24°/9 tile → อากาศ-ฝุ่น · Weather + PM2.5 (links to widgets). Red phone → ฉุกเฉิน · Emergency (opens sheet <a href="#1b">1b</a>: 1669 · 191 · 199 · 1784 · 1155 + chuai). Plus-circle → เพิ่มข้อมูล · add a place. Chats → คุยกับมด. Code → source &amp; raw data. Every icon has title + aria-label in both languages; desktop shows tooltips on hover, mobile on long-press.
+      </div>
+      <div>
+        <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-500);margin-bottom:6px">Search is the directory</div>
+        Focusing the empty box lists all 28 shelves (with counts) as suggestions; typing matches names, shelves, tags, sois and numbers, Thai or English, and the mic runs speech input. The every-shelf link and all.html remain the no-JS path to everything — nothing from today's site is dropped, it is re-entered through search.
+      </div>
+      <div>
+        <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-500);margin-bottom:6px">Layout &amp; palette (inferred — confirm with a screenshot)</div>
+        Paper #faf8f2, ink #211d18, ant red #c62f22 (brand, search, emergency only), hairline #d8d2c4, selected fill #f0e9dc. Center column max 560px; targets ≥44px (icon tiles 52px mobile); body 15px, easy-read 18px with labels shown. Below 1024px the desktop and mobile layouts are identical apart from the "/" hint and mic.
+      </div>
+      <div>
+        <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-500);margin-bottom:6px">Order of first paint</div>
+        Logo → search → cities → four tiles → shelf link → footer glyphs. One column, no scroll on any phone taller than 640px. Everything after the search box is optional chrome; the page is usable the moment the box renders.
+      </div>
+    </div>
+  </div>
+  <div style="flex-basis:100%;height:1px;background:linear-gradient(to right,transparent,var(--color-divider) 48px,var(--color-divider) calc(100% - 48px),transparent);margin:8px 0"></div>
+
+  <div style="width:100%;max-width:760px;display:flex;flex-direction:column;gap:8px">
+    <div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-500)">Design spec · 2026-09-08</div>
+    <h1 style="font-size:34px;margin:0">มดแดง Mot Dang — minimal refresh</h1>
+    <p style="color:var(--color-neutral-400);max-width:62ch;font-size:15px">One search-first surface for mobile and desktop. Every feature of the current site survives — the header just stops competing with the content. Rules of the redesign: one accent, one column on mobile, 44px minimum hit targets, progressive disclosure instead of deletion, and no raw filenames as link labels.</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px">
+      <span style="display:inline-flex;white-space:nowrap;border:1px solid var(--color-divider);border-radius:999px;padding:4px 12px;font-size:12px;color:var(--color-neutral-400)">Mobile 390</span>
+      <span style="display:inline-flex;white-space:nowrap;border:1px solid var(--color-divider);border-radius:999px;padding:4px 12px;font-size:12px;color:var(--color-neutral-400)">Desktop 1140</span>
+      <span style="display:inline-flex;white-space:nowrap;border:1px solid var(--color-divider);border-radius:999px;padding:4px 12px;font-size:12px;color:var(--color-neutral-400)">Breakpoint 1024</span>
+      <span style="display:inline-flex;white-space:nowrap;border:1px solid var(--color-divider);border-radius:999px;padding:4px 12px;font-size:12px;color:var(--color-neutral-400)">Hit targets ≥ 44px</span>
+    </div>
+  </div>
+
+  <!-- ══ 1a · Mobile home ══ -->
+  <div id="1a" style="display:flex;flex-direction:column;gap:16px;width:390px">
+    <div style="display:flex;align-items:baseline;gap:10px">
+      <span style="border:1px solid var(--color-accent);color:var(--color-accent);border-radius:6px;padding:2px 8px;font-size:12px;font-weight:500">1a</span>
+      <h4 style="margin:0;font-size:17px;white-space:nowrap">Home — mobile</h4>
+    </div>
+    <div style="width:390px;background:var(--color-bg);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);overflow:hidden">
+      <div style="padding:14px 16px 12px;display:flex;flex-direction:column;gap:12px;border-bottom:1px solid var(--color-divider)">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <div style="display:flex;align-items:baseline;gap:8px">
+            <span style="font-size:18px;font-weight:600">มดแดง</span>
+            <span style="font-size:10px;letter-spacing:0.18em;color:var(--color-neutral-500)">MOT DANG</span>
+          </div>
+          <div style="display:flex;border:1px solid var(--color-divider);border-radius:var(--radius-md);overflow:hidden;font-size:12px">
+            <span style="padding:7px 11px;background:color-mix(in srgb, var(--color-accent) 16%, transparent);color:var(--color-accent-300)">ไทย</span>
+            <span style="padding:7px 11px;color:var(--color-neutral-400);border-left:1px solid var(--color-divider)">+EN</span>
+            <span style="padding:7px 11px;color:var(--color-neutral-400);border-left:1px solid var(--color-divider)">EN</span>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;background:var(--color-surface);border:1px solid var(--color-divider);border-radius:var(--radius-md);padding:12px 14px;min-height:44px">
+          <i class="ph ph-magnifying-glass" style="color:var(--color-neutral-500);font-size:17px"></i>
+          <span style="color:var(--color-neutral-500);font-size:14px">ค้นหา · Search — วัด ร้าน หมอ ตลาด…</span>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;font-size:12px">
+          <span style="display:inline-flex;align-items:center;gap:6px;white-space:nowrap;border:1px solid var(--color-divider);border-radius:999px;padding:8px 12px;min-height:36px"><i class="ph ph-map-trifold" style="color:var(--color-accent)"></i>แผนที่ · Map</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;white-space:nowrap;border:1px solid var(--color-divider);border-radius:999px;padding:8px 12px;min-height:36px"><i class="ph ph-calendar-dots" style="color:var(--color-accent)"></i>ปฏิทิน · Events</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;white-space:nowrap;border:1px solid var(--color-divider);border-radius:999px;padding:8px 12px;min-height:36px"><i class="ph ph-text-aa" style="color:var(--color-accent)"></i>อ่านง่าย · Easy read</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;white-space:nowrap;border:1px solid var(--color-divider);border-radius:999px;padding:8px 12px;min-height:36px;color:var(--color-neutral-400)">24° · PM2.5 9 ดีมาก</span>
+        </div>
+      </div>
+      <div style="padding:16px;display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;align-items:center;justify-content:space-between;border:1px solid var(--color-accent);border-radius:var(--radius-md);padding:12px 14px;min-height:44px">
+          <span style="display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--color-accent-300)"><i class="ph ph-phone-call" style="color:var(--color-accent)"></i>ฉุกเฉิน · Emergency</span>
+          <i class="ph ph-caret-down" style="color:var(--color-accent)"></i>
+        </div>
+        <div style="display:flex;border:1px solid var(--color-divider);border-radius:var(--radius-md);overflow:hidden;font-size:13px;text-align:center">
+          <span style="flex:1;padding:11px 8px;background:color-mix(in srgb, var(--color-accent) 14%, transparent);color:var(--color-accent-300)">เชียงใหม่ · Chiang Mai <span style="color:var(--color-neutral-500)">63,745</span></span>
+          <span style="flex:1;padding:11px 8px;color:var(--color-neutral-400);border-left:1px solid var(--color-divider)">เชียงราย · Chiang Rai <span style="color:var(--color-neutral-600)">25,679</span></span>
+        </div>
+        <div style="display:flex;flex-direction:column">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 4px;border-bottom:1px solid var(--color-divider);min-height:48px">
+            <span style="font-size:14px">ร้านอาหาร-ของกิน <span style="color:var(--color-neutral-500)">Food &amp; Eats</span></span>
+            <span style="font-size:12px;color:var(--color-neutral-500)">19,262 <i class="ph ph-caret-right"></i></span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 4px;border-bottom:1px solid var(--color-divider);min-height:48px">
+            <span style="font-size:14px">วัด-สิ่งศักดิ์สิทธิ์ <span style="color:var(--color-neutral-500)">Wats &amp; Sacred Places</span></span>
+            <span style="font-size:12px;color:var(--color-neutral-500)">1,924 <i class="ph ph-caret-right"></i></span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 4px;border-bottom:1px solid var(--color-divider);min-height:48px">
+            <span style="font-size:14px">หมอ-คลินิก-โรงพยาบาล <span style="color:var(--color-neutral-500)">Doctors &amp; Hospitals</span></span>
+            <span style="font-size:12px;color:var(--color-neutral-500)">2,893 <i class="ph ph-caret-right"></i></span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 4px;border-bottom:1px solid var(--color-divider);min-height:48px">
+            <span style="font-size:14px">โรงแรม-ที่พัก <span style="color:var(--color-neutral-500)">Hotels &amp; Stays</span></span>
+            <span style="font-size:12px;color:var(--color-neutral-500)">6,173 <i class="ph ph-caret-right"></i></span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 4px;border-bottom:1px solid var(--color-divider);min-height:48px">
+            <span style="font-size:14px">ตลาด <span style="color:var(--color-neutral-500)">Markets</span></span>
+            <span style="font-size:12px;color:var(--color-neutral-500)">944 <i class="ph ph-caret-right"></i></span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 4px;border-bottom:1px solid var(--color-divider);min-height:48px">
+            <span style="font-size:14px">รถ-เดินทาง <span style="color:var(--color-neutral-500)">Getting Around</span></span>
+            <span style="font-size:12px;color:var(--color-neutral-500)">3,318 <i class="ph ph-caret-right"></i></span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 4px;min-height:48px;color:var(--color-accent);font-size:14px">
+            อีก 22 ชั้น · 22 more shelves <i class="ph ph-caret-down"></i>
+          </div>
+        </div>
+        <a href="#1a" style="font-size:13px;text-align:center;padding:6px">ทุกชั้น ทุกหมวด · every shelf →</a>
+      </div>
+      <div style="padding:14px 16px;border-top:1px solid var(--color-divider);font-size:11px;line-height:1.8;color:var(--color-neutral-600)">
+        โค้ดและข้อมูลดิบ · source · API · ความเป็นส่วนตัว · Privacy · เงื่อนไข · Terms · คุยกับมด · Chat with the ants<br>ปรับปรุง 2026-09-08 (พ.ศ. 2569) · CC BY 4.0 · © OpenStreetMap contributors
+      </div>
+    </div>
+    <sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}">
+      <div style="background:var(--color-surface);border-radius:var(--radius-md);padding:16px 18px;font-size:13px;line-height:1.7;color:var(--color-neutral-300);display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-500)">Spec notes</div>
+        <div>· Header is 3 rows max: brand + language, search, utility chips. Nothing else above the fold competes with search.</div>
+        <div>· Language control is the current 3-mode toggle (ไทย / ไทย+EN / EN) as one segmented control; choice persists in localStorage.</div>
+        <div>· Map and Events get real labels — never raw filenames like "map.html".</div>
+        <div>· Weather + PM2.5 merge into one passive chip, linking to the widgets page.</div>
+        <div>· Emergency collapses to one accent-outlined row; tapping opens the sheet (right) with all five numbers. It is sticky at the bottom of the viewport on scroll.</div>
+        <div>· City is a segmented choice, remembered per visitor; shelf counts update live.</div>
+        <div>· Six most-used shelves show first; "22 more shelves" expands in place — all 28 categories remain one tap away, none removed.</div>
+      </div>
+    </sc-if>
+  </div>
+
+  <!-- ══ 1b · Emergency sheet ══ -->
+  <div id="1b" style="display:flex;flex-direction:column;gap:16px;width:390px">
+    <div style="display:flex;align-items:baseline;gap:10px">
+      <span style="border:1px solid var(--color-accent);color:var(--color-accent);border-radius:6px;padding:2px 8px;font-size:12px;font-weight:500">1b</span>
+      <h4 style="margin:0;font-size:17px;white-space:nowrap">Emergency sheet — opened</h4>
+    </div>
+    <div style="width:390px;background:var(--color-bg);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);padding:20px 16px;display:flex;flex-direction:column;gap:10px">
+      <div style="width:36px;height:4px;border-radius:2px;background:var(--color-neutral-700);margin:0 auto 6px"></div>
+      <h5 style="margin:0 0 4px;font-size:15px">เบอร์ฉุกเฉิน · Emergency</h5>
+      <div style="display:flex;align-items:center;justify-content:space-between;border:1px solid var(--color-divider);border-radius:var(--radius-md);padding:12px 14px;min-height:52px">
+        <span style="font-size:14px">เจ็บป่วยฉุกเฉิน · รถพยาบาล<br><span style="font-size:12px;color:var(--color-neutral-500)">Medical · ambulance</span></span>
+        <span style="font-size:18px;color:var(--color-accent);font-weight:500">1669</span>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;border:1px solid var(--color-divider);border-radius:var(--radius-md);padding:12px 14px;min-height:52px">
+        <span style="font-size:14px">ตำรวจ<br><span style="font-size:12px;color:var(--color-neutral-500)">Police</span></span>
+        <span style="font-size:18px;color:var(--color-accent);font-weight:500">191</span>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;border:1px solid var(--color-divider);border-radius:var(--radius-md);padding:12px 14px;min-height:52px">
+        <span style="font-size:14px">ดับเพลิง · กู้ภัย<br><span style="font-size:12px;color:var(--color-neutral-500)">Fire · rescue</span></span>
+        <span style="font-size:18px;color:var(--color-accent);font-weight:500">199</span>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;border:1px solid var(--color-divider);border-radius:var(--radius-md);padding:12px 14px;min-height:52px">
+        <span style="font-size:14px">สายด่วนสาธารณภัย<br><span style="font-size:12px;color:var(--color-neutral-500)">Disaster · flood, wildfire, earthquake</span></span>
+        <span style="font-size:18px;color:var(--color-accent);font-weight:500">1784</span>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;border:1px solid var(--color-divider);border-radius:var(--radius-md);padding:12px 14px;min-height:52px">
+        <span style="font-size:14px">ตำรวจท่องเที่ยว<br><span style="font-size:12px;color:var(--color-neutral-500)">Tourist police</span></span>
+        <span style="font-size:18px;color:var(--color-accent);font-weight:500">1155</span>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--color-accent);border-radius:var(--radius-md);padding:13px;min-height:48px;color:var(--color-accent-300);font-size:14px">
+        ช่วย — ที่ใกล้ที่สุด · Help — what is nearest <i class="ph ph-arrow-right" style="color:var(--color-accent)"></i>
+      </div>
+    </div>
+    <sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}">
+      <div style="background:var(--color-surface);border-radius:var(--radius-md);padding:16px 18px;font-size:13px;line-height:1.7;color:var(--color-neutral-300);display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-500)">Spec notes</div>
+        <div>· Every row is a tel: link, whole row tappable, ≥52px tall.</div>
+        <div>· All five current hotlines kept verbatim, plus the chuai "what is nearest" page.</div>
+        <div>· On desktop the same content renders inline in the footer strip — no sheet needed.</div>
+        <div>· Sheet works without JavaScript as an in-page anchor fallback.</div>
+      </div>
+    </sc-if>
+  </div>
+
+  <!-- ══ 1c · Desktop home ══ -->
+  <div id="1c" style="display:flex;flex-direction:column;gap:16px;width:1140px">
+    <div style="display:flex;align-items:baseline;gap:10px">
+      <span style="border:1px solid var(--color-accent);color:var(--color-accent);border-radius:6px;padding:2px 8px;font-size:12px;font-weight:500">1c</span>
+      <h4 style="margin:0;font-size:17px;white-space:nowrap">Home — desktop</h4>
+    </div>
+    <div style="width:1140px;background:var(--color-bg);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);overflow:hidden">
+      <div style="display:flex;align-items:center;gap:20px;padding:14px 28px;border-bottom:1px solid var(--color-divider)">
+        <div style="display:flex;align-items:baseline;gap:8px;white-space:nowrap">
+          <span style="font-size:18px;font-weight:600">มดแดง</span>
+          <span style="font-size:10px;letter-spacing:0.18em;color:var(--color-neutral-500)">MOT DANG</span>
+        </div>
+        <div style="flex:1;max-width:460px;display:flex;align-items:center;gap:10px;background:var(--color-surface);border:1px solid var(--color-divider);border-radius:var(--radius-md);padding:9px 14px">
+          <i class="ph ph-magnifying-glass" style="color:var(--color-neutral-500)"></i>
+          <span style="color:var(--color-neutral-500);font-size:13px;white-space:nowrap">ค้นหา · Search</span>
+          <span style="margin-left:auto;font-size:11px;color:var(--color-neutral-600);border:1px solid var(--color-divider);border-radius:4px;padding:1px 6px">/</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:18px;margin-left:auto;font-size:13px;color:var(--color-neutral-300)">
+          <span style="display:inline-flex;align-items:center;gap:6px"><i class="ph ph-map-trifold" style="color:var(--color-accent)"></i>แผนที่ · Map</span>
+          <span style="display:inline-flex;align-items:center;gap:6px"><i class="ph ph-calendar-dots" style="color:var(--color-accent)"></i>ปฏิทิน · Events</span>
+          <span style="display:inline-flex;align-items:center;gap:6px"><i class="ph ph-text-aa" style="color:var(--color-accent)"></i>อ่านง่าย</span>
+          <span style="color:var(--color-neutral-500);font-size:12px">24° · PM2.5 9</span>
+          <div style="display:flex;border:1px solid var(--color-divider);border-radius:var(--radius-md);overflow:hidden;font-size:12px">
+            <span style="padding:6px 10px;background:color-mix(in srgb, var(--color-accent) 16%, transparent);color:var(--color-accent-300)">ไทย</span>
+            <span style="padding:6px 10px;color:var(--color-neutral-400);border-left:1px solid var(--color-divider)">+EN</span>
+            <span style="padding:6px 10px;color:var(--color-neutral-400);border-left:1px solid var(--color-divider)">EN</span>
+          </div>
+        </div>
+      </div>
+      <div style="padding:36px 28px;display:grid;grid-template-columns:1fr 1fr;gap:40px">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;align-items:baseline;gap:10px">
+            <h3 style="margin:0;font-size:22px">เชียงใหม่ · Chiang Mai</h3>
+            <span style="font-size:13px;color:var(--color-neutral-500)">63,745 แห่ง · places</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px 24px;font-size:13.5px">
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 2px;border-bottom:1px solid var(--color-divider)"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">ร้านอาหาร-ของกิน <span style="color:var(--color-neutral-500)">Food</span></span><span style="color:var(--color-neutral-500)">19,262</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 2px;border-bottom:1px solid var(--color-divider)"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">โรงแรม-ที่พัก <span style="color:var(--color-neutral-500)">Hotels</span></span><span style="color:var(--color-neutral-500)">6,173</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 2px;border-bottom:1px solid var(--color-divider)"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">ของจำเป็น <span style="color:var(--color-neutral-500)">Essentials</span></span><span style="color:var(--color-neutral-500)">5,222</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 2px;border-bottom:1px solid var(--color-divider)"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">ช่าง-ซ่อม <span style="color:var(--color-neutral-500)">Repairs</span></span><span style="color:var(--color-neutral-500)">3,837</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 2px;border-bottom:1px solid var(--color-divider)"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">ช้อปปิ้ง-ของฝาก <span style="color:var(--color-neutral-500)">Shopping</span></span><span style="color:var(--color-neutral-500)">3,655</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 2px;border-bottom:1px solid var(--color-divider)"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">รถ-เดินทาง <span style="color:var(--color-neutral-500)">Getting Around</span></span><span style="color:var(--color-neutral-500)">3,318</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 2px;border-bottom:1px solid var(--color-divider)"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">โรงเรียน <span style="color:var(--color-neutral-500)">Schools</span></span><span style="color:var(--color-neutral-500)">3,041</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 2px;border-bottom:1px solid var(--color-divider)"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">หมอ-คลินิก <span style="color:var(--color-neutral-500)">Doctors</span></span><span style="color:var(--color-neutral-500)">2,893</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 2px;border-bottom:1px solid var(--color-divider)"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">วัด-สิ่งศักดิ์สิทธิ์ <span style="color:var(--color-neutral-500)">Wats</span></span><span style="color:var(--color-neutral-500)">1,924</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 2px;border-bottom:1px solid var(--color-divider)"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">เสริมสวย-ทำผม <span style="color:var(--color-neutral-500)">Beauty</span></span><span style="color:var(--color-neutral-500)">1,897</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 2px;border-bottom:1px solid var(--color-divider)"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">ที่เที่ยว-ของดี <span style="color:var(--color-neutral-500)">Sights</span></span><span style="color:var(--color-neutral-500)">1,446</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 2px;border-bottom:1px solid var(--color-divider)"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">อสังหาฯ-คอนโด <span style="color:var(--color-neutral-500)">Real Estate</span></span><span style="color:var(--color-neutral-500)">1,411</span></div>
+          </div>
+          <a href="#1c" style="font-size:13px">ทุกหมวดเชียงใหม่ · all 28 Chiang Mai shelves →</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;align-items:baseline;gap:10px">
+            <h3 style="margin:0;font-size:22px">เชียงราย · Chiang Rai</h3>
+            <span style="font-size:13px;color:var(--color-neutral-500)">25,679 แห่ง · places</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px 24px;font-size:13.5px">
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 2px;border-bottom:1px solid var(--color-divider)"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">ร้านอาหาร-ของกิน <span style="color:var(--color-neutral-500)">Food</span></span><span style="color:var(--color-neutral-500)">7,722</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 2px;border-bottom:1px solid var(--color-divider)"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">โรงแรม-ที่พัก <span style="color:var(--color-neutral-500)">Hotels</span></span><span style="color:var(--color-neutral-500)">2,353</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 2px;border-bottom:1px solid var(--color-divider)"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">ของจำเป็น <span style="color:var(--color-neutral-500)">Essentials</span></span><span style="color:var(--color-neutral-500)">1,709</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 2px;border-bottom:1px solid var(--color-divider)"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">โรงเรียน <span style="color:var(--color-neutral-500)">Schools</span></span><span style="color:var(--color-neutral-500)">1,662</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 2px;border-bottom:1px solid var(--color-divider)"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">ช่าง-ซ่อม <span style="color:var(--color-neutral-500)">Repairs</span></span><span style="color:var(--color-neutral-500)">1,630</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 2px;border-bottom:1px solid var(--color-divider)"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">วัด-สิ่งศักดิ์สิทธิ์ <span style="color:var(--color-neutral-500)">Wats</span></span><span style="color:var(--color-neutral-500)">1,449</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 2px;border-bottom:1px solid var(--color-divider)"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">ธุรกิจ-ค้าขาย <span style="color:var(--color-neutral-500)">Business</span></span><span style="color:var(--color-neutral-500)">1,438</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 2px;border-bottom:1px solid var(--color-divider)"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">ช้อปปิ้ง-ของฝาก <span style="color:var(--color-neutral-500)">Shopping</span></span><span style="color:var(--color-neutral-500)">1,381</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 2px;border-bottom:1px solid var(--color-divider)"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">รถ-เดินทาง <span style="color:var(--color-neutral-500)">Getting Around</span></span><span style="color:var(--color-neutral-500)">1,115</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 2px;border-bottom:1px solid var(--color-divider)"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">หมอ-คลินิก <span style="color:var(--color-neutral-500)">Doctors</span></span><span style="color:var(--color-neutral-500)">1,009</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 2px;border-bottom:1px solid var(--color-divider)"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">ชมรม-สมาคม <span style="color:var(--color-neutral-500)">Community</span></span><span style="color:var(--color-neutral-500)">870</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 2px;border-bottom:1px solid var(--color-divider)"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">ที่เที่ยว-ของดี <span style="color:var(--color-neutral-500)">Sights</span></span><span style="color:var(--color-neutral-500)">739</span></div>
+          </div>
+          <a href="#1c" style="font-size:13px">ทุกหมวดเชียงราย · all 28 Chiang Rai shelves →</a>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;padding:14px 28px;border-top:1px solid var(--color-divider);font-size:12px;color:var(--color-neutral-400);flex-wrap:wrap">
+        <span style="display:inline-flex;align-items:center;gap:6px;color:var(--color-accent-300)"><i class="ph ph-phone-call" style="color:var(--color-accent)"></i>ฉุกเฉิน · Emergency</span>
+        <span style="color:var(--color-accent)">1669</span><span style="color:var(--color-accent)">191</span><span style="color:var(--color-accent)">199</span><span style="color:var(--color-accent)">1784</span><span style="color:var(--color-accent)">1155</span>
+        <span>ช่วย — ที่ใกล้ที่สุด · Help →</span>
+        <span style="margin-left:auto;color:var(--color-neutral-600)">source · API · Privacy · Terms · คุยกับมด · Chat · ปรับปรุง 2026-09-08 · CC BY 4.0 · © OpenStreetMap</span>
+      </div>
+    </div>
+    <sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}">
+      <div style="background:var(--color-surface);border-radius:var(--radius-md);padding:16px 18px;font-size:13px;line-height:1.7;color:var(--color-neutral-300);display:flex;flex-direction:column;gap:8px;max-width:720px">
+        <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-500)">Spec notes</div>
+        <div>· One-row header: brand, search (with "/" keyboard shortcut), utilities, language. No second nav bar.</div>
+        <div>· Both cities visible at once — desktop's extra width is spent on parallel columns, not bigger type.</div>
+        <div>· Top 12 shelves per city by count; "all 28 shelves" links to the full list page (all.html), which keeps every category and the secondary indexes (tags, sois, festivals, health registers, listings, asked, trades, add a place).</div>
+        <div>· Emergency numbers live inline in the footer strip — always one screen away, no sheet needed at this width.</div>
+        <div>· Max content width 1200px, centered; grid collapses to the mobile layout below 1024px.</div>
+      </div>
+    </sc-if>
+  </div>
+
+  <!-- ══ 1d · Category shelf ══ -->
+  <div id="1d" style="display:flex;flex-direction:column;gap:16px;width:390px">
+    <div style="display:flex;align-items:baseline;gap:10px">
+      <span style="border:1px solid var(--color-accent);color:var(--color-accent);border-radius:6px;padding:2px 8px;font-size:12px;font-weight:500">1d</span>
+      <h4 style="margin:0;font-size:17px;white-space:nowrap">Category shelf — mobile</h4>
+    </div>
+    <div style="width:390px;background:var(--color-bg);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);overflow:hidden">
+      <div style="padding:14px 16px;display:flex;flex-direction:column;gap:12px;border-bottom:1px solid var(--color-divider)">
+        <div style="font-size:13px;color:var(--color-neutral-500)"><i class="ph ph-caret-left" style="color:var(--color-accent)"></i> เชียงใหม่ · Chiang Mai</div>
+        <div style="display:flex;align-items:baseline;gap:10px">
+          <h4 style="margin:0;font-size:19px">ร้านอาหาร-ของกิน · Food &amp; Eats</h4>
+          <span style="font-size:12px;color:var(--color-neutral-500)">19,262</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;background:var(--color-surface);border:1px solid var(--color-divider);border-radius:var(--radius-md);padding:11px 14px;min-height:44px">
+          <i class="ph ph-magnifying-glass" style="color:var(--color-neutral-500);font-size:16px"></i>
+          <span style="color:var(--color-neutral-500);font-size:14px">ค้นหาในหมวดนี้ · Search this shelf</span>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;font-size:12px">
+          <span style="border:1px solid var(--color-accent);color:var(--color-accent-300);border-radius:999px;padding:8px 12px;white-space:nowrap">เปิดอยู่ · Open now</span>
+          <span style="border:1px solid var(--color-divider);border-radius:999px;padding:8px 12px;white-space:nowrap;color:var(--color-neutral-400)">ใกล้ฉัน · Near me</span>
+          <span style="border:1px solid var(--color-divider);border-radius:999px;padding:8px 12px;white-space:nowrap;color:var(--color-neutral-400)">ป้ายกำกับ · Tags</span>
+          <span style="border:1px solid var(--color-divider);border-radius:999px;padding:8px 12px;white-space:nowrap;color:var(--color-neutral-400)">ซอย · Soi</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;padding:4px 16px 8px">
+        <div style="display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--color-divider)">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:15px">เฮือนเพ็ญ <span style="color:var(--color-neutral-500)">Huen Phen</span></div>
+            <div style="font-size:12px;color:var(--color-neutral-500)">อาหารเหนือ · ถ.รัตนโกสินทร์ · 850 m · เปิดอยู่</div>
+          </div>
+          <span style="width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--color-divider);border-radius:var(--radius-md)"><i class="ph ph-phone" style="color:var(--color-accent);font-size:18px"></i></span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--color-divider)">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:15px">ข้าวซอยลำดวน <span style="color:var(--color-neutral-500)">Khao Soi Lam Duan</span></div>
+            <div style="font-size:12px;color:var(--color-neutral-500)">ข้าวซอย · ถ.เจริญราษฎร์ · 1.2 km · เปิดอยู่</div>
+          </div>
+          <span style="width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--color-divider);border-radius:var(--radius-md)"><i class="ph ph-phone" style="color:var(--color-accent);font-size:18px"></i></span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--color-divider)">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:15px">โจ๊กสมเพชร <span style="color:var(--color-neutral-500)">Jok Sompet</span></div>
+            <div style="font-size:12px;color:var(--color-neutral-500)">โจ๊ก · ถ.ศรีภูมิ · 600 m · เปิดอยู่</div>
+          </div>
+          <span style="width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--color-divider);border-radius:var(--radius-md)"><i class="ph ph-phone" style="color:var(--color-accent);font-size:18px"></i></span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--color-divider)">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:15px">ร้านลาบต้นยาง <span style="color:var(--color-neutral-500)">Laab Ton Yang</span></div>
+            <div style="font-size:12px;color:var(--color-neutral-500)">ลาบเมือง · ซอยวัดอุโมงค์ · 2.4 km</div>
+          </div>
+          <span style="width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--color-divider);border-radius:var(--radius-md)"><i class="ph ph-phone" style="color:var(--color-accent);font-size:18px"></i></span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px;padding:16px 0;color:var(--color-neutral-500);font-size:13px">แสดง 4 จาก 19,262 · showing 4 of 19,262 — เลื่อนเพื่อดูเพิ่ม · scroll for more</div>
+      </div>
+    </div>
+    <sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}">
+      <div style="background:var(--color-surface);border-radius:var(--radius-md);padding:16px 18px;font-size:13px;line-height:1.7;color:var(--color-neutral-300);display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-500)">Spec notes</div>
+        <div>· Scoped search sits above the list; global search stays in the header.</div>
+        <div>· Filter chips scroll horizontally; Tags and Soi open the existing tag and soi indexes as filter pickers — those pages are reused, not duplicated.</div>
+        <div>· Row = name (Thai first, English muted per language mode), one meta line, one call button. Whole row opens the place; the 44px button dials directly.</div>
+        <div>· List virtualizes past 50 rows; footer shows position so 19k entries never feel bottomless.</div>
+      </div>
+    </sc-if>
+  </div>
+
+  <!-- ══ 1e · Place detail ══ -->
+  <div id="1e" style="display:flex;flex-direction:column;gap:16px;width:390px">
+    <div style="display:flex;align-items:baseline;gap:10px">
+      <span style="border:1px solid var(--color-accent);color:var(--color-accent);border-radius:6px;padding:2px 8px;font-size:12px;font-weight:500">1e</span>
+      <h4 style="margin:0;font-size:17px;white-space:nowrap">Place detail — mobile</h4>
+    </div>
+    <div style="width:390px;background:var(--color-bg);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);overflow:hidden">
+      <div style="padding:14px 16px 18px;display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:13px;color:var(--color-neutral-500)"><i class="ph ph-caret-left" style="color:var(--color-accent)"></i> ร้านอาหาร-ของกิน · Food &amp; Eats</div>
+        <div>
+          <h3 style="margin:0 0 4px;font-size:24px">เฮือนเพ็ญ</h3>
+          <div style="font-size:14px;color:var(--color-neutral-400)">Huen Phen — อาหารเหนือ · Northern Thai</div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;font-size:12px">
+          <span style="border:1px solid var(--color-divider);border-radius:999px;padding:4px 10px;color:var(--color-neutral-400)">อาหารเหนือ</span>
+          <span style="border:1px solid var(--color-divider);border-radius:999px;padding:4px 10px;color:var(--color-neutral-400)">ข้าวซอย</span>
+          <span style="display:inline-flex;white-space:nowrap;border:1px solid var(--color-accent);border-radius:999px;padding:4px 10px;color:var(--color-accent-300)">เปิดอยู่ · Open — ปิด 16:00</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
+          <span style="display:inline-flex;flex-direction:column;align-items:center;gap:4px;border:1px solid var(--color-accent);border-radius:var(--radius-md);padding:10px;min-height:56px;color:var(--color-accent-300);font-size:12px"><i class="ph ph-phone" style="font-size:18px;color:var(--color-accent)"></i>โทร · Call</span>
+          <span style="display:inline-flex;flex-direction:column;align-items:center;gap:4px;border:1px solid var(--color-divider);border-radius:var(--radius-md);padding:10px;min-height:56px;font-size:12px;color:var(--color-neutral-300)"><i class="ph ph-map-trifold" style="font-size:18px;color:var(--color-accent)"></i>แผนที่ · Map</span>
+          <span style="display:inline-flex;flex-direction:column;align-items:center;gap:4px;border:1px solid var(--color-divider);border-radius:var(--radius-md);padding:10px;min-height:56px;font-size:12px;color:var(--color-neutral-300)"><i class="ph ph-share-network" style="font-size:18px;color:var(--color-accent)"></i>แชร์ · Share</span>
+        </div>
+        <div style="display:flex;flex-direction:column;font-size:14px">
+          <div style="display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--color-divider)">
+            <i class="ph ph-map-pin" style="color:var(--color-neutral-500);margin-top:2px"></i>
+            <span>112 ถ.รัตนโกสินทร์ ต.ศรีภูมิ อ.เมือง เชียงใหม่ 50200<br><span style="font-size:12px;color:var(--color-neutral-500)">112 Ratchamanka Rd, Si Phum, Mueang Chiang Mai</span></span>
+          </div>
+          <div style="display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--color-divider)">
+            <i class="ph ph-phone" style="color:var(--color-neutral-500);margin-top:2px"></i>
+            <span style="color:var(--color-accent-300)">053 277 103</span>
+          </div>
+          <div style="display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--color-divider)">
+            <i class="ph ph-clock" style="color:var(--color-neutral-500);margin-top:2px"></i>
+            <span>ทุกวัน 08:30–16:00 · daily<br><span style="font-size:12px;color:var(--color-neutral-500)">ดูรายวัน · see full hours</span></span>
+          </div>
+          <div style="display:flex;gap:12px;padding:12px 0">
+            <i class="ph ph-path" style="color:var(--color-neutral-500);margin-top:2px"></i>
+            <span>ถ.รัตนโกสินทร์ <span style="font-size:12px;color:var(--color-neutral-500)">· ดูทั้งซอย · see the whole road</span></span>
+          </div>
+        </div>
+      </div>
+      <div style="padding:12px 16px;border-top:1px solid var(--color-divider);font-size:11px;color:var(--color-neutral-600);display:flex;justify-content:space-between;gap:12px">
+        <span>© OpenStreetMap (ODbL)</span>
+        <span style="color:var(--color-accent)">แก้ไขข้อมูล · suggest an edit</span>
+      </div>
+    </div>
+    <sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}">
+      <div style="background:var(--color-surface);border-radius:var(--radius-md);padding:16px 18px;font-size:13px;line-height:1.7;color:var(--color-neutral-300);display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-300)">Spec notes</div>
+        <div>· Three equal actions, 56px tall: Call (tel:), Map (opens the site map centered on the pin), Share (native share sheet, URL fallback).</div>
+        <div>· Detail rows are a single column — no cards inside cards. Hours collapse to today's line; "see full hours" expands.</div>
+        <div>· The road row links into the existing sois index; tags link into the tag index.</div>
+        <div>· "Suggest an edit" reuses add.html pre-filled with this place. OSM attribution stays on every place, per ODbL.</div>
+      </div>
+    </sc-if>
+  </div>
+
+  <!-- ══ 1f · Functionality map ══ -->
+  <div id="1f" style="display:flex;flex-direction:column;gap:16px;width:520px">
+    <div style="display:flex;align-items:baseline;gap:10px">
+      <span style="border:1px solid var(--color-accent);color:var(--color-accent);border-radius:6px;padding:2px 8px;font-size:12px;font-weight:500">1f</span>
+      <h4 style="margin:0;font-size:17px;white-space:nowrap">Nothing dropped — feature map</h4>
+    </div>
+    <div style="background:var(--color-bg);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:22px 24px;display:flex;flex-direction:column;gap:2px;font-size:13px">
+      <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:16px;padding:8px 0;border-bottom:1px solid var(--color-divider);color:var(--color-neutral-500);font-size:11px;letter-spacing:0.08em;text-transform:uppercase"><span>Today on motdang.net</span><span>In the redesign</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:16px;padding:9px 0;border-bottom:1px solid var(--color-divider)"><span>3 language modes + easy read</span><span style="color:var(--color-neutral-400)">Header segmented control + easy-read chip; both persist</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:16px;padding:9px 0;border-bottom:1px solid var(--color-divider)"><span>Search (2 entry points)</span><span style="color:var(--color-neutral-400)">One header search everywhere + scoped shelf search</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:16px;padding:9px 0;border-bottom:1px solid var(--color-divider)"><span>map.html / events.html links</span><span style="color:var(--color-neutral-400)">Labeled chips: แผนที่ · Map, ปฏิทิน · Events</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:16px;padding:9px 0;border-bottom:1px solid var(--color-divider)"><span>Weather + PM2.5 widgets</span><span style="color:var(--color-neutral-400)">One passive chip → widgets page</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:16px;padding:9px 0;border-bottom:1px solid var(--color-divider)"><span>5 emergency numbers + chuai</span><span style="color:var(--color-neutral-400)">Sticky row → sheet (mobile); inline footer strip (desktop)</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:16px;padding:9px 0;border-bottom:1px solid var(--color-divider)"><span>2 cities × 28 shelves</span><span style="color:var(--color-neutral-400)">Mobile: city toggle + top 6, expand for 22 more; desktop: both cities, top 12 + link</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:16px;padding:9px 0;border-bottom:1px solid var(--color-divider)"><span>all.html "every shelf"</span><span style="color:var(--color-neutral-400)">Kept as the canonical full index, linked from home + footer</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:16px;padding:9px 0;border-bottom:1px solid var(--color-divider)"><span>Secondary indexes (tags, sois, festivals, care, listings, asked, trades, add)</span><span style="color:var(--color-neutral-400)">Linked from all.html and reused as pickers inside shelves</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:16px;padding:9px 0;border-bottom:1px solid var(--color-divider)"><span>source · API · privacy · terms · chat</span><span style="color:var(--color-neutral-400)">Footer, one line, everywhere</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:16px;padding:9px 0"><span>Updated stamp · CC BY 4.0 · OSM credit</span><span style="color:var(--color-neutral-400)">Footer, verbatim, incl. Buddhist-era date</span></div>
+    </div>
+    <div style="background:var(--color-surface);border-radius:var(--radius-md);padding:16px 18px;font-size:13px;line-height:1.7;color:var(--color-neutral-300);display:flex;flex-direction:column;gap:8px">
+      <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-500)">System rules</div>
+      <div>· Type: 15px body, 12–13px meta, headings by size not weight (max 600). Thai set in the same stack, never smaller than its English pair.</div>
+      <div>· Spacing: 4/8/12/16 rhythm; list rows ≥48px; one divider weight everywhere.</div>
+      <div>· Color: neutral ground, one accent for interactive things only. Counts and meta are neutral-500 — data never shouts.</div>
+      <div>· Easy-read mode: bumps body to 18px, row height to 60px, meta to full opacity — same layout, no separate page.</div>
+      <div>· No JS required for any content page; search, sheet, and expand degrade to plain links and anchors.</div>
+    </div>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showNotes&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Spec&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { showNotes: this.props.showNotes ?? true };
+  }
+}
+</script>
+</body>
+</html>

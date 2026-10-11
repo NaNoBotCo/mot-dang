@@ -9,7 +9,7 @@ Three things a reader asks, in the order they ask them:
      namphuron trade.
   2. WHAT EACH ONE IS — the register grouped by kind: the city pillars and
      navels, the ศาลเจ้า and their keepers, the founder-king shrines, the
-     guardian อารักษ์, the devalayas, the Guanyin. Every row carries its
+     guardian อารักษ์, the devalayas, the Guanyin. A row carries its
      confidence and its source with the date it was read; told-of names
      stay in their own block and never enter the register.
   3. WHAT YOU ARE LOOKING AT — the primer: ศาลพระภูมิ vs ศาลเจ้าที่, who
@@ -26,6 +26,8 @@ docs/data/shrines.json; prints the counts.
 import json
 import math
 from pathlib import Path
+
+import regional_ground as rg
 
 ROOT = Path(__file__).resolve().parent
 REG = ROOT / "data" / "shrines.json"
@@ -56,11 +58,8 @@ CSS = """
 .sn-words{margin:.2rem 0 .2rem;padding-left:1.1rem}
 .sn-words li{margin:.22rem 0}
 .sn-pin{fill:var(--ant,#b3402a);stroke:#fff;stroke-width:1}
-.sn-maplabel{font-size:11px;fill:#5a4f42}
-.sn-provlabel{font-size:12.5px;font-weight:600;fill:#3d3428}
-@media (prefers-color-scheme: dark){
-  .sn-maplabel{fill:#c8bfae}.sn-provlabel{fill:#e0d8c8}
-}
+.sn-maplabel{font-size:11px;fill:#5a4f42;paint-order:stroke;stroke:#f7f1e3;stroke-width:3px;
+  stroke-linejoin:round}
 """
 
 
@@ -82,8 +81,9 @@ def _pin_of(s, by_id):
 
 def _map_svg(rows, provinces, by_id, bi_text, esc):
     """Both provinces drawn, one pin per pinned register row, labelled by
-    Thai name. Equirectangular with cos(lat) correction — the namphuron
-    projection at two-province scale."""
+    Thai name, on regional_ground's provinces, rivers and main roads.
+    Equirectangular with cos(lat) correction — the namphuron projection at
+    two-province scale."""
     pts = []
     for s in rows:
         pin = _pin_of(s, by_id)
@@ -99,7 +99,7 @@ def _map_svg(rows, provinces, by_id, bi_text, esc):
     span_x = max((max(lngs) - min(lngs)) * kx, 1e-6)
     span_y = max((max(lats) - min(lats)) * ky, 1e-6)
     W = 760
-    PAD = 50
+    PAD = 70
     scale = (W - 2 * PAD) / span_x
     H = int(span_y * scale) + 2 * PAD
     if H > 900:
@@ -111,36 +111,44 @@ def _map_svg(rows, provinces, by_id, bi_text, esc):
         y = PAD + (max(lats) - lat) * ky * scale
         return x, y
 
-    pins, labels = [], []
+    pins, labels, avoid, placed = [], [], [], []
+    # The scale bar's corner is taken before any name.
+    placed.append((W - PAD - 30 * scale, H - 22, 30 * scale))
     for s, (lat, lng) in pts:
         x, y = xy(lat, lng)
+        avoid.append((x, y, 8))
         pins.append(f'<circle class="sn-pin" cx="{x:.1f}" cy="{y:.1f}" r="4.6"/>')
         nm = s.get("nameTh") or s.get("nameEn") or ""
         nm = nm.split(" (")[0][:28]
-        tx = min(max(x + 7, PAD), W - PAD - 8)
-        anchor = "start" if tx < W - 180 else "end"
-        labels.append(f'<text class="sn-maplabel" x="{tx:.1f}" y="{y + 4:.1f}" '
-                      f'text-anchor="{anchor}">{esc(nm)}</text>')
-    prov_labels = []
-    for key, meta in provinces.items():
-        mine = [(lat, lng) for s, (lat, lng) in pts if s["province"] == key]
-        if not mine:
-            continue
-        cx = sum(xy(*m)[0] for m in mine) / len(mine)
-        cy = sum(xy(*m)[1] for m in mine) / len(mine)
-        cx = min(max(cx, PAD + 30), W - PAD - 30)
-        prov_labels.append(f'<text class="sn-provlabel" x="{cx:.1f}" '
-                           f'y="{cy - 16:.1f}" text-anchor="middle" opacity=".82">'
-                           f'{esc(meta["th"])}</text>')
+        half = len(nm) * 3.2
+        # Right of the pin, else left; a name that fits neither side of one
+        # already placed (the old city packs several into a few pixels)
+        # stays in the register below, where every row is named.
+        for anchor, tx in (("start", x + 7), ("end", x - 7)):
+            lo, hi = (tx, tx + 2 * half) if anchor == "start" else (tx - 2 * half, tx)
+            if lo < 4 or hi > W - 4:
+                continue
+            cx = (lo + hi) / 2
+            if all(abs(cx - lx) > half + lh or abs(y - ly) > 14 for lx, ly, lh in placed):
+                placed.append((cx, y, half))
+                avoid.append((cx, y, half))
+                labels.append(f'<text class="sn-maplabel" x="{tx:.1f}" y="{y + 4:.1f}" '
+                              f'text-anchor="{anchor}">{esc(nm)}</text>')
+                break
+    # Province names come from the ground, at each province's own middle.
+    ground = rg.svg(rg.load(), xy, W, H, river_names=("Ping", "Kok", "Ing"), avoid=avoid)
+    # Bottom right: the old city sits at the bottom left of this frame.
     km50 = 50 * scale
-    bar = (f'<g><line x1="{PAD}" y1="{H - 18}" x2="{PAD + km50:.1f}" y2="{H - 18}" '
+    bar = (f'<g><line x1="{W - PAD - km50:.1f}" y1="{H - 18}" x2="{W - PAD}" y2="{H - 18}" '
            f'stroke="#7d6a52" stroke-width="2"/>'
-           f'<text class="sn-maplabel" x="{PAD}" y="{H - 24}">50 km</text></g>')
-    label = bi_text("แผนที่ศาลและหลักเมืองสองจังหวัด — หมุดหนึ่งจุดต่อหนึ่งศาล",
-                    "Map of the shrines and city pillars of both provinces, one pin each")
+           f'<text class="sn-maplabel" x="{W - PAD - km50:.1f}" y="{H - 24}">50 km</text></g>')
+    label = bi_text("แผนที่ศาลและหลักเมืองสองจังหวัด — หมุดหนึ่งจุดต่อหนึ่งศาล บนเส้นแบ่งจังหวัด แม่น้ำ และถนนสายหลัก",
+                    "Map of the shrines and city pillars of both provinces, one pin each, "
+                    "on the province lines, rivers and main roads")
     return (f'<div class="sn-map"><svg role="img" aria-label="{esc(label)}" '
             f'viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg">'
-            + "".join(prov_labels) + "".join(pins) + "".join(labels) + bar
+            f'<rect width="{W}" height="{H}" fill="#f4efe4"/>'
+            + ground + "".join(pins) + "".join(labels) + bar
             + "</svg></div>")
 
 
@@ -157,7 +165,7 @@ def emit(g, data):
     rows = reg.get("shrines", [])
     kinds = reg.get("kinds", {})
     provinces = reg.get("provinces", {})
-    (DOCS / "san.css").write_text(CSS)
+    (DOCS / "san.css").write_text(CSS + rg.CSS)
     (DOCS / "data").mkdir(exist_ok=True)
     (DOCS / "data" / "shrines.json").write_text(
         json.dumps(reg, ensure_ascii=False, indent=1))
@@ -319,8 +327,8 @@ def emit(g, data):
 
     map_html = _map_svg(rows, provinces, by_id, bi_text, esc)
     credit = ('<p class="sn-credit">'
-              + bi("หมุดจากสารบัญ (OpenStreetMap © ผู้ร่วมแก้ไข, ODbL · ทะเบียนวัดและบัญชีเปิดราชการ) — แถวที่ยังไม่มีหมุดบอกไว้ตรง ๆ ว่ารอสำรวจ",
-                   "Pins come from the directory's own records (OpenStreetMap © contributors, ODbL; temple and open-government registers) — rows without a pin say so plainly")
+              + bi("หมุดจากสารบัญ (OpenStreetMap © ผู้ร่วมแก้ไข, ODbL · ทะเบียนวัดและบัญชีเปิดราชการ) — แถวที่ยังไม่มีหมุดบอกไว้ตรง ๆ ว่ารอสำรวจ · เส้นเขตจังหวัดและถนนสายหลักจาก Natural Earth (สาธารณสมบัติ) แม่น้ำจาก OpenStreetMap",
+                   "Pins come from the directory's own records (OpenStreetMap © contributors, ODbL; temple and open-government registers) — rows without a pin say so plainly · province lines and main roads from Natural Earth (public domain), rivers from OpenStreetMap")
               + "</p>")
 
     ld_items = []
@@ -353,7 +361,7 @@ def emit(g, data):
         f'<h2>{bi("ก่อนไหว้", "Before you wai")}</h2>'
         f"{primer_html}"
         f'<p class="sn-note">{bi("ที่มาของทะเบียน", "Register data")}: <a href="data/shrines.json">data/shrines.json</a> · '
-        + bi("ศาลที่มดยังไม่เจอ หรือป้ายที่ไม่ตรงทะเบียน — ", "A shrine the ants have not found, or a sign the register gets wrong — ")
+        + bi("ศาลที่ยังไม่มีในทะเบียน หรือป้ายที่ไม่ตรงทะเบียน — ", "A shrine not in the register, or a sign the register gets wrong — ")
         + f'<a href="suggest.html">{bi("บอกมด", "tell the ants")}</a></p>'
         + share_block(BASE + "san.html", "ศาล-ศาลเจ้า-หลักเมือง เชียงใหม่-เชียงราย · มดแดง", card=og))
     (DOCS / "san.html").write_text(page(

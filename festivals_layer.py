@@ -28,6 +28,9 @@ import datetime
 import json
 import math
 import re
+
+import commons_layer
+import doodles_layer
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -136,11 +139,9 @@ def _overlaps(a0, a1, b0, b1, pad=6.0):
 def wan_phra_year(year):
     """Every วันพระ in a calendar year, as (day-of-year angle, is-a-full-half).
 
-    Reuses importers/make_sky.py's moon_for — the same mean-synodic formula the
-    moon tile already publishes, shared with coucal-clock and wichaa.net/moon,
-    so the wheel cannot contradict the widget wall two pages away. It is an
-    approximation of the official Thai lunar calendar, not the calendar itself:
-    the wheel says so in its key, and no festival date is derived from it.
+    Reuses importers/make_sky.py's moon_for, whose วันพระ come from the Thai
+    lunar calendar in importers/thai_lunar.py, so the wheel cannot contradict
+    the widget wall two pages away. No festival date is derived from it.
     """
     import sys
     sys.path.insert(0, str(ROOT / "importers"))
@@ -558,6 +559,15 @@ def festival_ld(f, g, places):
     return f'<script type="application/ld+json">{json.dumps(doc, ensure_ascii=False)}</script>'
 
 
+def _pics(fn, g):
+    """A Commons picture strip (commons_layer), or nothing if it cannot be drawn."""
+    try:
+        return fn({"bi": g["bi"], "esc": g["esc"], "att": g["att"], "name_bi": g["name_bi"]})
+    except Exception as e:                       # noqa: BLE001 — pictures never cost a page
+        print("  ! festival pictures:", e)
+        return ""
+
+
 def build_festival_page(f, g, events, idx, prov_of, neighbours):
     bi, esc, att = g["bi"], g["esc"], g["att"]
     prov_th, prov_en = _prov_label(f, g)
@@ -576,6 +586,9 @@ def build_festival_page(f, g, events, idx, prov_of, neighbours):
 
     parts = [f'<div class="festhead"><h1>{bi(f["name_th"], f["name_en"])}</h1>'
              f'<div class="festmeta">{"".join(meta)}</div></div>',
+             _pics(lambda h: commons_layer.festival_pics(f, h, base="../"), g)
+             # none on Commons: the cover doodle it fits (Nan, 2026-10-02)
+             or doodles_layer.figure(doodles_layer.fit_festival(f), "../", att, bi=bi),
              f'<div class="festbody"><p>{bi(f["blurb_th"], f["blurb_en"])}</p>']
 
     # Hand-checked published lunar dates (data/festival_calendar.json via
@@ -920,7 +933,7 @@ def build_hub(fests, g, today, wheel):
     key = "".join(f'<span><i style="background:{c}"></i>{bi(th, en)}</span>'
                   for _, c, th, en in FAMILY)
     key += (f'<span><i style="background:#B8912E;width:.25rem"></i>'
-            f'{bi("ขีดเล็กรอบขอบ = วันพระ (โดยประมาณ)", "rim ticks = wan phra, approximate")}</span>'
+            f'{bi("ขีดเล็กรอบขอบ = วันพระ", "rim ticks = wan phra")}</span>'
             f'<span><i style="background:repeating-linear-gradient(90deg,#9B8B78 0 4px,transparent 4px 7px)"></i>'
             f'{bi("เส้นประ = รอการยืนยัน", "dashed = awaiting verification")}</span>')
     tiles = (f'<div class="tilerow">'
@@ -937,7 +950,7 @@ def build_hub(fests, g, today, wheel):
     caveat_th = ("หมายเหตุความซื่อตรง: รายการนี้มาจากความรู้ทั่วไป ไม่ใช่ผลการสำรวจภาคสนาม งานที่ผูกกับปฏิทินจันทรคติ "
                  "ให้ช่วงเดือนโดยประมาณ ไม่ใช่วันที่แน่นอน และรายการที่ขีดเป็นเส้นประในวงล้อคือรายการที่ยังรอการยืนยัน")
     caveat_en = ("Where this comes from: general knowledge, not a field crawl. Lunar entries give a "
-                 "typical month window, never an asserted day, and a dashed mark on the wheel means the "
+                 "typical month window, not an asserted day, and a dashed mark on the wheel means the "
                  "entry is still waiting on verification.")
     sections = []
     for m in range(1, 13):
@@ -950,7 +963,8 @@ def build_hub(fests, g, today, wheel):
                 f'<h3><a href="festivals/{f["id"]}.html">{bi(f["name_th"], f["name_en"])}</a></h3>')
             for f in items)
         sections.append(f'<h2 id="m{m}">{bi(g["MONTH_TH"][m], g["MONTH_EN"][m])}</h2>'
-                        f'<div class="festgrid">{cards}</div>')
+                        + _pics(lambda h: commons_layer.month_pics(m, h, base=""), g)
+                        + f'<div class="festgrid">{cards}</div>')
     monthnav = " · ".join(f'<a href="#m{m}">{g["MONTH_TH"][m]}</a>' for m in range(1, 13))
     body = (f'<h1>🎉 {bi("เทศกาล-ฤดูกาล", "Festivals & Seasons")}</h1>'
             f'<p>{bi(intro_th, intro_en)}</p>{tiles}'

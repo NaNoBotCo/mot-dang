@@ -30,7 +30,7 @@ any amount of crawling.
 | "high tech" studio | **0** | — | — |
 
 Two of those lines are bugs that had been sitting in front of readers, and four
-are honest holes.
+are declared holes.
 
 **The barber shelf held six shops in a city with sixty-two.** OpenStreetMap sets
 `hairdresser=barber` on 6 of the 371 hairdresser/beauty points in the snapshot, so

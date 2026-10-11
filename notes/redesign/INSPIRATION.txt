@@ -1,0 +1,91 @@
+INSPIRATION — pages that show and organise information better than Mot Dang
+Started 2026-09-28. One entry per site: who sent it, what it does, what Mot Dang takes.
+
+
+1. Flood Monitor — River Ping, Chiang Mai (AwareAI)
+   https://flood.awareai.io/   ·   Thai: https://flood.awareai.io/th
+   Sent by Michael via Nan, 2026-09-28:
+   "it's so clear and easy to read, I think they're doing it better than you."
+   For: motdang.net front page and every minisite.
+
+   What it does
+
+   The answer comes first, in one line.
+      "Low flood risk. The Ping is well below its banks and unlikely to top
+      them in the next 48 hours." A green dot, a bold verdict, one plain
+      sentence. Everything after it is the evidence.
+
+   Two numbers, big, each with a small caps label under it.
+      1.33 m NOW AT NAWARAT BRIDGE · 1.38 m FORECAST PEAK · 48H
+      Monospace digits, so they line up and read as measurements.
+
+   A word before a percentage.
+      "Unlikely" in colour, then "under 1% through +48 h" in small type.
+
+   One scale for time: now · +12 · +24 · +48 h, drawn as a line with dots.
+
+   A map beside the answer, with a five-step legend
+      (below bank · <0.3 m · 0.3–0.7 m · 0.7–1.2 m · >1.2 m).
+
+   Sections in order of how soon they matter:
+      river now → 7-day chart → map → rain upstream, 5 days → flash flood,
+      next 24 h → the dam → cameras → sources.
+
+   Each section: a title, then one line saying its scope.
+      "Upstream Outlook / Rain in the hills, 5 days ahead"
+      "Flash Flood Risk / Possibility of sudden local flooding from intense
+      rain, next 24 h"
+
+   Cause, then effect, in a sentence a neighbour would say.
+      "Rain this heavy can lift the river through the city within about a
+      day." Then it points to the authority: "The official gauges show the
+      actual level."
+
+   Detail folds away: "Show the data behind this".
+
+   Sources last, one line each, each with its link
+      (Royal Irrigation Department, RID Reservoirs, Northern Hydrology
+      Center, CMU flood poles).
+
+   "Last updated: 17:34 ICT" top right. EN/TH switch top right, with a
+   separate /th address.
+
+   The method lives on its own page (/methodology), marked "Preliminary",
+   and says what a gauge-only model cannot see.
+
+   Dark navy ground, one accent blue, status colours only where status is.
+
+   What Mot Dang takes
+
+   Front page: open with the one-line answer for the reader's hour and
+   city, then the two or three numbers that back it, then the rest.
+
+   Minisites: a status line first; big numbers with small labels; sections
+   ordered by how soon they matter; each section title followed by one
+   scope line; "data behind this" folded; sources last, one line each.
+
+   Nearest match on Mot Dang today: /nam.html and /sites/safety/ (the Ping
+   gauge). Those two are the first to rebuild in this shape.
+
+   Data they draw on, and where it comes from (checked 2026-09-28)
+
+   The site states no licence or terms, and its script is obfuscated. The
+   cross-check below read their pages; nothing of theirs is published.
+      River levels   RID telemetry, telerid.rid.go.th (Mot Dang reads the
+                     Upper North hydrology centre, hydro-1.net)
+      Dams           RID reservoir API, app.rid.go.th/reservoir/api — public,
+                     35 dams, north region includes Mae Ngat, Mae Kuang,
+                     Kiew Lom. Mot Dang has no dam data yet.
+      Flood poles    CMU, 219 poles across the city with the 2024 maximum
+                     depth at each
+      Rain           ECMWF forecast, RainViewer radar
+
+   Cross-check against data/ping.json, 2026-09-28:
+      Levels agree hour for hour (P.1 1.40 m at 14:00 in both).
+      Two gauges carry different village names in the two RID systems:
+         P.20  hydro-1: บ้านเชียงดาว   telerid: บ้านเกาะ
+         P.21  hydro-1: บ้านเหมืองผ่า   telerid: บ้านริมใต้
+      Telerid carries coordinates for 8 of our 10 gauges; ping.json has
+      none. P.4A and P.82 are not in their list.
+      Telerid reuses codes across basins: its "P.103" sits near Nakhon
+      Sawan (16.09 N), not our P.103.

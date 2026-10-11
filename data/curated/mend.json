@@ -1,0 +1,6875 @@
+{
+ "_readme": [
+  "WO-57/58 — the mend register, from the CMHY.city read in cache/cmhy/mend/.",
+  "EVERY row is kept so the page can print the denominator, not just the hits.",
+  "`trade` is decided by the row's OWN name and tags, never by the directory's",
+  "category alone; `refused` says why a row is not a record; `osm` names the",
+  "canonical record ALREADY ON THE SAME SHELF within 80 m that is this door.",
+  "A DIRECTORY IS NOT A FIRST-HAND SOURCE: its service tags live here and print",
+  "at the `listed` grade. They never enter enrich.json, which is for a place's",
+  "own site. Hours carry `_hoursSource`; a row with no GPS is `needs-pin`."
+ ],
+ "_built": "2026-09-04",
+ "counts": {
+  "alterations": 89,
+  "bicycle": 19,
+  "sharpen": 5,
+  "upholstery": 15,
+  "tech": 50,
+  "home": 180,
+  "mend": 23,
+  "matched": 21,
+  "refused": 51,
+  "needs_pin": 0,
+  "cmhy_rows": 453,
+  "written_new": 44,
+  "touched": 0
+ },
+ "rows": [
+  {
+   "cmhy": "10050",
+   "name": "ลุงเฮงกรรไกรทอง",
+   "tags": [
+    "ลับคม",
+    "กรรไกร",
+    "ลับบัตเตอร์เลี่ยน"
+   ],
+   "phone": "0853-300-433,089-433-3894",
+   "amphoe": "เมือง",
+   "modified": "2023-03-29",
+   "trade": "sharpen",
+   "facets": {
+    "sharpening": true
+   },
+   "record": "cm-curated-sharpen-10050"
+  },
+  {
+   "cmhy": "10052",
+   "name": "สามแมวจักรยาน Triple Cats Cycle",
+   "tags": [
+    "ขึ้นล้อ",
+    "ซ่อมจักรยาน",
+    "ประกอบจักรยาน"
+   ],
+   "phone": "094-826-9594",
+   "amphoe": "เมือง",
+   "modified": "2022-10-07",
+   "trade": "bicycle",
+   "facets": {},
+   "osm": "cm-osm-node-4196637926",
+   "metres": 7
+  },
+  {
+   "cmhy": "10106",
+   "name": "ทนาพล แมคคานิคัล แอนด์ ดีไซน์ (559)",
+   "tags": [
+    "รางน้ำฝน",
+    "ปล่องดูดควัน",
+    "งานสเตนเลส"
+   ],
+   "phone": "081-030-7216",
+   "amphoe": "เมือง",
+   "modified": "2026-02-05",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-10106"
+  },
+  {
+   "cmhy": "10431",
+   "name": "ป้าพิศ รับย้อมผ้า",
+   "tags": [
+    "ย้อมผ้า",
+    "รับย้อมผ้า",
+    "ตัดเสื้อ"
+   ],
+   "phone": "089-854-6588",
+   "amphoe": "เมือง",
+   "modified": "2022-05-23",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-10431"
+  },
+  {
+   "cmhy": "10507",
+   "name": "ร้าน รับปักเสื้อนักเรียน [ถนนสนามกีฬา]",
+   "tags": [
+    "ปักเสื้อนักเรียน",
+    "ปักป้ายอาร์ม",
+    "ปักโลโก้"
+   ],
+   "phone": "097-923-5396",
+   "amphoe": "เมือง",
+   "modified": "2025-07-09",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-10507"
+  },
+  {
+   "cmhy": "10512",
+   "name": "โชคชัย การผ้าใบ",
+   "tags": [
+    "กันสาด",
+    "ผ้าใบ",
+    "โครงหลังคา"
+   ],
+   "phone": "053-116-066,089-700-4887",
+   "amphoe": "เมือง",
+   "modified": "2021-10-23",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-10512"
+  },
+  {
+   "cmhy": "10521",
+   "name": "ลานนาเซอร์วิส",
+   "tags": [
+    "ติดตั้งCCTV",
+    "ซ่อมกล้องวงจรปิด",
+    "เครื่องบันทึกสัญญาณDVR"
+   ],
+   "phone": "086-182-7166,086-4416636",
+   "amphoe": "เมือง",
+   "modified": "2025-12-12",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-10521"
+  },
+  {
+   "cmhy": "11008",
+   "name": "เอ.พี.เอส. นานาภัณฑ์",
+   "tags": [
+    "สัญญานไฟ",
+    "ระบบประปา"
+   ],
+   "phone": "053-214-456",
+   "amphoe": "เมือง",
+   "modified": "2025-08-31",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-11008"
+  },
+  {
+   "cmhy": "1119",
+   "name": "บริษัท เจริญศิลป์ เชียงใหม่",
+   "tags": [
+    "นาฬิกา",
+    "แว่นตา",
+    "วัดสายตา"
+   ],
+   "phone": "053-276-483",
+   "amphoe": "เมือง",
+   "modified": "2023-03-24",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "11830",
+   "name": "ศัลยกรรมผ้า",
+   "tags": [
+    "ตัดผ้า",
+    "เย็บผ้า",
+    "แก้ทรง"
+   ],
+   "phone": "061-902-4893",
+   "amphoe": "เมือง",
+   "modified": "2022-05-23",
+   "trade": "alterations",
+   "facets": {
+    "hem": true
+   },
+   "record": "cm-curated-alterations-11830"
+  },
+  {
+   "cmhy": "11954",
+   "name": "ช้างม่อย อิเล็กทรอนิกส์",
+   "tags": [
+    "ซ่อมทีวี",
+    "ซ่อมเครื่องเสียง",
+    "ซ่อมพัดลม"
+   ],
+   "phone": "089-960-2849",
+   "amphoe": "เมือง",
+   "modified": "2026-03-01",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-11954"
+  },
+  {
+   "cmhy": "12158",
+   "name": "เคเอสเทค ไทยแลนด์ CCTV",
+   "tags": [
+    "กล้องวงจรปิด",
+    "cctv",
+    "มอเตอร์ประตูรีโมท"
+   ],
+   "phone": "052-010-252,099-142-8458,097-994-0566",
+   "amphoe": "เมือง",
+   "modified": "2026-02-09",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-12158"
+  },
+  {
+   "cmhy": "12366",
+   "name": "วิทยา อลูมิเนียม",
+   "tags": [
+    "บานเลื่อน",
+    "มุ้งลวด",
+    "บานสวิง"
+   ],
+   "phone": "089-555-5422",
+   "amphoe": "เมือง",
+   "modified": "2021-11-16",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-12366"
+  },
+  {
+   "cmhy": "12517",
+   "name": "ทรัพย์อนันต์มอเตอร์ & คอมเพรสเซอร์",
+   "tags": [
+    "ซ่อมคอมเพสเซอร์",
+    "มอเตอร์พัดลม",
+    "มอเตอร์ปั๊มน้ำ"
+   ],
+   "phone": "053-412-889,086-921-5205,,093-8480689",
+   "amphoe": "เมือง",
+   "modified": "2022-08-26",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-12517"
+  },
+  {
+   "cmhy": "12529",
+   "name": "ร้านตัดเย็บเสื้อผ้า[ถนน กุลวงศ์อุทิศ]",
+   "tags": [
+    "แก้ทรง",
+    "เปลี่ยนซิบ",
+    "กางเกง"
+   ],
+   "phone": "089-558-5578",
+   "amphoe": "เมือง",
+   "modified": "2024-07-15",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-12529"
+  },
+  {
+   "cmhy": "12588",
+   "name": "เสน่หา ซ่อมรองเท้า ซ่อมกระเป๋า",
+   "tags": [
+    "ซ่อมรองเท้า",
+    "กระเป๋า",
+    "จำหน่ายรองเท้าหนัง"
+   ],
+   "phone": "053-215-061,086-730-2678",
+   "amphoe": "เมือง",
+   "modified": "2026-02-07",
+   "trade": "mend",
+   "facets": {},
+   "record": "cm-curated-mend-12588"
+  },
+  {
+   "cmhy": "12596",
+   "name": "แฮนด์ ทู แฮนด์ กระเป๋ามือสอง",
+   "tags": [
+    "กระเป๋ามือสอง",
+    "รับซ่อมกระเป๋า"
+   ],
+   "phone": "080-684-2181,094-601-5892",
+   "amphoe": "เมือง",
+   "modified": "2022-08-26",
+   "trade": "mend",
+   "facets": {},
+   "record": "cm-curated-mend-12596"
+  },
+  {
+   "cmhy": "12608",
+   "name": "ประวิน รับซ่อมผ้า",
+   "tags": [
+    "เปลี่ยนซิบ",
+    "เปลี่ยนทรง",
+    "ซ่อมกระโปรง"
+   ],
+   "phone": "089-947-2589",
+   "amphoe": "เมือง",
+   "modified": "2022-05-23",
+   "trade": "alterations",
+   "facets": {
+    "zip": true
+   },
+   "record": "cm-curated-alterations-12608"
+  },
+  {
+   "cmhy": "13180",
+   "name": "ศูนย์บริการ สายฟ้าแลบ (สยามทีวี)",
+   "tags": [
+    "อุปกรณ์ไฟฟ้า",
+    "หน่วยสายฟ้าแลป",
+    "ซ่อมอุปกรณ์ไฟฟ้า"
+   ],
+   "phone": "053-282-222,053-276-111",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-13180"
+  },
+  {
+   "cmhy": "13190",
+   "name": "เชียงใหม่อนันต์การไฟฟ้า",
+   "tags": [
+    "ขายปลีกอุปกรณ์เครื่องใช้ไฟฟ้า",
+    "รับเหมาติดตั้งอุปกรณ์ไฟฟ้า",
+    "รับติดตั้งไฟส่องสว่าง"
+   ],
+   "phone": "053-418-086,081-885-6306",
+   "amphoe": "เมือง",
+   "modified": "2024-12-04",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-13190"
+  },
+  {
+   "cmhy": "13327",
+   "name": "แจ๊คกี้ไบค์",
+   "tags": [
+    "จักรยาน",
+    "ซ่อมจักรยาน"
+   ],
+   "phone": "053-225-278",
+   "amphoe": "เมือง",
+   "modified": "2021-01-25",
+   "trade": "bicycle",
+   "facets": {},
+   "osm": "cm-osm-node-1930113685",
+   "metres": 2
+  },
+  {
+   "cmhy": "13505",
+   "name": "เชียงใหม่ลับคม",
+   "tags": [
+    "ลับปัตตาเลี่ยน",
+    "ลับมีด",
+    "ลับกรรไกร"
+   ],
+   "phone": "094-832-4678",
+   "amphoe": "เมือง",
+   "modified": "2026-05-30",
+   "trade": "sharpen",
+   "facets": {
+    "sharpening": true
+   },
+   "record": "cm-curated-sharpen-13505"
+  },
+  {
+   "cmhy": "1358",
+   "name": "ร้านซ่อม-แอร์-ตู้เย็น-เครื่องซักผ้า [ถนน ราชเชียงแสน]",
+   "tags": [
+    "ซ่อมแอร์",
+    "ซ่อมตู้เย็น",
+    "ซ่อมเครื่องซักผ้า"
+   ],
+   "phone": "053-273-167",
+   "amphoe": "เมือง",
+   "modified": "2025-08-05",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-1358"
+  },
+  {
+   "cmhy": "1362",
+   "name": "ธนบุรีอลูมิเนียม เชียงใหม่",
+   "tags": [
+    "อลูมิเนียม",
+    "จำหน่าย",
+    "ขายอลูมิเนียม"
+   ],
+   "phone": "053-275-772,086-420-9780",
+   "amphoe": "เมือง",
+   "modified": "2025-08-05",
+   "trade": null,
+   "facets": {},
+   "refused": "sells aluminium by the length; not a fitter"
+  },
+  {
+   "cmhy": "13726",
+   "name": "คลินิกกางเกง (ชาตรี)",
+   "tags": [
+    "ซ่อมกางเกง",
+    "เปลี่ยนทรงกางเกง",
+    "สอยขา"
+   ],
+   "phone": "086-192-5160,086-448-3640",
+   "amphoe": "เมือง",
+   "modified": "2026-03-24",
+   "trade": "alterations",
+   "facets": {
+    "hem": true
+   },
+   "osm": "cm-curated-trouser-clinic",
+   "metres": 0
+  },
+  {
+   "cmhy": "1388",
+   "name": "แม่ปิงสแตนเลส",
+   "tags": [
+    "ประตูม้วน",
+    "ชุดครัวสแตนเลส",
+    "ปล่องดูดควัน"
+   ],
+   "phone": "081-724-7416,053-244-992",
+   "amphoe": "เมือง",
+   "modified": "2025-11-23",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-1388"
+  },
+  {
+   "cmhy": "13906",
+   "name": "เชียงใหม่ วีวี แอร์ แอนด์ เซอร์วิส",
+   "tags": [
+    "ซ่อมแอร์",
+    "สตาร์แอร์",
+    "บริการแอร์บ้าน"
+   ],
+   "phone": "053-249-841,081-951-5022",
+   "amphoe": "เมือง",
+   "modified": "2022-10-21",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-13906"
+  },
+  {
+   "cmhy": "14077",
+   "name": "ทีแอนด์ทีเฟอร์นิเจอร์",
+   "tags": [
+    "หุ้มเบาะ",
+    "ทำเบาะ",
+    "ซ่อมโซฟา"
+   ],
+   "phone": "096-5783509,092-2658797",
+   "amphoe": "เมือง",
+   "modified": "2018-11-29",
+   "trade": "upholstery",
+   "facets": {},
+   "record": "cm-curated-upholstery-14077"
+  },
+  {
+   "cmhy": "14082",
+   "name": "ช่างเชื่อมเหล็กบริการ",
+   "tags": [
+    "รับทำงานเหล็ก",
+    "ช่างงานเหล็ก"
+   ],
+   "phone": "062-027-7507,080-464-1138",
+   "amphoe": "เมือง",
+   "modified": "2024-06-18",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-14082"
+  },
+  {
+   "cmhy": "14098",
+   "name": "วี.อาร์.แอ๊ดวานซ์",
+   "tags": [
+    "วิทยุสื่อสาร",
+    "วิทยุราชการ",
+    "ซ่อม"
+   ],
+   "phone": "099-269-8598",
+   "amphoe": "เมือง",
+   "modified": "2020-10-11",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "14114",
+   "name": "กรวลัย งานผ้า (ชั้น 1 แอร์พอร์ตพลาซ่า) ติดลานจอดรถ ใกล้เอเซียบุ๊ค",
+   "tags": [
+    "ซ่อมผ้า",
+    "ซ่อมกระเป๋า",
+    "แก้ทรงเสื้อ"
+   ],
+   "phone": "089-950-0150",
+   "amphoe": "เมือง",
+   "modified": "2025-07-11",
+   "trade": "alterations",
+   "facets": {
+    "hem": true
+   },
+   "record": "cm-curated-alterations-14114"
+  },
+  {
+   "cmhy": "14266",
+   "name": "รับซ่อมเสื้อ กระโปรง [ถนน อารักษ์]",
+   "tags": [
+    "ซ่อมเสื้อ",
+    "ซ่อมกระโปรง",
+    "ซ่อม"
+   ],
+   "phone": "085-867-3719",
+   "amphoe": "เมือง",
+   "modified": "2024-11-19",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-14266"
+  },
+  {
+   "cmhy": "14398",
+   "name": "ทีเอ็ม คอมพิวเตอร์ รับซ่อมคอม (บริการนอกสถานที่)",
+   "tags": [
+    "ซ่อมปริ้นเตอร์",
+    "ซ่อมคอมพิวเตอร์",
+    "ซ่อมโน๊ตบุ๊ค"
+   ],
+   "phone": "089-560-8278",
+   "amphoe": "เมือง",
+   "modified": "2026-06-02",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-14398"
+  },
+  {
+   "cmhy": "1474",
+   "name": "เสี่ยกายค้าเหล็ก",
+   "tags": [
+    "จำหน่ายเหล็กแผ่น",
+    "เหล็กเพลา",
+    "รับอ๊อก"
+   ],
+   "phone": "053-302-930,089-635-7791",
+   "amphoe": "เมือง",
+   "modified": "2023-10-02",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "14780",
+   "name": "รับซ่อมนาฬิกาโบราณ",
+   "tags": [
+    "ตั้งนาฬิกา",
+    "ไขลาน",
+    "ซ่อมนาฬิกาตั้งพื้น"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-10-23",
+   "trade": "mend",
+   "facets": {},
+   "record": "cm-curated-mend-14780"
+  },
+  {
+   "cmhy": "14794",
+   "name": "จรีสย์การเบาะ",
+   "tags": [
+    "ซ่อมเบาะ",
+    "ซ่อมเบาะเฟอร์นิเจอร์",
+    "ซ่อมโชฟา"
+   ],
+   "phone": "089-559-5781",
+   "amphoe": "เมือง",
+   "modified": "2018-12-25",
+   "trade": "upholstery",
+   "facets": {},
+   "record": "cm-curated-upholstery-14794"
+  },
+  {
+   "cmhy": "14802",
+   "name": "สมหวัง การช่าง",
+   "tags": [
+    "โครงหลังคา",
+    "กันสาด",
+    "เมทัลชีท"
+   ],
+   "phone": "086-923-9063,080-595-7143",
+   "amphoe": "เมือง",
+   "modified": "2021-01-22",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-14802"
+  },
+  {
+   "cmhy": "14843",
+   "name": "ซ่อมจักยาน ช่างหนุ่ม",
+   "tags": [
+    "ซ่อมจักรยาน"
+   ],
+   "phone": "087-189-8866",
+   "amphoe": "เมือง",
+   "modified": "2020-06-17",
+   "trade": "bicycle",
+   "facets": {},
+   "record": "cm-curated-bicycle-14843"
+  },
+  {
+   "cmhy": "1488",
+   "name": "เล็กไบค์ สินชัยพานิช",
+   "tags": [
+    "เล็กไบค์",
+    "สินชัยพานิช",
+    "จักรยาน"
+   ],
+   "phone": "081-568-5612,053-245-464,081-472-1469",
+   "amphoe": "เมือง",
+   "modified": "2020-04-23",
+   "trade": "bicycle",
+   "facets": {},
+   "osm": "cm-osm-node-1702720260",
+   "metres": 12
+  },
+  {
+   "cmhy": "1489",
+   "name": "ชัยธวัช",
+   "tags": [
+    "จักรยาน",
+    "ซ่อมจักรยาน",
+    "อะไหล่จักรยาน"
+   ],
+   "phone": "053-279-890,081-626-2590",
+   "amphoe": "เมือง",
+   "modified": "2025-11-01",
+   "trade": "bicycle",
+   "facets": {},
+   "record": "cm-curated-bicycle-1489"
+  },
+  {
+   "cmhy": "14972",
+   "name": "เจ.ซี. คาวบอย ซ่อมผ้า",
+   "tags": [
+    "ซ่อมผ้า",
+    "เปลี่ยนซิบ",
+    "แก้ทรงเสื้อ"
+   ],
+   "phone": "084-482-7998,081-473-5149",
+   "amphoe": "เมือง",
+   "modified": "2022-05-23",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-14972"
+  },
+  {
+   "cmhy": "15091",
+   "name": "นั่งร้านเหล็กว่องพรชัย",
+   "tags": [
+    "โครงเหล็ก",
+    "นั่งร้าน",
+    "ติดตั้ง"
+   ],
+   "phone": "053-252-508,087-182-7099",
+   "amphoe": "เมือง",
+   "modified": "2024-03-02",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-15091"
+  },
+  {
+   "cmhy": "15104",
+   "name": "คนทำสวน",
+   "tags": [
+    "เปลี่ยนสารกรอง",
+    "ท่อ",
+    "แทงค์น้ำ"
+   ],
+   "phone": "053412345",
+   "amphoe": "เมือง",
+   "modified": "2021-12-14",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-15104"
+  },
+  {
+   "cmhy": "15117",
+   "name": "ร้านเบาะสมพงษ์เชียงใหม่ ทำเบาะรถยนต์มอเตอร์ไซค์",
+   "tags": [
+    "ทำเบาะ",
+    "ปาดเบาะ",
+    "ออกแบบเบาะ"
+   ],
+   "phone": "093-267-7711,084-223-0818",
+   "amphoe": "เมือง",
+   "modified": "2023-04-21",
+   "trade": "upholstery",
+   "facets": {},
+   "record": "cm-curated-upholstery-15117"
+  },
+  {
+   "cmhy": "15155",
+   "name": "ร้าน 101 ซ่อมเสื้อผ้า",
+   "tags": [
+    "แก้ทรงเสื้อ",
+    "เปลี่ยนซิบ",
+    "ซ่อมกางเกง"
+   ],
+   "phone": "061-7679192",
+   "amphoe": "เมือง",
+   "modified": "2026-06-12",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-15155"
+  },
+  {
+   "cmhy": "1519",
+   "name": "หยูรางน้ำ ทำรางน้ำฝน",
+   "tags": [
+    "ทำรางน้ำ",
+    "รางน้ำสเตนเลส",
+    "รางน้ำฝน"
+   ],
+   "phone": "062-939-4663,088-354-4969",
+   "amphoe": "เมือง",
+   "modified": "2022-10-01",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-1519"
+  },
+  {
+   "cmhy": "15272",
+   "name": "ซิสเตอร์ เอสเอส",
+   "tags": [
+    "แก้ทรง",
+    "ตัดเย็บ",
+    "เย็บผ้าตามออเดอร์"
+   ],
+   "phone": "0954467457",
+   "amphoe": "เมือง",
+   "modified": "2026-08-01",
+   "trade": "alterations",
+   "facets": {
+    "hem": true
+   },
+   "record": "cm-curated-alterations-15272"
+  },
+  {
+   "cmhy": "15415",
+   "name": "พธนะการช่าง",
+   "tags": [
+    "เหมาก่อสร้าง",
+    "ตกแต่งร้านกาแฟ",
+    "ตกแต่งออฟฟิต"
+   ],
+   "phone": "084-684-3230",
+   "amphoe": "เมือง",
+   "modified": "2021-10-26",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-15415"
+  },
+  {
+   "cmhy": "15440",
+   "name": "นุช-หน่อย ตัดเสื้อสตรี พิมพ์งานfax",
+   "tags": [
+    "ตัดเสื้อสตรี",
+    "แฟกซ์",
+    "นามบัตร"
+   ],
+   "phone": "082-956-9592",
+   "amphoe": "เมือง",
+   "modified": "2022-05-23",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "15442",
+   "name": "ปิงปอง ซ่อมคอมพิวเตอร์",
+   "tags": [
+    "ซ่อมคอม",
+    "ซ่อมปรินเตอร์",
+    "ซ่อมมือถือ"
+   ],
+   "phone": "097-954-9646",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-15442"
+  },
+  {
+   "cmhy": "15545",
+   "name": "ทักษิณแอร์เซ็นเตอร์ (ฟ้าฮ่าม)",
+   "tags": [
+    "ติดตั้งแอร์",
+    "อะไหล่แอร์",
+    "daikin"
+   ],
+   "phone": "053-345057,084-880-0086,087-1859992",
+   "amphoe": "เมือง",
+   "modified": "2024-09-24",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-15545"
+  },
+  {
+   "cmhy": "15568",
+   "name": "ร่วมเจริญรางน้ำ",
+   "tags": [
+    "รางน้ำฝน",
+    "ปล่องดูดควัน",
+    "ลูกหมุนระบายอากาศ"
+   ],
+   "phone": "091-775-1018",
+   "amphoe": "เมือง",
+   "modified": "2019-02-12",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-15568"
+  },
+  {
+   "cmhy": "15591",
+   "name": "เอี่ยว อิเล็กทรอนิกส์",
+   "tags": [
+    "ย้ายแอร์",
+    "ล้างแอร์",
+    "เดินสายไฟ"
+   ],
+   "phone": "089-434-4126",
+   "amphoe": "เมือง",
+   "modified": "2026-03-09",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-15591"
+  },
+  {
+   "cmhy": "15592",
+   "name": "รับทำเบาะ  (หนองหอย)",
+   "tags": [
+    "เบาะทุกชนิด",
+    "ซ่อมเบาะ",
+    "ทำเบาะรถยนต์"
+   ],
+   "phone": "082-783-7865",
+   "amphoe": "เมือง",
+   "modified": "2021-12-17",
+   "trade": "upholstery",
+   "facets": {},
+   "record": "cm-curated-upholstery-15592"
+  },
+  {
+   "cmhy": "15598",
+   "name": "โรงกลีงช่างแดง",
+   "tags": [
+    "กลึงเหล็ก",
+    "เชื่อมเหล็ก"
+   ],
+   "phone": "081-9523299",
+   "amphoe": "เมือง",
+   "modified": "2022-09-21",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "15602",
+   "name": "เค ไซคิ้ง คลับ",
+   "tags": [
+    "คลับของคนรักจักรยาน",
+    "อุปกรณ์จักรยาน"
+   ],
+   "phone": "096-159-5151",
+   "amphoe": "เมือง",
+   "modified": "2026-02-11",
+   "trade": "bicycle",
+   "facets": {},
+   "record": "cm-curated-bicycle-15602"
+  },
+  {
+   "cmhy": "15615",
+   "name": "ร้านแสงจันทร์ การช่างเหล็กดัด",
+   "tags": [
+    "งานกันสาด",
+    "งานเหล็ก",
+    "งานอลูมีเนียม"
+   ],
+   "phone": "089-431-4223,,,080-848-1134",
+   "amphoe": "เมือง",
+   "modified": "2022-10-07",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-15615"
+  },
+  {
+   "cmhy": "15620",
+   "name": "ก้าว อลูมิเนียม กระจก เชียงใหม่",
+   "tags": [
+    "กระจก",
+    "บานเลื่อน",
+    "หน้าต่าง"
+   ],
+   "phone": "065-192-4565,088-842-9998,053-441-289,053-328-558",
+   "amphoe": "เมือง",
+   "modified": "2022-09-21",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-15620"
+  },
+  {
+   "cmhy": "15627",
+   "name": "ว้าวไบค์ซิเคิล",
+   "tags": [
+    "ซ่อมจักรยาน",
+    "อะไหล่จักรยาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-08-25",
+   "trade": "bicycle",
+   "facets": {},
+   "record": "cm-curated-bicycle-15627"
+  },
+  {
+   "cmhy": "15631",
+   "name": "สมศักดิ์ การเบาะ",
+   "tags": [
+    "ทำเบาะ",
+    "ซ่อมเบาะ",
+    "รับสั่งทำเฟอร์นิเจอร์"
+   ],
+   "phone": "081-764-4140",
+   "amphoe": "เมือง",
+   "modified": "2022-08-31",
+   "trade": "upholstery",
+   "facets": {},
+   "record": "cm-curated-upholstery-15631"
+  },
+  {
+   "cmhy": "15633",
+   "name": "บุญธรรมอิเลคทรอนิกส์",
+   "tags": [
+    "ซ่อมตู้เย็น",
+    "ซ่อมเครื่องซักผ้า",
+    "ซ่อมทีวี"
+   ],
+   "phone": "088-4084118",
+   "amphoe": "เมือง",
+   "modified": "2022-10-07",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-15633"
+  },
+  {
+   "cmhy": "15685",
+   "name": "สมบูรณ์การช่าง",
+   "tags": [
+    "รับทำงานเหล็กทุกชนิด",
+    "กันสาดมุ้งลวด",
+    "รางน้ำ"
+   ],
+   "phone": "089-554-7655",
+   "amphoe": "เมือง",
+   "modified": "2022-03-25",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-15685"
+  },
+  {
+   "cmhy": "15846",
+   "name": "เบาะสรณ์ศิลป์",
+   "tags": [
+    "เบาะรถยนต์",
+    "ซ่อมเบาะ"
+   ],
+   "phone": "089-759-2427",
+   "amphoe": "เมือง",
+   "modified": "2021-10-08",
+   "trade": "upholstery",
+   "facets": {},
+   "record": "cm-curated-upholstery-15846"
+  },
+  {
+   "cmhy": "15864",
+   "name": "เหน่งออโต้คัต แอนด์ดีไซน์",
+   "tags": [
+    "รับทำหม้อน้ำอลูมิเนียม",
+    "อินเตอร์คูลเลอร์",
+    "งานเหล็ก"
+   ],
+   "phone": "081-7242406,091-8580954",
+   "amphoe": "เมือง",
+   "modified": "2026-02-11",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-15864"
+  },
+  {
+   "cmhy": "15962",
+   "name": "โอ อิเล็คทรอนิกส์ เซอร์วิส",
+   "tags": [
+    "ซ่อมเครื่องใช้ไฟฟ้า"
+   ],
+   "phone": "082-183-0377",
+   "amphoe": "เมือง",
+   "modified": "2026-06-17",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-15962"
+  },
+  {
+   "cmhy": "15980",
+   "name": "ต๊ะอิเล็กทรอนิกส์ ซ่อมเครื่องใช้ไฟฟ้า",
+   "tags": [
+    "ซ่อมเครื่องซักผ้า",
+    "ซ่อมไมโคเวฟ",
+    "ซ่อมLED"
+   ],
+   "phone": "093-394-4661",
+   "amphoe": "เมือง",
+   "modified": "2025-11-10",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-15980"
+  },
+  {
+   "cmhy": "16116",
+   "name": "ห้องเสื้อวรรณภา รับตัดเสื้อกระโปรง ซ่อมผ้า หลังมอ",
+   "tags": [
+    "รับตัดเสื้อกระโปรง",
+    "ซ่อมผ้า"
+   ],
+   "phone": "089-755-6503",
+   "amphoe": "เมือง",
+   "modified": "2022-05-23",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-16116"
+  },
+  {
+   "cmhy": "16225",
+   "name": "ต้นน้ำ อีเล็คทรอนิกส์ ซ่อมเครื่องใช้ไฟฟ้า",
+   "tags": [
+    "ซ่อมทีวี",
+    "ซ่อมพัดลม",
+    "ซ่อมวิทยุ"
+   ],
+   "phone": "053-244-864",
+   "amphoe": "เมือง",
+   "modified": "2022-10-11",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-16225"
+  },
+  {
+   "cmhy": "16266",
+   "name": "ประกาศอีเล็คโทรนิกส์ (ข่วงสิงห์)",
+   "tags": [
+    "แอร์",
+    "ตู้เย็น",
+    "เครื่องซักผ้า"
+   ],
+   "phone": "086-586-5355053-221-296,053-216-906",
+   "amphoe": "เมือง",
+   "modified": "2026-05-15",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-16266"
+  },
+  {
+   "cmhy": "16445",
+   "name": "ธนบูรณ์โลหะกิจ",
+   "tags": [
+    "เหล็กรูปพรรณ",
+    "เหล็ก"
+   ],
+   "phone": "053-449-217",
+   "amphoe": "เมือง",
+   "modified": "2021-07-26",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "16448",
+   "name": "รับซ่อมเครื่องกาแฟ by meedee",
+   "tags": [
+    "ซ่อมเครื่องชงกาแฟ",
+    "ซ่อมเครื่องบดกาแฟ",
+    "เสกสรรค์ซ่อมเครื่องชงกาแฟ"
+   ],
+   "phone": "081-025-3051",
+   "amphoe": "เมือง",
+   "modified": "2022-01-18",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "16567",
+   "name": "ส.อลูมิเนียม",
+   "tags": [
+    "งานชุดครัว",
+    "กั้นห้อง",
+    "บานแขวน"
+   ],
+   "phone": "053-115-517,,081-530-9138",
+   "amphoe": "เมือง",
+   "modified": "2022-02-23",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-16567"
+  },
+  {
+   "cmhy": "16582",
+   "name": "บ้านหยอดเหรียญ พีระ เซอร์วิส(เชียงใหม่)",
+   "tags": [
+    "ซ่อมตู้เติมเงิน",
+    "ซ่อมซักผ้าหยอดเหรียญ",
+    "ซ่อมตู้น้ำหยอดเหรียญ"
+   ],
+   "phone": "063-990-4306,093-959-9105",
+   "amphoe": "เมือง",
+   "modified": "2023-09-27",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "16585",
+   "name": "ก.การช่าง(ช่างกัน)",
+   "tags": [
+    "ปล่องดูดควัน",
+    "รางไวนิล",
+    "สังกะสี"
+   ],
+   "phone": "063-998-9426,092-473-6626",
+   "amphoe": "เมือง",
+   "modified": "2022-02-23",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-16585"
+  },
+  {
+   "cmhy": "16589",
+   "name": "นิพนธ์การช่าง",
+   "tags": [
+    "รางน้ำฝนตก​ตนเลส",
+    "โครงหลังคา"
+   ],
+   "phone": "099-808-0180",
+   "amphoe": "เมือง",
+   "modified": "2019-04-04",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-16589"
+  },
+  {
+   "cmhy": "16598",
+   "name": "มิสเตอร์ไกรสร ซ่อมรองเท้า กุญแจ ซ่อมกระเป๋า",
+   "tags": [
+    "ซ่อมรองเท้า",
+    "ปั๊มกุญแจม",
+    "กุญแจสำรอง"
+   ],
+   "phone": "096-687-6600",
+   "amphoe": "เมือง",
+   "modified": "2024-07-27",
+   "trade": "mend",
+   "facets": {},
+   "record": "cm-curated-mend-16598"
+  },
+  {
+   "cmhy": "16613",
+   "name": "ดาบชัยบริการ ซ่อมมอเตอร์ไซค์ ซ่อมเครื่องใช้ไฟฟ้า",
+   "tags": [
+    "ปะยาง",
+    "ซ่อมมอเตอร์ไซค์",
+    "ซ่อมเครื่องใช้ไฟ"
+   ],
+   "phone": "098-321-9954",
+   "amphoe": "เมือง",
+   "modified": "2026-09-01",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-16613"
+  },
+  {
+   "cmhy": "16687",
+   "name": "เอียร์ฟิกส์ เฮดโฟน",
+   "tags": [
+    "ซ่อมหูฟัง",
+    "รับซ่อมหูฟัง"
+   ],
+   "phone": "083-954-6763",
+   "amphoe": "เมือง",
+   "modified": "2026-02-11",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "16708",
+   "name": "ป้าอำไพ รับเย็บผ้า",
+   "tags": [
+    "เปลี่ยนซิบ",
+    "แก้ทรง",
+    "ตัดขากางเกง"
+   ],
+   "phone": "085-304-9449",
+   "amphoe": "เมือง",
+   "modified": "2022-05-23",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-16708"
+  },
+  {
+   "cmhy": "16755",
+   "name": "กระจกชาตรี เชียงใหม่ คลังอลูมิเนียม",
+   "tags": [
+    "อลูมิเนียม",
+    "บานพับ",
+    "กระจก"
+   ],
+   "phone": "080-501,8022,,098-747-8258,053-115-751",
+   "amphoe": "เมือง",
+   "modified": "2021-01-22",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-16755"
+  },
+  {
+   "cmhy": "16999",
+   "name": "จินนี่ไบค์ (มหิดล)",
+   "tags": [
+    "ซ่อมจักรยาน",
+    "ขายจักรยาน",
+    "จักรยานไฟฟ้า"
+   ],
+   "phone": "097-320-0919",
+   "amphoe": "เมือง",
+   "modified": "2021-12-10",
+   "trade": "bicycle",
+   "facets": {},
+   "record": "cm-curated-bicycle-16999"
+  },
+  {
+   "cmhy": "17081",
+   "name": "อ๊อด บริการงานช่างทั่วไป",
+   "tags": [
+    "รับทำงานทั่วไป",
+    "งานประปา",
+    "งานไฟฟ้า"
+   ],
+   "phone": "097-961-7765",
+   "amphoe": "เมือง",
+   "modified": "2026-04-26",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-17081"
+  },
+  {
+   "cmhy": "17174",
+   "name": "ร้านยงค์รงค์ปิติ ( ยงค์สแตนเลส 1 ) รับผลิตงานสแตนเลส",
+   "tags": [
+    "รางน้ำฝน",
+    "แผ่นสแตนเลส",
+    "รีโมทประตู"
+   ],
+   "phone": "053-308-701,089-755-7337,089-633-2345",
+   "amphoe": "เมือง",
+   "modified": "2026-02-11",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-17174"
+  },
+  {
+   "cmhy": "17215",
+   "name": "สุวรรณการช่าง",
+   "tags": [
+    "โรงกลึง",
+    "กลึงโลหะ",
+    "กัดโลหะ"
+   ],
+   "phone": "053-302-201",
+   "amphoe": "เมือง",
+   "modified": "2023-10-13",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-17215"
+  },
+  {
+   "cmhy": "17268",
+   "name": "โมโจ จักรยาน",
+   "tags": [
+    "จักรยาน",
+    "ซ่อมจักรยาน",
+    "อุปกรณ์จักรยาน"
+   ],
+   "phone": "088-266-8256",
+   "amphoe": "เมือง",
+   "modified": "2025-10-04",
+   "trade": "bicycle",
+   "facets": {},
+   "record": "cm-curated-bicycle-17268"
+  },
+  {
+   "cmhy": "17293",
+   "name": "โกแมว รับย้อมผ้าทุกสี",
+   "tags": [
+    "ย้อมยีนส์",
+    "ผ้าฝ้าย",
+    "ผ้าไหม"
+   ],
+   "phone": "084-047-1187,053226684",
+   "amphoe": "เมือง",
+   "modified": "2023-01-10",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-17293"
+  },
+  {
+   "cmhy": "17347",
+   "name": "ต่อย อิเล็กทรอนิคส์",
+   "tags": [
+    "ซ่อมTv",
+    "ซ่อมแอมป์",
+    "ซ่อมตู้เย็น"
+   ],
+   "phone": "081-972-2967",
+   "amphoe": "เมือง",
+   "modified": "2026-02-12",
+   "trade": "mend",
+   "facets": {},
+   "record": "cm-curated-mend-17347"
+  },
+  {
+   "cmhy": "17362",
+   "name": "ซ่อมเสื้อผ้า ป้าต้อย(เจ้าเก่า)",
+   "tags": [
+    "เปลี่ยนยางยืด",
+    "ผ้าขาวม้าปะ",
+    "ซ่อมผ้า"
+   ],
+   "phone": "081-5950249",
+   "amphoe": "เมือง",
+   "modified": "2022-05-23",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-17362"
+  },
+  {
+   "cmhy": "17417",
+   "name": "ล้านนารวมภัณฑ์บริการ",
+   "tags": [
+    "ซ่อมเครื่องใช้ไฟฟ้า"
+   ],
+   "phone": "053-210-681",
+   "amphoe": "เมือง",
+   "modified": "2024-12-04",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-17417"
+  },
+  {
+   "cmhy": "1760",
+   "name": "ณรงค์ทีวี ซ่อมเครื่องใช้ไฟฟ้า",
+   "tags": [
+    "ซ่อมทีวี",
+    "ซ่อมLCD",
+    "ซ่อมLED"
+   ],
+   "phone": "053-241-038",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-1760"
+  },
+  {
+   "cmhy": "17640",
+   "name": "ก. การช่าง",
+   "tags": [
+    "รางน้ำฝน",
+    "สังกะสี",
+    "สแตนเลส"
+   ],
+   "phone": "081-960-6174",
+   "amphoe": "เมือง",
+   "modified": "2021-09-26",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-17640"
+  },
+  {
+   "cmhy": "17679",
+   "name": "สมคิดบริการซ่อมไฟฟ้าประปา",
+   "tags": [
+    "ไมโครเวฟ",
+    "ซ่อมหม้อหุงข้าว",
+    "ซ่อมอุปกรณ์"
+   ],
+   "phone": "080-686-4607",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-17679"
+  },
+  {
+   "cmhy": "17915",
+   "name": "วีณา บราเซีย",
+   "tags": [
+    "รับตัดเย็บยกทรง",
+    "รัดหน้าท้อง",
+    "ชุดไทย"
+   ],
+   "phone": "053-223-453,093-132-5612",
+   "amphoe": "เมือง",
+   "modified": "2026-06-17",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "17955",
+   "name": "วีระวรรณ ตัดเย็บเสื้อสตรี",
+   "tags": [
+    "ตัดเย็บเสื้อสตรี"
+   ],
+   "phone": "081-950-2624",
+   "amphoe": "เมือง",
+   "modified": "2024-03-19",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "17962",
+   "name": "สวัสดิ์การเบาะ",
+   "tags": [
+    "งานเบาะ",
+    "งานโซฟา",
+    "ซ่อมเบาะ"
+   ],
+   "phone": "083-869-6449",
+   "amphoe": "เมือง",
+   "modified": "2026-06-02",
+   "trade": "upholstery",
+   "facets": {},
+   "record": "cm-curated-upholstery-17962"
+  },
+  {
+   "cmhy": "18582",
+   "name": "ร้านซ่อมเสื้อป้าปิ่น",
+   "tags": [
+    "แก้ทรง",
+    "เปลี่ยนซิบยีนส์",
+    "เปลี่ยนซิบ"
+   ],
+   "phone": "083-568-7899",
+   "amphoe": "เมือง",
+   "modified": "2025-08-06",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-18582"
+  },
+  {
+   "cmhy": "188",
+   "name": "กรโลหะ ทวีกิจ",
+   "tags": [
+    "เชื่อมโลหะ",
+    "เหล็ก",
+    "ประตูเหล็กยืด"
+   ],
+   "phone": "053-275-376",
+   "amphoe": "เมือง",
+   "modified": "2021-07-26",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "18973",
+   "name": "วัฒนาแอร์เซอร์วิส",
+   "tags": [
+    "แอร์บ้าน",
+    "ซ่อมแอร์",
+    "ติดตั้งแอร์"
+   ],
+   "phone": "081-530-1956,089-192-0855",
+   "amphoe": "เมือง",
+   "modified": "2023-04-21",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-18973"
+  },
+  {
+   "cmhy": "1906",
+   "name": "ศูนย์ซ่อมทีวี [ทิพยเนตร]",
+   "tags": [
+    "ซ่อมทีวี",
+    "ซ่อมวีดีโอ",
+    "ซ่อมเครื่องซักผ้า"
+   ],
+   "phone": "081-950-1495",
+   "amphoe": "เมือง",
+   "modified": "2023-04-21",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-1906"
+  },
+  {
+   "cmhy": "1915",
+   "name": "คำการไฟฟ้า",
+   "tags": [
+    "ซ่อมมอเตอร์",
+    "ซ่อมพัดลม",
+    "ซ่อมเครื่องดูดฝุ่น"
+   ],
+   "phone": "053-202-374,085-320-2374",
+   "amphoe": "เมือง",
+   "modified": "2026-03-09",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-1915"
+  },
+  {
+   "cmhy": "1917",
+   "name": "ร้านซ่อมเครื่องซักผ้า [ถนน หายยา]",
+   "tags": [
+    "ซ่อมเครื่องซักผ้า"
+   ],
+   "phone": "053-201-231,081-746-8648",
+   "amphoe": "เมือง",
+   "modified": "2026-03-09",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "1922",
+   "name": "สมจิตร์แอร์ เอ็นจิเนียริ่ง",
+   "tags": [
+    "แอร์บ้าน",
+    "ติดตั้งแอร์",
+    "ซ่อมแอร์"
+   ],
+   "phone": "053-275-700,053-275-701",
+   "amphoe": "เมือง",
+   "modified": "2025-07-08",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-1922"
+  },
+  {
+   "cmhy": "19230",
+   "name": "ชัยยงค์การช่าง",
+   "tags": [
+    "ลับคมกรรไกร",
+    "บัตเลี่ยน",
+    "ลับคมบัตเลี่ยน"
+   ],
+   "phone": "053-217-961,053-418-595",
+   "amphoe": "เมือง",
+   "modified": "2026-05-31",
+   "trade": "sharpen",
+   "facets": {
+    "sharpening": true
+   },
+   "record": "cm-curated-sharpen-19230"
+  },
+  {
+   "cmhy": "194",
+   "name": "เชียงใหม่ยนต์กิจ",
+   "tags": [
+    "เหมางานกลึง",
+    "รับจ้างงานกลึง",
+    "บ่าวาล์ว"
+   ],
+   "phone": "053-272-673,053-272-674,053-272-675",
+   "amphoe": "เมือง",
+   "modified": "2021-07-26",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "195",
+   "name": "ศูนย์ช่างโทรทัศน์",
+   "tags": [
+    "อุปกรณ์ไฟฟ้า",
+    "หลอดไฟ",
+    "ซ่อมทีวี"
+   ],
+   "phone": "053-449-323",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-195"
+  },
+  {
+   "cmhy": "20389",
+   "name": "เอนก ไบค์",
+   "tags": [
+    "ซ่อมจักรยาน",
+    "จำหน่ายจักรยาน",
+    "อัพเกรดจักรยาน"
+   ],
+   "phone": "089-645-055,095-307-3638,053-111-059",
+   "amphoe": "เมือง",
+   "modified": "2026-03-27",
+   "trade": "bicycle",
+   "facets": {},
+   "osm": "cm-osm-node-4277666189",
+   "metres": 4
+  },
+  {
+   "cmhy": "20430",
+   "name": "ไทยสยาม กระจก อลูมิเนียม",
+   "tags": [
+    "อลูมิเนียม",
+    "ประตู",
+    "หน้าต่าง"
+   ],
+   "phone": "086-673-5056",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-20430"
+  },
+  {
+   "cmhy": "20658",
+   "name": "ร้านรับซ่อมผ้าทุกชนิด [หนองป่าครั่ง]",
+   "tags": [
+    "เปลี่ยนซิบ",
+    "แก้ทรง",
+    "กางเกงยินส์"
+   ],
+   "phone": "061-574-4519",
+   "amphoe": "เมือง",
+   "modified": "2023-03-02",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-20658"
+  },
+  {
+   "cmhy": "20673",
+   "name": "เจ๊เปิ้ล รับซ่อมผ้า",
+   "tags": [
+    "เปลี่ยนซิบ",
+    "แก้ทรง",
+    "ตัดต่อผ้า"
+   ],
+   "phone": "092-887-4565",
+   "amphoe": "เมือง",
+   "modified": "2022-09-20",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-20673"
+  },
+  {
+   "cmhy": "20705",
+   "name": "วาทิตย์ธรรมช่าง",
+   "tags": [
+    "ติดตั้งแอร์",
+    "ล้างแอร์",
+    "ซ่อมแอร์"
+   ],
+   "phone": "053-282-369,064-915-3269",
+   "amphoe": "เมือง",
+   "modified": "2025-10-03",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-20705"
+  },
+  {
+   "cmhy": "20706",
+   "name": "ช่างดี ติดตั้ง งานกระจก",
+   "tags": [
+    "กระจก",
+    "ฝ้า",
+    "เพดาน"
+   ],
+   "phone": "093-285-2521",
+   "amphoe": "เมือง",
+   "modified": "2022-07-29",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-20706"
+  },
+  {
+   "cmhy": "20718",
+   "name": "บ้านเครื่องซักผ้า (ช่างวุฒิ)",
+   "tags": [
+    "ซ่อมเครื่องซักผ้า",
+    "ซ่อมตู้เย็น",
+    "ซ่อมแอร์"
+   ],
+   "phone": "098-008-4570",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-20718"
+  },
+  {
+   "cmhy": "20782",
+   "name": "รับทำกระจกอลูมิเนียม [วงแหวนรอบกลาง แม่เหียะ]",
+   "tags": [
+    "มุ้งลวด",
+    "ตู้อลูมิเนียม",
+    "รับงานอลูมิเนียม"
+   ],
+   "phone": "089-853-3298",
+   "amphoe": "เมือง",
+   "modified": "2025-08-08",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-20782"
+  },
+  {
+   "cmhy": "20787",
+   "name": "วิฑูรย์ เจาะบาดาล การประปา",
+   "tags": [
+    "งานปะปา",
+    "เจาะบาดาล",
+    "เจาะน้ำบาดาล"
+   ],
+   "phone": "053-447-226,081-993-9904",
+   "amphoe": "เมือง",
+   "modified": "2021-03-09",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-20787"
+  },
+  {
+   "cmhy": "20802",
+   "name": "มานพ ซ่อมแผงวงจรแอร์",
+   "tags": [
+    "ซ่อมแผงวงจรแอร์",
+    "ซ่อมแอร์บ้าน"
+   ],
+   "phone": "081-951-1933",
+   "amphoe": "เมือง",
+   "modified": "2022-02-27",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-20802"
+  },
+  {
+   "cmhy": "20964",
+   "name": "เอส.ซี.อิเล็กทรอนิกส์ เซอร์วิส",
+   "tags": [
+    "ซ่อมทีวี",
+    "ซ่อมLCD",
+    "ซ่อมLED"
+   ],
+   "phone": "081-796-0712",
+   "amphoe": "เมือง",
+   "modified": "2022-10-25",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-20964"
+  },
+  {
+   "cmhy": "21087",
+   "name": "บอลการกลึง",
+   "tags": [
+    "กลึง",
+    "เชื่อม",
+    "โลหะ"
+   ],
+   "phone": "083-152-7093",
+   "amphoe": "เมือง",
+   "modified": "2022-03-24",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "21102",
+   "name": "ที.เค. สแตนเลสสตีล",
+   "tags": [
+    "ประตู",
+    "รั้ว",
+    "ราวบันได"
+   ],
+   "phone": "053-216-581,081-929-5215,082-227-9805",
+   "amphoe": "เมือง",
+   "modified": "2021-01-21",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-21102"
+  },
+  {
+   "cmhy": "21103",
+   "name": "สืบแสงมอเตอร์",
+   "tags": [
+    "มอเตอร์",
+    "ไดนาโม"
+   ],
+   "phone": "092-680-9713",
+   "amphoe": "เมือง",
+   "modified": "2024-11-20",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "21107",
+   "name": "รับติดตั้งซ่อมแอร์",
+   "tags": [
+    "ซ่อมแอร์",
+    "ติดตั้งแอร์"
+   ],
+   "phone": "088-406-5681",
+   "amphoe": "เมือง",
+   "modified": "2020-03-23",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-21107"
+  },
+  {
+   "cmhy": "21108",
+   "name": "เคแอนด์ยู",
+   "tags": [
+    "กล้องวงจรปิด",
+    "network",
+    "security"
+   ],
+   "phone": "053-244-187,081-366-0210",
+   "amphoe": "เมือง",
+   "modified": "2020-03-23",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-21108"
+  },
+  {
+   "cmhy": "21171",
+   "name": "หนานอลูมิเนียม",
+   "tags": [
+    "กระจก",
+    "ประตู",
+    "เหล็กดัด"
+   ],
+   "phone": "085-033-0958,084-806-8512",
+   "amphoe": "เมือง",
+   "modified": "2021-10-11",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-21171"
+  },
+  {
+   "cmhy": "21174",
+   "name": "สมชายบริการ",
+   "tags": [
+    "เดินสายไฟ",
+    "ซ่อมเครื่องใช้ไฟฟ้า",
+    "ติดตั้ง"
+   ],
+   "phone": "086-920-2157",
+   "amphoe": "เมือง",
+   "modified": "2020-03-27",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-21174"
+  },
+  {
+   "cmhy": "21328",
+   "name": "รัตนโกสินทร์ มอเตอร์",
+   "tags": [
+    "มอเตอร์",
+    "ซ่อมมอเตอร์ปั๊มน้ำ"
+   ],
+   "phone": "089-554-7705,095-469-2368",
+   "amphoe": "เมือง",
+   "modified": "2026-06-18",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-21328"
+  },
+  {
+   "cmhy": "21355",
+   "name": "ณรงค์ อิเล็กทรอนิกส์",
+   "tags": [
+    "วิทยุ",
+    "ซ่อมเครื่องซักผ้า",
+    "ซ่อมวิทยุ"
+   ],
+   "phone": "080-134-0221",
+   "amphoe": "เมือง",
+   "modified": "2020-04-11",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "21633",
+   "name": "รับเปลี่ยนซิบ แก้ทรง",
+   "tags": [
+    "เปลี่ยนยางกางเกง",
+    "ตัดขากางเกง",
+    "ปะผ้า"
+   ],
+   "phone": "053-249-271",
+   "amphoe": "เมือง",
+   "modified": "2025-09-30",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-21633"
+  },
+  {
+   "cmhy": "21746",
+   "name": "ไบค์ช้อป",
+   "tags": [
+    "ขายจักรยาน",
+    "อะไหล่จักรยาน",
+    "อุปกรณ์แต่ง"
+   ],
+   "phone": "053-275-396,0896320497",
+   "amphoe": "เมือง",
+   "modified": "2021-10-13",
+   "trade": "bicycle",
+   "facets": {},
+   "record": "cm-curated-bicycle-21746"
+  },
+  {
+   "cmhy": "21984",
+   "name": "ประสงค์เซอร์วิส",
+   "tags": [
+    "เดินไฟ",
+    "น้ำอุ่น",
+    "เย็น"
+   ],
+   "phone": "080-251-895,081-163-2895",
+   "amphoe": "เมือง",
+   "modified": "2021-11-22",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "21986",
+   "name": "สหแอร์แอนด์เซอร์วิส",
+   "tags": [
+    "ซ่อมแอร์",
+    "ซ่อมเครื่องซักผ้า",
+    "ซ่อมตู้เย็น"
+   ],
+   "phone": "084-367-4083",
+   "amphoe": "เมือง",
+   "modified": "2023-03-21",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-21986"
+  },
+  {
+   "cmhy": "22113",
+   "name": "โนอาห์เครื่องหนัง (ร้านในตำนาน) ซ่อมรองเท้า [ถนนแก้วนวรัฐ]",
+   "tags": [
+    "ซ่อมรองเท้า",
+    "ตัดแต่งรองเท้า",
+    "ซ่อมกระเป๋า"
+   ],
+   "phone": "061-982-2273,066-024-1788",
+   "amphoe": "เมือง",
+   "modified": "2025-12-26",
+   "trade": "mend",
+   "facets": {},
+   "record": "cm-curated-mend-22113"
+  },
+  {
+   "cmhy": "22114",
+   "name": "ภูธนสิริภัทร หมวยนะค่ะ ซ่อมรองเท้า ซ่อมกระเป๋า",
+   "tags": [
+    "รองเท้า",
+    "กระเป๋า",
+    "เสื้อผ้า"
+   ],
+   "phone": "086-945-9695",
+   "amphoe": "เมือง",
+   "modified": "2025-12-12",
+   "trade": "mend",
+   "facets": {},
+   "record": "cm-curated-mend-22114"
+  },
+  {
+   "cmhy": "22115",
+   "name": "ป้าหล้ารับซ่อมผ้า",
+   "tags": [
+    "ซ่อมกระเป๋า",
+    "ซ่อมเสื้อผ้า",
+    "ซ่อมกระเป๋าเดินทาง"
+   ],
+   "phone": "089-432-9326",
+   "amphoe": "เมือง",
+   "modified": "2025-08-06",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-22115"
+  },
+  {
+   "cmhy": "22117",
+   "name": "ตั้งบุรินทร์ ซ่อมแซมรองเท้า",
+   "tags": [
+    "ซ่อมรองเท้า",
+    "เปลี่ยนทรง",
+    "เกือกม้ารองเท้า"
+   ],
+   "phone": "082-894-2194,093-241-8828",
+   "amphoe": "เมือง",
+   "modified": "2026-02-19",
+   "trade": "mend",
+   "facets": {},
+   "record": "cm-curated-mend-22117"
+  },
+  {
+   "cmhy": "22704",
+   "name": "อ.การช่าง",
+   "tags": [
+    "งานเบาะ",
+    "งานเหล๊ก",
+    "ต่อเติมปูน"
+   ],
+   "phone": "089-434-8706",
+   "amphoe": "เมือง",
+   "modified": "2025-08-08",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "22875",
+   "name": "รับซ่อมเครื่องใช้ไฟฟ้า [บ้านร่ำเปิง หลัง มช.]",
+   "tags": [
+    "ซ่อมคอม",
+    "ซ่อมโน๊ตบุ๊ค",
+    "ซ่อมมือถือ"
+   ],
+   "phone": "081-389-0999",
+   "amphoe": "เมือง",
+   "modified": "2025-03-03",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-22875"
+  },
+  {
+   "cmhy": "23040",
+   "name": "บ้านฮักแล้วถีบ จักรยานญี่ปุ่น",
+   "tags": [
+    "รถจักรยานญี่ปุ่น",
+    "จักรยานพับ",
+    "จักรยานมือสอง"
+   ],
+   "phone": "089-637-4922,089-700-9530",
+   "amphoe": "เมือง",
+   "modified": "2020-07-18",
+   "trade": "bicycle",
+   "facets": {},
+   "record": "cm-curated-bicycle-23040"
+  },
+  {
+   "cmhy": "23057",
+   "name": "คลินิคเสื้อผ้า น้องเก๋",
+   "tags": [
+    "ตัดขา",
+    "เปลี่ยนซิบ",
+    "ปะผ้า"
+   ],
+   "phone": "091-713-4610",
+   "amphoe": "เมือง",
+   "modified": "2022-05-23",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-23057"
+  },
+  {
+   "cmhy": "23080",
+   "name": "ทิพวรรณ",
+   "tags": [
+    "ตัดเสื้อสตรี",
+    "แก้ทรง",
+    "เปลี่ยนซิบ"
+   ],
+   "phone": "085-063-9570",
+   "amphoe": "เมือง",
+   "modified": "2026-02-19",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-23080"
+  },
+  {
+   "cmhy": "23163",
+   "name": "ช. กระจกอลูมิเนียม",
+   "tags": [
+    "กระจก",
+    "อลูมิเนียม",
+    "ยานเปลือย"
+   ],
+   "phone": "084-614-6015,082-443-2344",
+   "amphoe": "เมือง",
+   "modified": "2021-11-13",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-23163"
+  },
+  {
+   "cmhy": "23368",
+   "name": "ซีเอ็มเจ กราส แอนด์แฟรม",
+   "tags": [
+    "ตัดกระจก",
+    "กุญแจ"
+   ],
+   "phone": "053-243-310",
+   "amphoe": "เมือง",
+   "modified": "2026-03-10",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-23368"
+  },
+  {
+   "cmhy": "23881",
+   "name": "น้อง อลูมิเนียม",
+   "tags": [
+    "อลูมิเนียม"
+   ],
+   "phone": "053-215-271",
+   "amphoe": "เมือง",
+   "modified": "2022-08-26",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-23881"
+  },
+  {
+   "cmhy": "23882",
+   "name": "ป้าทอง รับซ่อมผ้า",
+   "tags": [
+    "ย้อมผ้า",
+    "ตัดเย็บ"
+   ],
+   "phone": "062-296-1334",
+   "amphoe": "เมือง",
+   "modified": "2026-02-20",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-23882"
+  },
+  {
+   "cmhy": "23940",
+   "name": "แบ็คโปรรีแพร์ แอนด์ สปา",
+   "tags": [
+    "ซ่อมกระเป๋า",
+    "สปารองเท้า",
+    "กระเป๋าแบนด์เนม"
+   ],
+   "phone": "092-342-1109",
+   "amphoe": "เมือง",
+   "modified": "2022-07-14",
+   "trade": "mend",
+   "facets": {},
+   "record": "cm-curated-mend-23940"
+  },
+  {
+   "cmhy": "24040",
+   "name": "รับซ่อมผ้าย้อมผ้าหลังมอ",
+   "tags": [
+    "ตัดขา",
+    "แก้เอว",
+    "เปลี่ยนทรง"
+   ],
+   "phone": "089-634-4953",
+   "amphoe": "เมือง",
+   "modified": "2022-05-23",
+   "trade": "alterations",
+   "facets": {
+    "hem": true
+   },
+   "record": "cm-curated-alterations-24040"
+  },
+  {
+   "cmhy": "24095",
+   "name": "รับตัดเสื้อผ้า (เจ้าเก่าวัดกู่เต้า)",
+   "tags": [
+    "ตัดขา",
+    "เปลี่ยนซิบ",
+    "เข้ารูปกางเกง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-05-08",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-24095"
+  },
+  {
+   "cmhy": "24114",
+   "name": "บ้านท่อไอที",
+   "tags": [
+    "ซ่อมคอม",
+    "ซ่อมโน๊ตบุ๊ค",
+    "ซ่อมมือถือ"
+   ],
+   "phone": "097-995-2854",
+   "amphoe": "เมือง",
+   "modified": "2020-10-21",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-24114"
+  },
+  {
+   "cmhy": "24719",
+   "name": "โยการช่าง",
+   "tags": [
+    "ปล่องดูดควัน",
+    "งานสแตนเลส",
+    "รางน้ำฝน"
+   ],
+   "phone": "053-231-705,081-671-2984",
+   "amphoe": "เมือง",
+   "modified": "2026-05-30",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-24719"
+  },
+  {
+   "cmhy": "24721",
+   "name": "รับซ่อมเกิบ รองเท้า",
+   "tags": [
+    "ตอกตราไก่",
+    "ซ่อมรองเท้า",
+    "ซ่อมกระเป๋า"
+   ],
+   "phone": "080-493-2591",
+   "amphoe": "เมือง",
+   "modified": "2025-04-04",
+   "trade": "mend",
+   "facets": {},
+   "record": "cm-curated-mend-24721"
+  },
+  {
+   "cmhy": "25149",
+   "name": "ป้าใหญ่ ตัดเย็บ",
+   "tags": [
+    "แก้ทรง",
+    "เปลี่ยนซิบ",
+    "ตัดเย็บ"
+   ],
+   "phone": "084-206-6465",
+   "amphoe": "เมือง",
+   "modified": "2025-04-29",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-25149"
+  },
+  {
+   "cmhy": "25845",
+   "name": "ปาย ซ่อมผ้า",
+   "tags": [
+    "ตัดขากางเกง",
+    "เปลี่ยนซิบ",
+    "เย็บเสื้อผ้า"
+   ],
+   "phone": "094-757-5856",
+   "amphoe": "เมือง",
+   "modified": "2022-05-23",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-25845"
+  },
+  {
+   "cmhy": "25848",
+   "name": "ป้าน้อย ซ่อมผ้า",
+   "tags": [
+    "เปลี่ยนซิบ",
+    "แก้ทรง"
+   ],
+   "phone": "087-172-2344",
+   "amphoe": "เมือง",
+   "modified": "2022-05-23",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-25848"
+  },
+  {
+   "cmhy": "26474",
+   "name": "รุ่งเรือง รับตัด-เย็บเสื้อผ้า",
+   "tags": [
+    "แก้ทรง",
+    "เย็บเสื้อผ้า",
+    "เปลี่ยนซิบ"
+   ],
+   "phone": "082-762-8323",
+   "amphoe": "เมือง",
+   "modified": "2025-12-07",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-26474"
+  },
+  {
+   "cmhy": "2693",
+   "name": "ไมโครอิเล็กทรอนิกส์",
+   "tags": [
+    "ซ่อมทีวี",
+    "เครื่องใช้ไฟฟ้า",
+    "เครื่องเสียง"
+   ],
+   "phone": "053-410-061",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-2693"
+  },
+  {
+   "cmhy": "26930",
+   "name": "โรงกลีง ส. บุญเป็ง",
+   "tags": [
+    "ซ่อมเสื่อสูบ",
+    "ฝาสูบ",
+    "โรงกลีง"
+   ],
+   "phone": "086-115-5845,053-850253",
+   "amphoe": "เมือง",
+   "modified": "2021-01-22",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "26935",
+   "name": "สหกิจ กระจกอลูมิเนียม",
+   "tags": [
+    "กระจก",
+    "อลูมิเนียม",
+    "บานเลื่อน"
+   ],
+   "phone": "086-670-8938,081-111-7257",
+   "amphoe": "เมือง",
+   "modified": "2021-01-22",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-26935"
+  },
+  {
+   "cmhy": "26937",
+   "name": "ขจรการช่าง",
+   "tags": [
+    "หลังคา",
+    "กระจก",
+    "มุ้งลวด"
+   ],
+   "phone": "089-959-5253",
+   "amphoe": "เมือง",
+   "modified": "2021-01-13",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-26937"
+  },
+  {
+   "cmhy": "26945",
+   "name": "เอก อลูมิเนียม",
+   "tags": [
+    "กระจก",
+    "อลูมิเนียม",
+    "บานสวิง"
+   ],
+   "phone": "089-261-3536",
+   "amphoe": "เมือง",
+   "modified": "2021-01-22",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-26945"
+  },
+  {
+   "cmhy": "26967",
+   "name": "บิลลี่ขั้นเทพ 2005 ซ่อมรองเท้า",
+   "tags": [
+    "ซ่อมกระเป๋า",
+    "ซ่อมเครื่องหนัง",
+    "ซ่อมรองเท้า"
+   ],
+   "phone": "094-635-1685",
+   "amphoe": "เมือง",
+   "modified": "2024-12-04",
+   "trade": "mend",
+   "facets": {},
+   "record": "cm-curated-mend-26967"
+  },
+  {
+   "cmhy": "27166",
+   "name": "ศูนย์ซ่อมสร้างเพื่อชุมชน วิทยาลัยเทคนิคเชียงใหม่ Fixit",
+   "tags": [
+    "ซ่อมมอเตอร์ไซต์",
+    "ซ่อมเครื่องใช้ไฟฟ้า",
+    "ซ่อมพัดลม"
+   ],
+   "phone": "053-217-708",
+   "amphoe": "เมือง",
+   "modified": "2026-09-03",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-27166"
+  },
+  {
+   "cmhy": "27266",
+   "name": "อาร์ทแอร์บริการล้างแอร์",
+   "tags": [
+    "ซ่อมแอร์",
+    "ล้างแอร์บ้าน",
+    "ซ่อมเครื่องใช้ไฟฟ้าทั่วไป"
+   ],
+   "phone": "084-885-9735,093-163-0476",
+   "amphoe": "เมือง",
+   "modified": "2025-04-18",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-27266"
+  },
+  {
+   "cmhy": "27293",
+   "name": "ต.สตีล",
+   "tags": [
+    "เหล็ก",
+    "วงกบเหล็ก",
+    "ประตูม้วน"
+   ],
+   "phone": "053-872-755",
+   "amphoe": "เมือง",
+   "modified": "2021-01-21",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-27293"
+  },
+  {
+   "cmhy": "27529",
+   "name": "เพียววอเตอร์",
+   "tags": [
+    "เครื่องกรองน้ำ",
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "ตู้น้ำหยอด"
+   ],
+   "phone": "086-913-2966,094-353-5991",
+   "amphoe": "เมือง",
+   "modified": "2025-12-12",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "27586",
+   "name": "ศิริ อลูมิเนียม",
+   "tags": [
+    "อลูมิเนียม",
+    "ติดตั้งกระจก",
+    "รีโนเวทบ้าน"
+   ],
+   "phone": "091-781-4989",
+   "amphoe": "เมือง",
+   "modified": "2023-04-21",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-27586"
+  },
+  {
+   "cmhy": "27591",
+   "name": "รับซ่อมเครื่องใช้ไฟ้ฟ้า [ถนน กระดังงา สันติธรรม]",
+   "tags": [
+    "ซ่อมเครื่องใช้ไฟ้ฟ้า",
+    "ซ่อมทีวี",
+    "ซ่อมพัดลม"
+   ],
+   "phone": "081-681-7277",
+   "amphoe": "เมือง",
+   "modified": "2026-05-24",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-27591"
+  },
+  {
+   "cmhy": "27851",
+   "name": "อัมพร คลีนิคผ้า",
+   "tags": [
+    "ซ่อมรองเท้า",
+    "กระเป๋า",
+    "เปลี่ยนซิบ"
+   ],
+   "phone": "093-210-1845,0969024312",
+   "amphoe": "เมือง",
+   "modified": "2022-10-20",
+   "trade": "alterations",
+   "facets": {
+    "zip": true
+   },
+   "record": "cm-curated-alterations-27851"
+  },
+  {
+   "cmhy": "27854",
+   "name": "เชียงใหม่ นอร์ทเทอร์นแอร์ กรุ๊ป (สำนักงานใหญ่)",
+   "tags": [
+    "แอร์บ้าน"
+   ],
+   "phone": "081-882-6020",
+   "amphoe": "เมือง",
+   "modified": "2026-06-02",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-27854"
+  },
+  {
+   "cmhy": "28125",
+   "name": "เชียงใหม่ ที. ซี. แอร์ HITACHI YORK",
+   "tags": [
+    "แอร์ฮิตาชิ",
+    "แอร์ยอร์ก",
+    "York"
+   ],
+   "phone": "065-556-9825",
+   "amphoe": "เมือง",
+   "modified": "2026-03-24",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-28125"
+  },
+  {
+   "cmhy": "28205",
+   "name": "โรงกลึง ซิมฮวยการช่าง",
+   "tags": [
+    "เสื้อสูบมอเตอร์ไซค์",
+    "อัดข้อเหวี่ยง",
+    "งานกลึง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-06-05",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-28205"
+  },
+  {
+   "cmhy": "28486",
+   "name": "น้อย คลินิค ซ่อมผ้า",
+   "tags": [
+    "แก้ทรง",
+    "ตัดเสื้อ",
+    "ตัดกางเกง"
+   ],
+   "phone": "053-850-283",
+   "amphoe": "เมือง",
+   "modified": "2022-05-23",
+   "trade": "alterations",
+   "facets": {
+    "hem": true
+   },
+   "record": "cm-curated-alterations-28486"
+  },
+  {
+   "cmhy": "28607",
+   "name": "ส.บาดาล",
+   "tags": [
+    "เจาะน้ำบาดาล",
+    "ซ่อมปั๊มน้ำ",
+    "ถังกรองน้ำ"
+   ],
+   "phone": "081-950-3425,081-993-8733",
+   "amphoe": "เมือง",
+   "modified": "2025-05-01",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-28607"
+  },
+  {
+   "cmhy": "28707",
+   "name": "จักรไทยพัฒนา",
+   "tags": [
+    "ซ่อมจักรเย็บผ้า",
+    "ซื้อขายจักรมือสอง"
+   ],
+   "phone": "053-234-688",
+   "amphoe": "เมือง",
+   "modified": "2021-09-21",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-28707"
+  },
+  {
+   "cmhy": "28768",
+   "name": "เชียงใหม่คูลลิ่ง แอร์",
+   "tags": [
+    "แอร์บ้าน",
+    "บริการงานช่าง",
+    "เครื่องปรับอากาศ"
+   ],
+   "phone": "081-951-9055,097-924-7744",
+   "amphoe": "เมือง",
+   "modified": "2021-07-27",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-28768"
+  },
+  {
+   "cmhy": "28782",
+   "name": "ไบค์ คลับ เอ็กซ์เพลส (โฮมโปร (เชียงใหม่-หางดง))",
+   "tags": [
+    "จักรยาน",
+    "จักรยานไฟฟ้า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-07-27",
+   "trade": "bicycle",
+   "facets": {},
+   "record": "cm-curated-bicycle-28782"
+  },
+  {
+   "cmhy": "28848",
+   "name": "อุดมการช่าง",
+   "tags": [
+    "โรงกลึง"
+   ],
+   "phone": "053-224-027",
+   "amphoe": "เมือง",
+   "modified": "2023-08-12",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-28848"
+  },
+  {
+   "cmhy": "28990",
+   "name": "ศูนย์บริการ ฟูจิตสึ เชียงใหม่ ฟูจิตซึ เจเนอรัล  fujitsu",
+   "tags": [
+    "fujitsu",
+    "ศูนย์ฟูจิซุ",
+    "ติดตั้งแอร์"
+   ],
+   "phone": "053-308-900,,081-716-9518",
+   "amphoe": "เมือง",
+   "modified": "2026-09-02",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-28990"
+  },
+  {
+   "cmhy": "29374",
+   "name": "ร้านซ่อมคอมพิวเตอร์ [ถนนระแกง]",
+   "tags": [
+    "ซ่อมคอมพิวเตอร์"
+   ],
+   "phone": "087-103-9250",
+   "amphoe": "เมือง",
+   "modified": "2024-04-17",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-29374"
+  },
+  {
+   "cmhy": "29383",
+   "name": "เอ็มเทค ซ่อมโน๊ตบุ๊ค (กาดเจดีย์)",
+   "tags": [
+    "ซ่อมโน๊ตบุ๊ต",
+    "ขายอะไหล่โน๊ตบุ๊ค",
+    "รับซื้อโน๊ตบุ๊คเสีย"
+   ],
+   "phone": "086-461-0181",
+   "amphoe": "เมือง",
+   "modified": "2022-10-07",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "29392",
+   "name": "ป้าน้อย ซ่อมผ้า [ทุ่งโฮเต็ล]",
+   "tags": [
+    "แก้ซิบ",
+    "แก้ทรง",
+    "ตัดต่อกางเกง"
+   ],
+   "phone": "090-891-5619",
+   "amphoe": "เมือง",
+   "modified": "2026-07-24",
+   "trade": "alterations",
+   "facets": {
+    "hem": true
+   },
+   "record": "cm-curated-alterations-29392"
+  },
+  {
+   "cmhy": "29400",
+   "name": "สุภาพปักจักร",
+   "tags": [
+    "ปักเสื้อ",
+    "ปักโลโก้",
+    "ตัวอักษรเสื้อ"
+   ],
+   "phone": "081-706-3043",
+   "amphoe": "เมือง",
+   "modified": "2022-05-23",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-29400"
+  },
+  {
+   "cmhy": "29504",
+   "name": "ธนาวัฒน์ สแตนเลส",
+   "tags": [
+    "งานสแตนเลส"
+   ],
+   "phone": "053-2041-85,089-951-1727",
+   "amphoe": "เมือง",
+   "modified": "2022-12-10",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-29504"
+  },
+  {
+   "cmhy": "29513",
+   "name": "ซ่อม TV เครื่องใช้ไฟฟ้าทุกชนิด  [ช้างคลาน]",
+   "tags": [
+    "เครื่องใช้ไฟฟ้า",
+    "ซ่อมTV",
+    "ซ่อมทีวี"
+   ],
+   "phone": "081-472-6936",
+   "amphoe": "เมือง",
+   "modified": "2026-02-14",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-29513"
+  },
+  {
+   "cmhy": "29514",
+   "name": "พิสิฐ อิเลกทรอนิกส์",
+   "tags": [
+    "จานดาวเทียม"
+   ],
+   "phone": "086-921-7150",
+   "amphoe": "เมือง",
+   "modified": "2026-02-24",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "29563",
+   "name": "ช่างน้อย สแตนเลสเครื่องครัว",
+   "tags": [
+    "สแตนเลสเครื่องครัว",
+    "ออกแบบสแตนเลส",
+    "ออกแบบชุดครัวสแตนเลส"
+   ],
+   "phone": "083-325-4349",
+   "amphoe": "เมือง",
+   "modified": "2021-09-21",
+   "trade": "home",
+   "facets": {},
+   "osm": "cm-osm-node-10774699556",
+   "metres": 2
+  },
+  {
+   "cmhy": "29648",
+   "name": "ช่างพลอลูมิเนียม",
+   "tags": [
+    "ทำประตู",
+    "งานหน้าต่าง",
+    "งานเหล็กดัด"
+   ],
+   "phone": "063-114-9671,089-853-2286",
+   "amphoe": "เมือง",
+   "modified": "2021-09-26",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-29648"
+  },
+  {
+   "cmhy": "2969",
+   "name": "พรพจน์อิเล็กทรอนิกส์",
+   "tags": [
+    "ซ่อมทีวี",
+    "ซ่อมตู้เย็น",
+    "ซ่อมเครื่องทำน้ำอุ่น"
+   ],
+   "phone": "087-186-0794",
+   "amphoe": "เมือง",
+   "modified": "2025-06-09",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-2969"
+  },
+  {
+   "cmhy": "29716",
+   "name": "บ้านดาวเทียม",
+   "tags": [
+    "จานดาวเทียม",
+    "กล้องวงจรปิด",
+    "CCTV"
+   ],
+   "phone": "053-260-321,081-881-4357",
+   "amphoe": "เมือง",
+   "modified": "2022-09-21",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-29716"
+  },
+  {
+   "cmhy": "29722",
+   "name": "ชาญกิจ",
+   "tags": [
+    "ซ่อมเครื่องยนต์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-06-05",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "29782",
+   "name": "บ้านทองทวีทลุงนครป้าน้อย ตัดเย็บเสื้อผ้า",
+   "tags": [
+    "แก้ทรง",
+    "ปะเสื้อผ้า",
+    "เปลี่ยนซิบกระเป๋า"
+   ],
+   "phone": "083-764-9221,082-691-0207",
+   "amphoe": "เมือง",
+   "modified": "2026-06-01",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-29782"
+  },
+  {
+   "cmhy": "29868",
+   "name": "แชมป์วิน",
+   "tags": [
+    "ซ่อมยีนส์",
+    "ซ่อมซิป",
+    "ปะเสื้อ"
+   ],
+   "phone": "085-616-3588",
+   "amphoe": "เมือง",
+   "modified": "2022-05-23",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "30022",
+   "name": "นานาช่าง",
+   "tags": [
+    "งานเหล็ก",
+    "อลูมิเนียม",
+    "งานช่างอลูมิเนียม"
+   ],
+   "phone": "089-851-3196",
+   "amphoe": "เมือง",
+   "modified": "2026-03-16",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-30022"
+  },
+  {
+   "cmhy": "30037",
+   "name": "ร้านตัดผ้าป้าวี สันติธรรม",
+   "tags": [
+    "แก้ไขทรง",
+    "กระดุม",
+    "ตัดชายกระโปรง"
+   ],
+   "phone": "084-172-7906",
+   "amphoe": "เมือง",
+   "modified": "2026-05-30",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "30142",
+   "name": "เต๋า อิเล็ค",
+   "tags": [
+    "ซ่อมเครื่องใช้ไฟฟ้า",
+    "ซ่อมทีวี",
+    "ซ่อมเครื่องเสียง"
+   ],
+   "phone": "081-881-1962",
+   "amphoe": "เมือง",
+   "modified": "2026-05-31",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-30142"
+  },
+  {
+   "cmhy": "30197",
+   "name": "เทคแคร์เซอร์วิส ซ่อมมือถือ (เซ็นทรัลพลาซาแอร์พอร์ต)",
+   "tags": [
+    "ซ่อมมือถือ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-16",
+   "trade": "tech",
+   "facets": {},
+   "osm": "cm-osm-node-4489814496",
+   "metres": 28
+  },
+  {
+   "cmhy": "30297",
+   "name": "รับซ่อมผ้าข้างวัดผาบ่อง",
+   "tags": [
+    "แก้ทรง",
+    "แก้เอว",
+    "ตัดขา"
+   ],
+   "phone": "081-531-2636,098-495-9149",
+   "amphoe": "เมือง",
+   "modified": "2022-05-23",
+   "trade": "alterations",
+   "facets": {
+    "hem": true
+   },
+   "record": "cm-curated-alterations-30297"
+  },
+  {
+   "cmhy": "30412",
+   "name": "ลิ้มเจริญโชคฉัตร",
+   "tags": [
+    "รางน้ำแสตนเลส",
+    "ชั้นเติมอากาศ"
+   ],
+   "phone": "097-176-1022",
+   "amphoe": "เมือง",
+   "modified": "2021-11-20",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "30427",
+   "name": "ป้าพรซ่อมผ้าทุกชนิด",
+   "tags": [
+    "ซ่อมเสื้อผ้า"
+   ],
+   "phone": "0853628036",
+   "amphoe": "เมือง",
+   "modified": "2025-07-09",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-30427"
+  },
+  {
+   "cmhy": "30546",
+   "name": "หนี่งซ่อมคอม",
+   "tags": [
+    "ซ่อมคอมพิวเตอร์"
+   ],
+   "phone": "089-758-5035",
+   "amphoe": "เมือง",
+   "modified": "2023-03-04",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-30546"
+  },
+  {
+   "cmhy": "30761",
+   "name": "หนึ่ง อิเล็กทรอนิกส์",
+   "tags": [
+    "ซ่อมเครื่องใช้ไฟฟ้า",
+    "ซ่อมLCD",
+    "ซ่อมทีวี"
+   ],
+   "phone": "064-192-9598,082-565-9998",
+   "amphoe": "เมือง",
+   "modified": "2024-03-22",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-30761"
+  },
+  {
+   "cmhy": "30766",
+   "name": "อิ๋ว รับตัดผ้า",
+   "tags": [
+    "เปลี่ยนซิบ",
+    "ตัดขา",
+    "แก้ทรง"
+   ],
+   "phone": "061-280-2965,099-267-4976",
+   "amphoe": "เมือง",
+   "modified": "2023-03-24",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-30766"
+  },
+  {
+   "cmhy": "30782",
+   "name": "อมร ศูนย์บริการซ่อม เครื่องใช้ไฟฟ้าครบวงจร",
+   "tags": [
+    "ศูนย์ซ่อมอมร",
+    "ซ่อมพัดลม",
+    "ซ่อมกาต้มน้ำ"
+   ],
+   "phone": "065-472-2232",
+   "amphoe": "เมือง",
+   "modified": "2024-12-03",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-30782"
+  },
+  {
+   "cmhy": "30969",
+   "name": "ป้ากุ้งซ่อมผ้า",
+   "tags": [
+    "ปักผ้า",
+    "แก้ทรง",
+    "ปักอาร์ม"
+   ],
+   "phone": "086-659-3744",
+   "amphoe": "เมือง",
+   "modified": "2026-06-02",
+   "trade": "alterations",
+   "facets": {
+    "hem": true
+   },
+   "record": "cm-curated-alterations-30969"
+  },
+  {
+   "cmhy": "31060",
+   "name": "เรียกทรัพย์ 2465",
+   "tags": [
+    "ทำประตู",
+    "ทำหน้าต่าง",
+    "บริการงานช่าง"
+   ],
+   "phone": "093-009-9546",
+   "amphoe": "เมือง",
+   "modified": "2024-06-14",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-31060"
+  },
+  {
+   "cmhy": "31136",
+   "name": "ทีซี TC สแตนเลส",
+   "tags": [
+    "บริการงานช่าง",
+    "งานสแตนเลส"
+   ],
+   "phone": "099-029-3477",
+   "amphoe": "เมือง",
+   "modified": "2022-01-10",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-31136"
+  },
+  {
+   "cmhy": "3120",
+   "name": "สว่างจักรยาน",
+   "tags": [
+    "ขายจักรยาน",
+    "อะไหล่จักรยาน",
+    "อุปกรณ์แต่ง"
+   ],
+   "phone": "053-215-003",
+   "amphoe": "เมือง",
+   "modified": "2020-10-11",
+   "trade": "bicycle",
+   "facets": {},
+   "record": "cm-curated-bicycle-3120"
+  },
+  {
+   "cmhy": "31379",
+   "name": "คลินิกยายบัว รับซ่อมผ้า",
+   "tags": [
+    "แก้ทรง",
+    "ต่อขากางเกง",
+    "เปลี่ยนยางยืด"
+   ],
+   "phone": "062-647-9366",
+   "amphoe": "เมือง",
+   "modified": "2023-10-18",
+   "trade": "alterations",
+   "facets": {
+    "hem": true
+   },
+   "record": "cm-curated-alterations-31379"
+  },
+  {
+   "cmhy": "31395",
+   "name": "โรงรถ bu ช่างวุธ ซ่อมอุปกรณ์ไฟฟ้า ปะยาง (วรุณนิเวศน์)",
+   "tags": [
+    "ซ่อมอุปกรณ์ไฟฟ้า",
+    "ปะยางมอเตอร์ไซค์",
+    "ซ่อมประปา"
+   ],
+   "phone": "080-267-7033,083-523-5482",
+   "amphoe": "เมือง",
+   "modified": "2023-10-18",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-31395"
+  },
+  {
+   "cmhy": "31402",
+   "name": "สุธีร์ไบค์ช็อป",
+   "tags": [
+    "ขายจักรยาน",
+    "ซ่อมจักรยาน"
+   ],
+   "phone": "083-576-1933",
+   "amphoe": "เมือง",
+   "modified": "2026-03-25",
+   "trade": "bicycle",
+   "facets": {},
+   "record": "cm-curated-bicycle-31402"
+  },
+  {
+   "cmhy": "31464",
+   "name": "ตัดเลเซอร์ ตัดลายฉลุ",
+   "tags": [
+    "ตัดเลเซอร์",
+    "ตัดลายฉลุ",
+    "ตัดอลูมิเนียม"
+   ],
+   "phone": "081-568-3008",
+   "amphoe": "เมือง",
+   "modified": "2022-01-19",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-31464"
+  },
+  {
+   "cmhy": "31507",
+   "name": "เชียงใหม่แอร์ เซ็นเตอร์",
+   "tags": [
+    "แอร์บ้าน",
+    "ซ่อมแอร์",
+    "ย้ายแอร์บ้าน"
+   ],
+   "phone": "065-878-9232",
+   "amphoe": "เมือง",
+   "modified": "2025-04-25",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-31507"
+  },
+  {
+   "cmhy": "31528",
+   "name": "ซ่อมเครื่องใช้ไฟฟ้า ภูมินทร์บริการ [กำแพงดิน]",
+   "tags": [
+    "ซ่อมเครื่องใช้ไฟฟ้า",
+    "ซ่อมพัดลม",
+    "ซ่อมตู้เย็น"
+   ],
+   "phone": "084-612-0932",
+   "amphoe": "เมือง",
+   "modified": "2025-06-01",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-31528"
+  },
+  {
+   "cmhy": "3172",
+   "name": "เอวีช็อป AV Shop",
+   "tags": [
+    "ซ่อมกล้องถ่ายรูป",
+    "ซ่อมกล้อง"
+   ],
+   "phone": "053-280-940",
+   "amphoe": "เมือง",
+   "modified": "2026-05-02",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "31792",
+   "name": "แอดพระสิงห์ ซ่อมคอม@PhraSingh",
+   "tags": [
+    "ซ่อมคอมพิวเตอร์",
+    "จำหน่ายคอมพิวเตอร์",
+    "ซ่อมโน๊ตบุ๊ค"
+   ],
+   "phone": "081-022-0218",
+   "amphoe": "เมือง",
+   "modified": "2022-03-01",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-31792"
+  },
+  {
+   "cmhy": "31847",
+   "name": "ร้านภโวทัย รับตัดเสื้อ-กางเกง",
+   "tags": [
+    "รับตัดเสื้อ",
+    "รับตัดกางเกง",
+    "เปลี่ยนซิบกางเกง"
+   ],
+   "phone": "066-092-9758",
+   "amphoe": "เมือง",
+   "modified": "2025-08-06",
+   "trade": "alterations",
+   "facets": {
+    "zip": true
+   },
+   "record": "cm-curated-alterations-31847"
+  },
+  {
+   "cmhy": "31879",
+   "name": "คลินิกซ่อมรองเท้า",
+   "tags": [
+    "ซ่อมรองเท้า"
+   ],
+   "phone": "063-792-2069",
+   "amphoe": "เมือง",
+   "modified": "2022-05-23",
+   "trade": "mend",
+   "facets": {},
+   "record": "cm-curated-mend-31879"
+  },
+  {
+   "cmhy": "31881",
+   "name": "ช่างอ้วน รับซ่อมรองเท้า",
+   "tags": [
+    "ซ่อมรองเท้า"
+   ],
+   "phone": "081-033-5183",
+   "amphoe": "เมือง",
+   "modified": "2022-05-23",
+   "trade": "mend",
+   "facets": {},
+   "record": "cm-curated-mend-31881"
+  },
+  {
+   "cmhy": "31885",
+   "name": "ช่างน้ำ ซ่อมอุปกรณ์ไฟฟ้า",
+   "tags": [
+    "ซ่อมตู้เย็น",
+    "ซ่อมเครื่องซักผ้า",
+    "ซ่อมเครื่องใช้ไฟฟ้า"
+   ],
+   "phone": "061-715-1135",
+   "amphoe": "เมือง",
+   "modified": "2025-09-04",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-31885"
+  },
+  {
+   "cmhy": "31931",
+   "name": "ไฮดรอลิคเชียงใหม่ 2019",
+   "tags": [
+    "ซ่อมแม่แรงไฮดรอลิค",
+    "ลิฟท์ยกของ",
+    "กระบอกไฮดรอลิค"
+   ],
+   "phone": "089-185-6381",
+   "amphoe": "เมือง",
+   "modified": "2022-07-29",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "31939",
+   "name": "พี.เค.แอร์ เซอร์วิส",
+   "tags": [
+    "แอร์บ้าน",
+    "แอร์ขนาดเล็ก",
+    "แอร์รถยนต์"
+   ],
+   "phone": "053-838-216,081-671-3529",
+   "amphoe": "เมือง",
+   "modified": "2025-08-07",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-31939"
+  },
+  {
+   "cmhy": "31968",
+   "name": "รับทำงานเหล็กทุกชนิด",
+   "tags": [
+    "รับทำงานเหล็ก",
+    "รับทำงานก่อสร้าง"
+   ],
+   "phone": "081-191-1458,082-191-1947",
+   "amphoe": "เมือง",
+   "modified": "2022-03-25",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-31968"
+  },
+  {
+   "cmhy": "31971",
+   "name": "บริการซ่อมคอมพิวเตอร์ ดอนปิน",
+   "tags": [
+    "ซ่อมคอมพิวเตอร์",
+    "บริการซ่อมคอมนอกสถานที่"
+   ],
+   "phone": "083-474-9011",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-31971"
+  },
+  {
+   "cmhy": "31996",
+   "name": "พี่หนาน เซอร์วิส",
+   "tags": [
+    "ซ่อมเครื่องซักผ้า",
+    "ซ่อมเครื่องอบผ้า",
+    "ล้างเครื่องซักผ้านอกสถานที่"
+   ],
+   "phone": "080-133-4405",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "31999",
+   "name": "ประสงค์ อิเล็คทรอนิกส์",
+   "tags": [
+    "ซ่อมLED",
+    "ซ่อมไมโครเวป",
+    "ซ่อมกระทะไฟฟ้า"
+   ],
+   "phone": "089-838-2748",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-31999"
+  },
+  {
+   "cmhy": "32088",
+   "name": "บริษัท สิบทิศ จำกัด",
+   "tags": [
+    "อลูมิเนียมคอมโพสิต"
+   ],
+   "phone": "081-882-8587,053-141-886",
+   "amphoe": "เมือง",
+   "modified": "2022-04-07",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-32088"
+  },
+  {
+   "cmhy": "32106",
+   "name": "ร้านนารี ตัดเสื้อแก้ทรง",
+   "tags": [
+    "แก้ทรง",
+    "ตัดกางเกง",
+    "เปลี่ยนซิบ"
+   ],
+   "phone": "090-893-9927",
+   "amphoe": "เมือง",
+   "modified": "2022-05-23",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-32106"
+  },
+  {
+   "cmhy": "32137",
+   "name": "ร้านซ่อมคอมพิวเตอร์[เสาหิน  เวียงกุมกาม]",
+   "tags": [
+    "ซ่อมคอม",
+    "ซ่อมโน๊ตบุ๊ค",
+    "ซ่อมไอโฟน"
+   ],
+   "phone": "089-632-4966",
+   "amphoe": "เมือง",
+   "modified": "2026-02-14",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-32137"
+  },
+  {
+   "cmhy": "32159",
+   "name": "ช่างมนัส ซ่อมอุปกรณ์ไฟฟ้าทุกชนิด [ซอยบ้านใหม่สามัคคี]",
+   "tags": [
+    "ซ่อมอุปกรณ์ไฟฟ้า",
+    "ซ่อมเครื่องซักผ้า",
+    "ซ่อมไมโครเวฟ"
+   ],
+   "phone": "089-680-8863",
+   "amphoe": "เมือง",
+   "modified": "2025-03-19",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-32159"
+  },
+  {
+   "cmhy": "32188",
+   "name": "ซ่อมเครื่องใช้ไฟฟ้า โดยช่างผู้ชำนาญการ",
+   "tags": [
+    "ซ่อมเครื่องใช้ไฟฟ้า",
+    "ซ่อมทีวี",
+    "ซ่อมLED"
+   ],
+   "phone": "089-631-0806",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-32188"
+  },
+  {
+   "cmhy": "32189",
+   "name": "ณรงค์คราฟแมนดีไซน์",
+   "tags": [
+    "รับทำเหล็กดัด",
+    "ทำงานเหล็ก",
+    "รับทำประตูหน้าต่าง"
+   ],
+   "phone": "089-561-0765,053-804-247",
+   "amphoe": "เมือง",
+   "modified": "2022-05-09",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-32189"
+  },
+  {
+   "cmhy": "32236",
+   "name": "จินนี่ไบค์ (แอร์พอร์ตพลาซ่า)",
+   "tags": [
+    "รถจักรยานเด็ก",
+    "สกู๊ตเตอร์ไฟฟ้า"
+   ],
+   "phone": "097-320-0919",
+   "amphoe": "เมือง",
+   "modified": "2022-05-17",
+   "trade": "bicycle",
+   "facets": {},
+   "record": "cm-curated-bicycle-32236"
+  },
+  {
+   "cmhy": "32391",
+   "name": "ช่างใหญ่มือถือ ซ่อมด่วนมือถือ อาเขต",
+   "tags": [
+    "ซ่อมมือถือ",
+    "อุปกรณ์มือถือ",
+    "ซ่อมมือถืออาเขต"
+   ],
+   "phone": "081-451-9830",
+   "amphoe": "เมือง",
+   "modified": "2022-07-11",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-32391"
+  },
+  {
+   "cmhy": "3241",
+   "name": "ศักดิ์อลูมิเนียม",
+   "tags": [
+    "ประตูหน้าต่าง",
+    "มุ้งลวด",
+    "บานเลื่อน"
+   ],
+   "phone": "053-210-642,053-217-168",
+   "amphoe": "เมือง",
+   "modified": "2025-07-09",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-3241"
+  },
+  {
+   "cmhy": "326",
+   "name": "สแตนเลส เครื่องเย็น",
+   "tags": [
+    "สเตนเลส",
+    "เครื่่องเย็น",
+    "จำหน่ายเครื่องทำความเย็น"
+   ],
+   "phone": "053-210-673",
+   "amphoe": "เมือง",
+   "modified": "2021-10-25",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-326"
+  },
+  {
+   "cmhy": "327",
+   "name": "ซ้งจักรยาน",
+   "tags": [
+    "ขายจักรยาน",
+    "อะไหล่จักรยาน",
+    "อุปกรณ์แต่งจักรยาน"
+   ],
+   "phone": "053-213-404,086-956-4262,062-694-2539",
+   "amphoe": "เมือง",
+   "modified": "2022-03-01",
+   "trade": "bicycle",
+   "facets": {},
+   "osm": "cm-osm-node-4676321986",
+   "metres": 6
+  },
+  {
+   "cmhy": "32752",
+   "name": "วิจารย์ อลูมิเนียม",
+   "tags": [
+    "บริการงานช่างอลูมิเนียม",
+    "งานกระจก",
+    "มุ้งลวด"
+   ],
+   "phone": "089-554-2562",
+   "amphoe": "เมือง",
+   "modified": "2022-07-19",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-32752"
+  },
+  {
+   "cmhy": "32756",
+   "name": "ไบค์ โซน",
+   "tags": [
+    "จักรยาน"
+   ],
+   "phone": "090-318-4857",
+   "amphoe": "เมือง",
+   "modified": "2022-07-19",
+   "trade": "bicycle",
+   "facets": {},
+   "record": "cm-curated-bicycle-32756"
+  },
+  {
+   "cmhy": "328",
+   "name": "เฮียบแสง",
+   "tags": [
+    "ทำเบาะ"
+   ],
+   "phone": "053-211-940",
+   "amphoe": "เมือง",
+   "modified": "2021-10-25",
+   "trade": "upholstery",
+   "facets": {},
+   "record": "cm-curated-upholstery-328"
+  },
+  {
+   "cmhy": "32833",
+   "name": "บอลหนึ่งการช่าง",
+   "tags": [
+    "เหล็กดัด",
+    "กันสาด"
+   ],
+   "phone": "061-720-3339",
+   "amphoe": "เมือง",
+   "modified": "2022-07-29",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-32833"
+  },
+  {
+   "cmhy": "33168",
+   "name": "บ้านสล่างานกลึง และ  มินิมาร์ท",
+   "tags": [
+    "งานกลึง",
+    "ร้านของชำ",
+    "ร้านขายของทั่วไป"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-06-17",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "33183",
+   "name": "รับซ่อม เสื้อ-กางเกง [ถนน เชียงใหม่-หางดง]",
+   "tags": [
+    "เปลี่ยนซิบ",
+    "เปลี่ยนยางขอบ",
+    "ตัดขา"
+   ],
+   "phone": "098-784-2103",
+   "amphoe": "เมือง",
+   "modified": "2022-09-21",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-33183"
+  },
+  {
+   "cmhy": "33395",
+   "name": "ร้านธัญชนก shop",
+   "tags": [
+    "รับซ่อมผ้า",
+    "ออกแบบเสื้อผ้า"
+   ],
+   "phone": "090-295-3735",
+   "amphoe": "เมือง",
+   "modified": "2022-09-22",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-33395"
+  },
+  {
+   "cmhy": "33396",
+   "name": "ร้านซ่อมเครื่องใช้ไฟฟ้า [หมู่บ้านการเคหะหนองหอย]",
+   "tags": [
+    "ซ่อมทีวี",
+    "ซ่อมตู้เย็น",
+    "ซ่อมเครื่องซักผ้า"
+   ],
+   "phone": "082-896-1413",
+   "amphoe": "เมือง",
+   "modified": "2026-06-01",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-33396"
+  },
+  {
+   "cmhy": "3385",
+   "name": "ม.การช่าง",
+   "tags": [
+    "งานเหล็กดัด",
+    "งานกันสาด",
+    "งานมุ้งลวด"
+   ],
+   "phone": "081-998-2486",
+   "amphoe": "เมือง",
+   "modified": "2025-04-17",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-3385"
+  },
+  {
+   "cmhy": "3391",
+   "name": "ร้านเย็บผ้า [ถนน ธานินทร์]",
+   "tags": [
+    "เปลี่ยนซิบ",
+    "แก้ทรง",
+    "แก้เอว"
+   ],
+   "phone": "081-033-2853,091-076-3203",
+   "amphoe": "เมือง",
+   "modified": "2024-04-03",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-3391"
+  },
+  {
+   "cmhy": "34023",
+   "name": "รับซ่อมรองเท้าทุกชนิด [ตลาดหนองหอย]",
+   "tags": [
+    "รับซ่อมรองเท้า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-09-19",
+   "trade": "mend",
+   "facets": {},
+   "record": "cm-curated-mend-34023"
+  },
+  {
+   "cmhy": "34583",
+   "name": "พิสิฐอลูมิเนียม",
+   "tags": [
+    "งานอลูมิเนียม",
+    "งานกันสาด",
+    "รถเข็นอลูมิเนียม"
+   ],
+   "phone": "053-206-866,089-261-5174",
+   "amphoe": "เมือง",
+   "modified": "2022-12-02",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-34583"
+  },
+  {
+   "cmhy": "34730",
+   "name": "ร้านรับเย็บผ้าทุกชนิด",
+   "tags": [
+    "รับเย็บผ้า",
+    "แก้ทรงผ้า",
+    "เปลี่ยนซิบ"
+   ],
+   "phone": "093-212-1823,088-646-7721",
+   "amphoe": "เมือง",
+   "modified": "2024-05-08",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-34730"
+  },
+  {
+   "cmhy": "34740",
+   "name": "แพนด้า รถจักรยานไฟฟ้า สาขาเชียงใหม่ *ย้ายไปเหมืองง่า จ.ลำพูนแล้ว*",
+   "tags": [
+    "รถจักรยานไฟฟ้า",
+    "สามล้อไฟฟ้า",
+    "รถผู้สูงอายุ"
+   ],
+   "phone": "090-321-5268",
+   "amphoe": "เมือง",
+   "modified": "2026-02-26",
+   "trade": "bicycle",
+   "facets": {},
+   "record": "cm-curated-bicycle-34740"
+  },
+  {
+   "cmhy": "34845",
+   "name": "อ้ายยีนส์ ย้อมผ้า",
+   "tags": [
+    "ย้อมผ้าสี",
+    "ย้อมกางเกงยีนส์"
+   ],
+   "phone": "087-356-6466",
+   "amphoe": "เมือง",
+   "modified": "2023-01-30",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-34845"
+  },
+  {
+   "cmhy": "3485",
+   "name": "สยามแอร์เอ็นจิเนียริ่ง",
+   "tags": [
+    "จำหน่ายแอร์",
+    "ซ่อมแอร์",
+    "ล้างแอร์"
+   ],
+   "phone": "053-213-297,053-218-397,084-704-20367",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-3485"
+  },
+  {
+   "cmhy": "35018",
+   "name": "คอมมอน Common ซ่อมเสื้อผ้าชายหญิง",
+   "tags": [
+    "ซ่อมเสื้อผ้าชาย",
+    "ซ่อมเสื้อผ้าหญิง",
+    "ซ่อมเสื้อผ้าสตรี"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-01-14",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "35023",
+   "name": "ป้าแปง ซ่อมรองเท้า ซ่อมกระเป๋า",
+   "tags": [
+    "ซ่อมรองเท้า",
+    "ซ่อมกระเป๋า",
+    "ข้าวต้มมัด"
+   ],
+   "phone": "085-921-0376",
+   "amphoe": "เมือง",
+   "modified": "2025-10-21",
+   "trade": "mend",
+   "facets": {},
+   "record": "cm-curated-mend-35023"
+  },
+  {
+   "cmhy": "3504",
+   "name": "วรางคณา",
+   "tags": [
+    "ซ่อมนาฬิกา",
+    "ขายนาฬิกา",
+    "เปลียนสายนาฬิกา"
+   ],
+   "phone": "053-214-891,081-980-1448",
+   "amphoe": "เมือง",
+   "modified": "2022-09-20",
+   "trade": "mend",
+   "facets": {},
+   "record": "cm-curated-mend-3504"
+  },
+  {
+   "cmhy": "35250",
+   "name": "ร้านซักอบรีด รายชิ้น รายเดือน และ ซ่อมผ้า [บวกครกน้อย]",
+   "tags": [
+    "ซักผ้ารายเดือน",
+    "ร้านซักอบรีด",
+    "ซักผ้ารายชิ้น"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-04-06",
+   "trade": "alterations",
+   "facets": {},
+   "osm": "cm-osm-node-13298710901",
+   "metres": 35
+  },
+  {
+   "cmhy": "35297",
+   "name": "ร้านตัดเย็บเสื้อผ้าซ่อมผ้าปะผ้า [ถนน ตรัสวงค์]",
+   "tags": [
+    "ซ่อมผ้า",
+    "ปะผ้า",
+    "ตัดเย็บเสื้อผ้า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-09-01",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-35297"
+  },
+  {
+   "cmhy": "3530",
+   "name": "ทิพย์เนตรการช่าง",
+   "tags": [
+    "ปั๊มพื้นกะบะ",
+    "พับเหล็ก",
+    "ตัดเหล็ก"
+   ],
+   "phone": "053-275-865",
+   "amphoe": "เมือง",
+   "modified": "2023-07-02",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "35311",
+   "name": "รับซ่อมผ้า และผ้าม่าน [ต้นขาม]",
+   "tags": [
+    "รับซ่อมผ้า",
+    "ซ่อมผ้าม่าน",
+    "พรม"
+   ],
+   "phone": "081-031-9123",
+   "amphoe": "เมือง",
+   "modified": "2023-06-21",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-35311"
+  },
+  {
+   "cmhy": "35454",
+   "name": "สายสวาทซ่อมผ้า",
+   "tags": [
+    "ซ่อมเสื้อผ้า"
+   ],
+   "phone": "081-026-2062",
+   "amphoe": "เมือง",
+   "modified": "2023-05-07",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-35454"
+  },
+  {
+   "cmhy": "35499",
+   "name": "ร้าน ซ่อมรองเท้า กระเป๋า [ตลาดธานินทร์]",
+   "tags": [
+    "ซ่อมรองเท้า",
+    "ซ่อมกระเป๋า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-03-16",
+   "trade": "mend",
+   "facets": {},
+   "osm": "cm-osm-node-11936166469",
+   "metres": 11
+  },
+  {
+   "cmhy": "35548",
+   "name": "วีซ่าทูโก (สำนักงาน เชียงใหม่)",
+   "tags": [
+    "วีซ่า",
+    "VISA"
+   ],
+   "phone": "088-822-4293,053-275-388",
+   "amphoe": "เมือง",
+   "modified": "2023-05-16",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "3555",
+   "name": "ทิพย์เนตรไบค์",
+   "tags": [
+    "ขายจักรยาน",
+    "อะไหล่จักรยาน",
+    "อุปกรณ์แต่งจักรยาน"
+   ],
+   "phone": "053-275-396,089-632-0497",
+   "amphoe": "เมือง",
+   "modified": "2021-09-26",
+   "trade": "bicycle",
+   "facets": {},
+   "record": "cm-curated-bicycle-3555"
+  },
+  {
+   "cmhy": "35597",
+   "name": "โยการช่าง รับทำเบาะ",
+   "tags": [
+    "ทำเบาะรถยนต์",
+    "ทำโซฟา",
+    "ซ่อมเบาะ"
+   ],
+   "phone": "091-770-9299",
+   "amphoe": "เมือง",
+   "modified": "2023-05-15",
+   "trade": "upholstery",
+   "facets": {},
+   "record": "cm-curated-upholstery-35597"
+  },
+  {
+   "cmhy": "35676",
+   "name": "เล้งฮวดการช่าง",
+   "tags": [
+    "โรงกลึง",
+    "ปลอกกลึง"
+   ],
+   "phone": "053-232-142",
+   "amphoe": "เมือง",
+   "modified": "2023-06-04",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-35676"
+  },
+  {
+   "cmhy": "35678",
+   "name": "ร้านแสงอุดม บริการลับคม",
+   "tags": [
+    "ลับคมปัตตาเลี่ยน",
+    "ลับคมกรรไกร",
+    "ซ่อมเครื่องเป่าผม"
+   ],
+   "phone": "081-716-4010",
+   "amphoe": "เมือง",
+   "modified": "2023-06-23",
+   "trade": "sharpen",
+   "facets": {
+    "sharpening": true
+   },
+   "record": "cm-curated-sharpen-35678"
+  },
+  {
+   "cmhy": "35692",
+   "name": "พี.เอส.อลูมินั่ม",
+   "tags": [
+    "รับทำกระจก",
+    "ทำบานเกล็ด",
+    "ทำมุ้งลวด"
+   ],
+   "phone": "086-355-3597",
+   "amphoe": "เมือง",
+   "modified": "2024-04-22",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-35692"
+  },
+  {
+   "cmhy": "35695",
+   "name": "ร้านวิไล ซ่อมผ้า",
+   "tags": [
+    "ซ่อมผ้า",
+    "ตัดเย็บผ้า",
+    "ตัดชุดยูนิฟอร์ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-04-22",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-35695"
+  },
+  {
+   "cmhy": "35719",
+   "name": "บริการซ่อมรองเท้า [ใกล้ ตลาดสันป่าข่อย]",
+   "tags": [
+    "ซ่อมรองเท้า",
+    "ซ่อมคัตชู",
+    "ซ่อมตาไก่"
+   ],
+   "phone": "096-724-5494,064-434-0286",
+   "amphoe": "เมือง",
+   "modified": "2026-03-05",
+   "trade": "mend",
+   "facets": {},
+   "record": "cm-curated-mend-35719"
+  },
+  {
+   "cmhy": "35725",
+   "name": "บ้านหมอคอม ท้ายวัง โดย อ.เอ็ดดี้",
+   "tags": [
+    "ซ่อมคอมพิวเตอร์"
+   ],
+   "phone": "085-247-9500,,062-787-8749",
+   "amphoe": "เมือง",
+   "modified": "2026-03-01",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-35725"
+  },
+  {
+   "cmhy": "35744",
+   "name": "BCN อีเล็กทรีค ซ่อมเครื่องใช้ไฟฟ้า",
+   "tags": [
+    "ซ่อมเครื่องใช้ไฟฟ้า",
+    "ซ่อมเครื่องซักผ้า",
+    "ซ่อมพัดลม"
+   ],
+   "phone": "090-760-7231",
+   "amphoe": "เมือง",
+   "modified": "2025-03-23",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-35744"
+  },
+  {
+   "cmhy": "35777",
+   "name": "ศูนย์ซ่อมอุปกรณ์ไฟฟ้า [โชตนา]",
+   "tags": [
+    "ซ่อมเครื่องใช้ไฟฟ้า",
+    "ซ่อมทีวี",
+    "ซ่อมTV"
+   ],
+   "phone": "094-342-8833",
+   "amphoe": "เมือง",
+   "modified": "2025-10-22",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-35777"
+  },
+  {
+   "cmhy": "35787",
+   "name": "ภูธัตแอร์",
+   "tags": [
+    "แอร์บ้าน",
+    "บริการแอร์",
+    "เติมน้ำยาแอร์บ้าน"
+   ],
+   "phone": "061-253-9196,080-479-2965",
+   "amphoe": "เมือง",
+   "modified": "2026-03-25",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-35787"
+  },
+  {
+   "cmhy": "35901",
+   "name": "ลุงศักดิ์ คลินิกซ่อมรองเท้า(กาดหลวง วโรรส ตรอกเล่าโจ้ว)",
+   "tags": [
+    "ซ่อมรองเท้ากาดหลวง",
+    "ร้านซ่อมรองเท้า",
+    "ซ่อมรองเท้าหนัง"
+   ],
+   "phone": "099-175-3428",
+   "amphoe": "เมือง",
+   "modified": "2025-10-21",
+   "trade": "mend",
+   "facets": {},
+   "record": "cm-curated-mend-35901"
+  },
+  {
+   "cmhy": "35944",
+   "name": "สร้อยดีไซน์ ซ่อมผ้า",
+   "tags": [
+    "แก้ทรง",
+    "ตัดผ้าถุง",
+    "เปลี่ยนซิบ"
+   ],
+   "phone": "089-432-0724",
+   "amphoe": "เมือง",
+   "modified": "2023-10-13",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-35944"
+  },
+  {
+   "cmhy": "35959",
+   "name": "ปรียา ตัดเสื้อผ้าสตรี/บุรุษ",
+   "tags": [
+    "ตัดเสื้อผ้า",
+    "เปลี่ยนซิบ",
+    "ตัดเสื้อผู้หญิง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-07-05",
+   "trade": "alterations",
+   "facets": {
+    "zip": true
+   },
+   "record": "cm-curated-alterations-35959"
+  },
+  {
+   "cmhy": "35971",
+   "name": "ส. ปทุมการช่าง",
+   "tags": [
+    "รับเหมาก่อสร้าง",
+    "กระจก",
+    "งานเหล็ก"
+   ],
+   "phone": "086-917-1379",
+   "amphoe": "เมือง",
+   "modified": "2023-07-26",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-35971"
+  },
+  {
+   "cmhy": "35989",
+   "name": "ร้านสหภาพ อลูมิเนียม",
+   "tags": [
+    "รับทำอลูมิเนียม",
+    "ติดตั้งกระจก",
+    "มุ้งลวด"
+   ],
+   "phone": "089-998-9955",
+   "amphoe": "เมือง",
+   "modified": "2024-10-28",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-35989"
+  },
+  {
+   "cmhy": "36046",
+   "name": "บ้านช่างแอร์ by นายฮ้อย",
+   "tags": [
+    "ซ่อมแอร์",
+    "ล้างแอร์"
+   ],
+   "phone": "063-343-6873",
+   "amphoe": "เมือง",
+   "modified": "2026-03-10",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-36046"
+  },
+  {
+   "cmhy": "36209",
+   "name": "ร้านเย็บผ้า พี่หล้า-ป้าพร",
+   "tags": [
+    "ร้านซ่อมผ้า",
+    "ร้านเย็บผ้า"
+   ],
+   "phone": "095-679-5740",
+   "amphoe": "เมือง",
+   "modified": "2023-08-18",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-36209"
+  },
+  {
+   "cmhy": "36211",
+   "name": "ดีไซน์ซ็อป ซ่อมโน๊ตบุ๊ค",
+   "tags": [
+    "ซ่อมโน๊ตบุ๊ค",
+    "ขายฝากโน๊ตบุ๊ค",
+    "ซื้อขายฝากโน๊ตบุ๊ค"
+   ],
+   "phone": "097-424-4156,096-869-8939",
+   "amphoe": "เมือง",
+   "modified": "2023-11-17",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "36294",
+   "name": "ร้านประเสริฐอิเล็กทรอนิกส์ (สาขา สารภี)",
+   "tags": [
+    "ซ่อมเครื่องซักผ้า",
+    "ซ่อมตู้เย็น",
+    "ซ่อมทีวี"
+   ],
+   "phone": "086-654-3552",
+   "amphoe": "เมือง",
+   "modified": "2024-07-12",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-36294"
+  },
+  {
+   "cmhy": "36321",
+   "name": "ซ่อมเครื่องใช้ไฟฟ้า [ป่าแดดใต้]",
+   "tags": [
+    "ซ่อมเครื่องใช้ไฟฟ้า",
+    "ซ่อมทีวี",
+    "ซ่อมTV"
+   ],
+   "phone": "061-652-8621",
+   "amphoe": "เมือง",
+   "modified": "2023-10-18",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-36321"
+  },
+  {
+   "cmhy": "36326",
+   "name": "เอสพีบริการ ซ่อมเครื่องใช้ไฟฟ้า",
+   "tags": [
+    "ซ่อมตู้แช่เย็น",
+    "ซ่อมตู้เย็น",
+    "ซ่อมแอร์บ้าน"
+   ],
+   "phone": "089-434-3889",
+   "amphoe": "เมือง",
+   "modified": "2023-10-18",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-36326"
+  },
+  {
+   "cmhy": "36490",
+   "name": "ร้านช่อมผ้าปะผ้า [หมู่บ้านชัยพฤกษ์]",
+   "tags": [
+    "ร้านซ่อมผ้า",
+    "ปะผ้า",
+    "ซ่อมเสื้อผ้า"
+   ],
+   "phone": "098-020-3879",
+   "amphoe": "เมือง",
+   "modified": "2023-10-06",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-36490"
+  },
+  {
+   "cmhy": "36491",
+   "name": "ร้านร้บซ่อมเครื่องใช้ไฟฟ้า [หมู่บ้านชัยพฤกษ์]",
+   "tags": [
+    "ซ่อมเครื่องใช้ไฟฟ้า",
+    "ซ่อมทีวี",
+    "ซ่อมเครื่องซักผ้า"
+   ],
+   "phone": "081-961-4492",
+   "amphoe": "เมือง",
+   "modified": "2026-06-02",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-36491"
+  },
+  {
+   "cmhy": "36631",
+   "name": "ร้านประดิษฐ์ ซ่อมมอเตอร์ไซค์ ซ่อมเครื่องใช้ไฟฟ้า",
+   "tags": [
+    "ลับคมกรรไกร",
+    "ไดร์เป่าผม",
+    "ลับบัตตาเลี่ยน"
+   ],
+   "phone": "081-951-7883,064-970-5839",
+   "amphoe": "เมือง",
+   "modified": "2025-11-27",
+   "trade": "sharpen",
+   "facets": {
+    "sharpening": true
+   },
+   "record": "cm-curated-sharpen-36631"
+  },
+  {
+   "cmhy": "36660",
+   "name": "ศศินันท์รับปัก",
+   "tags": [
+    "ปักชื่อ",
+    "ตัดเย็บ",
+    "ร้านรับงานปัก"
+   ],
+   "phone": "084-223-3570",
+   "amphoe": "เมือง",
+   "modified": "2023-11-24",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "3677",
+   "name": "สองพี่น้อง(ช่างน้อง) ตัดเย็บเสื้อผ้า",
+   "tags": [
+    "ตัดชุดไทย",
+    "แก้ทรง",
+    "ซ่อมผ้า"
+   ],
+   "phone": "0840430753",
+   "amphoe": "เมือง",
+   "modified": "2022-05-23",
+   "trade": "alterations",
+   "facets": {
+    "hem": true
+   },
+   "record": "cm-curated-alterations-3677"
+  },
+  {
+   "cmhy": "36782",
+   "name": "แม่นา เย็บผ้ารับซ่อมผ้า",
+   "tags": [
+    "ซ่อมผ้า",
+    "รับเย็บผ้า"
+   ],
+   "phone": "090-468-7463",
+   "amphoe": "เมือง",
+   "modified": "2023-11-07",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-36782"
+  },
+  {
+   "cmhy": "3696",
+   "name": "บีซีเอ็น อีเล็คทริค",
+   "tags": [
+    "ซ่อมทีวี",
+    "ซ่อมเครื่องเสียง",
+    "ซ่อมเครื่องใช้ไฟฟ้า"
+   ],
+   "phone": "0843633688",
+   "amphoe": "เมือง",
+   "modified": "2018-12-01",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-3696"
+  },
+  {
+   "cmhy": "37248",
+   "name": "รับซ่อมผ้า [ถนน นันทาราม]",
+   "tags": [
+    "รับซ่อมผ้า",
+    "ปักผ้า"
+   ],
+   "phone": "092-187-7198",
+   "amphoe": "เมือง",
+   "modified": "2024-06-28",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-37248"
+  },
+  {
+   "cmhy": "37264",
+   "name": "พี่แอร์รับซ่อมผ้า",
+   "tags": [
+    "ตัดผ้า",
+    "เปลี่ยนซิบ",
+    "รับแก้ทรงผ้า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-06-13",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-37264"
+  },
+  {
+   "cmhy": "37272",
+   "name": "ร้านซ่อมผ้า [ถนน สุขสันจร]",
+   "tags": [
+    "เปลี่นซิบ",
+    "ตัดขา",
+    "แก้"
+   ],
+   "phone": "095-307-0155",
+   "amphoe": "เมือง",
+   "modified": "2024-09-24",
+   "trade": "alterations",
+   "facets": {
+    "hem": true
+   },
+   "record": "cm-curated-alterations-37272"
+  },
+  {
+   "cmhy": "37276",
+   "name": "Pig Computer ซ่อมคอม โน๊ตบุ๊ค ปริ้นเตอร์ เติมหมีก",
+   "tags": [
+    "ร้านซ่อมคอมพิวเตอร์",
+    "ร้านซ่อมมือถือ",
+    "ร้านซ่อมปริ้นเตอร์"
+   ],
+   "phone": "084-425-1456",
+   "amphoe": "เมือง",
+   "modified": "2024-06-13",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-37276"
+  },
+  {
+   "cmhy": "37277",
+   "name": "บอลคอมอิเล็กทรอนิกส์ ซ่อมคอมพิวเตอร์",
+   "tags": [
+    "ร้านซ่อมคอมพิวเตอร์",
+    "ร้านซ่อมมือถือ",
+    "ร้านซ่อมปริ้นเตอร์"
+   ],
+   "phone": "094-601-9863",
+   "amphoe": "เมือง",
+   "modified": "2024-06-13",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-37277"
+  },
+  {
+   "cmhy": "37388",
+   "name": "ร้านร้บซ่อมเครื่องใช้ไฟฟ้า ซ่อมคอม ซ่อมโน๊ตบุ๊ค [บ้านเกาะกลาง]",
+   "tags": [
+    "ร้านร้บซ่อมเครื่องใช้ไฟฟ้า",
+    "ร้านซ่อมคอมพิวเตอร์",
+    "ร้านซ่อมโน๊ตบุ๊ค"
+   ],
+   "phone": "064-476-6155",
+   "amphoe": "เมือง",
+   "modified": "2024-03-15",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-37388"
+  },
+  {
+   "cmhy": "37542",
+   "name": "ร้านแก้ทรงซ่อมผ้า [ถนน ราชมรรคา]",
+   "tags": [],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-03-19",
+   "trade": "alterations",
+   "facets": {
+    "hem": true
+   },
+   "record": "cm-curated-alterations-37542"
+  },
+  {
+   "cmhy": "37764",
+   "name": "ร้านรับซ่อมเสื้อผ้า(หอพักธนสิริเพลส)",
+   "tags": [
+    "ซ่อมเสื้อผ้า"
+   ],
+   "phone": "062-229-1236",
+   "amphoe": "เมือง",
+   "modified": "2026-04-06",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "37825",
+   "name": "การันตี ซ่อมรองเท้า และ กุญแจ ( แอร์พอร์ตพลาซ่า)",
+   "tags": [
+    "ซ่อมรองเท้า",
+    "กุญแจรถยนต์",
+    "ปั๊มกุญแจ"
+   ],
+   "phone": "089-854-4316",
+   "amphoe": "เมือง",
+   "modified": "2026-08-15",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-37825"
+  },
+  {
+   "cmhy": "37990",
+   "name": "โอ รับตัดเสื้อกางเกง",
+   "tags": [
+    "แก้ซิบ",
+    "แก้เอว",
+    "ตัดขา"
+   ],
+   "phone": "096-692-6886",
+   "amphoe": "เมือง",
+   "modified": "2026-03-08",
+   "trade": "alterations",
+   "facets": {
+    "hem": true
+   },
+   "record": "cm-curated-alterations-37990"
+  },
+  {
+   "cmhy": "37992",
+   "name": "ป้าณีเย็บผ้า",
+   "tags": [
+    "แก้ทรงกางเกง",
+    "เปลี่ยนซิบ",
+    "ตัดขา"
+   ],
+   "phone": "084-636-1160",
+   "amphoe": "เมือง",
+   "modified": "2026-08-15",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-37992"
+  },
+  {
+   "cmhy": "38079",
+   "name": "หนองหอย อิเล็กทรอนิกส์",
+   "tags": [
+    "ซ่อมทีวี",
+    "ซ่อมตู้เย็น",
+    "ซ่อมเครื่องซักผ้า"
+   ],
+   "phone": "085-969-7229",
+   "amphoe": "เมือง",
+   "modified": "2026-06-12",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-38079"
+  },
+  {
+   "cmhy": "38143",
+   "name": "บ้านช่างเซอร์วิส Electrolux Service (SUB) & ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซ่อมเครื่องใช้ไฟฟ้า",
+    "ซ่อมอิเล็กทรอลักซ์",
+    "ซ่อมElectrolux"
+   ],
+   "phone": "081-998-3764",
+   "amphoe": "เมือง",
+   "modified": "2024-05-27",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-38143"
+  },
+  {
+   "cmhy": "38147",
+   "name": "ร้านรับซ่อมเสื้อผ้า แก้ทรง + เสริมสวยไอซ์ บิวตี้ [แยกข่วงสิงห์]",
+   "tags": [
+    "รับซ่อมเสื้อผ้า",
+    "แก้ทรง",
+    "เสริมสวย"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-03-22",
+   "trade": "alterations",
+   "facets": {
+    "hem": true
+   },
+   "record": "cm-curated-alterations-38147"
+  },
+  {
+   "cmhy": "38201",
+   "name": "รัานทำกระจก อลูมิเนียม [นันทราม]",
+   "tags": [
+    "ทำกระจก",
+    "ร้านทำอลูมิเนียม"
+   ],
+   "phone": "053-275-199,081-881-5881",
+   "amphoe": "เมือง",
+   "modified": "2024-07-12",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-38201"
+  },
+  {
+   "cmhy": "38292",
+   "name": "ร้านซ่อมรองเท้า อ็อด (ร้านเก่าใต้สะพานลอยหน้า รพ.แมคคอร์มิค)",
+   "tags": [
+    "ซ่อมรองเท้า",
+    "ตัดแต่งรองเท้า",
+    "ซ่อมกระเป๋า"
+   ],
+   "phone": "099-342-1617",
+   "amphoe": "เมือง",
+   "modified": "2025-12-12",
+   "trade": "mend",
+   "facets": {},
+   "record": "cm-curated-mend-38292"
+  },
+  {
+   "cmhy": "38341",
+   "name": "ครูอ๊อดสารพัดช่าง เชียงใหม่ไมโครเวฟ",
+   "tags": [
+    "ซ่อมไมโครเวฟ",
+    "ซ่อมเครื่องใช้ไฟฟ้าทั่วไป",
+    "ซ่อมอุปกรณ์อิเล็คทรอนิกส์"
+   ],
+   "phone": "091-841-6409",
+   "amphoe": "เมือง",
+   "modified": "2024-08-29",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-38341"
+  },
+  {
+   "cmhy": "38345",
+   "name": "ร้านประเสริฐอิเล็กทรอนิกส์ (สาขาแยกแม่และเด็ก  )",
+   "tags": [
+    "ซ่อมเครื่องซักผ้า",
+    "ซ่อมตู้เย็น",
+    "ซ่อมทีวี"
+   ],
+   "phone": "086-654-3552",
+   "amphoe": "เมือง",
+   "modified": "2024-07-12",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-38345"
+  },
+  {
+   "cmhy": "38350",
+   "name": "เสงี่ยม รับซ่อมผ้า",
+   "tags": [
+    "รับซ่อมผ้า",
+    "แก้ทรงเสื้อ",
+    "แก้ทรงกางเกง"
+   ],
+   "phone": "063-632-6619",
+   "amphoe": "เมือง",
+   "modified": "2024-09-07",
+   "trade": "alterations",
+   "facets": {
+    "hem": true
+   },
+   "record": "cm-curated-alterations-38350"
+  },
+  {
+   "cmhy": "38539",
+   "name": "นาโม อลูมิเนียม รับผลิตและติตตั้ง",
+   "tags": [
+    "ช่างอลูมิเนียม",
+    "งานเหล็ก",
+    "งานสแตนเลส"
+   ],
+   "phone": "082-759-0046",
+   "amphoe": "เมือง",
+   "modified": "2025-01-10",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-38539"
+  },
+  {
+   "cmhy": "38579",
+   "name": "เสาว์ณีย์ รับซ่อมผ้า",
+   "tags": [
+    "ร้านตัดผ้า",
+    "ร้านเย็บผ้า",
+    "เปลี่ยนซิบ"
+   ],
+   "phone": "089-554-9244",
+   "amphoe": "เมือง",
+   "modified": "2026-06-22",
+   "trade": "alterations",
+   "facets": {
+    "zip": true
+   },
+   "record": "cm-curated-alterations-38579"
+  },
+  {
+   "cmhy": "38621",
+   "name": "NU D อิเลคทรอนิกส์ ซ่อมเครื่องใช้ไฟฟ้า",
+   "tags": [
+    "ซ่อมเครื่องใช้ไฟฟ้า",
+    "ซ่อมTV",
+    "ซ่อมLED"
+   ],
+   "phone": "094-634-5302",
+   "amphoe": "เมือง",
+   "modified": "2024-10-23",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-38621"
+  },
+  {
+   "cmhy": "38728",
+   "name": "กองทองแอร์",
+   "tags": [
+    "ติดตั้งแอร์บ้าน",
+    "ซ่อมแอร์",
+    "ล้างแอร์"
+   ],
+   "phone": "053-816-749,081-950-7952,081-288-9019",
+   "amphoe": "เมือง",
+   "modified": "2024-11-22",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-38728"
+  },
+  {
+   "cmhy": "38743",
+   "name": "รับซ่อมผ้า [สามล้าน ซอย 1]",
+   "tags": [
+    "เปลี้ยนซิบ",
+    "แก้กระโปรง",
+    "ซ่อมกระเป๋า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-11-22",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-38743"
+  },
+  {
+   "cmhy": "38782",
+   "name": "ร่วมเจริญรางน้ำ ปล่องดูดควัน",
+   "tags": [
+    "ปล่องดูดควัน",
+    "รางน้ำ",
+    "ลูกหมุนระบายอากาศ"
+   ],
+   "phone": "091-775-1018",
+   "amphoe": "เมือง",
+   "modified": "2024-11-26",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-38782"
+  },
+  {
+   "cmhy": "38796",
+   "name": "ช่างนัฐ ทำเบาะเต็นท์ ผ้าใบ",
+   "tags": [
+    "รับทำเบาะ",
+    "เต็นท์",
+    "ผ้าใบ"
+   ],
+   "phone": "093-316-9788",
+   "amphoe": "เมือง",
+   "modified": "2025-01-10",
+   "trade": "upholstery",
+   "facets": {},
+   "record": "cm-curated-upholstery-38796"
+  },
+  {
+   "cmhy": "38799",
+   "name": "ร้านรับทำเบาะ รถยนต์ มอเตอร์ไซค์",
+   "tags": [
+    "ทำเบาะรถยนต์",
+    "ทำเบาะมอเตอร์ไซค์"
+   ],
+   "phone": "095-513-0919,080-499-7844",
+   "amphoe": "เมือง",
+   "modified": "2025-01-10",
+   "trade": "upholstery",
+   "facets": {},
+   "record": "cm-curated-upholstery-38799"
+  },
+  {
+   "cmhy": "38928",
+   "name": "โชคชัย สแตนเลส",
+   "tags": [
+    "งานสแตนเลส",
+    "ประตูรั้ว",
+    "ราวบันได"
+   ],
+   "phone": "086-181-5134",
+   "amphoe": "เมือง",
+   "modified": "2025-08-08",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-38928"
+  },
+  {
+   "cmhy": "38943",
+   "name": "ร้านตัดผ้า เช",
+   "tags": [
+    "ร้านตัดผ้า"
+   ],
+   "phone": "081-960-6869",
+   "amphoe": "เมือง",
+   "modified": "2025-12-19",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "3895",
+   "name": "คลินิกผ้า",
+   "tags": [
+    "แก้ไขผ้า",
+    "แก้ทรง",
+    "แก้ไซส์"
+   ],
+   "phone": "084-040-0530",
+   "amphoe": "เมือง",
+   "modified": "2022-05-23",
+   "trade": "alterations",
+   "facets": {
+    "hem": true
+   },
+   "record": "cm-curated-alterations-3895"
+  },
+  {
+   "cmhy": "39082",
+   "name": "ร้านเปลี่ยนซิบ ตัดขากางเกง [บ้านบวกครกน้อย]",
+   "tags": [
+    "ร้านเปลี่ยนซิบ",
+    "ตัดขากางเกง",
+    "ร้านซ่อมผ้า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-03-05",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-39082"
+  },
+  {
+   "cmhy": "39731",
+   "name": "พี่ฟอง รับซ่อมผ้า",
+   "tags": [
+    "รับซ่อมผ้า",
+    "เย็บผ้า"
+   ],
+   "phone": "093-336-3767",
+   "amphoe": "เมือง",
+   "modified": "2025-04-21",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-39731"
+  },
+  {
+   "cmhy": "39875",
+   "name": "ร้าน ยินดีรับใช้บริการ รับซ่อมผ้า",
+   "tags": [
+    "ซ่อมผ้า",
+    "ตัดขากางเกง",
+    "แก้ทรง"
+   ],
+   "phone": "086-915-3682",
+   "amphoe": "เมือง",
+   "modified": "2025-04-22",
+   "trade": "alterations",
+   "facets": {
+    "hem": true
+   },
+   "record": "cm-curated-alterations-39875"
+  },
+  {
+   "cmhy": "40021",
+   "name": "ป้านุช รับซ่อมผ้า",
+   "tags": [
+    "ร้านรับซ่อมผ้า",
+    "ซ่อมเสื้อผ้า"
+   ],
+   "phone": "099-370-3288",
+   "amphoe": "เมือง",
+   "modified": "2025-05-31",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-40021"
+  },
+  {
+   "cmhy": "40038",
+   "name": "วรรณา รับซ่อมเสื้อผ้า",
+   "tags": [
+    "รับซ่อมเสื้อผ้า",
+    "ซ่อมผ้า",
+    "เปลี่ยนซิบ"
+   ],
+   "phone": "086-919-0279",
+   "amphoe": "เมือง",
+   "modified": "2025-05-31",
+   "trade": "alterations",
+   "facets": {
+    "zip": true
+   },
+   "record": "cm-curated-alterations-40038"
+  },
+  {
+   "cmhy": "40049",
+   "name": "ร้านถวิล รับตัดเย็บ ซ่อมผ้า",
+   "tags": [
+    "ตัดเย็บเสื้อผ้า",
+    "แก้ทรง",
+    "เปลี่ยนซิบ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-06-01",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-40049"
+  },
+  {
+   "cmhy": "40065",
+   "name": "อัชฌา  อิเล็กทรอนิกส์ & ซ่อมเครื่องใช้ไฟฟ้า",
+   "tags": [
+    "ซ่อมเครื่องใช้ไฟฟ้า",
+    "ซ่อมทีวี",
+    "ซ่อมแอลซีดี"
+   ],
+   "phone": "099-274-5787",
+   "amphoe": "เมือง",
+   "modified": "2025-06-06",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-40065"
+  },
+  {
+   "cmhy": "40166",
+   "name": "ส.เกรทไลท์",
+   "tags": [
+    "กันสาด",
+    "เกรทไลท",
+    "งานอลูมิเนียม"
+   ],
+   "phone": "053-140-447",
+   "amphoe": "เมือง",
+   "modified": "2025-07-29",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-40166"
+  },
+  {
+   "cmhy": "40304",
+   "name": "ป้ามล ซ่อมผ้า [ซอย 2 ระแกง]",
+   "tags": [
+    "ซ่อมกางเกง",
+    "ซ่อมผ้า",
+    "แก้ทรง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-09-15",
+   "trade": "alterations",
+   "facets": {
+    "hem": true
+   },
+   "record": "cm-curated-alterations-40304"
+  },
+  {
+   "cmhy": "40372",
+   "name": "น้อยการช่าง",
+   "tags": [
+    "บริการงานช่าง"
+   ],
+   "phone": "065-769-4682",
+   "amphoe": "เมือง",
+   "modified": "2025-12-29",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-40372"
+  },
+  {
+   "cmhy": "40384",
+   "name": "ร้านซ่อมเครื่องใช้ไฟฟ้า [บ้านแม่ข่าใต้]",
+   "tags": [
+    "ซ่อมเครื่องใช้ไฟฟ้า",
+    "ซ่อมพัดลม",
+    "ซ่อมไมโครเวฟ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-08-08",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-40384"
+  },
+  {
+   "cmhy": "40387",
+   "name": "เชียงใหม่ไฮเทค",
+   "tags": [
+    "โซล่าร์เซลล์​",
+    "ซ่อมทีวี",
+    "ซ่อมTV"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-08-08",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-40387"
+  },
+  {
+   "cmhy": "40715",
+   "name": "ดาวรับซ่อมผ้า-เย็บผ้า",
+   "tags": [
+    "ตัดต่อขา",
+    "แก้ทรง",
+    "รับซ่อมผ้า"
+   ],
+   "phone": "087-657-7197",
+   "amphoe": "เมือง",
+   "modified": "2025-10-21",
+   "trade": "alterations",
+   "facets": {
+    "hem": true
+   },
+   "record": "cm-curated-alterations-40715"
+  },
+  {
+   "cmhy": "40733",
+   "name": "บุญมี สแตนเลส",
+   "tags": [
+    "งานโพลีคาร์บอดเนต",
+    "งานโครงมัลเทอชีส",
+    "งานประตู"
+   ],
+   "phone": "099-163-6519",
+   "amphoe": "เมือง",
+   "modified": "2026-03-23",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-40733"
+  },
+  {
+   "cmhy": "40828",
+   "name": "นานาอิเล็กทรอนิกส์",
+   "tags": [
+    "ซ่อมเครื่องซักผ้า",
+    "ซ่อมเครื่องซักผ้านอกสถานที่",
+    "อะไหล่เครื่องใช้ไฟฟ้า"
+   ],
+   "phone": "080-987-5378,087-725-3218",
+   "amphoe": "เมือง",
+   "modified": "2025-12-25",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-40828"
+  },
+  {
+   "cmhy": "40851",
+   "name": "ตัดเสื้อกางเกง [ศรีปิงเมือง]",
+   "tags": [
+    "ร้านตัดเย็บเสื้อผ้า",
+    "ร้านซ่อมผ้า",
+    "ร้านเย็บผ้า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-01-13",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-40851"
+  },
+  {
+   "cmhy": "40885",
+   "name": "พวงแก้ว ปะ เปลี่ยนซิบแก้ทรง",
+   "tags": [
+    "ร้านซ่อมผ้า",
+    "ซ่อมผ้าปะ",
+    "เปลี่ยนซิบแก้ทรง"
+   ],
+   "phone": "081-033-2853",
+   "amphoe": "เมือง",
+   "modified": "2025-11-27",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-40885"
+  },
+  {
+   "cmhy": "40976",
+   "name": "หล้า ตัดเย็บเสื้อผ้าทั่วไป",
+   "tags": [
+    "ร้านตัดเย็บเสื้อผ้า",
+    "ร้านซ่อมผ้า",
+    "ร้านเย็บผ้า"
+   ],
+   "phone": "089-264-1005",
+   "amphoe": "เมือง",
+   "modified": "2026-01-13",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-40976"
+  },
+  {
+   "cmhy": "40995",
+   "name": "ร้านซ่อมผ้า [ถนนเจริญประเทศ]",
+   "tags": [
+    "เปลี่ยนทรง",
+    "แก้ทรงเสื้อผ้า",
+    "แก้ทรงกางเกง"
+   ],
+   "phone": "099-131-6552",
+   "amphoe": "เมือง",
+   "modified": "2026-01-13",
+   "trade": "alterations",
+   "facets": {
+    "hem": true
+   },
+   "record": "cm-curated-alterations-40995"
+  },
+  {
+   "cmhy": "41092",
+   "name": "บัวขาว รับซ่อมผ้า",
+   "tags": [
+    "เปลี่ยนซิบ",
+    "ใส่ยางยืด",
+    "ตัดขากางเกง"
+   ],
+   "phone": "082-381-1632",
+   "amphoe": "เมือง",
+   "modified": "2026-01-13",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-41092"
+  },
+  {
+   "cmhy": "41226",
+   "name": "อุทัยแอร์",
+   "tags": [
+    "ล้างแอร์บ้าน",
+    "ติดตั้งแอร์บ้าน",
+    "รับซื้อแอร์เก่า"
+   ],
+   "phone": "081-386-4448",
+   "amphoe": "เมือง",
+   "modified": "2025-12-29",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-41226"
+  },
+  {
+   "cmhy": "41231",
+   "name": "เอสเอ็มเจริญการช่างสแตนเลส",
+   "tags": [
+    "งานประตู",
+    "งานราวบันได",
+    "งานกันสาด"
+   ],
+   "phone": "089-851-7290",
+   "amphoe": "เมือง",
+   "modified": "2025-12-29",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-41231"
+  },
+  {
+   "cmhy": "41426",
+   "name": "น้าสา คลินิกซ่อมผ้า",
+   "tags": [
+    "ซ่อมซิบ",
+    "ร้านตัดเย็บเสื้อผ้า",
+    "ร้านซ่อมผ้า"
+   ],
+   "phone": "082-105-6876,095-141-7766",
+   "amphoe": "เมือง",
+   "modified": "2026-01-13",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-41426"
+  },
+  {
+   "cmhy": "41440",
+   "name": "อินษรอลูมิเนียม",
+   "tags": [
+    "บานเลื่อน",
+    "กั้นห้อง",
+    "บานสวิง"
+   ],
+   "phone": "053-334-471,053-800-971,053-334-473",
+   "amphoe": "เมือง",
+   "modified": "2026-04-08",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-41440"
+  },
+  {
+   "cmhy": "41475",
+   "name": "เกรทไลท์ อลูมิเนียม",
+   "tags": [
+    "งานอลูมิเนียม",
+    "แผ่นอลูเนียม",
+    "กันสาดฉลุลาย"
+   ],
+   "phone": "053-214-147,053-223-317,081-481-2251",
+   "amphoe": "เมือง",
+   "modified": "2026-01-07",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-41475"
+  },
+  {
+   "cmhy": "41476",
+   "name": "ช่างตู่ ซ่อมอุปกรณ์ไฟฟ้า",
+   "tags": [
+    "ซ่อมไมโครเวฟ",
+    "ซ่อมพัดลม",
+    "ซ่อมเครื่องเสียง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-04-09",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-41476"
+  },
+  {
+   "cmhy": "42004",
+   "name": "สมพงษ์เจริญยนต์ งานกลึง ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "โรงกลึง",
+    "งานกลึง",
+    "ร้านซ่อมมอเตอร์ไซค์"
+   ],
+   "phone": "088-252-9393",
+   "amphoe": "เมือง",
+   "modified": "2026-06-01",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-42004"
+  },
+  {
+   "cmhy": "42020",
+   "name": "เอี่ยว อิเลคทรอนิก แอร์บ้าน",
+   "tags": [
+    "ติดตั้งแอร์บ้าน",
+    "ติดตั้งเครื่องทำน้ำอุ่น",
+    "ล้างแอร์บ้าน"
+   ],
+   "phone": "088-434-4126",
+   "amphoe": "เมือง",
+   "modified": "2026-04-24",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-42020"
+  },
+  {
+   "cmhy": "4203",
+   "name": "โรงกลึงหนองประทีป",
+   "tags": [
+    "ตัดเหล็ก",
+    "พับเหล็ก",
+    "แผ่นสเตนเลส"
+   ],
+   "phone": "053-242-649",
+   "amphoe": "เมือง",
+   "modified": "2021-03-10",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-4203"
+  },
+  {
+   "cmhy": "42064",
+   "name": "วีเก็ตช็อป บริการงานปัก (โลตัสแม่เหียะ)",
+   "tags": [
+    "ปักชื่อ",
+    "ปักโลโก้",
+    "ปักหมวก"
+   ],
+   "phone": "086-085-7602",
+   "amphoe": "เมือง",
+   "modified": "2026-06-06",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-42064"
+  },
+  {
+   "cmhy": "4228",
+   "name": "มารวย สแตนเลส (สาขาถนนเจริญเมือง ข้างธนาคารกรุงศรี)",
+   "tags": [
+    "สเตนเลสชุดเครื่องครัว",
+    "ตกแต่งภายในสแตนเลส",
+    "จำหน่ายสแตนเลส"
+   ],
+   "phone": "053-247-922,053-247-909",
+   "amphoe": "เมือง",
+   "modified": "2021-11-13",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-4228"
+  },
+  {
+   "cmhy": "42445",
+   "name": "ไมโครเทค ( 89พลาซ่า )",
+   "tags": [
+    "ซ่อมคอมพิวเตอร์",
+    "ปริ้นเตอร์",
+    "มือถือ"
+   ],
+   "phone": "081-530-6393",
+   "amphoe": "เมือง",
+   "modified": "2026-06-12",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-42445"
+  },
+  {
+   "cmhy": "42560",
+   "name": "Cacti Bicycles",
+   "tags": [
+    "ร้านจักรยาน",
+    "ซ่อมจักรยาน",
+    "จักรยานให้เช่า"
+   ],
+   "phone": "089-757-9150",
+   "amphoe": "เมือง",
+   "modified": "2026-09-03",
+   "trade": "bicycle",
+   "facets": {},
+   "osm": "cm-osm-node-2974056370",
+   "metres": 18
+  },
+  {
+   "cmhy": "4495",
+   "name": "ธีรุจ ซ่อมตู้เย็น ตู้แช่ เครื่องซักผ้า ซ่อมเครื่องใช้ไฟฟ้า",
+   "tags": [
+    "ซ่อมตู้เย็น",
+    "ซ่อมเครื่องซักผ้า",
+    "ซ่อมเตารีด"
+   ],
+   "phone": "089-756-3337",
+   "amphoe": "เมือง",
+   "modified": "2026-05-30",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-4495"
+  },
+  {
+   "cmhy": "4634",
+   "name": "เจริญสวัสดิ์การเบาะ",
+   "tags": [
+    "ซ่อมเบาะ",
+    "ผ้าใบ",
+    "ขายฟองน้ำ"
+   ],
+   "phone": "053-248-636,081-951-1198",
+   "amphoe": "เมือง",
+   "modified": "2023-01-07",
+   "trade": "upholstery",
+   "facets": {},
+   "record": "cm-curated-upholstery-4634"
+  },
+  {
+   "cmhy": "4665",
+   "name": "ย.การช่าง",
+   "tags": [
+    "งานเหล็ก",
+    "สังกะสี",
+    "สแตนเลส"
+   ],
+   "phone": "0811808948,0866549925",
+   "amphoe": "เมือง",
+   "modified": "2025-06-01",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-4665"
+  },
+  {
+   "cmhy": "4704",
+   "name": "เอ็นเค ไบรค์ จักรยานให้เช่า",
+   "tags": [
+    "จักรยานให้เช่า",
+    "เช่าจักรยานเสือภูเขา",
+    "เช่าจักรยานพับ"
+   ],
+   "phone": "081-671-1330",
+   "amphoe": "เมือง",
+   "modified": "2025-08-07",
+   "trade": "bicycle",
+   "facets": {},
+   "osm": "cm-osm-node-4054123498",
+   "metres": 31
+  },
+  {
+   "cmhy": "4717",
+   "name": "สุเทพสปอร์ต รับซ่อมผ้า",
+   "tags": [
+    "รับซ่อมผ้า",
+    "เปลี่ยนยางยืด",
+    "ตัดขา"
+   ],
+   "phone": "053-276-765,081-366-8621",
+   "amphoe": "เมือง",
+   "modified": "2024-07-12",
+   "trade": "alterations",
+   "facets": {
+    "hem": true
+   },
+   "record": "cm-curated-alterations-4717"
+  },
+  {
+   "cmhy": "4781",
+   "name": "ศักดิ์สิทธิ์ อัลลอย สแตนเลส",
+   "tags": [
+    "อัลลอย",
+    "สแตนเลส"
+   ],
+   "phone": "053-800-501,053-800-502",
+   "amphoe": "เมือง",
+   "modified": "2021-08-01",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-4781"
+  },
+  {
+   "cmhy": "4853",
+   "name": "ไทยแสตนเลสอาร์กอน",
+   "tags": [
+    "ซ่อมเครื่องผลิตน้ำแข็งอัตโนมัติ",
+    "ตู้แช่สแตนเลส",
+    "ตู้มินิมาร์ท"
+   ],
+   "phone": "053-212-869,081-998-2465",
+   "amphoe": "เมือง",
+   "modified": "2021-06-06",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-4853"
+  },
+  {
+   "cmhy": "4904",
+   "name": "สุรชัยการช่าง รับทไประตูสแตนเลส",
+   "tags": [
+    "ประตู",
+    "ราวบันได",
+    "ประตูม้วน"
+   ],
+   "phone": "081-408-9552,082-678-5788",
+   "amphoe": "เมือง",
+   "modified": "2026-08-30",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-4904"
+  },
+  {
+   "cmhy": "4918",
+   "name": "บีไบค์ ชอป",
+   "tags": [
+    "จักรยาน",
+    "ซ่อมจักรยาน"
+   ],
+   "phone": "093-193-3692",
+   "amphoe": "เมือง",
+   "modified": "2020-12-09",
+   "trade": "bicycle",
+   "facets": {},
+   "record": "cm-curated-bicycle-4918"
+  },
+  {
+   "cmhy": "4926",
+   "name": "น้อยการเบาะ รับทำเบาะ",
+   "tags": [
+    "เบาะมอเตอร์ไซค์",
+    "โซฟา",
+    "เบาะรถยนต์"
+   ],
+   "phone": "093-289-0704",
+   "amphoe": "เมือง",
+   "modified": "2026-06-02",
+   "trade": "upholstery",
+   "facets": {},
+   "record": "cm-curated-upholstery-4926"
+  },
+  {
+   "cmhy": "4961",
+   "name": "ซัน ต.เจริญกิจโพลี่  (2005)",
+   "tags": [
+    "กันสาด",
+    "โพลี่คาร์บอเนต",
+    "เมทัลชีท"
+   ],
+   "phone": "053-801-381,083-854-7433",
+   "amphoe": "เมือง",
+   "modified": "2026-03-09",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-4961"
+  },
+  {
+   "cmhy": "4967",
+   "name": "เชียงใหม่อุปกรณ์เครื่องเย็น",
+   "tags": [
+    "แอร์",
+    "เครื่องทำความเย็น",
+    "อะไหล่เครื่องทำความเย็น"
+   ],
+   "phone": "053-140-101,095-569-9826",
+   "amphoe": "เมือง",
+   "modified": "2021-07-24",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-4967"
+  },
+  {
+   "cmhy": "5083",
+   "name": "ไทยถาวร 2 กระจก อลูมิเนียม",
+   "tags": [
+    "งานอลูมิเนียม",
+    "งานกระจก"
+   ],
+   "phone": "053-201-265,098-323-5466",
+   "amphoe": "เมือง",
+   "modified": "2026-05-29",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-5083"
+  },
+  {
+   "cmhy": "5154",
+   "name": "มณีการช่าง",
+   "tags": [
+    "เหล็กดัด",
+    "ราวบันได",
+    "มุ้งลวดอลูมิเนียม"
+   ],
+   "phone": "053-214-915",
+   "amphoe": "เมือง",
+   "modified": "2022-08-26",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-5154"
+  },
+  {
+   "cmhy": "5174",
+   "name": "ออดิโอ",
+   "tags": [
+    "ซ่อมทีวี",
+    "ซ่อมไมค์",
+    "ซ่อมลำโพง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-08-26",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-5174"
+  },
+  {
+   "cmhy": "5175",
+   "name": "สมศักดิ์โทรทัศน์",
+   "tags": [
+    "ซ่อมทีวี",
+    "ซ่อมวิทยุ",
+    "ซ่อมLED"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-08-26",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-5175"
+  },
+  {
+   "cmhy": "5185",
+   "name": "เศรษฐศิลป์ อลูมิเนียม",
+   "tags": [
+    "ทำอลูมิเนียม"
+   ],
+   "phone": "053-215-271",
+   "amphoe": "เมือง",
+   "modified": "2022-08-26",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-5185"
+  },
+  {
+   "cmhy": "5200",
+   "name": "สตาร์อลูมิเนียม",
+   "tags": [
+    "กระจก",
+    "กันสาด",
+    "อลูมิเนียม"
+   ],
+   "phone": "053-216-070,089-759-2147",
+   "amphoe": "เมือง",
+   "modified": "2026-01-28",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-5200"
+  },
+  {
+   "cmhy": "5216",
+   "name": "สวัสดิ์ สังกะสี",
+   "tags": [
+    "รางน้ำ",
+    "ปล่องดูดควัน",
+    "ตัดแผ่นเหล็ก"
+   ],
+   "phone": "053-801-315,081-951-1793",
+   "amphoe": "เมือง",
+   "modified": "2022-04-20",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-5216"
+  },
+  {
+   "cmhy": "5232",
+   "name": "บี.ฟิลเตอร์ เจาะน้ำบาดาล",
+   "tags": [
+    "เจาะบาดาล",
+    "ติดตั้งแทงค์น้ำ",
+    "ติดเครื่องกรอง"
+   ],
+   "phone": "053-281-946,085-328-1946",
+   "amphoe": "เมือง",
+   "modified": "2024-09-26",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-5232"
+  },
+  {
+   "cmhy": "5285",
+   "name": "ไบค์คอนเนอร์",
+   "tags": [
+    "เสือหมอบ",
+    "เสือภูเขา",
+    "ซ่อมจักรยาน"
+   ],
+   "phone": "089-796-6669",
+   "amphoe": "เมือง",
+   "modified": "2023-03-09",
+   "trade": "bicycle",
+   "facets": {},
+   "osm": "cm-osm-node-1930110884",
+   "metres": 1
+  },
+  {
+   "cmhy": "5286",
+   "name": "ร้านอรุณการเบาะ รับทำเบาะ(ช้างคลาน)",
+   "tags": [
+    "ซ่อมโซฟา",
+    "ปูพรม",
+    "รับทำเบาะ"
+   ],
+   "phone": "089-546-6430,094-546-6394",
+   "amphoe": "เมือง",
+   "modified": "2026-02-14",
+   "trade": "upholstery",
+   "facets": {},
+   "record": "cm-curated-upholstery-5286"
+  },
+  {
+   "cmhy": "5452",
+   "name": "ม่วนไทยสแตนเลส",
+   "tags": [
+    "งานสแตนเลส",
+    "งานเหล็ก",
+    "ตัดเพลส"
+   ],
+   "phone": "092-665-3789,090-331-2332",
+   "amphoe": "เมือง",
+   "modified": "2022-02-23",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-5452"
+  },
+  {
+   "cmhy": "5457",
+   "name": "ดอนจั่นเครื่องกรองน้ำ",
+   "tags": [
+    "ซ่อมปั๊มน้ำ",
+    "เจาะบาดาล",
+    "ด่างกรองน้ำ"
+   ],
+   "phone": "081-366-4141,080-375-3706",
+   "amphoe": "เมือง",
+   "modified": "2022-02-23",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-5457"
+  },
+  {
+   "cmhy": "5494",
+   "name": "ท่าศาลาโลหะการ",
+   "tags": [
+    "ตัดเหล็ก",
+    "พับเหล็ก",
+    "โครงหลังคา"
+   ],
+   "phone": "081-764-6290",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-5494"
+  },
+  {
+   "cmhy": "5543",
+   "name": "ปอ รับซ่อมคอม โน๊ตบุ๊ค [ถนน สุขเกษม]",
+   "tags": [
+    "ซ่อมคอม",
+    "โน๊ตบุ๊ค",
+    "ซ่อมจอ"
+   ],
+   "phone": "086-671-0104,053876097",
+   "amphoe": "เมือง",
+   "modified": "2024-08-30",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "5597",
+   "name": "คลินิกซ่อมผ้า",
+   "tags": [
+    "ซ่อมผ้า",
+    "เย็บผ้า",
+    "ตัดผ้า"
+   ],
+   "phone": "085-724-2540",
+   "amphoe": "เมือง",
+   "modified": "2022-05-23",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-5597"
+  },
+  {
+   "cmhy": "5741",
+   "name": "รุ่งโรจน์เชียงใหม่ อิเล็กทรอนิคส์",
+   "tags": [
+    "ซ่อมทีวี",
+    "ซ่อมแอลอีดี",
+    "ซ่อมจอคอมซ่อม"
+   ],
+   "phone": "053-252-794,093-196-5365,081-960-7308",
+   "amphoe": "เมือง",
+   "modified": "2024-03-08",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-5741"
+  },
+  {
+   "cmhy": "5751",
+   "name": "แม่ข่าพานิช เชียงใหม่",
+   "tags": [
+    "ตกแต่งมอเตอร์ไซต์",
+    "อุปกรณ์จักรยาน"
+   ],
+   "phone": "053-234-639,089-371-4639",
+   "amphoe": "เมือง",
+   "modified": "2026-05-31",
+   "trade": "bicycle",
+   "facets": {},
+   "osm": "cm-osm-way-668376834",
+   "metres": 2
+  },
+  {
+   "cmhy": "5884",
+   "name": "คอมฮิป",
+   "tags": [
+    "ซ่อมคอม",
+    "ซ่อมมือถือ"
+   ],
+   "phone": "088-260-2154,087-303-2208",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-5884"
+  },
+  {
+   "cmhy": "5903",
+   "name": "สุชาติไบค์",
+   "tags": [
+    "จักรยาน",
+    "ซ่อมจักรยาน",
+    "อุปกรณ์จักรยาน"
+   ],
+   "phone": "098-284-1656",
+   "amphoe": "เมือง",
+   "modified": "2026-06-12",
+   "trade": "bicycle",
+   "facets": {},
+   "osm": "cm-osm-node-6108691292",
+   "metres": 8
+  },
+  {
+   "cmhy": "6027",
+   "name": "เชียงใหม่ พี.เอส.แอร์",
+   "tags": [
+    "แอร์",
+    "ติดตั้งแอร์",
+    "เครื่องปรับอากาศ"
+   ],
+   "phone": "053-308-900,053-308-901,053-308-902,081-960-1410",
+   "amphoe": "เมือง",
+   "modified": "2026-09-02",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-6027"
+  },
+  {
+   "cmhy": "6083",
+   "name": "ลานนารวมช่าง",
+   "tags": [
+    "ฝาสูบ",
+    "เสื้อสูบ",
+    "เพลา"
+   ],
+   "phone": "081-724-0996,089-632-5050",
+   "amphoe": "เมือง",
+   "modified": "2021-11-13",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "6119",
+   "name": "นครพิงค์แมชชีนช๊อป",
+   "tags": [
+    "กลึง",
+    "เชื่อม",
+    "ลูกสูบ"
+   ],
+   "phone": "053-304-088,053-304-296,053-241-378",
+   "amphoe": "เมือง",
+   "modified": "2021-11-13",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "6149",
+   "name": "เชียงใหม่โทรศัพท์ เซลล์แอนด์เซอร์วิส",
+   "tags": [
+    "ตู้สาขา",
+    "กล้องวงจรปิด"
+   ],
+   "phone": "053-248-842,053-246-789",
+   "amphoe": "เมือง",
+   "modified": "2018-08-07",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-6149"
+  },
+  {
+   "cmhy": "6494",
+   "name": "โฮม พี.ซี. แอนด์เซอร์วิสเชส",
+   "tags": [
+    "ซ่อมคอม",
+    "ลงโปรแกรม"
+   ],
+   "phone": "089-755-3656",
+   "amphoe": "เมือง",
+   "modified": "2021-07-27",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "652",
+   "name": "อ่างทองพานิช",
+   "tags": [
+    "ท่อน้ำ",
+    "ท่อพีวีซี",
+    "ท่อน้ำไทย"
+   ],
+   "phone": "053-242-982",
+   "amphoe": "เมือง",
+   "modified": "2022-03-04",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "6521",
+   "name": "พงศกร การเบาะ",
+   "tags": [
+    "เบาะมอไซต์",
+    "เบาะรถยนต์",
+    "โซฟา"
+   ],
+   "phone": "084-609-1247",
+   "amphoe": "เมือง",
+   "modified": "2021-07-27",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "6525",
+   "name": "โลหะทรัพย์ทวีกิจ",
+   "tags": [
+    "งานโลหะแผ่น",
+    "งานสแตนเลส",
+    "หม้อ"
+   ],
+   "phone": "053-223-476,053-215-547",
+   "amphoe": "เมือง",
+   "modified": "2026-06-02",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-6525"
+  },
+  {
+   "cmhy": "6527",
+   "name": "เชียงใหม่มอเตอร์ ซ่อมมอเตอร์ คอมเพรสเซอร์",
+   "tags": [
+    "ซ่อมคอมเพสเซอร์",
+    "ซ่อมเครื่องซักผ้า",
+    "ซ่อมเครื่องใช้ไฟฟ้า"
+   ],
+   "phone": "053-218-233,081-993-1142",
+   "amphoe": "เมือง",
+   "modified": "2026-04-26",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-6527"
+  },
+  {
+   "cmhy": "653",
+   "name": "ศูนย์จักรเย็บผ้านครพิงค์",
+   "tags": [
+    "ซ่อมจักรเย็บผ้า",
+    "จำหน่ายจักร",
+    "ฝนเข็ม"
+   ],
+   "phone": "053-234-572,053-232-085,053-233-329",
+   "amphoe": "เมือง",
+   "modified": "2020-09-08",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-653"
+  },
+  {
+   "cmhy": "6590",
+   "name": "แม่ข่า พาร์ทเซ็นเตอร์",
+   "tags": [
+    "จักรยาน",
+    "อะไหล่มอเตอร์ไซต์",
+    "อุปกรณ์จักรยาน"
+   ],
+   "phone": "053-251-800,053-252-355",
+   "amphoe": "เมือง",
+   "modified": "2021-02-25",
+   "trade": "bicycle",
+   "facets": {},
+   "osm": "cm-osm-node-1013136836",
+   "metres": 13
+  },
+  {
+   "cmhy": "6754",
+   "name": "ล้านนาเทค",
+   "tags": [
+    "เครื่องถ่ายเอกสาร",
+    "โปรเจคเตอร์",
+    "ตรวจเช็ค-เปลี่ยนอะไหล่"
+   ],
+   "phone": "053-122-663",
+   "amphoe": "เมือง",
+   "modified": "2023-07-18",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "7126",
+   "name": "ร้านพจน์เทเลอร์ ซ่อมเสื้อผ้า (สันติธรรม เวียงบัว)",
+   "tags": [
+    "แก้ทรงกางเกง",
+    "เปลี่ยนซิบ",
+    "ปะชุนผ้า"
+   ],
+   "phone": "061-969-7357",
+   "amphoe": "เมือง",
+   "modified": "2025-06-09",
+   "trade": "alterations",
+   "facets": {
+    "zip": true,
+    "hem": true
+   },
+   "record": "cm-curated-alterations-7126"
+  },
+  {
+   "cmhy": "7145",
+   "name": "คาเซ่ไบซิเคิ้ล",
+   "tags": [
+    "ยูดับบลิวซี",
+    "จักรยาน",
+    "จักรยานอุปกรณ์เสริม"
+   ],
+   "phone": "081-701-9243,053-406-292",
+   "amphoe": "เมือง",
+   "modified": "2024-07-16",
+   "trade": "bicycle",
+   "facets": {},
+   "record": "cm-curated-bicycle-7145"
+  },
+  {
+   "cmhy": "7376",
+   "name": "เชอร์รี่ ไบค์",
+   "tags": [
+    "จำหน่ายจักรยาน",
+    "อุปกรณ์จักรยาน",
+    "bmx"
+   ],
+   "phone": "053-380-229,088-336-8973",
+   "amphoe": "เมือง",
+   "modified": "2021-09-29",
+   "trade": "bicycle",
+   "facets": {},
+   "osm": "cm-osm-node-1930116294",
+   "metres": 4
+  },
+  {
+   "cmhy": "7382",
+   "name": "เชียงใหม่แอร์แคร์ เอ็นจิเนียริ่ง",
+   "tags": [
+    "แอร์บ้าน",
+    "แอร์โรงงาน",
+    "ติดตั้งแอร์"
+   ],
+   "phone": "053-491-808,083-169-8866",
+   "amphoe": "เมือง",
+   "modified": "2026-05-01",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-7382"
+  },
+  {
+   "cmhy": "7618",
+   "name": "ประตูชัย แอร์ เซอร์วิส",
+   "tags": [],
+   "phone": "053-260-349",
+   "amphoe": "เมือง",
+   "modified": "2019-12-29",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-7618"
+  },
+  {
+   "cmhy": "7761",
+   "name": "ธนากรกิจการช่าง",
+   "tags": [
+    "งานเหล็กดัด",
+    "งานอบสี",
+    "งานโลหะ"
+   ],
+   "phone": "081-764-5724,081-746-6554",
+   "amphoe": "เมือง",
+   "modified": "2025-12-12",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-7761"
+  },
+  {
+   "cmhy": "7767",
+   "name": "ช่างหลุย สแตนเลส",
+   "tags": [
+    "สแตนเลส"
+   ],
+   "phone": "089-850-4515,053-247-453",
+   "amphoe": "เมือง",
+   "modified": "2023-03-08",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-7767"
+  },
+  {
+   "cmhy": "7881",
+   "name": "จันทร์อลูมิเนียม แอนด์ แฟรม",
+   "tags": [
+    "งานกระจก",
+    "งานมุ้งลวด",
+    "ประตู"
+   ],
+   "phone": "053-240-566,081-386-4363",
+   "amphoe": "เมือง",
+   "modified": "2022-12-29",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-7881"
+  },
+  {
+   "cmhy": "7991",
+   "name": "ช่างแม้ว ซ่อมเครื่องใช้ไฟฟ้าทุกชนิด [ถนน พระปกเกล้างซอย 4]",
+   "tags": [
+    "ซ่อมไมโครเวฟ",
+    "ซ่อมพัดลม",
+    "ซ่อมตู้เย็น"
+   ],
+   "phone": "0959431419",
+   "amphoe": "เมือง",
+   "modified": "2024-10-27",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-7991"
+  },
+  {
+   "cmhy": "7994",
+   "name": "รับซ่อมนาฬิกา (ข้างวัดพันแหวน)",
+   "tags": [
+    "ซ่อมนาฬิกา"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-10-13",
+   "trade": "mend",
+   "facets": {},
+   "record": "cm-curated-mend-7994"
+  },
+  {
+   "cmhy": "800",
+   "name": "กิจการงานช่าง สาขา 2",
+   "tags": [
+    "รางน้ำฝน",
+    "ปล่องดูดควัน",
+    "ราวบันได"
+   ],
+   "phone": "092-185-8195",
+   "amphoe": "เมือง",
+   "modified": "2026-02-27",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-800"
+  },
+  {
+   "cmhy": "8041",
+   "name": "ช่างทองแอร์เซอร์วิส",
+   "tags": [
+    "ซ่อมแอร์",
+    "ตู้เย็น"
+   ],
+   "phone": "081-8826590",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-8041"
+  },
+  {
+   "cmhy": "8074",
+   "name": "มิสเตอร์แบ๊กฟิกส์ Mr.bag fix",
+   "tags": [
+    "ซ่อมกระเป๋า",
+    "ซ่อมเข็มขัด",
+    "ซ่อมเครื่องหนัง"
+   ],
+   "phone": "053-279-875,086-312-5877",
+   "amphoe": "เมือง",
+   "modified": "2025-03-07",
+   "trade": "mend",
+   "facets": {},
+   "record": "cm-curated-mend-8074"
+  },
+  {
+   "cmhy": "8231",
+   "name": "โรงกลึงรุ่งเรืองกลกิจ",
+   "tags": [
+    "กลึงเหล็ก",
+    "โรงกลึง"
+   ],
+   "phone": "053-266-657",
+   "amphoe": "เมือง",
+   "modified": "2021-12-14",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-8231"
+  },
+  {
+   "cmhy": "8232",
+   "name": "ร้านตัดผ้าซิกแซ๊ก",
+   "tags": [
+    "ต่อขา",
+    "ตัดขา",
+    "แก้เอว"
+   ],
+   "phone": "086-921-6619,084-612-2957",
+   "amphoe": "เมือง",
+   "modified": "2022-05-23",
+   "trade": "alterations",
+   "facets": {
+    "hem": true
+   },
+   "record": "cm-curated-alterations-8232"
+  },
+  {
+   "cmhy": "8359",
+   "name": "ข่วงสิงห์ไบค์",
+   "tags": [
+    "อะไหล่จักรยาน",
+    "จักรยานล้อโต",
+    "จักรยานเด็ก"
+   ],
+   "phone": "053-226-487",
+   "amphoe": "เมือง",
+   "modified": "2020-10-11",
+   "trade": "bicycle",
+   "facets": {},
+   "record": "cm-curated-bicycle-8359"
+  },
+  {
+   "cmhy": "847",
+   "name": "เจริญศิลป์ (หน้าราชภัฎ) ซ่อมรองเท้า กระเป๋า เครื่องหนัง",
+   "tags": [
+    "รับสั่งตัดรองเท้า",
+    "ซ่อมกระเป๋า",
+    "ซ่อมรองเท้า"
+   ],
+   "phone": "096-985-3704",
+   "amphoe": "เมือง",
+   "modified": "2023-04-21",
+   "trade": "mend",
+   "facets": {},
+   "record": "cm-curated-mend-847"
+  },
+  {
+   "cmhy": "8542",
+   "name": "ลานนาการช่าง กระจก อลูมิดนียม",
+   "tags": [
+    "งานกระจก",
+    "งานอลูมิเนียม"
+   ],
+   "phone": "081-950-3253,061-669-9391",
+   "amphoe": "เมือง",
+   "modified": "2026-08-22",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-8542"
+  },
+  {
+   "cmhy": "8563",
+   "name": "โอดี้ กลาส กระจก",
+   "tags": [
+    "กระจกเจีย",
+    "อลูมิเนียม",
+    "เจียริม"
+   ],
+   "phone": "053-116-882,085-695-5455",
+   "amphoe": "เมือง",
+   "modified": "2021-10-23",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-8563"
+  },
+  {
+   "cmhy": "8566",
+   "name": "เยี่ยมไพศาลก่อสร้าง (พระนคร)",
+   "tags": [
+    "ติดตั้งฝ้าเพดาน",
+    "อลูมิเนียม"
+   ],
+   "phone": "053-116657,095-351-4626",
+   "amphoe": "เมือง",
+   "modified": "2021-10-23",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-8566"
+  },
+  {
+   "cmhy": "8581",
+   "name": "เจริญโลหะแผ่น",
+   "tags": [
+    "ปล่องดูดควัน",
+    "สแตนเลส",
+    "สังกะสี"
+   ],
+   "phone": "053-850-050,081-992-3539",
+   "amphoe": "เมือง",
+   "modified": "2021-10-23",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-8581"
+  },
+  {
+   "cmhy": "8583",
+   "name": "โอ๋การเบาะ",
+   "tags": [
+    "ซ่อมเบาะ",
+    "โซฟา",
+    "เบาะมอเตอร์ไซค์"
+   ],
+   "phone": "086-549-4933",
+   "amphoe": "เมือง",
+   "modified": "2021-10-23",
+   "trade": "upholstery",
+   "facets": {},
+   "record": "cm-curated-upholstery-8583"
+  },
+  {
+   "cmhy": "8617",
+   "name": "ศิริการช่าง กันสาด งานเต็นท์",
+   "tags": [
+    "เมทัลชีท",
+    "เต้นท์",
+    "ผ้าใบ"
+   ],
+   "phone": "089-755-1429,053-117-280",
+   "amphoe": "เมือง",
+   "modified": "2024-07-12",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-8617"
+  },
+  {
+   "cmhy": "8645",
+   "name": "เพื่อนช่าง",
+   "tags": [
+    "นั่งร้าน",
+    "เวที",
+    "นั่งร้านอุปกรณ์"
+   ],
+   "phone": "053-126048,053-126-049",
+   "amphoe": "เมือง",
+   "modified": "2020-08-18",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-8645"
+  },
+  {
+   "cmhy": "8689",
+   "name": "ส.การช่าง โรงกลึง",
+   "tags": [
+    "โรงกลึง"
+   ],
+   "phone": "099-367-3646",
+   "amphoe": "เมือง",
+   "modified": "2021-03-20",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-8689"
+  },
+  {
+   "cmhy": "8722",
+   "name": "ประดิษฐ์การช่าง",
+   "tags": [
+    "ตัดเหล็ก",
+    "พับแผ่นเหล็ก",
+    "ม้วนแผ่นเหล็ก"
+   ],
+   "phone": "0857963455,0944695365",
+   "amphoe": "เมือง",
+   "modified": "2022-09-20",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "8753",
+   "name": "ดี-ดีซานย์",
+   "tags": [
+    "ตัดเย็บเสื้อผ้า",
+    "ตัดเสื้อชาย",
+    "ตัดเสื้อสตรี"
+   ],
+   "phone": "081-137-3549",
+   "amphoe": "เมือง",
+   "modified": "2024-08-16",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "8855",
+   "name": "โรงกลึงไข่การช่าง",
+   "tags": [
+    "แบคโฮ",
+    "ซ่อมแบคโฮ",
+    "อ๊อกเชื่อม"
+   ],
+   "phone": "088-268-7466,098-748-5771",
+   "amphoe": "เมือง",
+   "modified": "2025-12-12",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-8855"
+  },
+  {
+   "cmhy": "8867",
+   "name": "ยงค์สแตนเลส แอนด์ ดีไซน์",
+   "tags": [
+    "ชุดครัวสแตนเลส",
+    "ราวบันได",
+    "ราวระเบียง"
+   ],
+   "phone": "089-755-0843,091-830-4042",
+   "amphoe": "เมือง",
+   "modified": "2025-12-12",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-8867"
+  },
+  {
+   "cmhy": "8869",
+   "name": "โรงกลึงณรงค์การช่าง",
+   "tags": [
+    "งานเชื่อม",
+    "รับงานกลึง",
+    "งานโลหะ"
+   ],
+   "phone": "053-351-811,081-035-0282",
+   "amphoe": "เมือง",
+   "modified": "2025-12-12",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-8869"
+  },
+  {
+   "cmhy": "8870",
+   "name": "ช.สุชาติการช่าง ช.นวกิจ",
+   "tags": [
+    "มุ้งลวด",
+    "งานอลูมิเนียม",
+    "งานประตู"
+   ],
+   "phone": "053-380-837-8,081-530-7552,086-420-0470",
+   "amphoe": "เมือง",
+   "modified": "2025-12-12",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-8870"
+  },
+  {
+   "cmhy": "8890",
+   "name": "ส.ชายโพลี่เชียงใหม่",
+   "tags": [
+    "หลังคา",
+    "กันสาด",
+    "โพลีคาร์บอเนต"
+   ],
+   "phone": "053-424-219",
+   "amphoe": "เมือง",
+   "modified": "2024-11-26",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-8890"
+  },
+  {
+   "cmhy": "8893",
+   "name": "โรงกลึงแดงการช่าง",
+   "tags": [
+    "โรงกลึง",
+    "กลึงโลหะ",
+    "อัดสายไฮดรอลิก"
+   ],
+   "phone": "081-884-0619",
+   "amphoe": "เมือง",
+   "modified": "2024-11-26",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-8893"
+  },
+  {
+   "cmhy": "8902",
+   "name": "ปาร์ม ไบค์ ไซเคิล",
+   "tags": [
+    "ซ่อมจักรยาน",
+    "รถไต่ดอย"
+   ],
+   "phone": "086-654-5025",
+   "amphoe": "เมือง",
+   "modified": "2023-03-09",
+   "trade": "bicycle",
+   "facets": {},
+   "osm": "cm-osm-way-890923393",
+   "metres": 39
+  },
+  {
+   "cmhy": "8933",
+   "name": "เอส.ที.ฟิวเจอร์ คอนโทล",
+   "tags": [
+    "ประตูรีโมท",
+    "ประตูรีโมทบานเลื่อน",
+    "ประตูรีโมทบานสวิง"
+   ],
+   "phone": "052-000-357",
+   "amphoe": "เมือง",
+   "modified": "2022-04-08",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-8933"
+  },
+  {
+   "cmhy": "896",
+   "name": "เวลโลซิตี้",
+   "tags": [
+    "ขายจักรยาน",
+    "อะไหล่จักรยาน",
+    "อุปกรณ์แต่ง"
+   ],
+   "phone": "081-595-5975",
+   "amphoe": "เมือง",
+   "modified": "2022-11-03",
+   "trade": "bicycle",
+   "facets": {},
+   "osm": "cm-osm-node-2771778241",
+   "metres": 11
+  },
+  {
+   "cmhy": "8969",
+   "name": "รับซ่อมผ้า [ถนนศรีภูมิ]",
+   "tags": [
+    "เปลี่ยนซิบ",
+    "ปะกางเกง",
+    "เปลี่ยนทรง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-04-20",
+   "trade": "alterations",
+   "facets": {
+    "zip": true
+   },
+   "record": "cm-curated-alterations-8969"
+  },
+  {
+   "cmhy": "9147",
+   "name": "ศ.ศรีวิชัยการช่าง",
+   "tags": [
+    "จำหน่ายเครื่องมือช่าง",
+    "ซ่อมเครื่องมือช่าง"
+   ],
+   "phone": "081-1115642,085-7358201",
+   "amphoe": "เมือง",
+   "modified": "2022-07-19",
+   "trade": "mend",
+   "facets": {},
+   "record": "cm-curated-mend-9147"
+  },
+  {
+   "cmhy": "918",
+   "name": "อาร์มไบค์",
+   "tags": [
+    "ขายจักรยาน",
+    "อะไหล่จักรยาน",
+    "อุปกรณ์แต่ง"
+   ],
+   "phone": "086-804-8229",
+   "amphoe": "เมือง",
+   "modified": "2021-12-09",
+   "trade": "bicycle",
+   "facets": {},
+   "osm": "cm-osm-node-2696303914",
+   "metres": 2
+  },
+  {
+   "cmhy": "9271",
+   "name": "นิรันดร์อลูมิเนียม",
+   "tags": [
+    "ออกแบบและติดตั้งโครงสร้างเหล็ก",
+    "ทำอลูมิเนียม",
+    "ติดตั้งโครงสร้างเหล็ก"
+   ],
+   "phone": "087-191-7266,087-424-0955",
+   "amphoe": "เมือง",
+   "modified": "2025-10-14",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-9271"
+  },
+  {
+   "cmhy": "9388",
+   "name": "บื๊กไซส์ชิกชิก รับซ่อมผ้า",
+   "tags": [
+    "ปะผ้า",
+    "เปลี่ยนยางกางเกง",
+    "เปลี่ยนซิบ"
+   ],
+   "phone": "0842686836",
+   "amphoe": "เมือง",
+   "modified": "2022-05-23",
+   "trade": "alterations",
+   "facets": {
+    "zip": true
+   },
+   "osm": "cm-curated-big-size-chic-chic",
+   "metres": 0
+  },
+  {
+   "cmhy": "9475",
+   "name": "รับย้อมสี-ซ่อมผ้า",
+   "tags": [
+    "ซ่อมผ้า",
+    "ย้อมสีผ้า"
+   ],
+   "phone": "053-872688",
+   "amphoe": "เมือง",
+   "modified": "2021-05-15",
+   "trade": "alterations",
+   "facets": {},
+   "record": "cm-curated-alterations-9475"
+  },
+  {
+   "cmhy": "9489",
+   "name": "สมนึกการช่าง",
+   "tags": [
+    "สแตนเลส",
+    "อลูมิเนียม",
+    "บานเลือน"
+   ],
+   "phone": "090-891-4242",
+   "amphoe": "เมือง",
+   "modified": "2024-07-26",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-9489"
+  },
+  {
+   "cmhy": "9535",
+   "name": "รุจาภา รับตัดเย็บ งานเย็บ",
+   "tags": [
+    "ตัดเย็บเสื้อผ้า",
+    "ซ่อมเสื้อผ้า",
+    "ตัดต่อผ้า"
+   ],
+   "phone": "082-698-4559",
+   "amphoe": "เมือง",
+   "modified": "2023-06-11",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "9609",
+   "name": "ร้านประเสริฐอิเล็กทรอนิกส์ (สาขาป่าแดด)",
+   "tags": [
+    "ซ่อมเครื่องซักผ้า",
+    "ซ่อมตู้เย็น",
+    "ซ่อมทีวี"
+   ],
+   "phone": "086-654-3552",
+   "amphoe": "เมือง",
+   "modified": "2024-07-12",
+   "trade": "tech",
+   "facets": {},
+   "record": "cm-curated-tech-9609"
+  },
+  {
+   "cmhy": "9626",
+   "name": "กิจบริบูรณ์",
+   "tags": [
+    "กระจก",
+    "มุ้งลวด",
+    "อลูมิเนียม"
+   ],
+   "phone": "086-545-3987,091-561-6563",
+   "amphoe": "เมือง",
+   "modified": "2022-06-21",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-9626"
+  },
+  {
+   "cmhy": "9627",
+   "name": "อีเอ็มบี",
+   "tags": [
+    "จักรยานไฟฟ้า",
+    "จักรยานพับได้"
+   ],
+   "phone": "089-700-1774",
+   "amphoe": "เมือง",
+   "modified": "2022-07-14",
+   "trade": "bicycle",
+   "facets": {},
+   "record": "cm-curated-bicycle-9627"
+  },
+  {
+   "cmhy": "972",
+   "name": "เอส.เจ แสงเจริญ ชุปโครเมี่ยม",
+   "tags": [
+    "ชุบโครเมี่ยม",
+    "งานเหล็ก",
+    "นิเกิล"
+   ],
+   "phone": "053-247-330,093-136-4519,085-795-5295",
+   "amphoe": "เมือง",
+   "modified": "2025-05-08",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-972"
+  },
+  {
+   "cmhy": "9774",
+   "name": "ที-วัน สตีล โซลูชั่น (สาขาเชียงใหม่)",
+   "tags": [
+    "เมทัลชีท",
+    "กัลวาไนท์",
+    "โครงสร้างหลังคา"
+   ],
+   "phone": "053-115-165,091-576-4643,091-576-4648",
+   "amphoe": "เมือง",
+   "modified": "2020-05-28",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-9774"
+  },
+  {
+   "cmhy": "9807",
+   "name": "พีพี.กันสาด",
+   "tags": [
+    "รางน้ำฝน",
+    "หลังคา",
+    "ปล่องควัน"
+   ],
+   "phone": "089-264-9177,086-196-5874",
+   "amphoe": "เมือง",
+   "modified": "2023-08-22",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-9807"
+  },
+  {
+   "cmhy": "9844",
+   "name": "ซีเอ็ม.แอร์คอนดิชั่นนิ่ง",
+   "tags": [
+    "ล้างแอร์บ้าน",
+    "ติดตั้งแอร์บ้าน"
+   ],
+   "phone": "053-804-899,088-4049409,084-8099399",
+   "amphoe": "เมือง",
+   "modified": "2023-10-18",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-9844"
+  },
+  {
+   "cmhy": "9894",
+   "name": "เชียงใหม่ เพียวแอร์",
+   "tags": [
+    "ติดตั้งแอร์บ้าน",
+    "ล้างแอร์บ้าน"
+   ],
+   "phone": "053-444-007,085-031-1488",
+   "amphoe": "เมือง",
+   "modified": "2022-10-07",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-9894"
+  },
+  {
+   "cmhy": "990",
+   "name": "นิวไฮโดรลิคเชียงใหม่",
+   "tags": [
+    "ซ่อมแม่แรง",
+    "ซ่อมไฮโดลิค",
+    "แท่นอัดไฮโดรลิค"
+   ],
+   "phone": "081-026-3373",
+   "amphoe": "เมือง",
+   "modified": "2021-01-20",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "9929",
+   "name": "นัฐทีแทรค อัดสาย ไฮดรอลิค",
+   "tags": [
+    "อัดสายไฮดรอลิค"
+   ],
+   "phone": "083-482-5337,081-724-7503",
+   "amphoe": "เมือง",
+   "modified": "2022-07-29",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "995",
+   "name": "ธำรงการกลึง",
+   "tags": [
+    "กลึง",
+    "เชื่อม",
+    "โรงกลึง"
+   ],
+   "phone": "086-191-3808",
+   "amphoe": "เมือง",
+   "modified": "2025-07-11",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-995"
+  },
+  {
+   "cmhy": "9962",
+   "name": "นครพิงค์ อัลลอยสแตนเลส",
+   "tags": [
+    "งานอัลลอย",
+    "งานสแตนเลส",
+    "ประตูอัลอย"
+   ],
+   "phone": "053-140-531,065-502-7424",
+   "amphoe": "เมือง",
+   "modified": "2022-07-29",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-9962"
+  },
+  {
+   "cmhy": "9980",
+   "name": "จ.เหนือ สแตนเลส การช่าง",
+   "tags": [
+    "งานปล่องควัน",
+    "งานสเตนเลส",
+    "บันได"
+   ],
+   "phone": "085-724-1510,089-634-1056",
+   "amphoe": "เมือง",
+   "modified": "2023-10-18",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-9980"
+  },
+  {
+   "cmhy": "9984",
+   "name": "เชียงใหม่งานเหล็ก งานอลูมิเนียม (ช่างแดง)",
+   "tags": [
+    "เหล็กดัด",
+    "บานเลื่อน"
+   ],
+   "phone": "081-8829962",
+   "amphoe": "เมือง",
+   "modified": "2019-12-30",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-9984"
+  },
+  {
+   "cmhy": "9987",
+   "name": "วีระ อลูมิเนียม",
+   "tags": [
+    "งานกระจก",
+    "งานอลูมิเนียม",
+    "บานเลื่อน"
+   ],
+   "phone": "089-264-2660,083-481-5733",
+   "amphoe": "เมือง",
+   "modified": "2022-07-29",
+   "trade": "home",
+   "facets": {},
+   "record": "cm-curated-home-9987"
+  }
+ ]
+}

@@ -1,0 +1,1878 @@
+{
+ "_readme": [
+  "WO-57/58 — the coworking register, from the CMHY.city read in cache/cmhy/coworking/.",
+  "EVERY row is kept so the page can print the denominator, not just the hits.",
+  "`trade` is decided by the row's OWN name and tags, never by the directory's",
+  "category alone; `refused` says why a row is not a record; `osm` names the",
+  "canonical record ALREADY ON THE SAME SHELF within 80 m that is this door.",
+  "A DIRECTORY IS NOT A FIRST-HAND SOURCE: its service tags live here and print",
+  "at the `listed` grade. They never enter enrich.json, which is for a place's",
+  "own site. Hours carry `_hoursSource`; a row with no GPS is `needs-pin`."
+ ],
+ "_built": "2026-09-04",
+ "counts": {
+  "coworking": 5,
+  "professional": 79,
+  "matched": 4,
+  "refused": 39,
+  "needs_pin": 0,
+  "cmhy_rows": 127,
+  "written_new": 84,
+  "touched": 0
+ },
+ "rows": [
+  {
+   "cmhy": "10216",
+   "name": "สำนักงานกฎหมาย ลีเกิ้ล แอนด์ บิสิเนส แอซโซซิเอท",
+   "tags": [
+    "ปรึกษาคดี",
+    "ทนายความ",
+    "สำนักทนายความ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-05-07",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-10216"
+  },
+  {
+   "cmhy": "11410",
+   "name": "เวคอัพ 24 Hour  (สนามบิน)",
+   "tags": [
+    "กาแฟ",
+    "คาเฟ่24ชั่วโมง",
+    "ชาเขียว"
+   ],
+   "phone": "053-216-610,084-007-7201",
+   "amphoe": "เมือง",
+   "modified": "2022-05-30",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "11632",
+   "name": "ค๊อตท่อนทรี คอฟฟี่ โรสเตอร์",
+   "tags": [
+    "คาปูชิโน่ร้อน",
+    "ชาเย็น",
+    "ชาเขียวนมสด"
+   ],
+   "phone": "086-090-9014",
+   "amphoe": "เมือง",
+   "modified": "2022-03-07",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "11633",
+   "name": "วาโกะเบค",
+   "tags": [
+    "Cubic",
+    "Choux",
+    "Cream"
+   ],
+   "phone": "094-624-9524",
+   "amphoe": "เมือง",
+   "modified": "2023-08-07",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "11635",
+   "name": "8 เดย์ คาเฟ่",
+   "tags": [
+    "latte",
+    "ม็อคค่า",
+    "matcha"
+   ],
+   "phone": "096-364-6336",
+   "amphoe": "เมือง",
+   "modified": "2026-08-14",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "11637",
+   "name": "ปันสเปซ (ท่าแพ)",
+   "tags": [
+    "co-working",
+    "space"
+   ],
+   "phone": "091-068-8265",
+   "amphoe": "เมือง",
+   "modified": "2025-04-28",
+   "trade": "coworking",
+   "facets": {},
+   "osm": "cm-osm-node-3164000393",
+   "metres": 16
+  },
+  {
+   "cmhy": "11638",
+   "name": "ปันสเปซ (นิมมาน)",
+   "tags": [
+    "co-working"
+   ],
+   "phone": "088-261-6802",
+   "amphoe": "เมือง",
+   "modified": "2022-03-06",
+   "trade": "coworking",
+   "facets": {},
+   "osm": "cm-osm-node-2505598103",
+   "metres": 6
+  },
+  {
+   "cmhy": "11731",
+   "name": "ชุติพนธ์ ทนายความ",
+   "tags": [
+    "ปรึกษาคดี",
+    "ทนายความ",
+    "สำนักทนายความ"
+   ],
+   "phone": "052-002-879,086-587-3987",
+   "amphoe": "เมือง",
+   "modified": "2022-03-07",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-11731"
+  },
+  {
+   "cmhy": "11866",
+   "name": "สตาร์เวิร์ค โคเวิร์คกิ้งสเปซ",
+   "tags": [
+    "โคเวิร์คกิ้งสเปซ",
+    "Co-Working"
+   ],
+   "phone": "053-307-008,082-392-8999,081-1675500",
+   "amphoe": "เมือง",
+   "modified": "2026-09-02",
+   "trade": "coworking",
+   "facets": {},
+   "osm": "cm-curated-starwork",
+   "metres": 25
+  },
+  {
+   "cmhy": "12205",
+   "name": "สำนักงานอภิชาติทนายความและเพื่อน",
+   "tags": [
+    "ทนายความ"
+   ],
+   "phone": "053-248-717,086-0398989",
+   "amphoe": "เมือง",
+   "modified": "2020-04-24",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-12205"
+  },
+  {
+   "cmhy": "12451",
+   "name": "SP เอสพี ออดิทติ้งแอนด์คอนซัลติ้ง",
+   "tags": [
+    "ตรวจสอบบัญชี",
+    "ภาษี",
+    "โปรแกรมบัญชี"
+   ],
+   "phone": "088-251-2566,082-578-5293",
+   "amphoe": "เมือง",
+   "modified": "2022-03-28",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-12451"
+  },
+  {
+   "cmhy": "12831",
+   "name": "โค๊ดคาเฟ่ โคเวิร์คกิ้ง สเปซ",
+   "tags": [
+    "โคเวิร์คกิ้ง",
+    "สเปซ",
+    "ห้องทำงาน"
+   ],
+   "phone": "093-456-4591",
+   "amphoe": "เมือง",
+   "modified": "2023-09-25",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "12958",
+   "name": "เวิร์คช็อป คอฟฟี่สเปค แอนด์ แคทเฮ้าส์",
+   "tags": [
+    "ค่าเฟ่สัตว์",
+    "เครื่องดื่ม",
+    "เค้ก"
+   ],
+   "phone": "088-267-1440",
+   "amphoe": "เมือง",
+   "modified": "2024-11-22",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "13547",
+   "name": "สยาม รีกอล",
+   "tags": [
+    "วีซ่า",
+    "ออสเตรีย",
+    "ทนาย"
+   ],
+   "phone": "053-820-619,05-381-830",
+   "amphoe": "เมือง",
+   "modified": "2020-09-14",
+   "trade": "professional",
+   "facets": {
+    "visaagent": true
+   },
+   "record": "cm-curated-professional-13547"
+  },
+  {
+   "cmhy": "13944",
+   "name": "โกลด์ แอนด์ ทรี",
+   "tags": [
+    "บริการวีซ่า",
+    "ทนาย",
+    "VISA"
+   ],
+   "phone": "062-465-7299",
+   "amphoe": "เมือง",
+   "modified": "2022-02-28",
+   "trade": "professional",
+   "facets": {
+    "visaagent": true
+   },
+   "record": "cm-curated-professional-13944"
+  },
+  {
+   "cmhy": "14036",
+   "name": "ฮับ53 โคเวิร์คกิ้ง แอนด์ โคลีฟวิ่งสเปซ",
+   "tags": [
+    "ห้องอ่านหนังสือ",
+    "ที่อ่านหนังสือ",
+    "โคเวิร์คกิ้ง"
+   ],
+   "phone": "061-462-3956,065-653-5747,081-602-2434",
+   "amphoe": "เมือง",
+   "modified": "2026-08-14",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "14341",
+   "name": "อภิรักษ์เสรี ทนายความ",
+   "tags": [
+    "ทนายความบปรึกษาความ",
+    "ความคดีแพ่ง",
+    "คดีอาญ"
+   ],
+   "phone": "053-246-840",
+   "amphoe": "เมือง",
+   "modified": "2024-03-19",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-14341"
+  },
+  {
+   "cmhy": "14381",
+   "name": "ธนพันธ์และเพื่อน",
+   "tags": [
+    "รับทำบัญชี",
+    "รับจดทะเบียนพาณิชย์"
+   ],
+   "phone": "053-890-563",
+   "amphoe": "เมือง",
+   "modified": "2022-03-16",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-14381"
+  },
+  {
+   "cmhy": "14383",
+   "name": "พัณณาศีล น้อยนางจม และ เพื่อน",
+   "tags": [
+    "คดีแพ่ง",
+    "คดีอาญา",
+    "คดีมรดก"
+   ],
+   "phone": "089-701-6226,081-961-1702",
+   "amphoe": "เมือง",
+   "modified": "2024-11-13",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "15041",
+   "name": "เดอะ บิค สต๊าทอัพ สเปซ",
+   "tags": [
+    "สต๊าทอัพ",
+    "ห้องทำงาน",
+    "ห้องประชุม"
+   ],
+   "phone": "093-254-6944",
+   "amphoe": "เมือง",
+   "modified": "2026-02-27",
+   "trade": null,
+   "facets": {
+    "meeting": true
+   },
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "15317",
+   "name": "ลานา สเปซ โคเวิร์คกิ้ง",
+   "tags": [
+    "พื้นที่สำหรับนั่งทำงาน",
+    "พื้นที่สำหรับทำรายงาน",
+    "พื้นที่สำหรับติวหนังสือเตรียมสอบ"
+   ],
+   "phone": "093-587-4965,062-451-2499",
+   "amphoe": "เมือง",
+   "modified": "2023-06-03",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "15321",
+   "name": "สำนักงานฤทธิชัย ทนายความ",
+   "tags": [
+    "แปลเอกสาร",
+    "ทนาย"
+   ],
+   "phone": "085-694-9802",
+   "amphoe": "เมือง",
+   "modified": "2020-09-14",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-15321"
+  },
+  {
+   "cmhy": "15513",
+   "name": "ซัมมิท โคเวิร์คกิ้ง สเปซ",
+   "tags": [
+    "โคเวิร์คกิ้งสเปซ",
+    "คาเฟ่ทำงาน",
+    "ห้องประชุม"
+   ],
+   "phone": "053-226-200,081-716-3444",
+   "amphoe": "เมือง",
+   "modified": "2022-03-16",
+   "trade": null,
+   "facets": {
+    "meeting": true
+   },
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "15707",
+   "name": "ฮาร์ทเวิร์ค แชริ่ง สเปซ",
+   "tags": [
+    "เออเกรย์ร้อน",
+    "เอสเพรสโซ่เย็น",
+    "นั่งทำงาน"
+   ],
+   "phone": "083-208-5405,095-134-1150",
+   "amphoe": "เมือง",
+   "modified": "2021-10-07",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "15879",
+   "name": "เชียงใหม่การบัญชี ธุรกิจและกฎหมาย",
+   "tags": [
+    "บัญชี",
+    "กฎหมาย"
+   ],
+   "phone": "053-854115-6,081-961-2509",
+   "amphoe": "เมือง",
+   "modified": "2020-03-26",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-15879"
+  },
+  {
+   "cmhy": "16627",
+   "name": "มีเดีย แอคเคาน์ติ้ง แอนด์ เทรนนิ่ง เชียงใหม่",
+   "tags": [
+    "บัญชี",
+    "ภาษี",
+    "ให้คำปรึกษาด้านกฎหมาย"
+   ],
+   "phone": "052-007-855,095-147-5362",
+   "amphoe": "เมือง",
+   "modified": "2022-08-26",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-16627"
+  },
+  {
+   "cmhy": "16786",
+   "name": "สำนักงานนิพนธ์ทนายความ",
+   "tags": [
+    "ทนายความ"
+   ],
+   "phone": "092-563-8856",
+   "amphoe": "เมือง",
+   "modified": "2026-02-11",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-16786"
+  },
+  {
+   "cmhy": "16823",
+   "name": "เอโอ บัญชีธุรกิจ",
+   "tags": [
+    "จดทะเบียนหจก",
+    "จดทะเบียนบริษัท",
+    "ขออนุญาติทำงานต่างชาติ"
+   ],
+   "phone": "093-131-8655",
+   "amphoe": "เมือง",
+   "modified": "2022-03-10",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-16823"
+  },
+  {
+   "cmhy": "16937",
+   "name": "ดร.เกียรติศักดิ์ ทนายวิถีพุทธ ทนาย",
+   "tags": [
+    "สำนักงานทนาย",
+    "สำนักงานกฎหมาย",
+    "ปรึกษาทนาย"
+   ],
+   "phone": "081-951-1100",
+   "amphoe": "เมือง",
+   "modified": "2019-07-03",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-16937"
+  },
+  {
+   "cmhy": "17197",
+   "name": "สำนักงานนครพิงค์การบัญชีธุรกิจ",
+   "tags": [
+    "บัญชี",
+    "สำนักงานบัญชี"
+   ],
+   "phone": "053-302-419",
+   "amphoe": "เมือง",
+   "modified": "2023-03-21",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-17197"
+  },
+  {
+   "cmhy": "17232",
+   "name": "ซีเอ็มกฎหมายและ ธุรกิจ",
+   "tags": [
+    "บริการด้านกฏหมาย",
+    "บริการบัญชี",
+    "ตรวจสอบบัญชี"
+   ],
+   "phone": "081-764-9982",
+   "amphoe": "เมือง",
+   "modified": "2021-07-24",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-17232"
+  },
+  {
+   "cmhy": "17501",
+   "name": "รีจัส",
+   "tags": [
+    "ออฟฟิศให้เช่า",
+    "สำนักงานเสมือน",
+    "ห้องประชุม"
+   ],
+   "phone": "096-946-0254,02-677-7186",
+   "amphoe": "เมือง",
+   "modified": "2021-11-21",
+   "trade": "coworking",
+   "facets": {
+    "meeting": true
+   },
+   "record": "cm-curated-coworking-17501"
+  },
+  {
+   "cmhy": "17519",
+   "name": "สำนักงานบัญชี ศุภราคอนซัลแตนท์",
+   "tags": [
+    "สำนักงานบัญชี"
+   ],
+   "phone": "053-244-836,084-6118284,061-810-9888",
+   "amphoe": "เมือง",
+   "modified": "2025-10-18",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-17519"
+  },
+  {
+   "cmhy": "1825",
+   "name": "สำนักงานกฎหมายไทย",
+   "tags": [
+    "ปรึกษาคดี",
+    "รับว่าความ",
+    "ทำสัญญา"
+   ],
+   "phone": "052-002-698",
+   "amphoe": "เมือง",
+   "modified": "2021-11-22",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-1825"
+  },
+  {
+   "cmhy": "1859",
+   "name": "เนติธรรม และสภาทนายความ จังหวัดเชียงใหม่",
+   "tags": [
+    "ปรึกษาคดี",
+    "รับว่าความ",
+    "ทำสัญญา"
+   ],
+   "phone": "053-141-638,053-141-639,1167,0629297007,0629297337",
+   "amphoe": "เมือง",
+   "modified": "2022-03-30",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-1859"
+  },
+  {
+   "cmhy": "18906",
+   "name": "ปันสเปซ (เวียงแก้ว)",
+   "tags": [
+    "co-working"
+   ],
+   "phone": "061-027-7885",
+   "amphoe": "เมือง",
+   "modified": "2025-05-11",
+   "trade": "coworking",
+   "facets": {},
+   "osm": "cm-osm-node-6077929085",
+   "metres": 24
+  },
+  {
+   "cmhy": "1933",
+   "name": "กฎหมาย และ ธุรกิจภาคพายัพ",
+   "tags": [
+    "ปรึกษาคดี",
+    "รับว่าความ",
+    "ทำสัญญา"
+   ],
+   "phone": "053-275-832",
+   "amphoe": "เมือง",
+   "modified": "2020-11-18",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "20648",
+   "name": "โพรเฟสชั่นแนล แอคเคาน์ติ้ง เซอร์วิส จำกัด",
+   "tags": [
+    "รับทำบัญชี",
+    "บริการทางด้านบัญชี",
+    "ภาษีอากร"
+   ],
+   "phone": "053-241-979",
+   "amphoe": "เมือง",
+   "modified": "2025-12-05",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-20648"
+  },
+  {
+   "cmhy": "20707",
+   "name": "ศุภสิทธิ์ทนายความและธุรกิจ",
+   "tags": [
+    "สัญญา",
+    "ว่าความ",
+    "ทนาย"
+   ],
+   "phone": "081-979-5519",
+   "amphoe": "เมือง",
+   "modified": "2025-10-03",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-20707"
+  },
+  {
+   "cmhy": "20889",
+   "name": "เดอะคอมมอน สเปซโคเวคกิ้ง",
+   "tags": [
+    "บอร์ดเกม",
+    "มิทติ้งรูม",
+    "โคเวคกิ้งสเปซ"
+   ],
+   "phone": "061-794-4545",
+   "amphoe": "เมือง",
+   "modified": "2021-07-28",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "21207",
+   "name": "ฮาโกเน่คาเฟ่ Co-Working",
+   "tags": [
+    "โคเวิร์คกิ้งสเปซ",
+    "coworkingspace",
+    "เอสเพรสโซ่"
+   ],
+   "phone": "083-683-7207",
+   "amphoe": "เมือง",
+   "modified": "2026-03-09",
+   "trade": "coworking",
+   "facets": {},
+   "record": "cm-curated-coworking-21207"
+  },
+  {
+   "cmhy": "21249",
+   "name": "29 ธานินทร์ จำกัด  ทนายความและธุรกิจ",
+   "tags": [
+    "ทนายความ"
+   ],
+   "phone": "053-410-174",
+   "amphoe": "เมือง",
+   "modified": "2021-03-03",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-21249"
+  },
+  {
+   "cmhy": "21271",
+   "name": "นิวัติการบัญชี",
+   "tags": [
+    "รับทำบัญชี",
+    "บริการบัญชี"
+   ],
+   "phone": "083-948-3528",
+   "amphoe": "เมือง",
+   "modified": "2022-04-20",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-21271"
+  },
+  {
+   "cmhy": "21754",
+   "name": "ชนะธีร์ สมาร์ท - เเอคเคาท์",
+   "tags": [
+    "ทำบัญชี",
+    "รายงานทางการเงิน",
+    "ตรวจสอบบัญชี"
+   ],
+   "phone": "093-142-0888",
+   "amphoe": "เมือง",
+   "modified": "2026-02-16",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-21754"
+  },
+  {
+   "cmhy": "21865",
+   "name": "เอ็นบี แอคเค้าน์ติ้ง",
+   "tags": [
+    "บัญชี",
+    "ภาษี",
+    "จดทะเบียนจัดตั้งบริษัท"
+   ],
+   "phone": "0-5389-5007,0-5389-5008,0-5389-5009",
+   "amphoe": "เมือง",
+   "modified": "2021-01-25",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-21865"
+  },
+  {
+   "cmhy": "21891",
+   "name": "เยลโล่ว์ โคเวิร์คกิ้ง  Coworking Space",
+   "tags": [
+    "คาเฟ่",
+    "คาเฟ่นั่งทำงาน",
+    "Coworking"
+   ],
+   "phone": "062-919-3223",
+   "amphoe": "เมือง",
+   "modified": "2023-09-19",
+   "trade": "coworking",
+   "facets": {},
+   "record": "cm-curated-coworking-21891"
+  },
+  {
+   "cmhy": "21998",
+   "name": "ณรงค์การบัญชี",
+   "tags": [
+    "บัญชี",
+    "ภาษี"
+   ],
+   "phone": "053-240-019",
+   "amphoe": "เมือง",
+   "modified": "2021-07-24",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-21998"
+  },
+  {
+   "cmhy": "22969",
+   "name": "ซีเอ็มเอส CMS  การบัญชีธุรกิจ",
+   "tags": [
+    "รับทำบัญชี",
+    "ตรวจสอบบัญชี",
+    "จดทะเบียนบริษัท"
+   ],
+   "phone": "095-449-6551,084-043-8914",
+   "amphoe": "เมือง",
+   "modified": "2023-06-18",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-22969"
+  },
+  {
+   "cmhy": "22970",
+   "name": "สำนักงานสอบบัญชี ลานนา ออดิท",
+   "tags": [
+    "ตรวจสอบบัญชี",
+    "รับทำบัญชี",
+    "จดทะเบียนบรืษัท"
+   ],
+   "phone": "081-033-9944,053-275-475",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-22970"
+  },
+  {
+   "cmhy": "23014",
+   "name": "เอส เอส พี ออดิท SSP",
+   "tags": [
+    "สอบบัญชี",
+    "ภาษีอากร",
+    "ปรึกษาการเงิน"
+   ],
+   "phone": "064-454-2289",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-23014"
+  },
+  {
+   "cmhy": "23644",
+   "name": "ซี พี เอ โปร ออดิทเฟิร์ม",
+   "tags": [
+    "บัญชี",
+    "ภาษี"
+   ],
+   "phone": "053-126-075",
+   "amphoe": "เมือง",
+   "modified": "2020-08-18",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-23644"
+  },
+  {
+   "cmhy": "23646",
+   "name": "ซี.พี. ลอว์ แอนด์ บิส",
+   "tags": [
+    "ทนาย"
+   ],
+   "phone": "089-757-3329",
+   "amphoe": "เมือง",
+   "modified": "2020-08-18",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "23885",
+   "name": "กฎหมายโรจนวิท",
+   "tags": [
+    "สำนักงานกฏหมาย",
+    "ทนาย"
+   ],
+   "phone": "065-524-6259,084-594-9645",
+   "amphoe": "เมือง",
+   "modified": "2022-08-26",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "25275",
+   "name": "วีฟ อาร์ติซาน โซไซตี้",
+   "tags": [
+    "คาเฟ่",
+    "ร้านดอกไม้",
+    "โคเวิร์คกิ้งสเปซ"
+   ],
+   "phone": "062-046-3338",
+   "amphoe": "เมือง",
+   "modified": "2022-03-07",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "25946",
+   "name": "เอซีเอส ACS  สำนักงานบัญชีและภาษี",
+   "tags": [
+    "บัญชี",
+    "ภาษี"
+   ],
+   "phone": "093-645-6159",
+   "amphoe": "เมือง",
+   "modified": "2021-03-12",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-25946"
+  },
+  {
+   "cmhy": "26928",
+   "name": "สิทธิทนายความ",
+   "tags": [
+    "ทนายความ"
+   ],
+   "phone": "053-850-581",
+   "amphoe": "เมือง",
+   "modified": "2021-01-22",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-26928"
+  },
+  {
+   "cmhy": "27026",
+   "name": "ไลฟ์ สเปซ",
+   "tags": [
+    "โคเวิร์ดกิ้งสเปซ",
+    "ที่นั่งทำงาน",
+    "คาเฟ่ทำงาน"
+   ],
+   "phone": "097-923-9000",
+   "amphoe": "เมือง",
+   "modified": "2021-01-25",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "27031",
+   "name": "ดร๊าฟเปอร์ สตาร์ทอัพเฮ้าส์",
+   "tags": [
+    "โคเวิร์คกิ้ง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-02-04",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "2713",
+   "name": "สำนักงานบัญชี แอล.พี.บิซิเนส",
+   "tags": [
+    "บัญชี",
+    "ตรวจสอบบัญชี",
+    "ภาษี"
+   ],
+   "phone": "082-619-2963",
+   "amphoe": "เมือง",
+   "modified": "2025-06-10",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-2713"
+  },
+  {
+   "cmhy": "27213",
+   "name": "เอสเอเอ็นเอ็ส SANS บัญชี",
+   "tags": [
+    "บัญชี",
+    "วีซ่า"
+   ],
+   "phone": "093-146-1222,053-245-473",
+   "amphoe": "เมือง",
+   "modified": "2023-06-14",
+   "trade": "professional",
+   "facets": {
+    "visaagent": true
+   },
+   "record": "cm-curated-professional-27213"
+  },
+  {
+   "cmhy": "2794",
+   "name": "เกรียงไกร ทนายความ บัญชี",
+   "tags": [
+    "ปรึกษาคดี",
+    "รับว่าความ",
+    "ทำสัญญา"
+   ],
+   "phone": "081-671-2341,083-578-7143",
+   "amphoe": "เมือง",
+   "modified": "2021-05-15",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-2794"
+  },
+  {
+   "cmhy": "28126",
+   "name": "สำนักงาน ดร.พงศ์ สุภาวสิทธิ์",
+   "tags": [
+    "ทนาย",
+    "บัญชี",
+    "ภาษี"
+   ],
+   "phone": "053-221-178,053-210-565,081-883-2335",
+   "amphoe": "เมือง",
+   "modified": "2026-05-15",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-28126"
+  },
+  {
+   "cmhy": "28798",
+   "name": "ทนายความอาสา สภาทนายความ (ศูนย์ราชการเชียงใหม่) [ด้านหลังศาลเชียงใหม่]",
+   "tags": [
+    "ทนายความ",
+    "ทนายความอาสา",
+    "ปรึกษากฎหมายฟรี"
+   ],
+   "phone": "053-141-638",
+   "amphoe": "เมือง",
+   "modified": "2025-10-16",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-28798"
+  },
+  {
+   "cmhy": "28854",
+   "name": "สหธรรม ทนายความ",
+   "tags": [
+    "ทนายความ"
+   ],
+   "phone": "053-408-031",
+   "amphoe": "เมือง",
+   "modified": "2023-04-21",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-28854"
+  },
+  {
+   "cmhy": "29101",
+   "name": "อัลทีเนท เชียงใหม่",
+   "tags": [
+    "โคเวิร์คกิ้งสเปซ"
+   ],
+   "phone": "053-277-713,097-183-1737",
+   "amphoe": "เมือง",
+   "modified": "2022-03-01",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "29397",
+   "name": "วงศ์วิจิตร ลักษณาภิรักษ์",
+   "tags": [
+    "ทนายความ"
+   ],
+   "phone": "081-993-8265",
+   "amphoe": "เมือง",
+   "modified": "2022-03-07",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-29397"
+  },
+  {
+   "cmhy": "29480",
+   "name": "สำนักงานสอบบัญชี ธ.สถิตย์",
+   "tags": [
+    "สำนักงานสอบบัญชี"
+   ],
+   "phone": "053-334-440",
+   "amphoe": "เมือง",
+   "modified": "2026-03-09",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-29480"
+  },
+  {
+   "cmhy": "29483",
+   "name": "พี เวิร์ค โคเวริคกิ้ง สเปซ",
+   "tags": [
+    "ห้องเช่าทำงาน",
+    "ห้องทำงาน"
+   ],
+   "phone": "063-783-1881",
+   "amphoe": "เมือง",
+   "modified": "2021-08-01",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "29759",
+   "name": "ลานนาการบัญชี และภาษีอากร 2",
+   "tags": [
+    "งานทะเบียน",
+    "ทำบัญชี",
+    "และงานตรวจสอบบัญชี"
+   ],
+   "phone": "088-258-8407",
+   "amphoe": "เมือง",
+   "modified": "2021-09-29",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-29759"
+  },
+  {
+   "cmhy": "30081",
+   "name": "วิบูลย์ทนายความ",
+   "tags": [
+    "ทนายความ"
+   ],
+   "phone": "053-240-000",
+   "amphoe": "เมือง",
+   "modified": "2022-05-16",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-30081"
+  },
+  {
+   "cmhy": "30095",
+   "name": "พีบี การบัญชี",
+   "tags": [
+    "รับทำบัญชี",
+    "ยื่นประกันสังคม",
+    "จดทะเบียนหจก"
+   ],
+   "phone": "095-552-7167,096-696-1072",
+   "amphoe": "เมือง",
+   "modified": "2026-07-24",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-30095"
+  },
+  {
+   "cmhy": "31365",
+   "name": "ฟอลคอน ลาว์",
+   "tags": [
+    "ทนาย"
+   ],
+   "phone": "081-882-1476",
+   "amphoe": "เมือง",
+   "modified": "2022-01-15",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "31488",
+   "name": "สำนักงานเต็งการบัญชี",
+   "tags": [
+    "ทำบัญชี"
+   ],
+   "phone": "053-214-350,081-595-9924",
+   "amphoe": "เมือง",
+   "modified": "2026-07-05",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-31488"
+  },
+  {
+   "cmhy": "31568",
+   "name": "บ้านรักบัญชี 888",
+   "tags": [
+    "ทำบัญชี",
+    "ภาษี"
+   ],
+   "phone": "085-356-2962",
+   "amphoe": "เมือง",
+   "modified": "2022-03-28",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-31568"
+  },
+  {
+   "cmhy": "31675",
+   "name": "ฟินิกซ์ บาริสเตอร์",
+   "tags": [
+    "ทนาย"
+   ],
+   "phone": "094-672-9988",
+   "amphoe": "เมือง",
+   "modified": "2022-02-24",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "31812",
+   "name": "สำนักงานบัญชีเชียงใหม่",
+   "tags": [
+    "ทำบัญชี",
+    "ทำภาษี",
+    "ตรวจสอบบัญชี"
+   ],
+   "phone": "061-281-3111,086-819-3561",
+   "amphoe": "เมือง",
+   "modified": "2025-12-12",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-31812"
+  },
+  {
+   "cmhy": "32161",
+   "name": "ทรงวุฒิการบัญชีธุรกิจและกฎหมาย",
+   "tags": [
+    "ทำบัญชี",
+    "ทำภาษี"
+   ],
+   "phone": "053-805-907",
+   "amphoe": "เมือง",
+   "modified": "2022-05-09",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-32161"
+  },
+  {
+   "cmhy": "3221",
+   "name": "เชียงใหม่ลอว์เยอร์กรุ๊ป",
+   "tags": [
+    "ปรึกษาคดี",
+    "รับว่าความ",
+    "ทำสัญญา"
+   ],
+   "phone": "052-089-084,081-885-1826",
+   "amphoe": "เมือง",
+   "modified": "2022-07-14",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "34712",
+   "name": "สำนักงานกฏหมายสุดารัตน์ทนายความ",
+   "tags": [
+    "ทนายความ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-01-07",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-34712"
+  },
+  {
+   "cmhy": "35553",
+   "name": "เดอะ โซเชียล คลับ โคลิฟวิ่ง & โคเวิร์คกิ้งสเปซ",
+   "tags": [
+    "โรงแรม",
+    "ห้องพักรายวัน",
+    "ที่พักรายวัน"
+   ],
+   "phone": "065-098-6591",
+   "amphoe": "เมือง",
+   "modified": "2026-09-01",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "35679",
+   "name": "ไทยออดิเตอร์ กรุ๊ป",
+   "tags": [
+    "วางระบบบัญชี",
+    "ทำบัญชี",
+    "ปรึกษาบัญชี"
+   ],
+   "phone": "053-251-566",
+   "amphoe": "เมือง",
+   "modified": "2024-04-17",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-35679"
+  },
+  {
+   "cmhy": "35764",
+   "name": "โบภัตราบัญชีภาษีอากร",
+   "tags": [
+    "บัญชี",
+    "ภาษี",
+    "ตรวจสอบบัญชี"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-06-15",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-35764"
+  },
+  {
+   "cmhy": "35936",
+   "name": "CSS ซีเอสเอสแอคเคาท์ติ้ง",
+   "tags": [
+    "บริการบัญชี",
+    "ปิดงบ",
+    "ยื่นภาษี"
+   ],
+   "phone": "082-113-3615,099-536-3362",
+   "amphoe": "เมือง",
+   "modified": "2023-10-13",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-35936"
+  },
+  {
+   "cmhy": "36198",
+   "name": "สำนักงานกฎหมายกลยุทธ์ทนายความ",
+   "tags": [
+    "ทนายความ"
+   ],
+   "phone": "053-491-248",
+   "amphoe": "เมือง",
+   "modified": "2023-10-16",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-36198"
+  },
+  {
+   "cmhy": "36305",
+   "name": "สำนักงานกฎหมาย ไคลดิ อินเตอร์เนชั่นแนล",
+   "tags": [
+    "ทนาย ปรึกษากฎหมาย"
+   ],
+   "phone": "053-281-788",
+   "amphoe": "เมือง",
+   "modified": "2023-10-18",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-36305"
+  },
+  {
+   "cmhy": "36418",
+   "name": "โคแล็ป Colab Cowork & Cafe",
+   "tags": [
+    "ห้องทำงาน",
+    "Coworking",
+    "Space"
+   ],
+   "phone": "063-223-5890",
+   "amphoe": "เมือง",
+   "modified": "2023-09-19",
+   "trade": "coworking",
+   "facets": {},
+   "record": "cm-curated-coworking-36418"
+  },
+  {
+   "cmhy": "36919",
+   "name": "ไอ แอม นอต เลซี่ Im not lazy.",
+   "tags": [
+    "โคเวิร์คกิ้งสเปซ",
+    "Co-WorkingSpace",
+    "ห้องทำงาน"
+   ],
+   "phone": "086-316-1629",
+   "amphoe": "เมือง",
+   "modified": "2026-08-14",
+   "trade": "coworking",
+   "facets": {},
+   "record": "cm-curated-coworking-36919"
+  },
+  {
+   "cmhy": "37698",
+   "name": "ณัฐธุรกิจบัญชี",
+   "tags": [
+    "รับทำบัญชี",
+    "รับทำภาษี",
+    "บริษัททำบัญชี"
+   ],
+   "phone": "053-872-432",
+   "amphoe": "เมือง",
+   "modified": "2024-03-02",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-37698"
+  },
+  {
+   "cmhy": "37720",
+   "name": "สำนักงานจำลองการบัญชีธุรกิจ",
+   "tags": [
+    "ทำบัญชี",
+    "ทำภาษี"
+   ],
+   "phone": "086-421-0461",
+   "amphoe": "เมือง",
+   "modified": "2024-03-08",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-37720"
+  },
+  {
+   "cmhy": "37851",
+   "name": "วัฒนา เอสซี เนมินทร์ ธนพร นิพันธ์",
+   "tags": [
+    "ทนาย"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-04-24",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "37918",
+   "name": "สำนักงานกฎหมายศรุต นิติรัช และเพื่อน",
+   "tags": [
+    "รับว่าความคดีศาลอาญาทุจริต",
+    "คดีแพ่ง",
+    "คดีอาญา"
+   ],
+   "phone": "084-115-5114",
+   "amphoe": "เมือง",
+   "modified": "2024-04-26",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-37918"
+  },
+  {
+   "cmhy": "38117",
+   "name": "วันเวิร์คสเปรช โคเวิร์คกิ้งสเปซ (สันติธรรม)",
+   "tags": [
+    "โคเวิร์คกิ้งสเปซ",
+    "ห้องทำงานเช่า",
+    "ห้องประชุมเช่า"
+   ],
+   "phone": "061-642-6651",
+   "amphoe": "เมือง",
+   "modified": "2024-10-24",
+   "trade": null,
+   "facets": {
+    "meeting": true
+   },
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "38149",
+   "name": "วันเวิร์คสเปรช โคเวิร์คกิ้งสเปซ (ท่าแพ)",
+   "tags": [
+    "โคเวิร์คกิ้งสเปซ",
+    "ห้องทำงานเช่า",
+    "ห้องประชุมเช่า"
+   ],
+   "phone": "061-642-6651",
+   "amphoe": "เมือง",
+   "modified": "2026-02-18",
+   "trade": null,
+   "facets": {
+    "meeting": true
+   },
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "38575",
+   "name": "สำนักงานบัญชี บีจี แอคเคาท์ ซิสเท็ม",
+   "tags": [
+    "ตรวจสอบบัญชี",
+    "จดทะเบียนบริษัท",
+    "รับทำบัญชี"
+   ],
+   "phone": "089-581-4131",
+   "amphoe": "เมือง",
+   "modified": "2025-01-10",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-38575"
+  },
+  {
+   "cmhy": "38846",
+   "name": "เฮงดีการบัญชี",
+   "tags": [
+    "ทำบัญชี",
+    "ทำภาษี",
+    "วางแผนภาษี"
+   ],
+   "phone": "063-149-6562,092-665-4792",
+   "amphoe": "เมือง",
+   "modified": "2024-12-20",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-38846"
+  },
+  {
+   "cmhy": "38911",
+   "name": "โฮสมานน์ ลีเกิล (เชียงใหม่)",
+   "tags": [
+    "ทนาย"
+   ],
+   "phone": "063-059-9992",
+   "amphoe": "เมือง",
+   "modified": "2024-12-12",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "39897",
+   "name": "เอสดี ออดิด",
+   "tags": [
+    "รับทำบัญชี",
+    "รับทำภาษี"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-04-23",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-39897"
+  },
+  {
+   "cmhy": "41431",
+   "name": "เอเอแอลที คอนซัลแทนท์ อินเตอร์เนชั่นแนล AALT",
+   "tags": [
+    "ด้านกฎหมาย",
+    "และ",
+    "บัญชี"
+   ],
+   "phone": "099-241-9793",
+   "amphoe": "เมือง",
+   "modified": "2026-04-09",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-41431"
+  },
+  {
+   "cmhy": "4454",
+   "name": "สำนักกฎหมาย นิติรัฐ อินเตอร์เนชั่นแนล",
+   "tags": [
+    "ปรึกษาคดี",
+    "รับว่าความ",
+    "ทำสัญญา"
+   ],
+   "phone": "081-033-6399",
+   "amphoe": "เมือง",
+   "modified": "2022-03-21",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "4702",
+   "name": "ธันยนิตย์ ทนายความ",
+   "tags": [
+    "ปรึกษาคดี",
+    "รับว่าความ",
+    "ทำสัญญา"
+   ],
+   "phone": "053-275-386,089-263-1780",
+   "amphoe": "เมือง",
+   "modified": "2022-03-07",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-4702"
+  },
+  {
+   "cmhy": "5",
+   "name": "ทีซีดีซี TCDC เชียงใหม่",
+   "tags": [
+    "ศูนย์สร้างสรรค์งานออกแบบ",
+    "ห้องสมุด",
+    "หนังสือ"
+   ],
+   "phone": "052-080-500",
+   "amphoe": "เมือง",
+   "modified": "2019-03-07",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "5260",
+   "name": "รพี การบัญชี",
+   "tags": [
+    "ภาษีอากร",
+    "จดทะเบียน",
+    "บัญชีอากร"
+   ],
+   "phone": "053-245-079,083-152-2528,080-501-1252",
+   "amphoe": "เมือง",
+   "modified": "2022-03-30",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-5260"
+  },
+  {
+   "cmhy": "545",
+   "name": "ศศิชลการบัญชี",
+   "tags": [
+    "บัญชี",
+    "ภาษี"
+   ],
+   "phone": "090-893-3977,086-421-7229",
+   "amphoe": "เมือง",
+   "modified": "2018-05-18",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-545"
+  },
+  {
+   "cmhy": "5557",
+   "name": "ทีแอคเคานท์ บัญชี",
+   "tags": [
+    "การจัดทำบัญชี",
+    "เสียภาษีเงินได้นิติบุคคล",
+    "ภาษีเงินได้บุคคลธรรมดา"
+   ],
+   "phone": "053-220-500",
+   "amphoe": "เมือง",
+   "modified": "2020-05-28",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-5557"
+  },
+  {
+   "cmhy": "575",
+   "name": "กฏหมายและการบัญชี พีพีเอส",
+   "tags": [
+    "ปรึกษาคดี",
+    "รับว่าความ",
+    "ทำสัญญา"
+   ],
+   "phone": "053-327-326,085-863-0255",
+   "amphoe": "เมือง",
+   "modified": "2025-08-28",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-575"
+  },
+  {
+   "cmhy": "6396",
+   "name": "โอกิ การบัญชี",
+   "tags": [
+    "การบัญชี",
+    "ภาษี"
+   ],
+   "phone": "053-247-052,087-1888110,,081-9934247",
+   "amphoe": "เมือง",
+   "modified": "2020-03-21",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-6396"
+  },
+  {
+   "cmhy": "6424",
+   "name": "เวคอัพ 24 Hour  (B2 Resort ChiangMai)",
+   "tags": [
+    "กาแฟ",
+    "คาเฟ่24ชั่วโมง",
+    "ชาเขียว"
+   ],
+   "phone": "053-242-838",
+   "amphoe": "เมือง",
+   "modified": "2024-04-29",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "6611",
+   "name": "เวคอัพ 24 Hour  (สาขานิมมานเหมินทร์)",
+   "tags": [
+    "กาแฟ",
+    "คาเฟ่24ชั่วโมง",
+    "ชาเขียว"
+   ],
+   "phone": "053-244-743",
+   "amphoe": "เมือง",
+   "modified": "2022-12-08",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "6612",
+   "name": "C.A.M.P  ซีเอเอ็มพี แคมป์  (ในห้างเมย่า)",
+   "tags": [
+    "latte",
+    "ชาเขียวเย็น",
+    "Ice"
+   ],
+   "phone": "052-081-199",
+   "amphoe": "เมือง",
+   "modified": "2023-10-25",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "6779",
+   "name": "ทนายความ ร.ต.อ. อานนท์ วีระมาชา",
+   "tags": [
+    "ปรึกษาคดี",
+    "ทนายความ",
+    "สำนักทนายความ"
+   ],
+   "phone": "081-025-1556",
+   "amphoe": "เมือง",
+   "modified": "2022-04-20",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-6779"
+  },
+  {
+   "cmhy": "6843",
+   "name": "เจนร่วมจิต ทนาย",
+   "tags": [
+    "นิติกรรม",
+    "สัญญา"
+   ],
+   "phone": "053-219-034",
+   "amphoe": "เมือง",
+   "modified": "2022-06-03",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "6975",
+   "name": "วณิชพงษ์ การบัญชี",
+   "tags": [
+    "ตรวจสอบบัญชี",
+    "ภาษี"
+   ],
+   "phone": "081-952-6940,095-440-6799",
+   "amphoe": "เมือง",
+   "modified": "2021-07-29",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-6975"
+  },
+  {
+   "cmhy": "6978",
+   "name": "อภิสารทนายความ",
+   "tags": [
+    "ปรึกษาคดี",
+    "ทนายความ",
+    "สำนักทนายความ"
+   ],
+   "phone": "089-146-1499,053-214-119",
+   "amphoe": "เมือง",
+   "modified": "2024-05-31",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-6978"
+  },
+  {
+   "cmhy": "6980",
+   "name": "กรัณฑ์การกฎหมาย",
+   "tags": [
+    "บริการทวงหนี้",
+    "ทนาย"
+   ],
+   "phone": "053-357-566",
+   "amphoe": "เมือง",
+   "modified": "2021-07-29",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "7420",
+   "name": "เทคโนการบัญชี",
+   "tags": [
+    "ตรวจสอบบัญชี"
+   ],
+   "phone": "053-212-844",
+   "amphoe": "เมือง",
+   "modified": "2022-03-10",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-7420"
+  },
+  {
+   "cmhy": "7587",
+   "name": "สำนักงานสุวัฒน์และเพื่อน",
+   "tags": [
+    "สุวัฒน์",
+    "จันทะโชโต"
+   ],
+   "phone": "053-273-014",
+   "amphoe": "เมือง",
+   "modified": "2021-07-22",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "7827",
+   "name": "พงษ์เทพ วณิชาติทนายความ",
+   "tags": [
+    "ปรึกษาคดี",
+    "ทนายความ",
+    "สำนักทนายความ"
+   ],
+   "phone": "081-885-9941",
+   "amphoe": "เมือง",
+   "modified": "2022-03-17",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-7827"
+  },
+  {
+   "cmhy": "8055",
+   "name": "พิชัยทนายความ",
+   "tags": [
+    "จดทะเบียน",
+    "นิติกรรม",
+    "ทนายความ"
+   ],
+   "phone": "053-276-560,053-276-570",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-8055"
+  },
+  {
+   "cmhy": "8120",
+   "name": "ดิ ออฟฟิศ พลัส",
+   "tags": [
+    "โครงการสำนักงาน",
+    "สำนักงานอัจฉริยะ",
+    "สำนักงานให้เช่า"
+   ],
+   "phone": "053-828-888,081-882-8288",
+   "amphoe": "เมือง",
+   "modified": "2024-06-14",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "8392",
+   "name": "เอ-วัน แอคเคาท์ติ้ง",
+   "tags": [
+    "บัญชี",
+    "รับทำบัญชี"
+   ],
+   "phone": "053-222-120",
+   "amphoe": "เมือง",
+   "modified": "2022-03-16",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-8392"
+  },
+  {
+   "cmhy": "8428",
+   "name": "สำนักงานกฎหมายโชติธรรม",
+   "tags": [
+    "ปรึกษาคดี",
+    "ทนายความ",
+    "สำนักทนายความ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-10-22",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-8428"
+  },
+  {
+   "cmhy": "8773",
+   "name": "บ้านกฎหมายทนายความ",
+   "tags": [
+    "ปรึกษาคดี",
+    "ทนายความ",
+    "สำนักทนายความ"
+   ],
+   "phone": "053-423-811",
+   "amphoe": "เมือง",
+   "modified": "2021-11-21",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-8773"
+  },
+  {
+   "cmhy": "9355",
+   "name": "ซีอุส สเปซ",
+   "tags": [
+    "คาเฟ่นั่งทำงาน",
+    "คาเฟ่อ่านหนังสือ"
+   ],
+   "phone": "093-213-5712",
+   "amphoe": "เมือง",
+   "modified": "2024-11-11",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "9699",
+   "name": "ไทยลอว์ สำนักงานกฎหมาย",
+   "tags": [
+    "กฏหมาย",
+    "ทนาย"
+   ],
+   "phone": "053-852818,087-8202121,088-4343211",
+   "amphoe": "เมือง",
+   "modified": "2021-03-10",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-9699"
+  },
+  {
+   "cmhy": "9703",
+   "name": "สำนักงานกฎหมายนิติฤทธิ์",
+   "tags": [
+    "ปรึกษาคดี",
+    "ทนายความ",
+    "สำนักทนายความ"
+   ],
+   "phone": "081-826-6861",
+   "amphoe": "เมือง",
+   "modified": "2020-05-28",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-9703"
+  },
+  {
+   "cmhy": "9747",
+   "name": "สำนักงานกฎหมาย นพนภัส ทนายความ",
+   "tags": [
+    "ปรึกษาคดี",
+    "ทนายความ",
+    "สำนักทนายความ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-01-15",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-9747"
+  },
+  {
+   "cmhy": "9817",
+   "name": "วิชยาธร จำกัด (สาขาเชียงใหม่)",
+   "tags": [
+    "ปรึกษาคดี",
+    "ทนายความ",
+    "สำนักทนายความ"
+   ],
+   "phone": "053-890-351,086-428-8328",
+   "amphoe": "เมือง",
+   "modified": "2022-03-16",
+   "trade": "professional",
+   "facets": {},
+   "record": "cm-curated-professional-9817"
+  }
+ ]
+}

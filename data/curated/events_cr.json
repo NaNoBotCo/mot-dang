@@ -1,0 +1,77 @@
+{
+ "_note": "Chiang Rai standing events, read by importers/harvest_events.py cr_standing_rows(). A rule is not a date: each occurrence inside horizon_days is projected from the weekday and marked from_rule. 'time' is set only when the sources read agree on it; otherwise the row is all-day and the description carries the range the sources give. 'source' is an id in data/sources.json (status curated), 'url' the page that states the rule, 'seen' the day it was read.",
+ "rules": [
+  {
+   "id": "sat-walking-street",
+   "title": "Saturday Walking Street · ถนนคนเดินเชียงราย",
+   "days": [
+    5
+   ],
+   "time": null,
+   "horizon_days": 56,
+   "venue": "ถนนคนเดินเชียงราย",
+   "cost": "Free",
+   "source": "lovethailand-cr",
+   "url": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/567-Kad-Chiang-Hai-Ram-Luk-(Walking-Street).html",
+   "seen": "2026-10-10",
+   "description": "Weekly Thanalai Road market organised by Chiang Rai Municipality. The sources give opening at 15:00 or 16:00 and closing at 22:00 or 23:00 (lovethailand.org, thaiholidayguide.com, chiangraitimes.com, read 2026-10-10)."
+  },
+  {
+   "id": "sun-walking-street",
+   "title": "Sunday Walking Street · Sankhong Happy Street",
+   "days": [
+    6
+   ],
+   "time": null,
+   "horizon_days": 56,
+   "venue": "San Khong Noi Road",
+   "cost": null,
+   "source": "chiangraitimes-guide",
+   "url": "https://www.chiangraitimes.com/chiang-rai-guide/night-market-chiang-rai-which-evening-is-best-to-visit/",
+   "seen": "2026-10-10",
+   "description": "Weekly food-led market on San Khong Noi Road, near Wat Chetuphon. The sources give the day and no hours (chiangraitimes.com, updated 2026-08-22; thaiholidayguide.com, reviewed 2026-07; read 2026-10-10)."
+  },
+  {
+   "id": "night-bazaar",
+   "title": "Chiang Rai Night Bazaar",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "time": null,
+   "horizon_days": 14,
+   "venue": "Night Bazaar",
+   "cost": "Free",
+   "source": "lovethailand-cr",
+   "url": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/566-Chiang-Rai-Night-Bazaar.html",
+   "seen": "2026-10-10",
+   "description": "Daily market on Phahonyothin Road beside Bus Terminal 1. lovethailand.org gives 18:30–23:00; chiangraitimes.com gives opening at 17:00 or 18:00 and closing at 22:30 or 23:00 (read 2026-10-10)."
+  },
+  {
+   "id": "clock-tower-show",
+   "title": "Clock Tower light and music show",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "time": "19:00",
+   "horizon_days": 14,
+   "venue": "Chiang Rai Clock Tower",
+   "cost": "Free",
+   "source": "chiangraitimes-guide",
+   "url": "https://www.chiangraitimes.com/chiang-rai-guide/chiang-rai-clock-tower-light-show/",
+   "seen": "2026-10-10",
+   "description": "Chiang Rai Times reports shows at 19:00, 20:00 and 21:00, about 10 minutes each, at the Phahonyothin and Suk Sathit roundabout (page updated 2026-08-30, read 2026-10-10)."
+  }
+ ]
+}

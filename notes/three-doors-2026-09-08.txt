@@ -1,0 +1,268 @@
+สามประตู · THREE DOORS — map · calendar · boolean, tags through all three
+WO-77 · 2026-09-08
+
+Your seven decisions today, in order (verbatim in MARCHING-ORDERS.md WO-77):
+licence line everywhere but subtle · the map door everywhere, minimal words ·
+draw the glyphs · the map prominent, hard to wander away from, magic for many
+tasks with room to grow · the site built around map, calendar, boolean ·
+tags in all three · sort/filter handy and visible, no extra words.
+
+Glyph sheet:  https://claude.ai/code/artifact/92864fd9-1c51-4901-a358-02c790f212f8
+Front page:   https://claude.ai/code/artifact/50469d65-8915-450b-a449-d1ece28280d2
+Lane: build PID 35976 + publish/deploy.py --yes running from 11:05;
+refine_layer.py edited 10:59 by the WO-75 session. New files only.
+
+
+1. BUILT TODAY
+
+  glyphs.py             66 chrome glyphs on build.ICON_SPRITE's contract
+                        (24-grid, stroke only, colour from the row). The ant,
+                        here, walk, scooter, bus, the moat, a gate, tent,
+                        lamp, clock, the weather family, PM2.5, pill, ⊘,
+                        filter, sort, near, layers, zoom. EMOJI: 76 emoji →
+                        their glyph. icon(name, label=) for a door that
+                        stands with no words. sprite(ids) for a subset.
+  tests/test_glyphs.py  13 tests, green. No id collides with build's 42
+                        (pinned); inside the grid; no colour of its own;
+                        every emoji target exists. What is still emoji in
+                        build.py is printed, never asserted.
+  MARCHING-ORDERS.md    WO-77 row + entry.
+  build.py              two sprite lines redrawn at your word, 11:4x, with
+                        no build running: i-loo is now a toilet (tank, seat,
+                        bowl, base — the two figures and the wall were a
+                        gender sign, not a toilet); i-leaf is a seven-leaflet
+                        cannabis silhouette; i-broom is a handle over a fanned head;
+                        i-chang is a side-view elephant — domed back, ear,
+                        curled trunk, three legs. Nothing else in build.py touched.
+
+
+2. THE SHELL — every page
+
+    [ant] มดแดง                      ไทย · ไทย+EN · EN   อ่านง่าย
+    [ค้นหา ………………………………………] [🔍]  [map]  [cal]
+    ⛅ 24° · PM2.5 9 ดีมาก                       ← front page only
+
+  Three doors, two of them glyphs with an aria-label and no printed word.
+  Search = the box; the boolean is where the box lands (WO-75, built).
+  Map → map.html carrying the page's own view (§4). Calendar → events.html
+  carrying the page's own filter (§4). Logo → home. That is the whole nav.
+
+  Footer, every page, one muted line:
+    ทุกชั้น · every shelf · source · API · Privacy · Terms · [chat]
+    ปรับปรุง 2026-09-08 · CC BY 4.0 · © OpenStreetMap contributors (ODbL)
+  The emergency numbers stay above it (your call, WO-75).
+
+  Front page = the shell over the postcard map (home_map_box, SVG, already
+  built, costs nothing) which becomes the live map on first touch (WO-74
+  L6). Hard to wander away from: the map is under the box on the doorstep
+  and one glyph away on every other page.
+
+
+3. TAGS THROUGH ALL THREE
+
+  A tag is one word on a sign, read by the crawl (1,782 trade terms,
+  go/trades). Today it is a search filter and a link on a place page.
+  After this it is the pivot between the doors:
+
+    boolean   tag=a,b (OR) · across keys AND · not=tag:x       BUILT, WO-75
+    map       #z/lat/lng/shelves?tag=a,b — rows drawn are the tagged rows;
+              the chip rail counts tags IN THE VIEWPORT (WO-74 L3)  NOT BUILT
+    calendar  events at places carrying the tag; the tag chips on
+              events.html counted against the events on screen        NOT BUILT
+
+  THE CHIP HAS THREE SIDES. Wherever a tag is printed — a place page's
+  "Listed as doing", the refine bar, the tap card — it is one chip with
+  three taps: the word (→ search?tag=), [map] (→ map.html?tag=), [cal]
+  (→ events.html?tag=). No new words: the two glyphs are the same two
+  doors the masthead carries. Counts on the map and calendar sides come
+  from the same tables the boolean already bakes (data/search_tables.json
+  `trade` rows), so a tag with no pinned rows draws no map side and a tag
+  with no events draws no calendar side — a door is never drawn on zero.
+
+  DATA TO VERIFY before the map side ships: whether the 0.01° cells under
+  docs/data/here/ carry the tag list per row. If not, one line in
+  here_layer's cell writer. Events already carry place ids; place → tags
+  is a join the build has.
+
+
+4. THE MAP — tasks it answers, and how (the parity table, WO-74 §0)
+
+  task                     gesture on the map           today
+  what is here             viewport                     built (explore)
+  which kind               chip rail, counted in view   shelves yes · tags NO
+  how far                  a ring you drag              NO (radius hidden, 2 km)
+  open now                 lamp toggle                  NO on the map
+  open at                  time scrubber                NO
+  nearest N                tap → sheet, 3 nearest       here.html only
+  where am I               [here] glyph                 built (here_layer)
+  route there              sheet → plan                 built (plan.html)
+  share this view          the URL is the state         built (hash)
+  what is on here          [cal] on the sheet           NO
+  a tag on the map         ?tag=                        NO
+  stacks (2,958 shared pins)  stack marker              NO (WO-74 L2)
+  the list twin            same URL, list rendering     NO (WO-74 L5)
+
+  Seven of thirteen are not built. "Room to grow" is that column: each
+  row is one gesture, the API parameter behind it already exists
+  (publish/api.js takes all sixteen), and WO-74 F8 — the parity gate — is
+  what keeps the two doors moving together. The phases below take the
+  rows in the order that pays.
+
+
+5. HOOKS — WIRED 2026-09-08 ~11:55 at your word ("wire the hooks into
+   refine_layer and build.py now"). (a)–(d) are in the tree; verified by
+   importing build.py and rendering a place page and the front page:
+     place page header  33 words / 5 links  →  18 words / 3 links (logo, map, cal)
+     footer             110 words           →  72 (licence sentence gone)
+     results rail       closed <details>    →  open, 9 glyphs, 0 printed words
+   tests/test_refine.py 70/70 · tests/test_glyphs.py 13/13 · header gate
+   raised 6 → 8 for the front page's line (wx · air · plan · here + 3).
+   NOT built out to docs/ and not deployed (cache/walk-rest is set; a
+   deploy from 11:05 was still uploading). The next build carries it.
+   (e) and (f) — the tag sides — are NOT wired, and the reason is data,
+   not code: 0 of 19,255 features in cm-food.geojson carry a tag, and
+   data/events.json has 0 events with a place id (the join happens inside
+   the build). Both need a writer change before a door can be drawn on a
+   count; Ph C below.
+
+   SECOND PASS, same day, on your four lines ("don't use any stock emoji ·
+   the proper SVG ant · distance default · work on Ph D"):
+
+   NO STOCK EMOJI — page() now sweeps every page's visible text once
+     (glyphs.sweep_html): any emoji with a drawn glyph comes out drawn, on
+     all 25,889 pages, whatever template put it there. Scripts, <option>,
+     <title> and attribute values are left alone. 80 glyphs, 166 emoji
+     mapped (14 more drawn for the long tail: mail, plane, basket, fuel,
+     yin-yang, beer, wheelchair, print, needle, trans, question, ATM,
+     document, ring). The tap card (md.js) draws its ant and its route.
+     What is still emoji: the share-card PNGs (make_*_cards.py draw with
+     Pillow, off the page) and JS strings in md.js — printed by
+     tests/test_glyphs.py, never asserted.
+   THE ANT — build.ANT_MARK: ANT_SVG's own geometry (ellipses, six legs,
+     two feelers, the eye) cropped to its box, paper on the red tile;
+     glyphs i-ant / i-ant-solid are the same drawing scaled to 24.
+   DISTANCE FIRST — refine: no sort= means nearest first, from the reader's
+     point or, absent one, the city's landmark (Tha Phae Gate / the Clock
+     Tower), and the bar says which ("nearest Tha Phae Gate first"). Best
+     match is now a choice (sort=rel); near stays an alias. The rail gains
+     the ring: ในระยะ 500 m … 25 km, and it works from the landmark too.
+   Ph D ON THE MAP (WO-74 Ph 0–2), built in explore_layer.py:
+     L0  the view is the URL: #z/lat/lng/shelves/tag=…&r=…&ev=1
+     L3  chips count what is IN VIEW — "212 / 4,178" — inside the ring and
+         carrying the tag, recounted on every move, from the GeoJSON kept
+     E2  the ring: 300 m–5 km around the crosshair at the centre of the
+         view; pan and it goes with you; drawn and filtered by the same
+         distance; the count line is a link to the same answer as a LIST
+         (search.html?near=&radius=&cat=) — the list twin of the ring
+     L2  stacks confess: the shelf GeoJSON now carries k (rows on one
+         pin) and t (trade tags); a stack wears a hollow ring sized by k
+         and its card says "+11 at this pin" with the list of them
+     tag= on the map filters the dots (needs the next build's GeoJSON)
+     the calendar door: "what is on" draws data/events.geojson in gold;
+         a tap names the event and its venue
+     bbox= on the worker (publish/api.js + api_layer.py docs)
+     Lamp (open now) was already there. tests/test_explore.py 5/5.
+   NOT built in Ph D: open_at scrubber · aggregates below z12 (L2's
+     hierarchy) · the list twin for a plain viewport (L5 beyond the ring) ·
+     SVG-first paint (L6) · cells as the index (Ph 0's second half).
+   Verified by rendering through build.page(): header and footer carry no
+   emoji; a body with 📍 🏷 ☎ ⬇ comes out as four <use>; the sprite is on
+   the page; geojson() writes t and k. Suites: test_glyphs 13, test_explore
+   5, test_refine 70, test_api 26 (17 skip without docs), test_trades.
+   NOT built out, not deployed. A scratch build (no lock, into a scratch
+   DOCS) is the gate before the full set goes.
+
+   The hooks as first written, kept for the record:
+
+  a) build.py page(), beside {ICON_SPRITE}:
+       import glyphs                      # top, with the other layers
+       {ICON_SPRITE}{glyphs.SPRITE}       # where the sprite is written
+     Then the swaps, all lookups: nownear_layer.PATHS → glyphs.PATHS;
+     the logo 🐜 → glyphs.icon("i-ant-solid", 30) inside .logomark;
+     CAT_ICON.update(glyphs.CAT_ICON_MORE); every emoji in a chrome string
+     → glyphs.emoji_to_icon(s). tests/test_glyphs.py prints what is left.
+
+  b) refine_layer.header(): the doors. After </form>:
+       <p class="doors">
+         <a class="door" href="{r}map.html">{glyphs.icon("i-map", 26, label=att(bi_text("แผนที่", "the map")))}</a>
+         <a class="door" href="{r}events.html">{glyphs.icon("i-cal", 26, label=att(bi_text("ปฏิทิน", "what is on")))}</a>
+       </p>
+     and wrap form+doors in <div class="seekrow"> so they sit on one line:
+       .seekrow{display:flex;gap:.5rem;align-items:stretch}
+       .seekrow form.seek{flex:1;margin:0}
+       .doors{display:flex;gap:.4rem;margin:0}
+       .door{flex:0 0 52px;display:grid;place-items:center;border:2px solid var(--ink);border-radius:14px;background:var(--card);box-shadow:0 2px 0 var(--shadow);color:var(--ant-dark)}
+       .door:hover,.door:focus{color:var(--ant);border-color:var(--ant)}
+     A page that has a view passes it: map.html#… from a shelf page's own
+     bbox (build has the rows), events.html?tag=/?cat= from a shelf.
+     Gate: test_page_weight's ≤6 open header links holds (logo, map, cal).
+
+  c) refine_layer.bare_footer(): the licence, subtle.
+       <span class="footline">{bi(f"ปรับปรุง {build_date} (พ.ศ. {be_build})", f"updated {build_date} (B.E. {be_build})")} ·
+       <a href="https://creativecommons.org/licenses/by/4.0/" rel="license noopener">CC BY 4.0</a> ·
+       © <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a> (ODbL)</span>
+     and delete the <span class="licence"> line. 45 → 6 words, every page.
+     lic_th/lic_en: grep for other readers (source/, terms.html) first.
+
+  d) refine_layer.tools_row(): the rail, open and glyph-led.
+     Delete <details class="reftools"> and its <summary>; the <div
+     class="toolrow"> stands open. Each <label class="tool"> loses its
+     <span> word and gains a glyph in front of the <select>:
+       ประเภท → i-grid · ย่าน → i-pin · ถนน → i-road · มีอะไรบ้าง → i-check
+       ชั้น → i-layers · เรียงลำดับ → i-sort
+     The word moves INTO the select as its first, empty-value option
+     ("ประเภท · kind"), so it is read once, in the control, and never
+     printed beside it. เปิดอยู่ตอนนี้ → i-lamp toggle, ใกล้ฉัน → i-near
+     toggle, both aria-pressed. ค้นหาขั้นสูง → i-filter with the label as
+     aria-label and title; the one printed word on the rail is none.
+     Counts on every option stay exactly as built.
+       .toolrow{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
+       .tool{display:inline-flex;align-items:center;gap:.25rem}
+       .tool select{max-width:11rem}
+       .tool.on{color:var(--ant)}
+     tests/test_refine.py: the assertion that the rail is a closed
+     <details> (if one exists) flips.
+
+  e) map.html?tag= and events.html?tag= — the tag sides. explore_layer
+     readHash() gains the query; the row filter is `e.t.includes(tag)` on
+     the rows it already has (verify §3). festivals/events: the evfilters
+     row gains tag chips baked from the events' places' tags, counted.
+
+  f) The three-sided chip, wherever a tag prints:
+       <span class="tagchip"><a href="{r}search.html?tag={t}">{word}</a>
+         <a class="side" href="{r}map.html?tag={t}">{glyphs.icon("i-map",16,label=…)}</a>
+         <a class="side" href="{r}events.html?tag={t}">{glyphs.icon("i-cal",16,label=…)}</a></span>
+     Sides drawn only where the baked count for that side is non-zero.
+
+
+6. PHASES — in the order that pays
+
+  Ph A  the shell: (a)(b)(c)(d). One build. Every page gets the three doors,
+        the rail opens, the licence goes quiet, the emoji go. Measurable:
+        header words on a place page 33 → 14; results page above the first
+        row: one line.
+  Ph B  the front page over the map (L6): postcard SVG, live on touch.
+  Ph C  tags on the map and calendar (e)(f), and the chip's three sides.
+  Ph D  WO-74 Ph 0–2: bbox on the worker, viewport-counted chips, the ring,
+        the lamp, the stack marker. This is "magic for many tasks".
+  Ph E  WO-74 Ph 3: the list twin at every map URL — what keeps 25,889
+        pages findable when the map is the front door.
+
+  Ph A is a morning. B a day. C two days. D and E are WO-74's estimates.
+
+
+7. FORKS — yours, none taken
+
+  T1  The glyphs on the SHELF pages too (the 27 category marks already
+      draw there) vs chrome only. The sheet is the whole set; say which.
+  T2  The ant: the drawn i-ant-solid on the logo tile, or keep 🐜 as the
+      one emoji on the site. Worst case of drawn: it reads as a bug at
+      16 px on a bad screen. It is on the sheet at 16 px.
+  T3  The doors carry the page's VIEW (a shelf page's bbox / tag) or
+      always open the whole city. View is the magic; whole-city is the
+      safe first release.
+  T4  Sort order default on the rail: relevance (today) or distance when
+      near-me is on. One line either way.
+  T5  WO-74 F8 — the parity gate HARD (no API parameter ships without a
+      gesture) or advisory. Seven rows are red today; hard means Ph D
+      before any new parameter.

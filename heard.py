@@ -5,7 +5,7 @@ WHY THIS EXISTS. Nothing on the site counts readers, so there is no number
 anywhere that answers "has anyone in this city heard of Mot Dang?" The
 recognition plan (notes/heard-of-it-proposal-2026-08-20.md) is measured against
 this file and nothing else. It counts CONVERSATIONS Nan had, not readers — it
-is a diary, not a tracker, and it never leaves this machine.
+is a diary, not a tracker, and it stays on this machine.
 
     python3 heard.py            the menu: press 1, 2 or 3, Enter, done
     python3 heard.py 2          log one nod without the menu
@@ -24,7 +24,7 @@ worth counting separately, because they move at different speeds and the
 plan's targets are quoted as "nods" = 2 and 3 together.
 
 Entries append to data/heard.jsonl — one JSON object per line, never rewritten
-except by --undo. NOT in docs/, so it is never published; NOT in data/curated/,
+except by --undo. NOT in docs/, so it does not reach the site; NOT in data/curated/,
 which is field truth about places. No name of the other person is stored:
 what is useful is the count and the room, and a private log of who did not
 recognise your work is not a thing worth keeping.

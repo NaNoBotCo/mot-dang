@@ -1,0 +1,5527 @@
+{
+ "tags": {
+  "50": {
+   "gloss": "50 (as written on the sign)"
+  },
+  "Bill": {
+   "gloss": "bill printing"
+  },
+  "Board": {
+   "gloss": "board printing"
+  },
+  "CCTV": {
+   "gloss": "CCTV"
+  },
+  "CNC": {
+   "gloss": "CNC machining"
+  },
+  "Clean": {
+   "gloss": "laundry (Clean, in a shop name)"
+  },
+  "Co-WorkingSpace": {
+   "gloss": "coworking space"
+  },
+  "Coworking": {
+   "gloss": "coworking space"
+  },
+  "DSLR": {
+   "gloss": "DSLR cameras"
+  },
+  "FAX": {
+   "gloss": "fax"
+  },
+  "GPX": {
+   "gloss": "GPX motorcycles"
+  },
+  "Honda": {
+   "gloss": "Honda"
+  },
+  "Invisalign": {
+   "gloss": "Invisalign clear aligners"
+  },
+  "LEd": {
+   "gloss": "LED"
+  },
+  "LPG": {
+   "gloss": "LPG"
+  },
+  "Space": {
+   "gloss": "workspace"
+  },
+  "Triumph": {
+   "gloss": "Triumph motorcycles"
+  },
+  "VISA": {
+   "gloss": "visas"
+  },
+  "X-RAY": {
+   "gloss": "X-ray"
+  },
+  "X-Ray3มิติ": {
+   "gloss": "3D X-ray",
+   "reading": "X-Ray Sam Miti"
+  },
+  "X-Stand": {
+   "gloss": "X-stand banners"
+  },
+  "X-ray3D": {
+   "gloss": "3D X-ray"
+  },
+  "York": {
+   "gloss": "York (air-con brand)"
+  },
+  "bigbike": {
+   "gloss": "big bikes"
+  },
+  "cctv": {
+   "gloss": "CCTV"
+  },
+  "cnc": {
+   "gloss": "CNC machining"
+  },
+  "cncตัวอักษร": {
+   "gloss": "CNC-cut lettering",
+   "reading": "cnc Tua Akson"
+  },
+  "coworkingspace": {
+   "gloss": "coworking space"
+  },
+  "daikin": {
+   "gloss": "Daikin"
+  },
+  "fax": {
+   "gloss": "fax"
+  },
+  "fujitsu": {
+   "gloss": "Fujitsu"
+  },
+  "invisalign": {
+   "gloss": "Invisalign clear aligners"
+  },
+  "network": {
+   "gloss": "networking"
+  },
+  "print": {
+   "gloss": "printing"
+  },
+  "security": {
+   "gloss": "security systems"
+  },
+  "stickerไวนิล": {
+   "gloss": "vinyl stickers",
+   "reading": "sticker Wainin"
+  },
+  "veneer": {
+   "gloss": "dental veneers"
+  },
+  "visa": {
+   "gloss": "visas"
+  },
+  "water": {
+   "gloss": "water"
+  },
+  "กฏหมาย": {
+   "gloss": "law",
+   "reading": "Kotmai"
+  },
+  "กฐิน": {
+   "gloss": "kathin robe offering",
+   "reading": "Kathin"
+  },
+  "กรงสัตว์": {
+   "gloss": "animal cages"
+  },
+  "กรอบภาพ": {
+   "gloss": "picture frames",
+   "reading": "Krop Phap"
+  },
+  "กระจกเจีย": {
+   "gloss": "bevelled glass",
+   "reading": "Krachok Chia"
+  },
+  "กระดาษขายส่ง": {
+   "gloss": "wholesale paper"
+  },
+  "กระดาษปอนด์": {
+   "gloss": "bond paper",
+   "reading": "Kradat Pon"
+  },
+  "กระดาษพิมพ์เขียน": {
+   "gloss": "writing and printing paper"
+  },
+  "กระตุ้นพัฒนาการเด็ก": {
+   "gloss": "child development stimulation",
+   "reading": "Kratun Phatthanakan Dek"
+  },
+  "กระเป๋ากล้อง": {
+   "gloss": "camera bags",
+   "reading": "Krapao Klong"
+  },
+  "กระเป๋าผ้า": {
+   "gloss": "cloth bags",
+   "reading": "Krapao Pha"
+  },
+  "กระเป๋ามือสอง": {
+   "gloss": "second-hand bags",
+   "reading": "Krapao Mue Song"
+  },
+  "กระเป๋าแบนด์เนม": {
+   "gloss": "brand-name bags",
+   "reading": "Krapao Baenneem"
+  },
+  "กราฟฟิค": {
+   "gloss": "graphics",
+   "reading": "Krafik"
+  },
+  "กลึง": {
+   "gloss": "lathe turning"
+  },
+  "กลึงเหล็ก": {
+   "gloss": "steel turning"
+  },
+  "กลึงโลหะ": {
+   "gloss": "metal turning"
+  },
+  "กล่องกระดาษ": {
+   "gloss": "cardboard boxes",
+   "reading": "Klong Kradat"
+  },
+  "กล่องบรรจุภัณฑ์": {
+   "gloss": "packaging boxes",
+   "reading": "Klong Banchuphan"
+  },
+  "กล่องลูกฟูก": {
+   "gloss": "corrugated boxes",
+   "reading": "Klong Lukfuk"
+  },
+  "กล่องอาหารเดลิเวอรี่\nบรรจุภัณฑ์อาหาร": {
+   "gloss": "food delivery boxes and food packaging",
+   "reading": "Klong Ahan Deliwoeri Banchuphan Ahan"
+  },
+  "กล่องไปรษณีย์": {
+   "gloss": "postal boxes",
+   "reading": "Klong Praisani"
+  },
+  "กล่องไฟ": {
+   "gloss": "lightboxes",
+   "reading": "Klong Fai"
+  },
+  "กล่่อง": {
+   "gloss": "boxes",
+   "reading": "Klong"
+  },
+  "กล้อง": {
+   "gloss": "cameras",
+   "reading": "Klong"
+  },
+  "กล้องGoPro": {
+   "gloss": "GoPro cameras",
+   "reading": "Klong GoPro"
+  },
+  "กล้องดิจิตอล": {
+   "gloss": "digital cameras",
+   "reading": "Klong Dichithan"
+  },
+  "กล้องถ่ายภาพ": {
+   "gloss": "cameras",
+   "reading": "Klong Thai Phap"
+  },
+  "กล้องฟิล์ม": {
+   "gloss": "film cameras",
+   "reading": "Klong Film"
+  },
+  "กล้องมือสอง": {
+   "gloss": "second-hand cameras",
+   "reading": "Klong Mue Song"
+  },
+  "กล้องวงจรปิด": {
+   "gloss": "CCTV",
+   "reading": "Klong Wongchon Pit"
+  },
+  "กล้องแอ๊กชั่น": {
+   "gloss": "action cameras",
+   "reading": "Klong Aekchan"
+  },
+  "กล้ามเนื้ออ่อนแรง": {
+   "gloss": "muscle weakness",
+   "reading": "Klam Nuea On Raeng"
+  },
+  "กว๋องตุ้ง": {
+   "gloss": "Cantonese (Kwong Tung)",
+   "reading": "Kwong Tung"
+  },
+  "กัดโลหะ": {
+   "gloss": "metal etching",
+   "reading": "Kat Loha"
+  },
+  "กันสาด": {
+   "gloss": "awnings"
+  },
+  "กันสาดฉลุลาย": {
+   "gloss": "fretwork awnings"
+  },
+  "กันสาดมุ้งลวด": {
+   "gloss": "awnings and insect screens",
+   "reading": "Kansat Mung Luat"
+  },
+  "กัลวาไนท์": {
+   "gloss": "galvanised steel",
+   "reading": "Kanwanai"
+  },
+  "กั้นห้อง": {
+   "gloss": "room partitioning"
+  },
+  "กางเกงยินส์": {
+   "gloss": "jeans",
+   "reading": "Kangkeng Yin"
+  },
+  "การจัดทำบัญชี": {
+   "gloss": "bookkeeping"
+  },
+  "การพิมพ์": {
+   "gloss": "printing"
+  },
+  "การ์ดเชิญ": {
+   "gloss": "invitation cards",
+   "reading": "Kat Choen"
+  },
+  "การ์ดแต่งงาน": {
+   "gloss": "wedding cards",
+   "reading": "Kat Taengngan"
+  },
+  "กำจัดเห็บ": {
+   "gloss": "tick removal"
+  },
+  "กำจัดเห็บมัด": {
+   "gloss": "tick and flea treatment"
+  },
+  "กำจัดเห็บหมัด": {
+   "gloss": "tick and flea treatment"
+  },
+  "กิ๊ฟชอฟ": {
+   "gloss": "gift shop",
+   "reading": "Kif Chop"
+  },
+  "กุญแจรถยนต์": {
+   "gloss": "car keys",
+   "reading": "Kunchae Rotyon"
+  },
+  "กุญแจสำรอง": {
+   "gloss": "spare keys"
+  },
+  "กุโบร์ฮ": {
+   "gloss": "Muslim burial ground (kubur)",
+   "reading": "Kubo"
+  },
+  "ก๊อปปี้ดีวีดี": {
+   "gloss": "DVD copying",
+   "reading": "Koppi Di Wi Di"
+  },
+  "ก๊อปปี้วีดีโอ": {
+   "gloss": "video copying",
+   "reading": "Koppi Widio"
+  },
+  "ก๊าซหุงต้ม": {
+   "gloss": "cooking gas",
+   "reading": "Kat Hung Tom"
+  },
+  "ขยายภาพ": {
+   "gloss": "photo enlargement"
+  },
+  "ขยายรูปภาพ": {
+   "gloss": "photo enlargement"
+  },
+  "ของขวัญ": {
+   "gloss": "gifts"
+  },
+  "ของชำร่วยงานศพ": {
+   "gloss": "funeral keepsakes",
+   "reading": "Khong Chamruai Ngan Sop"
+  },
+  "ของทำบุญไหว้พระ": {
+   "gloss": "merit-making offerings"
+  },
+  "ของใช้งานพิธี": {
+   "gloss": "ceremonial goods"
+  },
+  "ของใช้งานศพ": {
+   "gloss": "funeral goods"
+  },
+  "ของใช้ในพิธีทางศาสนา": {
+   "gloss": "religious ceremony goods",
+   "reading": "Khongchai Nai Phithi Thang Satsana"
+  },
+  "ของใช้ในพิธีศาสนา": {
+   "gloss": "religious ceremony goods",
+   "reading": "Khongchai Nai Phithi Satsana"
+  },
+  "ของใช้ไหว้เจ้า": {
+   "gloss": "Chinese shrine offerings"
+  },
+  "ขออนุญาติทำงานต่างชาติ": {
+   "gloss": "foreign work permits"
+  },
+  "ขัดฟัน": {
+   "gloss": "tooth polishing"
+  },
+  "ขายกล้องฟิล์ม": {
+   "gloss": "film camera sales",
+   "reading": "Khai Klong Film"
+  },
+  "ขายจักรยาน": {
+   "gloss": "bicycle sales"
+  },
+  "ขายดอกมะลิ": {
+   "gloss": "jasmine flower sales"
+  },
+  "ขายนาฬิกา": {
+   "gloss": "watch and clock sales"
+  },
+  "ขายปลีกอุปกรณ์เครื่องใช้ไฟฟ้า": {
+   "gloss": "electrical appliance retail",
+   "reading": "Khai Plik Upakon Khrueangchai Faifa"
+  },
+  "ขายฟองน้ำ": {
+   "gloss": "foam and sponge sales"
+  },
+  "ขายฟิลม์": {
+   "gloss": "film sales",
+   "reading": "Khai Film"
+  },
+  "ขายมอเตอร์ไซค์": {
+   "gloss": "motorcycle sales",
+   "reading": "Khai Motoesai"
+  },
+  "ขายรถมอเตอร์ไซค์": {
+   "gloss": "motorcycle sales",
+   "reading": "Khai Rot Motoesai"
+  },
+  "ขายรถมอเตอร์ไซค์ไฟฟ้า": {
+   "gloss": "electric motorcycle sales",
+   "reading": "Khai Rot Motoesai Faifa"
+  },
+  "ขายสูท": {
+   "gloss": "sells suits"
+  },
+  "ขายอาหารสัตว์": {
+   "gloss": "animal feed sales"
+  },
+  "ขายเช่าเครื่องถ่ายเอกสาร": {
+   "gloss": "photocopier sales and hire"
+  },
+  "ขายแก๊ส": {
+   "gloss": "gas sales"
+  },
+  "ขายแก๊สหุงต้ม": {
+   "gloss": "cooking gas sales"
+  },
+  "ขึ้นล้อ": {
+   "gloss": "wheel building"
+  },
+  "ขูดหินปูน": {
+   "gloss": "dental scaling"
+  },
+  "ข้าวต้มมัด": {
+   "gloss": "khao tom mat sticky rice parcels"
+  },
+  "คณะทันตแพทยศาสตร์": {
+   "gloss": "faculty of dentistry",
+   "reading": "Khana Thantaphaetthayasat"
+  },
+  "คดีอาญ": {
+   "gloss": "criminal cases",
+   "reading": "Khadi Aya"
+  },
+  "คดีอาญา": {
+   "gloss": "criminal cases",
+   "reading": "Khadi Ayaa"
+  },
+  "คดีแพ่ง": {
+   "gloss": "civil cases"
+  },
+  "ครอบฟัน": {
+   "gloss": "dental crowns"
+  },
+  "ครอบฟันการจัดฟัน": {
+   "gloss": "crowns and braces",
+   "reading": "Khrop Fan Kan Chat Fan"
+  },
+  "ครัวต๋านก๋ำ": {
+   "gloss": "Tan Kam kitchen (northern)",
+   "reading": "Khrua Tan Kam"
+  },
+  "คลับของคนรักจักรยาน": {
+   "gloss": "cyclists' club",
+   "reading": "Khlap Khong Khon Rak Chakkrayan"
+  },
+  "คลินิกกายภาพบำบัด": {
+   "gloss": "physiotherapy clinic",
+   "reading": "Khlinik Kaiyaphap Bambat"
+  },
+  "คลินิกความงาม": {
+   "gloss": "beauty clinic",
+   "reading": "Khlinik Khwam Ngam"
+  },
+  "คลินิกทันตกรรมพิเศษ": {
+   "gloss": "specialist dental clinic",
+   "reading": "Khlinik Thantakam Phiset"
+  },
+  "คลินิกทันตกรรมสำหรับเด็ก": {
+   "gloss": "children's dental clinic",
+   "reading": "Khlinik Thantakam Samrap Dek"
+  },
+  "คลินิกทันตรังสีวิทยา": {
+   "gloss": "dental radiology clinic",
+   "reading": "Khlinik Thanta Rangsi Witthaya"
+  },
+  "คลินิกทำฟัน": {
+   "gloss": "dental clinic",
+   "reading": "Khlinik Tham Fan"
+  },
+  "คลินิกพิเคราะห์โรคช่องปาก": {
+   "gloss": "oral diagnosis clinic",
+   "reading": "Khlinik Phikhro Rok Chong Pak"
+  },
+  "คลินิกฟัน": {
+   "gloss": "dental clinic",
+   "reading": "Khlinik Fan"
+  },
+  "คลินิกรักษาฟัน": {
+   "gloss": "dental treatment clinic",
+   "reading": "Khlinik Raksa Fan"
+  },
+  "คลินิกศัลยศาสตร์ช่องปาก": {
+   "gloss": "oral surgery clinic",
+   "reading": "Khlinik Sanlayasat Chong Pak"
+  },
+  "ความคดีแพ่ง": {
+   "gloss": "civil litigation"
+  },
+  "คอกกลม": {
+   "gloss": "round collar"
+  },
+  "คอวี": {
+   "gloss": "V-neck",
+   "reading": "Kho Wi"
+  },
+  "คัทเอาท์": {
+   "gloss": "cut-out display signs",
+   "reading": "Khat Ao"
+  },
+  "คาเฟ่นั่งทำงาน": {
+   "gloss": "work-friendly café",
+   "reading": "Khafe Nang Thamngan"
+  },
+  "คูปองแพคเกจจิ้ง": {
+   "gloss": "coupons and packaging",
+   "reading": "Khupong Phaekkecching"
+  },
+  "คู่มือเตรียมสอบ": {
+   "gloss": "exam preparation books"
+  },
+  "งานกระจก": {
+   "gloss": "glasswork"
+  },
+  "งานกลึง": {
+   "gloss": "lathe work"
+  },
+  "งานกัดกรด": {
+   "gloss": "acid etching"
+  },
+  "งานกันสาด": {
+   "gloss": "awning work"
+  },
+  "งานชุดครัว": {
+   "gloss": "fitted kitchen work"
+  },
+  "งานช่างอลูมิเนียม": {
+   "gloss": "aluminium fabrication"
+  },
+  "งานทะเบียน": {
+   "gloss": "registration work",
+   "reading": "Ngan Thabian"
+  },
+  "งานประตู": {
+   "gloss": "door fabrication"
+  },
+  "งานประปา": {
+   "gloss": "plumbing"
+  },
+  "งานปล่องควัน": {
+   "gloss": "flue and chimney work"
+  },
+  "งานปะปา": {
+   "gloss": "plumbing",
+   "reading": "Ngan Prapa"
+  },
+  "งานปัก": {
+   "gloss": "embroidery"
+  },
+  "งานปั๊มนูน": {
+   "gloss": "embossing",
+   "reading": "Ngan Pam Nun"
+  },
+  "งานป้าย": {
+   "gloss": "sign work"
+  },
+  "งานพรอม": {
+   "gloss": "prom"
+  },
+  "งานมุ้งลวด": {
+   "gloss": "insect screen work",
+   "reading": "Ngan Mung Luat"
+  },
+  "งานรักษาคลองรากฟัน": {
+   "gloss": "root canal work",
+   "reading": "Ngan Raksa Khlong Rak Fan"
+  },
+  "งานราวบันได": {
+   "gloss": "stair railing work"
+  },
+  "งานสกีน": {
+   "gloss": "screen printing",
+   "reading": "Ngan Sakrin"
+  },
+  "งานสิ่งพิมพ์": {
+   "gloss": "print work"
+  },
+  "งานสเตนเลส": {
+   "gloss": "stainless steel work",
+   "reading": "Ngan Sataenlet"
+  },
+  "งานสแตนเลส": {
+   "gloss": "stainless steel work"
+  },
+  "งานหน้าต่าง": {
+   "gloss": "window work",
+   "reading": "Ngan Natang"
+  },
+  "งานอบสี": {
+   "gloss": "powder coating"
+  },
+  "งานอลูมิเนียม": {
+   "gloss": "aluminium work"
+  },
+  "งานอลูมีเนียม": {
+   "gloss": "aluminium work",
+   "reading": "Ngan Aluminiam"
+  },
+  "งานออกแบบสื่อ": {
+   "gloss": "media design"
+  },
+  "งานอัลลอย": {
+   "gloss": "alloy work",
+   "reading": "Ngan Anloi"
+  },
+  "งานเชื่อม": {
+   "gloss": "welding"
+  },
+  "งานเบาะ": {
+   "gloss": "upholstery work"
+  },
+  "งานเลเซอร์": {
+   "gloss": "laser cutting and engraving",
+   "reading": "Ngan Lesoe"
+  },
+  "งานเหล็ก": {
+   "gloss": "steelwork"
+  },
+  "งานเหล็กดัด": {
+   "gloss": "wrought iron work"
+  },
+  "งานโครงมัลเทอชีส": {
+   "gloss": "multi-truss roof framing",
+   "reading": "Ngan Khrong Manthoechit"
+  },
+  "งานโครงเหล็ก": {
+   "gloss": "steel framing"
+  },
+  "งานโซฟา": {
+   "gloss": "sofa work",
+   "reading": "Ngan Sofa"
+  },
+  "งานโพลีคาร์บอดเนต": {
+   "gloss": "polycarbonate work",
+   "reading": "Ngan Pholikhabonet"
+  },
+  "งานโลหะ": {
+   "gloss": "metalwork"
+  },
+  "งานโลหะแผ่น": {
+   "gloss": "sheet metal work"
+  },
+  "งานไฟฟ้า": {
+   "gloss": "electrical work"
+  },
+  "งานไวนิล": {
+   "gloss": "vinyl work",
+   "reading": "Ngan Wainin"
+  },
+  "จดทะเบียน": {
+   "gloss": "registration",
+   "reading": "Chot Thabian"
+  },
+  "จดทะเบียนจัดตั้งบริษัท": {
+   "gloss": "company incorporation",
+   "reading": "Chot Thabian Chattang Borisat"
+  },
+  "จดทะเบียนบริษัท": {
+   "gloss": "company registration",
+   "reading": "Chot Thabian Borisat"
+  },
+  "จดทะเบียนบรืษัท": {
+   "gloss": "company registration",
+   "reading": "Chot Thabian Borisat"
+  },
+  "จดทะเบียนสมรสชาวต่างชาติ": {
+   "gloss": "foreign marriage registration",
+   "reading": "Chot Thabian Somrot Chao Tang Chat"
+  },
+  "จดทะเบียนหจก": {
+   "gloss": "limited partnership registration",
+   "reading": "Chot Thabian Ho Cho Ko"
+  },
+  "จดหมาย": {
+   "gloss": "letters",
+   "reading": "Chotmai"
+  },
+  "จองตั๋ว": {
+   "gloss": "ticket booking"
+  },
+  "จอดรถยนต์": {
+   "gloss": "car parking",
+   "reading": "Chot Rotyon"
+  },
+  "จักรยานพับ": {
+   "gloss": "folding bicycles",
+   "reading": "Chakkrayan Phap"
+  },
+  "จักรยานพับได้": {
+   "gloss": "folding bicycles",
+   "reading": "Chakkrayan Phap Dai"
+  },
+  "จักรยานมือสอง": {
+   "gloss": "second-hand bicycles",
+   "reading": "Chakkrayan Mue Song"
+  },
+  "จักรยานยนต์": {
+   "gloss": "motorcycles",
+   "reading": "Chakkrayanyon"
+  },
+  "จักรยานยนต์ไฟฟ้า": {
+   "gloss": "electric motorcycles",
+   "reading": "Chakkrayanyon Faifa"
+  },
+  "จักรยานล้อโต": {
+   "gloss": "fat bikes",
+   "reading": "Chakkrayan Lo To"
+  },
+  "จักรยานอุปกรณ์เสริม": {
+   "gloss": "bicycle accessories",
+   "reading": "Chakkrayan Upakon Soem"
+  },
+  "จักรยานเด็ก": {
+   "gloss": "children's bicycles",
+   "reading": "Chakkrayan Dek"
+  },
+  "จักรยานให้เช่า": {
+   "gloss": "bicycle hire",
+   "reading": "Chakkrayan Hai Chao"
+  },
+  "จักรยานไฟฟ้า": {
+   "gloss": "electric bicycles"
+  },
+  "จัดขบวนแห่": {
+   "gloss": "procession organising"
+  },
+  "จัดงานแต่ง": {
+   "gloss": "wedding organising"
+  },
+  "จัดฟัน": {
+   "gloss": "braces, orthodontics"
+  },
+  "จัดฟันจัดฟันโลหะ": {
+   "gloss": "metal braces",
+   "reading": "Chat Fan Chat Fan Loha"
+  },
+  "จัดฟันเด็ก": {
+   "gloss": "children's braces"
+  },
+  "จัดฟันเหล็ก": {
+   "gloss": "metal braces"
+  },
+  "จัดฟันใส": {
+   "gloss": "clear aligners"
+  },
+  "จัดส่ง": {
+   "gloss": "delivery"
+  },
+  "จานดาวเทียม": {
+   "gloss": "satellite dishes"
+  },
+  "จำหน่าย": {
+   "gloss": "sales"
+  },
+  "จำหน่ายคอมพิวเตอร์": {
+   "gloss": "computer sales",
+   "reading": "Chamnai Khomphiutoe"
+  },
+  "จำหน่ายจักร": {
+   "gloss": "sewing machine sales"
+  },
+  "จำหน่ายจักรยาน": {
+   "gloss": "bicycle sales",
+   "reading": "Chamnai Chakkrayan"
+  },
+  "จำหน่ายรถจักรยานยนต์": {
+   "gloss": "motorcycle sales",
+   "reading": "Chamnai Rot Chakkrayanyon"
+  },
+  "จำหน่ายรองเท้าหนัง": {
+   "gloss": "leather shoe sales"
+  },
+  "จำหน่ายสัตว์เลี้ยง": {
+   "gloss": "pet sales"
+  },
+  "จำหน่ายสแตนเลส": {
+   "gloss": "stainless steel sales"
+  },
+  "จำหน่ายหมึก": {
+   "gloss": "ink sales"
+  },
+  "จำหน่ายอาหารสัตว์": {
+   "gloss": "animal feed sales"
+  },
+  "จำหน่ายอุปกรณ์กล้อง": {
+   "gloss": "camera equipment sales",
+   "reading": "Chamnai Upakon Klong"
+  },
+  "จำหน่ายอุปกรณ์สัตว์เลี้ยง": {
+   "gloss": "pet supply sales",
+   "reading": "Chamnai Upakon Satliang"
+  },
+  "จำหน่ายเครื่องทำความเย็น": {
+   "gloss": "refrigeration equipment sales"
+  },
+  "จำหน่ายเครื่องพิมพ์เสื้อ": {
+   "gloss": "shirt printing machine sales"
+  },
+  "จำหน่ายเครื่องมือช่าง": {
+   "gloss": "tool sales"
+  },
+  "จำหน่ายแอร์": {
+   "gloss": "air-con sales",
+   "reading": "Chamnai Ae"
+  },
+  "จำหน่ายโลงศพ": {
+   "gloss": "coffin sales"
+  },
+  "จีวร": {
+   "gloss": "monk's robe",
+   "reading": "Chiwon"
+  },
+  "จุดจอดรถ": {
+   "gloss": "parking point"
+  },
+  "จ่ายบิล": {
+   "gloss": "bill payment"
+  },
+  "จ่ายพรบ": {
+   "gloss": "compulsory motor insurance payment",
+   "reading": "Chai Pho Ro Bo"
+  },
+  "ฉลาก": {
+   "gloss": "labels"
+  },
+  "ฉลากบรรจุภัณฑ์": {
+   "gloss": "packaging labels",
+   "reading": "Chalak Banchuphan"
+  },
+  "ฉลากสินค้า": {
+   "gloss": "product labels"
+  },
+  "ฉลากสินค้าด่วน": {
+   "gloss": "express product labels"
+  },
+  "ฉลุลาย": {
+   "gloss": "fretwork, cut-out patterns"
+  },
+  "ฉีดยาคุม": {
+   "gloss": "contraceptive injection"
+  },
+  "ฉีดยาสัตว์": {
+   "gloss": "animal injections"
+  },
+  "ฉีดวัคซีนสัตว์": {
+   "gloss": "animal vaccination",
+   "reading": "Chit Waksin Sat"
+  },
+  "ชุดการแสดง": {
+   "gloss": "stage and performance dress"
+  },
+  "ชุดข้าราชการ": {
+   "gloss": "civil-service uniform"
+  },
+  "ชุดครัวสแตนเลส": {
+   "gloss": "stainless steel kitchens"
+  },
+  "ชุดครุย": {
+   "gloss": "academic gown"
+  },
+  "ชุดนิทรรศการ": {
+   "gloss": "exhibition stands",
+   "reading": "Chut Nithatsakan"
+  },
+  "ชุดผู้หญิงเช่า": {
+   "gloss": "women's dress hire"
+  },
+  "ชุดพรีเวดดิ้ง": {
+   "gloss": "pre-wedding shoot dress"
+  },
+  "ชุดพานเทียนพรรษา": {
+   "gloss": "Lenten candle offering trays",
+   "reading": "Chut Phan Thian Phansa"
+  },
+  "ชุดพื้นเมือง": {
+   "gloss": "northern local dress"
+  },
+  "ชุดราชการ": {
+   "gloss": "civil-service uniform"
+  },
+  "ชุดราตรี": {
+   "gloss": "evening gown"
+  },
+  "ชุดราตรีเช่า": {
+   "gloss": "evening gown hire"
+  },
+  "ชุดลีดเดอร์": {
+   "gloss": "cheerleader kit"
+  },
+  "ชุดลูกทุ่ง": {
+   "gloss": "luk thung stage dress"
+  },
+  "ชุดล้านนา": {
+   "gloss": "Lanna dress"
+  },
+  "ชุดสตรี": {
+   "gloss": "women's outfits"
+  },
+  "ชุดสตรีเช่า": {
+   "gloss": "women's dress hire"
+  },
+  "ชุดสูท": {
+   "gloss": "suit"
+  },
+  "ชุดหลีด": {
+   "gloss": "cheerleader kit"
+  },
+  "ชุดออกงาน": {
+   "gloss": "occasion wear"
+  },
+  "ชุดเครื่องบวช": {
+   "gloss": "ordination kit"
+  },
+  "ชุดเจ้าชาย": {
+   "gloss": "prince costume"
+  },
+  "ชุดเจ้าหญิง": {
+   "gloss": "princess costume"
+  },
+  "ชุดเช่า": {
+   "gloss": "dress hire"
+  },
+  "ชุดเพื่อนเจ้าบ่าว": {
+   "gloss": "groomsman suit"
+  },
+  "ชุดเพื่อนเจ้าสาว": {
+   "gloss": "bridesmaid dress"
+  },
+  "ชุดเพื่อเจ้าสาว": {
+   "gloss": "bridesmaid dress"
+  },
+  "ชุดแต่งงาน": {
+   "gloss": "wedding dress"
+  },
+  "ชุดแฟนซี": {
+   "gloss": "fancy dress"
+  },
+  "ชุดไทย": {
+   "gloss": "Thai formal dress"
+  },
+  "ชุดไทยเช่า": {
+   "gloss": "Thai dress hire"
+  },
+  "ชุบโครเมี่ยม": {
+   "gloss": "chrome plating",
+   "reading": "Chup Khromiam"
+  },
+  "ช่างงานเหล็ก": {
+   "gloss": "steel fabricator"
+  },
+  "ช่างถ่ายภาพ": {
+   "gloss": "photographer"
+  },
+  "ช่างอลูมิเนียม": {
+   "gloss": "aluminium fabricator"
+  },
+  "ช่างแต่งหน้า": {
+   "gloss": "make-up artist"
+  },
+  "ซองจดหมาย": {
+   "gloss": "envelopes",
+   "reading": "Song Chotmai"
+  },
+  "ซักกิโล": {
+   "gloss": "laundry by the kilo"
+  },
+  "ซักด่วน": {
+   "gloss": "express laundry"
+  },
+  "ซักตาก": {
+   "gloss": "wash and line dry"
+  },
+  "ซักตุ๊กตา": {
+   "gloss": "soft-toy washing"
+  },
+  "ซักน้ำมัน": {
+   "gloss": "oil-stain washing"
+  },
+  "ซักน้ำร้อน": {
+   "gloss": "hot-water washing"
+  },
+  "ซักผ้า24ชั่วโมง": {
+   "gloss": "24-hour laundry"
+  },
+  "ซักผ้าตู้หยอดเหรียญ": {
+   "gloss": "coin-op laundry cabinet"
+  },
+  "ซักผ้านวม": {
+   "gloss": "duvet washing"
+  },
+  "ซักผ้าปู": {
+   "gloss": "bed linen washing"
+  },
+  "ซักผ้าปูที่นอน": {
+   "gloss": "bed linen washing"
+  },
+  "ซักผ้ารายชิ้น": {
+   "gloss": "laundry by the piece"
+  },
+  "ซักผ้ารายวัน": {
+   "gloss": "laundry by the day"
+  },
+  "ซักผ้ารายเดือน": {
+   "gloss": "laundry by the month"
+  },
+  "ซักผ้าหยอดเหรียญ": {
+   "gloss": "coin-op laundry"
+  },
+  "ซักผ้าหยอดเหรียญน้ำประปา": {
+   "gloss": "coin-op laundry on mains water"
+  },
+  "ซักผ้าห่ม": {
+   "gloss": "blanket washing"
+  },
+  "ซักผ้าอบผ้า": {
+   "gloss": "wash and dry"
+  },
+  "ซักผ้าโรงแรม": {
+   "gloss": "hotel laundry",
+   "reading": "Sakpha Rongraem"
+  },
+  "ซักผ้าโฮสเทล": {
+   "gloss": "hostel laundry",
+   "reading": "Sakpha Hostel"
+  },
+  "ซักผ้าให้บริการตนเอง": {
+   "gloss": "self-service laundry"
+  },
+  "ซักผ้าไหม": {
+   "gloss": "silk washing"
+  },
+  "ซักรองเท้า": {
+   "gloss": "shoe washing"
+  },
+  "ซักรายชิ้น": {
+   "gloss": "laundry by the piece"
+  },
+  "ซักรายวัน": {
+   "gloss": "laundry by the day"
+  },
+  "ซักรายเดือน": {
+   "gloss": "laundry by the month"
+  },
+  "ซักรีดเสื้อผ้าบริการรับส่ง": {
+   "gloss": "laundry with pick-up and delivery"
+  },
+  "ซักรีดแห้ง": {
+   "gloss": "dry cleaning and pressing"
+  },
+  "ซักสูท": {
+   "gloss": "suit cleaning",
+   "reading": "Sak Sut"
+  },
+  "ซักหมอน": {
+   "gloss": "pillow washing",
+   "reading": "Sak Mon"
+  },
+  "ซักหยอดเหรียญ": {
+   "gloss": "coin-op washing"
+  },
+  "ซักอบผ้า24ชั่วโมง": {
+   "gloss": "24-hour wash and dry"
+  },
+  "ซักอบรีดรับ-ส่ง": {
+   "gloss": "wash, dry, press with pick-up"
+  },
+  "ซักเสื้อผ้า": {
+   "gloss": "clothes washing"
+  },
+  "ซักเสื้อสูท": {
+   "gloss": "suit jacket cleaning",
+   "reading": "Sak Suea Sut"
+  },
+  "ซักเอง": {
+   "gloss": "wash it yourself"
+  },
+  "ซักแห้งสูท": {
+   "gloss": "suit dry cleaning",
+   "reading": "Sak Haeng Sut"
+  },
+  "ซัุดยูนิฟอร์ม": {
+   "gloss": "uniforms",
+   "reading": "Chut Yunifom"
+  },
+  "ซิงค์สกีน": {
+   "gloss": "screen printing",
+   "reading": "Sing Sakrin"
+  },
+  "ซิลค์สกรีน": {
+   "gloss": "silk screen printing",
+   "reading": "Sin Sakrin"
+  },
+  "ซีเอ็นซี": {
+   "gloss": "CNC machining",
+   "reading": "Si En Si"
+  },
+  "ซื้อขายจักรมือสอง": {
+   "gloss": "second-hand sewing machines",
+   "reading": "Suekhai Chak Mue Song"
+  },
+  "ซื้อขายบิ๊กไบท์": {
+   "gloss": "big bike buying and selling",
+   "reading": "Suekhai Bikbai"
+  },
+  "ซื้อขายมอเตอร์ไซค์": {
+   "gloss": "motorcycle buying and selling",
+   "reading": "Suekhai Motoesai"
+  },
+  "ซื้อมอเตอร์ไซค์": {
+   "gloss": "motorcycles bought",
+   "reading": "Sue Motoesai"
+  },
+  "ซ่อมElectrolux": {
+   "gloss": "Electrolux repair"
+  },
+  "ซ่อมKawasaki": {
+   "gloss": "Kawasaki repair"
+  },
+  "ซ่อมLCD": {
+   "gloss": "LCD repair"
+  },
+  "ซ่อมLED": {
+   "gloss": "LED repair"
+  },
+  "ซ่อมTV": {
+   "gloss": "TV repair"
+  },
+  "ซ่อมTv": {
+   "gloss": "TV repair"
+  },
+  "ซ่อมcanon": {
+   "gloss": "Canon repair"
+  },
+  "ซ่อมprinter": {
+   "gloss": "printer repair"
+  },
+  "ซ่อมกระทะไฟฟ้า": {
+   "gloss": "electric pan repair"
+  },
+  "ซ่อมกระเป๋า": {
+   "gloss": "bag repair"
+  },
+  "ซ่อมกระเป๋าเดินทาง": {
+   "gloss": "suitcase repair"
+  },
+  "ซ่อมกระโปรง": {
+   "gloss": "skirt repair"
+  },
+  "ซ่อมกล้อง": {
+   "gloss": "camera repair",
+   "reading": "Som Klong"
+  },
+  "ซ่อมกล้องดิจิตอล": {
+   "gloss": "digital camera repair",
+   "reading": "Som Klong Dichithan"
+  },
+  "ซ่อมกล้องถ่ายภาพ": {
+   "gloss": "camera repair",
+   "reading": "Som Klong Thai Phap"
+  },
+  "ซ่อมกล้องวงจรปิด": {
+   "gloss": "CCTV repair",
+   "reading": "Som Klong Wongchon Pit"
+  },
+  "ซ่อมกาต้มน้ำ": {
+   "gloss": "kettle repair"
+  },
+  "ซ่อมคอมพิวเตอร์": {
+   "gloss": "computer repair",
+   "reading": "Som Khomphiutoe"
+  },
+  "ซ่อมคอมเพสเซอร์": {
+   "gloss": "compressor repair",
+   "reading": "Som Khomphetsoe"
+  },
+  "ซ่อมคัตชู": {
+   "gloss": "dress shoe repair",
+   "reading": "Som Khatchu"
+  },
+  "ซ่อมจอคอมซ่อม": {
+   "gloss": "computer monitor repair",
+   "reading": "Som Cho Khom"
+  },
+  "ซ่อมจักรยาน": {
+   "gloss": "bicycle repair"
+  },
+  "ซ่อมจักรเย็บผ้า": {
+   "gloss": "sewing-machine repair"
+  },
+  "ซ่อมซิบ": {
+   "gloss": "zip repair",
+   "reading": "Som Sip"
+  },
+  "ซ่อมตาไก่": {
+   "gloss": "eyelet repair"
+  },
+  "ซ่อมตู้เย็น": {
+   "gloss": "fridge repair"
+  },
+  "ซ่อมตู้แช่เย็น": {
+   "gloss": "chiller cabinet repair"
+  },
+  "ซ่อมทีวี": {
+   "gloss": "TV repair"
+  },
+  "ซ่อมนาฬิกา": {
+   "gloss": "watch and clock repair"
+  },
+  "ซ่อมนาฬิกาตั้งพื้น": {
+   "gloss": "grandfather clock repair"
+  },
+  "ซ่อมบิ๊กไบค์": {
+   "gloss": "big bike repair",
+   "reading": "Som Bikbai"
+  },
+  "ซ่อมบิ๊กไบท์": {
+   "gloss": "big bike repair",
+   "reading": "Som Bikbai"
+  },
+  "ซ่อมประปา": {
+   "gloss": "plumbing repair"
+  },
+  "ซ่อมปรินเตอร์": {
+   "gloss": "printer repair",
+   "reading": "Som Printoe"
+  },
+  "ซ่อมปริ้นเตอร์": {
+   "gloss": "printer repair",
+   "reading": "Som Printoe"
+  },
+  "ซ่อมปั๊มน้ำ": {
+   "gloss": "water pump repair",
+   "reading": "Som Pam Nam"
+  },
+  "ซ่อมผ้า": {
+   "gloss": "clothing repair"
+  },
+  "ซ่อมผ้าปะ": {
+   "gloss": "patching and mending"
+  },
+  "ซ่อมผ้าม่าน": {
+   "gloss": "curtain repair"
+  },
+  "ซ่อมพัดลม": {
+   "gloss": "fan repair"
+  },
+  "ซ่อมมอเตอร์": {
+   "gloss": "motor repair",
+   "reading": "Som Motoe"
+  },
+  "ซ่อมมอเตอร์ปั๊มน้ำ": {
+   "gloss": "water pump motor repair",
+   "reading": "Som Motoe Pam Nam"
+  },
+  "ซ่อมมอเตอร์ไซค์": {
+   "gloss": "motorcycle repair",
+   "reading": "Som Motoesai"
+  },
+  "ซ่อมมอเตอร์ไซค์นอกสถานที่": {
+   "gloss": "mobile motorcycle repair",
+   "reading": "Som Motoesai Nok Sathanthi"
+  },
+  "ซ่อมมอเตอร์ไซต์": {
+   "gloss": "motorcycle repair",
+   "reading": "Som Motoesai"
+  },
+  "ซ่อมมือถืออาเขต": {
+   "gloss": "phone repair at Arcade",
+   "reading": "Som Muethue Akhet"
+  },
+  "ซ่อมรถจักรยานยนต์": {
+   "gloss": "motorcycle repair",
+   "reading": "Som Rot Chakkrayanyon"
+  },
+  "ซ่อมรถมอเตอร์ไซค์": {
+   "gloss": "motorcycle repair",
+   "reading": "Som Rot Motoesai"
+  },
+  "ซ่อมรถยนต์": {
+   "gloss": "car repair",
+   "reading": "Som Rotyon"
+  },
+  "ซ่อมรถไฟฟ้า": {
+   "gloss": "electric vehicle repair"
+  },
+  "ซ่อมรองเท้ากาดหลวง": {
+   "gloss": "shoe repair at Kat Luang"
+  },
+  "ซ่อมรองเท้าหนัง": {
+   "gloss": "leather shoe repair"
+  },
+  "ซ่อมลำโพง": {
+   "gloss": "speaker repair"
+  },
+  "ซ่อมวิทยุ": {
+   "gloss": "radio repair"
+  },
+  "ซ่อมวีดีโอ": {
+   "gloss": "video player repair",
+   "reading": "Som Widio"
+  },
+  "ซ่อมหม้อหุงข้าว": {
+   "gloss": "rice cooker repair",
+   "reading": "Som Mo Hung Khao"
+  },
+  "ซ่อมอิเล็กทรอลักซ์": {
+   "gloss": "Electrolux repair",
+   "reading": "Som Ilekthrolak"
+  },
+  "ซ่อมอุปกรณ์": {
+   "gloss": "equipment repair",
+   "reading": "Som Upakon"
+  },
+  "ซ่อมอุปกรณ์อิเล็คทรอนิกส์": {
+   "gloss": "electronics repair",
+   "reading": "Som Upakon Ilekthronik"
+  },
+  "ซ่อมอุปกรณ์ไฟฟ้า": {
+   "gloss": "electrical equipment repair"
+  },
+  "ซ่อมอเตอร์ไซค์": {
+   "gloss": "motorcycle repair",
+   "reading": "Som Motoesai"
+  },
+  "ซ่อมเข็มขัด": {
+   "gloss": "belt repair"
+  },
+  "ซ่อมเครื่องซักผ้า": {
+   "gloss": "washing-machine repair"
+  },
+  "ซ่อมเครื่องซักผ้านอกสถานที่": {
+   "gloss": "mobile washing-machine repair"
+  },
+  "ซ่อมเครื่องดูดฝุ่น": {
+   "gloss": "vacuum cleaner repair"
+  },
+  "ซ่อมเครื่องทำน้ำอุ่น": {
+   "gloss": "water heater repair"
+  },
+  "ซ่อมเครื่องผลิตน้ำแข็งอัตโนมัติ": {
+   "gloss": "ice machine repair"
+  },
+  "ซ่อมเครื่องมือช่าง": {
+   "gloss": "power tool repair"
+  },
+  "ซ่อมเครื่องหนัง": {
+   "gloss": "leather goods repair"
+  },
+  "ซ่อมเครื่องเป่าผม": {
+   "gloss": "hair dryer repair"
+  },
+  "ซ่อมเครื่องเสียง": {
+   "gloss": "audio equipment repair"
+  },
+  "ซ่อมเครื่องใช้ไฟ": {
+   "gloss": "appliance repair"
+  },
+  "ซ่อมเครื่องใช้ไฟฟ้า": {
+   "gloss": "electrical appliance repair"
+  },
+  "ซ่อมเครื่องใช้ไฟฟ้าทั่วไป": {
+   "gloss": "general appliance repair"
+  },
+  "ซ่อมเครื่องใช้ไฟ้ฟ้า": {
+   "gloss": "electrical appliance repair"
+  },
+  "ซ่อมเตา": {
+   "gloss": "stove repair"
+  },
+  "ซ่อมเตารีด": {
+   "gloss": "iron repair"
+  },
+  "ซ่อมเบาะ": {
+   "gloss": "upholstery repair"
+  },
+  "ซ่อมเบาะเฟอร์นิเจอร์": {
+   "gloss": "furniture upholstery repair",
+   "reading": "Som Bo Foenichoe"
+  },
+  "ซ่อมเลนท์": {
+   "gloss": "lens repair",
+   "reading": "Som Len"
+  },
+  "ซ่อมเลนส์": {
+   "gloss": "lens repair",
+   "reading": "Som Len"
+  },
+  "ซ่อมเวสป้า": {
+   "gloss": "Vespa repair",
+   "reading": "Som Wetpa"
+  },
+  "ซ่อมเสื้อ": {
+   "gloss": "shirt repair"
+  },
+  "ซ่อมแบคโฮ": {
+   "gloss": "backhoe repair",
+   "reading": "Som Baekho"
+  },
+  "ซ่อมแผงวงจรแอร์": {
+   "gloss": "air-con circuit board repair",
+   "reading": "Som Phaeng Wongchon Ae"
+  },
+  "ซ่อมแฟซกล้อง": {
+   "gloss": "camera flash repair",
+   "reading": "Som Flaet Klong"
+  },
+  "ซ่อมแอมป์": {
+   "gloss": "amplifier repair",
+   "reading": "Som Aem"
+  },
+  "ซ่อมแอร์บ้าน": {
+   "gloss": "household air-con repair",
+   "reading": "Som Ae Ban"
+  },
+  "ซ่อมแอลซีดี": {
+   "gloss": "LCD repair",
+   "reading": "Som Aen Si Di"
+  },
+  "ซ่อมแอลอีดี": {
+   "gloss": "LED repair",
+   "reading": "Som Aen I Di"
+  },
+  "ซ่อมโชฟา": {
+   "gloss": "sofa repair",
+   "reading": "Som Sofa"
+  },
+  "ซ่อมโน๊ตบุ๊ค": {
+   "gloss": "laptop repair",
+   "reading": "Som Notbuk"
+  },
+  "ซ่อมไมค์": {
+   "gloss": "microphone repair",
+   "reading": "Som Mai"
+  },
+  "ซ่อมไมโครเวป": {
+   "gloss": "microwave repair",
+   "reading": "Som Maikhrowep"
+  },
+  "ซ่อมไมโครเวฟ": {
+   "gloss": "microwave repair"
+  },
+  "ซ่อมไมโคเวฟ": {
+   "gloss": "microwave repair",
+   "reading": "Som Maikhrowep"
+  },
+  "ซ่อมไอโฟน": {
+   "gloss": "iPhone repair",
+   "reading": "Som Aifon"
+  },
+  "ฌาปนกิจสถาน": {
+   "gloss": "crematorium"
+  },
+  "ดอกมะลิ": {
+   "gloss": "jasmine flowers"
+  },
+  "ดอกไม้สด": {
+   "gloss": "fresh flowers"
+  },
+  "ดัดดึงข้อต่อ": {
+   "gloss": "joint mobilisation"
+  },
+  "ดำเนินการเรื่องเอกสารผ่านสถานทูต": {
+   "gloss": "embassy document handling",
+   "reading": "Damnoenkan Rueang Ekkasan Phan Sathanthut"
+  },
+  "ดูแลผู้ป่วย": {
+   "gloss": "patient care"
+  },
+  "ดูแลผู้ป่วยที่มีภาวะทุพพลภาพ": {
+   "gloss": "care for disabled patients",
+   "reading": "Dulae Phupuai Thi Mi Phawa Thupphonlaphap"
+  },
+  "ดูแลผู้ป่วยอัลไซเมอร์": {
+   "gloss": "Alzheimer's patient care",
+   "reading": "Dulae Phupuai Ansaimoe"
+  },
+  "ดูแลรักษาผู้สูงอายุ": {
+   "gloss": "elderly care",
+   "reading": "Dulae Raksa Phu Sung Ayu"
+  },
+  "ดูแลแผลกดทับ": {
+   "gloss": "pressure sore care",
+   "reading": "Dulae Phlae Kot Thap"
+  },
+  "ด่างกรองน้ำ": {
+   "gloss": "water filter media",
+   "reading": "Dang Krong Nam"
+  },
+  "ด้านกฎหมาย": {
+   "gloss": "legal matters"
+  },
+  "ตกแต่งภาพ": {
+   "gloss": "photo retouching"
+  },
+  "ตกแต่งภายในสแตนเลส": {
+   "gloss": "stainless steel interiors"
+  },
+  "ตกแต่งรถมอเตอร์ไซค์": {
+   "gloss": "motorcycle customising",
+   "reading": "Toktaeng Rot Motoesai"
+  },
+  "ตกแต่งร้านกาแฟ": {
+   "gloss": "café fit-out",
+   "reading": "Toktaeng Ran Kafae"
+  },
+  "ตกแต่งหน้าอาคาร": {
+   "gloss": "building facades"
+  },
+  "ตกแต่งออฟฟิต": {
+   "gloss": "office fit-out",
+   "reading": "Toktaeng Offit"
+  },
+  "ตรวจด้วยเครื่องอัลตราซาวด์": {
+   "gloss": "ultrasound examination",
+   "reading": "Truat Duai Khrueang Antrasao"
+  },
+  "ตรวจฟัน}อุดฟัน": {
+   "gloss": "dental check-up and fillings",
+   "reading": "Truat Fan Ut Fan"
+  },
+  "ตรวจสอบบัญชี": {
+   "gloss": "auditing"
+  },
+  "ตรวจสุขภาพช่องปาก": {
+   "gloss": "oral health check"
+  },
+  "ตรวจโรค": {
+   "gloss": "medical examination"
+  },
+  "ตราประทับกระทรวง": {
+   "gloss": "ministry seals"
+  },
+  "ตรายาง": {
+   "gloss": "rubber stamps",
+   "reading": "Tra Yang"
+  },
+  "ตรายางด่วน": {
+   "gloss": "express rubber stamps",
+   "reading": "Tra Yang Duan"
+  },
+  "ตรายางหมึกในตัว": {
+   "gloss": "self-inking stamps",
+   "reading": "Tra Yang Muek Nai Tua"
+  },
+  "ตราสถาบัน": {
+   "gloss": "institutional crests",
+   "reading": "Tra Sathaban"
+  },
+  "ตอกตราไก่": {
+   "gloss": "eyelet punching"
+  },
+  "ตัดกระจก": {
+   "gloss": "glass cutting"
+  },
+  "ตัดกระดาษ": {
+   "gloss": "paper cutting"
+  },
+  "ตัดขนสัตว์": {
+   "gloss": "animal grooming"
+  },
+  "ตัดขนสุนัข": {
+   "gloss": "dog grooming"
+  },
+  "ตัดขนหมา": {
+   "gloss": "dog grooming"
+  },
+  "ตัดขนแมว": {
+   "gloss": "cat grooming"
+  },
+  "ตัดขา": {
+   "gloss": "trouser shortening"
+  },
+  "ตัดขากางเกง": {
+   "gloss": "trouser shortening"
+  },
+  "ตัดฉลุ": {
+   "gloss": "fretwork cutting",
+   "reading": "Tat Chalu"
+  },
+  "ตัดชุดครุย": {
+   "gloss": "academic gowns, made"
+  },
+  "ตัดชุดราชการ": {
+   "gloss": "civil service uniforms",
+   "reading": "Tat Chut Ratchakan"
+  },
+  "ตัดต่อกางเกง": {
+   "gloss": "trouser alteration"
+  },
+  "ตัดต่อขา": {
+   "gloss": "leg length alteration"
+  },
+  "ตัดต่อผ้า": {
+   "gloss": "fabric alteration"
+  },
+  "ตัดผ้า": {
+   "gloss": "cloth cutting"
+  },
+  "ตัดผ้าถุง": {
+   "gloss": "pha sin skirt making"
+  },
+  "ตัดลายฉลุ": {
+   "gloss": "fretwork cutting",
+   "reading": "Tat Lai Chalu"
+  },
+  "ตัดสติกเกอร์": {
+   "gloss": "cut vinyl stickers",
+   "reading": "Tat Satikkoe"
+  },
+  "ตัดสติ๊กเกอร์": {
+   "gloss": "cut vinyl stickers",
+   "reading": "Tat Satikkoe"
+  },
+  "ตัดสูท": {
+   "gloss": "suits, made"
+  },
+  "ตัดอลูมิเนียม": {
+   "gloss": "aluminium cutting"
+  },
+  "ตัดเพลส": {
+   "gloss": "plate cutting",
+   "reading": "Tat Phlet"
+  },
+  "ตัดเย็บผ้า": {
+   "gloss": "cutting and sewing"
+  },
+  "ตัดเย็บเสื้อผ้า": {
+   "gloss": "tailoring and dressmaking"
+  },
+  "ตัดเลเซอร์": {
+   "gloss": "laser cutting",
+   "reading": "Tat Lesoe"
+  },
+  "ตัดเสื้อผู้หญิง": {
+   "gloss": "women's tailoring"
+  },
+  "ตัดเสื้อผ้า": {
+   "gloss": "tailoring"
+  },
+  "ตัดเสื้อผ้าผู้หญิง": {
+   "gloss": "women's tailoring"
+  },
+  "ตัดเหล็ก": {
+   "gloss": "steel cutting"
+  },
+  "ตัดแต่งขนสัตว์": {
+   "gloss": "animal grooming"
+  },
+  "ตัดแต่งขนสุนัข": {
+   "gloss": "dog grooming"
+  },
+  "ตัดแต่งรองเท้า": {
+   "gloss": "shoe alteration"
+  },
+  "ตัดแผ่นสแตนเลส": {
+   "gloss": "stainless sheet cutting"
+  },
+  "ตัดแผ่นเหล็ก": {
+   "gloss": "steel sheet cutting"
+  },
+  "ตัวอักษรเสื้อ": {
+   "gloss": "shirt lettering",
+   "reading": "Tua Akson Suea"
+  },
+  "ตัวอักษรโลหะ": {
+   "gloss": "metal lettering",
+   "reading": "Tua Akson Loha"
+  },
+  "ตัวแทนเครื่องแบบนักเรียน": {
+   "gloss": "school uniform agent"
+  },
+  "ตั่งรดน้ำสังข์": {
+   "gloss": "the water-pouring dais"
+  },
+  "ตั้งนาฬิกา": {
+   "gloss": "clock setting and regulation"
+  },
+  "ตั้งล้อมอเตอร์ไซค์": {
+   "gloss": "motorcycle wheel truing",
+   "reading": "Tang Lo Motoesai"
+  },
+  "ตั้งโซ่": {
+   "gloss": "chain adjustment",
+   "reading": "Tang So"
+  },
+  "ตายาง": {
+   "gloss": "rubber stamps",
+   "reading": "Tra Yang"
+  },
+  "ติดตั้งCCTV": {
+   "gloss": "CCTV installation"
+  },
+  "ติดตั้งกระจก": {
+   "gloss": "glass installation"
+  },
+  "ติดตั้งป้าย": {
+   "gloss": "sign installation"
+  },
+  "ติดตั้งป้ายทุกชนิด": {
+   "gloss": "all kinds of sign installation"
+  },
+  "ติดตั้งฝ้าเพดาน": {
+   "gloss": "ceiling installation",
+   "reading": "Tittang Fa Phedan"
+  },
+  "ติดตั้งเครื่องทำน้ำอุ่น": {
+   "gloss": "water heater installation"
+  },
+  "ติดตั้งแทงค์น้ำ": {
+   "gloss": "water tank installation",
+   "reading": "Tittang Thaeng Nam"
+  },
+  "ติดตั้งแอร์": {
+   "gloss": "air-con installation",
+   "reading": "Tittang Ae"
+  },
+  "ติดตั้งแอร์บ้าน": {
+   "gloss": "household air-con installation",
+   "reading": "Tittang Ae Ban"
+  },
+  "ติดตั้งโครงสร้างเหล็ก": {
+   "gloss": "steel structure erection",
+   "reading": "Tittang Khrongsang Lek"
+  },
+  "ติดสติ๊กเกอร์ขอบล้อ": {
+   "gloss": "wheel rim stickers",
+   "reading": "Tit Satikkoe Khop Lo"
+  },
+  "ติดเครื่องกรอง": {
+   "gloss": "filter installation",
+   "reading": "Tit Khrueang Krong"
+  },
+  "ตู้ซักผ้าหยอดเหรียญ": {
+   "gloss": "coin-op washing cabinet"
+  },
+  "ตู้น้ำดื่ม": {
+   "gloss": "drinking-water dispenser"
+  },
+  "ตู้น้ำดื่มบริการฟรี": {
+   "gloss": "free drinking water dispenser"
+  },
+  "ตู้น้ำดื่มฟรี": {
+   "gloss": "free drinking water"
+  },
+  "ตู้น้ำดื่มหยอดเหรียญ": {
+   "gloss": "coin-op drinking-water dispenser"
+  },
+  "ตู้น้ำหยอดเหรียญ": {
+   "gloss": "coin-op water dispenser"
+  },
+  "ตู้มินิมาร์ท": {
+   "gloss": "minimart vending cabinet",
+   "reading": "Tu Minimat"
+  },
+  "ตู้สาขา": {
+   "gloss": "PABX telephone exchange",
+   "reading": "Tu Sakha"
+  },
+  "ตู้สำนักงาน": {
+   "gloss": "office cabinets"
+  },
+  "ตู้อบผ้า": {
+   "gloss": "drying cabinets"
+  },
+  "ตู้อลูมิเนียม": {
+   "gloss": "aluminium cabinets"
+  },
+  "ตู้เซฟ": {
+   "gloss": "safes",
+   "reading": "Tu Sef"
+  },
+  "ตู้เสี่ยงเซียมซี": {
+   "gloss": "siamsi fortune-stick cabinets",
+   "reading": "Tu Siang Siamsi"
+  },
+  "ตู้แช่สแตนเลส": {
+   "gloss": "stainless chiller cabinets"
+  },
+  "ตู้ไฟ": {
+   "gloss": "lightbox signs"
+  },
+  "ต่อขา": {
+   "gloss": "leg lengthening (garments)"
+  },
+  "ต่อขากางเกง": {
+   "gloss": "trouser lengthening",
+   "reading": "To Kha Kangkeng"
+  },
+  "ต่อภาษี": {
+   "gloss": "vehicle tax renewal",
+   "reading": "To Phasi"
+  },
+  "ถอนฟัน": {
+   "gloss": "tooth extraction"
+  },
+  "ถังกรองน้ำ": {
+   "gloss": "water filter tanks",
+   "reading": "Thang Krong Nam"
+  },
+  "ถุงกระดาษ": {
+   "gloss": "paper bags"
+  },
+  "ถุงกระดาษทุกชนิด": {
+   "gloss": "paper bags of every kind"
+  },
+  "ถุงพลาสติก": {
+   "gloss": "plastic bags",
+   "reading": "Thung Phlattik"
+  },
+  "ถ่ายน้ำมันรถมอเตอร์ไซค์": {
+   "gloss": "motorcycle oil change",
+   "reading": "Thai Namman Rot Motoesai"
+  },
+  "ถ่ายน้ำมันเครื่อง": {
+   "gloss": "engine oil change"
+  },
+  "ถ่ายน้ำมันเครื่องปะยาง": {
+   "gloss": "oil change and tyre patching",
+   "reading": "Thai Namman Khrueang Pa Yang"
+  },
+  "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์": {
+   "gloss": "motorcycle oil change",
+   "reading": "Thai Namman Khrueang Motoesai"
+  },
+  "ถ่ายน้ำมันเครื่องมอเตอร์ไซต์": {
+   "gloss": "motorcycle oil change",
+   "reading": "Thai Namman Khrueang Motoesai"
+  },
+  "ถ่ายน้ำมันเครื่องรถมอเตอร์ไซค์": {
+   "gloss": "motorcycle oil change",
+   "reading": "Thai Namman Khrueang Rot Motoesai"
+  },
+  "ถ่ายน้ำเครื่องมอเตอร์ไซค์": {
+   "gloss": "motorcycle oil change",
+   "reading": "Thai Nam Khrueang Motoesai"
+  },
+  "ถ่ายพยาธิ": {
+   "gloss": "deworming"
+  },
+  "ถ่ายพยาธิป้องกันเห็บหมัดไร": {
+   "gloss": "deworming, tick, flea and mite prevention"
+  },
+  "ถ่ายภาพชุดล้านนา": {
+   "gloss": "photographed in Lanna dress"
+  },
+  "ถ่ายภาพด่วน": {
+   "gloss": "express photography"
+  },
+  "ถ่ายภาพติดบัตร": {
+   "gloss": "ID photos"
+  },
+  "ถ่ายภาพนอกสถานที่": {
+   "gloss": "on-location photography"
+  },
+  "ถ่ายภาพย้อนยุค": {
+   "gloss": "period photography"
+  },
+  "ถ่ายภาพรังสีทางทันตกรรม": {
+   "gloss": "dental radiography",
+   "reading": "Thai Phap Rangsi Thang Thantakam"
+  },
+  "ถ่ายภาพรูปครอบครัว": {
+   "gloss": "family portraits"
+  },
+  "ถ่ายภาพรูปชุดถ่ายภาพข้าราชการ": {
+   "gloss": "civil-service uniform portraits"
+  },
+  "ถ่ายภาพล้านนา": {
+   "gloss": "Lanna photography"
+  },
+  "ถ่ายภาพสินค้า": {
+   "gloss": "product photography"
+  },
+  "ถ่ายภาพหมู่": {
+   "gloss": "group photography"
+  },
+  "ถ่ายภาพหมู่คณะ": {
+   "gloss": "group portraits"
+  },
+  "ถ่ายภาพแต่งงาน": {
+   "gloss": "wedding photography"
+  },
+  "ถ่ายรูปครอบครัว": {
+   "gloss": "family portraits"
+  },
+  "ถ่ายรูปชุดราชการ": {
+   "gloss": "civil-service uniform portraits"
+  },
+  "ถ่ายรูปชุดไทย": {
+   "gloss": "photographed in Thai dress"
+  },
+  "ถ่ายรูปติดพาสปอร์ต": {
+   "gloss": "passport photos",
+   "reading": "Thai Rup Tit Phatsapot"
+  },
+  "ถ่ายรูปวีซ่า": {
+   "gloss": "visa photos"
+  },
+  "ถ่ายเอกสารระบบดิจิตอล": {
+   "gloss": "digital photocopying",
+   "reading": "Thai Ekkasan Rabop Dichithan"
+  },
+  "ถ่ายเอกสารสี": {
+   "gloss": "colour photocopying"
+  },
+  "ทนาย": {
+   "gloss": "lawyer"
+  },
+  "ทนาย ปรึกษากฎหมาย": {
+   "gloss": "lawyer, legal advice"
+  },
+  "ทนายความบปรึกษาความ": {
+   "gloss": "lawyer, case advice",
+   "reading": "Thanaikhwam Prueksa Khwam"
+  },
+  "ทนายความอาสา": {
+   "gloss": "volunteer lawyer",
+   "reading": "Thanaikhwam Asa"
+  },
+  "ทะเบียนสมรส": {
+   "gloss": "marriage registration",
+   "reading": "Thabian Somrot"
+  },
+  "ทักซิโด้": {
+   "reading": "Thaksido"
+  },
+  "ทันตกรรมประดิษฐ์": {
+   "gloss": "prosthodontics",
+   "reading": "Thantakam Pradit"
+  },
+  "ทันตกรรมฟัน": {
+   "gloss": "dentistry",
+   "reading": "Thantakam Fan"
+  },
+  "ทันตกรรมสำหรับเด็ก": {
+   "gloss": "paediatric dentistry",
+   "reading": "Thantakam Samrap Dek"
+  },
+  "ทันตกรรมเด็ก": {
+   "gloss": "paediatric dentistry",
+   "reading": "Thantakam Dek"
+  },
+  "ทำกระจก": {
+   "gloss": "glazing"
+  },
+  "ทำงานเหล็ก": {
+   "gloss": "steelwork"
+  },
+  "ทำตรายาง": {
+   "gloss": "rubber stamp making",
+   "reading": "Tham Tra Yang"
+  },
+  "ทำบัญชี": {
+   "gloss": "bookkeeping"
+  },
+  "ทำบานเกล็ด": {
+   "gloss": "louvre making",
+   "reading": "Tham Ban Klet"
+  },
+  "ทำบุญบริจาคโลงศพ": {
+   "gloss": "coffin donation merit",
+   "reading": "Thambun Boricha Longsop"
+  },
+  "ทำบุญโลงศพ": {
+   "gloss": "coffin donation merit"
+  },
+  "ทำประตู": {
+   "gloss": "door making"
+  },
+  "ทำปันปลอม": {
+   "gloss": "dentures",
+   "reading": "Tham Fan Plom"
+  },
+  "ทำป้าย": {
+   "gloss": "signmaking"
+  },
+  "ทำฟัน": {
+   "gloss": "dental work"
+  },
+  "ทำฟันปลอม": {
+   "gloss": "denture making",
+   "reading": "Tham Fan Plom"
+  },
+  "ทำฟันเด็ก": {
+   "gloss": "children's dentistry"
+  },
+  "ทำฟันเด็กพิเศษ": {
+   "gloss": "special-needs children's dentistry"
+  },
+  "ทำภาษี": {
+   "gloss": "tax filing"
+  },
+  "ทำมุ้งลวด": {
+   "gloss": "insect screen making",
+   "reading": "Tham Mung Luat"
+  },
+  "ทำรางน้ำ": {
+   "gloss": "guttering work"
+  },
+  "ทำสปาแมว": {
+   "gloss": "cat spa",
+   "reading": "Tham Sapa Maeo"
+  },
+  "ทำสัญญา": {
+   "gloss": "contract drafting"
+  },
+  "ทำสีมอเตอร์ไซค์": {
+   "gloss": "motorcycle respray",
+   "reading": "Tham Si Motoesai"
+  },
+  "ทำหนังสือ": {
+   "gloss": "book production"
+  },
+  "ทำหน้าต่าง": {
+   "gloss": "window making",
+   "reading": "Tham Natang"
+  },
+  "ทำหมัน": {
+   "gloss": "neutering"
+  },
+  "ทำหมันสัตว์": {
+   "gloss": "animal neutering"
+  },
+  "ทำหมันแมว": {
+   "gloss": "cat neutering"
+  },
+  "ทำอลูมิเนียม": {
+   "gloss": "aluminium fabrication"
+  },
+  "ทำเบาะ": {
+   "gloss": "upholstery"
+  },
+  "ทำเบาะมอเตอร์ไซค์": {
+   "gloss": "motorcycle seat making",
+   "reading": "Tham Bo Motoesai"
+  },
+  "ทำเบาะรถยนต์": {
+   "gloss": "car upholstery",
+   "reading": "Tham Bo Rotyon"
+  },
+  "ทำแก้วน้ำใส": {
+   "gloss": "clear drink cup printing",
+   "reading": "Tham Kaeo Nam Sai"
+  },
+  "ทำโซฟา": {
+   "gloss": "sofa making",
+   "reading": "Tham Sofa"
+  },
+  "ทำใบขับขี่สากล": {
+   "gloss": "international driving permits",
+   "reading": "Tham Bai Khapkhi Sakon"
+  },
+  "ทีเชิ๊ตพริ้นเตอร์": {
+   "gloss": "T-shirt printer",
+   "reading": "Ti Choet Printoe"
+  },
+  "ธงญี่ปุ่น": {
+   "gloss": "Japanese-style flag banners"
+  },
+  "ธนากุลไข่สด": {
+   "gloss": "Thanakun fresh eggs",
+   "reading": "Thanakun Khai Sot"
+  },
+  "ธนาณัติ": {
+   "gloss": "postal money orders",
+   "reading": "Thananat"
+  },
+  "นกเลี้ยง": {
+   "gloss": "pet birds"
+  },
+  "นอนกรนผู้ใหญ่": {
+   "gloss": "adult snoring treatment",
+   "reading": "Non Kron Phuyai"
+  },
+  "นั่งร้านอุปกรณ์": {
+   "gloss": "scaffolding equipment",
+   "reading": "Nangran Upakon"
+  },
+  "นามบัตร": {
+   "gloss": "business cards"
+  },
+  "นามบัตร์": {
+   "gloss": "business cards"
+  },
+  "นิตยสาร": {
+   "gloss": "magazines",
+   "reading": "Nittayasan"
+  },
+  "นิติกรรม": {
+   "gloss": "legal instruments",
+   "reading": "Nitikam"
+  },
+  "นิเกิล": {
+   "gloss": "nickel plating",
+   "reading": "Nikoen"
+  },
+  "นิ้วล๊อค": {
+   "gloss": "trigger finger treatment",
+   "reading": "Nio Lok"
+  },
+  "น้ำดื่มหยอดเหรียญ": {
+   "gloss": "coin-op drinking water"
+  },
+  "น้ำดื่มอัลคาไลน์": {
+   "gloss": "alkaline drinking water",
+   "reading": "Nam Duem Alkhalai"
+  },
+  "น้ำดื่มเติมฟรี": {
+   "gloss": "free water refill"
+  },
+  "น้ำมันเครื่องมอเตอร์ไซค์": {
+   "gloss": "motorcycle engine oil",
+   "reading": "Namman Khrueang Motoesai"
+  },
+  "น้ำหยอดเหรียญ": {
+   "gloss": "coin-op water"
+  },
+  "น้ำแร่พลังแม่เหล็ก": {
+   "gloss": "magnetised mineral water",
+   "reading": "Nam Rae Phlang Maelek"
+  },
+  "บรรจุภัณฑ์": {
+   "gloss": "packaging",
+   "reading": "Banchuphan"
+  },
+  "บรรจุภัณท์": {
+   "gloss": "packaging",
+   "reading": "Banchuphan"
+  },
+  "บริการresortสำหรับผู้สูงอายุ": {
+   "gloss": "resort-style elderly care",
+   "reading": "Borikan resort Samrap Phu Sung Ayu"
+  },
+  "บริการงานช่าง": {
+   "gloss": "tradesman services"
+  },
+  "บริการงานช่างอลูมิเนียม": {
+   "gloss": "aluminium fabrication service"
+  },
+  "บริการซักผ้า": {
+   "gloss": "laundry service"
+  },
+  "บริการซักรีด": {
+   "gloss": "laundry and pressing service"
+  },
+  "บริการซักอบรีด": {
+   "gloss": "wash, dry and press service"
+  },
+  "บริการซ่อมคอมนอกสถานที่": {
+   "gloss": "on-site computer repair",
+   "reading": "Borikan Som Khom Nok Sathanthi"
+  },
+  "บริการดูแลผู้สูงอายุ": {
+   "gloss": "elderly care service",
+   "reading": "Borikan Dulae Phu Sung Ayu"
+  },
+  "บริการด้านกฏหมาย": {
+   "gloss": "legal services",
+   "reading": "Borikan Dan Kotmai"
+  },
+  "บริการด้านการประเมินสุขภาพจิต": {
+   "gloss": "mental health assessment"
+  },
+  "บริการทางด้านบัญชี": {
+   "gloss": "accounting services"
+  },
+  "บริการทำวีซ่า": {
+   "gloss": "visa service",
+   "reading": "Borikan Tham Wisa"
+  },
+  "บริการน้ำแร่ฟรี": {
+   "gloss": "free mineral water"
+  },
+  "บริการบัญชี": {
+   "gloss": "accounting service"
+  },
+  "บริการฟอกเลือดด้วยเครื่องไตเทียม": {
+   "gloss": "haemodialysis service"
+  },
+  "บริการรถพยาบาล24ชั่วโมง": {
+   "gloss": "24-hour ambulance service",
+   "reading": "Borikan Rot Phayaban 24 Chuamong"
+  },
+  "บริการรถเช่า": {
+   "gloss": "car hire service",
+   "reading": "Borikan Rot Chao"
+  },
+  "บริการรักษาสัตว์เลี้ยงพิเศษ": {
+   "gloss": "exotic pet treatment"
+  },
+  "บริการรับดูแลผู้สูงอายุ": {
+   "gloss": "elderly care taken",
+   "reading": "Borikan Rap Dulae Phu Sung Ayu"
+  },
+  "บริการวีซ่า": {
+   "gloss": "visa service",
+   "reading": "Borikan Wisa"
+  },
+  "บริการสื่อโฆษณาประชาสัมพันธ์": {
+   "gloss": "advertising and PR media",
+   "reading": "Borikan Sue Khotsana Prachasamphan"
+  },
+  "บริการส่งแก๊ส": {
+   "gloss": "gas delivery service"
+  },
+  "บริการอัดภาพ": {
+   "gloss": "photo printing service"
+  },
+  "บริการอาบน้ำ": {
+   "gloss": "bathing service",
+   "reading": "Borikan Ap Nam"
+  },
+  "บริการอาบน้ำตัดขน": {
+   "gloss": "bath and groom service",
+   "reading": "Borikan Ap Nam Tat Khon"
+  },
+  "บริการเช่าชุดราตรี": {
+   "gloss": "evening gown hire"
+  },
+  "บริการแก๊ส": {
+   "gloss": "gas service",
+   "reading": "Borikan Kaet"
+  },
+  "บริการแก๊สหุงต้ม": {
+   "gloss": "cooking gas service",
+   "reading": "Borikan Kaet Hung Tom"
+  },
+  "บริการแอร์": {
+   "gloss": "air-con service",
+   "reading": "Borikan Ae"
+  },
+  "บริการแอร์บ้าน": {
+   "gloss": "household air-con service",
+   "reading": "Borikan Ae Ban"
+  },
+  "บริการให้เช่ามอเตอร์ไซค์": {
+   "gloss": "motorcycle hire service",
+   "reading": "Borikan Hai Chao Motoesai"
+  },
+  "บริจาคเงิน": {
+   "gloss": "money donation",
+   "reading": "Boricha Ngoen"
+  },
+  "บริจาคโลงศพ": {
+   "gloss": "coffin donation",
+   "reading": "Boricha Longsop"
+  },
+  "บริษัททำบัญชี": {
+   "gloss": "accounting firm",
+   "reading": "Borisat Tham Banchi"
+  },
+  "บล๊อค": {
+   "gloss": "printing blocks",
+   "reading": "Blok"
+  },
+  "บล๊อคสกีน": {
+   "gloss": "screen printing blocks",
+   "reading": "Blok Sakrin"
+  },
+  "บัญชีอากร": {
+   "gloss": "tax accounting",
+   "reading": "Banchi Akon"
+  },
+  "บัตร": {
+   "gloss": "cards"
+  },
+  "บัตเลี่ยน": {
+   "gloss": "hair clippers",
+   "reading": "Battalian"
+  },
+  "บันทึกภาพลงซีดี": {
+   "gloss": "photos burned to CD",
+   "reading": "Banthuek Phap Long Si Di"
+  },
+  "บาดเจ็บกล้ามเนื้อ": {
+   "gloss": "muscle injury",
+   "reading": "Bat Chep Klam Nuea"
+  },
+  "บาดเจ็บทางกีฬา": {
+   "gloss": "sports injury",
+   "reading": "Bat Chep Thang Kila"
+  },
+  "บาตร": {
+   "gloss": "alms bowls",
+   "reading": "Bat"
+  },
+  "บานพับ": {
+   "gloss": "hinges",
+   "reading": "Ban Phap"
+  },
+  "บานสวิง": {
+   "gloss": "swing doors",
+   "reading": "Ban Sawing"
+  },
+  "บานเลือน": {
+   "gloss": "sliding panels",
+   "reading": "Ban Luean"
+  },
+  "บานเลื่อน": {
+   "gloss": "sliding doors"
+  },
+  "บานแขวน": {
+   "gloss": "hanging panels"
+  },
+  "บาร์โค๊ด": {
+   "gloss": "barcodes",
+   "reading": "Bakhot"
+  },
+  "บำบัดสุขภาพจิต": {
+   "gloss": "mental health therapy"
+  },
+  "บำรุงเครื่องยนต์": {
+   "gloss": "engine servicing"
+  },
+  "บิลบอร์ด": {
+   "gloss": "billboards",
+   "reading": "Binbot"
+  },
+  "บิ๊กไบค์": {
+   "gloss": "big bikes",
+   "reading": "Bikbai"
+  },
+  "บิ๊กไบค์เช่า": {
+   "gloss": "big bike hire",
+   "reading": "Bikbai Chao"
+  },
+  "บ้านพักผู้สูงอายุ": {
+   "gloss": "elderly residence",
+   "reading": "Ban Phak Phu Sung Ayu"
+  },
+  "ปกวิทยานิพนธ์": {
+   "gloss": "thesis covers",
+   "reading": "Pok Witthayaniphon"
+  },
+  "ปฎิทิน": {
+   "gloss": "calendars",
+   "reading": "Patithin"
+  },
+  "ประกอบจักรยาน": {
+   "gloss": "bicycle assembly",
+   "reading": "Prakop Chakkrayan"
+  },
+  "ประชาสัมพันธ์ครบวงจรทุกชนิด": {
+   "gloss": "full-service PR",
+   "reading": "Prachasamphan Khrop Wongchon Thuk Chanit"
+  },
+  "ประตูม้วน": {
+   "gloss": "roller shutters"
+  },
+  "ประตูรีโมท": {
+   "gloss": "remote-control gates",
+   "reading": "Pratu Rimot"
+  },
+  "ประตูรีโมทบานสวิง": {
+   "gloss": "remote swing gates",
+   "reading": "Pratu Rimot Ban Sawing"
+  },
+  "ประตูรีโมทบานเลื่อน": {
+   "gloss": "remote sliding gates",
+   "reading": "Pratu Rimot Ban Luean"
+  },
+  "ประตูหน้าต่าง": {
+   "gloss": "doors and windows",
+   "reading": "Pratu Natang"
+  },
+  "ประตูอัลอย": {
+   "gloss": "alloy gates",
+   "reading": "Pratu Anloi"
+  },
+  "ประทับตรารับรอง": {
+   "gloss": "certification stamping"
+  },
+  "ประยางมอเตอร์ไซค์": {
+   "gloss": "motorcycle tyre patching",
+   "reading": "Pa Yang Motoesai"
+  },
+  "ปรับรูปหน้า": {
+   "gloss": "facial contouring"
+  },
+  "ปรับสมดุลกล้ามเนื้อ": {
+   "gloss": "muscle balancing",
+   "reading": "Prap Somdun Klam Nuea"
+  },
+  "ปรับแต่งรถ": {
+   "gloss": "vehicle tuning"
+  },
+  "ปรับโครงหน้า": {
+   "gloss": "facial structure adjustment",
+   "reading": "Prap Khrong Na"
+  },
+  "ปริญญานิพนธ์": {
+   "gloss": "degree theses",
+   "reading": "Parinyaniphon"
+  },
+  "ปรินส์": {
+   "gloss": "printing",
+   "reading": "Prin"
+  },
+  "ปรินเตอร์": {
+   "gloss": "printers",
+   "reading": "Printoe"
+  },
+  "ปริ้น": {
+   "gloss": "printing",
+   "reading": "Prin"
+  },
+  "ปริ้นงานขาวดำ": {
+   "gloss": "black and white printing",
+   "reading": "Prin Ngan Khao Dam"
+  },
+  "ปริ้นงานสี": {
+   "gloss": "colour printing",
+   "reading": "Prin Ngan Si"
+  },
+  "ปริ้นภาพ": {
+   "gloss": "image printing",
+   "reading": "Prin Phap"
+  },
+  "ปริ้นภาพขนาดใหญ่": {
+   "gloss": "large format printing",
+   "reading": "Prin Phap Khanat Yai"
+  },
+  "ปริ้นรูปภาพ": {
+   "gloss": "photo printing",
+   "reading": "Prin Rup Phap"
+  },
+  "ปริ้นสี": {
+   "gloss": "colour printing",
+   "reading": "Prin Si"
+  },
+  "ปริ้นเตอร์": {
+   "gloss": "printers",
+   "reading": "Printoe"
+  },
+  "ปริ้นเลเชอร์": {
+   "gloss": "laser printing",
+   "reading": "Prin Lesoe"
+  },
+  "ปริ้นเอกสาร": {
+   "gloss": "document printing",
+   "reading": "Prin Ekkasan"
+  },
+  "ปริ้นโฟโต้": {
+   "gloss": "photo printing",
+   "reading": "Prin Foto"
+  },
+  "ปรึกษากฎหมายฟรี": {
+   "gloss": "free legal advice",
+   "reading": "Prueksa Kotmai Fri"
+  },
+  "ปรึกษาการเงิน": {
+   "gloss": "financial advice"
+  },
+  "ปรึกษาคดี": {
+   "gloss": "legal case consultation"
+  },
+  "ปรึกษาทนาย": {
+   "gloss": "lawyer consultation"
+  },
+  "ปรึกษาบัญชี": {
+   "gloss": "accounting advice"
+  },
+  "ปรึกษาวีซ่า": {
+   "gloss": "visa consultancy"
+  },
+  "ปลอกกลึง": {
+   "gloss": "turned bushings",
+   "reading": "Plok Klueng"
+  },
+  "ปล่องควัน": {
+   "gloss": "chimneys and flues",
+   "reading": "Plong Khwan"
+  },
+  "ปล่องดูดควัน": {
+   "gloss": "extractor hoods, flues"
+  },
+  "ปวดกระดูก": {
+   "gloss": "bone pain"
+  },
+  "ปวดกล้ามเนื้อ": {
+   "gloss": "muscle pain",
+   "reading": "Puat Klam Nuea"
+  },
+  "ปวดกล้ามเนื้อเฉียบพลัน": {
+   "gloss": "acute muscle pain",
+   "reading": "Puat Klam Nuea Chiapphlan"
+  },
+  "ปวดข้อ": {
+   "gloss": "joint pain"
+  },
+  "ปวดคอ": {
+   "gloss": "neck pain"
+  },
+  "ปวดคอบ่าเรื้อรัง": {
+   "gloss": "chronic neck and shoulder pain"
+  },
+  "ปวดหลัง": {
+   "gloss": "back pain"
+  },
+  "ปวดเข่า": {
+   "gloss": "knee pain"
+  },
+  "ปวดไหล่": {
+   "gloss": "shoulder pain"
+  },
+  "ปอกหมอน": {
+   "gloss": "pillowcases",
+   "reading": "Plok Mon"
+  },
+  "ปะกางเกง": {
+   "gloss": "trouser patching",
+   "reading": "Pa Kangkeng"
+  },
+  "ปะชุนผ้า": {
+   "gloss": "darning and patching",
+   "reading": "Pa Chun Pha"
+  },
+  "ปะยาง24": {
+   "gloss": "24-hour tyre patching",
+   "reading": "Pa Yang 24"
+  },
+  "ปะยางจักรยาน": {
+   "gloss": "bicycle tyre patching",
+   "reading": "Pa Yang Chakkrayan"
+  },
+  "ปะยางซ่อมมอเตอร์ไซค์": {
+   "gloss": "tyre patching and motorcycle repair",
+   "reading": "Pa Yang Som Motoesai"
+  },
+  "ปะยางนอกสถานที่": {
+   "gloss": "mobile tyre patching",
+   "reading": "Pa Yang Nok Sathanthi"
+  },
+  "ปะยางมอเตอร์ไซค์": {
+   "gloss": "motorcycle tyre patching",
+   "reading": "Pa Yang Motoesai"
+  },
+  "ปะยางมอเตอร์ไซต์": {
+   "gloss": "motorcycle tyre patching",
+   "reading": "Pa Yang Motoesai"
+  },
+  "ปะยางรถมอเตอร์ไซค์": {
+   "gloss": "motorcycle tyre patching",
+   "reading": "Pa Yang Rot Motoesai"
+  },
+  "ปะยางรถยนต์": {
+   "gloss": "car tyre patching",
+   "reading": "Pa Yang Rotyon"
+  },
+  "ปะเสื้อผ้า": {
+   "gloss": "clothes patching",
+   "reading": "Pa Sueapha"
+  },
+  "ปักชื่อ": {
+   "gloss": "name embroidery"
+  },
+  "ปักผ้า": {
+   "gloss": "embroidery"
+  },
+  "ปักรากเทียม": {
+   "gloss": "dental implant placement",
+   "reading": "Pak Rak Thiam"
+  },
+  "ปักหมวก": {
+   "gloss": "cap embroidery"
+  },
+  "ปักอาร์ม": {
+   "gloss": "badge embroidery",
+   "reading": "Pak Am"
+  },
+  "ปักเสื้อ": {
+   "gloss": "shirt embroidery"
+  },
+  "ปั้มเค": {
+   "gloss": "PT (PTT) station",
+   "reading": "Pam Khe"
+  },
+  "ปั้มไดคัท": {
+   "gloss": "die-cut stamping",
+   "reading": "Pam Dai Khat"
+  },
+  "ปั๊มกุญแจ": {
+   "gloss": "key cutting",
+   "reading": "Pam Kunchae"
+  },
+  "ปั๊มกุญแจม": {
+   "gloss": "key cutting",
+   "reading": "Pam Kunchae"
+  },
+  "ปั๊มทอง": {
+   "gloss": "gold foil stamping",
+   "reading": "Pam Thong"
+  },
+  "ปั๊มบล็อค": {
+   "gloss": "block stamping",
+   "reading": "Pam Blok"
+  },
+  "ปั๊มหลอด": {
+   "gloss": "tube stamping",
+   "reading": "Pam Lot"
+  },
+  "ปั๊มแก๊ส": {
+   "gloss": "gas station",
+   "reading": "Pam Kaet"
+  },
+  "ปาดเบาะ": {
+   "gloss": "seat foam shaving",
+   "reading": "Pat Bo"
+  },
+  "ปิดงบ": {
+   "gloss": "closing the accounts",
+   "reading": "Pit Ngop"
+  },
+  "ปูพรม": {
+   "gloss": "carpet laying"
+  },
+  "ป้ายฉลากสินค้า": {
+   "gloss": "product label signs"
+  },
+  "ป้ายฉลุ": {
+   "gloss": "cut-out signs",
+   "reading": "Pai Chalu"
+  },
+  "ป้ายทองเหลือง": {
+   "gloss": "brass plaques"
+  },
+  "ป้ายทองเหลือน": {
+   "gloss": "brass plaques",
+   "reading": "Pai Thong Lueang"
+  },
+  "ป้ายบิลบอร์ด": {
+   "gloss": "billboards",
+   "reading": "Pai Binbot"
+  },
+  "ป้ายผ้า": {
+   "gloss": "cloth banners"
+  },
+  "ป้ายสติ๊กเกอร์ซีทรู": {
+   "gloss": "see-through sticker signs",
+   "reading": "Pai Satikkoe Sithru"
+  },
+  "ป้ายหาเสียง": {
+   "gloss": "campaign signs"
+  },
+  "ป้ายอิงค์เจ็ท": {
+   "gloss": "inkjet signs",
+   "reading": "Pai Inkchet"
+  },
+  "ป้ายแบนเนอร์": {
+   "gloss": "banners",
+   "reading": "Pai Baennoe"
+  },
+  "ป้ายโครงการ": {
+   "gloss": "project signs"
+  },
+  "ป้ายโฆษณา": {
+   "gloss": "advertising signs",
+   "reading": "Pai Khotsana"
+  },
+  "ป้ายโลหะ": {
+   "gloss": "metal signs"
+  },
+  "ป้ายไฟ": {
+   "gloss": "illuminated signs"
+  },
+  "ป้ายไฟระบบโซล่าเซลล์": {
+   "gloss": "solar-powered illuminated signs",
+   "reading": "Pai Fai Rabop Solasen"
+  },
+  "ป้ายไวนิล": {
+   "gloss": "vinyl signs",
+   "reading": "Pai Wainin"
+  },
+  "ผลิตกล่อง": {
+   "gloss": "box manufacture",
+   "reading": "Phlit Klong"
+  },
+  "ผลิตป้ายบริษัท": {
+   "gloss": "company sign manufacture",
+   "reading": "Phlit Pai Borisat"
+  },
+  "ผลิตสื่อสิ่งพิมพ์ด้วย": {
+   "gloss": "print media production",
+   "reading": "Phlit Sue Singphim"
+  },
+  "ผลิตสื่อสิ่งพิมพ์สื่อโฆษณา": {
+   "gloss": "print and advertising media production",
+   "reading": "Phlit Sue Singphim Sue Khotsana"
+  },
+  "ผู้ป่วยพักฟื้น": {
+   "gloss": "convalescent patients"
+  },
+  "ผู้ป่วยระยะพักพื้น": {
+   "gloss": "convalescent patients",
+   "reading": "Phupuai Raya Phak Fuen"
+  },
+  "ผู้ป่วยระยะพักฟื้น": {
+   "gloss": "convalescent patients"
+  },
+  "ผู้ป่วยให้อ๊อกซิเจน": {
+   "gloss": "patients on oxygen",
+   "reading": "Phupuai Hai Oksichen"
+  },
+  "ผ่ากระดูกและเนื้อเยื่ออ่อนสัตว์": {
+   "gloss": "animal bone and soft-tissue surgery",
+   "reading": "Pha Kraduk Lae Nuea Yuea On Sat"
+  },
+  "ผ่าคลอดสัตว์": {
+   "gloss": "animal caesarean"
+  },
+  "ผ่าคลอดสัตว์ฉุกเฉิน": {
+   "gloss": "emergency animal caesarean",
+   "reading": "Pha Khlot Sat Chukchoen"
+  },
+  "ผ่าตัดฉุกเฉิน": {
+   "gloss": "emergency surgery",
+   "reading": "Phatat Chukchoen"
+  },
+  "ผ่าตัดทำหมัน": {
+   "gloss": "sterilisation surgery"
+  },
+  "ผ่าตัดศัลยกรรม": {
+   "gloss": "surgical operations",
+   "reading": "Phatat Sanlayakam"
+  },
+  "ผ่าตัดสัตว์": {
+   "gloss": "animal surgery"
+  },
+  "ผ่าฟันคุด": {
+   "gloss": "wisdom-tooth surgery"
+  },
+  "ผ้าขาวม้าปะ": {
+   "gloss": "pha khao ma cloth patching",
+   "reading": "Pha Khao Ma Pa"
+  },
+  "ผ้าจีวร": {
+   "gloss": "robe cloth",
+   "reading": "Pha Chiwon"
+  },
+  "ผ้าปู": {
+   "gloss": "bed linen"
+  },
+  "ผ้ายันต์": {
+   "gloss": "yantra cloth",
+   "reading": "Pha Yan"
+  },
+  "ผ้าโรงแรม": {
+   "gloss": "hotel linen",
+   "reading": "Pha Rongraem"
+  },
+  "ผ้าใบเบาะ": {
+   "gloss": "seat canvas",
+   "reading": "Pha Bai Bo"
+  },
+  "ผ้าไตร": {
+   "gloss": "the triple robe",
+   "reading": "Pha Trai"
+  },
+  "ฝนเข็ม": {
+   "gloss": "needle sharpening"
+  },
+  "ฝากขาย": {
+   "gloss": "consignment sales"
+  },
+  "ฝากคลอดสัตว์": {
+   "gloss": "animal birthing care"
+  },
+  "ฝากรถยนต์": {
+   "gloss": "car storage",
+   "reading": "Fak Rotyon"
+  },
+  "ฝากเลี้ยง": {
+   "gloss": "boarding, animal minding"
+  },
+  "ฝากเลี้ยงสุนัข": {
+   "gloss": "dog boarding"
+  },
+  "ฝากเลี้ยงแมว": {
+   "gloss": "cat boarding"
+  },
+  "พรบ.": {
+   "gloss": "compulsory motor insurance",
+   "reading": "Pho Ro Bo"
+  },
+  "พระพุทธรูป": {
+   "gloss": "Buddha images"
+  },
+  "พรีเซนต์": {
+   "gloss": "presentation printing",
+   "reading": "Prisen"
+  },
+  "พรีเวดดิ้ง": {
+   "gloss": "pre-wedding photography",
+   "reading": "Priwetding"
+  },
+  "พลาสม่า": {
+   "gloss": "plasma cutting",
+   "reading": "Phlatsama"
+  },
+  "พลาสวูด": {
+   "gloss": "PVC foam board (Plaswood)",
+   "reading": "Phlatwut"
+  },
+  "พล๊อตแบบ": {
+   "gloss": "plan plotting",
+   "reading": "Plot Baep"
+  },
+  "พับเหล็ก": {
+   "gloss": "steel folding"
+  },
+  "พิมพ์งาน": {
+   "gloss": "typing and print jobs"
+  },
+  "พิมพ์จดหมาย": {
+   "gloss": "letter printing",
+   "reading": "Phim Chotmai"
+  },
+  "พิมพ์บิล": {
+   "gloss": "bill and receipt printing",
+   "reading": "Phim Bin"
+  },
+  "พิมพ์รูปบนเสื้อยืด": {
+   "gloss": "photo printing on T-shirts",
+   "reading": "Phim Rup Bon Suea Yuet"
+  },
+  "พิมพ์สติ๊กเกอร์": {
+   "gloss": "sticker printing",
+   "reading": "Phim Satikkoe"
+  },
+  "พิมพ์หนังสือ": {
+   "gloss": "book printing"
+  },
+  "พิมพ์ออฟเซท": {
+   "gloss": "offset printing",
+   "reading": "Phim Offset"
+  },
+  "พิมพ์เสื้อผ้า": {
+   "gloss": "garment printing"
+  },
+  "พิมพ์แบรนด์": {
+   "gloss": "brand printing",
+   "reading": "Phim Braen"
+  },
+  "พิมพ์โบรชัวร์": {
+   "gloss": "brochure printing",
+   "reading": "Phim Brochua"
+  },
+  "พีทีทีแอลพีจีสมาร์ทชอป": {
+   "gloss": "PTT LPG Smart Shop",
+   "reading": "Phi Thi Thi Aen Phi Chi Samat Chop"
+  },
+  "ฟอกสี": {
+   "gloss": "bleaching"
+  },
+  "ฟอกสีฟัน": {
+   "gloss": "teeth whitening"
+  },
+  "ฟันปลอม": {
+   "gloss": "dentures"
+  },
+  "ฟันเทียม": {
+   "gloss": "false teeth"
+  },
+  "ฟาร์มปอมเมอเรเนียน": {
+   "gloss": "Pomeranian breeder",
+   "reading": "Fam Pommoerenian"
+  },
+  "ฟิลม์": {
+   "gloss": "film",
+   "reading": "Film"
+  },
+  "ฟิวเจอร์บอร์ด": {
+   "gloss": "corrugated plastic board",
+   "reading": "Fiwchoe Bot"
+  },
+  "ฟื้นฟูสุขภาพปาก": {
+   "gloss": "oral health restoration"
+  },
+  "ฟื้นฟูหลังผ่าตัด": {
+   "gloss": "post-surgical rehabilitation"
+  },
+  "ภาพสี": {
+   "gloss": "colour prints"
+  },
+  "ภาษีอากร": {
+   "gloss": "taxes and duties",
+   "reading": "Phasi Akon"
+  },
+  "ภาษีเงินได้บุคคลธรรมดา": {
+   "gloss": "personal income tax",
+   "reading": "Phasi Ngoen Dai Bukkhon Thammada"
+  },
+  "มอเตอร์ประตูรีโมท": {
+   "gloss": "remote gate motors",
+   "reading": "Motoe Pratu Rimot"
+  },
+  "มอเตอร์ปั๊มน้ำ": {
+   "gloss": "water pump motors",
+   "reading": "Motoe Pam Nam"
+  },
+  "มอเตอร์พัดลม": {
+   "gloss": "fan motors",
+   "reading": "Motoe Phatlom"
+  },
+  "มอเตอร์ไซคเช่า": {
+   "gloss": "motorcycle hire",
+   "reading": "Motoesai Chao"
+  },
+  "มอเตอร์ไซค์มือสอง": {
+   "gloss": "second-hand motorcycles",
+   "reading": "Motoesai Mue Song"
+  },
+  "มอเตอร์ไซค์มือหนึ่ง": {
+   "gloss": "brand-new motorcycles",
+   "reading": "Motoesai Mue Nueng"
+  },
+  "มอเตอร์ไซค์เช่า": {
+   "gloss": "motorcycle hire",
+   "reading": "Motoesai Chao"
+  },
+  "มอเตอร์ไซค์ให้เช่า": {
+   "gloss": "motorcycle hire",
+   "reading": "Motoesai Hai Chao"
+  },
+  "มอเตอร์ไซค์ไฟฟ้า": {
+   "gloss": "electric motorcycles",
+   "reading": "Motoesai Faifa"
+  },
+  "มอเตอร์ไซต์เช่า": {
+   "gloss": "motorcycle hire",
+   "reading": "Motoesai Chao"
+  },
+  "มือถือ": {
+   "gloss": "mobile phones"
+  },
+  "มุ้งลวด": {
+   "gloss": "insect screens",
+   "reading": "Mung Luat"
+  },
+  "มุ้งลวดอลูมิเนียม": {
+   "gloss": "aluminium insect screens",
+   "reading": "Mung Luat Aluminiam"
+  },
+  "ยานเปลือย": {
+   "gloss": "naked bikes",
+   "reading": "Yan Plueai"
+  },
+  "ยามาฮ่า": {
+   "gloss": "Yamaha",
+   "reading": "Yamaha"
+  },
+  "ยาสัตว์": {
+   "gloss": "veterinary medicine"
+  },
+  "ยาสัตว์เลี้ยง": {
+   "gloss": "pet medicines"
+  },
+  "ยื่นประกันสังคม": {
+   "gloss": "social security filing"
+  },
+  "ยื่นภาษี": {
+   "gloss": "tax filing"
+  },
+  "ยูดับบลิวซี": {
+   "gloss": "UWC",
+   "reading": "Yu Dapbliu Si"
+  },
+  "ยูนิคแก๊ส": {
+   "gloss": "Unique Gas (brand)",
+   "reading": "Yunik Kaet"
+  },
+  "ย้อมกางเกงยีนส์": {
+   "gloss": "jeans dyeing",
+   "reading": "Yom Kangkeng Yin"
+  },
+  "ย้อมผ้า": {
+   "gloss": "fabric dyeing"
+  },
+  "ย้อมผ้าสี": {
+   "gloss": "fabric dyeing"
+  },
+  "ย้อมยีนส์": {
+   "reading": "Yom Yin"
+  },
+  "ย้อมสีผ้า": {
+   "gloss": "fabric dyeing"
+  },
+  "ย้ายแอร์": {
+   "gloss": "air-con relocation",
+   "reading": "Yai Ae"
+  },
+  "ย้ายแอร์บ้าน": {
+   "gloss": "household air-con relocation",
+   "reading": "Yai Ae Ban"
+  },
+  "รถจักรยนต์เช่า": {
+   "gloss": "motorcycle hire",
+   "reading": "Rot Chakkrayanyon Chao"
+  },
+  "รถจักรยานญี่ปุ่น": {
+   "gloss": "Japanese bicycles",
+   "reading": "Rot Chakkrayan Yipun"
+  },
+  "รถจักรยานยนต์มือ1": {
+   "gloss": "brand-new motorcycles",
+   "reading": "Rot Chakkrayanyon Mue Nueng"
+  },
+  "รถจักรยานเด็ก": {
+   "gloss": "children's bicycles",
+   "reading": "Rot Chakkrayan Dek"
+  },
+  "รถจักรยานไฟฟ้า": {
+   "gloss": "electric bicycles",
+   "reading": "Rot Chakkrayan Faifa"
+  },
+  "รถบิ๊กไบค์": {
+   "gloss": "big bikes",
+   "reading": "Rot Bikbai"
+  },
+  "รถผู้สูงอายุ": {
+   "gloss": "mobility vehicles for the elderly",
+   "reading": "Rot Phu Sung Ayu"
+  },
+  "รถมอเตอร์ไซค์ช่า": {
+   "gloss": "motorcycle hire",
+   "reading": "Rot Motoesai Chao"
+  },
+  "รถมอเตอร์ไซค์มือสอง": {
+   "gloss": "second-hand motorcycles",
+   "reading": "Rot Motoesai Mue Song"
+  },
+  "รถมอเตอร์ไซค์มือหนึ่ง": {
+   "gloss": "brand-new motorcycles",
+   "reading": "Rot Motoesai Mue Nueng"
+  },
+  "รถมอเตอร์ไซค์ฮอนด้า": {
+   "gloss": "Honda motorcycles",
+   "reading": "Rot Motoesai Honda"
+  },
+  "รถมอเตอร์ไซค์เช่า": {
+   "gloss": "motorcycle hire",
+   "reading": "Rot Motoesai Chao"
+  },
+  "รถมอเตอร์ไซค์ใหม่": {
+   "gloss": "new motorcycles",
+   "reading": "Rot Motoesai Mai"
+  },
+  "รถมอเตอร์ไซค์ให้เช่า": {
+   "gloss": "motorcycle hire",
+   "reading": "Rot Motoesai Hai Chao"
+  },
+  "รถมอเตอร์ไซค์ไฟฟ้า": {
+   "gloss": "electric motorcycles",
+   "reading": "Rot Motoesai Faifa"
+  },
+  "รถมอเตอร์ไซค์ไฟฟ้าจักรยานไฟฟ้า": {
+   "gloss": "electric motorcycles and e-bikes",
+   "reading": "Rot Motoesai Faifa Chakkrayan Faifa"
+  },
+  "รถมอเตอร์ไซต์เช่า": {
+   "gloss": "motorcycle hire",
+   "reading": "Rot Motoesai Chao"
+  },
+  "รถยนต์เช่า": {
+   "gloss": "car hire",
+   "reading": "Rotyon Chao"
+  },
+  "รถยนต์ให้เช่า": {
+   "gloss": "car hire",
+   "reading": "Rotyon Hai Chao"
+  },
+  "รถสกูตเตอร์เช่า": {
+   "gloss": "scooter hire",
+   "reading": "Rot Sakuttoe Chao"
+  },
+  "รถอีวี": {
+   "gloss": "EVs",
+   "reading": "Rot I Wi"
+  },
+  "รถเข็นอลูมิเนียม": {
+   "gloss": "aluminium carts",
+   "reading": "Rot Khen Aluminiam"
+  },
+  "รถเช่าขับเที่ยวเอง": {
+   "gloss": "self-drive car hire",
+   "reading": "Rot Chao Khap Thiao Eng"
+  },
+  "รถเช่าพร้อมคนขับ": {
+   "gloss": "car hire with driver",
+   "reading": "Rot Chao Phrom Khon Khap"
+  },
+  "รถเช่าระยะยาว": {
+   "gloss": "long-term car hire",
+   "reading": "Rot Chao Raya Yao"
+  },
+  "รถให้เช่า": {
+   "gloss": "vehicle hire",
+   "reading": "Rot Hai Chao"
+  },
+  "รถไต่ดอย": {
+   "gloss": "hill-climb vehicles",
+   "reading": "Rot Tai Doi"
+  },
+  "ระบบทรานเฟอร์ซับมิชั่น": {
+   "gloss": "transfer and sublimation systems",
+   "reading": "Rabop Transafoe Sapmichan"
+  },
+  "ระบบประปา": {
+   "gloss": "plumbing systems"
+  },
+  "ระบบสีออฟเซ็ท": {
+   "gloss": "offset colour systems",
+   "reading": "Rabop Si Offset"
+  },
+  "ระบบออฟเซ็ท": {
+   "gloss": "offset systems",
+   "reading": "Rabop Offset"
+  },
+  "ระบบไฟมอเตอร์ไซค์": {
+   "gloss": "motorcycle electrics",
+   "reading": "Rabop Fai Motoesai"
+  },
+  "รักษาคลองรากฟัน": {
+   "gloss": "root canal treatment",
+   "reading": "Raksa Khlong Rak Fan"
+  },
+  "รักษาตาสุนัข": {
+   "gloss": "canine eye treatment"
+  },
+  "รักษาฟัน": {
+   "gloss": "dental treatment"
+  },
+  "รักษารากฟัน": {
+   "gloss": "root canal treatment"
+  },
+  "รักษาสนัข": {
+   "gloss": "dog treatment",
+   "reading": "Raksa Sunak"
+  },
+  "รักษาสัตว์": {
+   "gloss": "animal treatment, vet care"
+  },
+  "รักษาสัตว์ฉุกเฉิน": {
+   "gloss": "emergency animal treatment",
+   "reading": "Raksa Sat Chukchoen"
+  },
+  "รักษาสัตว์นอกสถานที่": {
+   "gloss": "mobile vet service",
+   "reading": "Raksa Sat Nok Sathanthi"
+  },
+  "รักษาสัตว์เลี้ยงพิเศษ": {
+   "gloss": "exotic pet treatment",
+   "reading": "Raksa Satliang Phiset"
+  },
+  "รักษาสุนัข": {
+   "gloss": "dog treatment"
+  },
+  "รักษาหมา": {
+   "gloss": "dog treatment"
+  },
+  "รักษาแมว": {
+   "gloss": "cat treatment"
+  },
+  "รักษาโรคกระต่าย": {
+   "gloss": "rabbit medicine",
+   "reading": "Raksa Rok Kratai"
+  },
+  "รักษาโรคฟันทั่วไป": {
+   "gloss": "general dental treatment"
+  },
+  "รักษาโรคสัตว์เลี้ยง": {
+   "gloss": "pet medicine"
+  },
+  "รักษาไต": {
+   "gloss": "kidney treatment",
+   "reading": "Raksa Tai"
+  },
+  "รังสีเทคนิค": {
+   "gloss": "radiologic technology",
+   "reading": "Rangsi Theknik"
+  },
+  "รังสีโคนบีมซีที": {
+   "gloss": "cone beam CT",
+   "reading": "Rangsi Khon Bim Si Thi"
+  },
+  "รัดหน้าท้อง": {
+   "reading": "Rat Na Thong"
+  },
+  "รับงานกลึง": {
+   "gloss": "lathe work taken",
+   "reading": "Rap Ngan Klueng"
+  },
+  "รับงานอลูมิเนียม": {
+   "gloss": "aluminium work taken"
+  },
+  "รับจดทะเบียนพาณิชย์": {
+   "gloss": "commercial registration taken",
+   "reading": "Rap Chot Thabian Phanit"
+  },
+  "รับจัดขบวนกีฬาสี": {
+   "gloss": "sports-day parade outfitting"
+  },
+  "รับจัดทำเสื้อโปโล": {
+   "gloss": "polo shirts made to order",
+   "reading": "Rap Chat Tham Suea Polo"
+  },
+  "รับฉีดยาศพ": {
+   "gloss": "embalming"
+  },
+  "รับซักผ้า": {
+   "gloss": "laundry taken in"
+  },
+  "รับซักผ้านวม": {
+   "gloss": "duvet washing taken"
+  },
+  "รับซักผ้ารายเดือน": {
+   "gloss": "monthly laundry taken"
+  },
+  "รับซื้อบิ๊กไบค์": {
+   "gloss": "big bikes bought",
+   "reading": "Rap Sue Bikbai"
+  },
+  "รับซื้อรถจักรยานยนต์": {
+   "gloss": "motorcycles bought",
+   "reading": "Rap Sue Rot Chakkrayanyon"
+  },
+  "รับซื้อสุนัข": {
+   "gloss": "dogs bought"
+  },
+  "รับซื้อแอร์เก่า": {
+   "gloss": "old air-con units bought",
+   "reading": "Rap Sue Ae Kao"
+  },
+  "รับซ่อมกระเป๋า": {
+   "gloss": "bag repairs taken",
+   "reading": "Rap Som Krapao"
+  },
+  "รับซ่อมผ้า": {
+   "gloss": "clothing repairs taken"
+  },
+  "รับซ่อมรองเท้า": {
+   "gloss": "shoe repairs taken",
+   "reading": "Rap Som Rongthao"
+  },
+  "รับซ่อมเสื้อผ้า": {
+   "gloss": "clothing repairs taken",
+   "reading": "Rap Som Sueapha"
+  },
+  "รับดูแลผู้สูงอายุ": {
+   "gloss": "elderly care taken",
+   "reading": "Rap Dulae Phu Sung Ayu"
+  },
+  "รับดูแลผู้สูงอายุปกติ": {
+   "gloss": "standard elderly care",
+   "reading": "Rap Dulae Phu Sung Ayu Pokkati"
+  },
+  "รับดูแลผู้สูงอายุพักค้างคืน": {
+   "gloss": "overnight elderly care",
+   "reading": "Rap Dulae Phu Sung Ayu Phak Khang Khuen"
+  },
+  "รับตัดกางเกง": {
+   "gloss": "trousers made to order",
+   "reading": "Rap Tat Kangkeng"
+  },
+  "รับตัดสติกเกอร์": {
+   "gloss": "cut stickers to order",
+   "reading": "Rap Tat Satikkoe"
+  },
+  "รับตัดเสื้อกระโปรง": {
+   "gloss": "blouses and skirts made to order",
+   "reading": "Rap Tat Suea Kraprong"
+  },
+  "รับติดตั้งไฟส่องสว่าง": {
+   "gloss": "lighting installation taken"
+  },
+  "รับทำกระจก": {
+   "gloss": "glazing taken",
+   "reading": "Rap Tham Krachok"
+  },
+  "รับทำงานก่อสร้าง": {
+   "gloss": "construction work taken",
+   "reading": "Rap Tham Ngan Kosang"
+  },
+  "รับทำงานทั่วไป": {
+   "gloss": "general work taken",
+   "reading": "Rap Tham Ngan Thuapai"
+  },
+  "รับทำงานเหล็ก": {
+   "gloss": "steelwork taken"
+  },
+  "รับทำงานเหล็กทุกชนิด": {
+   "gloss": "all steelwork taken",
+   "reading": "Rap Tham Ngan Lek Thuk Chanit"
+  },
+  "รับทำประตูหน้าต่าง": {
+   "gloss": "doors and windows made",
+   "reading": "Rap Tham Pratu Natang"
+  },
+  "รับทำป้ายอิงค์เจ็ท": {
+   "gloss": "inkjet signs made",
+   "reading": "Rap Tham Pai Inkchet"
+  },
+  "รับทำภาษี": {
+   "gloss": "tax filing taken"
+  },
+  "รับทำหม้อน้ำอลูมิเนียม": {
+   "gloss": "aluminium radiators made",
+   "reading": "Rap Tham Mo Nam Aluminiam"
+  },
+  "รับทำอลูมิเนียม": {
+   "gloss": "aluminium work taken",
+   "reading": "Rap Tham Aluminiam"
+  },
+  "รับทำเบาะ": {
+   "gloss": "upholstery taken",
+   "reading": "Rap Tham Bo"
+  },
+  "รับทำเสื้อ": {
+   "gloss": "shirt orders taken",
+   "reading": "Rap Tham Suea"
+  },
+  "รับทำเสื้อกิจกรรม": {
+   "gloss": "event shirts made",
+   "reading": "Rap Tham Suea Kitchakam"
+  },
+  "รับทำเหล็กดัด": {
+   "gloss": "wrought iron made",
+   "reading": "Rap Tham Lek Dat"
+  },
+  "รับทําป้าย": {
+   "gloss": "signs made to order",
+   "reading": "Rap Tham Pai"
+  },
+  "รับบริการพาผู้สูงอายุพบแพทย์": {
+   "gloss": "elderly escort to appointments",
+   "reading": "Rap Borikan Pha Phu Sung Ayu Phop Phaet"
+  },
+  "รับปริญญา": {
+   "gloss": "graduation",
+   "reading": "Rap Parinya"
+  },
+  "รับปักเสื้้อนักเรียน": {
+   "gloss": "school shirt embroidery",
+   "reading": "Rap Pak Suea Nakrian"
+  },
+  "รับผลิตอักษรโลหะ": {
+   "gloss": "metal lettering made",
+   "reading": "Rap Phlit Akson Loha"
+  },
+  "รับฝากครรภ์": {
+   "gloss": "antenatal care",
+   "reading": "Rap Fak Khan"
+  },
+  "รับฝากมอเตอร์ไซค์": {
+   "gloss": "motorcycle storage",
+   "reading": "Rap Fak Motoesai"
+  },
+  "รับฝากสัตว์เลี้ยง": {
+   "gloss": "pet boarding",
+   "reading": "Rap Fak Satliang"
+  },
+  "รับฝากเลี้ยง": {
+   "gloss": "boarding taken"
+  },
+  "รับฝากแมว": {
+   "gloss": "cat boarding"
+  },
+  "รับพิมพ์งาน": {
+   "gloss": "print jobs taken"
+  },
+  "รับพิมพ์งานทุกชนิด": {
+   "gloss": "all print jobs taken",
+   "reading": "Rap Phim Ngan Thuk Chanit"
+  },
+  "รับย้อมผ้า": {
+   "gloss": "fabric dyeing taken",
+   "reading": "Rap Yom Pha"
+  },
+  "รับรองเอกสาร": {
+   "gloss": "document certification",
+   "reading": "Rap Rong Ekkasan"
+  },
+  "รับว่าความ": {
+   "gloss": "court advocacy"
+  },
+  "รับว่าความคดีศาลอาญาทุจริต": {
+   "gloss": "corruption court advocacy",
+   "reading": "Rap Wa Khwam Khadi San Aya Thutcharit"
+  },
+  "รับสั่งตัดรองเท้า": {
+   "gloss": "made-to-order shoes"
+  },
+  "รับสั่งทำเฟอร์นิเจอร์": {
+   "gloss": "made-to-order furniture",
+   "reading": "Rap Sang Tham Foenichoe"
+  },
+  "รับส่งซักอบรีด": {
+   "gloss": "laundry pick-up and delivery"
+  },
+  "รับออกแบบพิมพ์หนังสือ": {
+   "gloss": "book design and printing",
+   "reading": "Rap Okbaep Phim Nangsue"
+  },
+  "รับเย็บผ้า": {
+   "gloss": "sewing taken in"
+  },
+  "รับเหมาก่อสร้าง": {
+   "gloss": "building contracting",
+   "reading": "Rap Mao Kosang"
+  },
+  "รับเหมาขบวน": {
+   "gloss": "parade outfitting, whole"
+  },
+  "รับเหมาขบวน  เช่าชุดแฟนตาซี": {
+   "gloss": "parade contracting and fantasy costume hire",
+   "reading": "Rap Mao Khabuan Chao Chut Faentasi"
+  },
+  "รับเหมาติดตั้งอุปกรณ์ไฟฟ้า": {
+   "gloss": "electrical installation contracting",
+   "reading": "Rap Mao Tittang Upakon Faifa"
+  },
+  "รับเอกสาร": {
+   "gloss": "document collection",
+   "reading": "Rap Ekkasan"
+  },
+  "รับแก้ทรงผ้า": {
+   "gloss": "garment alterations taken",
+   "reading": "Rap Kae Song Pha"
+  },
+  "รับแต่งหน้า": {
+   "gloss": "make-up done"
+  },
+  "รัานซักอบรีด": {
+   "gloss": "wash, dry and press shop",
+   "reading": "Ran Sak Op Rit"
+  },
+  "รากฟัน": {
+   "gloss": "tooth root, root canal"
+  },
+  "รากฟันเทียม": {
+   "gloss": "dental implants"
+  },
+  "รากเทียม": {
+   "gloss": "dental implants"
+  },
+  "รางน้ำ": {
+   "gloss": "guttering"
+  },
+  "รางน้ำฝน": {
+   "gloss": "rain gutters"
+  },
+  "รางน้ำฝนตก​ตนเลส": {
+   "gloss": "stainless rain gutters",
+   "reading": "Rang Nam Fon Tok Sataenlet"
+  },
+  "รางน้ำสเตนเลส": {
+   "gloss": "stainless gutters",
+   "reading": "Rang Nam Sataenlet"
+  },
+  "รางไวนิล": {
+   "gloss": "vinyl gutters",
+   "reading": "Rang Wainin"
+  },
+  "ราตรี": {
+   "gloss": "evening gown"
+  },
+  "รายงานทางการเงิน": {
+   "gloss": "financial reports"
+  },
+  "รายชิ้น": {
+   "gloss": "by the piece"
+  },
+  "รายวัน": {
+   "gloss": "by the day"
+  },
+  "ราวบันได": {
+   "gloss": "stair railings"
+  },
+  "ราวระเบียง": {
+   "gloss": "balcony railings"
+  },
+  "รำไทย": {
+   "gloss": "Thai dance"
+  },
+  "รีโนเวทบ้าน": {
+   "gloss": "house renovation",
+   "reading": "Rinowet Ban"
+  },
+  "รีโมทประตู": {
+   "gloss": "gate remotes",
+   "reading": "Rimot Pratu"
+  },
+  "รูปจิ๊กซอ": {
+   "gloss": "jigsaw photo prints",
+   "reading": "Rup Chikso"
+  },
+  "รูปรับปริญญา": {
+   "gloss": "graduation photos",
+   "reading": "Rup Rap Parinya"
+  },
+  "รูปวีซ่ารูปพาสปอร์ต": {
+   "gloss": "visa and passport photos",
+   "reading": "Rup Wisa Rup Phatsapot"
+  },
+  "ร้านขายกระดาษ": {
+   "gloss": "paper shop"
+  },
+  "ร้านขายมอเตอร์ไซค์": {
+   "gloss": "motorcycle dealer",
+   "reading": "Ran Khai Motoesai"
+  },
+  "ร้านขายหนังสือ": {
+   "gloss": "bookshop"
+  },
+  "ร้านขายอาหารสัตว์": {
+   "gloss": "animal feed shop"
+  },
+  "ร้านชุดเช่า": {
+   "gloss": "dress hire shop"
+  },
+  "ร้านซักผ้าหยอดเหรียญ": {
+   "gloss": "coin-op laundry shop"
+  },
+  "ร้านซักอบรีด": {
+   "gloss": "wash, dry and press shop"
+  },
+  "ร้านซ่อมคอมพิวเตอร์": {
+   "gloss": "computer repair shop",
+   "reading": "Ran Som Khomphiutoe"
+  },
+  "ร้านซ่อมปริ้นเตอร์": {
+   "gloss": "printer repair shop",
+   "reading": "Ran Som Printoe"
+  },
+  "ร้านซ่อมผ้า": {
+   "gloss": "clothing repair shop"
+  },
+  "ร้านซ่อมมือถือ": {
+   "gloss": "mobile phone repair shop"
+  },
+  "ร้านซ่อมโน๊ตบุ๊ค": {
+   "gloss": "laptop repair shop",
+   "reading": "Ran Som Notbuk"
+  },
+  "ร้านตัดผ้า": {
+   "gloss": "cloth cutting shop"
+  },
+  "ร้านตัดสูท": {
+   "gloss": "suit tailor"
+  },
+  "ร้านตัดเย็บเสื้อผ้า": {
+   "gloss": "dressmaker, tailor"
+  },
+  "ร้านถ่ายรูป": {
+   "gloss": "photo studio"
+  },
+  "ร้านถ่ายเอกสาร": {
+   "gloss": "photocopy shop"
+  },
+  "ร้านทำฟัน": {
+   "gloss": "dental shop"
+  },
+  "ร้านทำสิ่งพิมพ์": {
+   "gloss": "print shop",
+   "reading": "Ran Tham Singphim"
+  },
+  "ร้านทำอลูมิเนียม": {
+   "gloss": "aluminium shop"
+  },
+  "ร้านบรรจุภัณฑ์": {
+   "gloss": "packaging shop",
+   "reading": "Ran Banchuphan"
+  },
+  "ร้านป้าย": {
+   "gloss": "sign shop"
+  },
+  "ร้านรับซักผ้ารายเดือน": {
+   "gloss": "monthly laundry shop"
+  },
+  "ร้านรับซ่อมผ้า": {
+   "gloss": "clothing repair shop",
+   "reading": "Ran Rap Som Pha"
+  },
+  "ร้านร้บซ่อมเครื่องใช้ไฟฟ้า": {
+   "gloss": "appliance repair shop"
+  },
+  "ร้านสะดวกซัก": {
+   "gloss": "self-service laundrette"
+  },
+  "ร้านสังฆภัณฑ์": {
+   "gloss": "monastic supplies shop",
+   "reading": "Ran Sangkhaphan"
+  },
+  "ร้านสิ่งพิมพ์": {
+   "gloss": "print shop",
+   "reading": "Ran Singphim"
+  },
+  "ร้านสูท": {
+   "gloss": "suit shop"
+  },
+  "ร้านส่งแก๊ส": {
+   "gloss": "gas delivery shop",
+   "reading": "Ran Song Kaet"
+  },
+  "ร้านส่งแก๊สหุงต้ม": {
+   "gloss": "cooking gas delivery shop",
+   "reading": "Ran Song Kaet Hung Tom"
+  },
+  "ร้านหมอฟัน": {
+   "gloss": "dentist's shop"
+  },
+  "ร้านอบผ้า": {
+   "gloss": "drying shop",
+   "reading": "Ran Op Pha"
+  },
+  "ร้านออกแบบสิ่งพิมพ์": {
+   "gloss": "print design shop",
+   "reading": "Ran Okbaep Singphim"
+  },
+  "ร้านอาหารสัตว์": {
+   "gloss": "animal feed shop",
+   "reading": "Ran Ahan Sat"
+  },
+  "ร้านเครื่องเขียน": {
+   "gloss": "stationery shop"
+  },
+  "ร้านเช่าชุด": {
+   "gloss": "dress hire shop"
+  },
+  "ร้านเช่าชุดแฟนซี": {
+   "gloss": "fancy dress hire shop"
+  },
+  "ร้านเช่ารถมอเตอร์ไซค์": {
+   "gloss": "motorcycle hire shop",
+   "reading": "Ran Chao Rot Motoesai"
+  },
+  "ร้านเช่าสูท": {
+   "gloss": "suit hire shop"
+  },
+  "ร้านเปลี่ยนซิบ": {
+   "gloss": "zip replacement shop",
+   "reading": "Ran Plian Sip"
+  },
+  "ร้านเย็บผ้า": {
+   "gloss": "sewing shop"
+  },
+  "ร้านเสริมสวยสุนัขปอยหลวง": {
+   "gloss": "Poi Luang dog salon",
+   "reading": "Ran Soem Suai Sunak Poi Luang"
+  },
+  "ลงโปรแกรม": {
+   "gloss": "software installation",
+   "reading": "Long Prokraem"
+  },
+  "ลดปวด": {
+   "gloss": "pain relief"
+  },
+  "ลับคมกรรไกร": {
+   "gloss": "scissor and blade sharpening",
+   "reading": "Lap Khom Kankrai"
+  },
+  "ลับคมบัตเลี่ยน": {
+   "gloss": "clipper blade sharpening",
+   "reading": "Lap Khom Battalian"
+  },
+  "ลับคมปัตตาเลี่ยน": {
+   "gloss": "clipper blade sharpening",
+   "reading": "Lap Khom Pattalian"
+  },
+  "ลับบัตตาเลี่ยน": {
+   "gloss": "clipper blade sharpening",
+   "reading": "Lap Battalian"
+  },
+  "ลับบัตเตอร์เลี่ยน": {
+   "gloss": "clipper blade sharpening",
+   "reading": "Lap Battoelian"
+  },
+  "ลับปัตตาเลี่ยน": {
+   "gloss": "clipper sharpening",
+   "reading": "Lap Pattalian"
+  },
+  "ลูกหมุนระบายอากาศ": {
+   "gloss": "roof ventilator turbines",
+   "reading": "Luk Mun Rabai Akat"
+  },
+  "ล้างภาพ": {
+   "gloss": "photo developing"
+  },
+  "ล้างรถ24ชั่วโมง": {
+   "gloss": "24-hour car wash",
+   "reading": "Lang Rot 24 Chuamong"
+  },
+  "ล้างรถกลางคืน": {
+   "gloss": "night car wash",
+   "reading": "Lang Rot Klang Khuen"
+  },
+  "ล้างรถเช่า": {
+   "gloss": "hire-car washing",
+   "reading": "Lang Rot Chao"
+  },
+  "ล้างรูป": {
+   "gloss": "film developing"
+  },
+  "ล้างรูปภาพ": {
+   "gloss": "photo developing"
+  },
+  "ล้างเลนท์": {
+   "gloss": "lens cleaning",
+   "reading": "Lang Len"
+  },
+  "ล้างแอร์บ้าน": {
+   "gloss": "household air-con cleaning",
+   "reading": "Lang Ae Ban"
+  },
+  "วงกบ": {
+   "gloss": "door and window frames",
+   "reading": "Wong Kop"
+  },
+  "วงกบเหล็ก": {
+   "gloss": "steel frames",
+   "reading": "Wong Kop Lek"
+  },
+  "วัคซีนสัตว์": {
+   "gloss": "animal vaccination"
+  },
+  "วัคซีนสัตว์เลี้ยง": {
+   "gloss": "pet vaccination",
+   "reading": "Waksin Satliang"
+  },
+  "วัคซีนหมา": {
+   "gloss": "dog vaccination"
+  },
+  "วัคซีนแมว": {
+   "gloss": "cat vaccination"
+  },
+  "วัสดุกีฬา": {
+   "gloss": "sports materials",
+   "reading": "Watsadu Kila"
+  },
+  "วางระบบบัญชี": {
+   "gloss": "accounting system setup",
+   "reading": "Wang Rabop Banchi"
+  },
+  "วางแผนภาษี": {
+   "gloss": "tax planning",
+   "reading": "Wang Phaen Phasi"
+  },
+  "วีซ่าคู่มั่น": {
+   "gloss": "fiancé visas",
+   "reading": "Wisa Khu Man"
+  },
+  "วีซ่าต่างประเทศ": {
+   "gloss": "foreign visas",
+   "reading": "Wisa Tang Prathet"
+  },
+  "วีซ่าไปนอก": {
+   "gloss": "visas for going abroad",
+   "reading": "Wisa Pai Nok"
+  },
+  "วีเนียร์": {
+   "gloss": "dental veneers",
+   "reading": "Winia"
+  },
+  "วืทยา": {
+   "gloss": "Withaya (name)",
+   "reading": "Witthaya"
+  },
+  "ว่าความ": {
+   "gloss": "court advocacy"
+  },
+  "ศรีสมเพชร": {
+   "gloss": "Si Somphet",
+   "reading": "Si Somphet"
+  },
+  "ศาลเจ้าไต่ฮงกง": {
+   "gloss": "Tai Hong Kong shrine",
+   "reading": "San Chao Tai Hong Kong"
+  },
+  "ศิลปะ": {
+   "gloss": "art"
+  },
+  "ศูนย์ซ่อมอมร": {
+   "gloss": "Amorn service centre",
+   "reading": "Sun Som Amon"
+  },
+  "ศูนย์ดูแลคนชรา": {
+   "gloss": "elderly care centre",
+   "reading": "Sun Dulae Khon Chara"
+  },
+  "ศูนย์ทันตสาธารณสุขระหว่างประเทศ": {
+   "gloss": "international dental public health centre",
+   "reading": "Sun Thanta Satharanasuk Rawang Prathet"
+  },
+  "ศูนย์บริการดูแลผู้สูงอายุ": {
+   "gloss": "elderly care service centre",
+   "reading": "Sun Borikan Dulae Phu Sung Ayu"
+  },
+  "ศูนย์บริการดูแลผู้สูงอายุมีภาวะพึ่งพิง": {
+   "gloss": "dependent elderly care centre",
+   "reading": "Sun Borikan Dulae Phu Sung Ayu Mi Phawa Phueng Phing"
+  },
+  "ศูนย์พยาบาลสัตว์เชียงใหม่": {
+   "gloss": "Chiang Mai animal nursing centre",
+   "reading": "Sun Phayaban Sat Chiang Mai"
+  },
+  "ศูนย์ฟอกไต": {
+   "gloss": "dialysis centre",
+   "reading": "Sun Fok Tai"
+  },
+  "ศูนย์ฟูจิซุ": {
+   "gloss": "Fujitsu service centre",
+   "reading": "Sun Fuchitsu"
+  },
+  "ศูนย์รวมบริการดูแลผู้สูงอายุ": {
+   "gloss": "elderly care hub",
+   "reading": "Sun Ruam Borikan Dulae Phu Sung Ayu"
+  },
+  "ศูนย์สุขภาพเวลเนส": {
+   "gloss": "wellness centre",
+   "reading": "Sun Sukkhaphap Wennet"
+  },
+  "ศูนย์ฮอนด้า": {
+   "gloss": "Honda service centre",
+   "reading": "Sun Honda"
+  },
+  "สกรีน": {
+   "gloss": "screen printing",
+   "reading": "Sakrin"
+  },
+  "สกรีนเสื้อ": {
+   "gloss": "screen-printed shirts",
+   "reading": "Sakrin Suea"
+  },
+  "สกรีนเสื้อผ้า": {
+   "gloss": "garment screen printing",
+   "reading": "Sakrin Sueapha"
+  },
+  "สกีน": {
+   "gloss": "screen printing",
+   "reading": "Sakrin"
+  },
+  "สกีนกระเป๋าผ้า": {
+   "gloss": "screen-printed cloth bags",
+   "reading": "Sakrin Krapao Pha"
+  },
+  "สกีนเสื้อ": {
+   "gloss": "screen-printed shirts",
+   "reading": "Sakrin Suea"
+  },
+  "สกู๊ตเตอร์ไฟฟ้า": {
+   "gloss": "electric scooters",
+   "reading": "Sakuttoe Faifa"
+  },
+  "สตาร์แอร์": {
+   "gloss": "Star Air (brand)",
+   "reading": "Sata Ae"
+  },
+  "สติกเกอร์": {
+   "gloss": "stickers",
+   "reading": "Satikkoe"
+  },
+  "สติกเกอร์ฉลากสินค้า": {
+   "gloss": "product label stickers",
+   "reading": "Satikkoe Chalak Sinkha"
+  },
+  "สติกเกอร์มอเตอร์ไซค์": {
+   "gloss": "motorcycle stickers",
+   "reading": "Satikkoe Motoesai"
+  },
+  "สติกเกอร์รถยนต์": {
+   "gloss": "car stickers",
+   "reading": "Satikkoe Rotyon"
+  },
+  "สติกเกอร์สินค้า": {
+   "gloss": "product stickers",
+   "reading": "Satikkoe Sinkha"
+  },
+  "สติ๊กเกอร์": {
+   "gloss": "stickers",
+   "reading": "Satikkoe"
+  },
+  "สติ๊กเกอร์ฉลากสินค้า": {
+   "gloss": "product label stickers",
+   "reading": "Satikkoe Chalak Sinkha"
+  },
+  "สติ๊กเกอร์ซิ่ง": {
+   "gloss": "racing stickers",
+   "reading": "Satikkoe Sing"
+  },
+  "สติ๊กเกอร์แต่งรถ": {
+   "gloss": "vehicle decal stickers",
+   "reading": "Satikkoe Taeng Rot"
+  },
+  "สตูดิโอถ่ายภาพ": {
+   "gloss": "photo studio"
+  },
+  "สถานีวิทยุ": {
+   "gloss": "radio stations",
+   "reading": "Sathani Witthayu"
+  },
+  "สถาบันผู้สูงอายุแมคเคน": {
+   "gloss": "McKean elderly institute",
+   "reading": "Sathaban Phu Sung Ayu Maekkhen"
+  },
+  "สบง": {
+   "gloss": "monk's lower robe",
+   "reading": "Sabong"
+  },
+  "สปารองเท้า": {
+   "gloss": "shoe spa cleaning",
+   "reading": "Sapa Rongthao"
+  },
+  "สมาร์ทฮาร์ท": {
+   "gloss": "SmartHeart (pet food brand)",
+   "reading": "Samat Hat"
+  },
+  "สระไดร์": {
+   "gloss": "wash and blow-dry"
+  },
+  "สอนดนตรีไทย": {
+   "gloss": "teaches Thai music"
+  },
+  "สอนรำไทย": {
+   "gloss": "teaches Thai dance"
+  },
+  "สอบบัญชี": {
+   "gloss": "audit"
+  },
+  "สอยขา": {
+   "gloss": "blind-hemming"
+  },
+  "สะดวกซัก": {
+   "gloss": "self-service laundry"
+  },
+  "สะดวกซักอบผ้า": {
+   "gloss": "self-service wash and dry"
+  },
+  "สังฆทาน": {
+   "gloss": "sangkhathan offering sets",
+   "reading": "Sangkhathan"
+  },
+  "สังฆภัณฑ์": {
+   "gloss": "monastic supplies"
+  },
+  "สัญญานไฟ": {
+   "gloss": "signal lights",
+   "reading": "Sanyan Fai"
+  },
+  "สันเกลียว": {
+   "gloss": "thread ridges, spiral binding",
+   "reading": "San Kliao"
+  },
+  "สั่งทำเครื่องช่วยฟังแบบใส่ในหู": {
+   "gloss": "custom in-ear hearing aids",
+   "reading": "Sang Tham Khrueang Chuai Fang Baep Sai Nai Hu"
+  },
+  "สั่งแก๊ส": {
+   "gloss": "gas ordering",
+   "reading": "Sang Kaet"
+  },
+  "สามล้อไฟฟ้า": {
+   "gloss": "electric tricycles",
+   "reading": "Sam Lo Faifa"
+  },
+  "สำนักงานกฎหมาย": {
+   "gloss": "law office"
+  },
+  "สำนักงานทนาย": {
+   "gloss": "lawyer's office"
+  },
+  "สำนักงานสอบบัญชี": {
+   "gloss": "audit firm"
+  },
+  "สำนักงานเสมือน": {
+   "gloss": "virtual office",
+   "reading": "Samnakngan Samuean"
+  },
+  "สำนักทนายความ": {
+   "gloss": "law office"
+  },
+  "สิ่งพิมพ์": {
+   "gloss": "printed matter"
+  },
+  "สื่อสิ่งพิมพ์": {
+   "gloss": "print media"
+  },
+  "สื่อโฆษณา": {
+   "gloss": "advertising media",
+   "reading": "Sue Khotsana"
+  },
+  "สุสานกุโบร์": {
+   "gloss": "Muslim burial ground (kubur)",
+   "reading": "Susan Kubo"
+  },
+  "สุสานคริสตจักร": {
+   "gloss": "church cemetery",
+   "reading": "Susan Khritsatachak"
+  },
+  "สุสานคริสเตียน": {
+   "gloss": "Christian cemetery",
+   "reading": "Susan Khritsatian"
+  },
+  "สุสานจีน": {
+   "gloss": "Chinese cemetery",
+   "reading": "Susan Chin"
+  },
+  "สุสานชาวต่างชาติ": {
+   "gloss": "foreigners' cemetery",
+   "reading": "Susan Chao Tang Chat"
+  },
+  "สุสานบ้านป่าตัน": {
+   "gloss": "Ban Pa Tan cemetery",
+   "reading": "Susan Ban Pa Tan"
+  },
+  "สุสานบ้านเด่น": {
+   "gloss": "Ban Den cemetery",
+   "reading": "Susan Ban Den"
+  },
+  "สุสานมุสลิม": {
+   "gloss": "Muslim cemetery",
+   "reading": "Susan Mutsalim"
+  },
+  "สุสานสันติธรรม": {
+   "gloss": "Santitham cemetery",
+   "reading": "Susan Santitham"
+  },
+  "สูท": {
+   "gloss": "suit"
+  },
+  "สูบลม": {
+   "gloss": "tyre inflation"
+  },
+  "สูบลมซ่อมมอเตอร์ไซค์": {
+   "gloss": "tyre inflation and motorcycle repair",
+   "reading": "Sup Lom Som Motoesai"
+  },
+  "สูบลมมอเตอร์ไซค์": {
+   "gloss": "motorcycle tyre inflation",
+   "reading": "Sup Lom Motoesai"
+  },
+  "สูเปลี่ยนหัวเทียน": {
+   "gloss": "spark plug change",
+   "reading": "Plian Hua Thian"
+  },
+  "สเตนเลส": {
+   "gloss": "stainless steel",
+   "reading": "Sataenlet"
+  },
+  "สเตนเลสชุดเครื่องครัว": {
+   "gloss": "stainless kitchenware",
+   "reading": "Sataenlet Chut Khrueang Khrua"
+  },
+  "สแกน": {
+   "gloss": "scanning",
+   "reading": "Sakaen"
+  },
+  "สแกนฟิลม์": {
+   "gloss": "film scanning",
+   "reading": "Sakaen Film"
+  },
+  "สแกนรูป": {
+   "gloss": "photo scanning",
+   "reading": "Sakaen Rup"
+  },
+  "สแตนดี้": {
+   "gloss": "standee displays",
+   "reading": "Sataendi"
+  },
+  "สแตนเลส": {
+   "gloss": "stainless steel"
+  },
+  "ส่งผู้ป่วยตามแพทย์นัด": {
+   "gloss": "patient transport to appointments",
+   "reading": "Song Phupuai Tam Phaet Nat"
+  },
+  "ส่งผู้ป่วยฟอกไต": {
+   "gloss": "dialysis patient transport",
+   "reading": "Song Phupuai Fok Tai"
+  },
+  "ส่งเสริมสุขภาพจิต": {
+   "gloss": "mental health promotion"
+  },
+  "ส่งแก๊ส": {
+   "gloss": "gas cylinder delivery"
+  },
+  "ส่งแก๊สบ้าน": {
+   "gloss": "household gas delivery",
+   "reading": "Song Kaet Ban"
+  },
+  "ส่งแก๊สหุงต้ม": {
+   "gloss": "cooking gas delivery"
+  },
+  "ส่งแฟกซ์": {
+   "gloss": "fax sending",
+   "reading": "Song Faek"
+  },
+  "หนังสือทั่วไป": {
+   "gloss": "general books"
+  },
+  "หนังสือพิมพ์": {
+   "gloss": "newspapers"
+  },
+  "หนังสือรุ่น": {
+   "gloss": "yearbooks"
+  },
+  "หนังสือเรียน": {
+   "gloss": "school textbooks"
+  },
+  "หนังสือไตย": {
+   "gloss": "Tai manuscripts",
+   "reading": "Nangsue Tai"
+  },
+  "หน่วยสายฟ้าแลป": {
+   "gloss": "Saifa Laep unit",
+   "reading": "Nuai Saifa Laep"
+  },
+  "หน้าต่าง": {
+   "gloss": "windows",
+   "reading": "Natang"
+  },
+  "หมวกกันน๊อค": {
+   "gloss": "crash helmets",
+   "reading": "Muak Kan Nok"
+  },
+  "หมอนุก": {
+   "gloss": "Mo Nuk",
+   "reading": "Mo Nuk"
+  },
+  "หยดวิตามินIV": {
+   "gloss": "IV vitamin drip",
+   "reading": "Yot Witamin IV"
+  },
+  "หัวจดหมาย": {
+   "gloss": "letterheads",
+   "reading": "Hua Chotmai"
+  },
+  "หุงต้ม": {
+   "gloss": "cooking"
+  },
+  "หุ้มเบาะมอเตอร์ไซค์": {
+   "gloss": "motorcycle seat recovering",
+   "reading": "Hum Bo Motoesai"
+  },
+  "ห้องทำงาน": {
+   "gloss": "work rooms"
+  },
+  "ห้องประชุม": {
+   "gloss": "meeting rooms"
+  },
+  "ห้องเสื้อ": {
+   "gloss": "dressmaking atelier",
+   "reading": "Hong Suea"
+  },
+  "อบผ้า": {
+   "gloss": "clothes drying"
+  },
+  "อบผ้าหยอดเหรียญ": {
+   "gloss": "coin-op dryer"
+  },
+  "อบผ้าแห้ง": {
+   "gloss": "tumble drying"
+  },
+  "อปพร": {
+   "gloss": "civil defence volunteers (Or Por Por Ror)",
+   "reading": "O Po Pho Ro"
+  },
+  "อลูมิเนียม": {
+   "gloss": "aluminium work"
+  },
+  "อลูมิเนียมคอมโปสิต": {
+   "gloss": "aluminium composite",
+   "reading": "Aluminiam Khomposit"
+  },
+  "อลูมิเนียมคอมโพสิต": {
+   "gloss": "aluminium composite",
+   "reading": "Aluminiam Khomphosit"
+  },
+  "ออกกำลังกายฟื้นฟูหลังผ่าตัด": {
+   "gloss": "post-surgical exercise rehab",
+   "reading": "Okkamlangkai Fuenfu Lang Phatat"
+  },
+  "ออกบูธ": {
+   "gloss": "exhibition booths",
+   "reading": "Ok But"
+  },
+  "ออกรถมอเตอร์ไซค์": {
+   "gloss": "motorcycle finance and purchase",
+   "reading": "Ok Rot Motoesai"
+  },
+  "ออกแบบทรงผม": {
+   "gloss": "hair design"
+  },
+  "ออกแบบท่าเต้น": {
+   "gloss": "choreography"
+  },
+  "ออกแบบสติกเกอร์": {
+   "gloss": "sticker design",
+   "reading": "Okbaep Satikkoe"
+  },
+  "ออกแบบสิ่งพิมพ์": {
+   "gloss": "print design",
+   "reading": "Okbaep Singphim"
+  },
+  "ออกแบบสื่อสิ่งพิมพ์": {
+   "gloss": "print media design",
+   "reading": "Okbaep Sue Singphim"
+  },
+  "ออกแบบเบาะ": {
+   "gloss": "seat design"
+  },
+  "ออกแบบเสื้อผ้า": {
+   "gloss": "clothing design"
+  },
+  "ออกแบบและติดตั้งโครงสร้างเหล็ก": {
+   "gloss": "steel structure design and erection",
+   "reading": "Okbaep Lae Tittang Khrongsang Lek"
+  },
+  "ออกแบบโลโก้": {
+   "gloss": "logo design",
+   "reading": "Okbaep Loko"
+  },
+  "ออกแบบโลโก้สินค้า": {
+   "gloss": "product logo design",
+   "reading": "Okbaep Loko Sinkha"
+  },
+  "ออฟฟิศซินโดรม": {
+   "gloss": "office syndrome treatment",
+   "reading": "Offit Sindrom"
+  },
+  "ออฟฟิศให้เช่า": {
+   "gloss": "offices to let",
+   "reading": "Offit Hai Chao"
+  },
+  "ออฟฟิสซินโดรม": {
+   "gloss": "office syndrome treatment",
+   "reading": "Offit Sindrom"
+  },
+  "ออฟเซต": {
+   "gloss": "offset printing",
+   "reading": "Offset"
+  },
+  "ออฟเซ็ท": {
+   "gloss": "offset printing",
+   "reading": "Offset"
+  },
+  "ออสเตรีย": {
+   "gloss": "Austria",
+   "reading": "Ottria"
+  },
+  "อะคริลิค": {
+   "gloss": "acrylic",
+   "reading": "Akhrilik"
+  },
+  "อะไหล่จักรยาน": {
+   "gloss": "bicycle parts"
+  },
+  "อะไหล่มอเตอร์ไซค์": {
+   "gloss": "motorcycle parts",
+   "reading": "Alai Motoesai"
+  },
+  "อะไหล่ยนต์": {
+   "gloss": "engine parts",
+   "reading": "Alai Yon"
+  },
+  "อะไหล่รถจักรยานยนต์": {
+   "gloss": "motorcycle parts",
+   "reading": "Alai Rot Chakkrayanyon"
+  },
+  "อะไหล่เครื่องทำความเย็น": {
+   "gloss": "refrigeration parts"
+  },
+  "อะไหล่เครื่องใช้ไฟฟ้า": {
+   "gloss": "appliance parts"
+  },
+  "อะไหล่เตาแก๊ส": {
+   "gloss": "gas stove parts",
+   "reading": "Alai Tao Kaet"
+  },
+  "อะไหล่แก๊ส": {
+   "gloss": "gas fittings and spares"
+  },
+  "อะไหล่แอร์": {
+   "gloss": "air-con parts",
+   "reading": "Alai Ae"
+  },
+  "อักษรโลหะ": {
+   "gloss": "metal lettering"
+  },
+  "อังสะ": {
+   "gloss": "monk's shoulder cloth",
+   "reading": "Angsa"
+  },
+  "อัดกาว": {
+   "gloss": "adhesive binding"
+  },
+  "อัดขยายภาพดิจิตอล": {
+   "gloss": "digital photo enlargement",
+   "reading": "At Khayai Phap Dichithan"
+  },
+  "อัดข้อเหวี่ยง": {
+   "gloss": "crankshaft pressing",
+   "reading": "At Kho Wiang"
+  },
+  "อัดบล๊อคสกีน": {
+   "gloss": "screen block pressing",
+   "reading": "At Blok Sakrin"
+  },
+  "อัดภาพ": {
+   "gloss": "photo printing"
+  },
+  "อัดภาพดิจิตอล": {
+   "gloss": "digital photo printing",
+   "reading": "At Phap Dichithan"
+  },
+  "อัดรูป": {
+   "gloss": "photo printing"
+  },
+  "อัดรูปดิจิตอล": {
+   "gloss": "digital photo printing",
+   "reading": "At Rup Dichithan"
+  },
+  "อัดรูปด้วยกระดาษ": {
+   "gloss": "paper photo printing"
+  },
+  "อัดรูปฟิลม์สไลด์": {
+   "gloss": "film and slide printing",
+   "reading": "At Rup Film Salai"
+  },
+  "อัดสายไฮดรอลิก": {
+   "gloss": "hydraulic hose crimping",
+   "reading": "At Sai Haidrolik"
+  },
+  "อัดสายไฮดรอลิค": {
+   "gloss": "hydraulic hose crimping",
+   "reading": "At Sai Haidrolik"
+  },
+  "อัพเกรดจักรยาน": {
+   "gloss": "bicycle upgrades",
+   "reading": "Apkret Chakkrayan"
+  },
+  "อัมพฤกษ์": {
+   "reading": "Amphaphruek"
+  },
+  "อัลตร้าซาว์นบำบัด": {
+   "gloss": "ultrasound therapy",
+   "reading": "Antrasao Bambat"
+  },
+  "อาบน้ำตัดขน": {
+   "gloss": "bath and groom"
+  },
+  "อาบน้ำตัดขนสัตว์": {
+   "gloss": "animal bathing and grooming"
+  },
+  "อาบน้ำตัดขนสุนัข": {
+   "gloss": "dog bath and groom"
+  },
+  "อาบน้ำตัดขนหมา": {
+   "gloss": "dog bath and groom"
+  },
+  "อาบน้ำตัดขนแมว": {
+   "gloss": "cat bath and groom"
+  },
+  "อาบน้ำสัตว์": {
+   "gloss": "animal bathing"
+  },
+  "อาบน้ำสุนัข": {
+   "gloss": "dog bathing"
+  },
+  "อาบน้ำหมา": {
+   "gloss": "dog bathing"
+  },
+  "อาบน้ำแต่งขนสัตว์": {
+   "gloss": "animal bath and groom"
+  },
+  "อาบน้ำแต่งขนหมา": {
+   "gloss": "dog bath and groom"
+  },
+  "อาบน้ำแต่งขนแมว": {
+   "gloss": "cat bath and groom"
+  },
+  "อาบน้ำแมว": {
+   "gloss": "cat bathing"
+  },
+  "อาบน้ำโอโซน": {
+   "gloss": "ozone bath",
+   "reading": "Ap Nam Oson"
+  },
+  "อาหารกระต่าย": {
+   "gloss": "rabbit food"
+  },
+  "อาหารนก": {
+   "gloss": "bird food"
+  },
+  "อาหารสัตว์": {
+   "gloss": "animal feed"
+  },
+  "อาหารสัตว์เลี้ยง": {
+   "gloss": "pet food"
+  },
+  "อาหารสุนัข": {
+   "gloss": "dog food"
+  },
+  "อาหารหนู": {
+   "gloss": "rodent food"
+  },
+  "อาหารหมา": {
+   "gloss": "dog food"
+  },
+  "อาหารแมว": {
+   "gloss": "cat food"
+  },
+  "อิงค์เจ็ท": {
+   "gloss": "inkjet",
+   "reading": "Inkchet"
+  },
+  "อิงค์เจ๊ท": {
+   "gloss": "inkjet",
+   "reading": "Inkchet"
+  },
+  "อินเตอร์คูลเลอร์": {
+   "gloss": "intercoolers",
+   "reading": "Intoekhunloe"
+  },
+  "อินเตอร์เนต": {
+   "gloss": "internet",
+   "reading": "Intoenet"
+  },
+  "อีวี": {
+   "gloss": "EV",
+   "reading": "I Wi"
+  },
+  "อีเวนท์": {
+   "gloss": "events",
+   "reading": "Iwen"
+  },
+  "อุดฟัน": {
+   "gloss": "dental filling"
+  },
+  "อุปกรณ์กล้อง": {
+   "gloss": "camera equipment",
+   "reading": "Upakon Klong"
+  },
+  "อุปกรณ์การศึกษา": {
+   "gloss": "educational equipment",
+   "reading": "Upakon Kan Sueksa"
+  },
+  "อุปกรณ์การเรียน": {
+   "gloss": "school supplies"
+  },
+  "อุปกรณ์งานป้ายโฆษณา": {
+   "gloss": "signage equipment",
+   "reading": "Upakon Ngan Pai Khotsana"
+  },
+  "อุปกรณ์งานศิลป์": {
+   "gloss": "art materials",
+   "reading": "Upakon Ngan Sin"
+  },
+  "อุปกรณ์งานแต่งงาน": {
+   "gloss": "wedding equipment"
+  },
+  "อุปกรณ์จักรยาน": {
+   "gloss": "bicycle equipment"
+  },
+  "อุปกรณ์ตกปลา": {
+   "gloss": "fishing tackle",
+   "reading": "Upakon Tok Pla"
+  },
+  "อุปกรณ์ถ่ายภาพ": {
+   "gloss": "photographic equipment",
+   "reading": "Upakon Thai Phap"
+  },
+  "อุปกรณ์ป้าย": {
+   "gloss": "sign fittings",
+   "reading": "Upakon Pai"
+  },
+  "อุปกรณ์มือถือ": {
+   "gloss": "phone accessories",
+   "reading": "Upakon Muethue"
+  },
+  "อุปกรณ์ศิลปะ": {
+   "gloss": "art supplies",
+   "reading": "Upakon Sinlapa"
+  },
+  "อุปกรณ์ศิลป์": {
+   "gloss": "art supplies",
+   "reading": "Upakon Sin"
+  },
+  "อุปกรณ์สัตว์เลี้ยง": {
+   "gloss": "pet supplies"
+  },
+  "อุปกรณ์สำนักงาน": {
+   "gloss": "office supplies",
+   "reading": "Upakon Samnakngan"
+  },
+  "อุปกรณ์เขียน": {
+   "gloss": "writing implements",
+   "reading": "Upakon Khian"
+  },
+  "อุปกรณ์เขียนแบบ": {
+   "gloss": "drafting equipment",
+   "reading": "Upakon Khianbaep"
+  },
+  "อุปกรณ์เครื่องเขียน": {
+   "gloss": "stationery supplies"
+  },
+  "อุปกรณ์เตาแก๊ส": {
+   "gloss": "gas stove fittings",
+   "reading": "Upakon Tao Kaet"
+  },
+  "อุปกรณ์แก๊ส": {
+   "gloss": "gas equipment",
+   "reading": "Upakon Kaet"
+  },
+  "อุปกรณ์แต่ง": {
+   "gloss": "customising parts",
+   "reading": "Upakon Taeng"
+  },
+  "อุปกรณ์แต่งจักรยาน": {
+   "gloss": "bicycle customising parts",
+   "reading": "Upakon Taeng Chakkrayan"
+  },
+  "อุปกรณ์ไฟฟ้า": {
+   "gloss": "electrical fittings",
+   "reading": "Upakon Faifa"
+  },
+  "อุปกรณ์ไหว้เจ้า": {
+   "gloss": "Chinese shrine offering goods",
+   "reading": "Upakon Wai Chao"
+  },
+  "อ๊อกเชื่อม": {
+   "gloss": "oxy-acetylene welding",
+   "reading": "Ok Chueam"
+  },
+  "อ๊อตเทริ": {
+   "gloss": "Otteri (laundrette chain)",
+   "reading": "Ottoeri"
+  },
+  "ฮอนด้า": {
+   "gloss": "Honda",
+   "reading": "Honda"
+  },
+  "เกรทไลท": {
+   "gloss": "Great Light (brand)",
+   "reading": "Kret Lai"
+  },
+  "เกือกม้ารองเท้า": {
+   "gloss": "horseshoe shoe taps",
+   "reading": "Kueak Ma Rongthao"
+  },
+  "เข้ารูปกางเกง": {
+   "gloss": "trouser tapering",
+   "reading": "Khao Rup Kangkeng"
+  },
+  "เข้าเล่มปกแดง": {
+   "gloss": "red-cover binding",
+   "reading": "Khao Lem Pok Daeng"
+  },
+  "เข้าเล่มวิทยานิพนธ์": {
+   "gloss": "thesis binding",
+   "reading": "Khao Lem Witthayaniphon"
+  },
+  "เข้าเล่มอัดกาว": {
+   "gloss": "perfect binding",
+   "reading": "Khao Lem At Kao"
+  },
+  "เข้าเล่มเลชิน": {
+   "gloss": "spiral binding",
+   "reading": "Khao Lem Lechin"
+  },
+  "เครื่องกฐิน": {
+   "gloss": "kathin offering sets",
+   "reading": "Khrueang Kathin"
+  },
+  "เครื่องกีฬา": {
+   "gloss": "sports equipment"
+  },
+  "เครื่องซักผ้าหยอดเหรียญ": {
+   "gloss": "coin-op washing machine"
+  },
+  "เครื่องซักหยอดเหรียญ": {
+   "gloss": "coin-op washer"
+  },
+  "เครื่องซ่อมมอเตอร์ไซค์": {
+   "gloss": "motorcycle repair tools",
+   "reading": "Khrueang Som Motoesai"
+  },
+  "เครื่องตัดหญ้า": {
+   "gloss": "lawnmowers and strimmers"
+  },
+  "เครื่องทองเหลือง": {
+   "gloss": "brassware"
+  },
+  "เครื่องทำความเย็น": {
+   "gloss": "refrigeration equipment"
+  },
+  "เครื่องทำบุญ": {
+   "gloss": "merit-making sets"
+  },
+  "เครื่องบวช": {
+   "gloss": "ordination sets"
+  },
+  "เครื่องบวชพระ": {
+   "gloss": "monk ordination sets"
+  },
+  "เครื่องบันทึกสัญญาณDVR": {
+   "gloss": "DVR recorders",
+   "reading": "Khrueang Banthuek Sanyan DVR"
+  },
+  "เครื่องประดับ": {
+   "gloss": "jewellery"
+  },
+  "เครื่องประดับเช่า": {
+   "gloss": "jewellery hire"
+  },
+  "เครื่องฝึกพูด": {
+   "gloss": "speech training devices"
+  },
+  "เครื่องพ่นสีฝุ่นพาวเดอร์โค้ท": {
+   "gloss": "powder coating guns",
+   "reading": "Khrueang Phon Si Fun Phawadoe Khot"
+  },
+  "เครื่องสังฆทาน": {
+   "gloss": "sangkhathan offering sets",
+   "reading": "Khrueang Sangkhathan"
+  },
+  "เครื่องสังฆภัณฑ์": {
+   "gloss": "monastic supplies",
+   "reading": "Khrueang Sangkhaphan"
+  },
+  "เครื่องอบผ้า": {
+   "gloss": "tumble dryer"
+  },
+  "เครื่องอัฐบริขาร": {
+   "gloss": "the eight monastic requisites",
+   "reading": "Khrueang Atthaborikhan"
+  },
+  "เครื่องเขียน": {
+   "gloss": "stationery"
+  },
+  "เครื่องเรียน": {
+   "gloss": "school equipment"
+  },
+  "เครื่องเสียง": {
+   "gloss": "audio equipment"
+  },
+  "เครื่องเสียงห้องประชุม": {
+   "gloss": "conference audio"
+  },
+  "เครื่องแฟกซ์": {
+   "gloss": "fax machines",
+   "reading": "Khrueang Faek"
+  },
+  "เครื่องใช้สำนักงาน": {
+   "gloss": "office equipment"
+  },
+  "เครื่องใช้ไฟฟ้า": {
+   "gloss": "electrical appliances"
+  },
+  "เครื่องใช้ไฟฟ้าภายในบ้าน": {
+   "gloss": "household appliances"
+  },
+  "เครื่องไหว้เจ้า": {
+   "gloss": "Chinese shrine offerings"
+  },
+  "เครื่่องเย็น": {
+   "gloss": "cooling equipment",
+   "reading": "Khrueang Yen"
+  },
+  "เคลือบฟลูออไร": {
+   "gloss": "fluoride coating",
+   "reading": "Khlueap Fluorai"
+  },
+  "เจาะน้ำบาดาล": {
+   "gloss": "groundwater well drilling",
+   "reading": "Cho Nam Badan"
+  },
+  "เจาะบาดาล": {
+   "gloss": "borehole drilling",
+   "reading": "Cho Badan"
+  },
+  "เจียริม": {
+   "gloss": "edge grinding",
+   "reading": "Chia Rim"
+  },
+  "เชาเครื่องประดับ": {
+   "gloss": "jewellery hire"
+  },
+  "เชียร์ลึดเดอร์": {
+   "gloss": "cheerleader kit"
+  },
+  "เช่าชุด": {
+   "gloss": "dress hire"
+  },
+  "เช่าชุดงานพรอม": {
+   "gloss": "prom dress hire"
+  },
+  "เช่าชุดพรอม": {
+   "gloss": "prom dress hire"
+  },
+  "เช่าชุดราตรี": {
+   "gloss": "evening gown hire"
+  },
+  "เช่าชุดล้านนา": {
+   "gloss": "Lanna dress hire"
+  },
+  "เช่าชุดสูท": {
+   "gloss": "suit hire"
+  },
+  "เช่าชุดเพื่อนเจ้าสาว": {
+   "gloss": "bridesmaid dress hire"
+  },
+  "เช่าชุดแต่งงาน": {
+   "gloss": "wedding dress hire"
+  },
+  "เช่าชุดแฟนตาซี": {
+   "gloss": "fancy dress hire"
+  },
+  "เช่าชุดไทย": {
+   "gloss": "Thai dress hire"
+  },
+  "เช่าตัดชุดแต่งงาน": {
+   "gloss": "wedding dress, hire or made"
+  },
+  "เช่ามอเตอร์ไซค์": {
+   "gloss": "motorcycle hire",
+   "reading": "Chao Motoesai"
+  },
+  "เช่ามอเตอร์ไซค์ให้เช่า": {
+   "gloss": "motorcycle hire",
+   "reading": "Chao Motoesai Hai Chao"
+  },
+  "เช่ารถ": {
+   "gloss": "vehicle hire",
+   "reading": "Chao Rot"
+  },
+  "เช่ารถตู้พร้อคนขับ": {
+   "gloss": "van hire with driver",
+   "reading": "Chao Rot Tu Phrom Khon Khap"
+  },
+  "เช่ารถบัสพร้อมคนขับ": {
+   "gloss": "bus hire with driver",
+   "reading": "Chao Rot Bat Phrom Khon Khap"
+  },
+  "เช่ารถยนต์": {
+   "gloss": "car hire",
+   "reading": "Chao Rotyon"
+  },
+  "เช่ารถสกูตเตอร์": {
+   "gloss": "scooter hire",
+   "reading": "Chao Rot Sakuttoe"
+  },
+  "เดคุเพต": {
+   "gloss": "decoupage",
+   "reading": "Dekhuphet"
+  },
+  "เดินสายไฟ": {
+   "gloss": "electrical wiring"
+  },
+  "เด็กแอลดี": {
+   "gloss": "children with learning disabilities (LD)",
+   "reading": "Dek Aen Di"
+  },
+  "เตาแก๊ส": {
+   "gloss": "gas stoves"
+  },
+  "เติมน้ำฟรี": {
+   "gloss": "free water refill"
+  },
+  "เติมน้ำยาแอร์บ้าน": {
+   "gloss": "household air-con regassing",
+   "reading": "Toem Nam Ya Ae Ban"
+  },
+  "เติมลม": {
+   "gloss": "tyre inflation"
+  },
+  "เติมหมึก": {
+   "gloss": "ink refills"
+  },
+  "เติมแก๊ส": {
+   "gloss": "gas refilling"
+  },
+  "เต้นท์": {
+   "gloss": "tents and marquees",
+   "reading": "Ten"
+  },
+  "เทปกาว": {
+   "gloss": "adhesive tape"
+  },
+  "เทรินบิ๊กไบค์": {
+   "gloss": "big bike trade-in",
+   "reading": "Thoen Bikbai"
+  },
+  "เทียนพรรษา": {
+   "gloss": "Lenten candles",
+   "reading": "Thian Phansa"
+  },
+  "เนมเพลท": {
+   "gloss": "name plates",
+   "reading": "Nemphlet"
+  },
+  "เนิร์สซิ่งโฮม": {
+   "gloss": "nursing home",
+   "reading": "Noetsing Hom"
+  },
+  "เบรคมอเตอร์ไซค์": {
+   "gloss": "motorcycle brakes",
+   "reading": "Brek Motoesai"
+  },
+  "เบาะทุกชนิด": {
+   "gloss": "upholstery of every kind",
+   "reading": "Bo Thuk Chanit"
+  },
+  "เบาะมอเตอร์ไซค์": {
+   "gloss": "motorcycle seats",
+   "reading": "Bo Motoesai"
+  },
+  "เบาะรถยนต์": {
+   "gloss": "car seats",
+   "reading": "Bo Rotyon"
+  },
+  "เปลียนสายนาฬิกา": {
+   "gloss": "watch strap replacement",
+   "reading": "Plian Sai Nalika"
+  },
+  "เปลี่นซิบ": {
+   "gloss": "zip replacement",
+   "reading": "Plian Sip"
+  },
+  "เปลี่ยนซิบกระเป๋า": {
+   "gloss": "bag zip replacement",
+   "reading": "Plian Sip Krapao"
+  },
+  "เปลี่ยนซิบกางเกง": {
+   "gloss": "trouser zip replacement",
+   "reading": "Plian Sip Kangkeng"
+  },
+  "เปลี่ยนซิบยีนส์": {
+   "gloss": "jeans zip replacement",
+   "reading": "Plian Sip Yin"
+  },
+  "เปลี่ยนซิบแก้ทรง": {
+   "gloss": "zip replacement and alterations",
+   "reading": "Plian Sip Kae Song"
+  },
+  "เปลี่ยนถ่ายน้ำมันเครื่อง": {
+   "gloss": "engine oil change"
+  },
+  "เปลี่ยนทรง": {
+   "gloss": "reshaping, restyling"
+  },
+  "เปลี่ยนทรงกางเกง": {
+   "gloss": "trouser restyling"
+  },
+  "เปลี่ยนน้ำมันเครื่อง": {
+   "gloss": "engine oil change"
+  },
+  "เปลี่ยนน้ำมันเครื่องมอเตอร์ไซค์": {
+   "gloss": "motorcycle oil change",
+   "reading": "Plian Namman Khrueang Motoesai"
+  },
+  "เปลี่ยนยาง": {
+   "gloss": "tyre replacement"
+  },
+  "เปลี่ยนยางขอบ": {
+   "gloss": "rim tyre replacement"
+  },
+  "เปลี่ยนยางมอเตอร์ไซค์": {
+   "gloss": "motorcycle tyre replacement",
+   "reading": "Plian Yang Motoesai"
+  },
+  "เปลี่ยนยางมอเตอร์ไซต์": {
+   "gloss": "motorcycle tyre replacement",
+   "reading": "Plian Yang Motoesai"
+  },
+  "เปลี่ยนยางยืด": {
+   "gloss": "elastic replacement"
+  },
+  "เปลี่ยนยางรถมอเตอร์ไซค์": {
+   "gloss": "motorcycle tyre replacement",
+   "reading": "Plian Yang Rot Motoesai"
+  },
+  "เปลี่ยนสารกรอง": {
+   "gloss": "filter media replacement",
+   "reading": "Plian San Krong"
+  },
+  "เปลี่ยนหัวเทียน": {
+   "gloss": "spark plug replacement"
+  },
+  "เปลี่ยนหัวเทียนซ่อมมอเตอร์ไซค์": {
+   "gloss": "spark plugs and motorcycle repair",
+   "reading": "Plian Hua Thian Som Motoesai"
+  },
+  "เปลี่ยนหัวเทียนมอเตอร์ไซค์": {
+   "gloss": "motorcycle spark plug change",
+   "reading": "Plian Hua Thian Motoesai"
+  },
+  "เปลี่ยนหัวเทียนรถมอเตอร์ไซค์": {
+   "gloss": "motorcycle spark plug change",
+   "reading": "Plian Hua Thian Rot Motoesai"
+  },
+  "เปลี้ยนซิบ": {
+   "gloss": "zip replacement",
+   "reading": "Plian Sip"
+  },
+  "เปิด24ชั่วโมง": {
+   "gloss": "open 24 hours",
+   "reading": "Poet 24 Chuamong"
+  },
+  "เพดาน": {
+   "gloss": "ceilings",
+   "reading": "Phedan"
+  },
+  "เมทัลชีท": {
+   "gloss": "metal sheet roofing",
+   "reading": "Metan Chit"
+  },
+  "เมนูอาหาร": {
+   "gloss": "printed menus"
+  },
+  "เย็บผ้า": {
+   "gloss": "sewing"
+  },
+  "เย็บผ้าตามออเดอร์": {
+   "gloss": "sewing to order",
+   "reading": "Yep Pha Tam Odoe"
+  },
+  "เย็บเสื้อผ้า": {
+   "gloss": "clothes sewing"
+  },
+  "เลซอร์": {
+   "gloss": "laser",
+   "reading": "Lesoe"
+  },
+  "เลตเตอร์เพลส": {
+   "gloss": "letterpress",
+   "reading": "Lettoephret"
+  },
+  "เลนท์กล้อง": {
+   "gloss": "camera lenses",
+   "reading": "Len Klong"
+  },
+  "เลนส์": {
+   "gloss": "lenses"
+  },
+  "เลเซอร์": {
+   "gloss": "laser cutting and engraving",
+   "reading": "Lesoe"
+  },
+  "เล็ตเตอร์เพท": {
+   "gloss": "letterpress",
+   "reading": "Lettoephret"
+  },
+  "เวชศาสตร์ฟื้นฟู": {
+   "gloss": "rehabilitation medicine",
+   "reading": "Wetchasat Fuenfu"
+  },
+  "เศียรบรมครู": {
+   "gloss": "master-teacher heads (ritual)",
+   "reading": "Sian Boromkhru"
+  },
+  "เศียรพ่อแก่": {
+   "gloss": "Pho Kae heads (ritual)",
+   "reading": "Sian Pho Kae"
+  },
+  "เสียภาษีเงินได้นิติบุคคล": {
+   "gloss": "corporate income tax",
+   "reading": "Sia Phasi Ngoen Dai Nitibukkhon"
+  },
+  "เสือภูเขา": {
+   "gloss": "mountain bikes"
+  },
+  "เสือหมอบ": {
+   "gloss": "road bikes",
+   "reading": "Suea Mop"
+  },
+  "เสื่อ": {
+   "gloss": "mats",
+   "reading": "Suea"
+  },
+  "เสื้อกาวน์": {
+   "reading": "Suea Kaon"
+  },
+  "เสื้อกิจกรรม": {
+   "gloss": "event shirts",
+   "reading": "Suea Kitchakam"
+  },
+  "เสื้อกีฬา": {
+   "gloss": "sports shirts"
+  },
+  "เสื้อคอกลม": {
+   "gloss": "round-neck shirts",
+   "reading": "Suea Kho Klom"
+  },
+  "เสื้อคอวี": {
+   "gloss": "V-neck shirts",
+   "reading": "Suea Kho Wi"
+  },
+  "เสื้อทีม": {
+   "gloss": "team shirts",
+   "reading": "Suea Thim"
+  },
+  "เสื้อปัก": {
+   "gloss": "embroidered shirts"
+  },
+  "เสื้อผ้าผู้หญิง": {
+   "gloss": "women's clothing"
+  },
+  "เสื้อผ้ามือสอง": {
+   "gloss": "second-hand clothes",
+   "reading": "Sueapha Mue Song"
+  },
+  "เสื้อผ้าสตรี": {
+   "gloss": "women's clothing"
+  },
+  "เสื้อผ้าสุนัข-แมว": {
+   "gloss": "dog and cat clothes"
+  },
+  "เสื้อผ้าแฟชั่น": {
+   "gloss": "fashion clothing"
+  },
+  "เสื้อยืด": {
+   "gloss": "T-shirts",
+   "reading": "Suea Yuet"
+  },
+  "เสื้อยืดสีพื้น": {
+   "gloss": "plain T-shirts",
+   "reading": "Suea Yuet Si Phuen"
+  },
+  "เสื้อยืดไตย": {
+   "gloss": "Tai-style T-shirts",
+   "reading": "Suea Yuet Tai"
+  },
+  "เสื้อสกีน": {
+   "gloss": "screen-printed shirts",
+   "reading": "Suea Sakrin"
+  },
+  "เสื้อสูบมอเตอร์ไซค์": {
+   "gloss": "motorcycle cylinder barrels",
+   "reading": "Suea Sup Motoesai"
+  },
+  "เสื้อเนื้อนิ่ม": {
+   "gloss": "soft-cotton shirts",
+   "reading": "Suea Nuea Nim"
+  },
+  "เสื้อโปโล": {
+   "gloss": "polo shirts",
+   "reading": "Suea Polo"
+  },
+  "เหมาก่อสร้าง": {
+   "gloss": "building contracting"
+  },
+  "เหล็กดัด": {
+   "gloss": "wrought iron, security grilles"
+  },
+  "เอกซเรย์ฟ้น": {
+   "gloss": "dental X-ray",
+   "reading": "Eksare Fan"
+  },
+  "เอสเพรสโซ่": {
+   "gloss": "espresso",
+   "reading": "Etphretso"
+  },
+  "เอ็กซเรย์": {
+   "gloss": "X-ray",
+   "reading": "Eksare"
+  },
+  "เเปลเอกสารทุกภาษา": {
+   "gloss": "document translation, any language",
+   "reading": "Plae Ekkasan Thuk Phasa"
+  },
+  "แกะบล๊อค": {
+   "gloss": "block engraving",
+   "reading": "Kae Blok"
+  },
+  "แก้กระโปรง": {
+   "gloss": "skirt alterations"
+  },
+  "แก้ซิบ": {
+   "gloss": "zip repair",
+   "reading": "Kae Sip"
+  },
+  "แก้ทรง": {
+   "gloss": "reshaping, alterations"
+  },
+  "แก้ทรงกางเกง": {
+   "gloss": "trouser alterations"
+  },
+  "แก้ทรงผ้า": {
+   "gloss": "garment alterations",
+   "reading": "Kae Song Pha"
+  },
+  "แก้ทรงเสื้อ": {
+   "gloss": "shirt alterations"
+  },
+  "แก้ทรงเสื้อผ้า": {
+   "gloss": "clothing alterations",
+   "reading": "Kae Song Sueapha"
+  },
+  "แก้เอว": {
+   "gloss": "waist alterations"
+  },
+  "แก้ไขผ้า": {
+   "gloss": "garment alterations"
+  },
+  "แก้ไขวีซ่าไม่ผ่าน": {
+   "gloss": "refused visa remedies",
+   "reading": "Kaekhai Wisa Mai Phan"
+  },
+  "แก้ไซส์": {
+   "gloss": "resizing",
+   "reading": "Kae Sai"
+  },
+  "แก๊งหุงต้ม": {
+   "gloss": "cooking gas",
+   "reading": "Kaet Hung Tom"
+  },
+  "แก๊สธงฟ้า": {
+   "gloss": "Thong Fa gas",
+   "reading": "Kaet Thong Fa"
+  },
+  "แก๊สบรรจุถัง": {
+   "gloss": "bottled gas",
+   "reading": "Kaet Banchu Thang"
+  },
+  "แก๊สบ้าน": {
+   "gloss": "household gas"
+  },
+  "แก๊สปตท": {
+   "gloss": "PTT gas",
+   "reading": "Kaet Po To Tho"
+  },
+  "แก๊สรถยนต์": {
+   "gloss": "vehicle gas (LPG/NGV)",
+   "reading": "Kaet Rotyon"
+  },
+  "แก๊สหุงต้น": {
+   "gloss": "cooking gas",
+   "reading": "Kaet Hung Tom"
+  },
+  "แก๊สหุงต้ม": {
+   "gloss": "cooking gas"
+  },
+  "แต่งขน": {
+   "gloss": "grooming"
+  },
+  "แต่งขนสัตว์": {
+   "gloss": "animal grooming"
+  },
+  "แต่งขนสุนัข": {
+   "gloss": "dog grooming"
+  },
+  "แต่งรถมอเตอร์ไซค์": {
+   "gloss": "motorcycle customising",
+   "reading": "Taeng Rot Motoesai"
+  },
+  "แต่งศพ": {
+   "gloss": "preparing the body"
+  },
+  "แต่งหน้าเจ้าสาว": {
+   "gloss": "bridal make-up"
+  },
+  "แทงค์น้ำ": {
+   "gloss": "water tanks",
+   "reading": "Thaeng Nam"
+  },
+  "แบคโฮ": {
+   "gloss": "backhoes",
+   "reading": "Baekho"
+  },
+  "แบนเนอร์": {
+   "gloss": "banners",
+   "reading": "Baennoe"
+  },
+  "แปลภาษา": {
+   "gloss": "translation",
+   "reading": "Plae Phasa"
+  },
+  "แปลภาษาจีน": {
+   "gloss": "Chinese translation",
+   "reading": "Plae Phasa Chin"
+  },
+  "แปลอังกฤษ": {
+   "gloss": "English translation",
+   "reading": "Plae Angkrit"
+  },
+  "แปลเอกสารทุกภาษา": {
+   "gloss": "document translation, any language",
+   "reading": "Plae Ekkasan Thuk Phasa"
+  },
+  "แผ่นซิงค์": {
+   "gloss": "zinc sheet",
+   "reading": "Phaen Sing"
+  },
+  "แผ่นพับ": {
+   "gloss": "leaflets",
+   "reading": "Phaen Phap"
+  },
+  "แผ่นสเตนเลส": {
+   "gloss": "stainless sheet",
+   "reading": "Phaen Sataenlet"
+  },
+  "แผ่นสแตนเลส": {
+   "gloss": "stainless sheet",
+   "reading": "Phaen Sataenlet"
+  },
+  "แผ่นอลูเนียม": {
+   "gloss": "aluminium sheet",
+   "reading": "Phaen Aluminiam"
+  },
+  "แพทย์แผนจีน": {
+   "gloss": "Chinese medicine",
+   "reading": "Phaet Phaen Chin"
+  },
+  "แพ็คเกจจิ้ง": {
+   "gloss": "packaging",
+   "reading": "Phaekkecching"
+  },
+  "แพ๊คของ": {
+   "gloss": "goods packing",
+   "reading": "Phaek Khong"
+  },
+  "แฟ๊กซ์": {
+   "gloss": "fax",
+   "reading": "Faek"
+  },
+  "แฟ๊กส์": {
+   "gloss": "fax",
+   "reading": "Faek"
+  },
+  "แลกเปลี่ยนมอเตอร์ไซค์": {
+   "gloss": "motorcycle trade-in",
+   "reading": "Laekplian Motoesai"
+  },
+  "และ": {
+   "gloss": "and",
+   "reading": "Lae"
+  },
+  "และงานตรวจสอบบัญชี": {
+   "gloss": "and audit work",
+   "reading": "Lae Ngan Truatsop Banchi"
+  },
+  "แอร์ขนาดเล็ก": {
+   "gloss": "small air-con units",
+   "reading": "Ae Khanat Lek"
+  },
+  "แอร์บ้าน": {
+   "gloss": "household air-con",
+   "reading": "Ae Ban"
+  },
+  "แอร์ยอร์ก": {
+   "gloss": "York air-con",
+   "reading": "Ae York"
+  },
+  "แอร์รถยนต์": {
+   "gloss": "car air-con",
+   "reading": "Ae Rotyon"
+  },
+  "แอร์ฮิตาชิ": {
+   "gloss": "Hitachi air-con",
+   "reading": "Ae Hitachi"
+  },
+  "แอร์โรงงาน": {
+   "gloss": "industrial air-con",
+   "reading": "Ae Rongngan"
+  },
+  "แอลพีจี": {
+   "gloss": "LPG",
+   "reading": "Aen Phi Chi"
+  },
+  "แอลอีดี": {
+   "gloss": "LED",
+   "reading": "Aen I Di"
+  },
+  "โกดัก": {
+   "gloss": "Kodak",
+   "reading": "Kodak"
+  },
+  "โคมลอย": {
+   "gloss": "sky lanterns",
+   "reading": "Khom Loi"
+  },
+  "โครงสร้างหลังคา": {
+   "gloss": "roof structures",
+   "reading": "Khrongsang Langkha"
+  },
+  "โครงหลังคา": {
+   "gloss": "roof framing"
+  },
+  "โครงเหล็ก": {
+   "gloss": "steel frames"
+  },
+  "โคเวิร์คกิ้งสเปซ": {
+   "gloss": "coworking space",
+   "reading": "Khowoekking Sapet"
+  },
+  "โชว์รูมมอเตอร์ไซค์": {
+   "gloss": "motorcycle showroom",
+   "reading": "Chorum Motoesai"
+  },
+  "โชว์รูมรถมอเตอร์ไซค์": {
+   "gloss": "motorcycle showroom",
+   "reading": "Chorum Rot Motoesai"
+  },
+  "โซล่าร์เซลล์​": {
+   "gloss": "solar cells",
+   "reading": "Sola Sen"
+  },
+  "โซ๊คมอเตอร์ไซค์": {
+   "gloss": "motorcycle shock absorbers",
+   "reading": "Chok Motoesai"
+  },
+  "โดรน": {
+   "gloss": "drones",
+   "reading": "Dron"
+  },
+  "โต๊ะสำนักงาน": {
+   "gloss": "office desks"
+  },
+  "โบว์ชัวร์": {
+   "gloss": "brochures",
+   "reading": "Bochua"
+  },
+  "โปรแกรมขายสินค้าหน้าร้าน": {
+   "gloss": "point-of-sale software",
+   "reading": "Prokraem Khai Sinkha Na Ran"
+  },
+  "โปรแกรมบัญชี": {
+   "gloss": "accounting software",
+   "reading": "Prokraem Banchi"
+  },
+  "โปสการ์ด": {
+   "gloss": "postcards",
+   "reading": "Postakat"
+  },
+  "โปสเตอร์": {
+   "gloss": "posters",
+   "reading": "Postoe"
+  },
+  "โปสเตอร์ฉลากสินค้า": {
+   "gloss": "posters and product labels",
+   "reading": "Postoe Chalak Sinkha"
+  },
+  "โปโล": {
+   "gloss": "polo shirts",
+   "reading": "Polo"
+  },
+  "โพลิเฟค": {
+   "gloss": "Polyfec board",
+   "reading": "Pholifek"
+  },
+  "โพลีคาร์บอเนต": {
+   "gloss": "polycarbonate",
+   "reading": "Pholikhabonet"
+  },
+  "โพลี่คาร์บอเนต": {
+   "gloss": "polycarbonate",
+   "reading": "Pholikhabonet"
+  },
+  "โรคช่องปาก": {
+   "gloss": "oral disease"
+  },
+  "โรคตาสัตว์": {
+   "gloss": "animal eye disease",
+   "reading": "Rok Ta Sat"
+  },
+  "โรคผิวหนังสัตว์": {
+   "gloss": "animal skin disease",
+   "reading": "Rok Phiwnang Sat"
+  },
+  "โรงกลึง": {
+   "gloss": "machine shop, lathe work"
+  },
+  "โรงพยาบาลสัตว์เล็ก": {
+   "gloss": "small animal hospital",
+   "reading": "Rongphayaban Sat Lek"
+  },
+  "โรงพยาบาลแมคเคน": {
+   "gloss": "McKean Hospital",
+   "reading": "Rongphayaban Maekkhen"
+  },
+  "โรงแรมรับฝากแมว": {
+   "gloss": "cat boarding hotel",
+   "reading": "Rongraem Rap Fak Maeo"
+  },
+  "โรงแรมสัตว์": {
+   "gloss": "pet hotel",
+   "reading": "Rongraem Sat"
+  },
+  "โรงแรมแมว": {
+   "gloss": "cat hotel",
+   "reading": "Rongraem Maeo"
+  },
+  "โรลอัพ": {
+   "gloss": "roll-up banners",
+   "reading": "Rol Ap"
+  },
+  "โลห์": {
+   "gloss": "trophy shields, plaques",
+   "reading": "Lo"
+  },
+  "โลโก้": {
+   "gloss": "logos",
+   "reading": "Loko"
+  },
+  "โอคัลเลอร์": {
+   "gloss": "O Colour (brand)",
+   "reading": "O Khaloe"
+  },
+  "ใช้เช่าชุดทักซิโด": {
+   "gloss": "tuxedo hire"
+  },
+  "ใบกำกับภาษี": {
+   "gloss": "tax invoices",
+   "reading": "Bai Kamkap Phasi"
+  },
+  "ใบปลิว": {
+   "gloss": "flyers",
+   "reading": "Bai Plio"
+  },
+  "ใบส่งของ": {
+   "gloss": "delivery notes"
+  },
+  "ใบเสร็จ": {
+   "gloss": "receipts",
+   "reading": "Bai Set"
+  },
+  "ใบแลิว": {
+   "gloss": "flyers",
+   "reading": "Bai Plio"
+  },
+  "ใส่ฟัน": {
+   "gloss": "fitting false teeth"
+  },
+  "ใส่ยางยืด": {
+   "gloss": "elastic fitting",
+   "reading": "Sai Yang Yuet"
+  },
+  "ใส่เบอร์ชุด": {
+   "gloss": "kit numbering",
+   "reading": "Sai Boe Chut"
+  },
+  "ให้คำปรึกษาด้านกฎหมาย": {
+   "gloss": "legal advice",
+   "reading": "Hai Kham Prueksa Dan Kotmai"
+  },
+  "ให้บริการผู้ป่วยติดเตียง": {
+   "gloss": "bedbound patient care",
+   "reading": "Hai Borikan Phupuai Tit Tiang"
+  },
+  "ให้เช่าชุดเดรส": {
+   "gloss": "dress hire"
+  },
+  "ให้เช่าชุดแต่งงาน": {
+   "gloss": "wedding dress hire"
+  },
+  "ให้เช่าพื้นที่ติดตั้งป้ายโฆษณา": {
+   "gloss": "advertising space to let",
+   "reading": "Hai Chao Phuenthi Tittang Pai Khotsana"
+  },
+  "ให้เช่ามอเตอร์ไซค์": {
+   "gloss": "motorcycle hire",
+   "reading": "Hai Chao Motoesai"
+  },
+  "ให้เช่าเครื่องเสียง": {
+   "gloss": "audio equipment hire",
+   "reading": "Hai Chao Khrueang Siang"
+  },
+  "ให้เช่าโพเดียม": {
+   "gloss": "podium hire",
+   "reading": "Hai Chao Phodiam"
+  },
+  "ไขลาน": {
+   "gloss": "winding (clocks)",
+   "reading": "Khai Lan"
+  },
+  "ไข่ไก่สด": {
+   "gloss": "fresh hen eggs"
+  },
+  "ไดคัท": {
+   "gloss": "die cutting",
+   "reading": "Dai Khat"
+  },
+  "ไดร์เป่าผม": {
+   "gloss": "hair dryers",
+   "reading": "Dai Pao Phom"
+  },
+  "ไตรจีวร": {
+   "gloss": "the triple robe",
+   "reading": "Trai Chiwon"
+  },
+  "ไตวายเรื้อรัง": {
+   "gloss": "chronic kidney failure",
+   "reading": "Tai Wai Ruearang"
+  },
+  "ไม้อัด": {
+   "gloss": "plywood"
+  },
+  "ไวนิล": {
+   "gloss": "vinyl banner",
+   "reading": "Wainin"
+  },
+  "ไวนีล": {
+   "gloss": "vinyl",
+   "reading": "Wainin"
+  },
+  "ไส้กรองน้ำมันเครื่อง": {
+   "gloss": "engine oil filters",
+   "reading": "Sai Krong Namman Khrueang"
+  }
+ },
+ "areas": {},
+ "_note": "Hand fixes to data/trade_lexicon.json, which is generated. An entry here is glossVia=curated and overrides whatever the generator found. `gloss` is a dictionary equivalence for the word a shop writes on itself; `reading` replaces an RTGS reading the letter rules got wrong, most often where a loanword in the shared lexicon returned its English instead of how the Thai is said (ซ่อมมอเตอร์ไซค์ read as 'Som Motorcycle' rather than 'Som Motoesai'). Where the English would be a judgement about a shop rather than a translation of a word, no gloss is given.",
+ "_added": {
+  "2026-09-07": "WO-74. The costume and dress-hire vocabulary, 88 tags. Before this the four Lanna-costume photo studios carried ถ่ายภาพชุดล้านนา with no gloss at all, so the index held the Thai and the RTGS reading 'Thai Phap Chutlanna' and nothing an English speaker would type. Nan, 2026-09-07.",
+  "2026-09-08": "Nan, 2026-09-08: the 1,782 trade words should be translated and transliterated. Every remaining trade tag glossed by hand (1456 added, 0 revised), and 870 readings corrected — chiefly the mixed-language ones the shared loanword table produced. The lexicon went from 326 glossed of 1,782 to all 1,782."
+ }
+}

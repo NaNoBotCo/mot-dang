@@ -1,0 +1,2866 @@
+{
+ "_note": "Pins inferred from a written address by importers/geocode_gaps.py, using importers/geocode_local.py and this catalogue's own ground (streets.json, tambon and postcode centroids, landmarks we hold). No geocoding service was called. Applied by import_all.py ONLY to records that still have no pin: a surveyed pin always wins. Each entry carries the tier that earned it and how far it may be wrong; a walked pin should replace it and this row should then be deleted.",
+ "generated": "2026-09-05",
+ "pins": {
+  "cm-condoreg-กลอรี่-คอนโดมิเนียม": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-กลอรี่-บูทีค-สูท": {
+   "fetched": "2026-09-05",
+   "from": "ศรีภูมิ / เมืองเชียงใหม่",
+   "lat": 18.796164,
+   "lng": 98.990569,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 250,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cm-condoreg-กาญจน์กนก-คอนโดมิเนียม-โครงการ-3": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-กาญจน์กนก-คอนโดมิเนี่ยม-โครงการ-5": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-กานต์พาเลส": {
+   "fetched": "2026-09-05",
+   "from": "ช้างม่อย",
+   "lat": 18.789665,
+   "lng": 98.996415,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 273,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-คาซา-ทิล-เชียงใหม่-คอนโดมิเนียม": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-คาซ่า-คอนโด-ช้างเผือก": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ช้างคลานเรสซิเด้นท์": {
+   "fetched": "2026-09-05",
+   "from": "ช้างคลาน",
+   "lat": 18.775994,
+   "lng": 98.997593,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 777,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ดิ-เอท-คอนโดมิเนียม": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ดิ-เอราวัณ-คอนโดมิเนียม": {
+   "fetched": "2026-09-05",
+   "from": "ช้างคลาน",
+   "lat": 18.775994,
+   "lng": 98.997593,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 777,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ดิ-แอสตร้า": {
+   "fetched": "2026-09-05",
+   "from": "ช้างคลาน",
+   "lat": 18.775994,
+   "lng": 98.997593,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 777,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ดีเวียง-สันติธรรม": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ทรัมส์-2-สแควร์-อาคารซี": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ทรัมส์-2-สแควร์-อาคารบี": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ทรัมส์-2-สแควร์-อาคารเอ": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ทรัมส์-คอนโดมิเนียม-1": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ทรีบูทีค-คอนโด": {
+   "fetched": "2026-09-05",
+   "from": "ช้างคลาน",
+   "lat": 18.775994,
+   "lng": 98.997593,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 777,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ทวินพีคส์-เชียงใหม่": {
+   "fetched": "2026-09-05",
+   "from": "ช้างคลาน",
+   "lat": 18.775994,
+   "lng": 98.997593,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 777,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ทวีผล-ทาวน์เวอร์-คอนโดมิเนียม": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ท็อปแอร์พอร์ท-คอนโดมิเนียม": {
+   "fetched": "2026-09-05",
+   "from": "ป่าแดด",
+   "lat": 18.746115,
+   "lng": 98.980882,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1365,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ธัช-ฮิลล์-เพลส-แอลลิแกนท์": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ธัชฮิลล์เพลส": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-นครพิงค์คอนโดมิเนียม": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-นาทูร่า-กรีน-เรสซิเดนซ์-บี": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-นาทูร่า-กรีน-เรสซิเดนซ์-เอ": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-บ้านสวนเชิงดอย-อาคาร-1-2": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-บ้านเอื้ออาทร-หนองหอย-2": {
+   "fetched": "2026-09-05",
+   "from": "หนองหอย",
+   "lat": 18.756752,
+   "lng": 99.010231,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1206,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-บ้านเอื้ออาทรสันผีเสื้อ": {
+   "fetched": "2026-09-05",
+   "from": "สันผีเสื้อ / เมืองเชียงใหม่",
+   "lat": 18.870689,
+   "lng": 98.992251,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 611,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cm-condoreg-บ้านเอื้ออาทรหนองหอย-1": {
+   "fetched": "2026-09-05",
+   "from": "หนองหอย",
+   "lat": 18.756752,
+   "lng": 99.010231,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1206,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-บ้านเอื้ออาทรเจ้าแม่กวนอิม": {
+   "fetched": "2026-09-05",
+   "from": "ป่าแดด",
+   "lat": 18.746115,
+   "lng": 98.980882,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1365,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-บ้านเอื้ออาทรไนท์ซาฟารี": {
+   "fetched": "2026-09-05",
+   "from": "หนองป่าครั่ง",
+   "lat": 18.787543,
+   "lng": 99.029894,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 942,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ปันนา-เรสซิเดนท์-2-แอท-นิมมาน": {
+   "fetched": "2026-09-05",
+   "from": "ศรีภูมิ / เมืองเชียงใหม่",
+   "lat": 18.796164,
+   "lng": 98.990569,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 250,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cm-condoreg-ปันสุข-ควอลิตี้-คอนโดมิเนียม": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ปิง-ริเวอร์-เรสซิเด็นซ์": {
+   "fetched": "2026-09-05",
+   "from": "ช้างคลาน",
+   "lat": 18.775994,
+   "lng": 98.997593,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 777,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-พรอมท์-คอนโด": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-พาร์ค-โบโร่-เรสซิเดนซ์": {
+   "fetched": "2026-09-05",
+   "from": "ช้างคลาน",
+   "lat": 18.775994,
+   "lng": 98.997593,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 777,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-พิงค์-คอนโดมิเนียม": {
+   "fetched": "2026-09-05",
+   "from": "ช้างคลาน",
+   "lat": 18.775994,
+   "lng": 98.997593,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 777,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-พิงค์-พลัส-คอนโดมิเนียม": {
+   "fetched": "2026-09-05",
+   "from": "ช้างคลาน",
+   "lat": 18.775994,
+   "lng": 98.997593,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 777,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-พิงค์-ไลฟ์-คอนโดมิเนียม": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-พีคส์-อเวนิว-คอนโดมิเนียม": {
+   "fetched": "2026-09-05",
+   "from": "ช้างคลาน",
+   "lat": 18.775994,
+   "lng": 98.997593,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 777,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-พีคส์การ์เด้น": {
+   "fetched": "2026-09-05",
+   "from": "ช้างคลาน",
+   "lat": 18.775994,
+   "lng": 98.997593,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 777,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-มหิดลคอนโด-เอ": {
+   "fetched": "2026-09-05",
+   "from": "ป่าแดด",
+   "lat": 18.746115,
+   "lng": 98.980882,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1365,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-มาย-ฮิป-คอนโด": {
+   "fetched": "2026-09-05",
+   "from": "หนองป่าครั่ง",
+   "lat": 18.787543,
+   "lng": 99.029894,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 942,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-มายฮิป-คอนโด-2": {
+   "fetched": "2026-09-05",
+   "from": "หนองป่าครั่ง",
+   "lat": 18.787543,
+   "lng": 99.029894,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 942,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ลิลลี่-วาเล่ย์": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-วันพลัส-คอนโด-คลองชล-คลับ": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-วันพลัส-คอนโด-คำเที่ยง": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-วันพลัส-คอนโด-นายน์ทีน-1": {
+   "fetched": "2026-09-05",
+   "from": "ช้างคลาน",
+   "lat": 18.775994,
+   "lng": 98.997593,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 777,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-วันพลัส-คอนโด-นายน์ทีน-2": {
+   "fetched": "2026-09-05",
+   "from": "ช้างคลาน",
+   "lat": 18.775994,
+   "lng": 98.997593,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 777,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-วันพลัส-คอนโด-นายน์ทีน-3": {
+   "fetched": "2026-09-05",
+   "from": "ช้างคลาน",
+   "lat": 18.775994,
+   "lng": 98.997593,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 777,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-วันพลัส-คอนโด-นายน์ทีน-4": {
+   "fetched": "2026-09-05",
+   "from": "ช้างคลาน",
+   "lat": 18.775994,
+   "lng": 98.997593,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 777,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-วันพลัส-คอนโด-บิสสิเนส-พาร์ค-1": {
+   "fetched": "2026-09-05",
+   "from": "หนองป่าครั่ง",
+   "lat": 18.787543,
+   "lng": 99.029894,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 942,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-วันพลัส-คอนโด-บิสสิเนส-พาร์ค-2": {
+   "fetched": "2026-09-05",
+   "from": "หนองป่าครั่ง",
+   "lat": 18.787543,
+   "lng": 99.029894,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 942,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-วันพลัส-คอนโด-บิสสิเนส-พาร์ค-4": {
+   "fetched": "2026-09-05",
+   "from": "หนองป่าครั่ง",
+   "lat": 18.787543,
+   "lng": 99.029894,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 942,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-วันพลัส-คอนโด-บิสสิเนสพาร์ค-3": {
+   "fetched": "2026-09-05",
+   "from": "หนองป่าครั่ง",
+   "lat": 18.787543,
+   "lng": 99.029894,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 942,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-วันพลัส-คอนโด-ม-ช-3": {
+   "fetched": "2026-09-05",
+   "from": "ช้างคลาน",
+   "lat": 18.775994,
+   "lng": 98.997593,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 777,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-วันพลัส-คอนโด-มหิดล": {
+   "fetched": "2026-09-05",
+   "from": "ช้างคลาน",
+   "lat": 18.775994,
+   "lng": 98.997593,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 777,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-วันพลัส-คอนโด-มหิดล-5": {
+   "fetched": "2026-09-05",
+   "from": "หนองหอย",
+   "lat": 18.756752,
+   "lng": 99.010231,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1206,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-วันพลัส-คอนโด-ห้วยแก้ว": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-วันพลัส-คอนโด-เจ็ดยอด-1": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-วันพลัส-คอนโด-เจ็ดยอด-2": {
+   "fetched": "2026-09-05",
+   "from": "ศรีภูมิ / เมืองเชียงใหม่",
+   "lat": 18.796164,
+   "lng": 98.990569,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 250,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cm-condoreg-วันพลัส-คอนโด-เจ็ดยอด-3": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-วันพลัส-คอนโด-เจ็ดยอด-4": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-วันพลัส-คอนโด-เจ็ดยอด-คลับ": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-วันพลัส-บิสสิเนส-พาร์ค-5": {
+   "fetched": "2026-09-05",
+   "from": "หนองป่าครั่ง",
+   "lat": 18.787543,
+   "lng": 99.029894,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 942,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-วันพลัส-มหิดล-7": {
+   "fetched": "2026-09-05",
+   "from": "หนองหอย",
+   "lat": 18.756752,
+   "lng": 99.010231,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1206,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-วันพลัส-เจ็ดยอด-5": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-วิชั่น-เชียงใหม่": {
+   "fetched": "2026-09-05",
+   "from": "หนองป่าครั่ง",
+   "lat": 18.787543,
+   "lng": 99.029894,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 942,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-วี-เรสสิเดนซ์-พายัพ-อาคาร-บี": {
+   "fetched": "2026-09-05",
+   "from": "สันพระเนตร / สันทราย",
+   "lat": 18.799638,
+   "lng": 99.040874,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1352,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cm-condoreg-วี-เรสสิเดนซ์-พายัพ-อาคารเอ": {
+   "fetched": "2026-09-05",
+   "from": "สันพระเนตร / สันทราย",
+   "lat": 18.799638,
+   "lng": 99.040874,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1352,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cm-condoreg-วีน่าทาวน์-คอนโด": {
+   "fetched": "2026-09-05",
+   "from": "ป่าแดด",
+   "lat": 18.746115,
+   "lng": 98.980882,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1365,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-สันติสุข-คอนโดมิเนียม": {
+   "fetched": "2026-09-05",
+   "from": "หนองหอย",
+   "lat": 18.756752,
+   "lng": 99.010231,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1206,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-สิริภาทาวเวอร์-คอนโดมิเนียม": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ออร์คิดเพลส-คอนโด": {
+   "fetched": "2026-09-05",
+   "from": "สันนาเม็ง / สันทราย",
+   "lat": 18.84217,
+   "lng": 99.065507,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1333,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cm-condoreg-อังเกตุพาวิลเลี่ยน": {
+   "fetched": "2026-09-05",
+   "from": "หนองป่าครั่ง",
+   "lat": 18.787543,
+   "lng": 99.029894,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 942,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-อีโคนิค-คอนโดมิเนียม": {
+   "fetched": "2026-09-05",
+   "from": "หนองหอย",
+   "lat": 18.756752,
+   "lng": 99.010231,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1206,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ฮาร์โมนี่โฮม-คอนโดมิเนียม-1": {
+   "fetched": "2026-09-05",
+   "from": "ป่าแดด",
+   "lat": 18.746115,
+   "lng": 98.980882,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1365,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ฮาร์โมนี่โฮม-คอนโดมิเนียม-2": {
+   "fetched": "2026-09-05",
+   "from": "ป่าแดด",
+   "lat": 18.746115,
+   "lng": 98.980882,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1365,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ฮิมมา-การ์เด้นท์-คอนโดมิเนียม-อาคาร-1": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ฮิมมา-การ์เด้นท์-คอนโดมิเนียม-อาคาร-2": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ฮิลด์ไซด์พายัพ-คอนโดมิเนียม-7": {
+   "fetched": "2026-09-05",
+   "from": "หนองป่าครั่ง",
+   "lat": 18.787543,
+   "lng": 99.029894,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 942,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ฮิลด์ไซด์พายัพ-คอนโดมิเนียม-8": {
+   "fetched": "2026-09-05",
+   "from": "หนองป่าครั่ง",
+   "lat": 18.787543,
+   "lng": 99.029894,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 942,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ฮิลด์ไซด์พายัพ-คอนโดมิเนียม-9": {
+   "fetched": "2026-09-05",
+   "from": "หนองป่าครั่ง",
+   "lat": 18.787543,
+   "lng": 99.029894,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 942,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ฮิลล์ทาเนีย": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ฮิลล์พาร์ค2": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ฮิลล์ไซด์พลาซ่าแอนด์คอนโดเทล-4": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ฮิโนกิ-คอนโด-เชียงใหม่": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เคหะชุมชนและบริการชุมชนสันผีเสื้อ": {
+   "fetched": "2026-09-05",
+   "from": "สันผีเสื้อ / เมืองเชียงใหม่",
+   "lat": 18.870689,
+   "lng": 98.992251,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 611,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cm-condoreg-เคียงมอคอนโดมิเนียม-2": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เจ-ซี-ฮิลล์เพลส์": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เชียงใหม่-วิวเพลส": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เชียงใหม่-วิวเพลส2-คอนโดมิเนียม-อาคารบี": {
+   "fetched": "2026-09-05",
+   "from": "ป่าแดด",
+   "lat": 18.746115,
+   "lng": 98.980882,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1365,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เชียงใหม่-วิวเพลส2-คอนโดมิเนียม-อาคารเอ": {
+   "fetched": "2026-09-05",
+   "from": "ป่าแดด",
+   "lat": 18.746115,
+   "lng": 98.980882,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1365,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เชียงใหม่ซีวิวทาวเวอร์": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เชียงใหม่ริเวอร์ไซด์คอนโดมิเนียม-1": {
+   "fetched": "2026-09-05",
+   "from": "หนองหอย",
+   "lat": 18.756752,
+   "lng": 99.010231,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1206,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เชียงใหม่วิวเพลส-คอนโดมิเนียม-2-อาคารดี": {
+   "fetched": "2026-09-05",
+   "from": "ป่าแดด",
+   "lat": 18.746115,
+   "lng": 98.980882,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1365,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เซเว่น-สตาร์": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เดอะ-กรีน-ซิตี้-คอนโดมิเนียม-2-อาคาร-ซี": {
+   "fetched": "2026-09-05",
+   "from": "หนองป่าครั่ง",
+   "lat": 18.787543,
+   "lng": 99.029894,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 942,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เดอะ-กรีน-ซิตี้-คอนโดมิเนียม-2-อาคาร-ดี": {
+   "fetched": "2026-09-05",
+   "from": "หนองป่าครั่ง",
+   "lat": 18.787543,
+   "lng": 99.029894,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 942,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เดอะ-กรีน-ซิตี้-คอนโดมิเนียม-2-อาคาร-บี": {
+   "fetched": "2026-09-05",
+   "from": "หนองป่าครั่ง",
+   "lat": 18.787543,
+   "lng": 99.029894,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 942,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เดอะ-กรีน-ซิตี้-คอนโดมิเนียม-2-อาคารเอ": {
+   "fetched": "2026-09-05",
+   "from": "หนองป่าครั่ง",
+   "lat": 18.787543,
+   "lng": 99.029894,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 942,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เดอะ-คอนเวนชั่น-คอนโดมิเนียม": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เดอะ-จิ๊กซอว์-คอนโดมิเนียม": {
+   "fetched": "2026-09-05",
+   "from": "หนองป่าครั่ง",
+   "lat": 18.787543,
+   "lng": 99.029894,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 942,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เดอะ-จิ๊กซอว์-คอนโดมิเนียม-2": {
+   "fetched": "2026-09-05",
+   "from": "หนองป่าครั่ง",
+   "lat": 18.787543,
+   "lng": 99.029894,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 942,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เดอะ-ชายน์-คอนโดมิเนียม": {
+   "fetched": "2026-09-05",
+   "from": "ช้างคลาน",
+   "lat": 18.775994,
+   "lng": 98.997593,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 777,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เดอะ-ชิควิว-คอนโดมิเนียม": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เดอะ-พริโอ-คอนโด": {
+   "fetched": "2026-09-05",
+   "from": "ช้างคลาน",
+   "lat": 18.775994,
+   "lng": 98.997593,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 777,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เดอะ-พีเพิ้ล-สมาร์ทคอนโด": {
+   "fetched": "2026-09-05",
+   "from": "ท่าวังตาล / สารภี",
+   "lat": 18.713103,
+   "lng": 99.004118,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 490,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cm-condoreg-เดอะ-วีดี้-คอนโดมิเนียม-อาคาร-a": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เดอะ-วีดี้-คอนโดมิเนียม-อาคาร-b": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เดอะ-เทรเชอร์-1": {
+   "fetched": "2026-09-05",
+   "from": "หนองป่าครั่ง",
+   "lat": 18.787543,
+   "lng": 99.029894,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 942,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เดอะ-เทรเชอร์-2": {
+   "fetched": "2026-09-05",
+   "from": "หนองป่าครั่ง",
+   "lat": 18.787543,
+   "lng": 99.029894,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 942,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เดอะ-เน็กซ์-เจ็ดยอด": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เดอะ-เบเนฟิต-คอนโด": {
+   "fetched": "2026-09-05",
+   "from": "สันผีเสื้อ / เมืองเชียงใหม่",
+   "lat": 18.870689,
+   "lng": 98.992251,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 611,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cm-condoreg-เดอะ-แกรนด์-เบเนฟิต-2": {
+   "fetched": "2026-09-05",
+   "from": "สันผีเสื้อ / เมืองเชียงใหม่",
+   "lat": 18.870689,
+   "lng": 98.992251,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 611,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cm-condoreg-เดอะกรีนซิตี้-คอนโด-อาคารa": {
+   "fetched": "2026-09-05",
+   "from": "สันนาเม็ง / สันทราย",
+   "lat": 18.84217,
+   "lng": 99.065507,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1333,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cm-condoreg-เดอะกรีนซิตี้-คอนโด-อาคารb": {
+   "fetched": "2026-09-05",
+   "from": "สันนาเม็ง / สันทราย",
+   "lat": 18.84217,
+   "lng": 99.065507,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1333,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cm-condoreg-เดอะทรีโอ-เชียงใหม่": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เดอะยูนีค-แอท-คูเมือง-บี-คอนโดมิเนียม": {
+   "fetched": "2026-09-05",
+   "from": "ศรีภูมิ / เมืองเชียงใหม่",
+   "lat": 18.796164,
+   "lng": 98.990569,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 250,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cm-condoreg-เดอะยูนีค-แอท-คูเมือง-เอ-คอนโดมิเนียม": {
+   "fetched": "2026-09-05",
+   "from": "ศรีภูมิ / เมืองเชียงใหม่",
+   "lat": 18.796164,
+   "lng": 98.990569,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 250,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cm-condoreg-เดอะริช-คอนโดมิเนียม": {
+   "fetched": "2026-09-05",
+   "from": "หนองหอย",
+   "lat": 18.756752,
+   "lng": 99.010231,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1206,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เดอะรีสอร์ท-คอนโดมิเนียม": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เดอะฮิลล์พาร์ค1": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เพลสเซ้นท์-คอนโด": {
+   "fetched": "2026-09-05",
+   "from": "ป่าแดด",
+   "lat": 18.746115,
+   "lng": 98.980882,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1365,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เมาท์เท่นพาโน-คอนโดมิเนียม": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เม็งราย-ทาวเวอร์": {
+   "fetched": "2026-09-05",
+   "from": "ช้างคลาน",
+   "lat": 18.775994,
+   "lng": 98.997593,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 777,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เรน-ทรี-คอนโด": {
+   "fetched": "2026-09-05",
+   "from": "หนองหอย",
+   "lat": 18.756752,
+   "lng": 99.010231,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1206,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เวียงพิงค์แมนชั่น": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เอส-อาร์-คอนโดมิเนียม": {
+   "fetched": "2026-09-05",
+   "from": "หนองป่าครั่ง",
+   "lat": 18.787543,
+   "lng": 99.029894,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 942,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เอส-อาร์-คอมเพล็กซ์": {
+   "fetched": "2026-09-05",
+   "from": "หนองป่าครั่ง",
+   "lat": 18.787543,
+   "lng": 99.029894,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 942,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-เอส-อาร์-แลนด์-คอนโด-ซี-1": {
+   "fetched": "2026-09-05",
+   "from": "สันนาเม็ง / สันทราย",
+   "lat": 18.84217,
+   "lng": 99.065507,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1333,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cm-condoreg-เอส-อาร์-แลนด์-คอนโด-ซี-2": {
+   "fetched": "2026-09-05",
+   "from": "สันนาเม็ง / สันทราย",
+   "lat": 18.84217,
+   "lng": 99.065507,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1333,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cm-condoreg-เอส-อาร์-แลนด์-คอนโด-ซี-3": {
+   "fetched": "2026-09-05",
+   "from": "สันนาเม็ง / สันทราย",
+   "lat": 18.84217,
+   "lng": 99.065507,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1333,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cm-condoreg-เอสวัน-เอสเซ็ท-คอนโดมิเนียม": {
+   "fetched": "2026-09-05",
+   "from": "หนองป่าครั่ง",
+   "lat": 18.787543,
+   "lng": 99.029894,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 942,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-แกรนด์ฮิลด์ไซด์-5": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-แอสต้า-สกาย-ริเวอร์": {
+   "fetched": "2026-09-05",
+   "from": "ช้างคลาน",
+   "lat": 18.775994,
+   "lng": 98.997593,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 777,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-โครงการขวัญประชาราช-1": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-โบ๊ท-คอนโด": {
+   "fetched": "2026-09-05",
+   "from": "หนองป่าครั่ง",
+   "lat": 18.787543,
+   "lng": 99.029894,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 942,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-โมดา-คอนโด-รินคำ": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ไนท์บาร์ซาร์-คอนโดเทล": {
+   "fetched": "2026-09-05",
+   "from": "ช้างคลาน",
+   "lat": 18.775994,
+   "lng": 98.997593,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 777,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ไพร์มสแควร์-คอนโด": {
+   "fetched": "2026-09-05",
+   "from": "ช้างเผือก",
+   "lat": 18.81323,
+   "lng": 98.974452,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 2734,
+   "via": "tambon-centroid"
+  },
+  "cm-condoreg-ไลฟ์-คอนโดมิเนียม-เชียงใหม่-อาคารเอ": {
+   "fetched": "2026-09-05",
+   "from": "สันผีเสื้อ / เมืองเชียงใหม่",
+   "lat": 18.870689,
+   "lng": 98.992251,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 611,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cm-curated-ajarn-somphong-tok-sen--waulai-thaimassage": {
+   "fetched": "2026-09-05",
+   "from": "Wua Lai Road",
+   "lat": 18.776379,
+   "lng": 98.982447,
+   "source": "geocode_local",
+   "tier": "street",
+   "uncertainty_m": 806,
+   "via": "address-street-match"
+  },
+  "cm-curated-audition-music-room": {
+   "fetched": "2026-09-05",
+   "from": "Mani Noppharat Road",
+   "lat": 18.79575,
+   "lng": 98.986099,
+   "source": "geocode_local",
+   "tier": "street",
+   "uncertainty_m": 825,
+   "via": "address-street-match"
+  },
+  "cm-curated-bostonhealth": {
+   "fetched": "2026-09-05",
+   "from": "Global House",
+   "lat": 18.744414,
+   "lng": 99.000547,
+   "source": "geocode_local",
+   "tier": "landmark",
+   "uncertainty_m": 400,
+   "via": "address-names-a-place-we-hold"
+  },
+  "cm-curated-chiangmai-boxing-stadium": {
+   "fetched": "2026-09-05",
+   "from": "Changpuak Road",
+   "lat": 18.803861,
+   "lng": 98.985529,
+   "source": "geocode_local",
+   "tier": "street",
+   "uncertainty_m": 884,
+   "via": "address-street-match"
+  },
+  "cm-curated-fubar": {
+   "fetched": "2026-09-05",
+   "from": "Sittiwong Road",
+   "lat": 18.792126,
+   "lng": 98.995808,
+   "source": "geocode_local",
+   "tier": "street",
+   "uncertainty_m": 297,
+   "via": "address-street-match"
+  },
+  "cm-curated-guitar-house-suthep": {
+   "fetched": "2026-09-05",
+   "from": "Suthep Road",
+   "lat": 18.789124,
+   "lng": 98.970527,
+   "source": "geocode_local",
+   "tier": "street",
+   "uncertainty_m": 723,
+   "via": "address-street-match"
+  },
+  "cm-curated-highend-music-hangdong": {
+   "fetched": "2026-09-05",
+   "from": "หางดง / หางดง",
+   "lat": 18.681433,
+   "lng": 98.918166,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 250,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cm-curated-ikari-chiangmai": {
+   "fetched": "2026-09-05",
+   "from": "หนองหอย",
+   "lat": 18.756752,
+   "lng": 99.010231,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1206,
+   "via": "tambon-centroid"
+  },
+  "cm-curated-lanna-kan-dontri": {
+   "fetched": "2026-09-05",
+   "from": "Changpuak Road",
+   "lat": 18.803861,
+   "lng": 98.985529,
+   "source": "geocode_local",
+   "tier": "street",
+   "uncertainty_m": 884,
+   "via": "address-street-match"
+  },
+  "cm-curated-lanna-tok-sen-massage-for-health": {
+   "fetched": "2026-09-05",
+   "from": "หางดง",
+   "lat": 18.688744,
+   "lng": 98.915241,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1738,
+   "via": "tambon-centroid"
+  },
+  "cm-curated-lifespace": {
+   "fetched": "2026-09-05",
+   "from": "Nimmanhaeminda Road",
+   "lat": 18.795773,
+   "lng": 98.965794,
+   "source": "geocode_local",
+   "tier": "street",
+   "uncertainty_m": 652,
+   "via": "address-street-match"
+  },
+  "cm-curated-maximum-sound-cnx": {
+   "fetched": "2026-09-05",
+   "from": "Changklan Road",
+   "lat": 18.773119,
+   "lng": 98.998828,
+   "source": "geocode_local",
+   "tier": "street",
+   "uncertainty_m": 1666,
+   "via": "address-street-match"
+  },
+  "cm-curated-modus-language-services": {
+   "fetched": "2026-09-05",
+   "from": "Thipphanet Road",
+   "lat": 18.778095,
+   "lng": 98.98109,
+   "source": "geocode_local",
+   "tier": "street",
+   "uncertainty_m": 380,
+   "via": "address-street-match"
+  },
+  "cm-curated-nun-tok-sen": {
+   "fetched": "2026-09-05",
+   "from": "Wua Lai Road",
+   "lat": 18.776379,
+   "lng": 98.982447,
+   "source": "geocode_local",
+   "tier": "street",
+   "uncertainty_m": 806,
+   "via": "address-street-match"
+  },
+  "cm-curated-paiyapanich-cnx": {
+   "fetched": "2026-09-05",
+   "from": "Changpuak Road",
+   "lat": 18.803861,
+   "lng": 98.985529,
+   "source": "geocode_local",
+   "tier": "street",
+   "uncertainty_m": 884,
+   "via": "address-street-match"
+  },
+  "cm-curated-parinyapat-thai-music": {
+   "fetched": "2026-09-05",
+   "from": "Changpuak Road",
+   "lat": 18.803861,
+   "lng": 98.985529,
+   "source": "geocode_local",
+   "tier": "street",
+   "uncertainty_m": 884,
+   "via": "address-street-match"
+  },
+  "cm-curated-patr-music": {
+   "fetched": "2026-09-05",
+   "from": "Sri Poom Road",
+   "lat": 18.795361,
+   "lng": 98.986023,
+   "source": "geocode_local",
+   "tier": "street",
+   "uncertainty_m": 740,
+   "via": "address-street-match"
+  },
+  "cm-curated-perfect-massage-tok-sen": {
+   "fetched": "2026-09-05",
+   "from": "Changklan Road",
+   "lat": 18.773119,
+   "lng": 98.998828,
+   "source": "geocode_local",
+   "tier": "street",
+   "uncertainty_m": 1666,
+   "via": "address-street-match"
+  },
+  "cm-curated-pwork": {
+   "fetched": "2026-09-05",
+   "from": "หนองหอย",
+   "lat": 18.756752,
+   "lng": 99.010231,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1206,
+   "via": "tambon-centroid"
+  },
+  "cm-curated-rentokil-chiangmai": {
+   "fetched": "2026-09-05",
+   "from": "Changklan Road",
+   "lat": 18.773119,
+   "lng": 98.998828,
+   "source": "geocode_local",
+   "tier": "street",
+   "uncertainty_m": 1666,
+   "via": "address-street-match"
+  },
+  "cm-curated-sirit-borikan": {
+   "fetched": "2026-09-05",
+   "from": "Mani Noppharat Road",
+   "lat": 18.79575,
+   "lng": 98.986099,
+   "source": "geocode_local",
+   "tier": "street",
+   "uncertainty_m": 825,
+   "via": "address-street-match"
+  },
+  "cm-curated-soi-dog-blues": {
+   "fetched": "2026-09-05",
+   "from": "Sittiwong Road",
+   "lat": 18.792126,
+   "lng": 98.995808,
+   "source": "geocode_local",
+   "tier": "street",
+   "uncertainty_m": 297,
+   "via": "address-street-match"
+  },
+  "cm-curated-toey-dontri": {
+   "fetched": "2026-09-05",
+   "from": "Moon Muang Road",
+   "lat": 18.788294,
+   "lng": 98.993196,
+   "source": "geocode_local",
+   "tier": "street",
+   "uncertainty_m": 792,
+   "via": "address-street-match"
+  },
+  "cm-curated-toksen-in-garden": {
+   "fetched": "2026-09-05",
+   "from": "ตลาดคำเที่ยง",
+   "lat": 18.80616,
+   "lng": 98.997138,
+   "source": "geocode_local",
+   "tier": "landmark",
+   "uncertainty_m": 400,
+   "via": "address-names-a-place-we-hold"
+  },
+  "cm-curated-us-consulate-chiangmai": {
+   "fetched": "2026-09-05",
+   "from": "หนองป่าครั่ง",
+   "lat": 18.787543,
+   "lng": 99.029894,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 942,
+   "via": "tambon-centroid"
+  },
+  "cm-newsletter-artisan-cafe-cnx": {
+   "fetched": "2026-09-05",
+   "from": "50200",
+   "lat": 18.793289,
+   "lng": 98.975939,
+   "source": "geocode_local",
+   "tier": "postcode",
+   "uncertainty_m": 2504,
+   "via": "postcode-centroid"
+  },
+  "cm-newsletter-attika-studio": {
+   "fetched": "2026-09-05",
+   "from": "50200",
+   "lat": 18.793289,
+   "lng": 98.975939,
+   "source": "geocode_local",
+   "tier": "postcode",
+   "uncertainty_m": 2504,
+   "via": "postcode-centroid"
+  },
+  "cm-newsletter-bailamos-dance-studio": {
+   "fetched": "2026-09-05",
+   "from": "50200",
+   "lat": 18.793289,
+   "lng": 98.975939,
+   "source": "geocode_local",
+   "tier": "postcode",
+   "uncertainty_m": 2504,
+   "via": "postcode-centroid"
+  },
+  "cm-newsletter-ban-hang-khaew": {
+   "fetched": "2026-09-05",
+   "from": "50120",
+   "lat": 18.643108,
+   "lng": 98.890936,
+   "source": "geocode_local",
+   "tier": "postcode",
+   "uncertainty_m": 2701,
+   "via": "postcode-centroid"
+  },
+  "cm-newsletter-business-lounge-brick-plus": {
+   "fetched": "2026-09-05",
+   "from": "50200",
+   "lat": 18.793289,
+   "lng": 98.975939,
+   "source": "geocode_local",
+   "tier": "postcode",
+   "uncertainty_m": 2504,
+   "via": "postcode-centroid"
+  },
+  "cm-newsletter-copacabana-rooftop-cnx": {
+   "fetched": "2026-09-05",
+   "from": "50200",
+   "lat": 18.793289,
+   "lng": 98.975939,
+   "source": "geocode_local",
+   "tier": "postcode",
+   "uncertainty_m": 2504,
+   "via": "postcode-centroid"
+  },
+  "cm-newsletter-dojo-yoga-pilates": {
+   "fetched": "2026-09-05",
+   "from": "50200",
+   "lat": 18.793289,
+   "lng": 98.975939,
+   "source": "geocode_local",
+   "tier": "postcode",
+   "uncertainty_m": 2504,
+   "via": "postcode-centroid"
+  },
+  "cm-newsletter-f4t-cafe": {
+   "fetched": "2026-09-05",
+   "from": "50200",
+   "lat": 18.793289,
+   "lng": 98.975939,
+   "source": "geocode_local",
+   "tier": "postcode",
+   "uncertainty_m": 2504,
+   "via": "postcode-centroid"
+  },
+  "cm-newsletter-goomans-cnx": {
+   "fetched": "2026-09-05",
+   "from": "Santi Tham Road",
+   "lat": 18.804037,
+   "lng": 98.978503,
+   "source": "geocode_local",
+   "tier": "street",
+   "uncertainty_m": 243,
+   "via": "address-street-match"
+  },
+  "cm-newsletter-happy-allergy-bakery": {
+   "fetched": "2026-09-05",
+   "from": "50200",
+   "lat": 18.793289,
+   "lng": 98.975939,
+   "source": "geocode_local",
+   "tier": "postcode",
+   "uncertainty_m": 2504,
+   "via": "postcode-centroid"
+  },
+  "cm-newsletter-kad-kriangkrai": {
+   "fetched": "2026-09-05",
+   "from": "Chotana Road",
+   "lat": 18.814488,
+   "lng": 98.983197,
+   "source": "geocode_local",
+   "tier": "street",
+   "uncertainty_m": 280,
+   "via": "address-street-match"
+  },
+  "cm-newsletter-moments-notice-jazz": {
+   "fetched": "2026-09-05",
+   "from": "50200",
+   "lat": 18.793289,
+   "lng": 98.975939,
+   "source": "geocode_local",
+   "tier": "postcode",
+   "uncertainty_m": 2504,
+   "via": "postcode-centroid"
+  },
+  "cm-newsletter-realspace-cnx": {
+   "fetched": "2026-09-05",
+   "from": "50200",
+   "lat": 18.793289,
+   "lng": 98.975939,
+   "source": "geocode_local",
+   "tier": "postcode",
+   "uncertainty_m": 2504,
+   "via": "postcode-centroid"
+  },
+  "cm-newsletter-red-cnx": {
+   "fetched": "2026-09-05",
+   "from": "50200",
+   "lat": 18.793289,
+   "lng": 98.975939,
+   "source": "geocode_local",
+   "tier": "postcode",
+   "uncertainty_m": 2504,
+   "via": "postcode-centroid"
+  },
+  "cm-newsletter-the-old-city-spa": {
+   "fetched": "2026-09-05",
+   "from": "Si Phum",
+   "lat": 18.790131,
+   "lng": 98.984975,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 871,
+   "via": "tambon-centroid"
+  },
+  "cm-newsletter-tiki-torch-cnx": {
+   "fetched": "2026-09-05",
+   "from": "Huaykaew Road",
+   "lat": 18.796247,
+   "lng": 98.977494,
+   "source": "geocode_local",
+   "tier": "street",
+   "uncertainty_m": 2442,
+   "via": "address-street-match"
+  },
+  "cm-obec-1050130689": {
+   "fetched": "2026-09-05",
+   "from": "way/382248990",
+   "lat": 18.716086,
+   "lng": 99.02935,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500203001": {
+   "fetched": "2026-09-05",
+   "from": "way/473903134",
+   "lat": 18.421175,
+   "lng": 98.67889,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500205004": {
+   "fetched": "2026-09-05",
+   "from": "way/455433941",
+   "lat": 18.391682,
+   "lng": 98.689256,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500205005": {
+   "fetched": "2026-09-05",
+   "from": "node/1762546453",
+   "lat": 18.38638,
+   "lng": 98.675229,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500206001": {
+   "fetched": "2026-09-05",
+   "from": "way/1448002305",
+   "lat": 18.601096,
+   "lng": 99.271678,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500209004": {
+   "fetched": "2026-09-05",
+   "from": "way/233939180",
+   "lat": 18.655446,
+   "lng": 98.861279,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500209006": {
+   "fetched": "2026-09-05",
+   "from": "relation/15665412",
+   "lat": 18.280204,
+   "lng": 98.659099,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500302002": {
+   "fetched": "2026-09-05",
+   "from": "node/6587867385",
+   "lat": 18.485862,
+   "lng": 98.368025,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500304001": {
+   "fetched": "2026-09-05",
+   "from": "node/3085534076",
+   "lat": 18.547707,
+   "lng": 98.352961,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500401007": {
+   "fetched": "2026-09-05",
+   "from": "node/3136475930",
+   "lat": 19.367599,
+   "lng": 98.967573,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500401011": {
+   "fetched": "2026-09-05",
+   "from": "node/6221122187",
+   "lat": 19.404776,
+   "lng": 98.929852,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500403004": {
+   "fetched": "2026-09-05",
+   "from": "way/406558246",
+   "lat": 18.78067,
+   "lng": 99.004624,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500406001": {
+   "fetched": "2026-09-05",
+   "from": "node/6522618486",
+   "lat": 19.482108,
+   "lng": 99.024027,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500406002": {
+   "fetched": "2026-09-05",
+   "from": "node/8930933492",
+   "lat": 19.413391,
+   "lng": 99.002442,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500602006": {
+   "fetched": "2026-09-05",
+   "from": "way/768135707",
+   "lat": 19.163547,
+   "lng": 98.913676,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500602011": {
+   "fetched": "2026-09-05",
+   "from": "node/6467566386",
+   "lat": 19.141825,
+   "lng": 98.915418,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500604004": {
+   "fetched": "2026-09-05",
+   "from": "way/275921129",
+   "lat": 19.131066,
+   "lng": 99.026627,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500606001": {
+   "fetched": "2026-09-05",
+   "from": "node/3094132289",
+   "lat": 19.058578,
+   "lng": 98.860421,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500608004": {
+   "fetched": "2026-09-05",
+   "from": "way/742964941",
+   "lat": 19.052973,
+   "lng": 98.863136,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500609002": {
+   "fetched": "2026-09-05",
+   "from": "node/7672670194",
+   "lat": 19.118354,
+   "lng": 98.722506,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500705006": {
+   "fetched": "2026-09-05",
+   "from": "way/1047340946",
+   "lat": 19.019621,
+   "lng": 98.882374,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500801004": {
+   "fetched": "2026-09-05",
+   "from": "way/256140978",
+   "lat": 17.797729,
+   "lng": 98.362797,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500801008": {
+   "fetched": "2026-09-05",
+   "from": "node/2494728385",
+   "lat": 18.857322,
+   "lng": 98.725485,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500801010": {
+   "fetched": "2026-09-05",
+   "from": "node/9327557369",
+   "lat": 18.889432,
+   "lng": 98.680074,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500802004": {
+   "fetched": "2026-09-05",
+   "from": "node/2494807412",
+   "lat": 18.956764,
+   "lng": 98.745621,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500802007": {
+   "fetched": "2026-09-05",
+   "from": "node/9251911649",
+   "lat": 19.056442,
+   "lng": 98.708114,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500805001": {
+   "fetched": "2026-09-05",
+   "from": "node/1801054635",
+   "lat": 18.985483,
+   "lng": 98.57438,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500905005": {
+   "fetched": "2026-09-05",
+   "from": "way/1348997660",
+   "lat": 19.810072,
+   "lng": 99.1656,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500905009": {
+   "fetched": "2026-09-05",
+   "from": "node/2521025070",
+   "lat": 19.834686,
+   "lng": 99.166901,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500906006": {
+   "fetched": "2026-09-05",
+   "from": "node/6534824090",
+   "lat": 20.066129,
+   "lng": 99.429765,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500910004": {
+   "fetched": "2026-09-05",
+   "from": "node/7553078694",
+   "lat": 19.802581,
+   "lng": 99.279273,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03500911002": {
+   "fetched": "2026-09-05",
+   "from": "way/643090103",
+   "lat": 19.803033,
+   "lng": 99.167662,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03501101005": {
+   "fetched": "2026-09-05",
+   "from": "node/4604695115",
+   "lat": 19.379174,
+   "lng": 99.203603,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03501105006": {
+   "fetched": "2026-09-05",
+   "from": "node/7613963386",
+   "lat": 19.417021,
+   "lng": 99.1583,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03501105007": {
+   "fetched": "2026-09-05",
+   "from": "node/7613963189",
+   "lat": 19.444053,
+   "lng": 99.17117,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03501107006": {
+   "fetched": "2026-09-05",
+   "from": "node/4703294589",
+   "lat": 19.343688,
+   "lng": 99.163451,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03501108001": {
+   "fetched": "2026-09-05",
+   "from": "node/3485565034",
+   "lat": 19.334064,
+   "lng": 99.211254,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03501108002": {
+   "fetched": "2026-09-05",
+   "from": "node/3485534193",
+   "lat": 19.336405,
+   "lng": 99.186905,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03501109002": {
+   "fetched": "2026-09-05",
+   "from": "node/10168279341",
+   "lat": 18.747292,
+   "lng": 98.941821,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03501110007": {
+   "fetched": "2026-09-05",
+   "from": "node/2696070871",
+   "lat": 19.211476,
+   "lng": 99.187454,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03501110009": {
+   "fetched": "2026-09-05",
+   "from": "way/1448002305",
+   "lat": 18.601096,
+   "lng": 99.271678,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03501110015": {
+   "fetched": "2026-09-05",
+   "from": "node/7849860296",
+   "lat": 18.506267,
+   "lng": 98.755411,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03501111001": {
+   "fetched": "2026-09-05",
+   "from": "node/3485526547",
+   "lat": 19.096681,
+   "lng": 99.182972,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03501111003": {
+   "fetched": "2026-09-05",
+   "from": "node/3485530129",
+   "lat": 19.120039,
+   "lng": 99.174683,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03501111004": {
+   "fetched": "2026-09-05",
+   "from": "node/3485533218",
+   "lat": 19.082921,
+   "lng": 99.177666,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03501111005": {
+   "fetched": "2026-09-05",
+   "from": "node/3485529902",
+   "lat": 19.104177,
+   "lng": 99.198965,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03501111006": {
+   "fetched": "2026-09-05",
+   "from": "node/3485532999",
+   "lat": 19.117749,
+   "lng": 99.164342,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03501111007": {
+   "fetched": "2026-09-05",
+   "from": "node/3485567511",
+   "lat": 19.113082,
+   "lng": 99.167356,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03501504008": {
+   "fetched": "2026-09-05",
+   "from": "way/190546340",
+   "lat": 18.600255,
+   "lng": 98.939038,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03501504011": {
+   "fetched": "2026-09-05",
+   "from": "way/190546796",
+   "lat": 18.612949,
+   "lng": 98.93399,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03501602002": {
+   "fetched": "2026-09-05",
+   "from": "way/1448002305",
+   "lat": 18.601096,
+   "lng": 99.271678,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03501603005": {
+   "fetched": "2026-09-05",
+   "from": "way/431830404",
+   "lat": 18.173652,
+   "lng": 98.629982,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03501701002": {
+   "fetched": "2026-09-05",
+   "from": "way/196844007",
+   "lat": 18.616425,
+   "lng": 98.902453,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03502001002": {
+   "fetched": "2026-09-05",
+   "from": "way/389133998",
+   "lat": 19.579511,
+   "lng": 98.614655,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03502002001": {
+   "fetched": "2026-09-05",
+   "from": "node/8930933406",
+   "lat": 19.675511,
+   "lng": 98.614023,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03502002005": {
+   "fetched": "2026-09-05",
+   "from": "node/8930933375",
+   "lat": 19.646374,
+   "lng": 98.637377,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03502101004": {
+   "fetched": "2026-09-05",
+   "from": "node/6531198685",
+   "lat": 19.755163,
+   "lng": 99.150219,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03502102002": {
+   "fetched": "2026-09-05",
+   "from": "node/3136475930",
+   "lat": 19.367599,
+   "lng": 98.967573,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03502102004": {
+   "fetched": "2026-09-05",
+   "from": "node/2597850875",
+   "lat": 19.680586,
+   "lng": 99.155609,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03502102005": {
+   "fetched": "2026-09-05",
+   "from": "node/7561087685",
+   "lat": 19.6887,
+   "lng": 99.155121,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03502102006": {
+   "fetched": "2026-09-05",
+   "from": "node/7613833685",
+   "lat": 19.606174,
+   "lng": 99.16853,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03502102011": {
+   "fetched": "2026-09-05",
+   "from": "node/7561051386",
+   "lat": 19.700524,
+   "lng": 99.16242,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03502102012": {
+   "fetched": "2026-09-05",
+   "from": "node/3485567511",
+   "lat": 19.113082,
+   "lng": 99.167356,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03502103003": {
+   "fetched": "2026-09-05",
+   "from": "node/1588175232",
+   "lat": 18.705231,
+   "lng": 98.962052,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03502201002": {
+   "fetched": "2026-09-05",
+   "from": "way/253416484",
+   "lat": 18.586899,
+   "lng": 98.82967,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03502202001": {
+   "fetched": "2026-09-05",
+   "from": "node/4359160758",
+   "lat": 18.80785,
+   "lng": 98.995399,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03502202004": {
+   "fetched": "2026-09-05",
+   "from": "way/307532047",
+   "lat": 18.607629,
+   "lng": 98.770893,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03502205002": {
+   "fetched": "2026-09-05",
+   "from": "way/406558246",
+   "lat": 18.78067,
+   "lng": 99.004624,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03502402003": {
+   "fetched": "2026-09-05",
+   "from": "way/1353129593",
+   "lat": 18.494279,
+   "lng": 98.842585,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-03502402006": {
+   "fetched": "2026-09-05",
+   "from": "node/2686389756",
+   "lat": 18.515876,
+   "lng": 98.854928,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-62250240002": {
+   "fetched": "2026-09-05",
+   "from": "node/10095529347",
+   "lat": 18.560618,
+   "lng": 98.792895,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cm-onab-64150060001": {
+   "fetched": "2026-09-05",
+   "from": "node/5044156799",
+   "lat": 19.131994,
+   "lng": 98.685867,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cr-condoreg-คิวเฮ้าส์-คอนโด-พหลโยธิน-เชียงราย": {
+   "fetched": "2026-09-05",
+   "from": "ริมกก / เมืองเชียงราย",
+   "lat": 19.937736,
+   "lng": 99.84024,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 540,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cr-condoreg-ดีคอนโด-ฮาย": {
+   "fetched": "2026-09-05",
+   "from": "รอบเวียง / เมืองเชียงราย",
+   "lat": 19.882879,
+   "lng": 99.809911,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1533,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cr-condoreg-ทองคำคอนโดเทล": {
+   "fetched": "2026-09-05",
+   "from": "แม่สาย",
+   "lat": 20.444039,
+   "lng": 99.889161,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1796,
+   "via": "tambon-centroid"
+  },
+  "cr-condoreg-เอสเซ็นท์-วิลล์-เชียงราย": {
+   "fetched": "2026-09-05",
+   "from": "way/281165409",
+   "lat": 19.885548,
+   "lng": 99.831881,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cr-condoreg-ไลค์-คอนโด": {
+   "fetched": "2026-09-05",
+   "from": "ริมกก / เมืองเชียงราย",
+   "lat": 19.937736,
+   "lng": 99.84024,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 540,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cr-curated-body-go-tailor": {
+   "fetched": "2026-09-05",
+   "from": "รอบเวียง / เมืองเชียงราย",
+   "lat": 19.882879,
+   "lng": 99.809911,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1533,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cr-curated-chulalak-embroidery": {
+   "fetched": "2026-09-05",
+   "from": "รอบเวียง / เมืองเชียงราย",
+   "lat": 19.882879,
+   "lng": 99.809911,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1533,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cr-curated-fashion-fabric-cr": {
+   "fetched": "2026-09-05",
+   "from": "รอบเวียง / เมืองเชียงราย",
+   "lat": 19.882879,
+   "lng": 99.809911,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1533,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cr-curated-top-suit": {
+   "fetched": "2026-09-05",
+   "from": "รอบเวียง / เมืองเชียงราย",
+   "lat": 19.882879,
+   "lng": 99.809911,
+   "source": "geocode_local",
+   "tier": "tambon",
+   "uncertainty_m": 1533,
+   "via": "tambon-amphoe-centroid"
+  },
+  "cr-dgth-eco-2025879795": {
+   "fetched": "2026-09-05",
+   "from": "node/13864324701",
+   "lat": 19.936437,
+   "lng": 100.503115,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cr-dgth-religious-1338101354": {
+   "fetched": "2026-09-05",
+   "from": "way/375750368",
+   "lat": 20.420323,
+   "lng": 99.88024,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cr-dgth-religious-1727651478": {
+   "fetched": "2026-09-05",
+   "from": "way/1015382586",
+   "lat": 19.684504,
+   "lng": 100.18344,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cr-dgth-religious-2782090736": {
+   "fetched": "2026-09-05",
+   "from": "node/3517236502",
+   "lat": 19.906306,
+   "lng": 99.73704,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cr-dgth-religious-3139304926": {
+   "fetched": "2026-09-05",
+   "from": "node/5307665121",
+   "lat": 20.149742,
+   "lng": 100.41211,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cr-dgth-religious-3410873880": {
+   "fetched": "2026-09-05",
+   "from": "way/1417671849",
+   "lat": 19.568859,
+   "lng": 99.741493,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cr-onab-03570206003": {
+   "fetched": "2026-09-05",
+   "from": "way/543871763",
+   "lat": 19.830093,
+   "lng": 100.030399,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cr-onab-03570208005": {
+   "fetched": "2026-09-05",
+   "from": "node/13325166201",
+   "lat": 20.37678,
+   "lng": 100.022357,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cr-onab-03570308005": {
+   "fetched": "2026-09-05",
+   "from": "node/6411088685",
+   "lat": 20.161907,
+   "lng": 100.431878,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cr-onab-03570402007": {
+   "fetched": "2026-09-05",
+   "from": "node/6427394885",
+   "lat": 19.67503,
+   "lng": 100.118607,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cr-onab-03570405001": {
+   "fetched": "2026-09-05",
+   "from": "node/6429560486",
+   "lat": 19.606261,
+   "lng": 99.987096,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cr-onab-03570405005": {
+   "fetched": "2026-09-05",
+   "from": "node/14030828052",
+   "lat": 19.591172,
+   "lng": 99.966721,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cr-onab-03570512003": {
+   "fetched": "2026-09-05",
+   "from": "node/13261049401",
+   "lat": 19.45767,
+   "lng": 99.759973,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cr-onab-03570602003": {
+   "fetched": "2026-09-05",
+   "from": "node/6437238585",
+   "lat": 19.571422,
+   "lng": 99.98779,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cr-onab-03570605002": {
+   "fetched": "2026-09-05",
+   "from": "node/6395095586",
+   "lat": 20.302501,
+   "lng": 99.972476,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cr-onab-03570902007": {
+   "fetched": "2026-09-05",
+   "from": "node/7365786285",
+   "lat": 20.276088,
+   "lng": 99.843705,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cr-onab-03570908004": {
+   "fetched": "2026-09-05",
+   "from": "node/6395095585",
+   "lat": 20.324154,
+   "lng": 99.945429,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cr-onab-03571101001": {
+   "fetched": "2026-09-05",
+   "from": "node/6395095587",
+   "lat": 20.306957,
+   "lng": 99.957555,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cr-onab-03571105003": {
+   "fetched": "2026-09-05",
+   "from": "node/6395095387",
+   "lat": 20.303123,
+   "lng": 100.029236,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cr-onab-03571203003": {
+   "fetched": "2026-09-05",
+   "from": "node/14028544901",
+   "lat": 19.759874,
+   "lng": 100.125399,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cr-onab-03571204005": {
+   "fetched": "2026-09-05",
+   "from": "node/2828604703",
+   "lat": 19.897564,
+   "lng": 100.233221,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  },
+  "cr-onab-03571403002": {
+   "fetched": "2026-09-05",
+   "from": "node/6408864985",
+   "lat": 19.958262,
+   "lng": 100.310659,
+   "source": "OpenStreetMap contributors (ODbL)",
+   "tier": "osm",
+   "uncertainty_m": 50,
+   "via": "osm-temple-name-match"
+  }
+ }
+}

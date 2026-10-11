@@ -1,0 +1,75 @@
+SEO — 23 September 2026
+=======================
+
+BUILT TODAY
+
+motdang.net
+  Sitemap dates. Each page keeps the date its content last changed.
+  Before, all 86,089 said "today", every day. The first date table is
+  seeded from the 13:10 build. Takes effect on the next build and deploy.
+  Opening hours in the schema. 4,004 places, in the format schema.org
+  reads. 399 in free text or Thai stay on the page only.
+
+wichaa.net
+  Sitemap: 15,941 rows down to 8,759 pages. The 7,183 JSON files
+  left it; the data is still linked from llms.txt and the API index.
+  Sitemap dates from the ledger the repo already kept: 17 dates, July
+  to today, where there was one.
+  Author in the schema: Nan Peacock, with the nineteen fleet sites as
+  sameAs, on the kesa and hand poke articles, the Dataset on every
+  section page, and each of the 6,986 manuscript pages. The manuscript
+  itself stays authorless; the page about it carries the name.
+  IndexNow: key at the root, ping after each nightly deploy, changed
+  pages only. The first run sends all 9,840.
+  Gate green. Ships with the 03:00 nightly.
+
+hongdam.net
+  Unknown addresses now answer 404. Before, every one returned the
+  home page. Live.
+
+YOURS
+
+Bing Webmaster Tools
+  The Microsoft sign-in page came up blank in this browser.
+  bing.com/webmasters → Sign in → Microsoft → your account.
+  Then Add site, four times: motdang.net, wichaa.net, defiant.to,
+  hongdam.net. Verification: pick "Import from Google Search Console"
+  if you want the four done at once; it reads the properties you
+  already hold. Or pick "XML file" per site and send me the file names;
+  I put them in each build.
+
+THREE CHOICES
+
+1. Bare places out of the motdang sitemap, for now.
+   Of the 75,521 place pages in the sitemap, 14,498 have no phone,
+   no hours, no photo. A young domain offering tens of thousands of
+   thin pages is the usual "crawled, not indexed" verdict for all of
+   them.
+   (a) Leave all 86,089 in the sitemap. Cost: none. Worst case: Google
+       keeps reading the thin ones first and indexing little.
+   (b) Hold the 14,498 out of the sitemap; they stay linked and
+       reachable, and rejoin when a phone, hours or photo arrives.
+       Cost: one filter in build.py. Worst case: those pages are found
+       more slowly, by links only.
+   Expiry: none. It can be reversed on any build.
+   If silent: (a).
+
+2. ETag on motdang pages.
+   Every page is rewritten for its reader with a "nearby / ~6 km" line,
+   and that rewrite strips the validator that lets a crawler ask
+   "changed?" instead of downloading the page again.
+   (a) Leave it. Cost: crawlers re-download unchanged pages.
+   (b) A weak ETag from the stored page. Cost: a Worker deploy. Worst
+       case: a reader who changes cities keeps the old distance line
+       until the page itself changes.
+   (c) Skip the distance line for known crawlers only, and send them
+       the stored page with its ETag. Cost: a Worker deploy. Worst case:
+       crawlers see the page without the reader's own line.
+   If silent: (a).
+
+3. Your private address in the wichaa schema.
+   The Dataset block on every wichaa section page names
+   530kings@proton.me as creator's email. The fleet uses
+   nan@motdang.net everywhere else.
+   (a) Leave it.  (b) Change it to nan@motdang.net.
+   If silent: (a).

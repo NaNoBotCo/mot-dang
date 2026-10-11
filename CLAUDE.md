@@ -19,6 +19,24 @@ An unbuilt capability is not a virtue. A decision she made is not a public
 commitment. Describe what a page does; promise nothing about the future. Just
 because it is true right now does not mean it needs to be declared.
 
+## NEW SITES CARRY CARDS (client 2026-09-28)
+
+A minisite or tool under docs/ carries a card in `data/curated/sites.json` (or
+`assets/sites/<slug>/card.json`); `sites_layer.py` reads it for the front page,
+/sites/, the shelf bands, the nets, search and the sitemap. The publish gate
+refuses a site without one.
+
+## THE SITE ICON SET, NEVER EMOJI (client 2026-09-26)
+
+Every glyph a reader sees is from our own set in `docs/icons.svg` (the `i-*`
+symbols), not a Unicode emoji. In Python emit one with `svg_icon("i-name", size)`
+or `glyphs.icon("i-name", size)`; in browser JS with `mdIcon("i-name", size)`
+(defined in build.py, references `data-icons`). The full list of ids is in
+`glyphs.py`; `glyphs.emoji_to_icon()` maps a stray emoji to its `i-*`. Emoji
+render differently on every device, carry no house style, and do not take the
+site's colour — the icon set is the point. Typographic arrows (→ ↗ ⇅) are text,
+not emoji, and stay.
+
 Thai-first CM+CR directory. Stdlib Python only. `importers/import_all.py` then
 `build.py` → `docs/` → R2 (`publish/deploy.py`). No repository host in the
 path. Full spec + roadmap in README.md.
@@ -28,7 +46,8 @@ instruments at wichaa.net; skip it and the sky tile just does not render) →
 `importers/import_all.py` → `importers/build_streets.py` (roads
 and sois; needs `cache/roads/`, ~20 s) → `importers/build_open_lamps.py`
 (opening hours → lamp schedules for /nitnoy.html; deterministic, contracts in
-`tests/test_nitnoy.py`) → `importers/sync_claims.py` +
+`tests/test_nitnoy.py`) → `importers/build_wats.py` (the ไหว้พระ ๙ วัด rounds
+for /wats; reads the road graph, ~8 s) → `importers/sync_claims.py` +
 `importers/sync_toilets.py` (pull what people sent the worker; both keep what
 is on disk if it is unreachable) → `make_og_cards.py` (optional, needs
 Chrome + Pillow, writes `assets/og/`) → `make_shelf_cards.py` (same, one
@@ -60,7 +79,7 @@ the address itself). The day's loop:
    `sync_suggestions.py --done <ID>` closes the queue item.
 
 `draft: true` is the valve: a drafted question renders nowhere and `make_post`
-refuses it, so a half-answered question cannot hold the walk — and
+drops it, so a half-answered question cannot hold the walk — and
 `tests/test_asked.py` is a HARD gate in both walks, because a published
 question missing its records, page, card or a filled sentence is a wrong
 answer with this site's name on it. A `gap: true` question gets its page and
@@ -388,10 +407,36 @@ Rules that bite:
   different places. A card with no photograph gets `.textonly` and gives the
   space to its words. The placeholder stays out of schema.org `image`, which
   had been telling crawlers a shop's picture is a line drawing of a temple.
-- `/merit.html` numbers nine stops because a walk has an order — the shortest
-  way round. Royal grade appears because the Sangha assigned it. The
-  พระประจำวันเกิด strip is "what to look for at any temple" — pairing a weekday
-  with particular temples is not in the tradition and is not ours to invent.
+- **/wats (wats_layer.py) numbers nine stops because a walk has an order — the
+  shortest way round, not a ranking.** Royal grade appears because the Sangha
+  assigned it. The พระประจำวันเกิด strip is "what to look for at any wat" —
+  pairing a weekday with particular wats is not in the tradition and is not ours
+  to invent. It replaced `/merit.html` on 2026-09-21, which the worker 301s.
+  What that page got wrong and this one holds to:
+  * **A STOP HAS TO BE NAMED AS A WAT** — วัด or Wat at the head of its own
+    name. The `wat` lens is wider than the word: it carries ศาล shrines, a Hindu
+    เทวาลัย, a Christian hall, a museum, a tea house, an apron shop, a cemetery,
+    and buildings standing inside another wat. Five were on the published
+    rounds, เทพมณเฑียร (Hindu) among them.
+  * **A pin at a tambon centroid is not a place you can walk to.** 55 ONAB
+    register records sit inside the box, 37 of them on one point off Chotana
+    Road, and they are wats in อ.แม่อาย and อ.ฝาง. `geoPrecision: approx` is not
+    routed. OVT pins are exact and loose — its วัดดวงดี is a kilometre from the
+    วัดดวงดี on Ratchadamnoen — so stops come from OSM, which is also what the
+    road graph was cut from.
+  * **Nine stops is solved exactly** (`best_cycle`, Held–Karp, 41k operations).
+    2-opt lands near the best answer and near is a block walked twice.
+  * **Every leg is drawn along the line it is walked on**, from `Graph.route`.
+    The old map joined the stops with straight lines and admitted it in the
+    caption, which is not the same as it being right.
+  * **`Graph.main_component(mode)` before any snap.** Wat Phra Singh, Wat Suan
+    Dok and วัดดวงดี each snapped onto courtyard footway that joins nothing —
+    sixteen junctions — and were set aside as unreachable, so the most visited
+    wat in Chiang Mai was on no round at all.
+  * A round is walked when no leg is over 1.2 km and the whole is under 7 km,
+    ridden otherwise, and no round is made at all past 15 km — the ninth stop of
+    a 28 km circuit is a list, not a round. The wats that fall outside keep
+    their pages and their neighbours.
 - `importers/routing.py` is a second implementation of the routing in
   `build.py`'s plan JS. They must agree, above all on `oneway` binding ride and
   not foot, and on the snap walk-in being added at both ends.
@@ -404,7 +449,7 @@ Rules that bite:
   `#8a7a62` stub means one thing only: the walk in from the pin to the road.
 - **A stop more than `FAR_FROM_ROAD` (100 m) from any road in the graph is not
   really on the network** and its leg says so on the page, with a link out to
-  OSM. วัดเมืองลัง is the one on the merit rounds: 450 m from our nearest
+  OSM. วัดเมืองลัง is the one the wat pages show: 450 m from our nearest
   junction where OSM has a footpath 10 m away, so a 4.3 km walk read as 916 m.
   Extending the road crawl there is the real fix and needs her go-ahead.
 - **Moat and gates on the plan map, by rule, not by luck.** If a side of the
@@ -471,9 +516,18 @@ Rules that bite:
   list at all), and because the interaction script lives inside `if(dirList)`
   those dots were inert as well as nameless. The dot layer now lives on
   `all.html`, which is the page that has every row.
-- `importers/build_merit.py` folds a second spelling of a temple only when the
-  looser key and the ground both agree (`loose_name` + `SAME_PLACE_M`). A round
-  of nine that visits one temple twice is eight.
+- `importers/build_wats.py` folds a second mapping of a wat only when the name
+  skeleton and the ground both agree (`skeleton` + `SAME_PLACE_M`). A round of
+  nine that calls at one wat twice is eight. The skeleton is EXACT, never a
+  prefix: a prefix match folded วัดทรายมูล (พม่า) into วัดทรายมูลเมือง, which are
+  two wats 136 m and a Burmese lineage apart.
+- `importers/enrich_wats.py` asks Wikipedia which articles have coordinates
+  within 300 m and takes one only when the name agrees as well — identity on the
+  ground first, which is `harvest_commons.py`'s standard for a photograph. That
+  is how a lead is reached for a wat whose record cites no article, and
+  `enrich_wikipedia.py`'s rule (nothing a name search alone found) stands.
+  It also fills the English lead by the Thai article's langlink: 67 wats carried
+  a Thai summary and none carried an English one.
 - `node tests/test_plan_routes.js` after the build, with the others. Set
   `MD_DOCS` to a scratch build if somebody else is holding `docs/`.
 - `node tests/test_soi_run.js` — the side-scroller on 404.html (the ant walks a
@@ -536,6 +590,12 @@ Rules that bite:
   build succeeds, publish gate passes, route tests pass, no `/Users/` paths,
   docs/ over 20,000 files. (Nan, 2026-09-08: keep — it is what stops two
   sessions deploying over each other.)
+- **The build runs on motdang-build (2026-10-05).** With `cache/build-on-server`
+  present, the standing walk gathers here, then `hand_to_server` sends the source
+  (never `_incoming/enrich/`) and the server runs `importers/publish_steps.sh` —
+  the same gates — and publishes; the laptop copies docs/ back after each publish.
+  The morning walk gathers and stops. A Mac build now needs free space of docs/ plus
+  5 GB (`build.check_room()`), measured after the 2026-10-05 Errno 28.
 - To hold the site still — a risky refactor, a half-imported shelf you do not
   want seen — create `cache/walk-rest`. Empty rests until you remove it; an ISO
   timestamp inside rests until then and clears itself. That is the ONLY way to

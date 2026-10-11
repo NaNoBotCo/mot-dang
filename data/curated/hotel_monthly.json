@@ -1,0 +1,1390 @@
+{
+ "_meta": {
+  "built": "2026-10-04",
+  "lodging_records": 8778,
+  "with_own_site": 2025,
+  "sites": 1957,
+  "sites_read": 1084,
+  "records_with_any": 101,
+  "counts": {
+   "_not_named_on_site": 3,
+   "long_stay": 96,
+   "monthly": 20,
+   "utilities": 7,
+   "min_stay": 15
+  },
+  "hosts_shared": 114,
+  "method": "Own website only, and only where the site names the place: the home page and same-site pages already in cache/hotel_amenities, plus up to 3 pages whose link names rates, prices, long stay or monthly. A monthly price is a number with a currency mark within 90 characters of a monthly marker on the same line (EN + TH), 1,500–250,000 THB. Quotes are cut from the page text as fetched.",
+  "fields": {
+   "monthly": "THB per month as stated; thb_max when the page gives a range",
+   "min_stay": "months, from 'minimum N months' / 'ขั้นต่ำ N เดือน' / 'สัญญา N เดือน'",
+   "utilities": "included / metered / partly, with unit prices when stated",
+   "long_stay": "the page names long stay or monthly rental"
+  }
+ },
+ "cm-osm-node-10548633444": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Book discounted monthly stays via Airbnb",
+   "url": "https://www.himkuhotel.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://himkuhotel.com/"
+ },
+ "cm-osm-node-1123937928": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "(Please contact for details and special Long Term Stay rates)",
+   "url": "http://www.bpchiangmai.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.bpchiangmai.com/"
+ },
+ "cm-osm-node-1133628152": {
+  "monthly": [
+   {
+    "thb": 39000,
+    "quote": "Monthly rate: Baht 39,000",
+    "url": "https://www.chiangmaifrangipani.com/rooms/",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 54000,
+    "quote": "Monthly rate: Baht 54,000",
+    "url": "https://www.chiangmaifrangipani.com/rooms/",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 60000,
+    "quote": "Monthly rate: Baht 60,000",
+    "url": "https://www.chiangmaifrangipani.com/rooms/",
+    "fetched": "2026-10-04"
+   }
+  ],
+  "long_stay": {
+   "value": "yes",
+   "quote": "Short or long stay",
+   "url": "https://www.chiangmaifrangipani.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.chiangmaifrangipani.com/"
+ },
+ "cm-osm-node-12384775801": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Weekly / Monthly rentals are available.",
+   "url": "https://pspaisarn.wixsite.com/canaryhouserachawong/standard-fan-room",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://pspaisarn.wixsite.com/canaryhouserachawong"
+ },
+ "cm-osm-node-12642191034": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Long Stay Offer",
+   "url": "https://www.awaychiangmai.com/offers",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.awaychiangmai.com"
+ },
+ "cm-osm-node-13240370184": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Room Options (Long Stay Package)",
+   "url": "https://www.marchhotel-chiangmai.com/offers",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.marchhotel-chiangmai.com/"
+ },
+ "cm-osm-node-13661084301": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Long stay offer - Direct booking",
+   "url": "https://theekashatharn.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.theekashatharn.com/"
+ },
+ "cm-osm-node-1618892756": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Long Stay Save 💛",
+   "url": "https://sleepmaihotel.com/special-offers/",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.parasolinn.com/"
+ },
+ "cm-osm-node-1619445255": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Long Stay 15% Discount",
+   "url": "https://www.burigallery.com/offers",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.burigallery.com/"
+ },
+ "cm-osm-node-2082851854": {
+  "monthly": [
+   {
+    "thb": 10000,
+    "quote": "10,000 THB / month",
+    "url": "https://www.baannoinornmuan.com/en/monthly-stay/",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 12000,
+    "quote": "12,000 THB / month",
+    "url": "https://www.baannoinornmuan.com/en/monthly-stay/",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 12500,
+    "quote": "(Mar–Oct) · Standard House · 12,500 THB/month",
+    "url": "https://www.baannoinornmuan.com/en/monthly-stay/",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 14500,
+    "quote": "(Mar–Oct) · Contemporary Lanna House · 14,500 THB/month",
+    "url": "https://www.baannoinornmuan.com/en/monthly-stay/",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 15000,
+    "quote": "High Season · Nov–Feb฿15,000 / month",
+    "url": "https://www.baannoinornmuan.com/en/monthly-stay/",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 18000,
+    "quote": "High Season · Nov–Feb฿18,000 / month",
+    "url": "https://www.baannoinornmuan.com/en/monthly-stay/",
+    "fetched": "2026-10-04"
+   }
+  ],
+  "long_stay": {
+   "value": "yes",
+   "quote": "Chiang Mai Homestay & Lanna Long Stay | Baan Noi Norn Muan",
+   "url": "https://www.baannoinornmuan.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.baannoinornmuan.com/"
+ },
+ "cm-osm-node-2881830833": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Please contact us for weekly or monthly rates, available until",
+   "url": "http://www.sarahguesthousechiangmai.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.sarahguesthousechiangmai.com/"
+ },
+ "cm-osm-node-3285280609": {
+  "monthly": [
+   {
+    "thb": 7000,
+    "thb_max": 7400,
+    "quote": "Room rate per month THB 7,000- THB 7,400 (Exclude Water & Electricity)",
+    "url": "https://www.sunshinehousecm.com/",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 13000,
+    "quote": "Room rate per month THB 13,000 (Exclude Water & Electricity)",
+    "url": "https://www.sunshinehousecm.com/",
+    "fetched": "2026-10-04"
+   }
+  ],
+  "utilities": {
+   "value": "metered",
+   "quote": "Room rate per month THB 7,000- THB 7,400 (Exclude Water & Electricity)",
+   "url": "https://www.sunshinehousecm.com/",
+   "fetched": "2026-10-04"
+  },
+  "long_stay": {
+   "value": "yes",
+   "quote": "i Suthep, the important temple in Chiang Mai. Suitable for both daily and monthly stays.",
+   "url": "https://www.sunshinehousecm.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.sunshinehousecm.com/"
+ },
+ "cm-osm-node-5184163923": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Airport Studio'S Cosy Room #Workation #Longstay Chiang Mai",
+   "url": "https://www.chiangmaihotel24.com/pt/all-accommodations/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://plearn-hostel.chiangmaihotel24.com/pt/"
+ },
+ "cm-osm-node-5372538022": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "rence and seminar rates, specific promotional offers with promotion codes, long-stay term rates beyond 7 consecutive days, auction website rates, any prepaid r",
+   "url": "https://www.centarahotelsresorts.com/best-rate-guarantee",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.centarahotelsresorts.com/centara/ccm",
+  "site_shared_by": 2
+ },
+ "cm-osm-node-5788744252": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Longstay friendly",
+   "url": "https://themirrorchiangmai.com/",
+   "fetched": "2026-10-04"
+  },
+  "utilities": {
+   "value": "metered",
+   "quote": "Electricity ฿ 8 per unit",
+   "url": "https://themirrorchiangmai.com/apartment-type-a/",
+   "fetched": "2026-10-04",
+   "electric_thb_unit": 8.0
+  },
+  "site": "http://www.themirrorchiangmai.com"
+ },
+ "cm-osm-node-6215543160": {
+  "monthly": [
+   {
+    "thb": 49000,
+    "quote": "49,000 THB/month",
+    "url": "https://www.artmaigalleryhotel.com/offer",
+    "fetched": "2026-10-04"
+   }
+  ],
+  "long_stay": {
+   "value": "yes",
+   "quote": "Long Stay Package",
+   "url": "https://www.artmaigalleryhotel.com/offer",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.artmaigalleryhotel.com/",
+  "site_shared_by": 2
+ },
+ "cm-osm-node-6232754406": {
+  "monthly": [
+   {
+    "thb": 15000,
+    "quote": "From Just 15,000 THB/Month!",
+    "url": "http://www.casa-marocc.com/",
+    "fetched": "2026-10-04"
+   }
+  ],
+  "long_stay": {
+   "value": "yes",
+   "quote": "Looking for a comfortable, stylish, and affordable long-stay in Chiang Mai? CasaMarocc Chiang Mai offers the perfect blend of Moroccan-",
+   "url": "http://www.casa-marocc.com/offers",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.casa-marocc.com/"
+ },
+ "cm-osm-node-6454037985": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "house Apartments, we cater to both business travelers, leisure seekers and long stay guests, ensuring a perfect stay.",
+   "url": "https://www.amorahotels.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.amorahotels.com"
+ },
+ "cm-osm-node-6622141185": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Weekly and monthly rates available, please contact",
+   "url": "https://www.gategaavillage.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://gategaavillage.com/"
+ },
+ "cm-osm-node-6916071684": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "LONG STAY",
+   "url": "http://www.cozytelchiangmai.com/",
+   "fetched": "2026-10-04"
+  },
+  "min_stay": {
+   "months": 1,
+   "quote": "stay of 3 consecutive nights required and the next arrival date must be at least 1 month after the previous stay period.",
+   "url": "http://www.cozytelchiangmai.com/offers.php",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.cozytelchiangmai.com/"
+ },
+ "cm-osm-relation-13477671": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Long Stay – Room Only (20% Off)",
+   "url": "https://hotelmchiangmai.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.hotelmchiangmai.com/"
+ },
+ "cm-osm-relation-17331564": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Long Stay",
+   "url": "https://www.chiangmaigatehotel.com",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.chiangmaigatehotel.com",
+  "site_shared_by": 2
+ },
+ "cm-osm-way-103523139": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "FURAMA Long-stay",
+   "url": "https://www.furama.com/specials/longstay/",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.furama.com/"
+ },
+ "cm-osm-way-1113542040": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "We target on Thai people and create a long term stay promotion instead of seasonal promotion for normal traveller such as Day",
+   "url": "https://www.kokotel.com/hotel-management-service/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.kokotel.com/"
+ },
+ "cm-osm-way-1260457639": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Long Stay",
+   "url": "https://www.chiangmaigatehotel.com",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.chiangmaigatehotel.com",
+  "site_shared_by": 2
+ },
+ "cm-osm-way-1484018624": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Long Stay Save 💛",
+   "url": "https://sleepmaihotel.com/special-offers/",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://sleepmaihotel.com/sleep-mai-thapae/"
+ },
+ "cm-osm-way-1485185262": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "THE KANNAS | Looking for a daily or a monthly stay in Chiang Mai? Kannas offers serviced apartments and hotel-style comfort",
+   "url": "https://www.thekannas.com/",
+   "fetched": "2026-10-04"
+  },
+  "min_stay": {
+   "months": 4,
+   "quote": "* Highly limited availability during high season, please inquire at least 4 months in advance. Requests for rooms on higher floors (4th to 7th floors) ar",
+   "url": "https://www.thekannas.com/monthlyrental",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.thekannas.com/"
+ },
+ "cm-osm-way-1524586437": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "The Luxury Villas & Suites Resort - Long Stay Offers",
+   "url": "https://www.panvimanresortchiangmai.com/holiday-packages-northern-thailand",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.panvimanresortchiangmai.com/"
+ },
+ "cm-osm-way-220984686": {
+  "monthly": [
+   {
+    "thb": 16500,
+    "quote": "โลว์ซีซั่น มีนาคม-กันยายน ราคา 600 บาท (รายเดือน30คืน16,500 บาท) / ไฮซี่ซั่น ตุลาคม-กุมภาพันธ์ ราคา 700 บาท (รายเดือน30คืน18",
+    "url": "https://www.luxhotelchiangmai.com/room.php",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 18000,
+    "quote": "ไฮซี่ซั่น ตุลาคม-กุมภาพันธ์ ราคา 700 บาท (รายเดือน30คืน18,000 บาท) *เทศกาลบวกเพิ่ม 200 บาท/คืน*",
+    "url": "https://www.luxhotelchiangmai.com/promotion.php",
+    "fetched": "2026-10-04"
+   }
+  ],
+  "long_stay": {
+   "value": "yes",
+   "quote": "โลว์ซีซั่น มีนาคม-กันยายน ราคา 600 บาท (รายเดือน30คืน16,500 บาท) / ไฮซี่ซั่น ตุลาคม-กุมภาพันธ์ ราคา 700 บาท (รายเดือน30คืน18",
+   "url": "https://www.luxhotelchiangmai.com/room.php",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.luxhotelchiangmai.com/"
+ },
+ "cm-osm-way-237817480": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Monthly rates available upon request.",
+   "url": "https://thedomechiangmai.com/accommodation/deluxe",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.thedomechiangmai.com/"
+ },
+ "cm-osm-way-260048595": {
+  "monthly": [
+   {
+    "thb": 5000,
+    "quote": "เริ่มต้นที่ 5000 บาทต่อเดือน",
+    "url": "http://www.baansrimongkol.com/",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 7000,
+    "quote": "7000 บาทต่อเดือน",
+    "url": "http://www.baansrimongkol.com/monthly.html",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 10000,
+    "quote": "10000 บาทต่อเดือน",
+    "url": "http://www.baansrimongkol.com/monthly.html",
+    "fetched": "2026-10-04"
+   }
+  ],
+  "min_stay": {
+   "months": 3,
+   "quote": "สำหรับสัญญาขั้นต่ำ 3 เดือน เพิ่ม 1000 บาทต่อเดือน",
+   "url": "http://www.baansrimongkol.com/",
+   "fetched": "2026-10-04"
+  },
+  "long_stay": {
+   "value": "yes",
+   "quote": "ห้องพักรายเดือน",
+   "url": "http://www.baansrimongkol.com/monthly.html",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.baansrimongkol.com/"
+ },
+ "cm-osm-way-260358501": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Chiang Mai Apartment Smith Residence | Chiang Mai apartment short long stay private room high security",
+   "url": "https://chiangmaismithres.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://chiangmaismithres.com/"
+ },
+ "cm-osm-way-321801551": {
+  "monthly": [
+   {
+    "thb": 7500,
+    "quote": "Start 7,500 ฿ / Month",
+    "url": "https://www.commonlivings.com",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 15000,
+    "quote": "Start 15,000 ฿ / Month",
+    "url": "https://www.commonlivings.com",
+    "fetched": "2026-10-04"
+   }
+  ],
+  "long_stay": {
+   "value": "yes",
+   "quote": "t Chiang Mai stay! Our serviced apartments/hotel offer flexible daily or monthly rentals, ideally located between trendy Nimman and historic Old City. Enjoy mod",
+   "url": "https://www.commonlivings.com",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.commonlivings.com"
+ },
+ "cm-osm-way-334799217": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "it is a one-day, short- or long-term stay, a reasonable room",
+   "url": "https://www.veerachaicourt.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.veerachaicourt.com/"
+ },
+ "cm-osm-way-372055123": {
+  "monthly": [
+   {
+    "thb": 49000,
+    "quote": "49,000 THB/month",
+    "url": "https://www.artmaigalleryhotel.com/offer",
+    "fetched": "2026-10-04"
+   }
+  ],
+  "long_stay": {
+   "value": "yes",
+   "quote": "Long Stay Package",
+   "url": "https://www.artmaigalleryhotel.com/offer",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.artmaigalleryhotel.com/",
+  "site_shared_by": 2
+ },
+ "cm-osm-way-381248605": {
+  "monthly": [
+   {
+    "thb": 14500,
+    "quote": "Price: City viewed 14,500 ฿ per month",
+    "url": "https://smithsuites-chiangmai.com/roomrates/",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 15000,
+    "quote": "Price: City viewed 15,000 ฿ per month",
+    "url": "https://smithsuites-chiangmai.com/roomrates/",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 15500,
+    "quote": "Price: Garden viewed 15,500 ฿ per month",
+    "url": "https://smithsuites-chiangmai.com/roomrates/",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 16000,
+    "quote": "Price: Garden viewed 16,000 ฿ per month",
+    "url": "https://smithsuites-chiangmai.com/roomrates/",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 30000,
+    "quote": "Price: 30,000 ฿ per month",
+    "url": "https://smithsuites-chiangmai.com/roomrates/",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 32000,
+    "quote": "Price: 32,000 ฿ per month",
+    "url": "https://smithsuites-chiangmai.com/roomrates/",
+    "fetched": "2026-10-04"
+   }
+  ],
+  "long_stay": {
+   "value": "yes",
+   "quote": "Smith Suites serviced apartment is the perfect choice for monthly staying where you would spend your holiday a most enjoyable and unforgettable",
+   "url": "https://smithsuites-chiangmai.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://smithsuites-chiangmai.com/"
+ },
+ "cm-osm-way-391038248": {
+  "min_stay": {
+   "months": 1.0,
+   "quote": "Make a reservation at least 30 days in advance and get a special discount!",
+   "url": "https://www.banthaivillage.com/promotions.html",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.banthaivillage.com/"
+ },
+ "cm-osm-way-406880179": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Discover monthly stays",
+   "url": "https://www.booking.com/cars/index.html?aid=7978583&label=housity-cars",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.cozyinnchiangmai.com/"
+ },
+ "cm-osm-way-406994637": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Long Stay 4 nights!!",
+   "url": "https://www.pastellhotel.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.pastellhotel.com/"
+ },
+ "cm-osm-way-457599227": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "ng Mai offers over 30 lavish, private rooms available for both daily and monthly rentals. Guests can take advantage of exceptional amenities, and fitness.Our de",
+   "url": "https://www.kmhotelchiangmai.com/en/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.kmhotelchiangmai.com/"
+ },
+ "cm-osm-way-473483216": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "• The long-stay is possible for certain month. Please contact the hotel for more informati",
+   "url": "https://www.villasanpeeseua.com/en/rate-amp-reservation",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.villasanpeeseua.com/"
+ },
+ "cm-osm-way-529383527": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "essities are sufficient to meet the demands of those who are seeking for a long-stay residence in Chiang Mai.",
+   "url": "http://www.theopium-chiangmai.com/en/about.php",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.theopium-chiangmai.com/"
+ },
+ "cm-osm-way-97675281": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "rence and seminar rates, specific promotional offers with promotion codes, long-stay term rates beyond 7 consecutive days, auction website rates, any prepaid r",
+   "url": "https://www.centarahotelsresorts.com/best-rate-guarantee",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.centarahotelsresorts.com/centara/ccm",
+  "site_shared_by": 2
+ },
+ "cm-osm-way-97985635": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "LONGSTAY FRIENDLY",
+   "url": "https://ptresidence.co.th/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://ptresidence.co.th/"
+ },
+ "cm-osm-way-99685197": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Long-stay rates (beyond 7 days)",
+   "url": "https://www.dusit.com/best-rate-guarantee/",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.dusit.com/dusitd2/chiangmai"
+ },
+ "cm-ovt-02221c2b-501c-4e27-afac-35d7ecb588af": {
+  "utilities": {
+   "value": "partly",
+   "quote": "Electricity not included in Monthly Rate: THB 7.- per unit.",
+   "url": "http://www.chiangmai-online.com/buarawong/",
+   "fetched": "2026-10-04"
+  },
+  "long_stay": {
+   "value": "yes",
+   "quote": "With economical rates and monthly rates, BUARAWONG is an hotel of choice for short - and long term budget minded",
+   "url": "http://www.chiangmai-online.com/buarawong/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.chiangmai-online.com/buarawong/"
+ },
+ "cm-ovt-04ce1258-c9d7-4ded-b02e-a8b43f1c4b0a": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Long Stay Offer",
+   "url": "https://www.kyotogreathotel.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.kyotogreathotel.com/"
+ },
+ "cm-ovt-18d4256b-e7cc-4759-a16c-432306c8141c": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "อพาร์ทเม้นท์ให้เช่ารายเดือน",
+   "url": "https://nionhouse.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.nionhouse.com/"
+ },
+ "cm-ovt-1a681b78-82f4-4b15-9ca0-26a9c147df85": {
+  "min_stay": {
+   "months": 1,
+   "quote": "Stay at least 1 month",
+   "url": "https://www.c-oneservicedapartments.com/en/room.html",
+   "fetched": "2026-10-04"
+  },
+  "long_stay": {
+   "value": "yes",
+   "quote": "Monthly Rate : Normal price ​ Baht",
+   "url": "https://www.c-oneservicedapartments.com/en/room.html",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.c-oneservicedapartments.com/"
+ },
+ "cm-ovt-22fa12aa-051a-4c65-9891-55d750b16efb": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Monthly Stay",
+   "url": "https://istyhotelchiangmai.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.istyhotelchiangmai.com/"
+ },
+ "cm-ovt-26427f78-60b8-4dac-9060-a0d33bcba8e1": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "This special monthly rate is designed for guests staying 28 consecutive nights or more and includes",
+   "url": "https://khammonlannaresort.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://khammonlannaresort.com/"
+ },
+ "cm-ovt-2817a647-5dda-4ff4-b5dd-1bef9599e05a": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Long Stay – Room Only (20% Off)",
+   "url": "https://hotelmchiangmai.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.hotelmchiangmai.com"
+ },
+ "cm-ovt-2a60cc19-e17b-464a-9e64-af26b7d9e9ba": {
+  "monthly": [
+   {
+    "thb": 9000,
+    "quote": "9000 Baht / Month",
+    "url": "http://baannamping.com/room-rate/",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 15000,
+    "quote": "15,000 Baht / Month",
+    "url": "http://baannamping.com/room-rate/",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 16000,
+    "quote": "16,000 Baht / Month",
+    "url": "http://baannamping.com/room-rate/",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 18000,
+    "quote": "18,000 Baht / Month",
+    "url": "http://baannamping.com/room-rate/",
+    "fetched": "2026-10-04"
+   }
+  ],
+  "utilities": {
+   "value": "metered",
+   "quote": "Electricity 8 Baht / Unit",
+   "url": "http://baannamping.com/room-rate/",
+   "fetched": "2026-10-04",
+   "electric_thb_unit": 8.0
+  },
+  "long_stay": {
+   "value": "yes",
+   "quote": "For Monthly rate :",
+   "url": "http://baannamping.com/room-rate/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.baannamping.com"
+ },
+ "cm-ovt-36cf786b-7069-44cb-b94a-c99f0f13aef8": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "t offerings, tailored to meet the evolving needs of leisure, business, and long-stay travellers. New hotel developments featured this year include:",
+   "url": "https://www.sonohotelsresortsasia.com/press-room",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.awayresorts.com/"
+ },
+ "cm-ovt-37c725a7-4359-4560-8ef5-7ca66b413c55": {
+  "monthly": [
+   {
+    "thb": 2400,
+    "thb_max": 4600,
+    "quote": "2,400 - 4,600 THB/month",
+    "url": "https://www.hongpak.in.th/en/monthly-rentals/",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 2400,
+    "thb_max": 5500,
+    "quote": "2,400 - 5,500 THB/month",
+    "url": "https://www.hongpak.in.th/en/monthly-rentals/",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 2600,
+    "thb_max": 4500,
+    "quote": "2,600 - 4,500 THB/month",
+    "url": "https://www.hongpak.in.th/en/monthly-rentals/",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 2600,
+    "thb_max": 4000,
+    "quote": "2,600 - 4,000 THB/month",
+    "url": "https://www.hongpak.in.th/en/monthly-rentals/",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 2600,
+    "thb_max": 3200,
+    "quote": "2,600 - 3,200 THB/month",
+    "url": "https://www.hongpak.in.th/en/monthly-rentals/",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 2700,
+    "thb_max": 3300,
+    "quote": "2,700 - 3,300 THB/month",
+    "url": "https://www.hongpak.in.th/en/monthly-rentals/",
+    "fetched": "2026-10-04"
+   }
+  ],
+  "min_stay": {
+   "months": 6,
+   "quote": "small room, 6 month contract, has everything like a hotel, air conditioner, TV, water heater Maximum",
+   "url": "https://www.hongpak.in.th/en/monthly-rentals/",
+   "fetched": "2026-10-04"
+  },
+  "long_stay": {
+   "value": "yes",
+   "quote": "Monthly rentals in Thailand - Apartments and Rentals",
+   "url": "https://www.hongpak.in.th/en/monthly-rentals/",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.hongpak.in.th/en/rooms/717"
+ },
+ "cm-ovt-428928f2-6ea0-413f-b950-ca397e15051a": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "offers a private lounge in a relaxed environment for Suite room occupants, long-stay guests and returning guests. Hot beverages, soft drinks, and fruits are av",
+   "url": "https://maladeehotel.com/facilities/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.maladeehotel.com/"
+ },
+ "cm-ovt-4c539ec7-07bd-4af8-97f1-5307b38950f7": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "ion for decades, we know the difference of the routine and lifestyle of long-term guests. Therefore, our rooms and suites are carefully and functionally designe",
+   "url": "http://www.theodyssey-chiangmai.com/rooms-rates.php",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.theodyssey-chiangmai.com/"
+ },
+ "cm-ovt-5d6ddc31-212a-42ac-818d-87373be1ac63": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Long-stay guests, retirees and people working out what living in",
+   "url": "https://baanponglodge.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.baanponglodge.com/"
+ },
+ "cm-ovt-5de0dcff-c5e4-4b1e-b083-fe79947d7d27": {
+  "monthly": [
+   {
+    "thb": 5500,
+    "quote": "ราคาห้องพัก 5,500 บาท / เดือน",
+    "url": "http://www.sala-property.com/index.php/2020-05-26-04-40-30",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 7500,
+    "quote": "ราคาห้องพัก 7,500 บาท / เดือน",
+    "url": "http://www.sala-property.com/index.php/2020-05-26-04-40-30",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 20500,
+    "quote": "ราคาห้องพัก 20,500 บาท / เดือน",
+    "url": "http://www.sala-property.com/index.php/2020-05-26-04-40-30",
+    "fetched": "2026-10-04"
+   }
+  ],
+  "long_stay": {
+   "value": "yes",
+   "quote": "ราคาห้องพัก 5,500 บาท / เดือน",
+   "url": "http://www.sala-property.com/index.php/2020-05-26-04-40-30",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.sala-property.com/"
+ },
+ "cm-ovt-605dc658-d643-42f4-a611-2d29583edf37": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Long Stay Deal",
+   "url": "https://raintreehotelchiangmai.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.raintreehotelchiangmai.com/"
+ },
+ "cm-ovt-64cf5944-6552-4be9-a2ed-faaef22105dd": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Long stay:",
+   "url": "https://www.maisiamresort.com/en/room-rate",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.maisiamresort.com/"
+ },
+ "cm-ovt-64feaf9f-9f79-4b47-b3d0-fa92f84105df": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "of our offer LONG STAY and get a 25% discount",
+   "url": "https://www.atnatachiangmai.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.atnatachiangmai.com/",
+  "site_shared_by": 2
+ },
+ "cm-ovt-71a30263-7ec2-428c-9167-ddbacf8d5d89": {
+  "min_stay": {
+   "months": 1,
+   "quote": "Stay at least 1 month",
+   "url": "https://www.c-oneservicedapartments.com/en/room.html",
+   "fetched": "2026-10-04"
+  },
+  "long_stay": {
+   "value": "yes",
+   "quote": "Monthly Rate : Normal price ​ Baht",
+   "url": "https://www.c-oneservicedapartments.com/en/room.html",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.c-oneservicedapartments.com"
+ },
+ "cm-ovt-72b03484-fa51-4f70-8317-5a2d72c40684": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Nivas Chiangmai Hotel & Serviced Apartment | Monthly & Long Stay Apartments Near CMU",
+   "url": "https://www.nivas-chiangmai.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.nivas-chiangmai.com/"
+ },
+ "cm-ovt-7bd22e55-b5cd-4b26-9fd0-232bf9c6c391": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "avel Agents, Corporates, Diplomatic Missions, Non-profit Organizations and Long-Stay.",
+   "url": "https://www.goldenwells-chiangmai.com/en/roomrate.html/51",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.goldenwells-chiangmai.com/"
+ },
+ "cm-ovt-81abd8c3-bf12-4de1-b029-ee54dbf80e3d": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Weekday Long Stay",
+   "url": "https://theevijit.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.theevijit.com/"
+ },
+ "cm-ovt-851b5bd8-db5b-4761-8953-f27838f9da2f": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "This special monthly rate is designed for guests staying 28 consecutive nights or more and includes",
+   "url": "https://khammonlannaresort.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.khammonlannaresort.com/"
+ },
+ "cm-ovt-8c04836a-408d-4556-acf4-ad9e02839659": {
+  "monthly": [
+   {
+    "thb": 9000,
+    "quote": "✨ Deluxe Room — 9,000 THB / month",
+    "url": "https://www.thechayaresort.com/",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 25000,
+    "quote": "✨ Executive Room — 25,000 THB / month",
+    "url": "https://www.thechayaresort.com/",
+    "fetched": "2026-10-04"
+   },
+   {
+    "thb": 30000,
+    "quote": "✨ Chaya Suite Room — 30,000 THB / month",
+    "url": "https://www.thechayaresort.com/",
+    "fetched": "2026-10-04"
+   }
+  ],
+  "long_stay": {
+   "value": "yes",
+   "quote": "Special Monthly Rates (March – September)",
+   "url": "https://www.thechayaresort.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.thechayaresort.com/"
+ },
+ "cm-ovt-92e032dd-b1ee-4d57-8b76-cbf994b4377d": {
+  "min_stay": {
+   "months": 1.0,
+   "quote": "Plan your mountain escape at least 30 days in advance. Enjoy 15% off your stay, including daily breakfast",
+   "url": "https://marisaresortchiangdao.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.marisaresortchiangdao.com/"
+ },
+ "cm-ovt-97ebc7ba-dc5f-4ec4-9787-200db77b7537": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "We have special rates for long stay, contact us for more info.",
+   "url": "https://hinkhongvilla.com/rooms/the-budget-house-suitable-for-six-persons-with-shared-swimming-pool/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.hinkhongvilla.com/"
+ },
+ "cm-ovt-a123db11-e364-4582-ad0b-1bd3160b2a53": {
+  "min_stay": {
+   "months": 1.0,
+   "quote": "Get UP TO 20% OFF on our best available rate* when you book at least 30 days beforeyour arrival.",
+   "url": "https://www.thantararesort.com/offers/",
+   "fetched": "2026-10-04"
+  },
+  "long_stay": {
+   "value": "yes",
+   "quote": "Enjoy exclusive savings with our Long Stay Offer! Stay 5 consecutive nights or more and receive up to 20% OFF",
+   "url": "https://www.thantararesort.com/offers/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.thantararesort.com/"
+ },
+ "cm-ovt-a3e61fb8-c98e-405f-834d-00a23e117570": {
+  "monthly": [
+   {
+    "thb": 9000,
+    "quote": "9,000 B / month",
+    "url": "http://www.maleenature.com/price.html",
+    "fetched": "2026-10-04"
+   }
+  ],
+  "long_stay": {
+   "value": "yes",
+   "quote": "Monthly rates available!",
+   "url": "http://www.maleenature.com/",
+   "fetched": "2026-10-04"
+  },
+  "min_stay": {
+   "months": 6,
+   "quote": "Minimum 6 months",
+   "url": "http://www.maleenature.com/price.html",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.maleenature.com/",
+  "site_shared_by": 2
+ },
+ "cm-ovt-a8df252f-985c-487f-8073-3e1e1eb453c8": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "เหมาะสำหรับการเข้าพักระยะยาวและผู้ที่แสวงหาแรงบันดาลใจในงานเขียนหรืองานที่ต้องใช้ความคิดสร้างสรร",
+   "url": "https://mornery.nanovacationhome.com/th",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://mornery.nanovacationhome.com/th"
+ },
+ "cm-ovt-b1a831d7-3787-483d-b7fc-269ec72b571f": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "edicated training space, we’ve got you covered. We cater to both short and long stays with hotel-standard accommodations and a variety of activities within the",
+   "url": "https://thaisportsresort.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://thaisportsresort.com/"
+ },
+ "cm-ovt-bd3c7fc1-0693-448c-bc29-2557dc0399de": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "single bed in each room, suitable for single, couple or family’s short or long stay.",
+   "url": "https://goldencupids.com/accommodation/luxury-suite/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.goldencupids.com/"
+ },
+ "cm-ovt-c551f1a3-f5c7-45de-9f99-d57547afff24": {
+  "min_stay": {
+   "months": 1.0,
+   "quote": "Make a booking at least 30 days in advance and get a special discount from the Best Valuable Rate! It i",
+   "url": "https://www.banchangtonghotel.com/en/room-rate",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.banchangtonghotel.com/"
+ },
+ "cm-ovt-c86f0456-7daa-4dbe-a1ff-f84fcb1c507c": {
+  "monthly": [
+   {
+    "thb": 52000,
+    "quote": "Monthly rates start from THB 52,000.",
+    "url": "https://bansabaicare.com/ban-sabai-village-senior-residence-prices/",
+    "fetched": "2026-10-04"
+   }
+  ],
+  "long_stay": {
+   "value": "yes",
+   "quote": "Welcome to Ban Sabai Village, Chiang Mai – Senior Residence – Long Stay Senior Care Resort & Nursing Home",
+   "url": "https://bansabaicare.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.bansabaicare.com/"
+ },
+ "cm-ovt-c8ca6183-f995-4344-8268-53cd827fc305": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "of our offer LONG STAY and get a 25% discount",
+   "url": "https://www.atnatachiangmai.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.atnatachiangmai.com/",
+  "site_shared_by": 2
+ },
+ "cm-ovt-c9abcd51-00a4-4d02-8b93-4fd371169b2a": {
+  "monthly": [
+   {
+    "thb": 9000,
+    "quote": "9,000 B / month",
+    "url": "http://www.maleenature.com/price.html",
+    "fetched": "2026-10-04"
+   }
+  ],
+  "long_stay": {
+   "value": "yes",
+   "quote": "Monthly rates available!",
+   "url": "http://www.maleenature.com/",
+   "fetched": "2026-10-04"
+  },
+  "min_stay": {
+   "months": 6,
+   "quote": "Minimum 6 months",
+   "url": "http://www.maleenature.com/price.html",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.maleenature.com/",
+  "site_shared_by": 2
+ },
+ "cm-ovt-d161a049-0d60-44ca-9f7d-4752e853e152": {
+  "monthly": [
+   {
+    "thb": 5300,
+    "quote": "ราคาห้องพักเริ่มต้น 5,300 บาทต่อเดือน วางมัดจำ 12,000 บาท เช่าขั้นต่ำ 6 เดือนขึ้นไป",
+    "url": "http://www.grandlivingcm.com/room/deluxe-room-monthly/",
+    "fetched": "2026-10-04"
+   }
+  ],
+  "long_stay": {
+   "value": "yes",
+   "quote": "Monthly Room (ห้องพักรายเดือน)",
+   "url": "http://www.grandlivingcm.com/?lang=en",
+   "fetched": "2026-10-04"
+  },
+  "min_stay": {
+   "months": 6,
+   "quote": "ราคาห้องพักเริ่มต้น 5,300 บาทต่อเดือน วางมัดจำ 12,000 บาท เช่าขั้นต่ำ 6 เดือนขึ้นไป",
+   "url": "http://www.grandlivingcm.com/room/deluxe-room-monthly/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.grandlivingcm.com/"
+ },
+ "cm-ovt-d6e45e56-f4f5-43f6-b542-6cc8bee35cd8": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Viangbua Mansion Serviced Apartments,Service Apartment Chiang Mai,Long Stay Chiang Mai,Service Apartment in Town Chiang Mai",
+   "url": "https://www.viangbua.com/",
+   "fetched": "2026-10-04"
+  },
+  "utilities": {
+   "value": "partly",
+   "quote": "Rental not included Electricity which charges 7 Baht per unit of using",
+   "url": "https://www.viangbua.com/room_rate_detail.php?id=14",
+   "fetched": "2026-10-04",
+   "electric_thb_unit": 7.0
+  },
+  "site": "http://www.viangbua.com/"
+ },
+ "cm-ovt-dbd124b1-9485-46c4-9cb0-065d39f2f9c9": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Aum Hum welcomes remote workers, digital nomads, writers, artists, and long-stay travelers who value both productivity and peace. Iti is a place where deep",
+   "url": "https://nuitiam9.wixsite.com/aumhumhomestay",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://nuitiam9.wixsite.com/aumhumhomestay"
+ },
+ "cm-ovt-e1518a29-b4ef-469b-8afe-807966613e74": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "rence and seminar rates, specific promotional offers with promotion codes, long-stay term rates beyond 7 consecutive days, auction website rates, any prepaid r",
+   "url": "https://www.centarahotelsresorts.com/best-rate-guarantee",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.centarahotelsresorts.com/centara/ccm"
+ },
+ "cm-ovt-e7bc7976-fd5c-4993-be7d-773e65d38928": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Long Stay at Villa Alanna",
+   "url": "https://www.villaalanna.com/chiangmai/",
+   "fetched": "2026-10-04"
+  },
+  "utilities": {
+   "value": "included",
+   "quote": "Are utilities included in the monthly rate?",
+   "url": "https://www.villaalanna.com/chiangmai/weekly-monthly-rental/",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.villaalanna.com/chiangmai/"
+ },
+ "cm-ovt-e7caced2-efd4-45af-9ce3-49fcb5db1883": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Long Stay Offer",
+   "url": "https://www.awaychiangmai.com/offers",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.awaychiangmai.com/"
+ },
+ "cm-ovt-ea80d769-3995-4d84-a099-90982b406517": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "nandamalee place|apartments for monthly rental",
+   "url": "https://www.nandamalee.com/EN/home.html",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.nandamalee.com/"
+ },
+ "cm-ovt-edfe1bcc-66bb-41e0-a1ce-02b1c26d86f6": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Long Stay Save 💛",
+   "url": "https://sleepmaihotel.com/special-offers/",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://sleepmaihotel.com/"
+ },
+ "cm-ovt-f9b103e3-8fed-4ba8-bc70-31574aa83676": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "ที่พัก,ที่พักชั่วคราว,ห้องพักรายเดือน,โรงแรม,ห้องพักรายวัน,ที่พักรายวัน,โรงแรมเชียงใหม่",
+   "url": "https://www.cmhy.city/place/22300-Baan-Malison",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.cmhy.city/place/22300-Baan-Malison"
+ },
+ "cr-osm-node-4787554123": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Long Stays",
+   "url": "https://limeleaf-thailand.com/accommodation/",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.limeleaf-thailand.com/"
+ },
+ "cr-osm-node-9505272517": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "floor. Each room is fully equipped for your nightly and long stay needs",
+   "url": "https://www.ohmyplacechiangrai.com/room.php",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.ohmyplacechiangrai.com/"
+ },
+ "cr-osm-relation-7770427": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Long Stay",
+   "url": "https://www.chiangkhongteakgarden.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.chiangkhongteakgarden.com/"
+ },
+ "cr-ovt-51c34227-998a-4c62-8f80-223f68951c9a": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "We target on Thai people and create a long term stay promotion instead of seasonal promotion for normal traveller such as Day",
+   "url": "https://www.kokotel.com/hotel-management-service/",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://www.kokotel.com/"
+ },
+ "cr-ovt-5a3b60e5-9ab0-4344-a711-7e65f0ff50dc": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "ห้องพักรายเดือน",
+   "url": "https://www.hongpak.in.th/rooms/1277-bighouse-hotel",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.hongpak.in.th/1277"
+ },
+ "cr-ovt-6167fd1b-4124-406f-b0c6-eee947258137": {
+  "min_stay": {
+   "months": 1.0,
+   "quote": "Book with Sooknirund at least 30 days before arrival for 15% savings on the best flexible rates.",
+   "url": "https://www.sooknirund.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.sooknirund.com/"
+ },
+ "cr-ovt-9dc4261f-4540-43ed-a15c-e5e06cc7e179": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "หอพักรายเดือนไกล้มหาวิทยาลัยราชภัฎเชียงราย",
+   "url": "https://jongpaisarn2.blogspot.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://jongpaisarn2.blogspot.com/"
+ },
+ "cr-ovt-a0ae57e0-67f1-4da7-aa38-976908a5b416": {
+  "min_stay": {
+   "months": 1,
+   "quote": "Book a minimum of 1 month and receive 20% discount.",
+   "url": "https://www.homestaychiangrai.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.homestaychiangrai.com/"
+ },
+ "cr-ovt-c189efc6-b404-4877-9c44-49780b445a12": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "ห้องพักรายวัน ห้องพักรายเดือน ในแม่สรวย",
+   "url": "https://maeprikvalley.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "https://maeprikvalley.com/"
+ },
+ "cr-ovt-d401d2bb-3018-44f9-b90e-3eb62a278612": {
+  "monthly": [
+   {
+    "thb": 3000,
+    "quote": "ราคา 3,500 บาท และ 3,000 บาท ต่อเดือน (รวมค่าน้ำ และค่าเน๊ท) ค่าไฟฟ้า 7 บาท",
+    "url": "https://www.skyline-dorm.com/",
+    "fetched": "2026-10-04"
+   }
+  ],
+  "utilities": {
+   "value": "included",
+   "quote": "ราคา 3,500 บาท และ 3,000 บาท ต่อเดือน (รวมค่าน้ำ และค่าเน๊ท) ค่าไฟฟ้า 7 บาท",
+   "url": "https://www.skyline-dorm.com/",
+   "fetched": "2026-10-04"
+  },
+  "long_stay": {
+   "value": "yes",
+   "quote": "ราคา 3,500 บาท และ 3,000 บาท ต่อเดือน (รวมค่าน้ำ และค่าเน๊ท) ค่าไฟฟ้า 7 บาท",
+   "url": "https://www.skyline-dorm.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://skyline-dorm.com/"
+ },
+ "cr-ovt-d7d44cb3-cc77-4640-a1db-71dee182f9ad": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Long stay package (30 days)",
+   "url": "https://www.baitonghotel.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.baitonghotel.com/"
+ },
+ "cr-ovt-dc0e4cff-f061-4709-861d-ea1bcdac0ac6": {
+  "monthly": [
+   {
+    "thb": 5500,
+    "quote": "5,500 บาทต่อเดือน ห้องแอร์ใหม่ ประหยัดไฟ",
+    "url": "http://baanmeesuk.blogspot.com/",
+    "fetched": "2026-10-04"
+   }
+  ],
+  "long_stay": {
+   "value": "yes",
+   "quote": "5,500 บาทต่อเดือน ห้องแอร์ใหม่ ประหยัดไฟ",
+   "url": "http://baanmeesuk.blogspot.com/",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.baanmeesuk.blogspot.com"
+ },
+ "cr-ovt-f97301ba-ef28-4146-800b-9f3a5b6c6ea1": {
+  "long_stay": {
+   "value": "yes",
+   "quote": "Long-stay · Couples · International guests · Workation",
+   "url": "https://athitahotel.com/exclusive-offers",
+   "fetched": "2026-10-04"
+  },
+  "site": "http://www.athitahotel.com/"
+ }
+}

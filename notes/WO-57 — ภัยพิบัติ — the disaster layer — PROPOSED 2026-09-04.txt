@@ -1,5 +1,5 @@
 WO-57 — ภัยพิบัติ · THE DISASTER LAYER
-Proposed 2026-09-04. Nothing built. Your numbered go, or your no.
+Proposed 2026-09-04. Your numbered go, or your no.
 
 
 THE ANSWER FIRST
@@ -145,7 +145,7 @@ THE FORK — pick by number, any combination
                listing rooms an official source names, with the date.
     Undo:      one layer file.
 
-5 · THE FLOOD LAYER — and the honest limit
+5 · THE FLOOD LAYER — and the limit it states
 -------------------------------------------
     What this repo can truthfully do: show each pin's ground elevation
     from SRTM and its distance from the Ping, and put the P.1 gauge

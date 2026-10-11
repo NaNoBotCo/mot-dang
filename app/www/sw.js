@@ -9,7 +9,7 @@
  *
  * Bump CACHE when any file below changes, or phones keep the old one.
  */
-var CACHE = 'motdang-v1.1';
+var CACHE = 'motdang-v1.2';
 var SHELL = [
   './',
   'index.html',

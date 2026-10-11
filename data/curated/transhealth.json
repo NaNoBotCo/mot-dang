@@ -391,8 +391,8 @@
   "grade": "field",
   "note_th": "ร้านขายยาเป็นด่านแรกของคนส่วนใหญ่ที่นี่ และสารบัญนี้มีอยู่ 1,133 ร้าน จากการเดินจริง — ร้านส่วนมากมีฮอร์โมนบางรูปแบบอยู่หลังเคาน์เตอร์ ตัวแปรคือขนาดสต๊อกของร้าน ไม่ใช่ทัศนคติ สิ่งที่หายากคือ “รูปแบบที่ต้องการ” ไม่ใช่ตัวยาเอง — เอสตราไดออลชนิดครีมหายากที่สุด ถ้าร้านหนึ่งไม่มีรูปแบบที่ใช้ ร้านที่ใหญ่กว่ามักมี",
   "note_en": "A pharmacy is most people's first stop here, and this directory holds 1,133 of them. From walking them: most keep some form of hormone behind the counter, and the variable is the size of the shop's stock rather than any attitude. What is hard to find is the FORMULATION, not the substance — estradiol cream is the hardest. Where one shop does not carry the form you use, a larger one often does.",
-  "stance_th": "มดแดงเป็นสารบัญของร้าน ไม่มีความเห็นว่าใครควรใช้อะไร ไม่บอกขนาดยา ไม่แนะนำยี่ห้อ — บอกแค่ว่าร้านอยู่ตรงไหน",
-  "stance_en": "Mot Dang catalogues shops. It holds no view on what anyone should take, names no dose and recommends no brand — it can tell you where the shops are.",
+  "stance_th": "มดแดงเป็นสารบัญของร้าน บอกว่าร้านอยู่ตรงไหน",
+  "stance_en": "Mot Dang catalogues shops and where they are.",
   "sources": [
    {
     "type": "field",

@@ -58,6 +58,13 @@ SPECIALTIES = [
      r"จิตเวช|สุขภาพจิต|\bpsychiatr"),
     ("physio", "กายภาพบำบัด", "Physiotherapy",
      r"กายภาพบำบัด|\bphysiotherap|\brehabilitation\b"),
+    # WO-55. กิจกรรมบำบัด is on ZERO crawled signs in either province (counted
+    # 2026-09-04, 21,047 records) — the rows that carry it are curated
+    # additions whose names were read off the clinic's own page. "OT clinic"
+    # is how one Chiang Mai clinic spells itself; bare OT is never matched
+    # (hotel, overtime). โอที alone is the same trap in Thai.
+    ("ot", "กิจกรรมบำบัด", "Occupational therapy",
+     r"กิจกรรมบำบัด|\boccupational\s+therap|\bOT\s+clinic\b|โอที\s*คลินิก"),
     ("thai-med", "แพทย์แผนไทย", "Thai traditional medicine",
      r"แพทย์แผนไทย|แผนไทยประยุกต์"),
     ("chinese-med", "แพทย์แผนจีน-ฝังเข็ม", "Chinese medicine & acupuncture",
@@ -103,6 +110,8 @@ OSM_SPECIALITY = {
     "otolaryngology": "ent",
     "psychiatry": "psych", "psychotherapy": "psych",
     "physiotherapy": "physio", "rehabilitation": "physio",
+    "occupational_therapy": "ot", "occupational_therapist": "ot",
+    "occupational": "ot",
     "traditional_chinese_medicine": "chinese-med", "acupuncture": "chinese-med",
     "nephrology": "kidney", "dialysis": "kidney",
     "cardiology": "heart",
@@ -170,7 +179,7 @@ _RPSAT_RE = re.compile(
 
 
 def obgyn_grade(attrs, *names):
-    """The OB-GYN grade this place may honestly be listed under, or None.
+    """The OB-GYN grade this place may defensibly be listed under, or None.
 
     `attrs["obgyn"]` arrives from the cm-womens-health harvester, where the
     grade is deliberately generous: `hospital-likely` means "a general hospital,

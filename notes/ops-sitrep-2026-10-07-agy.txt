@@ -1,0 +1,44 @@
+OPS SITREP — Wednesday 7 October 2026, second copy (Antigravity, 15:50)
+There was no 15:00 file for today on disk, so this covers everything since yesterday's 15:45 copy. The hourly desk had routed it all by 15:20.
+
+PIPE
+  Health          ok, build 2026-09-30-group-modes
+  Rows waiting    0 at 15:45. The pull found nothing new.
+  Newest message  14:30 today, Nan. About 1 hour 20 minutes old. Alive.
+
+THE ROOM
+  29 messages from 6 Oct 15:46 to 7 Oct 14:30. Nan, Palida, Michael. 2 photos, both screenshots.
+  Three threads: Zia's spreadsheet and his feedback, a testing lab, the plumber.
+  Two lines from last night are held for the Claude desk. They are not read here.
+
+FOR NAN
+  1. Testing lab. At 13:56 you asked Palida to find a lab for tadalafil and oxandrolone samples, and offered her a call list.
+     She said yes, then asked at 14:13 what you want tested. You said "Wait one pls" at 14:30. She is waiting on two things from you: the call list and what to test.
+     A call list is below under WORKED.
+  2. Zia asked again today about his telesales feedback. Michael pointed out it is the same message as Monday's.
+     Palida told Zia "We are working on it". The four batch-2 choices are still yours, and the plan asks for them by tomorrow, Thu 8 Oct.
+  3. Palida moved the plumber to next week (6 Oct, 20:38). It had been on Thu 8 Oct.
+  4. Palida's bug report from 4 Oct is still open as BUG-0002. Nobody has told her.
+
+WORKED
+  Lab call list, from the directory. Three places in Chiang Mai can test a drug sample:
+    - Faculty of Pharmacy, Chiang Mai University, Central Equipment Lab. 053-944398 or 053-944346.
+    - Regional Medical Sciences Centre 1 (ศูนย์วิทยาศาสตร์การแพทย์ที่ 1), Don Kaeo, Mae Rim. 053-112188.
+    - Central Laboratory (Thailand), Chiang Mai branch, Don Kaeo, Mae Rim. 053-896131.
+    The directory does not say whether any of them takes a private drug sample, tests these two compounds, or what it charges.
+    Questions for Palida to ask: do you test these two (what it is, how pure); what paperwork goes with the sample; price and turnaround.
+    Oxandrolone is a prescription-controlled drug in Thailand, so the lab will probably ask about paperwork.
+  Spreadsheet to Zia: your 08:45 ask is done. Palida's screenshot shows she sent the link and the free revision round at 08:53.
+  Photo misread: the sign reader made Palida's WhatsApp screenshot into "The Hideaway" and a phone number. Those 2 rows are marked do-not-promote.
+
+ROUTED
+  Lab ask, Zia, plumber      → _incoming/line/ops/2026-10-07.txt and ops/2026-10-06.txt
+  Both screenshots           → rtp-partner (Zia work, no motdang place). The open photo question in ASK-NAN.txt is answered.
+  Lab ask                    → no project folder holds this work yet
+  Two Hideaway rows          → kept in knowledge/2026-10-07.json, marked do-not-promote
+
+BLOCKED
+  Lab: what to test, and whether Palida uses the list above. One line to her moves it.
+  Zia batch 2: your four choices, by Thu 8 Oct.
+  Still open from earlier: is Tuesday a second amulet-market day; what the post office receipt is for.
+  ASK-NAN.txt is 362 lines (356 yesterday). Unfiled photos 191 (189). Drive queue 203 (201). All three still rising: the room is read and not answered.

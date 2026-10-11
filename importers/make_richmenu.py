@@ -3,7 +3,7 @@
 
 The rich menu is the grid pinned to the bottom of the LINE chat. It is the
 closest thing this project has to a granny interface: six always-there buttons,
-no typing, no account, inside the app she already has open. It costs nothing —
+no typing, inside the app she already has open. It costs nothing —
 rich menus are on LINE's free plan.
 
 Layout, deliberately:

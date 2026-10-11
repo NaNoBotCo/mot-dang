@@ -1,0 +1,1855 @@
+{
+ "_readme": [
+  "WO-57/58 — the funeral register, from the CMHY.city read in cache/cmhy/funeral/.",
+  "EVERY row is kept so the page can print the denominator, not just the hits.",
+  "`trade` is decided by the row's OWN name and tags, never by the directory's",
+  "category alone; `refused` says why a row is not a record; `osm` names the",
+  "canonical record ALREADY ON THE SAME SHELF within 80 m that is this door.",
+  "A DIRECTORY IS NOT A FIRST-HAND SOURCE: its service tags live here and print",
+  "at the `listed` grade. They never enter enrich.json, which is for a place's",
+  "own site. Hours carry `_hoursSource`; a row with no GPS is `needs-pin`."
+ ],
+ "_built": "2026-09-04",
+ "counts": {
+  "funeral": 87,
+  "matched": 0,
+  "refused": 37,
+  "needs_pin": 0,
+  "cmhy_rows": 124,
+  "written_new": 87,
+  "touched": 0
+ },
+ "rows": [
+  {
+   "cmhy": "1012",
+   "name": "มณีรัตนศีลค้าโลง",
+   "tags": [
+    "จำหน่ายโลงศพ",
+    "รับฉีดยาศพ",
+    "แต่งศพ"
+   ],
+   "phone": "081-472-8255,083-209-2541",
+   "amphoe": "เมือง",
+   "modified": "2022-06-14",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-1012"
+  },
+  {
+   "cmhy": "1039",
+   "name": "ศิริมงคลสังฆภัณฑ์ 99 (สาขาหนองหอย)",
+   "tags": [
+    "ตู้เสี่ยงเซียมซี",
+    "เศียรพ่อแก่",
+    "เศียรบรมครู"
+   ],
+   "phone": "088-251-7253,088-252-6883,053-141-735",
+   "amphoe": "เมือง",
+   "modified": "2026-06-20",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-1039"
+  },
+  {
+   "cmhy": "1042",
+   "name": "ร้านวานิชสังฆภัณฑ์",
+   "tags": [
+    "เครื่องทองเหลือง",
+    "พระพุทธรูป",
+    "ชุดเครื่องบวช"
+   ],
+   "phone": "053-801-788,083-946-5956",
+   "amphoe": "เมือง",
+   "modified": "2026-06-20",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-1042"
+  },
+  {
+   "cmhy": "11196",
+   "name": "มูลนิธิพยาบาลศาสตร์ มหาวิทยาลัยเชียงใหม่",
+   "tags": [
+    "มูลนิธิ"
+   ],
+   "phone": "053-935-024",
+   "amphoe": "เมือง",
+   "modified": "2023-06-20",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "11205",
+   "name": "สำนักงาน มูลนิธิสงเคราะห์คนพิการ",
+   "tags": [
+    "มูลนิธิสงเคราะห์คนพิการเชียงใหม่"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-03-16",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "11210",
+   "name": "มูลนิธิโรงพยาบาลสวนดอก",
+   "tags": [
+    "มูลนิธิโรงพยาบาลสวนดอก"
+   ],
+   "phone": "053-947-400",
+   "amphoe": "เมือง",
+   "modified": "2022-03-16",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "11330",
+   "name": "มูลนิธิเพื่อรัก (โครงการกรีนพลัสมอลล์ เชียงใหม่บิสสิเนส)",
+   "tags": [
+    "ตรวจเลือด",
+    "HIV",
+    "เอดส์"
+   ],
+   "phone": "052-005-724",
+   "amphoe": "เมือง",
+   "modified": "2026-05-29",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "11587",
+   "name": "ชัยสังฆภัณฑ์ 2 อุปกรณ์และดอกไม้สด",
+   "tags": [
+    "สังฆภัณฑ์",
+    "พระพุทธรูป",
+    "ดอกไม้สด"
+   ],
+   "phone": "086-587-1137,081-783-1459",
+   "amphoe": "เมือง",
+   "modified": "2022-05-11",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-11587"
+  },
+  {
+   "cmhy": "1221",
+   "name": "วิมุตติสังฆภัณฑ์ (ราชวงศ์)",
+   "tags": [
+    "สังฆภัณฑ์",
+    "ของใช้งานศพ",
+    "ครัวต๋านก๋ำ"
+   ],
+   "phone": "053-233-182,053-874-226,081-883-5506,061-479-5659",
+   "amphoe": "เมือง",
+   "modified": "2025-10-23",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-1221"
+  },
+  {
+   "cmhy": "1236",
+   "name": "อี้จุ้นหลี",
+   "tags": [
+    "สังฆภัณฑ์",
+    "เครื่องอัฐบริขาร",
+    "ของใช้ในพิธีทางศาสนา"
+   ],
+   "phone": "053-235-627,053-252-748,053-233-874",
+   "amphoe": "เมือง",
+   "modified": "2026-06-01",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-1236"
+  },
+  {
+   "cmhy": "13627",
+   "name": "มูลนิธิกวนอิมธรรมทาน",
+   "tags": [
+    "กวนอิมตึ้ง",
+    "ศาลเจ้า",
+    "กวนอิม"
+   ],
+   "phone": "053-235-968",
+   "amphoe": "เมือง",
+   "modified": "2025-12-05",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "13633",
+   "name": "โรงเจเทียนฮกตึ๊ง (พุทธภาวนาบุญสถาน)",
+   "tags": [
+    "โรงเจ",
+    "มูลนิธิ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-09-01",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "14281",
+   "name": "วิมุตติสังฆภัณฑ์ (รวมโชค)",
+   "tags": [
+    "เครื่องบวชพระ",
+    "บาตร",
+    "ไตรจีวร"
+   ],
+   "phone": "096-594-9416",
+   "amphoe": "เมือง",
+   "modified": "2025-10-23",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-14281"
+  },
+  {
+   "cmhy": "14594",
+   "name": "อ.เจริญสังฆภัณฑ์",
+   "tags": [
+    "ผ้าไตร",
+    "จีวร",
+    "สบง"
+   ],
+   "phone": "053-247-603,081-960-0815",
+   "amphoe": "เมือง",
+   "modified": "2024-03-19",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-14594"
+  },
+  {
+   "cmhy": "14766",
+   "name": "ศิริมงคลสังฆภัณฑ์ 999 [เชียงใหม่-สันกำแพง]",
+   "tags": [
+    "กฐิน",
+    "พระ",
+    "จีวร"
+   ],
+   "phone": "088-251-7253,088-252-6883,053141735",
+   "amphoe": "เมือง",
+   "modified": "2026-02-10",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-14766"
+  },
+  {
+   "cmhy": "14919",
+   "name": "บุญ สุขใจ",
+   "tags": [
+    "สังฆภัณฑ์"
+   ],
+   "phone": "098-747-4699",
+   "amphoe": "เมือง",
+   "modified": "2023-06-04",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-14919"
+  },
+  {
+   "cmhy": "15453",
+   "name": "เอ็มพลัสสหคลินิก (เชียงใหม่) & มูลนิธิเอ็มพลัสสำนักงานใหญ่ (เชียงใหม่)",
+   "tags": [
+    "HIV",
+    "AIDS",
+    "โรคติดต่อทางเพศสัมพันธ์"
+   ],
+   "phone": "053-283-108,086-919-4840",
+   "amphoe": "เมือง",
+   "modified": "2025-08-08",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "15542",
+   "name": "มูลนิธิอริยสถานธรรมแห่งปัญญา",
+   "tags": [
+    "ต้าฮ้วยฝอถัง",
+    "เจ้าแม่กวนอิม",
+    "พระโพธิสัตว์กวนอิม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-07-28",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "15961",
+   "name": "สกิจสังฆภัณฑ์",
+   "tags": [
+    "กฐิน",
+    "พระ",
+    "จีวร"
+   ],
+   "phone": "089-265-0906",
+   "amphoe": "เมือง",
+   "modified": "2026-06-17",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-15961"
+  },
+  {
+   "cmhy": "16298",
+   "name": "ร้านธรรมรัตน์ข่วงสิงห์",
+   "tags": [
+    "สังฆภัณฑ์",
+    "ศาลเจ้าจีน",
+    "เครื่องไหว้เจ้า"
+   ],
+   "phone": "098-887-6341",
+   "amphoe": "เมือง",
+   "modified": "2022-02-27",
+   "trade": "funeral",
+   "facets": {
+    "chinese": true
+   },
+   "record": "cm-curated-funeral-16298"
+  },
+  {
+   "cmhy": "1666",
+   "name": "อนันต์ (สันป่าข่อย)",
+   "tags": [
+    "สังฆทาน",
+    "ศาลเจ้าจีนในบ้าน",
+    "ศาลตี่จู่เอี้ย"
+   ],
+   "phone": "053-247-818",
+   "amphoe": "เมือง",
+   "modified": "2021-10-23",
+   "trade": null,
+   "facets": {
+    "chinese": true
+   },
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "16865",
+   "name": "ฌาปนสถานบ้านเจ็ดยอด",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-04-14",
+   "trade": "funeral",
+   "facets": {
+    "cremation": true
+   },
+   "record": "cm-curated-funeral-16865"
+  },
+  {
+   "cmhy": "17031",
+   "name": "สุสานชาวต่างชาติ 1898 ในเชียงใหม่",
+   "tags": [
+    "สุสานคริสเตียน",
+    "สุสานบ้านเด่น",
+    "สุสานชาวต่างชาติ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-12-24",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-17031"
+  },
+  {
+   "cmhy": "1726",
+   "name": "กัลยาณมิตร",
+   "tags": [
+    "สังฆทาน"
+   ],
+   "phone": "053-246-406,082-569-5926",
+   "amphoe": "เมือง",
+   "modified": "2025-08-15",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "17658",
+   "name": "มูลนิธิเมี่ยวเจวี๋ยซื่อ",
+   "tags": [
+    "มูลนิธิ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-09-01",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "18798",
+   "name": "ฌาปนกิจสถาน หมู่ 4 บ้านเกาะกลาง",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-03-15",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-18798"
+  },
+  {
+   "cmhy": "18808",
+   "name": "ฌาปนสถาน บ้านป่าแดดใต้",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-12-09",
+   "trade": "funeral",
+   "facets": {
+    "cremation": true
+   },
+   "record": "cm-curated-funeral-18808"
+  },
+  {
+   "cmhy": "19273",
+   "name": "มูลนิธิจิตรักษ์",
+   "tags": [
+    "มูลนิธิ"
+   ],
+   "phone": "053-262-136,081-960-8242",
+   "amphoe": "เมือง",
+   "modified": "2022-02-23",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "19783",
+   "name": "สุสานบ้านเสาหิน (ป่าช้าหนองหอย)",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-06-16",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-19783"
+  },
+  {
+   "cmhy": "19827",
+   "name": "สุสานบ้านเจดีย์เหลี่ยม",
+   "tags": [
+    "สุสาน",
+    "ป่าช้า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-01-20",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-19827"
+  },
+  {
+   "cmhy": "1991",
+   "name": "ชัยมงคล สังฆภัณฑ์",
+   "tags": [
+    "เครื่องกฐิน",
+    "เครื่องสังฆทาน",
+    "เครื่องบวช"
+   ],
+   "phone": "081-784-3617,081-993-8159",
+   "amphoe": "เมือง",
+   "modified": "2021-12-15",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-1991"
+  },
+  {
+   "cmhy": "2013",
+   "name": "มูลนิธิเชียงใหม่สามัคคีการกุศล + ศาลเจ้าไต่ฮงกง",
+   "tags": [
+    "ศาลเจ้าไต่ฮงกง",
+    "บริจาคโลงศพ",
+    "บริจาคเงิน"
+   ],
+   "phone": "053-277-376,053-275-953",
+   "amphoe": "เมือง",
+   "modified": "2026-03-24",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-2013"
+  },
+  {
+   "cmhy": "20582",
+   "name": "กอไผ่ มะลิแก้บนหลวงพ่อทันใจ",
+   "tags": [
+    "ขายดอกมะลิ",
+    "เครื่องสังฆภัณฑ์",
+    "ดอกมะลิ"
+   ],
+   "phone": "095-398-1513,083-200-0315,090-315-7748",
+   "amphoe": "เมือง",
+   "modified": "2024-06-18",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-20582"
+  },
+  {
+   "cmhy": "20650",
+   "name": "สุสานบ้านบวกครกน้อย",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-01-29",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-20650"
+  },
+  {
+   "cmhy": "20696",
+   "name": "ฌาปนสถาน บ้านสันป่าเลียง",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-04-23",
+   "trade": "funeral",
+   "facets": {
+    "cremation": true
+   },
+   "record": "cm-curated-funeral-20696"
+  },
+  {
+   "cmhy": "20749",
+   "name": "ฌาปนกิจสถานสถานบ้านช่างเคี่ยน",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-03-18",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-20749"
+  },
+  {
+   "cmhy": "21101",
+   "name": "ฌาปนสถานบ้านป่าจี้",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-10-07",
+   "trade": "funeral",
+   "facets": {
+    "cremation": true
+   },
+   "record": "cm-curated-funeral-21101"
+  },
+  {
+   "cmhy": "2130",
+   "name": "บ้านสมานใจ",
+   "tags": [
+    "ผ้าซาโอริ",
+    "ซาโอริ",
+    "ผ้าทอซาโอริ"
+   ],
+   "phone": "053-244-393",
+   "amphoe": "เมือง",
+   "modified": "2019-12-11",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "21455",
+   "name": "ฌาปนสถาน บ้านวังสิงห์คำ-บ่อเย็น",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-04-23",
+   "trade": "funeral",
+   "facets": {
+    "cremation": true
+   },
+   "record": "cm-curated-funeral-21455"
+  },
+  {
+   "cmhy": "21463",
+   "name": "ป่าช้าบ้านหางแคว",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-04-22",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-21463"
+  },
+  {
+   "cmhy": "21660",
+   "name": "อัสนันท์",
+   "tags": [
+    "สังฆภัณฑ์",
+    "เทียนพรรษา",
+    "โคมลอย"
+   ],
+   "phone": "088-269-2138",
+   "amphoe": "เมือง",
+   "modified": "2023-06-19",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-21660"
+  },
+  {
+   "cmhy": "21747",
+   "name": "สุสานบ้านดอนปิน",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-04-24",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-21747"
+  },
+  {
+   "cmhy": "22001",
+   "name": "ฌาปนกิจสถาน หมู่ที่ 3 (ป่ายาง)",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-06-09",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-22001"
+  },
+  {
+   "cmhy": "22094",
+   "name": "สุสานบ้านตำหนัก-ป่าเป้า",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-06-16",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-22094"
+  },
+  {
+   "cmhy": "22252",
+   "name": "วานิชสังฆภัณฑ์ จำกัด (สำนักงานใหญ่)",
+   "tags": [
+    "สังฆภัณฑ์",
+    "พระ",
+    "เทียน"
+   ],
+   "phone": "053-140-165,053-801-788,062-958-9965",
+   "amphoe": "เมือง",
+   "modified": "2026-06-01",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-22252"
+  },
+  {
+   "cmhy": "22493",
+   "name": "สุสานบ้านบวกครกหลวง",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-08-07",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-22493"
+  },
+  {
+   "cmhy": "22982",
+   "name": "มูลนิธิศุภนิมิต ภาคเหนือ",
+   "tags": [
+    "มูลนิธิ",
+    "ช่วยเด็กยากไร้",
+    "บริจาค"
+   ],
+   "phone": "053-805-130,053-283-011,053-284-365",
+   "amphoe": "เมือง",
+   "modified": "2020-07-18",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "25370",
+   "name": "สุสานบ้านป่าข่อยใต้",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-01-27",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-25370"
+  },
+  {
+   "cmhy": "2560",
+   "name": "มูลนิธิส่งเสริมผลิตภัณฑ์ชาวไทยภูเขาในพระบรมราชานุเคราะห์",
+   "tags": [
+    "ผลิตภัณฑ์ชาวไทยภูเขา"
+   ],
+   "phone": "053-277-743",
+   "amphoe": "เมือง",
+   "modified": "2022-01-23",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "2592",
+   "name": "ดวงประทีปสังฆภัณฑ์",
+   "tags": [
+    "พระ",
+    "เครื่องทำบุญ"
+   ],
+   "phone": "0933242992",
+   "amphoe": "เมือง",
+   "modified": "2024-01-13",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-2592"
+  },
+  {
+   "cmhy": "2690",
+   "name": "วิมุตติสังฆภัณฑ์ (กาดธานินทร์)",
+   "tags": [
+    "เครื่องอัฐบริขาร",
+    "ของใช้ในพิธีศาสนา",
+    "ของชำร่วยงานศพ"
+   ],
+   "phone": "088-268-4404",
+   "amphoe": "เมือง",
+   "modified": "2025-10-23",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-2690"
+  },
+  {
+   "cmhy": "27264",
+   "name": "บ้านเตื่อมฝัน กลุ่มคนไร้บ้าน",
+   "tags": [
+    "กลุ่มคนไร้บ้าน",
+    "มูลนิธิ"
+   ],
+   "phone": "099-713-3784",
+   "amphoe": "เมือง",
+   "modified": "2022-03-10",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "27562",
+   "name": "ราชวงศ์พานิชย์",
+   "tags": [
+    "สังฆภัณฑ์",
+    "อุปกรณ์ไหว้เจ้า",
+    "ของใช้ไหว้เจ้า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-10-23",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-27562"
+  },
+  {
+   "cmhy": "27563",
+   "name": "ศิริมงคลสังฆภัณฑ์ (สาขา ราชวงศ์)",
+   "tags": [
+    "จีวร",
+    "สังฆภัณฑ์",
+    "เครื่องไหว้เจ้า"
+   ],
+   "phone": "089-191-5594",
+   "amphoe": "เมือง",
+   "modified": "2025-10-23",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-27563"
+  },
+  {
+   "cmhy": "27755",
+   "name": "สุสาน ศรีบัวเงิน",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-10-27",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-27755"
+  },
+  {
+   "cmhy": "27831",
+   "name": "ฌาปนกิจสถาน ไม่ทราบชื่อ [ป่าแดดใต้]",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-01-04",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-27831"
+  },
+  {
+   "cmhy": "2901",
+   "name": "สำนักงานเหล่ากาชาดจังหวัดเชียงใหม่",
+   "tags": [
+    "บริการโลหิตแห่งชาติที่",
+    "10",
+    "บริจาคเลือด"
+   ],
+   "phone": "053-212-638,1664",
+   "amphoe": "เมือง",
+   "modified": "2025-07-09",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "2902",
+   "name": "มูลนิธิเด็กกำพร้าบ้านกิ่งแก้ววิบูลสันติ",
+   "tags": [
+    "เด็กกำพร้า",
+    "สถานรับเลี้ยงเด็กกำพร้า",
+    "ทำบุญ"
+   ],
+   "phone": "053-275-650",
+   "amphoe": "เมือง",
+   "modified": "2020-02-19",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "29097",
+   "name": "มูลนิธิน้ำแห่งชีวิต",
+   "tags": [
+    "มูลนิธิ",
+    "บริจาคสิ่งของ",
+    "บ้านพักชั่วคราวฟรี"
+   ],
+   "phone": "080-499-8851",
+   "amphoe": "เมือง",
+   "modified": "2022-03-01",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "29395",
+   "name": "มูลนิธิดรุณาทร คอมแพสชั่น ประเทศไทย",
+   "tags": [
+    "มูลนิธิ",
+    "อุปการะ",
+    "มูลนิธิช่วยเหลือเด็ก"
+   ],
+   "phone": "053-266-426",
+   "amphoe": "เมือง",
+   "modified": "2026-09-02",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "29547",
+   "name": "มูลนิธิส่งเสริมการศึกษาและวัฒนธรรมแห่งเชียงใหม่",
+   "tags": [
+    "มูลนิธิส่งเสริมการศึกษา"
+   ],
+   "phone": "053-272-587",
+   "amphoe": "เมือง",
+   "modified": "2021-08-07",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "30143",
+   "name": "เอิร์ธ-ไอซ์สังฆภัณฑ์ (คูเมือง)",
+   "tags": [
+    "ผ้าจีวร",
+    "อังสะ",
+    "สบง"
+   ],
+   "phone": "085-625-4112,093-306-1030",
+   "amphoe": "เมือง",
+   "modified": "2021-10-13",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-30143"
+  },
+  {
+   "cmhy": "30144",
+   "name": "ร่มใบบุญ",
+   "tags": [
+    "สังฆภัณฑ์",
+    "พระพุทธรูป",
+    "ชุดพานเทียนพรรษา"
+   ],
+   "phone": "053-814-804,081-883-5028",
+   "amphoe": "เมือง",
+   "modified": "2024-03-18",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-30144"
+  },
+  {
+   "cmhy": "30294",
+   "name": "รุ่งเรืองไพศาล สังฆภัณฑ์",
+   "tags": [
+    "สังฆภัณฑ์"
+   ],
+   "phone": "092-497-1695",
+   "amphoe": "เมือง",
+   "modified": "2022-10-07",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-30294"
+  },
+  {
+   "cmhy": "30561",
+   "name": "สำนักงานมูลนิธิรวมใจ เชียงใหม่",
+   "tags": [
+    "มูลนิธิ",
+    "บริจาคโลงศพ",
+    "อปพร"
+   ],
+   "phone": "053-272-212",
+   "amphoe": "เมือง",
+   "modified": "2026-03-09",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-30561"
+  },
+  {
+   "cmhy": "30927",
+   "name": "สุสานคริสเตียน ลีโหม้",
+   "tags": [
+    "สุสานคริสเตียน"
+   ],
+   "phone": "053-243-072",
+   "amphoe": "เมือง",
+   "modified": "2021-11-29",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-30927"
+  },
+  {
+   "cmhy": "30928",
+   "name": "สุสานร่วมมิตรคริสเตรียน",
+   "tags": [
+    "สุสานคริสเตียน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-11-29",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-30928"
+  },
+  {
+   "cmhy": "31088",
+   "name": "ฉัตรแก้ว สังฆภัณฑ์",
+   "tags": [
+    "สังฆภัณฑ์",
+    "สังฆทาน",
+    "เทียน"
+   ],
+   "phone": "082-605-9126",
+   "amphoe": "เมือง",
+   "modified": "2025-06-01",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-31088"
+  },
+  {
+   "cmhy": "32024",
+   "name": "ฌาปนกิจสถาน (สำนักสงฆ์ มิ่งมงคลสันทราย)",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-09-02",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-32024"
+  },
+  {
+   "cmhy": "32502",
+   "name": "ส.ปัญจวรรณ์ สังฆภัณฑ์",
+   "tags": [
+    "สังฆภัณฑ์",
+    "ของทำบุญไหว้พระ",
+    "เทียนพรรษา"
+   ],
+   "phone": "053-234-349",
+   "amphoe": "เมือง",
+   "modified": "2022-07-11",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-32502"
+  },
+  {
+   "cmhy": "33134",
+   "name": "มูลนิธิอนุรักษ์ช้างและสิ่งแวดล้อม",
+   "tags": [
+    "มูลนิธิอนุรักษ์ช้าง",
+    "บริจาคช่วยช้าง",
+    "บริจาคช่วยสัตว์"
+   ],
+   "phone": "053-272-855",
+   "amphoe": "เมือง",
+   "modified": "2026-05-31",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "36423",
+   "name": "อภิชาต สังฆภัณฑ์",
+   "tags": [
+    "สังฆภัณฑ์",
+    "ของใช้งานพิธี",
+    "ของใช้งานศพ"
+   ],
+   "phone": "084-292-2968",
+   "amphoe": "เมือง",
+   "modified": "2025-10-01",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-36423"
+  },
+  {
+   "cmhy": "36926",
+   "name": "สุสานบ้านท่าใหม่อิ",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-11-23",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-36926"
+  },
+  {
+   "cmhy": "37410",
+   "name": "ร้านเลาลู (ซ้วนทม)",
+   "tags": [
+    "ของไหว้เจ้าจีน",
+    "ของวันตรุษจีน",
+    "ของใช้พิธีศาสนา"
+   ],
+   "phone": "091-076-9057",
+   "amphoe": "เมือง",
+   "modified": "2024-04-22",
+   "trade": null,
+   "facets": {
+    "chinese": true
+   },
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "37457",
+   "name": "ร่มใบบุญ สังฆภัณฑ์",
+   "tags": [
+    "ร้านสังฆภัณฑ์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-03-10",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-37457"
+  },
+  {
+   "cmhy": "37563",
+   "name": "พิมาลา ศิลปหัตถกรรมล้านนา",
+   "tags": [
+    "โต๊ะหมู่บูชา",
+    "ธรรมาสน์",
+    "บุษบก"
+   ],
+   "phone": "062-939-2890",
+   "amphoe": "เมือง",
+   "modified": "2024-09-26",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "38490",
+   "name": "ป้าช้าบ้านศรีบุญเรือง (โรงวัว)",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-08-16",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-38490"
+  },
+  {
+   "cmhy": "38998",
+   "name": "มูลนิธิพัฒนาชาวเขาแบบผสมผสาน",
+   "tags": [
+    "มูลนิธิชาวเขา"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-01-23",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "3987",
+   "name": "มูลนิธิกว๋องตุ้ง (กว๋องสิว)",
+   "tags": [
+    "มูลนิธิ",
+    "กว๋องตุ้ง",
+    "ทำบุญโลงศพ"
+   ],
+   "phone": "053-274-474",
+   "amphoe": "เมือง",
+   "modified": "2020-04-11",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-3987"
+  },
+  {
+   "cmhy": "40133",
+   "name": "มูลนิธิเพชรเกษม เชียงใหม่",
+   "tags": [
+    "ทำบุญบริจาคโลงศพ",
+    "ทำบุญโลงศพ",
+    "มูลนิธิ"
+   ],
+   "phone": "053-271-669",
+   "amphoe": "เมือง",
+   "modified": "2025-04-23",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-40133"
+  },
+  {
+   "cmhy": "40189",
+   "name": "มูลนิธิเกื้อฝันเด็ก",
+   "tags": [
+    "มูลนิธิเด็ก",
+    "ทุนการศึกษา",
+    "ทุนเรียนฟรี"
+   ],
+   "phone": "053-201-811",
+   "amphoe": "เมือง",
+   "modified": "2025-07-29",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "40337",
+   "name": "ฌาปนกิจสถาน หมู่ 4 ตำบลหนองป่าครั่ง",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-08-05",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-40337"
+  },
+  {
+   "cmhy": "41070",
+   "name": "มูลนิธิรักษ์เด็ก (มรด.)",
+   "tags": [
+    "มูลนิธิ"
+   ],
+   "phone": "053-212-757,085-320-1246",
+   "amphoe": "เมือง",
+   "modified": "2026-01-16",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "41136",
+   "name": "มูลนิธิดรุณสิริ",
+   "tags": [
+    "มูลนิธิ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-01-16",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "41414",
+   "name": "มูลนิธิร่มไม้ชายคา",
+   "tags": [
+    "มูลนิธิ"
+   ],
+   "phone": "053-106-565",
+   "amphoe": "เมือง",
+   "modified": "2026-01-27",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "41707",
+   "name": "ร้านสังฆภัณฑ์ [ตลาดแม่เหียะ]",
+   "tags": [
+    "ร้านสังฆภัณฑ์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-04-08",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-41707"
+  },
+  {
+   "cmhy": "442",
+   "name": "ศูนย์พัฒนาการจัดการสวัสดิการสังคมผู้สูงอายุบ้านธรรมปกรณ์",
+   "tags": [
+    "บ้านพักคนชรา",
+    "สวัสดิการสังคมผู้สูงอายุ",
+    "บ้านธรรมปกรณ์"
+   ],
+   "phone": "053-278-573",
+   "amphoe": "เมือง",
+   "modified": "2019-07-19",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "4502",
+   "name": "พรสังฆภัณฑ์มาร์ท",
+   "tags": [
+    "สังฆภัณฑ์"
+   ],
+   "phone": "081-531-0056",
+   "amphoe": "เมือง",
+   "modified": "2021-09-21",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-4502"
+  },
+  {
+   "cmhy": "4521",
+   "name": "สุสานสันกู่เหล็ก",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "091-856-6017",
+   "amphoe": "เมือง",
+   "modified": "2025-05-31",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-4521"
+  },
+  {
+   "cmhy": "4522",
+   "name": "สุสานหายยา",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "094-754-0623",
+   "amphoe": "เมือง",
+   "modified": "2020-07-18",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-4522"
+  },
+  {
+   "cmhy": "4523",
+   "name": "สุสานช้างเผือก (สันติธรรม)",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-04-04",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-4523"
+  },
+  {
+   "cmhy": "4524",
+   "name": "สุสานจีนข่วงสิงห์",
+   "tags": [
+    "สุสานจีน",
+    "ป่าช้า",
+    "สุสาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-04-04",
+   "trade": "funeral",
+   "facets": {
+    "chinese": true
+   },
+   "record": "cm-curated-funeral-4524"
+  },
+  {
+   "cmhy": "4525",
+   "name": "สุสานคริสตจักรเด่นดำรงธรรม (คริสต์)",
+   "tags": [
+    "สุสานคริสเตียน"
+   ],
+   "phone": "053-260-055",
+   "amphoe": "เมือง",
+   "modified": "2021-11-29",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-4525"
+  },
+  {
+   "cmhy": "4526",
+   "name": "สุสานบ้านป่าตัน",
+   "tags": [
+    "สุสานบ้านป่าตัน",
+    "ป่าช้า",
+    "สุสาน"
+   ],
+   "phone": "081-030-5034",
+   "amphoe": "เมือง",
+   "modified": "2025-04-21",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-4526"
+  },
+  {
+   "cmhy": "4527",
+   "name": "ฌาปนกิจสถานวัดป่าแพ่ง",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "053-234-560",
+   "amphoe": "เมือง",
+   "modified": "2026-05-30",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-4527"
+  },
+  {
+   "cmhy": "4528",
+   "name": "สุสานบ้านท่อ-เมืองลัง",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "082-190-7873,061-330-1151",
+   "amphoe": "เมือง",
+   "modified": "2020-01-14",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-4528"
+  },
+  {
+   "cmhy": "4529",
+   "name": "สุสานบ้านท่าหลุก",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-05-09",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-4529"
+  },
+  {
+   "cmhy": "4530",
+   "name": "สุสานบ้านเด่น",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "083-130-9572",
+   "amphoe": "เมือง",
+   "modified": "2024-05-08",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-4530"
+  },
+  {
+   "cmhy": "4531",
+   "name": "สุสาน-กุโบร์ มุสลิม สันติธรรม",
+   "tags": [
+    "สุสานกุโบร์",
+    "สุสานมุสลิม",
+    "สุสานสันติธรรม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-03-16",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-4531"
+  },
+  {
+   "cmhy": "4532",
+   "name": "กุโบร์ ท่าวังตาล สุสานอิสลาม",
+   "tags": [
+    "สุสานกุโบร์",
+    "กุโบร์ฮ",
+    "สุสานมุสลิม"
+   ],
+   "phone": "086-911-8821,088-832-6554,081-952-7822",
+   "amphoe": "เมือง",
+   "modified": "2025-08-08",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-4532"
+  },
+  {
+   "cmhy": "4533",
+   "name": "สุสานท่าวังตาล",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-08-08",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-4533"
+  },
+  {
+   "cmhy": "4534",
+   "name": "สุสานช้างคลาน",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "053-820-316,087-187-5167,089-552-1887",
+   "amphoe": "เมือง",
+   "modified": "2025-06-10",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-4534"
+  },
+  {
+   "cmhy": "4535",
+   "name": "สุสานคริสเตียน คริสตจักรประทีป",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "053-304-019",
+   "amphoe": "เมือง",
+   "modified": "2020-03-27",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-4535"
+  },
+  {
+   "cmhy": "4536",
+   "name": "ฌาปนกิจสถานสุสานหนองประทีป",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-08-26",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-4536"
+  },
+  {
+   "cmhy": "4537",
+   "name": "สุสานหลิ่งห้า",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-06-16",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-4537"
+  },
+  {
+   "cmhy": "4581",
+   "name": "สุสาน-กุโบร์ มุสลิม (บ้านฮ่อ)แสงตะวัน ช้างคลาน",
+   "tags": [
+    "สุสานกุโบร์",
+    "สุสานมุสลิม",
+    "สุสานสันติธรรม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-04-11",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-4581"
+  },
+  {
+   "cmhy": "5629",
+   "name": "มูลนิธิ เทียนต้า เจิ้งอี้ โรงทานเจ สถานธรรมเทียนเยี่ย",
+   "tags": [
+    "สอนจีนกลางฟรี",
+    "สอนจีนกลาง",
+    "โรงทานเจ"
+   ],
+   "phone": "053-248-397,089-855-2585",
+   "amphoe": "เมือง",
+   "modified": "2022-03-16",
+   "trade": null,
+   "facets": {
+    "chinese": true
+   },
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "5895",
+   "name": "อุดมศิลป์ โลงศพ",
+   "tags": [
+    "โลงศพ",
+    "ปราสาท"
+   ],
+   "phone": "088-869-3587,094-627-7477",
+   "amphoe": "เมือง",
+   "modified": "2026-01-28",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-5895"
+  },
+  {
+   "cmhy": "602",
+   "name": "ณรงค์โลงทอง หีบศพ (ประตูสวนดอก)",
+   "tags": [
+    "จำหน่ายโลงศพ",
+    "รับฉีดยาศพ",
+    "แต่งศพ"
+   ],
+   "phone": "053-219-889",
+   "amphoe": "เมือง",
+   "modified": "2025-05-31",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-602"
+  },
+  {
+   "cmhy": "6677",
+   "name": "พุทธธรรมสังฆภัณฑ์",
+   "tags": [
+    "ผ้าจีวร",
+    "อังสะ",
+    "สบง"
+   ],
+   "phone": "089-635-4696",
+   "amphoe": "เมือง",
+   "modified": "2024-02-15",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-6677"
+  },
+  {
+   "cmhy": "6679",
+   "name": "สุสานศรีสุด",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-11-07",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-6679"
+  },
+  {
+   "cmhy": "682",
+   "name": "เจ.อิ่มบุญ",
+   "tags": [
+    "อุปกรณ์เสริมฮวงจุ้ย",
+    "ฮวงจุ้ย",
+    "เสริมดวง"
+   ],
+   "phone": "053-872-630",
+   "amphoe": "เมือง",
+   "modified": "2019-04-14",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "7050",
+   "name": "มูลนิธิพันธกิจข่าวประเสริฐ",
+   "tags": [
+    "มูลนิธิ"
+   ],
+   "phone": "053-212-904",
+   "amphoe": "เมือง",
+   "modified": "2021-03-19",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "7386",
+   "name": "ฌาปนสถานบ้านข่วงสิงห์",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-12-22",
+   "trade": "funeral",
+   "facets": {
+    "cremation": true
+   },
+   "record": "cm-curated-funeral-7386"
+  },
+  {
+   "cmhy": "7863",
+   "name": "สุสานบ้านขะจาว",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-21",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-7863"
+  },
+  {
+   "cmhy": "7888",
+   "name": "ไข่มุกสังฆทาน",
+   "tags": [
+    "ผ้าไตร",
+    "จีวร",
+    "ผ้าบังสกุล"
+   ],
+   "phone": "089-635-1219",
+   "amphoe": "เมือง",
+   "modified": "2022-03-02",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "7939",
+   "name": "ภัณฑิราพาณิช",
+   "tags": [
+    "ผ้าไตร",
+    "จีวร",
+    "เครื่องกฐิน"
+   ],
+   "phone": "089-951-6168,089-263-1776",
+   "amphoe": "เมือง",
+   "modified": "2020-04-23",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "8580",
+   "name": "ณรงค์หีบศพ (เชียงใหม่-สันกำแพง)",
+   "tags": [
+    "จำหน่ายโลงศพ",
+    "รับฉีดยาศพ",
+    "แต่งศพ"
+   ],
+   "phone": "053-416-145",
+   "amphoe": "เมือง",
+   "modified": "2023-07-18",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-8580"
+  },
+  {
+   "cmhy": "8857",
+   "name": "สุสาน สันทรายมูล",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-03-07",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-8857"
+  },
+  {
+   "cmhy": "9157",
+   "name": "มูลนิธิไทยรักษ์ป่า",
+   "tags": [
+    "มูลนิธิไทยรักษ์ป่า"
+   ],
+   "phone": "053-329-378,053-329379",
+   "amphoe": "เมือง",
+   "modified": "2022-07-19",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "9277",
+   "name": "ฌาปนสถาน ตำบลสุเทพ (สุสาน สันลมจอย)",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-12-22",
+   "trade": "funeral",
+   "facets": {
+    "cremation": true
+   },
+   "record": "cm-curated-funeral-9277"
+  },
+  {
+   "cmhy": "9441",
+   "name": "มูลนิธิเชียงใหม่ จูอัง",
+   "tags": [
+    "มูลนิธิ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-09-02",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "9464",
+   "name": "สุสานห้วยแก้ว",
+   "tags": [
+    "สุสานคริสตจักร"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-01-21",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-9464"
+  },
+  {
+   "cmhy": "9498",
+   "name": "สุสานแม่หยวก บ้านท่อ",
+   "tags": [
+    "ป่าช้า",
+    "สุสาน",
+    "ฌาปนกิจสถาน"
+   ],
+   "phone": "088-137-7634",
+   "amphoe": "เมือง",
+   "modified": "2026-03-23",
+   "trade": "funeral",
+   "facets": {},
+   "record": "cm-curated-funeral-9498"
+  }
+ ]
+}

@@ -77,9 +77,9 @@ REGISTERS = [
     ("ใบประกอบวิชาชีพเวชกรรม — เป็นแพทย์จริงไหม",
      "Is this person a licensed physician?",
      "แพทยสภา", "The Medical Council of Thailand", "https://tmc.or.th",
-     "ทะเบียนแพทย์ทั้งประเทศ — ขอเลขใบประกอบวิชาชีพจากคลินิกแล้วค้นดูได้",
-     "The national register of licensed doctors. Ask the clinic for the doctor's "
-     "ใบประกอบวิชาชีพ (licence) number and look it up."),
+     "ทะเบียนแพทย์ทั้งประเทศ — ค้นได้ด้วยเลขใบประกอบวิชาชีพ",
+     "The national register of licensed doctors, searchable by a doctor's "
+     "ใบประกอบวิชาชีพ (licence) number."),
     ("วุฒิบัตรสูตินรีเวช — เป็นหมอเฉพาะทางจริงไหม",
      "Are they board-certified in OB-GYN?",
      "ราชวิทยาลัยสูตินรีแพทย์แห่งประเทศไทย",
@@ -95,9 +95,8 @@ REGISTERS = [
     ("รับรองระดับสากลไหม", "International accreditation?",
      "Joint Commission International", "Joint Commission International",
      "https://www.jointcommissioninternational.org",
-     "โรงพยาบาลเอกชนในเชียงใหม่หลายแห่งได้ — เช็กสถานะปัจจุบัน อย่าเดา",
-     "Several Chiang Mai private hospitals hold it; verify current status rather "
-     "than assuming."),
+     "โรงพยาบาลเอกชนในเชียงใหม่หลายแห่งได้ สถานะเปลี่ยนได้",
+     "Several Chiang Mai private hospitals hold it; the status changes."),
     ("คลินิกมีใบอนุญาตไหม", "Is a private clinic licensed at all?",
      "กองสถานพยาบาลและการประกอบโรคศิลปะ กระทรวงสาธารณสุข",
      "MoPH, Dept. of Health Service Support", "",
@@ -304,7 +303,7 @@ def emit(g, data):
         f'<h2>{bi("อ่านป้ายหน้าคลินิก", "Reading the clinic sign")}</h2>'
         f'<p class="wh-note">{bi("อักษรไทย · คำอ่านแบบ RTGS · ความหมาย — เทียบรูปคำกับป้ายได้เลยแม้อ่านไทยไม่ออก", "Thai script · RTGS spelling · what it means — enough to match a word against a sign by its shape, without reading Thai")}</p>'
         f'{gloss_html}'
-        f'<p class="wh-note">{bi("มดแดงเป็นสารบัญของสถานที่ ไม่ใช่คำแนะนำทางการแพทย์ ไม่ใช่การส่งต่อคนไข้ และไม่ใช่การรับรองคุณภาพ ข้อมูลสถานพยาบาลบางส่วนมาจาก OpenStreetMap (ODbL 1.0)", "Mot Dang is a directory of places. It is not medical advice, not a referral, and not a quality guarantee. Some facility data is derived from OpenStreetMap (ODbL 1.0), © OpenStreetMap contributors.")}</p>'
+        f'<p class="wh-note">{bi("มดแดงเป็นสารบัญของสถานที่ ข้อมูลสถานพยาบาลบางส่วนมาจาก OpenStreetMap (ODbL 1.0)", "Mot Dang is a directory of places. Some facility data is derived from OpenStreetMap (ODbL 1.0), © OpenStreetMap contributors.")}</p>'
         f'{share_block(BASE + "womens-health.html", "สุขภาพผู้หญิง เชียงใหม่ · มดแดง", card=og)}')
     (DOCS / "womens-health.html").write_text(page(
         "สุขภาพผู้หญิง เชียงใหม่ · Women's health, Chiang Mai",

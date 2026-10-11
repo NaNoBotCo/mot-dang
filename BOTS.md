@@ -47,13 +47,13 @@ businesses found from the Facebook side matched nothing here.
 | `facebook-reader` *(scheduled task, Opus)* | `fb_discovery.json` unmatched rows; the page's About tab in Nan's logged-in Chrome | `data/curated/additions-*.json` records with `sources[{type:"own-facebook"}]`; `_incoming/fb-reader-<date>.txt` ledger; refusals with reasons | nightly 02:35, up to 25–30 pages, one at a time |
 | `source-scout` *(scheduled task, Opus)* | `data/curated/source_register.json`; the empty-shelf survey; the web | new entries in `source_register.json` with a MEASURED mechanism; `notes/source-scout-<date>.md`; a fork for Nan when a source needs a licence call | weekly |
 
-**"Until it's complete" — what that can honestly mean.** Nan, 2026-09-06: *"All
+**"Until it's complete" — what that can fairly mean.** Nan, 2026-09-06: *"All
 categories, no limits. Help the bots build this out until it's complete."* There is
 no list of every business in two provinces to check ourselves against, so completeness
 is measured as **saturation**, per shelf, and stated as what it is: when the last eight
 queries on a shelf add under 10% new pages, that shelf is *saturated for this
 vocabulary* — a statement about our searching, never about the city. The vocabulary is
-what makes that honest rather than circular: every page read hands back the category
+what makes that grounded rather than circular: every page read hands back the category
 its owner chose, `reconcile_fb_vocab.py` folds new ones in, and those words go back
 through the sweep. The loop runs until the city stops offering words we do not have.
 
@@ -69,12 +69,12 @@ Tier 0 contracts:
   off the business's own page enters the record as a fact; a directory's copy
   enters as a lead. `source_register.json` grades every source.
 - **A source is not "works" until it has a yield with a date.** The scout measures
-  before it recommends; "to-scout" is an honest status.
+  before it recommends; "to-scout" is a stated status.
 - **No token matching.** A Facebook page is the same place as a record only by
   page identity or by whole name; everything else is a lead for a person.
 - **A page with no location is still a business.** Online-first shops file as
   `needs-pin`, never dropped for lacking a pin — a place directory is not a map.
-- **A name is never guessed into a URL** (`fburl.py`).
+- **A name is not guessed into a URL** (`fburl.py`).
 - **No private individual's data** — a sole trader's page is a business page;
   a person's profile is not read, not recorded, not linked.
 - **Bounded batches, one page at a time, politely.** The reader stops at its batch

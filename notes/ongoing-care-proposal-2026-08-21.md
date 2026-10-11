@@ -2,7 +2,7 @@
 
 *2026-08-21. Nan, walking her own case through her own site: "Can my own search
 and GIS directory help me find specialized ongoing care?… Another thing that
-interests 'good' farang tourists is a provider's ability to fill out US
+interests 'good' farang visitors is a provider's ability to fill out US
 insurance/FMP/ChampVA paperwork with little-no assistance. And on the thai
 side, paperwork, patient plans, and ongoing service for medical DTVs is very
 important. We need to enrich throughout from this lens. I'm a foreigner paying

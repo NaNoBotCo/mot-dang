@@ -1,0 +1,33 @@
+<style>
+.rw-stub{--rw-ink:#1b1b1b;--rw-mute:#5d5a52;--rw-card:#fffdf6;--rw-line:#d8d0bc;--rw-cone:#ff7a00;--rw-tape:#ffd800;
+ font:17px/1.6 "Sarabun","Noto Sans Thai","Thonburi",system-ui,sans-serif;color:var(--rw-ink);background:var(--rw-card);
+ border:2px dashed var(--rw-line);border-radius:14px;padding:14px 16px}
+@media (prefers-color-scheme:dark){.rw-stub{--rw-ink:#eee8da;--rw-mute:#a8a293;--rw-card:#1d1b16;--rw-line:#4a4435}}
+.rw-stub h2{margin:0 0 .3em;font-size:1.35em;line-height:1.25}
+.rw-stub .en{display:block;color:var(--rw-mute);font-size:.9em}
+.rw-stub table{width:100%;border-collapse:collapse;margin:.8em 0;font-size:.95em}
+.rw-stub caption{text-align:left;font-weight:700;padding-bottom:.3em}
+.rw-stub th{text-align:left;border-bottom:3px solid var(--rw-cone);padding:.3em .4em;vertical-align:bottom}
+.rw-stub th .en{font-weight:400;font-size:.8em}
+.rw-stub .bar{height:12px;border-radius:6px;background:var(--rw-line);overflow:hidden;margin:.3em 0}
+.rw-stub .bar i{display:block;width:2%;height:100%;background:repeating-linear-gradient(-45deg,var(--rw-tape) 0 6px,#111 6px 12px)}
+.rw-stub .todo{color:var(--rw-mute);font-size:.9em}
+.rw-stub td{padding:.35em .4em;border-bottom:1px solid var(--rw-line);vertical-align:top}
+</style>
+<section class="rw-stub">
+<h2>ถนนที่กำลังซ่อม เชียงใหม่ เชียงราย<span class="en">Roads under repair, Chiang Mai and Chiang Rai</span></h2>
+<p>หน้านี้ไว้บอกว่าถนนสายไหนกำลังขุด กำลังซ่อม หรือปิดอยู่<span class="en">This page is for which roads are dug up, under repair or closed.</span></p>
+<table>
+<caption>1 สาย<span class="en">1 road listed</span></caption>
+<thead>
+<tr><th>ถนน<span class="en">road</span></th><th>งาน<span class="en">works</span></th><th>ตั้งแต่<span class="en">since</span></th><th>ถึง<span class="en">until</span></th></tr>
+</thead>
+<tbody>
+<tr><td><a href="/roadworks/san-klang/">ทล.1317 แยกสันกลาง</a><span class="en">Route 1317, San Klang junction</span></td><td>สะพานข้ามแยก<span class="en">bridge over the junction</span></td><td>11 พ.ค. 2566<span class="en">11 May 2023</span></td><td>29 ก.ย. 2569 11:00<span class="en">29 Sep 2026, 11:00</span></td></tr>
+<!-- TODO ใส่ถนน · add roads (with a source link each) -->
+</tbody>
+</table>
+<p>เสร็จแล้ว ?%<span class="en">?% done</span></p>
+<div class="bar"><i></i></div>
+<p class="todo">แหล่งข้อมูล · Sources: <a href="https://www.chiangmaicitylife.com/citynews/general/san-klang-junction-bridge-opens-both-ways-tomorrow-no-ribbon-cutting/">Chiang Mai CityLife, 28 Sep 2026</a> · <a href="https://www.northpublicnews.com/%E0%B8%81%E0%B8%A3%E0%B8%A1%E0%B8%97%E0%B8%B2%E0%B8%87%E0%B8%AB%E0%B8%A5%E0%B8%A7%E0%B8%87%E0%B9%81%E0%B8%88%E0%B8%87%E0%B8%AD%E0%B8%AD%E0%B8%81%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B8%97%E0%B8%B2%E0%B8%87/">North Public News, 6 Feb 2024</a></p>
+</section>

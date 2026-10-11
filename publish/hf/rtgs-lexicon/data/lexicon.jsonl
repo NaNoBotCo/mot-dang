@@ -1,0 +1,694 @@
+{"thai": "ธาตุ", "roman": "That", "class": "irregular"}
+{"thai": "วิทยา", "roman": "Witthaya", "class": "irregular"}
+{"thai": "พัฒนา", "roman": "Phatthana", "class": "irregular"}
+{"thai": "บริษัท", "roman": "Borisat", "class": "irregular"}
+{"thai": "เจริญ", "roman": "Charoen", "class": "irregular"}
+{"thai": "ราษฎร์", "roman": "Rat", "class": "irregular"}
+{"thai": "ภูมิ", "roman": "Phum", "class": "irregular"}
+{"thai": "สารภี", "roman": "Saraphi", "class": "irregular"}
+{"thai": "ศรีภูมิ", "roman": "Si Phum", "class": "irregular"}
+{"thai": "อุปถัมภ์", "roman": "Upatham", "class": "irregular"}
+{"thai": "สามัคคี", "roman": "Samakkhi", "class": "irregular"}
+{"thai": "ประชา", "roman": "Pracha", "class": "irregular"}
+{"thai": "วิทยาลัย", "roman": "Witthayalai", "class": "irregular"}
+{"thai": "มหาวิทยาลัย", "roman": "Mahawitthayalai", "class": "irregular"}
+{"thai": "เทศบาล", "roman": "Thetsaban", "class": "irregular"}
+{"thai": "ราชภัฏ", "roman": "Ratchaphat", "class": "irregular"}
+{"thai": "ราช", "roman": "Ratcha", "class": "irregular"}
+{"thai": "สุขภาพ", "roman": "Sukkhaphap", "class": "irregular"}
+{"thai": "เภสัช", "roman": "Phesat", "class": "irregular"}
+{"thai": "อนุบาล", "roman": "Anuban", "class": "irregular"}
+{"thai": "ศึกษา", "roman": "Sueksa", "class": "irregular"}
+{"thai": "ชัย", "roman": "Chai", "class": "irregular"}
+{"thai": "มงคล", "roman": "Mongkhon", "class": "irregular"}
+{"thai": "กัญชา", "roman": "Kancha", "class": "irregular"}
+{"thai": "ก๋วยเตี๋ยว", "roman": "Kuaitiao", "class": "irregular"}
+{"thai": "สวนดอก", "roman": "Suan Dok", "class": "irregular"}
+{"thai": "พระธาตุ", "roman": "Phra That", "class": "irregular"}
+{"thai": "จำกัด", "roman": "Chamkat", "class": "irregular"}
+{"thai": "สหกรณ์", "roman": "Sahakon", "class": "irregular"}
+{"thai": "แม่ฮ่องสอน", "roman": "Mae Hong Son", "class": "irregular"}
+{"thai": "กรุงเทพ", "roman": "Krung Thep", "class": "irregular"}
+{"thai": "อาทิตย์", "roman": "Athit", "class": "irregular"}
+{"thai": "เจดีย์", "roman": "Chedi", "class": "irregular"}
+{"thai": "สุเทพ", "roman": "Suthep", "class": "irregular"}
+{"thai": "นิมมานเหมินท์", "roman": "Nimmanhaemin", "class": "irregular"}
+{"thai": "สันติธรรม", "roman": "Santitham", "class": "irregular"}
+{"thai": "ธรรม", "roman": "Tham", "class": "irregular"}
+{"thai": "พุทธ", "roman": "Phuttha", "class": "irregular"}
+{"thai": "สงฆ์", "roman": "Song", "class": "irregular"}
+{"thai": "ปทุม", "roman": "Pathum", "class": "irregular"}
+{"thai": "ลำพูน", "roman": "Lamphun", "class": "irregular"}
+{"thai": "ลำปาง", "roman": "Lampang", "class": "irregular"}
+{"thai": "อุทยาน", "roman": "Utthayan", "class": "irregular"}
+{"thai": "วชิร", "roman": "Wachira", "class": "irregular"}
+{"thai": "กาญจน", "roman": "Kanchana", "class": "irregular"}
+{"thai": "สวรรค์", "roman": "Sawan", "class": "irregular"}
+{"thai": "อินทร์", "roman": "In", "class": "irregular"}
+{"thai": "จันทร์", "roman": "Chan", "class": "irregular"}
+{"thai": "ศาสตร์", "roman": "Sat", "class": "irregular"}
+{"thai": "แพทย์", "roman": "Phaet", "class": "irregular"}
+{"thai": "ทันตแพทย์", "roman": "Thantaphaet", "class": "irregular"}
+{"thai": "ศิลป", "roman": "Sinlapa", "class": "irregular"}
+{"thai": "ศิลปะ", "roman": "Sinlapa", "class": "irregular"}
+{"thai": "วัฒนธรรม", "roman": "Watthanatham", "class": "irregular"}
+{"thai": "สถาบัน", "roman": "Sathaban", "class": "irregular"}
+{"thai": "สำนักงาน", "roman": "Samnakngan", "class": "irregular"}
+{"thai": "ตำบล", "roman": "Tambon", "class": "irregular"}
+{"thai": "อำเภอ", "roman": "Amphoe", "class": "irregular"}
+{"thai": "จังหวัด", "roman": "Changwat", "class": "irregular"}
+{"thai": "หมู่บ้าน", "roman": "Muban", "class": "irregular"}
+{"thai": "ส่งเสริม", "roman": "Songsoem", "class": "irregular"}
+{"thai": "พฤกษ", "roman": "Phruek", "class": "irregular"}
+{"thai": "ฤทธิ์", "roman": "Rit", "class": "irregular"}
+{"thai": "นคร", "roman": "Nakhon", "class": "irregular"}
+{"thai": "นครพิงค์", "roman": "Nakhon Ping", "class": "irregular"}
+{"thai": "ภูธร", "roman": "Phuthon", "class": "irregular"}
+{"thai": "วิทยาคม", "roman": "Witthayakhom", "class": "irregular"}
+{"thai": "วิมล", "roman": "Wimon", "class": "irregular"}
+{"thai": "หมอ", "roman": "Mo", "class": "irregular"}
+{"thai": "ประชาบาล", "roman": "Prachaban", "class": "irregular"}
+{"thai": "เทพ", "roman": "Thep", "class": "irregular"}
+{"thai": "สิงห์", "roman": "Sing", "class": "irregular"}
+{"thai": "อินทนนท์", "roman": "Inthanon", "class": "irregular"}
+{"thai": "เมือง", "roman": "Mueang", "class": "irregular"}
+{"thai": "ตำรวจ", "roman": "Tamruat", "class": "irregular"}
+{"thai": "สถานี", "roman": "Sathani", "class": "irregular"}
+{"thai": "แสง", "roman": "Saeng", "class": "irregular"}
+{"thai": "ทอง", "roman": "Thong", "class": "irregular"}
+{"thai": "เงิน", "roman": "Ngoen", "class": "irregular"}
+{"thai": "ข้าวซอย", "roman": "Khao Soi", "class": "irregular"}
+{"thai": "น้ำพริก", "roman": "Nam Phrik", "class": "irregular"}
+{"thai": "ส้มตำ", "roman": "Som Tam", "class": "irregular"}
+{"thai": "ข้าวมันไก่", "roman": "Khao Man Kai", "class": "irregular"}
+{"thai": "ข้าวซอยไก่", "roman": "Khao Soi Kai", "class": "irregular"}
+{"thai": "อุโบสถ", "roman": "Ubosot", "class": "irregular"}
+{"thai": "สุรพงษ์", "roman": "Suraphong", "class": "irregular"}
+{"thai": "อากาศยาน", "roman": "Akatsayan", "class": "irregular"}
+{"thai": "หฤทัย", "roman": "Haruethai", "class": "irregular"}
+{"thai": "แก้ว", "roman": "Kaeo", "class": "irregular"}
+{"thai": "นวรัฐ", "roman": "Nawarat", "class": "irregular"}
+{"thai": "ได้รับ", "roman": "Dai Rap", "class": "irregular"}
+{"thai": "ไม่ได้รับ", "roman": "Mai Dai Rap", "class": "irregular"}
+{"thai": "เกษตร", "roman": "Kaset", "class": "irregular"}
+{"thai": "เกษตรกร", "roman": "Kasettakon", "class": "irregular"}
+{"thai": "การเกษตร", "roman": "Kan Kaset", "class": "irregular"}
+{"thai": "เพชร", "roman": "Phet", "class": "irregular"}
+{"thai": "ถาวร", "roman": "Thawon", "class": "irregular"}
+{"thai": "จอดรถ", "roman": "Chot Rot", "class": "irregular"}
+{"thai": "ที่จอดรถ", "roman": "Thi Chot Rot", "class": "irregular"}
+{"thai": "เกษม", "roman": "Kasem", "class": "irregular"}
+{"thai": "เพชรบุรี", "roman": "Phetchaburi", "class": "irregular"}
+{"thai": "เพชรเกษม", "roman": "Phetkasem", "class": "irregular"}
+{"thai": "กรีน", "roman": "Green", "class": "loanword"}
+{"thai": "กรีนลอดจ์", "roman": "Green Lodge", "class": "loanword"}
+{"thai": "กรีนเนอรี่", "roman": "Greenery", "class": "loanword"}
+{"thai": "กรีนเฮาส์", "roman": "Green House", "class": "loanword"}
+{"thai": "กรีนเฮ้าส์", "roman": "Green House", "class": "loanword"}
+{"thai": "กรุ๊ป", "roman": "Group", "class": "loanword"}
+{"thai": "กลอรี่", "roman": "Glory", "class": "loanword"}
+{"thai": "การ์เดน", "roman": "Garden", "class": "loanword"}
+{"thai": "การ์เดนส์", "roman": "Gardens", "class": "loanword"}
+{"thai": "การ์เด้น", "roman": "Garden", "class": "loanword"}
+{"thai": "กาแฟรสนิยม", "roman": "Roastniyom", "class": "loanword"}
+{"thai": "กิฟท์เนอสเซอรี่", "roman": "Gift Nursery", "class": "loanword"}
+{"thai": "กิฟฟารีน", "roman": "Giffarine", "class": "loanword"}
+{"thai": "กูดมอนิ่งเชียงใหม่", "roman": "Good Morning Chiangmai", "class": "loanword"}
+{"thai": "ขุนนำอู", "roman": "Khun Nam Hoo", "class": "loanword"}
+{"thai": "ข้าวซอยเสมอใจ", "roman": "Khaosoi Samoechai", "class": "loanword"}
+{"thai": "ครัวสวัสดี", "roman": "Sawasdee", "class": "loanword"}
+{"thai": "คราฟท์", "roman": "Craft", "class": "loanword"}
+{"thai": "ครึกครื้นเบเกอรี่", "roman": "Krug Kerun Bakery", "class": "loanword"}
+{"thai": "ครูเมย์", "roman": "Kru May", "class": "loanword"}
+{"thai": "คลินิก", "roman": "Clinic", "class": "loanword"}
+{"thai": "คลีนิค", "roman": "Clinic", "class": "loanword"}
+{"thai": "คอนเนคท์", "roman": "Connect", "class": "loanword"}
+{"thai": "คอนโด", "roman": "Condo", "class": "loanword"}
+{"thai": "คอนโดมิเนียม", "roman": "Condominium", "class": "loanword"}
+{"thai": "คอนโดเทล", "roman": "Condotel", "class": "loanword"}
+{"thai": "คอฟฟี่พรินเซส", "roman": "Coffe Princess", "class": "loanword"}
+{"thai": "คอมปะนี", "roman": "Company", "class": "loanword"}
+{"thai": "คอมเพล็กซ์", "roman": "Complex", "class": "loanword"}
+{"thai": "คอร์ด", "roman": "Court", "class": "loanword"}
+{"thai": "คอร์ท", "roman": "Court", "class": "loanword"}
+{"thai": "คอลเลคชั่น", "roman": "Collection", "class": "loanword"}
+{"thai": "คาซ่า", "roman": "Casa", "class": "loanword"}
+{"thai": "คาร์โก้", "roman": "Cargo", "class": "loanword"}
+{"thai": "คาลเทกซ์", "roman": "Caltex", "class": "loanword"}
+{"thai": "คาลเท็กซ์", "roman": "Caltex", "class": "loanword"}
+{"thai": "คาเฟ่", "roman": "Café", "class": "loanword"}
+{"thai": "คิทเช่น", "roman": "Kitchen", "class": "loanword"}
+{"thai": "คิวบ์", "roman": "Cube", "class": "loanword"}
+{"thai": "คูร์ทอช์", "roman": "Kurtosh", "class": "loanword"}
+{"thai": "คูเมืองเชียงแสน", "roman": "Chiang Saen Moat", "class": "loanword"}
+{"thai": "ค็อฟฟี่เดอแคนเดิล", "roman": "Coffee De Candle", "class": "loanword"}
+{"thai": "จาร์ดิโน่", "roman": "Giardino", "class": "loanword"}
+{"thai": "จิฟฟี่", "roman": "Jiffy", "class": "loanword"}
+{"thai": "จิ๊กซอว์", "roman": "Jigsaw", "class": "loanword"}
+{"thai": "จุรีย์พร", "roman": "Chureeporn", "class": "loanword"}
+{"thai": "ชอป", "roman": "Shop", "class": "loanword"}
+{"thai": "ชอยส์", "roman": "Choice", "class": "loanword"}
+{"thai": "ชิคเคน", "roman": "Chicken", "class": "loanword"}
+{"thai": "ชีกกี้", "roman": "Cheeky", "class": "loanword"}
+{"thai": "ชีคส์", "roman": "Rosy-Cheeks", "class": "loanword"}
+{"thai": "ชูส์", "roman": "Shoes", "class": "loanword"}
+{"thai": "ช็อป", "roman": "Shop", "class": "loanword"}
+{"thai": "ช้างทองเฮอริเทจพาร์ค", "roman": "Changthong Heritage Park", "class": "loanword"}
+{"thai": "ซันชายน์เฮ้าส์", "roman": "Sunshine House", "class": "loanword"}
+{"thai": "ซับเวย์", "roman": "Subway", "class": "loanword"}
+{"thai": "ซาบาบู", "roman": "Sabai", "class": "loanword"}
+{"thai": "ซิตี้", "roman": "City", "class": "loanword"}
+{"thai": "ซิเคร์ท", "roman": "Secret", "class": "loanword"}
+{"thai": "ซี", "roman": "C", "class": "loanword"}
+{"thai": "ซุปเปอร์", "roman": "Super", "class": "loanword"}
+{"thai": "ซูเปอร์", "roman": "Super", "class": "loanword"}
+{"thai": "ซูโก้ย", "roman": "Sugoi", "class": "loanword"}
+{"thai": "ดรากอนส์", "roman": "Dragons", "class": "loanword"}
+{"thai": "ดรีม", "roman": "Dream", "class": "loanword"}
+{"thai": "ดอยผาดอกเอึ้อง", "roman": "Doi Pha Dok Ueang", "class": "loanword"}
+{"thai": "ดอยสันจุ๊", "roman": "Doi San Ju", "class": "loanword"}
+{"thai": "ดอยไซคลิ่งสตูดิโอ", "roman": "Doi cycling studio", "class": "loanword"}
+{"thai": "ดิ", "roman": "The", "class": "loanword"}
+{"thai": "ตะวันคอร์ท", "roman": "Tawan Court", "class": "loanword"}
+{"thai": "ทรีซิสคอฟฟี่", "roman": "Tree Sis Coffee", "class": "loanword"}
+{"thai": "ทรีโอ", "roman": "Trio", "class": "loanword"}
+{"thai": "ทัวร์", "roman": "Tour", "class": "loanword"}
+{"thai": "ทาวน์", "roman": "Town", "class": "loanword"}
+{"thai": "ทาวเวอร์", "roman": "Tower", "class": "loanword"}
+{"thai": "ทิพย์รัตน์", "roman": "Tipparat", "class": "loanword"}
+{"thai": "ท่าแพอินน์", "roman": "Tapae Inn", "class": "loanword"}
+{"thai": "นกแฮร์ดู", "roman": "Nokhairdo", "class": "loanword"}
+{"thai": "นครชัยแอร์", "roman": "Nakhonchai Air", "class": "loanword"}
+{"thai": "นอร์ทเทิร์นออยล์", "roman": "Northern Oil", "class": "loanword"}
+{"thai": "นำเทเลอร์", "roman": "NUM Tailor", "class": "loanword"}
+{"thai": "นิวแฮร์คัท", "roman": "Haircut", "class": "loanword"}
+{"thai": "น้อยแอร์เทค", "roman": "Noi Hair Take", "class": "loanword"}
+{"thai": "บราเซีย", "roman": "Brassiere", "class": "loanword"}
+{"thai": "บรูนซ์", "roman": "Bruuns", "class": "loanword"}
+{"thai": "บลู", "roman": "Blue", "class": "loanword"}
+{"thai": "บลูลากูน", "roman": "Blue Lagoon", "class": "loanword"}
+{"thai": "บอสตัน", "roman": "Boston", "class": "loanword"}
+{"thai": "บางแสน", "roman": "Bang Saen Karaoke", "class": "loanword"}
+{"thai": "บาร์", "roman": "Bar", "class": "loanword"}
+{"thai": "บิวตี้", "roman": "Beauty", "class": "loanword"}
+{"thai": "บิ้วตี้", "roman": "Beauty", "class": "loanword"}
+{"thai": "บิ๊กบอนค่าเฟ่", "roman": "Big bon café", "class": "loanword"}
+{"thai": "บี", "roman": "B", "class": "loanword"}
+{"thai": "บืเลิฟด์คอทเท็จ", "roman": "Beloved Cottage", "class": "loanword"}
+{"thai": "บุรีสแควร์", "roman": "Buri Square", "class": "loanword"}
+{"thai": "บูติค", "roman": "Boutique", "class": "loanword"}
+{"thai": "บูทีค", "roman": "Boutique", "class": "loanword"}
+{"thai": "ประจักรทันตแพทย์", "roman": "Pra Jak Dentist", "class": "loanword"}
+{"thai": "ประตูเชียงแสน", "roman": "Chiang Saen Gate", "class": "loanword"}
+{"thai": "ปลาเผาผักสด", "roman": "Pla Pow Pak Sod", "class": "loanword"}
+{"thai": "ปังปอนด์สเต็ก", "roman": "Pangpond Steakhouse", "class": "loanword"}
+{"thai": "ปาล์ม", "roman": "Palm", "class": "loanword"}
+{"thai": "ฝ้ายเบเกอรี่", "roman": "Fai Bakery", "class": "loanword"}
+{"thai": "พลัส", "roman": "Plus", "class": "loanword"}
+{"thai": "พลาซ่า", "roman": "Plaza", "class": "loanword"}
+{"thai": "พอยต์", "roman": "Point", "class": "loanword"}
+{"thai": "พอยท์", "roman": "Point", "class": "loanword"}
+{"thai": "พอใจค็อฟฟี่", "roman": "Porjai Coffee", "class": "loanword"}
+{"thai": "พาราไดซ์", "roman": "Paradise", "class": "loanword"}
+{"thai": "พาราไดซ์บาร์", "roman": "Paradise Bar", "class": "loanword"}
+{"thai": "พาร์ก", "roman": "Park", "class": "loanword"}
+{"thai": "พาร์ค", "roman": "Park", "class": "loanword"}
+{"thai": "พาร์ควิลล์", "roman": "Parkville", "class": "loanword"}
+{"thai": "พิซซ่า", "roman": "Pizza", "class": "loanword"}
+{"thai": "พีซเฮาส์บาร์", "roman": "Peace House Bar", "class": "loanword"}
+{"thai": "พูนสวัสดิ์", "roman": "Poonsawas", "class": "loanword"}
+{"thai": "ฟรอนท์", "roman": "Front", "class": "loanword"}
+{"thai": "ฟอร์จูน", "roman": "Fortune", "class": "loanword"}
+{"thai": "ฟาม่าเวย์", "roman": "Pharmaway", "class": "loanword"}
+{"thai": "ฟาร์ม", "roman": "Farm", "class": "loanword"}
+{"thai": "ฟาร์มา", "roman": "Pharma", "class": "loanword"}
+{"thai": "ฟาร์มาซี", "roman": "Pharmacy", "class": "loanword"}
+{"thai": "ฟาร์ม่า", "roman": "Pharma", "class": "loanword"}
+{"thai": "ฟาร์ม่าคลับ", "roman": "Pharma Club", "class": "loanword"}
+{"thai": "ฟาร์ม่าช้อยซ์", "roman": "Pharma Choice", "class": "loanword"}
+{"thai": "ฟาวเท็น", "roman": "Fountain", "class": "loanword"}
+{"thai": "ฟินน์", "roman": "Finn", "class": "loanword"}
+{"thai": "ฟิวเจอร์", "roman": "Future", "class": "loanword"}
+{"thai": "มนตรีแมชชินทูลส์", "roman": "Montree Machine Tool", "class": "loanword"}
+{"thai": "มวยไทยเม้าท์เท็นแค้มป์", "roman": "Muay Thai Mountain Camp", "class": "loanword"}
+{"thai": "มอนิ่งไซค์รีสอร์ท", "roman": "Morning Side resort", "class": "loanword"}
+{"thai": "มอลล์", "roman": "Mall", "class": "loanword"}
+{"thai": "มอล์", "roman": "Mall", "class": "loanword"}
+{"thai": "มัดหมี่", "roman": "Mudmee", "class": "loanword"}
+{"thai": "มายด์โฮม", "roman": "Mildhome", "class": "loanword"}
+{"thai": "มาร์ช็อบ", "roman": "Mar Shop", "class": "loanword"}
+{"thai": "มาร์เก็ต", "roman": "Market", "class": "loanword"}
+{"thai": "มาสสาจ", "roman": "Massage", "class": "loanword"}
+{"thai": "มาสเตอร์เทเลอร์", "roman": "Master Tailor", "class": "loanword"}
+{"thai": "มินิ", "roman": "Mini", "class": "loanword"}
+{"thai": "มินิกอล์ฟ", "roman": "Minigolf", "class": "loanword"}
+{"thai": "ม่อนจันทร์ทรา", "roman": "Mon Chan Thra", "class": "loanword"}
+{"thai": "ม่อนแจ่ม", "roman": "Mon Cham", "class": "loanword"}
+{"thai": "ม้งฮิลล์ไทรบ์ลอดจ์", "roman": "Hmong Hilltribe Lodge", "class": "loanword"}
+{"thai": "ยูนิเพสท์", "roman": "Unipest", "class": "loanword"}
+{"thai": "ยูเทิร์น", "roman": "Thoen", "class": "loanword"}
+{"thai": "ยูโฮม", "roman": "U Home", "class": "loanword"}
+{"thai": "รอยัลวิว", "roman": "Royal", "class": "loanword"}
+{"thai": "รัตนาคิร์ท", "roman": "Rattana Court", "class": "loanword"}
+{"thai": "ราดหน้าข้างแมคคอร์มิค", "roman": "Rat Na Khang McCormick", "class": "loanword"}
+{"thai": "ราดหน้าสนามบิน", "roman": "Radnah Sanumbin", "class": "loanword"}
+{"thai": "ริมปิง", "roman": "Rimping", "class": "loanword"}
+{"thai": "ริเวอร์", "roman": "River", "class": "loanword"}
+{"thai": "ริเวอร์ร็อคคาเฟ่ฮิลล์", "roman": "River Rock Cafe Hill", "class": "loanword"}
+{"thai": "ริเวอร์วิวลอดจ์", "roman": "River View Lodge", "class": "loanword"}
+{"thai": "รีสอร์ต", "roman": "Resort", "class": "loanword"}
+{"thai": "รีสอร์ท", "roman": "Resort", "class": "loanword"}
+{"thai": "รื่นอารมย์", "roman": "Ruen A Rom", "class": "loanword"}
+{"thai": "รุ่งเรืองควอลิตี้เฮ้าส์", "roman": "Rungrueng Quality House", "class": "loanword"}
+{"thai": "ร่มสักรีสอร์ท", "roman": "Romsak Resort", "class": "loanword"}
+{"thai": "ลานนาลอดจ์", "roman": "Lanna Lodge", "class": "loanword"}
+{"thai": "ลาเวนเดอร์", "roman": "Lavender", "class": "loanword"}
+{"thai": "ล้านนาคลีนิค", "roman": "Lanna Clinic", "class": "loanword"}
+{"thai": "วอร์ดโรป", "roman": "Wardrobe", "class": "loanword"}
+{"thai": "วันพลัส", "roman": "One Plus", "class": "loanword"}
+{"thai": "วิริยะเฮ้าส์", "roman": "Wiriya House", "class": "loanword"}
+{"thai": "วิลลา", "roman": "Villa", "class": "loanword"}
+{"thai": "วิลล่า", "roman": "Villa", "class": "loanword"}
+{"thai": "วิลล์", "roman": "Ville", "class": "loanword"}
+{"thai": "วิลเลจ", "roman": "Village", "class": "loanword"}
+{"thai": "วิว", "roman": "View", "class": "loanword"}
+{"thai": "วีพาร์คโฮเทล", "roman": "V-Park Hotel", "class": "loanword"}
+{"thai": "วีระชัยคอร์ต", "roman": "Veerachai Court", "class": "loanword"}
+{"thai": "สกาย", "roman": "Sky", "class": "loanword"}
+{"thai": "สกินแคร์", "roman": "Skincare", "class": "loanword"}
+{"thai": "สกุลชัยเพลส", "roman": "Sakulchai Place", "class": "loanword"}
+{"thai": "สคูล", "roman": "School", "class": "loanword"}
+{"thai": "สตาร์", "roman": "Star", "class": "loanword"}
+{"thai": "สตาร์บัคส์", "roman": "Starbucks", "class": "loanword"}
+{"thai": "สตาร์เวิร์ค", "roman": "StarWork", "class": "loanword"}
+{"thai": "สตูดิโอ", "roman": "Studio", "class": "loanword"}
+{"thai": "สนามบาสเก็ตบอล", "roman": "Basketball", "class": "loanword"}
+{"thai": "สนุ๊กเกอร์", "roman": "Snooker", "class": "loanword"}
+{"thai": "สปริง", "roman": "Spring", "class": "loanword"}
+{"thai": "สปริงส์", "roman": "Springs", "class": "loanword"}
+{"thai": "สปา", "roman": "Spa", "class": "loanword"}
+{"thai": "สปีด", "roman": "Speed", "class": "loanword"}
+{"thai": "สยามคอนเนอร์บาร์", "roman": "Siam Corner Restaurant", "class": "loanword"}
+{"thai": "สยามล้านนาแกรนด์", "roman": "Siam Lanna Grand Hotel", "class": "loanword"}
+{"thai": "สยามแก๊ส", "roman": "Siam Gas", "class": "loanword"}
+{"thai": "สวนตุง", "roman": "Suan Tung", "class": "loanword"}
+{"thai": "สวนทวีชล", "roman": "Tweechol", "class": "loanword"}
+{"thai": "สวนสัก", "roman": "Suan Sak", "class": "loanword"}
+{"thai": "สวิส", "roman": "Swiss", "class": "loanword"}
+{"thai": "สวีท", "roman": "Suite", "class": "loanword"}
+{"thai": "สามเสนวิลล่า", "roman": "Samsen Villa", "class": "loanword"}
+{"thai": "สิงห์ปาร์ค", "roman": "Singha Park", "class": "loanword"}
+{"thai": "สีรีโอมสเตย์", "roman": "Siri Homestay", "class": "loanword"}
+{"thai": "สึเกะเม็ง", "roman": "TSUKEMEN", "class": "loanword"}
+{"thai": "สุกี้รสเยี่ยม", "roman": "Suki Rot Yiam", "class": "loanword"}
+{"thai": "สูท", "roman": "Suite", "class": "loanword"}
+{"thai": "สเต็กลุงหนวด", "roman": "Steak Lung Nhuad", "class": "loanword"}
+{"thai": "สเต็ค", "roman": "Steak", "class": "loanword"}
+{"thai": "สเปซ", "roman": "Space", "class": "loanword"}
+{"thai": "สแควร์", "roman": "Square", "class": "loanword"}
+{"thai": "สโตร์", "roman": "Store", "class": "loanword"}
+{"thai": "สไมล์", "roman": "Smile", "class": "loanword"}
+{"thai": "สไมล์บาร์", "roman": "Smile Bar", "class": "loanword"}
+{"thai": "ส้มตำบัตรคิว", "roman": "Somtam Bat Khio", "class": "loanword"}
+{"thai": "ส้มตำยกครก", "roman": "Somtum Yokkrok", "class": "loanword"}
+{"thai": "ส้มตำหน้ามอ", "roman": "Somtam Na Mo", "class": "loanword"}
+{"thai": "ส้มตำอุดร", "roman": "Somtam", "class": "loanword"}
+{"thai": "ส้มตำอุดรฯ", "roman": "Somtum Udon", "class": "loanword"}
+{"thai": "ส้มตำเจ็ดยอด", "roman": "Somtam Jedyod", "class": "loanword"}
+{"thai": "ส้มตำโชกุน", "roman": "Som-Tam Shokhun Papaya Pok-Pok", "class": "loanword"}
+{"thai": "ส้มบิวตี้", "roman": "Som Beauty", "class": "loanword"}
+{"thai": "ส้มปาก", "roman": "Som Pak", "class": "loanword"}
+{"thai": "หมูสะเต๊ะ", "roman": "Moo-Satae", "class": "loanword"}
+{"thai": "หลบมุม", "roman": "Lobmoom", "class": "loanword"}
+{"thai": "ห้องกิฟเต็ดคอมพิวเตอร์", "roman": "Gifted Computer Room", "class": "loanword"}
+{"thai": "อควา", "roman": "Aqua", "class": "loanword"}
+{"thai": "อพาร์ตเมนต์", "roman": "Apartment", "class": "loanword"}
+{"thai": "อพาร์ทเมนต์", "roman": "Apartment", "class": "loanword"}
+{"thai": "อพาร์ทเม้นท์", "roman": "Apartment", "class": "loanword"}
+{"thai": "อรอนงค์แมนชั่น", "roman": "Onanong Mansion", "class": "loanword"}
+{"thai": "ออฟฟิศ", "roman": "Office", "class": "loanword"}
+{"thai": "ออร์คิด", "roman": "Orchid", "class": "loanword"}
+{"thai": "อาข่าเกสต์เฮ้าส", "roman": "A-kha guesthouse", "class": "loanword"}
+{"thai": "อาร์ต", "roman": "Art", "class": "loanword"}
+{"thai": "อินดีด", "roman": "Indeed", "class": "loanword"}
+{"thai": "อินน์", "roman": "Inn", "class": "loanword"}
+{"thai": "อินสดารีสอร์ท", "roman": "Insda Resort", "class": "loanword"}
+{"thai": "อินเตอร์", "roman": "Inter", "class": "loanword"}
+{"thai": "อินเตอร์เนชั่นแนล", "roman": "International", "class": "loanword"}
+{"thai": "อีซี่", "roman": "Easy", "class": "loanword"}
+{"thai": "อีซี่ดรัก", "roman": "Easy Drug", "class": "loanword"}
+{"thai": "อีสต์", "roman": "East", "class": "loanword"}
+{"thai": "อีเลฟเว่น", "roman": "Eleven", "class": "loanword"}
+{"thai": "อีโคนิค", "roman": "Iconic", "class": "loanword"}
+{"thai": "อีโค่", "roman": "Eco", "class": "loanword"}
+{"thai": "อเมซอน", "roman": "Amazon", "class": "loanword"}
+{"thai": "ฮอไรซันรีสอร์ท", "roman": "Horizon Village & Resort", "class": "loanword"}
+{"thai": "ฮับ", "roman": "Hub", "class": "loanword"}
+{"thai": "ฮารดแวร์", "roman": "Hardware", "class": "loanword"}
+{"thai": "ฮิทเด้น", "roman": "Hidden", "class": "loanword"}
+{"thai": "ฮิลล์", "roman": "Hill", "class": "loanword"}
+{"thai": "ฮิลล์เพลส", "roman": "Hill Place", "class": "loanword"}
+{"thai": "ฮิโนกิ", "roman": "Hinoki", "class": "loanword"}
+{"thai": "ฮ้นนาห์", "roman": "Hannah", "class": "loanword"}
+{"thai": "เกสต์เฮาส์", "roman": "Guest House", "class": "loanword"}
+{"thai": "เกสต์เฮ้าส์", "roman": "Guest House", "class": "loanword"}
+{"thai": "เค้กไข่ไทยแลนด์", "roman": "Cakekai Thailand", "class": "loanword"}
+{"thai": "เจ", "roman": "J", "class": "loanword"}
+{"thai": "เจสปอร์ต", "roman": "J-Sport", "class": "loanword"}
+{"thai": "เชลล์", "roman": "Shell", "class": "loanword"}
+{"thai": "เชียงรายกอล์ฟเซอร์วิส", "roman": "Chiangrai Golf Service", "class": "loanword"}
+{"thai": "เชียงรายซอคเกอร์", "roman": "Chiang Rai Soccer", "class": "loanword"}
+{"thai": "เชียงรายเซ็นทรัลเกสท์เฮ้าส์", "roman": "Chiangrai Central Guesthouse", "class": "loanword"}
+{"thai": "เชียงร้อยเซเว่นเดย์", "roman": "Chiang Roy Days Inn", "class": "loanword"}
+{"thai": "เชียงใหม่บูติคเฮ้าส์", "roman": "Chiang Mai Boutique House", "class": "loanword"}
+{"thai": "เชียงใหม่ฮอลล์", "roman": "Chiang Mai Hall", "class": "loanword"}
+{"thai": "เซนวิลล่า", "roman": "Zen Villa", "class": "loanword"}
+{"thai": "เซนเตอร์", "roman": "Center", "class": "loanword"}
+{"thai": "เซนเตอร์เพลส", "roman": "Centerplace", "class": "loanword"}
+{"thai": "เซอร์วิส", "roman": "Service", "class": "loanword"}
+{"thai": "เซเว่น", "roman": "Seven", "class": "loanword"}
+{"thai": "เซ็นทรัล", "roman": "Central", "class": "loanword"}
+{"thai": "เซ็นเตอร์", "roman": "Center", "class": "loanword"}
+{"thai": "เดนทัล", "roman": "Dental", "class": "loanword"}
+{"thai": "เดลี่คาเฟ่", "roman": "Delicafé", "class": "loanword"}
+{"thai": "เดอะ", "roman": "The", "class": "loanword"}
+{"thai": "เดอะวิคทอรี่โฮเต็ล", "roman": "The Victory Hotel", "class": "loanword"}
+{"thai": "เดอะฮับ", "roman": "The Hub", "class": "loanword"}
+{"thai": "เดียร์เฟรนด์", "roman": "Dear Friend", "class": "loanword"}
+{"thai": "เทสตี้", "roman": "Tasty24", "class": "loanword"}
+{"thai": "เทสฟรอมเฮเว่น", "roman": "Taste From Heaven", "class": "loanword"}
+{"thai": "เทสโก้", "roman": "TESCO", "class": "loanword"}
+{"thai": "เทเลอร์", "roman": "Tailor", "class": "loanword"}
+{"thai": "เนิสเซอรี่", "roman": "Nursery", "class": "loanword"}
+{"thai": "เน็กซ์", "roman": "Next", "class": "loanword"}
+{"thai": "เบรน", "roman": "Brain", "class": "loanword"}
+{"thai": "เบลล่า", "roman": "Bella", "class": "loanword"}
+{"thai": "เบิร์ด", "roman": "Bird", "class": "loanword"}
+{"thai": "เบียร์สลุง", "roman": "Bia Salung", "class": "loanword"}
+{"thai": "เบเกอรี", "roman": "Bakery", "class": "loanword"}
+{"thai": "เบเกอรี่", "roman": "Bakery", "class": "loanword"}
+{"thai": "เปลวทิพย์", "roman": "Plewtip", "class": "loanword"}
+{"thai": "เพนนี", "roman": "Penny's", "class": "loanword"}
+{"thai": "เพลซ", "roman": "Place", "class": "loanword"}
+{"thai": "เพลส", "roman": "Place", "class": "loanword"}
+{"thai": "เพลสเซ้นท์", "roman": "Pleasant", "class": "loanword"}
+{"thai": "เพสท์", "roman": "Pest", "class": "loanword"}
+{"thai": "เพ็ชร", "roman": "Petch", "class": "loanword"}
+{"thai": "เพ็ทรีสอร์ท", "roman": "Petresort", "class": "loanword"}
+{"thai": "เฟมส์", "roman": "Fame", "class": "loanword"}
+{"thai": "เฟรช", "roman": "Fresh", "class": "loanword"}
+{"thai": "เฟรชมาร์ท", "roman": "Freshmart", "class": "loanword"}
+{"thai": "เฟรนด์สูท", "roman": "Friend Suit", "class": "loanword"}
+{"thai": "เฟสติวัล", "roman": "Festival", "class": "loanword"}
+{"thai": "เฟื่องฟ้า", "roman": "Fueng", "class": "loanword"}
+{"thai": "เมดิก้า", "roman": "Medica", "class": "loanword"}
+{"thai": "เมดิคอล", "roman": "Medical", "class": "loanword"}
+{"thai": "เมล็ดชา", "roman": "Maletcha", "class": "loanword"}
+{"thai": "เมอร์คิวรี่คอร์ท", "roman": "Mercury Court", "class": "loanword"}
+{"thai": "เมาท์เทน", "roman": "Mountain", "class": "loanword"}
+{"thai": "เมาท์เท่น", "roman": "Mountain", "class": "loanword"}
+{"thai": "เมาน์เทน", "roman": "Mountain", "class": "loanword"}
+{"thai": "เมเจอร์", "roman": "Major", "class": "loanword"}
+{"thai": "เม้าท์ฟิวล์", "roman": "Mouthfeel", "class": "loanword"}
+{"thai": "เยลโล่", "roman": "Yellow", "class": "loanword"}
+{"thai": "เรสซิเดนซ์", "roman": "Residence", "class": "loanword"}
+{"thai": "เรสซิเดนท์", "roman": "Residence", "class": "loanword"}
+{"thai": "เรสซิเด้นท์", "roman": "Residence", "class": "loanword"}
+{"thai": "เรสเทอรองท์", "roman": "Restaurant", "class": "loanword"}
+{"thai": "เรือนนที", "roman": "Natee", "class": "loanword"}
+{"thai": "เลค", "roman": "Lake", "class": "loanword"}
+{"thai": "เลดี้", "roman": "Lady", "class": "loanword"}
+{"thai": "เลาลีรีสอร์ท", "roman": "Lao Lee Resort", "class": "loanword"}
+{"thai": "เลิฟลี่", "roman": "Lovely", "class": "loanword"}
+{"thai": "เวย์", "roman": "Way", "class": "loanword"}
+{"thai": "เวลล์เนส", "roman": "Wellness", "class": "loanword"}
+{"thai": "เวิลด์แก๊ส", "roman": "World Gas", "class": "loanword"}
+{"thai": "เวียงจูมออน", "roman": "Vieng Joom On Teahouse", "class": "loanword"}
+{"thai": "เสนห์ชาย", "roman": "Sanehchai", "class": "loanword"}
+{"thai": "เอ", "roman": "A", "class": "loanword"}
+{"thai": "เอกทิพย์โชคดี", "roman": "Ekathip Chokedee", "class": "loanword"}
+{"thai": "เอกบาร์เบอร์ช็อป", "roman": "Barbershop", "class": "loanword"}
+{"thai": "เอส", "roman": "S", "class": "loanword"}
+{"thai": "เอสเซ็นท์", "roman": "Ascent", "class": "loanword"}
+{"thai": "เอสโซ่", "roman": "Esso", "class": "loanword"}
+{"thai": "เออร์เบอร์น", "roman": "Urban", "class": "loanword"}
+{"thai": "เออร์เบิน", "roman": "Urban", "class": "loanword"}
+{"thai": "เอแคร์", "roman": "Eclair", "class": "loanword"}
+{"thai": "เอ็กซ์ต้า", "roman": "eXta", "class": "loanword"}
+{"thai": "เอ็กซ์เพรส", "roman": "Express", "class": "loanword"}
+{"thai": "เอ็ดดูเคชั่น", "roman": "Education", "class": "loanword"}
+{"thai": "เอ็นไวรอนเมนทอล", "roman": "Environmental", "class": "loanword"}
+{"thai": "เอ็มเพรส", "roman": "Empress", "class": "loanword"}
+{"thai": "เอ็มโพเรียม", "roman": "Emporium", "class": "loanword"}
+{"thai": "เฮลท์", "roman": "Health", "class": "loanword"}
+{"thai": "เฮาส์", "roman": "House", "class": "loanword"}
+{"thai": "เฮือนม่วนใจ๋", "roman": "Huen Muan Jai", "class": "loanword"}
+{"thai": "เฮือนใจ๋ยอง", "roman": "Huen Jai Yong", "class": "loanword"}
+{"thai": "เฮ้าส์", "roman": "House", "class": "loanword"}
+{"thai": "แกรนด์", "roman": "Grand", "class": "loanword"}
+{"thai": "แคทโมสเฟียร์", "roman": "Catmosphere", "class": "loanword"}
+{"thai": "แคนยอนวิว", "roman": "Canyonview", "class": "loanword"}
+{"thai": "แคร์", "roman": "Care", "class": "loanword"}
+{"thai": "แป้นเกล็ดล", "roman": "Pankled", "class": "loanword"}
+{"thai": "แฟบบริค", "roman": "Fabric", "class": "loanword"}
+{"thai": "แฟมิลี่", "roman": "Family", "class": "loanword"}
+{"thai": "แมคโดนัลด์", "roman": "McDonald's", "class": "loanword"}
+{"thai": "แมนชั่น", "roman": "Mansion", "class": "loanword"}
+{"thai": "แมนดาลาเฮาส์", "roman": "Mandala House", "class": "loanword"}
+{"thai": "แมริออท", "roman": "Marriott", "class": "loanword"}
+{"thai": "แมสสาจ", "roman": "Massage", "class": "loanword"}
+{"thai": "แม็คโคร", "roman": "Makro", "class": "loanword"}
+{"thai": "แรนด์", "roman": "Grand", "class": "loanword"}
+{"thai": "แลนด์", "roman": "Land", "class": "loanword"}
+{"thai": "แลบ", "roman": "Lab", "class": "loanword"}
+{"thai": "แล็บ", "roman": "Lab", "class": "loanword"}
+{"thai": "แสงจันทร์เนอสเซอรี่", "roman": "Seang Chan Nursery", "class": "loanword"}
+{"thai": "แอดไวซ์", "roman": "Advice", "class": "loanword"}
+{"thai": "แอนด์", "roman": "&", "class": "loanword"}
+{"thai": "แอปเปิ้ล", "roman": "Apple", "class": "loanword"}
+{"thai": "แอรโร่", "roman": "Arrow", "class": "loanword"}
+{"thai": "แอร์พอร์ต", "roman": "Airport", "class": "loanword"}
+{"thai": "แอสตร้า", "roman": "Astra", "class": "loanword"}
+{"thai": "แอสต้า", "roman": "Asta", "class": "loanword"}
+{"thai": "แฮนด์อ้อมมาสสาจ", "roman": "Hands Om Massage", "class": "loanword"}
+{"thai": "แฮปปี้", "roman": "Happy", "class": "loanword"}
+{"thai": "แฮปปี้เรสซิเด้นซ์", "roman": "Happy Residence", "class": "loanword"}
+{"thai": "แฮร์คัท", "roman": "Haircut", "class": "loanword"}
+{"thai": "แฮร์ดีไซน์", "roman": "G-ZA Hair Design", "class": "loanword"}
+{"thai": "โกกี", "roman": "Kogi", "class": "loanword"}
+{"thai": "โกลเด้นอินน์", "roman": "Golden Inn", "class": "loanword"}
+{"thai": "โกโก้แอนด์หมูหยอง", "roman": "KokoandMooyong", "class": "loanword"}
+{"thai": "โคสเปซ", "roman": "Co-Space", "class": "loanword"}
+{"thai": "โคเวิร์กกิ้ง", "roman": "Coworking", "class": "loanword"}
+{"thai": "โซน", "roman": "Zone", "class": "loanword"}
+{"thai": "โพลีคลินิก", "roman": "Polyclinic", "class": "loanword"}
+{"thai": "โพสต์", "roman": "Post", "class": "loanword"}
+{"thai": "โฟร์สตาร์", "roman": "Four Stars", "class": "loanword"}
+{"thai": "โมดา", "roman": "Moda", "class": "loanword"}
+{"thai": "โมดิร์น", "roman": "Modern", "class": "loanword"}
+{"thai": "โรงแรมโกลเด็นแลนด์", "roman": "Golden Land Hotel", "class": "loanword"}
+{"thai": "โรมีน่า", "roman": "Romena", "class": "loanword"}
+{"thai": "โอนลี่", "roman": "Only", "class": "loanword"}
+{"thai": "โออิชิ", "roman": "Oishi", "class": "loanword"}
+{"thai": "โอ้กะจู๋", "roman": "Ohkajhu", "class": "loanword"}
+{"thai": "โฮม", "roman": "Home", "class": "loanword"}
+{"thai": "โฮมมอลล์", "roman": "Home Mall", "class": "loanword"}
+{"thai": "โฮสเทล", "roman": "Hostel", "class": "loanword"}
+{"thai": "โฮเต็ล", "roman": "Hotel", "class": "loanword"}
+{"thai": "โฮเทล", "roman": "Hotel", "class": "loanword"}
+{"thai": "โฮเท็ล", "roman": "Hotel", "class": "loanword"}
+{"thai": "ใหม่แมนชั่น", "roman": "Mai Mansion", "class": "loanword"}
+{"thai": "ไจแอนท์ชาบู", "roman": "Giant Shabu", "class": "loanword"}
+{"thai": "ไท่หลินฝอเอวี้ยน", "roman": "Thai Lin Foawian", "class": "loanword"}
+{"thai": "ไนท์บาซาร์", "roman": "Night Bazaar", "class": "loanword"}
+{"thai": "ไนท์บาร์ซาร์", "roman": "Night Bazaar", "class": "loanword"}
+{"thai": "ไพรเวท", "roman": "Private", "class": "loanword"}
+{"thai": "ไพร์ด", "roman": "Pride", "class": "loanword"}
+{"thai": "ไฟร์เซฟเวอร์", "roman": "Firesaver", "class": "loanword"}
+{"thai": "ไร่ฮักตี้ใจ๋", "roman": "Hug Tee Jai", "class": "loanword"}
+{"thai": "ไลท์", "roman": "Light", "class": "loanword"}
+{"thai": "ไลฟ์", "roman": "Life", "class": "loanword"}
+{"thai": "ไอคอนิค", "roman": "Iconic", "class": "loanword"}
+{"thai": "ไอดีดี", "roman": "Dedee", "class": "loanword"}
+{"thai": "ไออุ่น", "roman": "Ai Uoon", "class": "loanword"}
+{"thai": "ไอเบอร์รี่", "roman": "I-Berry", "class": "loanword"}
+{"thai": "ไฮเวย์", "roman": "Highway", "class": "loanword"}
+{"thai": "ยูนีค", "roman": "Unique", "class": "loanword"}
+{"thai": "ทรี", "roman": "Tree", "class": "loanword"}
+{"thai": "ฮิลล์ไซด์", "roman": "Hillside", "class": "loanword"}
+{"thai": "ฮิลด์ไซด์", "roman": "Hillside", "class": "loanword"}
+{"thai": "ไซด์", "roman": "Side", "class": "loanword"}
+{"thai": "ไฮแลนด์", "roman": "Highland", "class": "loanword"}
+{"thai": "นอร์ท", "roman": "North", "class": "loanword"}
+{"thai": "นิว", "roman": "New", "class": "loanword"}
+{"thai": "ลิลลี่", "roman": "Lilly", "class": "loanword"}
+{"thai": "นาทูร่า", "roman": "Natura", "class": "loanword"}
+{"thai": "สไตล์ลิสท์", "roman": "Stylist", "class": "loanword"}
+{"thai": "ฮาร์โมนี่", "roman": "Harmony", "class": "loanword"}
+{"thai": "การ์เด้นท์", "roman": "Garden", "class": "loanword"}
+{"thai": "วาเล่ย์", "roman": "Valley", "class": "loanword"}
+{"thai": "มอนเต้", "roman": "Monte", "class": "loanword"}
+{"thai": "คอนเซปท์", "roman": "Concept", "class": "loanword"}
+{"thai": "เรสซิเด้นซ์", "roman": "Residence", "class": "loanword"}
+{"thai": "คอนโดเต็ล", "roman": "Condotel", "class": "loanword"}
+{"thai": "คอนโดทาวน์", "roman": "Condo Town", "class": "loanword"}
+{"thai": "โอเอซิส", "roman": "Oasis", "class": "loanword"}
+{"thai": "เทคโนโลยี", "roman": "Technology", "class": "loanword"}
+{"thai": "มิวสิค", "roman": "Music", "class": "loanword"}
+{"thai": "คริสเตียน", "roman": "Christian", "class": "loanword"}
+{"thai": "ซาลอน", "roman": "Salon", "class": "loanword"}
+{"thai": "คลินิค", "roman": "Clinic", "class": "loanword"}
+{"thai": "โฮมสเตย์", "roman": "Homestay", "class": "loanword"}
+{"thai": "รูม", "roman": "Room", "class": "loanword"}
+{"thai": "ราเมง", "roman": "Ramen", "class": "loanword"}
+{"thai": "ราเมน", "roman": "Ramen", "class": "loanword"}
+{"thai": "ไทยแลนด์", "roman": "Thailand", "class": "loanword"}
+{"thai": "เซฟดรัก", "roman": "Save Drug", "class": "loanword"}
+{"thai": "เนอสเซอรี่", "roman": "Nursery", "class": "loanword"}
+{"thai": "คิดส์", "roman": "Kids", "class": "loanword"}
+{"thai": "เพลย์", "roman": "Play", "class": "loanword"}
+{"thai": "พาเลซ", "roman": "Palace", "class": "loanword"}
+{"thai": "เซนส์", "roman": "Sense", "class": "loanword"}
+{"thai": "ร็อค", "roman": "Rock", "class": "loanword"}
+{"thai": "แมมมอธ", "roman": "Mammoth", "class": "loanword"}
+{"thai": "คอเลคชั่น", "roman": "Collection", "class": "loanword"}
+{"thai": "โพลีเทคนิค", "roman": "Polytechnic", "class": "loanword"}
+{"thai": "ซุปเปอร์มาร์เก็ต", "roman": "Supermarket", "class": "loanword"}
+{"thai": "ซูเปอร์มาร์เก็ต", "roman": "Supermarket", "class": "loanword"}
+{"thai": "ดีไซน์", "roman": "Design", "class": "loanword"}
+{"thai": "ดีไซน", "roman": "Design", "class": "loanword"}
+{"thai": "มอเตอร์ไซค์", "roman": "Motorcycle", "class": "loanword"}
+{"thai": "มอเตอร์ไซต์", "roman": "Motorcycle", "class": "loanword"}
+{"thai": "มอไซค์", "roman": "Motorcycle", "class": "loanword"}
+{"thai": "แอร์", "roman": "Air", "class": "loanword"}
+{"thai": "คอมพิวเตอร์", "roman": "Computer", "class": "loanword"}
+{"thai": "โปสเตอร์", "roman": "Poster", "class": "loanword"}
+{"thai": "วีเนียร์", "roman": "Veneer", "class": "loanword"}
+{"thai": "คอมเพสเซอร์", "roman": "Compressor", "class": "loanword"}
+{"thai": "คอมเพรสเซอร์", "roman": "Compressor", "class": "loanword"}
+{"thai": "เนอร์สซิ่งโฮม", "roman": "Nursing Home", "class": "loanword"}
+{"thai": "ไดร์", "roman": "Dryer", "class": "loanword"}
+{"thai": "บัตตาเลี่ยน", "roman": "Clipper", "class": "loanword"}
+{"thai": "ปัตตาเลี่ยน", "roman": "Clipper", "class": "loanword"}
+{"thai": "สติ๊กเกอร์", "roman": "Sticker", "class": "loanword"}
+{"thai": "ไวนิล", "roman": "Vinyl", "class": "loanword"}
+{"thai": "บิ๊กไซส์", "roman": "Big Size", "class": "loanword"}
+{"thai": "ไซส์", "roman": "Size", "class": "loanword"}
+{"thai": "แบตเตอรี่", "roman": "Battery", "class": "loanword"}
+{"thai": "น็อต", "roman": "Nut", "class": "loanword"}
+{"thai": "สกรีน", "roman": "Screen", "class": "loanword"}
+{"thai": "อิงค์เจ็ท", "roman": "Inkjet", "class": "loanword"}
+{"thai": "เลเซอร์", "roman": "Laser", "class": "loanword"}
+{"thai": "โน้ตบุ๊ค", "roman": "Notebook", "class": "loanword"}
+{"thai": "โน๊ตบุ๊ค", "roman": "Notebook", "class": "loanword"}
+{"thai": "ปริ้น", "roman": "Print", "class": "loanword"}
+{"thai": "ปริ้นท์", "roman": "Print", "class": "loanword"}
+{"thai": "ปริ้นเตอร์", "roman": "Printer", "class": "loanword"}
+{"thai": "ฟิล์ม", "roman": "Film", "class": "loanword"}
+{"thai": "แท็บเล็ต", "roman": "Tablet", "class": "loanword"}
+{"thai": "เว็บไซต์", "roman": "Website", "class": "loanword"}
+{"thai": "ออนไลน์", "roman": "Online", "class": "loanword"}
+{"thai": "โลโก้", "roman": "Logo", "class": "loanword"}
+{"thai": "แพ็คเกจ", "roman": "Package", "class": "loanword"}
+{"thai": "แบนเนอร์", "roman": "Banner", "class": "loanword"}
+{"thai": "เพลส์", "roman": "Place", "class": "loanword"}
+{"thai": "เชียงใหม่", "roman": "Chiang Mai", "class": "place"}
+{"thai": "เชียงราย", "roman": "Chiang Rai", "class": "place"}
+{"thai": "เมืองเชียงใหม่", "roman": "Mueang Chiang Mai", "class": "place"}
+{"thai": "เมืองเชียงราย", "roman": "Mueang Chiang Rai", "class": "place"}
+{"thai": "สันทราย", "roman": "San Sai", "class": "place"}
+{"thai": "พาน", "roman": "Phan", "class": "place"}
+{"thai": "หางดง", "roman": "Hang Dong", "class": "place"}
+{"thai": "แม่สาย", "roman": "Mae Sai", "class": "place"}
+{"thai": "สันป่าตอง", "roman": "San Pa Tong", "class": "place"}
+{"thai": "สันกำแพง", "roman": "San Kamphaeng", "class": "place"}
+{"thai": "แม่จัน", "roman": "Mae Chan", "class": "place"}
+{"thai": "สารภี", "roman": "Saraphi", "class": "place"}
+{"thai": "แม่ริม", "roman": "Mae Rim", "class": "place"}
+{"thai": "แม่แตง", "roman": "Mae Taeng", "class": "place"}
+{"thai": "ดอยสะเก็ด", "roman": "Doi Saket", "class": "place"}
+{"thai": "เทิง", "roman": "Thoeng", "class": "place"}
+{"thai": "ฝาง", "roman": "Fang", "class": "place"}
+{"thai": "พร้าว", "roman": "Phrao", "class": "place"}
+{"thai": "เชียงแสน", "roman": "Chiang Saen", "class": "place"}
+{"thai": "เชียงของ", "roman": "Chiang Khong", "class": "place"}
+{"thai": "จอมทอง", "roman": "Chom Thong", "class": "place"}
+{"thai": "เวียงป่าเป้า", "roman": "Wiang Pa Pao", "class": "place"}
+{"thai": "เวียงชัย", "roman": "Wiang Chai", "class": "place"}
+{"thai": "แม่สรวย", "roman": "Mae Suai", "class": "place"}
+{"thai": "แม่อาย", "roman": "Mae Ai", "class": "place"}
+{"thai": "เชียงดาว", "roman": "Chiang Dao", "class": "place"}
+{"thai": "แม่ลาว", "roman": "Mae Lao", "class": "place"}
+{"thai": "แม่วาง", "roman": "Mae Wang", "class": "place"}
+{"thai": "พญาเม็งราย", "roman": "Phaya Mengrai", "class": "place"}
+{"thai": "ดอยหล่อ", "roman": "Doi Lo", "class": "place"}
+{"thai": "ฮอด", "roman": "Hot", "class": "place"}
+{"thai": "เวียงเชียงรุ้ง", "roman": "Wiang Chiang Rung", "class": "place"}
+{"thai": "ไชยปราการ", "roman": "Chai Prakan", "class": "place"}
+{"thai": "สะเมิง", "roman": "Samoeng", "class": "place"}
+{"thai": "ขุนตาล", "roman": "Khun Tan", "class": "place"}
+{"thai": "ป่าแดด", "roman": "Pa Daet", "class": "place"}
+{"thai": "แม่แจ่ม", "roman": "Mae Chaem", "class": "place"}
+{"thai": "เวียงแก่น", "roman": "Wiang Kaen", "class": "place"}
+{"thai": "แม่ออน", "roman": "Mae On", "class": "place"}
+{"thai": "ดอยหลวง", "roman": "Doi Luang", "class": "place"}
+{"thai": "ดอยเต่า", "roman": "Doi Tao", "class": "place"}
+{"thai": "แม่ฟ้าหลวง", "roman": "Mae Fah Luang", "class": "place"}
+{"thai": "อมก๋อย", "roman": "Omkoi", "class": "place"}
+{"thai": "เวียงแหง", "roman": "Wiang Haeng", "class": "place"}
+{"thai": "แม่ลาน้อย", "roman": "Mae La Noi", "class": "place"}
+{"thai": "กัลยาณิวัฒนา", "roman": "Galyani Vadhana", "class": "place"}
+{"thai": "ขุนยวม", "roman": "Khun Yuam", "class": "place"}
+{"thai": "นิมมานเหมินท์", "roman": "Nimmanhaemin", "class": "place"}
+{"thai": "ท่าแพ", "roman": "Tha Phae", "class": "place"}
+{"thai": "ช้างคลาน", "roman": "Chang Khlan", "class": "place"}
+{"thai": "ช้างเผือก", "roman": "Chang Phueak", "class": "place"}
+{"thai": "ศรีภูมิ", "roman": "Si Phum", "class": "place"}
+{"thai": "พระสิงห์", "roman": "Phra Sing", "class": "place"}
+{"thai": "หายยา", "roman": "Haiya", "class": "place"}
+{"thai": "ห้วยแก้ว", "roman": "Huai Kaeo", "class": "place"}
+{"thai": "สุเทพ", "roman": "Suthep", "class": "place"}
+{"thai": "ดอยสุเทพ", "roman": "Doi Suthep", "class": "place"}
+{"thai": "ดอยปุย", "roman": "Doi Pui", "class": "place"}
+{"thai": "ดอยอินทนนท์", "roman": "Doi Inthanon", "class": "place"}
+{"thai": "แม่ปิง", "roman": "Mae Ping", "class": "place"}
+{"thai": "วโรรส", "roman": "Warorot", "class": "place"}
+{"thai": "สันติธรรม", "roman": "Santitham", "class": "place"}
+{"thai": "หนองหอย", "roman": "Nong Hoi", "class": "place"}
+{"thai": "ป่าตัน", "roman": "Pa Tan", "class": "place"}
+{"thai": "ฟ้าฮ่าม", "roman": "Fa Ham", "class": "place"}
+{"thai": "วัดเกต", "roman": "Wat Ket", "class": "place"}
+{"thai": "หนองป่าครั่ง", "roman": "Nong Pa Khrang", "class": "place"}
+{"thai": "ท่าศาลา", "roman": "Tha Sala", "class": "place"}
+{"thai": "แม่เหียะ", "roman": "Mae Hia", "class": "place"}
+{"thai": "แม่โจ้", "roman": "Mae Jo", "class": "place"}
+{"thai": "เจ็ดยอด", "roman": "Chet Yot", "class": "place"}
+{"thai": "รินคำ", "roman": "Rin Kham", "class": "place"}
+{"thai": "คลองชล", "roman": "Khlong Chon", "class": "place"}
+{"thai": "คลอง", "roman": "Khlong", "class": "place"}
+{"thai": "หนองประทีป", "roman": "Nong Prathip", "class": "place"}
+{"thai": "สุขเกษม", "roman": "Suk Kasem", "class": "place"}
+{"thai": "เม็งราย", "roman": "Mengrai", "class": "place"}
+{"thai": "ปันนา", "roman": "Punna", "class": "brand"}
+{"thai": "ชมดอย", "roman": "Chomdoi", "class": "brand"}
+{"thai": "ศุภาลัย", "roman": "Supalai", "class": "brand"}
+{"thai": "คาซ่า", "roman": "Casa", "class": "brand"}
+{"thai": "คาซา", "roman": "Casa", "class": "brand"}
+{"thai": "แฮปปี้", "roman": "Happy", "class": "brand"}
+{"thai": "พายัพ", "roman": "Payap", "class": "brand"}
+{"thai": "ปตท", "roman": "PTT", "class": "brand"}
+{"thai": "กสิกร", "roman": "Kasikorn", "class": "brand"}
+{"thai": "พีที", "roman": "PT", "class": "brand"}
+{"thai": "บิ๊กซี", "roman": "Big C", "class": "brand"}
+{"thai": "โลตัส", "roman": "Lotus", "class": "brand"}
+{"thai": "วัตสัน", "roman": "Watsons", "class": "brand"}
+{"thai": "กรุงศรี", "roman": "Krungsri", "class": "brand"}
+{"thai": "บู๊ทส์", "roman": "Boots", "class": "brand"}
+{"thai": "ฟาสซิโน", "roman": "Fascino", "class": "brand"}
+{"thai": "ธนชาต", "roman": "Thanachart", "class": "brand"}
+{"thai": "ซีไอเอ็มบี", "roman": "CIMB", "class": "brand"}
+{"thai": "มงฟอร์ต", "roman": "Montfort", "class": "brand"}
+{"thai": "ปรินส์รอยแยลส์", "roman": "Prince Royal's", "class": "brand"}
+{"thai": "โรบินสัน", "roman": "Robinson", "class": "brand"}
+{"thai": "ฮะจิบัง", "roman": "Hachiban", "class": "brand"}
+{"thai": "พาคามารา", "roman": "Pacamara", "class": "brand"}

@@ -1,0 +1,7829 @@
+{
+ "_readme": [
+  "WO-57/58 — the motorbike register, from the CMHY.city read in cache/cmhy/motorbike/.",
+  "EVERY row is kept so the page can print the denominator, not just the hits.",
+  "`trade` is decided by the row's OWN name and tags, never by the directory's",
+  "category alone; `refused` says why a row is not a record; `osm` names the",
+  "canonical record ALREADY ON THE SAME SHELF within 80 m that is this door.",
+  "A DIRECTORY IS NOT A FIRST-HAND SOURCE: its service tags live here and print",
+  "at the `listed` grade. They never enter enrich.json, which is for a place's",
+  "own site. Hours carry `_hoursSource`; a row with no GPS is `needs-pin`."
+ ],
+ "_built": "2026-09-04",
+ "counts": {
+  "motorbike": 0,
+  "rental": 0,
+  "matched": 391,
+  "refused": 108,
+  "needs_pin": 0,
+  "cmhy_rows": 499,
+  "written_new": 0,
+  "touched": 0
+ },
+ "rows": [
+  {
+   "cmhy": "10007",
+   "name": "ริชโค่ ฮาร์เลย์-เดวิดสัน",
+   "tags": [
+    "ฮาเล่เดวิดสัน",
+    "ฮาร์เลย์",
+    "เดวิดสัน"
+   ],
+   "phone": "053-103-858",
+   "amphoe": "เมือง",
+   "modified": "2021-10-07",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "10169",
+   "name": "อาเขตมอเตอร์ไบค์ รับฝากรถ/รถให้เช่า",
+   "tags": [
+    "เช่ามอเตอร์ไซด์",
+    "ฝากรถมอเตอร์ไซด์",
+    "ฝากรถยนต์"
+   ],
+   "phone": "053-241412,091-0719986",
+   "amphoe": "เมือง",
+   "modified": "2023-01-12",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "10384",
+   "name": "นิยมพานิช (สันติธรรม)",
+   "tags": [
+    "ศูนย์ฮอนด้า",
+    "รถมอเตอร์ไซค์ฮอนด้า",
+    "เครื่องใช้ไฟฟ้า"
+   ],
+   "phone": "053-406-005",
+   "amphoe": "เมือง",
+   "modified": "2024-01-26",
+   "trade": "motorbike",
+   "facets": {
+    "ev": true
+   },
+   "osm": "cm-curated-motorbike-10384",
+   "metres": 0
+  },
+  {
+   "cmhy": "10415",
+   "name": "sixt ซิกส์ บริการรถเช่า (ท่าอากาศยานเชียงใหม่)",
+   "tags": [
+    "บริการรถเช่า",
+    "รถเช่าพร้อมคนขับ",
+    "ลีมูซีนเซอร์วิส"
+   ],
+   "phone": "1789,053-279-000,087-512-8333",
+   "amphoe": "เมือง",
+   "modified": "2024-01-06",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-osm-node-3281905418",
+   "metres": 24
+  },
+  {
+   "cmhy": "10672",
+   "name": "45 อินเลิฟช็อป",
+   "tags": [
+    "ยาง",
+    "ช่วงล่าง",
+    "ยาง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2017-06-19",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "10952",
+   "name": "นอร์ทเทริน์ไลค์ สไตล์",
+   "tags": [
+    "รถเช่า"
+   ],
+   "phone": "094-764-1948",
+   "amphoe": "เมือง",
+   "modified": "2022-10-07",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-10952",
+   "metres": 0
+  },
+  {
+   "cmhy": "11598",
+   "name": "โอเค บิ๊กไบค์",
+   "tags": [
+    "ซ่อมบิ๊กไบท์",
+    "ซื้อขายบิ๊กไบท์",
+    "bigbike"
+   ],
+   "phone": "086-197-5527,086-058-8087",
+   "amphoe": "เมือง",
+   "modified": "2022-01-21",
+   "trade": "motorbike",
+   "facets": {
+    "bigbike": true
+   },
+   "osm": "cm-curated-motorbike-11598",
+   "metres": 0
+  },
+  {
+   "cmhy": "11681",
+   "name": "รังษีมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซต์",
+    "ปะยาง",
+    "ถ่ายน้ำมันเครื่อง"
+   ],
+   "phone": "089-701-0762,084-525-4507",
+   "amphoe": "เมือง",
+   "modified": "2021-11-13",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-11681",
+   "metres": 0
+  },
+  {
+   "cmhy": "11929",
+   "name": "เอส.ที. มอเตอร์เจียงใหม่ (ข่วงสิงห์)",
+   "tags": [
+    "ขายรถมอเตอร์ไซค์",
+    "ออกรถมอเตอร์ไซค์",
+    "มอเตอร์ไซค์มือหนึ่ง"
+   ],
+   "phone": "086-428-9550",
+   "amphoe": "เมือง",
+   "modified": "2024-02-17",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-11929",
+   "metres": 0
+  },
+  {
+   "cmhy": "12030",
+   "name": "C&P ซี แอนด์ พี บิ๊กไบค์",
+   "tags": [
+    "บิ๊กไบค์",
+    "มอเตอร์ไซต์เช่า",
+    "เช่ารถมอเตอร์ไซค์ใหญ่"
+   ],
+   "phone": "088-5479786,,,081-950-6859,,,053-273-161",
+   "amphoe": "เมือง",
+   "modified": "2023-02-02",
+   "trade": "motorbike",
+   "facets": {
+    "bigbike": true
+   },
+   "osm": "cm-osm-way-582885180",
+   "metres": 36
+  },
+  {
+   "cmhy": "1216",
+   "name": "แสงชัยธุรกิจยานยนต์  สาขา 1 (วโรรส)",
+   "tags": [
+    "จำหน่ายมอเตอร์ไซต์",
+    "ปะยาง",
+    "สูบลม"
+   ],
+   "phone": "053-233-018,053-235-604",
+   "amphoe": "เมือง",
+   "modified": "2026-06-01",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "12164",
+   "name": "ซ่อมมอเตอร์ไซค์ และ กุญแจ  [หมู่บ้านชัยพฤกษ์]",
+   "tags": [
+    "ผ้าใบเบาะ",
+    "ปะยางมอเตอร์ไซต์",
+    "เปลี่ยนยางมอเตอร์ไซต์"
+   ],
+   "phone": "0987718491",
+   "amphoe": "เมือง",
+   "modified": "2026-06-02",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-12164",
+   "metres": 0
+  },
+  {
+   "cmhy": "12242",
+   "name": "ที มอเตอร์ ช้อป",
+   "tags": [
+    "มอเตอร์ไซต์เช่า",
+    "จักรยานเช่า"
+   ],
+   "phone": "081-472-0011",
+   "amphoe": "เมือง",
+   "modified": "2026-08-10",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "12258",
+   "name": "เจริญมอเตอร์ ยามาฮ่า (สาขากาดสวนแก้ว)",
+   "tags": [
+    "Yamaha",
+    "BigBike",
+    "บิ๊กไบค์"
+   ],
+   "phone": "053-218-555",
+   "amphoe": "เมือง",
+   "modified": "2026-09-01",
+   "trade": "motorbike",
+   "facets": {
+    "bigbike": true
+   },
+   "osm": "cm-osm-way-204644558",
+   "metres": 11
+  },
+  {
+   "cmhy": "12284",
+   "name": "พิสตัน ช็อป สาขาใหญ่ (สี่แยกหนองหอย)",
+   "tags": [
+    "รถบิ๊กไบค์",
+    "bigbike",
+    "Triumph"
+   ],
+   "phone": "053-234-344,081-952-4433",
+   "amphoe": "เมือง",
+   "modified": "2026-06-12",
+   "trade": "motorbike",
+   "facets": {
+    "bigbike": true
+   },
+   "osm": "cm-curated-motorbike-12284",
+   "metres": 0
+  },
+  {
+   "cmhy": "12404",
+   "name": "เบลเนลลี่ ซันฟงเจริญมอเตอร์ Benelli",
+   "tags": [
+    "รถเบลเนลลี่",
+    "เบลเนลลี่",
+    "Benelli"
+   ],
+   "phone": "092-649-5519",
+   "amphoe": "เมือง",
+   "modified": "2026-04-06",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "12405",
+   "name": "บานาน่า คาร์กรุ๊ป (สาขาเชียงใหม่)",
+   "tags": [
+    "รับฝากรถ",
+    "ทีจอดรถรับส่งสนามบิน",
+    "ฝากรถ"
+   ],
+   "phone": "097-449-4445",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "12440",
+   "name": "มิสเตอร์ แมคแคนิค (ช้อป 3)",
+   "tags": [
+    "รถมอเตอร์ไซต์เช่า",
+    "รถยนต์เช่า"
+   ],
+   "phone": "050-368-953",
+   "amphoe": "เมือง",
+   "modified": "2024-03-18",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "12441",
+   "name": "มิสเตอร์ แมคแคนิค (ช๊อป 2)",
+   "tags": [
+    "รถมอเตอร์ไซต์เช่า",
+    "รถยนต์เช่า"
+   ],
+   "phone": "053-214-708,082-762-8302",
+   "amphoe": "เมือง",
+   "modified": "2023-02-08",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "12559",
+   "name": "ร้านซ่อมรถมอเตอร์ไซต์ พลชัยยาเซอร์วิส",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "084-504-5741",
+   "amphoe": "เมือง",
+   "modified": "2024-05-29",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-12559",
+   "metres": 0
+  },
+  {
+   "cmhy": "12898",
+   "name": "จีพีเอ็กซ์ บาย [แสงชัยธุรกิจยานยนต์] (แม่เหียะ)",
+   "tags": [
+    "gpx",
+    "GPX",
+    "Legend200"
+   ],
+   "phone": "095-689-9150",
+   "amphoe": "เมือง",
+   "modified": "2026-05-02",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "13111",
+   "name": "ไชยกรมอเตอร์",
+   "tags": [
+    "ซ่อมรถจักรยานยนต์"
+   ],
+   "phone": "094-625-9154",
+   "amphoe": "เมือง",
+   "modified": "2022-01-10",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-13111",
+   "metres": 0
+  },
+  {
+   "cmhy": "13208",
+   "name": "ชิค คาร์เร้นท์ (ท่าอากาศยานเชียงใหม่) chic car rent",
+   "tags": [
+    "รถเช่า",
+    "รถเช่าระยะยาว",
+    "รถเช่าระยะสั้น"
+   ],
+   "phone": "02-286-6799,092-274-6662",
+   "amphoe": "เมือง",
+   "modified": "2024-03-13",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-osm-node-1474872841",
+   "metres": 31
+  },
+  {
+   "cmhy": "13209",
+   "name": "AVIS  เอวิส บริการรถเช่า (สาขา ท่าอากาศยานเชียงใหม่)",
+   "tags": [
+    "รถให้เช่า",
+    "รถยนต์เช่า",
+    "เช่ารถยนต์เชียงใหม่"
+   ],
+   "phone": "02-251-1131",
+   "amphoe": "เมือง",
+   "modified": "2024-03-14",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-osm-node-3281905418",
+   "metres": 31
+  },
+  {
+   "cmhy": "13211",
+   "name": "hertz เฮิรทซ์ รถให้เช่า (สนามบินเชียงใหม่)",
+   "tags": [
+    "รถให้เช่า",
+    "รถยนต์เช่า",
+    "เช่ารถยนต์เชียงใหม่"
+   ],
+   "phone": "053-273-011",
+   "amphoe": "เมือง",
+   "modified": "2024-01-06",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-osm-node-3281905418",
+   "metres": 20
+  },
+  {
+   "cmhy": "1355",
+   "name": "รัตนเวสป้า ซ่อมเวสเป้า",
+   "tags": [
+    "ซ่อมเวสป้า",
+    "ซ่อมรถมอเตอร์ไซต์",
+    "ปะยาง"
+   ],
+   "phone": "081-952-6580,053-273-399",
+   "amphoe": "เมือง",
+   "modified": "2025-08-05",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "13699",
+   "name": "เอจ การาจ 8 Garage",
+   "tags": [
+    "ซ่อมมอเตอร์ไซต์",
+    "ยางเรเดียล",
+    "สกู๊ตเตอร์"
+   ],
+   "phone": "063-845-8641",
+   "amphoe": "เมือง",
+   "modified": "2025-11-14",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "1374",
+   "name": "ศรีสิทธิพจน์ (ประตูเชียงใหม่มอเตอร์) รถมือหนึ่ง&รถให้เช่า&รถมือสอง",
+   "tags": [
+    "มอเตอร์ไซต์เช่า",
+    "รถเช่า",
+    "รถสกูตเตอร์เช่า"
+   ],
+   "phone": "053-282-370,081-603-5301,091-867-8870",
+   "amphoe": "เมือง",
+   "modified": "2026-01-06",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-1374",
+   "metres": 0
+  },
+  {
+   "cmhy": "13780",
+   "name": "เอก เซอร์วิส",
+   "tags": [
+    "ปรับแต่งรถ",
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "084-222-8566",
+   "amphoe": "เมือง",
+   "modified": "2022-07-26",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-13780",
+   "metres": 0
+  },
+  {
+   "cmhy": "14022",
+   "name": "ช่างตั้ม",
+   "tags": [
+    "เช็คเครื่อง",
+    "เปลี่ยนยาง",
+    "ถ่ายน้ำมันเครื่อง"
+   ],
+   "phone": "087-167-3185",
+   "amphoe": "เมือง",
+   "modified": "2026-08-10",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "14362",
+   "name": "เอส.เค. เซอร์วิส รถมอเตอร์ไซค์เช่า (อาเขต) 24 ชั่วโมง",
+   "tags": [
+    "บริการให้เช่ามอเตอร์ไซค์",
+    "รถเช่า"
+   ],
+   "phone": "089-558-007,098-753-2665",
+   "amphoe": "เมือง",
+   "modified": "2022-05-16",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-14362",
+   "metres": 0
+  },
+  {
+   "cmhy": "14364",
+   "name": "สไมล์ รถให้เช่า / รักฝากรถ (อาเขต)",
+   "tags": [
+    "บริการให้เช่ามอเตอร์ไซค์",
+    "รับฝากมอเตอร์ไซค์"
+   ],
+   "phone": "097-918-9965",
+   "amphoe": "เมือง",
+   "modified": "2023-04-01",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-14364",
+   "metres": 0
+  },
+  {
+   "cmhy": "14380",
+   "name": "ไอริชมอเตอร์ไซค์",
+   "tags": [
+    "ปะยางมอเตอร์ไซค์",
+    "โซ๊คมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "099-543-2507",
+   "amphoe": "เมือง",
+   "modified": "2024-11-13",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-14380",
+   "metres": 0
+  },
+  {
+   "cmhy": "1473",
+   "name": "ฟูอนันต์ (สันป่าข่อย)",
+   "tags": [
+    "ฮอนด้า",
+    "มอเตอร์ไซต์",
+    "เอฟเอ็นเซอร์วิส"
+   ],
+   "phone": "053-244-917,086-461-5182",
+   "amphoe": "เมือง",
+   "modified": "2022-03-16",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "15090",
+   "name": "ช่างกอฟท์ เซอร์วิส",
+   "tags": [
+    "ประยาง",
+    "โซ่",
+    "เปลี่ยนน้ำมันเครื่อง"
+   ],
+   "phone": "096-572-1430",
+   "amphoe": "เมือง",
+   "modified": "2021-05-15",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "15112",
+   "name": "เอส.เอส. มอเตอร์เซลส์",
+   "tags": [
+    "จำหน่ายรถจักรยานยนต์",
+    "รถจักรยานยนต์มือ1",
+    "Honda"
+   ],
+   "phone": "095-594-5646",
+   "amphoe": "เมือง",
+   "modified": "2025-03-05",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-15112",
+   "metres": 0
+  },
+  {
+   "cmhy": "15184",
+   "name": "แม่ข่าเซอร์วิส",
+   "tags": [
+    "ปะยางมอเตอร์ไซค์",
+    "น้ำมันเครื่องมอเตอร์ไซค์",
+    "ซ่อมมอเตอร์ไซค์"
+   ],
+   "phone": "089-756-6248,080-790-7132",
+   "amphoe": "เมือง",
+   "modified": "2026-05-02",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-15184",
+   "metres": 0
+  },
+  {
+   "cmhy": "15250",
+   "name": "เชียงใหม่วัฒนาออโต้ไบค์",
+   "tags": [
+    "เปลี่ยนน้ำมันเครื่อง",
+    "ซ่อมมอเตอร์ไซค์"
+   ],
+   "phone": "053-211-735",
+   "amphoe": "เมือง",
+   "modified": "2021-07-29",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-15250",
+   "metres": 0
+  },
+  {
+   "cmhy": "15279",
+   "name": "RV อาร์วี มอเตอร์ไบค์",
+   "tags": [
+    "มอเตอร์ไซค์เช่า"
+   ],
+   "phone": "091-079-9319,064-621-7273",
+   "amphoe": "เมือง",
+   "modified": "2023-05-08",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-15279",
+   "metres": 0
+  },
+  {
+   "cmhy": "15341",
+   "name": "ชาลี มอเตอร์ไซค์เช่า",
+   "tags": [
+    "มอเตอร์ไซค์เช่า",
+    "ให้เช่ามอเตอร์ไซค์"
+   ],
+   "phone": "084-985-4245,081-469-4780",
+   "amphoe": "เมือง",
+   "modified": "2024-09-24",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-15341",
+   "metres": 0
+  },
+  {
+   "cmhy": "15419",
+   "name": "ภูมิไบค์ มอเตอร์ไซค์มือสอง&ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "มอเตอร์ไซค์มือสอง",
+    "ซ่อมมอเตอร์ไซค์"
+   ],
+   "phone": "083-200-0427,081-594-3835",
+   "amphoe": "เมือง",
+   "modified": "2021-10-26",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-15419",
+   "metres": 0
+  },
+  {
+   "cmhy": "15421",
+   "name": "ช่างกล้าซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "เปลี่ยนยาง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-06-03",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-15421",
+   "metres": 0
+  },
+  {
+   "cmhy": "15516",
+   "name": "สิงห์มอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยาง",
+    "ถ่ายน้ำมันเครื่อง"
+   ],
+   "phone": "082-324-0005",
+   "amphoe": "เมือง",
+   "modified": "2023-04-21",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-15516",
+   "metres": 0
+  },
+  {
+   "cmhy": "15539",
+   "name": "แฮสย่า",
+   "tags": [
+    "แต่งรถ"
+   ],
+   "phone": "093-221-9954",
+   "amphoe": "เมือง",
+   "modified": "2022-04-18",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "15616",
+   "name": "ช่างชัยบริการ",
+   "tags": [
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่อง",
+    "ขึ้นล้อมอเตอร์ไซค์"
+   ],
+   "phone": "086-195-3484",
+   "amphoe": "เมือง",
+   "modified": "2022-09-21",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-osm-node-7706577061",
+   "metres": 21
+  },
+  {
+   "cmhy": "15617",
+   "name": "ดูคาติ เอ็กซ์พีเรียล ซ้อป",
+   "tags": [
+    "Ducati"
+   ],
+   "phone": "096-698-8649",
+   "amphoe": "เมือง",
+   "modified": "2026-07-18",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "1569",
+   "name": "นิพนธ์ ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ปะยางซ่อมมอเตอร์ไซค์",
+    "สูบลมซ่อมมอเตอร์ไซค์",
+    "เปลี่ยนหัวเทียนซ่อมมอเตอร์ไซค์"
+   ],
+   "phone": "085-723-6947",
+   "amphoe": "เมือง",
+   "modified": "2026-01-10",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-1569",
+   "metres": 0
+  },
+  {
+   "cmhy": "1571",
+   "name": "สิทธิโรจน์ มอเตอร์(สันติธรรม)",
+   "tags": [
+    "ล้างอัดฉีด",
+    "ปะยาง",
+    "ถ่ายน้ำมันเครื่อง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-04-13",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "15828",
+   "name": "นิตย์ เวสป้า",
+   "tags": [
+    "เวสป้า",
+    "ซ่อมเวสป้า",
+    "ซื้อขายเวสป้า"
+   ],
+   "phone": "088-268-3453,094-604-7711",
+   "amphoe": "เมือง",
+   "modified": "2022-01-21",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "15941",
+   "name": "เอ็มจิรา มอเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "084-602-6510",
+   "amphoe": "เมือง",
+   "modified": "2024-06-13",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-15941",
+   "metres": 0
+  },
+  {
+   "cmhy": "15975",
+   "name": "วันธงชัยมอเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซต์",
+    "ปะยาง",
+    "ถ่ายน้ำมันเครื่อง"
+   ],
+   "phone": "087-300-7494",
+   "amphoe": "เมือง",
+   "modified": "2021-05-15",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "16041",
+   "name": "ร้านซอยแจ่มฟ้าซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซต์",
+    "ปะยางนอกสถานที่"
+   ],
+   "phone": "080-378-1362",
+   "amphoe": "เมือง",
+   "modified": "2023-06-04",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-16041",
+   "metres": 0
+  },
+  {
+   "cmhy": "16059",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [ซอยวัดอุโมค์]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-10-21",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-16059",
+   "metres": 0
+  },
+  {
+   "cmhy": "16072",
+   "name": "ช่างโจ๊ก",
+   "tags": [
+    "ปะยาง",
+    "ถ่ายน้ำมันเครื่อง",
+    "ซื้อขายมอเตอร์ไซค์"
+   ],
+   "phone": "095-514-7552",
+   "amphoe": "เมือง",
+   "modified": "2020-06-13",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-16072",
+   "metres": 0
+  },
+  {
+   "cmhy": "1609",
+   "name": "ซ่อมมอเตอร์ไซต์ [ถนน หมื่นด้ามพร้าคต]",
+   "tags": [
+    "ปะยาง",
+    "สูบลม",
+    "เปลี่ยนหัวเทียน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-09-08",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "16107",
+   "name": "วิเศษเซอร์วิสซ่อมมอเตอร์ไซต์(ชินศิริ อาพาร์ท)",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "062-262-2993",
+   "amphoe": "เมือง",
+   "modified": "2025-06-05",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-16107",
+   "metres": 0
+  },
+  {
+   "cmhy": "16234",
+   "name": "ซ่อมมอเตอร์ไซต์",
+   "tags": [
+    "ตรวจเช็คฟรี",
+    "ปะยาง",
+    "เปลี่ยนยาง"
+   ],
+   "phone": "081-033-5244",
+   "amphoe": "เมือง",
+   "modified": "2021-11-22",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "16304",
+   "name": "นิววิง เชียงใหม่ (สาขาช้างเผือก)",
+   "tags": [
+    "รถจักรยานยนต์",
+    "มอเตอร์ไซค์",
+    "ฮอนด้า"
+   ],
+   "phone": "086-450-0547,096-649-9498,095-594-6514",
+   "amphoe": "เมือง",
+   "modified": "2021-01-22",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-osm-node-3298086548",
+   "metres": 8
+  },
+  {
+   "cmhy": "16502",
+   "name": "เยสอะเวย์ YESAWAY",
+   "tags": [
+    "เช่ารถยนต์"
+   ],
+   "phone": "063-190-4509",
+   "amphoe": "เมือง",
+   "modified": "2026-05-02",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-16502",
+   "metres": 0
+  },
+  {
+   "cmhy": "16752",
+   "name": "คลับ เฮ้าส์ ฮอนด้า (ช้างม่อย)",
+   "tags": [
+    "รถมอเตอร์ไซค์ฮอนด้า",
+    "Greyhound",
+    "เช็คระบบไฟ"
+   ],
+   "phone": "063-323-5640",
+   "amphoe": "เมือง",
+   "modified": "2026-06-01",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-osm-node-2655274610",
+   "metres": 29
+  },
+  {
+   "cmhy": "17043",
+   "name": "เวสสิโอ้ เซอร์วิส",
+   "tags": [
+    "เวสป้า",
+    "รถเวสป้า",
+    "ถ่ายน้ำมันเครื่อง"
+   ],
+   "phone": "052-065-422,061-915-6247",
+   "amphoe": "เมือง",
+   "modified": "2021-01-20",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "17063",
+   "name": "บัดดี้ มอเตอร์ ไบค์",
+   "tags": [
+    "รถมอเตอร์ไซค์เช่า",
+    "เช่ารถ"
+   ],
+   "phone": "053-225-227",
+   "amphoe": "เมือง",
+   "modified": "2021-11-21",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-17063",
+   "metres": 0
+  },
+  {
+   "cmhy": "17267",
+   "name": "แอนนา คาร์เร้นท์",
+   "tags": [
+    "รถมอเตอร์ไซค์เช่า",
+    "รถยนต์ให้เช่า",
+    "เช่ารถยนต์"
+   ],
+   "phone": "081-681-1124",
+   "amphoe": "เมือง",
+   "modified": "2024-03-18",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-17267",
+   "metres": 0
+  },
+  {
+   "cmhy": "17538",
+   "name": "แสงชัยมอเตอร์เซลส์ (รวมโชค)",
+   "tags": [
+    "รถยามาฮ่า",
+    "yamaha",
+    "รถมอเตอร์ไซต์"
+   ],
+   "phone": "053-114-817",
+   "amphoe": "เมือง",
+   "modified": "2022-01-06",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "1758",
+   "name": "ท้ายวังเวสป้า นิวช็อป",
+   "tags": [
+    "เวสป้า",
+    "รถเวส",
+    "ซ่อมเวสป้า"
+   ],
+   "phone": "081-386-0938",
+   "amphoe": "เมือง",
+   "modified": "2025-01-23",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "17582",
+   "name": "บี.โอ.วาย. บิ๊กไบค์",
+   "tags": [
+    "บิ๊กไบค์",
+    "รับซื้อบิ๊กไบค์",
+    "เทรินบิ๊กไบค์"
+   ],
+   "phone": "062-251-5198,095-727-7813",
+   "amphoe": "เมือง",
+   "modified": "2021-09-22",
+   "trade": "motorbike",
+   "facets": {
+    "bigbike": true
+   },
+   "osm": "cm-curated-motorbike-17582",
+   "metres": 0
+  },
+  {
+   "cmhy": "1761",
+   "name": "จอมเวสป้า",
+   "tags": [
+    "เวสป้า",
+    "ซ่อมเวสป้า",
+    "ปะยาง"
+   ],
+   "phone": "081-881-1071",
+   "amphoe": "เมือง",
+   "modified": "2021-09-17",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "17628",
+   "name": "เอเอสเอพี ASAP  (ท่าอากาศยานเชียงใหม่)",
+   "tags": [
+    "รถให้เช่า",
+    "รถยนต์เช่า",
+    "เช่ารถยนต์เชียงใหม่"
+   ],
+   "phone": "092-472-2525",
+   "amphoe": "เมือง",
+   "modified": "2022-05-30",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-osm-node-1474872841",
+   "metres": 25
+  },
+  {
+   "cmhy": "17634",
+   "name": "เค คาร์เล็นท์ เชียงใหม่",
+   "tags": [
+    "รถเช่า"
+   ],
+   "phone": "087-831-6093,061-419-4550",
+   "amphoe": "เมือง",
+   "modified": "2025-11-09",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-17634",
+   "metres": 0
+  },
+  {
+   "cmhy": "17636",
+   "name": "เฮิรทซ์ รถให้เช่า (แม่เหียะ)",
+   "tags": [
+    "รถให้เช่า",
+    "รถยนต์เช่า"
+   ],
+   "phone": "02-266-4666",
+   "amphoe": "เมือง",
+   "modified": "2021-01-25",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "17668",
+   "name": "นายฮ้อย ซ่อมมอไซต์ทุกชนิด [ซอย ถนนสวนดอก]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "เปลี่ยนน้ำมันเครื่อง",
+    "ปะยาง"
+   ],
+   "phone": "089-011-1907",
+   "amphoe": "เมือง",
+   "modified": "2025-04-30",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-17668",
+   "metres": 0
+  },
+  {
+   "cmhy": "17754",
+   "name": "ตะวันมอเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "เปลี่ยนน้ำมันเครื่อง",
+    "ปะยาง"
+   ],
+   "phone": "053-271-576",
+   "amphoe": "เมือง",
+   "modified": "2021-07-26",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-17754",
+   "metres": 0
+  },
+  {
+   "cmhy": "17847",
+   "name": "มอเตอร์ไซค์ ไทรอัมพ์ เชียงใหม่ Triumph Chiangmai",
+   "tags": [
+    "Triumph",
+    "ไทรอัมพ์",
+    "รถมอเตอร์ไซค์Triumph"
+   ],
+   "phone": "096-698-8649",
+   "amphoe": "เมือง",
+   "modified": "2026-09-02",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-osm-node-10738547592",
+   "metres": 16
+  },
+  {
+   "cmhy": "17881",
+   "name": "ธวัชชัย เซอร์วิส (บริการนอกสถานที่)",
+   "tags": [
+    "หุ้มเบาะมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่อง",
+    "ปะยาง24"
+   ],
+   "phone": "095-078-5837",
+   "amphoe": "เมือง",
+   "modified": "2026-05-15",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-17881",
+   "metres": 0
+  },
+  {
+   "cmhy": "17954",
+   "name": "แคท มอเตอร์ มอเตอร์ไซค์เช่า",
+   "tags": [
+    "มอเตอร์ไซค์เช่า"
+   ],
+   "phone": "090-729-9090,085-711-4403",
+   "amphoe": "เมือง",
+   "modified": "2025-07-08",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-osm-node-4398595897",
+   "metres": 12
+  },
+  {
+   "cmhy": "184",
+   "name": "แสงชัย เซอร์วิส",
+   "tags": [
+    "ซ่อมมอเตอร์ไซต์",
+    "เปลี่ยนยาง",
+    "ถ่ายน้ำมันเครื่อง"
+   ],
+   "phone": "053-275-090",
+   "amphoe": "เมือง",
+   "modified": "2022-01-24",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "1865",
+   "name": "ธนูทองเซอร์วิส มอเตอร์ไซต์",
+   "tags": [
+    "ปะยาง",
+    "ซ่อมมอเตอร์ไซต์",
+    "ซ่อมรถ"
+   ],
+   "phone": "099-767-7141",
+   "amphoe": "เมือง",
+   "modified": "2026-06-01",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "1878",
+   "name": "เอมอเตอร์ ซ่อมมอเตอร์ไซต์",
+   "tags": [
+    "ปะยาง",
+    "สูบลม",
+    "เปลี่ยนหัวเทียน"
+   ],
+   "phone": "0869164142",
+   "amphoe": "เมือง",
+   "modified": "2023-12-24",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "1903",
+   "name": "สมนึกเซอร์วิส",
+   "tags": [
+    "ปะยาง",
+    "ถ่ายน้ำมันเครื่อง",
+    "ซ่อมมอเตอร์ไซต์"
+   ],
+   "phone": "089-700-2096",
+   "amphoe": "เมือง",
+   "modified": "2025-06-14",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "19035",
+   "name": "ต้นโพธิ์ มอเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซต์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-11-22",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "1921",
+   "name": "ทองสุขมอเตอร์",
+   "tags": [
+    "ปะยาง",
+    "ถ่ายน้ำมันเครื่อง",
+    "รับซื้อรถจักรยานยนต์"
+   ],
+   "phone": "084-370-6266",
+   "amphoe": "เมือง",
+   "modified": "2021-11-16",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-1921",
+   "metres": 0
+  },
+  {
+   "cmhy": "1940",
+   "name": "แลมเบรตต้าเชียงใหม่",
+   "tags": [
+    "รถแลมเบรตต้า",
+    "ขายแลมเบรตต้า",
+    "Lambertta"
+   ],
+   "phone": "088-138-0808",
+   "amphoe": "เมือง",
+   "modified": "2026-06-01",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "1948",
+   "name": "นิยมพานิช (สำนักงานใหญ่)",
+   "tags": [
+    "ศูนย์ฮอนด้า",
+    "เครื่องใช้ไฟฟ้า",
+    "เวสป้า"
+   ],
+   "phone": "053-270-020",
+   "amphoe": "เมือง",
+   "modified": "2025-07-08",
+   "trade": null,
+   "facets": {
+    "ev": true
+   },
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "1971",
+   "name": "บัดเจ็ท (เชียงใหม่แอร์พอร์ต) Budget",
+   "tags": [
+    "เช่ารถ",
+    "รถเช่าสนามบินเชียงใหม่",
+    "รถเช่ามาตรฐานสากล"
+   ],
+   "phone": "053-202-871,053-202-872",
+   "amphoe": "เมือง",
+   "modified": "2025-10-14",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-osm-node-13591941004",
+   "metres": 5
+  },
+  {
+   "cmhy": "19747",
+   "name": "รักษ์ มอเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่อง",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "088-418-1042",
+   "amphoe": "เมือง",
+   "modified": "2022-04-11",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-19747",
+   "metres": 0
+  },
+  {
+   "cmhy": "19773",
+   "name": "ฟูอนันต์พาณิชย์ (หนองหอย)",
+   "tags": [
+    "honda",
+    "ฮอนด้า",
+    "มอเตอร์ไซต์"
+   ],
+   "phone": "099-142-9009",
+   "amphoe": "เมือง",
+   "modified": "2020-01-06",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "19791",
+   "name": "จำรัสมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "087-193-3308",
+   "amphoe": "เมือง",
+   "modified": "2024-08-10",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-19791",
+   "metres": 0
+  },
+  {
+   "cmhy": "19813",
+   "name": "ช่างวัช ช่อมมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่อง",
+    "ปะยาง"
+   ],
+   "phone": "085-618-9589",
+   "amphoe": "เมือง",
+   "modified": "2024-11-22",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-19813",
+   "metres": 0
+  },
+  {
+   "cmhy": "19899",
+   "name": "บัดเจ็ทแคชเชอร์ (ศูนย์เชียงใหม่)",
+   "tags": [
+    "รถเช่า",
+    "รถยนต์เช่า",
+    "เช่ารถยนต์"
+   ],
+   "phone": "087-622-7799",
+   "amphoe": "เมือง",
+   "modified": "2023-01-07",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-osm-node-8058170634",
+   "metres": 29
+  },
+  {
+   "cmhy": "20305",
+   "name": "โรจน์มอเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องปะยาง"
+   ],
+   "phone": "081-883-5807",
+   "amphoe": "เมือง",
+   "modified": "2021-09-21",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-20305",
+   "metres": 0
+  },
+  {
+   "cmhy": "20395",
+   "name": "แหลมทองมอเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่อง",
+    "ปะยาง"
+   ],
+   "phone": "080-674-2083",
+   "amphoe": "เมือง",
+   "modified": "2026-03-27",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-osm-node-3205899953",
+   "metres": 34
+  },
+  {
+   "cmhy": "20396",
+   "name": "นิยมพานิช (สาขา แม่เหียะ)",
+   "tags": [
+    "ศูนย์ฮอนด้า",
+    "รถมอเตอร์ไซค์ฮอนด้า",
+    "เครื่องใช้ไฟฟ้า"
+   ],
+   "phone": "053-273-411",
+   "amphoe": "เมือง",
+   "modified": "2026-03-27",
+   "trade": "motorbike",
+   "facets": {
+    "ev": true
+   },
+   "osm": "cm-curated-motorbike-20396",
+   "metres": 0
+  },
+  {
+   "cmhy": "20473",
+   "name": "ร้านออโต้พาร์ท",
+   "tags": [
+    "หมวกกันน๊อค",
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่อง"
+   ],
+   "phone": "089-701-0053",
+   "amphoe": "เมือง",
+   "modified": "2024-08-06",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-20473",
+   "metres": 0
+  },
+  {
+   "cmhy": "20477",
+   "name": "เลิศมอเตอร์",
+   "tags": [
+    "ปะยาง",
+    "ซ่อมมอเตอร์ไซค์"
+   ],
+   "phone": "081-883-2267,089-855-3059",
+   "amphoe": "เมือง",
+   "modified": "2021-11-14",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-20477",
+   "metres": 0
+  },
+  {
+   "cmhy": "20653",
+   "name": "เกรียงไกรมอเตอร์ ซ่อมปะยาง",
+   "tags": [
+    "ปะยางมอเตอร์ไซค์",
+    "ซ่อมมอเตอร์ไซค์"
+   ],
+   "phone": "085-708-7707",
+   "amphoe": "เมือง",
+   "modified": "2021-12-08",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-20653",
+   "metres": 0
+  },
+  {
+   "cmhy": "20662",
+   "name": "เคม แฟคทอรี่ KEM",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่อง",
+    "แต่งรถมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-19",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-20662",
+   "metres": 0
+  },
+  {
+   "cmhy": "20728",
+   "name": "17/7 เจ็ดยอดบริการ",
+   "tags": [
+    "ซ่อมจักรยาน",
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยาง"
+   ],
+   "phone": "081-883-7997",
+   "amphoe": "เมือง",
+   "modified": "2022-01-19",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-20728",
+   "metres": 0
+  },
+  {
+   "cmhy": "20760",
+   "name": "สโกมาดิ คาเฟ่ เชียงใหม่",
+   "tags": [
+    "สโกมาดิ",
+    "สกู๊ตเตอร์"
+   ],
+   "phone": "061-662-9797",
+   "amphoe": "เมือง",
+   "modified": "2026-02-13",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "20792",
+   "name": "ปะยางรถยนต์ มอเตอร์ไซค์ ลุงเวศน์",
+   "tags": [
+    "ปะยาง"
+   ],
+   "phone": "089-434-5766",
+   "amphoe": "เมือง",
+   "modified": "2024-03-15",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-20792",
+   "metres": 0
+  },
+  {
+   "cmhy": "20810",
+   "name": "รอยัล เอ็นฟิลด์ เชียงใหม่ (สหพานิช)",
+   "tags": [
+    "Royal",
+    "Enfield",
+    "รอยัล"
+   ],
+   "phone": "053-220-999",
+   "amphoe": "เมือง",
+   "modified": "2025-10-22",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "20811",
+   "name": "แสงชัยมอเตอร์เซลส์ (สาขา โชตนา )ตรงข้าม สนามกอล์ฟลานนา",
+   "tags": [
+    "รถยามาฮ่า",
+    "yamaha",
+    "รถมอเตอร์ไซต์"
+   ],
+   "phone": "053-111-969,093-140-0156",
+   "amphoe": "เมือง",
+   "modified": "2025-10-22",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "20845",
+   "name": "ปุ้ยมอเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ประยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "081-165-4407",
+   "amphoe": "เมือง",
+   "modified": "2024-08-29",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-20845",
+   "metres": 0
+  },
+  {
+   "cmhy": "2092",
+   "name": "ดีทู-ไบท์ (ช้างคลาน) D2-Bike",
+   "tags": [
+    "รถมอเตอร์ไซค์เช่า",
+    "รถให้เช่า",
+    "รถมอเตอร์ไซค์เช่า"
+   ],
+   "phone": "090-317-3256",
+   "amphoe": "เมือง",
+   "modified": "2023-05-19",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-2092",
+   "metres": 0
+  },
+  {
+   "cmhy": "20936",
+   "name": "นิมมาน 13 รถเช่า",
+   "tags": [
+    "รถยนต์เช่า",
+    "รถมอเตอร์ไซต์เช่า"
+   ],
+   "phone": "095-146-6622,094-146-1529",
+   "amphoe": "เมือง",
+   "modified": "2023-01-31",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-20936",
+   "metres": 0
+  },
+  {
+   "cmhy": "20960",
+   "name": "นครพิงค์อะไหล่",
+   "tags": [
+    "อะไหล่ยนต์",
+    "ซ่อมมอเตอร์ไซค์",
+    "ประยางมอเตอร์ไซค์"
+   ],
+   "phone": "085-412-5306",
+   "amphoe": "เมือง",
+   "modified": "2021-10-23",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-20960",
+   "metres": 0
+  },
+  {
+   "cmhy": "21016",
+   "name": "อำนาจการช่าง",
+   "tags": [
+    "ซ่อมมอเตอร์ไซต์",
+    "ปะยางมอเตอร์ไซค์",
+    "เปลี่ยนยางมอเตอร์ไซค์"
+   ],
+   "phone": "083-578-1943",
+   "amphoe": "เมือง",
+   "modified": "2026-05-31",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-21016",
+   "metres": 0
+  },
+  {
+   "cmhy": "21065",
+   "name": "โตโยตรอน จักรยานไฟฟ้า มอเตอร์ไซค์ไฟฟ้า",
+   "tags": [
+    "รถมอเตอร์ไซค์ไฟฟ้า",
+    "รถจักรยานไฟฟ้า"
+   ],
+   "phone": "053-111-714",
+   "amphoe": "เมือง",
+   "modified": "2026-02-13",
+   "trade": "motorbike",
+   "facets": {
+    "ev": true
+   },
+   "osm": "cm-curated-motorbike-21065",
+   "metres": 0
+  },
+  {
+   "cmhy": "21089",
+   "name": "โก อะไหล่",
+   "tags": [
+    "ซ่อมมอเตอร์ไซต์",
+    "เปลี่ยนน้ำมันเครื่อง",
+    "ปะยาง"
+   ],
+   "phone": "084-483-2947",
+   "amphoe": "เมือง",
+   "modified": "2021-10-23",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "21172",
+   "name": "แอร์ มอเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยาง",
+    "ถ่ายน้ำมันเครื่อง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-02-15",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-21172",
+   "metres": 0
+  },
+  {
+   "cmhy": "21256",
+   "name": "เชียงใหม่เลดี้เฟริส รถเช่า",
+   "tags": [
+    "รถเช่า",
+    "รถเช่าขับเที่ยวเอง",
+    "รถเช่าพร้อมคนขับ"
+   ],
+   "phone": "099-296-6959,061-289-9159",
+   "amphoe": "เมือง",
+   "modified": "2025-10-03",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-21256",
+   "metres": 0
+  },
+  {
+   "cmhy": "21262",
+   "name": "ออโต้ เรนทัล บาย ทรู ลีสซิ่ง (ศูนย์เชียงใหม่) True Leasing",
+   "tags": [
+    "รถเช่า",
+    "รถยนต์เช่า",
+    "รถเช่าระยะยาว"
+   ],
+   "phone": "052-064-595,1279",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-21262",
+   "metres": 0
+  },
+  {
+   "cmhy": "2134",
+   "name": "แสงชัยพานิชย์เชียงใหม่",
+   "tags": [
+    "ดีลเลอร์รถจักรยานยนต์",
+    "มอเตอร์ไซต์",
+    "ซ่อมมอเตอร์ไซต์"
+   ],
+   "phone": "053-245-454,081-884-1501",
+   "amphoe": "เมือง",
+   "modified": "2025-06-10",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-osm-way-205595936",
+   "metres": 62
+  },
+  {
+   "cmhy": "21361",
+   "name": "ร้าน บอยมอเตอร์",
+   "tags": [
+    "ปะยางมอเตอร์ไซค์",
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "099-614-9599",
+   "amphoe": "เมือง",
+   "modified": "2022-08-15",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-21361",
+   "metres": 0
+  },
+  {
+   "cmhy": "21376",
+   "name": "กานต์มอเตอร์",
+   "tags": [
+    "ประยาง",
+    "ถ่ายน้ำมันเครื่อง",
+    "ซ่อมรถ"
+   ],
+   "phone": "088-825-8835",
+   "amphoe": "เมือง",
+   "modified": "2026-04-10",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "21416",
+   "name": "โจ้มอเตอร์ไซค์",
+   "tags": [
+    "ปะยาง",
+    "ซ่อมมอเตอร์ไซค์",
+    "เปลี่ยนน้ำมันเครื่อง"
+   ],
+   "phone": "087-202-0282",
+   "amphoe": "เมือง",
+   "modified": "2020-08-12",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-21416",
+   "metres": 0
+  },
+  {
+   "cmhy": "21733",
+   "name": "ช่างตี๋ ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ปะยาง",
+    "ถ่ายน้ำมันเครื่อง",
+    "ซ่อมมอเตอร์ไซค์"
+   ],
+   "phone": "089-549-0285,0875787463",
+   "amphoe": "เมือง",
+   "modified": "2023-09-21",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-21733",
+   "metres": 0
+  },
+  {
+   "cmhy": "21763",
+   "name": "ช่างตี๋ ยานยนต์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยาง",
+    "ถ่ายน้ำมันเครื่อง"
+   ],
+   "phone": "081-339-56574",
+   "amphoe": "เมือง",
+   "modified": "2021-11-29",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-21763",
+   "metres": 0
+  },
+  {
+   "cmhy": "2184",
+   "name": "ร้านปะยางมอเตอร์ไซค์ ปะยางรถยนต์ [ถนนรัตนโกสินทร์ ]",
+   "tags": [
+    "เปลี่ยนยาง",
+    "ปะยางมอเตอร์ไซค์",
+    "ปะยางรถยนต์"
+   ],
+   "phone": "087-660-5712",
+   "amphoe": "เมือง",
+   "modified": "2026-05-21",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-2184",
+   "metres": 0
+  },
+  {
+   "cmhy": "22101",
+   "name": "ปอยหลวงอัดสาย อัดสายไฮดรอลิค & ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "อัดสายไฮดรอลิค",
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "089-520-5375,087-578-9775",
+   "amphoe": "เมือง",
+   "modified": "2025-07-25",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-22101",
+   "metres": 0
+  },
+  {
+   "cmhy": "22145",
+   "name": "แม๊กเหล็กป่าตัน ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยาง",
+    "ถ่ายน้ำมันเครื่อง"
+   ],
+   "phone": "085-652-2550",
+   "amphoe": "เมือง",
+   "modified": "2024-09-12",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-22145",
+   "metres": 0
+  },
+  {
+   "cmhy": "22456",
+   "name": "ประจวบมอเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่อง",
+    "ปะยาง"
+   ],
+   "phone": "095-956-9562",
+   "amphoe": "เมือง",
+   "modified": "2023-03-29",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-22456",
+   "metres": 0
+  },
+  {
+   "cmhy": "22849",
+   "name": "หลังมอเซอร์วิส ซ่อม&ล้างอัดฉีด มอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "089-952-6072",
+   "amphoe": "เมือง",
+   "modified": "2024-06-18",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-22849",
+   "metres": 0
+  },
+  {
+   "cmhy": "22864",
+   "name": "นายฮ้อยมอเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่อง",
+    "ปะยางมอเตอร์ไซต์"
+   ],
+   "phone": "089-011-1907",
+   "amphoe": "เมือง",
+   "modified": "2020-06-14",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-22864",
+   "metres": 0
+  },
+  {
+   "cmhy": "22866",
+   "name": "นัก เซอร์วิส",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่อง"
+   ],
+   "phone": "084-501-1908",
+   "amphoe": "เมือง",
+   "modified": "2020-06-14",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-22866",
+   "metres": 0
+  },
+  {
+   "cmhy": "229",
+   "name": "ป๊อปไรเดอร์ รถเช่า (คชสาร)",
+   "tags": [
+    "รถเช่า",
+    "รถมอเตอร์ไซค์เช่า",
+    "บิ๊กไบค์เช่า"
+   ],
+   "phone": "053-276-660,086-911-1218,081-033-2929",
+   "amphoe": "เมือง",
+   "modified": "2021-10-07",
+   "trade": "motorbike",
+   "facets": {
+    "bigbike": true
+   },
+   "osm": "cm-curated-motorbike-229",
+   "metres": 0
+  },
+  {
+   "cmhy": "22983",
+   "name": "ช่างเจริญ เจ้าเก่า",
+   "tags": [
+    "ถ่ายน้ำมันเครื่อง",
+    "ปะยาง",
+    "ซ่อมอเตอร์ไซค์"
+   ],
+   "phone": "089-854-3112",
+   "amphoe": "เมือง",
+   "modified": "2020-06-22",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-22983",
+   "metres": 0
+  },
+  {
+   "cmhy": "23003",
+   "name": "นัดกาดวรุณ ซ่อมอเตอร์ไซค์ ปะยาง [หมู่บ้านวรุณนิเวศน์]",
+   "tags": [
+    "ถ่ายน้ำมันเครื่อง",
+    "ปะยาง",
+    "ซ่อมอเตอร์ไซค์"
+   ],
+   "phone": "080-703-5709",
+   "amphoe": "เมือง",
+   "modified": "2025-11-09",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-23003",
+   "metres": 0
+  },
+  {
+   "cmhy": "23011",
+   "name": "เอเจ EV BIKE มอเตอร์ไซค์ไฟฟ้า",
+   "tags": [
+    "มอเตอร์ไซค์ไฟฟ้า"
+   ],
+   "phone": "097-954-5459,090-456-6646",
+   "amphoe": "เมือง",
+   "modified": "2026-06-18",
+   "trade": "motorbike",
+   "facets": {
+    "ev": true
+   },
+   "osm": "cm-curated-motorbike-23011",
+   "metres": 0
+  },
+  {
+   "cmhy": "23242",
+   "name": "ธนพรโพธา",
+   "tags": [
+    "แอร์",
+    "เครื่องใช้ไฟฟ้า",
+    "จักรยานยนต์"
+   ],
+   "phone": "089-850-7107,089-758-8223",
+   "amphoe": "เมือง",
+   "modified": "2025-08-26",
+   "trade": "motorbike",
+   "facets": {
+    "ev": true
+   },
+   "osm": "cm-curated-motorbike-23242",
+   "metres": 0
+  },
+  {
+   "cmhy": "2328",
+   "name": "กุ้งมอเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยาง",
+    "สูบลม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-08-23",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-2328",
+   "metres": 0
+  },
+  {
+   "cmhy": "23317",
+   "name": "ซ่อมอเตอร์ไซค์ ปะยาง [ถนน เกาะกลาง]",
+   "tags": [
+    "ซ่อมอเตอร์ไซค์",
+    "ปะยาง"
+   ],
+   "phone": "0616350703",
+   "amphoe": "เมือง",
+   "modified": "2024-09-26",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-23317",
+   "metres": 0
+  },
+  {
+   "cmhy": "23341",
+   "name": "ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยาง",
+    "เปลี่ยนน้ำมันเครื่อง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-10-25",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-23341",
+   "metres": 0
+  },
+  {
+   "cmhy": "23423",
+   "name": "ป๊อป เซอร์วิส",
+   "tags": [
+    "รถยนต์เช่า",
+    "รถเช่า",
+    "รถมอเตอร์ไซต์เช่า"
+   ],
+   "phone": "053-276-014",
+   "amphoe": "เมือง",
+   "modified": "2021-01-23",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-osm-node-1491349964",
+   "metres": 7
+  },
+  {
+   "cmhy": "23428",
+   "name": "แฮ๊ปปี้เดย์ ช้อป",
+   "tags": [
+    "รถเช่า",
+    "รถมอเตอร์ไซต์เช่า"
+   ],
+   "phone": "081-783-7703,081-783-7703",
+   "amphoe": "เมือง",
+   "modified": "2020-07-23",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-23428",
+   "metres": 0
+  },
+  {
+   "cmhy": "23752",
+   "name": "อินฟินิตี้ รถมอเตอร์ไซค์เช่า",
+   "tags": [
+    "รถจักรยนต์เช่า",
+    "รถเช่า"
+   ],
+   "phone": "081-417-1623,095-651-5448",
+   "amphoe": "เมือง",
+   "modified": "2025-04-28",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-23752",
+   "metres": 0
+  },
+  {
+   "cmhy": "23903",
+   "name": "รับซ่อมมอเตอร์ไซต์ [ถนน ตลาดธานินทร์]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซต์",
+    "ถ่ายน้ำมันเครื่อง",
+    "เช็คเครื่อง"
+   ],
+   "phone": "092-975-3979",
+   "amphoe": "เมือง",
+   "modified": "2026-05-24",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "23927",
+   "name": "คัสตอม บิลด์  Kustom build",
+   "tags": [
+    "ตกแต่งรถมอเตอร์ไซค์",
+    "บำรุงเครื่องยนต์",
+    "เปลี่ยนถ่ายน้ำมันเครื่อง"
+   ],
+   "phone": "081-883-6983",
+   "amphoe": "เมือง",
+   "modified": "2026-05-29",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-23927",
+   "metres": 0
+  },
+  {
+   "cmhy": "24092",
+   "name": "รับซ่อมมอเตอร์ไซต์ Ahtu  [ ถนน วังสิงห์คำ]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซต์",
+    "ถ่ายน้ำมันเครื่อง",
+    "เช็คเครื่อง"
+   ],
+   "phone": "087-301-8116",
+   "amphoe": "เมือง",
+   "modified": "2025-11-21",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "24128",
+   "name": "อาร์มเซอร์วิส",
+   "tags": [
+    "ซ่อมมอเตอร์ไซต์",
+    "ถ่ายน้ำมันเครื่อง",
+    "เช็คเครื่อง"
+   ],
+   "phone": "091-850-0172",
+   "amphoe": "เมือง",
+   "modified": "2026-04-28",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "24132",
+   "name": "แบล็คเซอร์วิส",
+   "tags": [
+    "ซ่อมมอเตอร์ไซต์",
+    "ถ่ายน้ำมันเครื่อง",
+    "เช็คเครื่อง"
+   ],
+   "phone": "081-950-1056",
+   "amphoe": "เมือง",
+   "modified": "2022-03-05",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "24725",
+   "name": "ดับเบิ้ลคลีน & คาร์เร้น",
+   "tags": [
+    "รถให้เช่า",
+    "ล้างอัดฉีด",
+    "ล้างรถยนต์"
+   ],
+   "phone": "065-123-8182,086-913-9559",
+   "amphoe": "เมือง",
+   "modified": "2021-09-21",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "25172",
+   "name": "เอส.ที. มอเตอร์เจียงใหม่ (อาเขต)",
+   "tags": [
+    "ขายรถมอเตอร์ไซค์",
+    "ออกรถมอเตอร์ไซค์",
+    "มอเตอร์ไซค์มือหนึ่ง"
+   ],
+   "phone": "082-533-6550,086-428-550",
+   "amphoe": "เมือง",
+   "modified": "2022-01-21",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-25172",
+   "metres": 0
+  },
+  {
+   "cmhy": "25560",
+   "name": "รับซ่อม ปะยางมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "089-572-3938",
+   "amphoe": "เมือง",
+   "modified": "2023-12-10",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-25560",
+   "metres": 0
+  },
+  {
+   "cmhy": "260",
+   "name": "นิยมพานิช บิ๊กวิง(ราชดำเนิน)",
+   "tags": [
+    "ซ่อม",
+    "ปะยาง",
+    "ถ่ายน้ำมันเครื่อง"
+   ],
+   "phone": "053-206-777",
+   "amphoe": "เมือง",
+   "modified": "2024-01-26",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "266",
+   "name": "แสงชัยมอเตอร์เซลส์ (สาขาสำนักงานใหญ่ ท่าแพ)",
+   "tags": [
+    "มิตซูบิชิ",
+    "ยามาฮ่า",
+    "คาวาซากิ"
+   ],
+   "phone": "053-225-288",
+   "amphoe": "เมือง",
+   "modified": "2025-10-22",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "26915",
+   "name": "เชียงใหม่โมโตพาร์ท",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "081-952-4433,098-987-6477",
+   "amphoe": "เมือง",
+   "modified": "2026-06-12",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-26915",
+   "metres": 0
+  },
+  {
+   "cmhy": "27096",
+   "name": "พีดี แอร์พอร์ต คาร์พาร์ค & รถเช่า",
+   "tags": [
+    "จุดจอดรถ",
+    "จอดรถยนต์",
+    "ฝากรถยนต์"
+   ],
+   "phone": "099-229-8895,084-232-9899",
+   "amphoe": "เมือง",
+   "modified": "2021-01-25",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-27096",
+   "metres": 0
+  },
+  {
+   "cmhy": "27099",
+   "name": "มิ้วยานยนต์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "081-881-5892",
+   "amphoe": "เมือง",
+   "modified": "2026-02-23",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-27099",
+   "metres": 0
+  },
+  {
+   "cmhy": "27100",
+   "name": "แสงชัยธุรกิจยานยนต์ gpx จีพีเอ๊กซ์ (แม่เหียะ)",
+   "tags": [
+    "โชว์รูมมอเตอร์ไซค์",
+    "GPX"
+   ],
+   "phone": "095-689-9150",
+   "amphoe": "เมือง",
+   "modified": "2023-02-11",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-27100",
+   "metres": 0
+  },
+  {
+   "cmhy": "27110",
+   "name": "วันทูโก คาร์วอส",
+   "tags": [
+    "ล้างอัดฉีด",
+    "รถยนต์เช่า"
+   ],
+   "phone": "093-154-1212",
+   "amphoe": "เมือง",
+   "modified": "2024-05-09",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "27114",
+   "name": "ช่างตี๋ ซ่อมมอเตอร์ไซค์ (ศอยชมจันทร์)",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "089-853-8834",
+   "amphoe": "เมือง",
+   "modified": "2026-05-02",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-27114",
+   "metres": 0
+  },
+  {
+   "cmhy": "27145",
+   "name": "รับซ่อมมอเตอร์ไซต์ปะยาง [กู่เต้า]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "092-299-0563",
+   "amphoe": "เมือง",
+   "modified": "2025-10-05",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-27145",
+   "metres": 0
+  },
+  {
+   "cmhy": "27166",
+   "name": "ศูนย์ซ่อมสร้างเพื่อชุมชน วิทยาลัยเทคนิคเชียงใหม่ Fixit",
+   "tags": [
+    "ซ่อมมอเตอร์ไซต์",
+    "ซ่อมเครื่องใช้ไฟฟ้า",
+    "ซ่อมพัดลม"
+   ],
+   "phone": "053-217-708",
+   "amphoe": "เมือง",
+   "modified": "2026-09-03",
+   "trade": null,
+   "facets": {
+    "ev": true
+   },
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "27303",
+   "name": "ดิวเซอร์วิส",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "092-316-8245",
+   "amphoe": "เมือง",
+   "modified": "2022-10-21",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-27303",
+   "metres": 0
+  },
+  {
+   "cmhy": "27474",
+   "name": "สมพลเจริญมอเตอร์ ช่างแบงค์",
+   "tags": [
+    "ระบบไฟมอเตอร์ไซค์",
+    "เบรคมอเตอร์ไซค์",
+    "ตั้งล้อมอเตอร์ไซค์"
+   ],
+   "phone": "094-509-4532",
+   "amphoe": "เมือง",
+   "modified": "2024-06-13",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-27474",
+   "metres": 0
+  },
+  {
+   "cmhy": "27602",
+   "name": "ลุงเพชร รับซ่อมมอเตอร์ไซต์ปะยาง สันติธรรม",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "099-140-9940",
+   "amphoe": "เมือง",
+   "modified": "2023-04-27",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-27602",
+   "metres": 0
+  },
+  {
+   "cmhy": "27729",
+   "name": "พิทักษ์ยนตกิจ",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "093-192-8266",
+   "amphoe": "เมือง",
+   "modified": "2026-08-14",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-27729",
+   "metres": 0
+  },
+  {
+   "cmhy": "27730",
+   "name": "รับซ่อมมอเตอร์ไซต์ปะยาง  [ถนนชมดอย ]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "099-125-4642,080-859-9785",
+   "amphoe": "เมือง",
+   "modified": "2026-08-14",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-27730",
+   "metres": 0
+  },
+  {
+   "cmhy": "27860",
+   "name": "ช่างหนึ่ง ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ร้านซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "065-258-8327",
+   "amphoe": "เมือง",
+   "modified": "2026-03-09",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-27860",
+   "metres": 0
+  },
+  {
+   "cmhy": "28197",
+   "name": "มาร์เบิล มอเตอร์ไซค์ให้เช่า",
+   "tags": [
+    "รถมอเตอร์ไซค์เช่า",
+    "รถยนต์เช่า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-07-27",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-28197",
+   "metres": 0
+  },
+  {
+   "cmhy": "28488",
+   "name": "ไนทเซอร์วิส",
+   "tags": [
+    "ปะยางมอเตอร์ไซค์",
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "083-011-9613",
+   "amphoe": "เมือง",
+   "modified": "2023-02-24",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-28488",
+   "metres": 0
+  },
+  {
+   "cmhy": "285",
+   "name": "นอร์ทวีลส์ เร็นท์ อะ  คาร์",
+   "tags": [
+    "รถเช่า",
+    "รถยนต์เช่า",
+    "มอเตอร์ไซค์เช่า"
+   ],
+   "phone": "053-874-478",
+   "amphoe": "เมือง",
+   "modified": "2020-07-27",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-osm-node-3453035893",
+   "metres": 32
+  },
+  {
+   "cmhy": "28597",
+   "name": "ช่างนิง กำแพงดิน ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ปะยางมอเตอร์ไซค์",
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "085-669-3036",
+   "amphoe": "เมือง",
+   "modified": "2025-04-07",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-28597",
+   "metres": 0
+  },
+  {
+   "cmhy": "28674",
+   "name": "เอ็นจอยคาร์เร้นท์",
+   "tags": [
+    "รถให้เช่า"
+   ],
+   "phone": "065-623-9665",
+   "amphoe": "เมือง",
+   "modified": "2021-07-26",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "28677",
+   "name": "มิสเตอร์ป๊อป mr.pop รถเช่า",
+   "tags": [
+    "รถให้เช่า",
+    "รถมอเตอร์ไซต์เช่า"
+   ],
+   "phone": "080-246-4381",
+   "amphoe": "เมือง",
+   "modified": "2023-05-15",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-osm-node-9893302718",
+   "metres": 13
+  },
+  {
+   "cmhy": "28740",
+   "name": "ซ่อมมอเตอร์ไซค์ [ถนน วังสิงห์คำ]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่อง",
+    "ปะยาง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-11-21",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-28740",
+   "metres": 0
+  },
+  {
+   "cmhy": "28814",
+   "name": "ซิปปี้มอเตอร์ไบค์",
+   "tags": [
+    "รถมอเตอร์ไซค์เช่า",
+    "รถให้เช่า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-03-01",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-28814",
+   "metres": 0
+  },
+  {
+   "cmhy": "28820",
+   "name": "แดงโมดิฟาย",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "053-223-242",
+   "amphoe": "เมือง",
+   "modified": "2023-09-03",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-28820",
+   "metres": 0
+  },
+  {
+   "cmhy": "28863",
+   "name": "ตูนมอเตอร์ ซ่อมอเตอร์ไซค์ มอเตอร์ไซค์มือสอง",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์",
+    "รถมอเตอร์ไซค์มือสอง"
+   ],
+   "phone": "063-795-6116",
+   "amphoe": "เมือง",
+   "modified": "2025-04-01",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-28863",
+   "metres": 0
+  },
+  {
+   "cmhy": "28871",
+   "name": "ช่างทัต",
+   "tags": [
+    "ปะยางมอเตอร์ไซค์",
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "080-670-7893",
+   "amphoe": "เมือง",
+   "modified": "2023-10-16",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-28871",
+   "metres": 0
+  },
+  {
+   "cmhy": "28879",
+   "name": "เจ็ด-หวานเจี๊ยบ ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมจักรยาน",
+    "เครื่องใช้ไฟฟ้า",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "095-698-9462",
+   "amphoe": "เมือง",
+   "modified": "2022-01-24",
+   "trade": "motorbike",
+   "facets": {
+    "ev": true
+   },
+   "osm": "cm-curated-motorbike-28879",
+   "metres": 0
+  },
+  {
+   "cmhy": "28958",
+   "name": "เอแอลเค เรสซิ่ง พาส",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "081-962-5587",
+   "amphoe": "เมือง",
+   "modified": "2026-06-12",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-28958",
+   "metres": 0
+  },
+  {
+   "cmhy": "29021",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [ถนน บ้านพิมุกข์ 2]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซต์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "096-231-6039",
+   "amphoe": "เมือง",
+   "modified": "2025-12-12",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-29021",
+   "metres": 0
+  },
+  {
+   "cmhy": "29080",
+   "name": "ซันไซน์ รถมอเตอร์ไซค์เช่า",
+   "tags": [
+    "รถมอเตอร์ไซค์เช่า"
+   ],
+   "phone": "089-014-9030",
+   "amphoe": "เมือง",
+   "modified": "2026-05-31",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-osm-way-482771555",
+   "metres": 55
+  },
+  {
+   "cmhy": "29099",
+   "name": "ตะวันไบค์ มอเตอร์ไซค์เช่า",
+   "tags": [
+    "รถมอเตอร์ไซค์เช่า"
+   ],
+   "phone": "053-271-546",
+   "amphoe": "เมือง",
+   "modified": "2022-03-01",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-osm-node-7023400008",
+   "metres": 21
+  },
+  {
+   "cmhy": "29161",
+   "name": "ไพรวัลย์เซอร์วิส",
+   "tags": [
+    "ซ่อมรถยนต์",
+    "ล้างอัดฉีด",
+    "ล้างรถ"
+   ],
+   "phone": "098-749-4495",
+   "amphoe": "เมือง",
+   "modified": "2023-03-21",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "29163",
+   "name": "เอที. เจริญยนต์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "097-992-4918",
+   "amphoe": "เมือง",
+   "modified": "2021-06-30",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-29163",
+   "metres": 0
+  },
+  {
+   "cmhy": "2922",
+   "name": "นิกรมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "089-558-0932",
+   "amphoe": "เมือง",
+   "modified": "2025-07-11",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-2922",
+   "metres": 0
+  },
+  {
+   "cmhy": "29241",
+   "name": "ซ่อมมอเตอร์ไซค์ [ช้างเผือก ซอย 4ง]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซต์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-07-03",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-29241",
+   "metres": 0
+  },
+  {
+   "cmhy": "29338",
+   "name": "ซ่อมมอเตอร์ไซค์ [ต้นขาม]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซต์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "086-621-5115",
+   "amphoe": "เมือง",
+   "modified": "2024-08-16",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-29338",
+   "metres": 0
+  },
+  {
+   "cmhy": "29344",
+   "name": "ปะยางรถมอเตอร์ไซต์ จักรยาน  [ถนน อนุวิถี]",
+   "tags": [
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซต์",
+    "ปะยางมอเตอร์ไซค์",
+    "หุ้มเบาะ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-12-11",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-29344",
+   "metres": 0
+  },
+  {
+   "cmhy": "29390",
+   "name": "*แสงชัยมอเตอร์เซลส์ (สันป่าข่อย)+ย้ายมารวมสาขาบวกครก",
+   "tags": [
+    "รถยามาฮ่า",
+    "yamaha",
+    "รถมอเตอร์ไซต์"
+   ],
+   "phone": "053-241-156",
+   "amphoe": "เมือง",
+   "modified": "2026-04-09",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "29495",
+   "name": "เอเอฟบาส afbas shop ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซต์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-09-20",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-29495",
+   "metres": 0
+  },
+  {
+   "cmhy": "29522",
+   "name": "นิววิง เชียงใหม่ (สาขาหนองหอย )",
+   "tags": [
+    "รถจักรยานยนต์",
+    "มอเตอร์ไซค์",
+    "ฮอนด้า"
+   ],
+   "phone": "096-649-9498,0635256691",
+   "amphoe": "เมือง",
+   "modified": "2023-08-20",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-29522",
+   "metres": 0
+  },
+  {
+   "cmhy": "29573",
+   "name": "เม่น ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "096-118-7817",
+   "amphoe": "เมือง",
+   "modified": "2025-03-06",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-29573",
+   "metres": 0
+  },
+  {
+   "cmhy": "29578",
+   "name": "รถเช่า เอแซ็ป ซีเล็ค  ASAP (เชียงใหม่)",
+   "tags": [
+    "รถยนต์มือสอง",
+    "รถยนต์เช่า",
+    "รถเช่าพร้อมคนขับ"
+   ],
+   "phone": "063-114-9555",
+   "amphoe": "เมือง",
+   "modified": "2026-06-05",
+   "trade": null,
+   "facets": {},
+   "refused": "used cars, not motorbikes"
+  },
+  {
+   "cmhy": "29579",
+   "name": "ยูด้ารถไฟฟ้า",
+   "tags": [
+    "ซ่อมรถไฟฟ้า",
+    "ขายรถมอเตอร์ไซค์ไฟฟ้า"
+   ],
+   "phone": "088-267-8905",
+   "amphoe": "เมือง",
+   "modified": "2021-09-22",
+   "trade": "motorbike",
+   "facets": {
+    "ev": true
+   },
+   "osm": "cm-curated-motorbike-29579",
+   "metres": 0
+  },
+  {
+   "cmhy": "296",
+   "name": "เอ รถเช่า",
+   "tags": [
+    "รถเช่า",
+    "มอเตอร์ไซต์เช่า"
+   ],
+   "phone": "053-418-356,089-851-8853",
+   "amphoe": "เมือง",
+   "modified": "2026-01-28",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-osm-node-8493398466",
+   "metres": 54
+  },
+  {
+   "cmhy": "29661",
+   "name": "คลินิคมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "081-993-2127",
+   "amphoe": "เมือง",
+   "modified": "2024-02-03",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-29661",
+   "metres": 0
+  },
+  {
+   "cmhy": "29699",
+   "name": "ช่างหนึ่ง ปะยาง",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "094-634-1169",
+   "amphoe": "เมือง",
+   "modified": "2026-02-25",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-29699",
+   "metres": 0
+  },
+  {
+   "cmhy": "29789",
+   "name": "แทนเรซซิ่ง",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "086-671-5253",
+   "amphoe": "เมือง",
+   "modified": "2022-09-21",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-29789",
+   "metres": 0
+  },
+  {
+   "cmhy": "29936",
+   "name": "อ้วนมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "089-558-5258,053-279-040",
+   "amphoe": "เมือง",
+   "modified": "2024-04-17",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-29936",
+   "metres": 0
+  },
+  {
+   "cmhy": "29965",
+   "name": "มอเตอร์ไบค์",
+   "tags": [
+    "มอเตอร์ไซค์ไฟฟ้า"
+   ],
+   "phone": "096-654-5594",
+   "amphoe": "เมือง",
+   "modified": "2021-09-27",
+   "trade": "motorbike",
+   "facets": {
+    "ev": true
+   },
+   "osm": "cm-curated-motorbike-29965",
+   "metres": 0
+  },
+  {
+   "cmhy": "30018",
+   "name": "AWK Shop อิ๊ดเซอร์วิส",
+   "tags": [
+    "ปะยางมอเตอร์ไซค์",
+    "ซ่อมมอเตอร์ไซค์"
+   ],
+   "phone": "095-134-8073",
+   "amphoe": "เมือง",
+   "modified": "2026-01-10",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-30018",
+   "metres": 0
+  },
+  {
+   "cmhy": "30053",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [วังสิงห์คำ]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-11-17",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-30053",
+   "metres": 0
+  },
+  {
+   "cmhy": "30069",
+   "name": "ลานนามอเตอร์",
+   "tags": [
+    "ซื้อมอเตอร์ไซค์",
+    "ขายมอเตอร์ไซค์",
+    "แลกเปลี่ยนมอเตอร์ไซค์"
+   ],
+   "phone": "053-116-154,086-191-8178",
+   "amphoe": "เมือง",
+   "modified": "2022-03-24",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-30069",
+   "metres": 0
+  },
+  {
+   "cmhy": "30077",
+   "name": "ซ่อมมอเตอร์ไซค์ [หน้ารร.ดารา]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-10-15",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-30077",
+   "metres": 0
+  },
+  {
+   "cmhy": "30087",
+   "name": "กีตาร์มอเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "099-071-9795,088-805-3499",
+   "amphoe": "เมือง",
+   "modified": "2022-05-16",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-30087",
+   "metres": 0
+  },
+  {
+   "cmhy": "30097",
+   "name": "ดีมอเตอร์ เซอร์วิส",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "083-715-5728",
+   "amphoe": "เมือง",
+   "modified": "2021-10-11",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-30097",
+   "metres": 0
+  },
+  {
+   "cmhy": "30113",
+   "name": "สากลมอเตอร์ ซ่อมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-10-27",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-30113",
+   "metres": 0
+  },
+  {
+   "cmhy": "30171",
+   "name": "แสงชัยมอเตอร์เซลส์ (บวกครก-สันกำแพง)",
+   "tags": [
+    "รถยามาฮ่า",
+    "yamaha",
+    "รถมอเตอร์ไซต์"
+   ],
+   "phone": "053-241-156",
+   "amphoe": "เมือง",
+   "modified": "2022-01-06",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "30273",
+   "name": "เลิฟไบค์ รถเช่า",
+   "tags": [
+    "รถมอเตอร์ไซค์เช่า"
+   ],
+   "phone": "095-886-4333",
+   "amphoe": "เมือง",
+   "modified": "2025-05-31",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-30273",
+   "metres": 0
+  },
+  {
+   "cmhy": "30311",
+   "name": "เอ มอเตอร์ 2",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "หุ้มเบาะมอเตอร์ไซค์"
+   ],
+   "phone": "092-540-7040",
+   "amphoe": "เมือง",
+   "modified": "2021-10-27",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-30311",
+   "metres": 0
+  },
+  {
+   "cmhy": "30536",
+   "name": "เจริญมอเตอร์ ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "096-604-3945",
+   "amphoe": "เมือง",
+   "modified": "2024-10-25",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-30536",
+   "metres": 0
+  },
+  {
+   "cmhy": "30576",
+   "name": "ช่างทัต ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "080-670-7893",
+   "amphoe": "เมือง",
+   "modified": "2021-12-09",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-30576",
+   "metres": 0
+  },
+  {
+   "cmhy": "30629",
+   "name": "ซ่อมมอเตอร์ไซค์ คาสตอลไบค์พ้อยท์",
+   "tags": [
+    "ซ่อมรถมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-11-13",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-30629",
+   "metres": 0
+  },
+  {
+   "cmhy": "30658",
+   "name": "ร่ำรวยมอเตอร์ เซอร์วิส",
+   "tags": [
+    "เครื่องซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "086-193-6721",
+   "amphoe": "เมือง",
+   "modified": "2025-07-15",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-30658",
+   "metres": 0
+  },
+  {
+   "cmhy": "30680",
+   "name": "budget บัดเจ็ท  (สนามบินเชียงใหม่)",
+   "tags": [
+    "รถยนต์เช่า",
+    "เช่ารถยนต์ขับ",
+    "จองรถยนต์ขับเชียงใหม่"
+   ],
+   "phone": "053-202-871",
+   "amphoe": "เมือง",
+   "modified": "2024-01-06",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-osm-node-3281905418",
+   "metres": 16
+  },
+  {
+   "cmhy": "30681",
+   "name": "ไทยเร้นท์อะคาร์ (สนามบินเชียงใหม่) thairent a car",
+   "tags": [
+    "รถยนต์เช่า",
+    "เช่ารถยนต์ขับ",
+    "จองรถยนต์ขับเชียงใหม่"
+   ],
+   "phone": "02-844-9301,082-668-5069",
+   "amphoe": "เมือง",
+   "modified": "2024-01-06",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-osm-node-1474873124",
+   "metres": 16
+  },
+  {
+   "cmhy": "30770",
+   "name": "รับซ่อมมอเตอร์ไซค์ [ถนน ระแกง]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "091-143-2640",
+   "amphoe": "เมือง",
+   "modified": "2022-09-22",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-30770",
+   "metres": 0
+  },
+  {
+   "cmhy": "30791",
+   "name": "แมงโก้ สกู๊ตเตอร์ เรนเทล",
+   "tags": [
+    "รถมอเตอร์ไซค์เช่า"
+   ],
+   "phone": "087-728-0515",
+   "amphoe": "เมือง",
+   "modified": "2025-04-04",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-osm-node-5028087621",
+   "metres": 16
+  },
+  {
+   "cmhy": "30792",
+   "name": "ดีทู-ไบค์ D2 (ห้วยแก้ว นิมมาน)",
+   "tags": [
+    "รถมือสอง",
+    "จักรยนต์มือสอง",
+    "มอไซต์มือสอง"
+   ],
+   "phone": "090-317-3256",
+   "amphoe": "เมือง",
+   "modified": "2025-04-04",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "30915",
+   "name": "แสงชัยมอเตอร์เซลส์ (ศูนย์บริการ)",
+   "tags": [
+    "รถยามาฮ่า",
+    "yamaha",
+    "รถมอเตอร์ไซต์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-06-12",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "30926",
+   "name": "สันติการช่าง",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ประยางมอเตอร์ไซค์"
+   ],
+   "phone": "093-228-6077",
+   "amphoe": "เมือง",
+   "modified": "2021-11-29",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-30926",
+   "metres": 0
+  },
+  {
+   "cmhy": "31078",
+   "name": "ยูด้า มอเตอร์ รถไฟฟ้า",
+   "tags": [
+    "รถไฟฟ้า",
+    "สามล้อไฟฟ้า"
+   ],
+   "phone": "096-127-8489,096-357-6936",
+   "amphoe": "เมือง",
+   "modified": "2024-02-20",
+   "trade": null,
+   "facets": {
+    "ev": true
+   },
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "31094",
+   "name": "ช่างบอลล์ โมดิฟาย ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "083-949-0711",
+   "amphoe": "เมือง",
+   "modified": "2026-02-25",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-31094",
+   "metres": 0
+  },
+  {
+   "cmhy": "31105",
+   "name": "ช่าง บอยมอเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "061-843-3320",
+   "amphoe": "เมือง",
+   "modified": "2021-12-30",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-31105",
+   "metres": 0
+  },
+  {
+   "cmhy": "31119",
+   "name": "เซียงซุนมอเตอร์เซอร์วิส",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "095-591-9394",
+   "amphoe": "เมือง",
+   "modified": "2022-01-10",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-31119",
+   "metres": 0
+  },
+  {
+   "cmhy": "3125",
+   "name": "แสงชัยมอเตอร์เซลส์ (สาขา หนองหอย (89 พลาซ่า) )",
+   "tags": [
+    "มิตซูบิชิ",
+    "ยามาฮ่า",
+    "คาวาซากิ"
+   ],
+   "phone": "053-141-013",
+   "amphoe": "เมือง",
+   "modified": "2022-01-06",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "31358",
+   "name": "เชียงใหม่สกาย ทราเวล",
+   "tags": [
+    "บริการรถเช่า",
+    "เช่ารถตู้พร้อคนขับ",
+    "เช่ารถบัสพร้อมคนขับ"
+   ],
+   "phone": "053-334-968",
+   "amphoe": "เมือง",
+   "modified": "2023-05-03",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-31358",
+   "metres": 0
+  },
+  {
+   "cmhy": "31463",
+   "name": "มัสแตง โมทาด 89",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "มอเตอร์ไซค์วิบาก"
+   ],
+   "phone": "096-945-3459",
+   "amphoe": "เมือง",
+   "modified": "2023-06-07",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-osm-node-3207247634",
+   "metres": 34
+  },
+  {
+   "cmhy": "31471",
+   "name": "ต.อะไหล่ยนต์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "097-974-7167",
+   "amphoe": "เมือง",
+   "modified": "2026-02-25",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-31471",
+   "metres": 0
+  },
+  {
+   "cmhy": "31474",
+   "name": "ชัยมอเตอร์",
+   "tags": [
+    "เครื่องตัดหญ้า",
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "094-601-5928",
+   "amphoe": "เมือง",
+   "modified": "2022-01-21",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-31474",
+   "metres": 0
+  },
+  {
+   "cmhy": "31523",
+   "name": "ซ่อมมอเตอร์ไซค์ [ถนนระแกง หลังวัดพวกช้าง]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-04-17",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-31523",
+   "metres": 0
+  },
+  {
+   "cmhy": "31558",
+   "name": "กุ้งเซอร์วิส ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "063-376-0539",
+   "amphoe": "เมือง",
+   "modified": "2024-09-24",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-31558",
+   "metres": 0
+  },
+  {
+   "cmhy": "31729",
+   "name": "แสงชัยมอเตอร์ (ราชภัฏเชียงใหม่)",
+   "tags": [
+    "รถยามาฮ่า",
+    "yamaha",
+    "รถมอเตอร์ไซต์"
+   ],
+   "phone": "095-989-1416,085-515-9626",
+   "amphoe": "เมือง",
+   "modified": "2026-01-07",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "31878",
+   "name": "บิ๊กจั๊มป์ทราเวล",
+   "tags": [
+    "รถยนต์ให้เช่า",
+    "มอเตอร์ไซค์เช่า"
+   ],
+   "phone": "053-206-099,094-614-0912",
+   "amphoe": "เมือง",
+   "modified": "2022-03-18",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-31878",
+   "metres": 0
+  },
+  {
+   "cmhy": "31997",
+   "name": "ซ่อมมอเตอร์ไซค์ (สันผีเสื้อ)",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-04-20",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-31997",
+   "metres": 0
+  },
+  {
+   "cmhy": "32063",
+   "name": "เจ.คาร์ แอนด์ มอเตอร์ไบค์",
+   "tags": [
+    "มอเตอร์ไซค์เช่า",
+    "รถเช่า",
+    "รถยนต์เช่า"
+   ],
+   "phone": "088-774-3198",
+   "amphoe": "เมือง",
+   "modified": "2022-04-20",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-32063",
+   "metres": 0
+  },
+  {
+   "cmhy": "32064",
+   "name": "แค๊มป์ ไบค์ มอเตอร์ไซค์เช่า",
+   "tags": [
+    "มอเตอร์ไซค์เช่า",
+    "รถเช่า",
+    "รถยนต์เช่า"
+   ],
+   "phone": "098-844-5290",
+   "amphoe": "เมือง",
+   "modified": "2022-04-05",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-32064",
+   "metres": 0
+  },
+  {
+   "cmhy": "32126",
+   "name": "อู่รถเครื่อง บีบีการาจ byช่างเบย์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "062-356-1356,097-954-5899",
+   "amphoe": "เมือง",
+   "modified": "2026-02-25",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-32126",
+   "metres": 0
+  },
+  {
+   "cmhy": "32128",
+   "name": "เอ็ม มอเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "062-743-6766",
+   "amphoe": "เมือง",
+   "modified": "2022-04-20",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-32128",
+   "metres": 0
+  },
+  {
+   "cmhy": "32129",
+   "name": "ช่างน้อย มอเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "087-731-6997",
+   "amphoe": "เมือง",
+   "modified": "2024-11-22",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-32129",
+   "metres": 0
+  },
+  {
+   "cmhy": "32156",
+   "name": "ซ่อมมอเตอร์ไซค์ ปะยาง [บ้านใหม่สามัคคี]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-03-19",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-32156",
+   "metres": 0
+  },
+  {
+   "cmhy": "32176",
+   "name": "เค เอ็น KN มอเตอร์ไบค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "0981014621",
+   "amphoe": "เมือง",
+   "modified": "2025-03-19",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-32176",
+   "metres": 0
+  },
+  {
+   "cmhy": "32182",
+   "name": "น้องฟิวส์เอ็นจอย (ช่างไข่)",
+   "tags": [
+    "ซ่อมรถยนต์",
+    "ซ่อมมอเตอร์ไซค์",
+    "เปลี่ยนถ่ายน้ำมันเครื่อง"
+   ],
+   "phone": "080-596-0871",
+   "amphoe": "เมือง",
+   "modified": "2022-05-09",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-32182",
+   "metres": 0
+  },
+  {
+   "cmhy": "32196",
+   "name": "ซ่อมมอเตอร์ไซค์ (บ้านร้องเรือนคำ)",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "065-008-4853",
+   "amphoe": "เมือง",
+   "modified": "2025-04-01",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-32196",
+   "metres": 0
+  },
+  {
+   "cmhy": "32276",
+   "name": "เฮียหมาคาร์เร้นท์ 4289",
+   "tags": [
+    "รถเช่า",
+    "รถให้เช่า",
+    "รถยนต์เช่า"
+   ],
+   "phone": "085-843-6495,062-959-3928,064-289-3261",
+   "amphoe": "เมือง",
+   "modified": "2023-04-29",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-32276",
+   "metres": 0
+  },
+  {
+   "cmhy": "32310",
+   "name": "เอสเคเอส SKS เวสป้า",
+   "tags": [
+    "ซ่อมเวสป้า",
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-06-03",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-32310",
+   "metres": 0
+  },
+  {
+   "cmhy": "32519",
+   "name": "ที.ที. T.T.  เซอร์วิส",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "เปลี่ยนยางมอเตอร์ไซค์"
+   ],
+   "phone": "082-619-7476",
+   "amphoe": "เมือง",
+   "modified": "2022-07-11",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-32519",
+   "metres": 0
+  },
+  {
+   "cmhy": "32601",
+   "name": "โจ้ ออโต้ช้อป",
+   "tags": [
+    "ซ่อมรถมอเตอร์ไซค์",
+    "ปะยางรถมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องรถมอเตอร์ไซค์"
+   ],
+   "phone": "093-132-1291",
+   "amphoe": "เมือง",
+   "modified": "2024-08-06",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-32601",
+   "metres": 0
+  },
+  {
+   "cmhy": "32611",
+   "name": "เค.พี. K.P. เรซซิ่งการาจ",
+   "tags": [
+    "ซ่อมรถมอเตอร์ไซค์",
+    "ปะยางรถมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องรถมอเตอร์ไซค์"
+   ],
+   "phone": "082-401-9156,082-582-4796",
+   "amphoe": "เมือง",
+   "modified": "2023-03-30",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-32611",
+   "metres": 0
+  },
+  {
+   "cmhy": "32657",
+   "name": "ซีดี คาร์เล้นท์",
+   "tags": [
+    "รถยนต์เช่า",
+    "เช่ารถยนต์",
+    "รถยนต์ให้เช่า"
+   ],
+   "phone": "093-130-8000",
+   "amphoe": "เมือง",
+   "modified": "2024-09-07",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-32657",
+   "metres": 0
+  },
+  {
+   "cmhy": "32666",
+   "name": "แลมเบรตต้า เชียงใหม่ Lambretta",
+   "tags": [
+    "แลมเบรตต้า",
+    "Lambretta",
+    "รถสกู๊ตเตอร์แบรนด์อิตาลี"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-07-11",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "32673",
+   "name": "ซ่อมมอเตอร์ไซค์ ปะยาง บ้านเด่น",
+   "tags": [
+    "ซ่อมรถมอเตอร์ไซค์",
+    "ปะยางรถมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องรถมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-07-11",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-32673",
+   "metres": 0
+  },
+  {
+   "cmhy": "3277",
+   "name": "ศุภฤกษ์ เจริญยนต์",
+   "tags": [
+    "ปะยาง",
+    "สูบลม",
+    "เปลี่ยนหัวเทียน"
+   ],
+   "phone": "0994763909",
+   "amphoe": "เมือง",
+   "modified": "2022-11-03",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "32797",
+   "name": "ช่างตี๋เซอร์วิส โมดิฟาย",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "062-330-5203,094-509-4339",
+   "amphoe": "เมือง",
+   "modified": "2026-05-01",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-32797",
+   "metres": 0
+  },
+  {
+   "cmhy": "32802",
+   "name": "บิลลี่ ทัวร์ รถให้เช่า",
+   "tags": [
+    "รถให้เช่า",
+    "รถมอเตอร์ไซค์เช่า"
+   ],
+   "phone": "080-135-9076,081-028-3944",
+   "amphoe": "เมือง",
+   "modified": "2022-07-26",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-32802",
+   "metres": 0
+  },
+  {
+   "cmhy": "32829",
+   "name": "วินัยมอเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-07-29",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-32829",
+   "metres": 0
+  },
+  {
+   "cmhy": "32831",
+   "name": "หลวงอั๋นมอเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "081-681-0215",
+   "amphoe": "เมือง",
+   "modified": "2026-02-25",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-32831",
+   "metres": 0
+  },
+  {
+   "cmhy": "32832",
+   "name": "เนสช้อป Nes Shop ซุ้มป่าแดด",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "089-555-3020",
+   "amphoe": "เมือง",
+   "modified": "2023-10-18",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-32832",
+   "metres": 0
+  },
+  {
+   "cmhy": "3297",
+   "name": "ซีเอ็มสกูตเตอร์ช็อป",
+   "tags": [
+    "ซ่อมเวสป้า",
+    "ปะยาง",
+    "สูบลม"
+   ],
+   "phone": "086-7280308,085-7199759,086-9196544",
+   "amphoe": "เมือง",
+   "modified": "2022-02-08",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "33093",
+   "name": "ซ่อมมอเตอร์ไซค์ ซ่อมเวสป้า",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-01-28",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-33093",
+   "metres": 0
+  },
+  {
+   "cmhy": "33095",
+   "name": "ไหมแพร บริการรถมอเตอร์ไซค์ให้เช่า",
+   "tags": [
+    "มอเตอร์ไซค์ให้เช่า",
+    "เช่ามอเตอร์ไซค์"
+   ],
+   "phone": "081-530-4764",
+   "amphoe": "เมือง",
+   "modified": "2023-05-19",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-33095",
+   "metres": 0
+  },
+  {
+   "cmhy": "33113",
+   "name": "ช่างตู่ ซ่อมมอเตอร์ไซค์ ปะยาง [กู่เต้า ซอย 5]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-07-09",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-33113",
+   "metres": 0
+  },
+  {
+   "cmhy": "33137",
+   "name": "ตูน ไบค์  เรนทัล รถเช่า",
+   "tags": [
+    "รถมอเตอร์ไซค์เช่า",
+    "รถให้เช่า"
+   ],
+   "phone": "093-538-6000",
+   "amphoe": "เมือง",
+   "modified": "2026-05-31",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-osm-way-482771555",
+   "metres": 24
+  },
+  {
+   "cmhy": "33189",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ ปะยาง (วรุณนิวเศน์ ซอย 2)",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "085-035-6347",
+   "amphoe": "เมือง",
+   "modified": "2026-02-22",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-33189",
+   "metres": 0
+  },
+  {
+   "cmhy": "333",
+   "name": "ชาติ คาร์เร้นท์",
+   "tags": [
+    "รถเช่า",
+    "เช่ารถกระบะ",
+    "เช่ารถตู้"
+   ],
+   "phone": "053-287-618,097-070-5945,081-882-7489",
+   "amphoe": "เมือง",
+   "modified": "2023-02-08",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-osm-node-5470208626",
+   "metres": 8
+  },
+  {
+   "cmhy": "33379",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ ปะยาง [ถนน เทวัญสันติธรรม]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-05-17",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-33379",
+   "metres": 0
+  },
+  {
+   "cmhy": "33397",
+   "name": "สายฟ้าเรสซิ่งช้อป",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-06-01",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-33397",
+   "metres": 0
+  },
+  {
+   "cmhy": "33402",
+   "name": "ร้านซ่อมมอเตอร์ไซค์  [การเคหะหนองหอย]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์",
+    "ซ่อมบิ๊กไบค์"
+   ],
+   "phone": "064-456-6701",
+   "amphoe": "เมือง",
+   "modified": "2025-10-30",
+   "trade": "motorbike",
+   "facets": {
+    "bigbike": true
+   },
+   "osm": "cm-curated-motorbike-33402",
+   "metres": 0
+  },
+  {
+   "cmhy": "3365",
+   "name": "วินวินมอเตอร์ไซต์",
+   "tags": [
+    "ปะยาง",
+    "สูบลม",
+    "เปลี่ยนหัวเทียน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-08-12",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "33868",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ ปะยาง [ท่าสะต๋อย ถนนเชียงใหม่ลำพูน]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-07-11",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-osm-node-3326560614",
+   "metres": 19
+  },
+  {
+   "cmhy": "34094",
+   "name": "เจเอ็มวายออโต้ JMY (สาขา เจริญเมือง)",
+   "tags": [
+    "รถมอเตอร์ไซค์มือหนึ่ง",
+    "รถมอเตอร์ไซค์ใหม่"
+   ],
+   "phone": "091-070-8893",
+   "amphoe": "เมือง",
+   "modified": "2026-08-26",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-34094",
+   "metres": 0
+  },
+  {
+   "cmhy": "34207",
+   "name": "ฮอน ช๊อป Honshop",
+   "tags": [
+    "ซ่อมรถมอเตอร์ไซค์",
+    "ปะยางรถมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องรถมอเตอร์ไซค์"
+   ],
+   "phone": "086-191-1904",
+   "amphoe": "เมือง",
+   "modified": "2022-11-03",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-34207",
+   "metres": 0
+  },
+  {
+   "cmhy": "34545",
+   "name": "โอมอเตอร์ หน้าวัดป่าข่อยใต้",
+   "tags": [
+    "ซ่อมรถมอเตอร์ไซค์",
+    "ปะยางรถมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องรถมอเตอร์ไซค์"
+   ],
+   "phone": "082-035-0770",
+   "amphoe": "เมือง",
+   "modified": "2026-08-21",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-34545",
+   "metres": 0
+  },
+  {
+   "cmhy": "34711",
+   "name": "บัสเจดแคสเชอร์ Budgetcatcher รถเช่า (สาขานิมมาน)",
+   "tags": [
+    "รถยนต์เช่า",
+    "รถให้เช่า",
+    "เช่ารถยนต์"
+   ],
+   "phone": "087-622-7799",
+   "amphoe": "เมือง",
+   "modified": "2023-01-07",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-34711",
+   "metres": 0
+  },
+  {
+   "cmhy": "34735",
+   "name": "อะยา เซอร์วิส aya service (เชียงใหม่)",
+   "tags": [
+    "รถไปปาย",
+    "รถตู้ไปปาย",
+    "บริการรถตู้ไปปาย"
+   ],
+   "phone": "093-308-6688,086-920-866",
+   "amphoe": "เมือง",
+   "modified": "2026-05-30",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "34836",
+   "name": "ต้อม มอเตอร์",
+   "tags": [
+    "ซ่อมรถมอเตอร์ไซค์",
+    "ปะยางรถมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องรถมอเตอร์ไซค์"
+   ],
+   "phone": "084-617-8951,085-339-7824",
+   "amphoe": "เมือง",
+   "modified": "2023-01-30",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-34836",
+   "metres": 0
+  },
+  {
+   "cmhy": "35060",
+   "name": "ร้านปะยางมอเตอร์ไซค์ อ๊อกเชื่อม [ตลาดเมืองใหม่]",
+   "tags": [
+    "ซ่อมรถมอเตอร์ไซค์",
+    "ปะยางรถมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องรถมอเตอร์ไซค์"
+   ],
+   "phone": "085-606-8268",
+   "amphoe": "เมือง",
+   "modified": "2023-02-07",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-35060",
+   "metres": 0
+  },
+  {
+   "cmhy": "35072",
+   "name": "ช่างจ๊อดโมโต สาขา ช้างเผือก",
+   "tags": [
+    "ซ่อมรถมอเตอร์ไซค์",
+    "ปะยางรถมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องรถมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-08-08",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-35072",
+   "metres": 0
+  },
+  {
+   "cmhy": "35313",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [สันนาลุง]",
+   "tags": [
+    "ซ่อมรถมอเตอร์ไซค์",
+    "ปะยางรถมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องรถมอเตอร์ไซค์"
+   ],
+   "phone": "084-151-5297",
+   "amphoe": "เมือง",
+   "modified": "2023-03-24",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-35313",
+   "metres": 0
+  },
+  {
+   "cmhy": "35363",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ (ช่างดุล) [เจริญประเทศ]",
+   "tags": [
+    "ซ่อมรถมอเตอร์ไซค์",
+    "ปะยางรถมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องรถมอเตอร์ไซค์"
+   ],
+   "phone": "089-572-3938",
+   "amphoe": "เมือง",
+   "modified": "2023-07-18",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-35363",
+   "metres": 0
+  },
+  {
+   "cmhy": "35370",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [สุขเกษม ซอย 1]",
+   "tags": [
+    "ซ่อมรถมอเตอร์ไซค์",
+    "ปะยางรถมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องรถมอเตอร์ไซค์"
+   ],
+   "phone": "064-143-5825",
+   "amphoe": "เมือง",
+   "modified": "2023-04-21",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-35370",
+   "metres": 0
+  },
+  {
+   "cmhy": "35374",
+   "name": "ภาสินีแม่แตง (สาขาข่วงสิงห์) ขายรถมอเตอร์ไซค์",
+   "tags": [
+    "โชว์รูมรถมอเตอร์ไซค์",
+    "ออกรถมอเตอร์ไซค์",
+    "รถมอเตอร์ไซค์มือหนึ่ง"
+   ],
+   "phone": "091-070-8893",
+   "amphoe": "เมือง",
+   "modified": "2026-02-07",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-35374",
+   "metres": 0
+  },
+  {
+   "cmhy": "35401",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [หนองป่าครั่ง]",
+   "tags": [
+    "ซ่อมรถมอเตอร์ไซค์",
+    "ปะยางรถมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องรถมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-03-30",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-35401",
+   "metres": 0
+  },
+  {
+   "cmhy": "35402",
+   "name": "สตีท เวสป้า",
+   "tags": [
+    "ซ่อมเวสป้า"
+   ],
+   "phone": "080-007-0819",
+   "amphoe": "เมือง",
+   "modified": "2023-06-29",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "35423",
+   "name": "เอ.เอ็น. คาร์เร้นท์",
+   "tags": [
+    "เช่ารถยนต์",
+    "รถยนต์ให้เช่า",
+    "รถเช่า"
+   ],
+   "phone": "064-810-7616,084-615-4985",
+   "amphoe": "เมือง",
+   "modified": "2023-04-21",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-35423",
+   "metres": 0
+  },
+  {
+   "cmhy": "35424",
+   "name": "ที คาร์เร้นท์ T Car RENT",
+   "tags": [
+    "เช่ารถยนต์",
+    "รถยนต์ให้เช่า",
+    "รถเช่า"
+   ],
+   "phone": "095-450-5333",
+   "amphoe": "เมือง",
+   "modified": "2026-05-29",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-35424",
+   "metres": 0
+  },
+  {
+   "cmhy": "35441",
+   "name": "เดอะ วาย รถให้เช่า The Y",
+   "tags": [
+    "รถมอเตอร์ไซค์เช่า",
+    "รถให้เช่า"
+   ],
+   "phone": "083-629-1555",
+   "amphoe": "เมือง",
+   "modified": "2023-05-03",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-35441",
+   "metres": 0
+  },
+  {
+   "cmhy": "35485",
+   "name": "มารัตน์ พาณิชย์ มอเตอร์ไซค์เช่า",
+   "tags": [
+    "รถมอเตอร์ไซค์ให้เช่า",
+    "มอเตอร์ไซค์เช่า"
+   ],
+   "phone": "066-113-2332",
+   "amphoe": "เมือง",
+   "modified": "2026-02-26",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-35485",
+   "metres": 0
+  },
+  {
+   "cmhy": "35583",
+   "name": "KED รถเช่า",
+   "tags": [
+    "รถมอเตอร์ไซค์เช่า"
+   ],
+   "phone": "0652973797,0638575054",
+   "amphoe": "เมือง",
+   "modified": "2024-05-03",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-35583",
+   "metres": 0
+  },
+  {
+   "cmhy": "35802",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [ถนน ช้างเผือก ซอย 4]",
+   "tags": [
+    "ซ่อมรถมอเตอร์ไซค์",
+    "ปะยางรถมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องรถมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-07-26",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-35802",
+   "metres": 0
+  },
+  {
+   "cmhy": "35951",
+   "name": "ช่างนิวเซอร์วิส",
+   "tags": [
+    "ซ่อมรถมอเตอร์ไซค์",
+    "ปะยางรถมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องรถมอเตอร์ไซค์"
+   ],
+   "phone": "065-481-4052",
+   "amphoe": "เมือง",
+   "modified": "2023-10-13",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-35951",
+   "metres": 0
+  },
+  {
+   "cmhy": "35983",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [ศรีบัวเงิน ซอย 6]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-08-18",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-35983",
+   "metres": 0
+  },
+  {
+   "cmhy": "36125",
+   "name": "หมูป่าเอ็นดูโร่ ร้านซ่อมมอเตอร์ไซค์ [สี่แยกหนองหอย]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "0620409259",
+   "amphoe": "เมือง",
+   "modified": "2025-04-20",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-36125",
+   "metres": 0
+  },
+  {
+   "cmhy": "36156",
+   "name": "คาเมะ เช่ามอเตอร์ไซค์",
+   "tags": [
+    "เช่ามอเตอร์ไซค์",
+    "เช่ามอเตอร์ไซค์ให้เช่า"
+   ],
+   "phone": "083-322-3607",
+   "amphoe": "เมือง",
+   "modified": "2026-06-02",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-36156",
+   "metres": 0
+  },
+  {
+   "cmhy": "36216",
+   "name": "มอเตอร์ไบค์เชียงใหม่",
+   "tags": [
+    "รถมอเตอร์ไซค์ให้เช่า",
+    "เช่ามอเตอร์ไซค์"
+   ],
+   "phone": "084-047-8933",
+   "amphoe": "เมือง",
+   "modified": "2024-10-26",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-36216",
+   "metres": 0
+  },
+  {
+   "cmhy": "36219",
+   "name": "K7 มอเตอร์ไซค์เช่า",
+   "tags": [
+    "รถมอเตอร์ไซค์ให้เช่า",
+    "เช่ามอเตอร์ไซค์"
+   ],
+   "phone": "082-762-6828",
+   "amphoe": "เมือง",
+   "modified": "2024-08-16",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-36219",
+   "metres": 0
+  },
+  {
+   "cmhy": "36227",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [ดอนปิน ซอย 3]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-10-18",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-36227",
+   "metres": 0
+  },
+  {
+   "cmhy": "36246",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [แยกบิ๊กซีแม่เหียะ]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-03-19",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-36246",
+   "metres": 0
+  },
+  {
+   "cmhy": "36255",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ NP service",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "064-619-2556",
+   "amphoe": "เมือง",
+   "modified": "2023-10-18",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-36255",
+   "metres": 0
+  },
+  {
+   "cmhy": "36259",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [เวียงกุมกาม]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "090-316-6593",
+   "amphoe": "เมือง",
+   "modified": "2024-12-21",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-36259",
+   "metres": 0
+  },
+  {
+   "cmhy": "36312",
+   "name": "ร้านซ่อมมอเตอร์ไซค์  หุ้มเบาะ [ป่าแดดใต้]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "089-432-2917",
+   "amphoe": "เมือง",
+   "modified": "2023-10-18",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-36312",
+   "metres": 0
+  },
+  {
+   "cmhy": "36320",
+   "name": "นายช่างการอะไหล่",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-10-18",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-36320",
+   "metres": 0
+  },
+  {
+   "cmhy": "36323",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [ป่าแดดใต้]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-10-18",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-36323",
+   "metres": 0
+  },
+  {
+   "cmhy": "36342",
+   "name": "NA การาจ",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "096-994-9927",
+   "amphoe": "เมือง",
+   "modified": "2024-10-26",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-36342",
+   "metres": 0
+  },
+  {
+   "cmhy": "36426",
+   "name": "ร้ามซ่อมเวสป้า [หนองหอย]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-12-07",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-36426",
+   "metres": 0
+  },
+  {
+   "cmhy": "3643",
+   "name": "แสงชัยธุรกิจยานยนต์ คาวาซากิ",
+   "tags": [
+    "คาวาซากิ",
+    "จำหน่ายมอเตอร์ไซต์",
+    "ตัวแทนรถจักรยานยนต์"
+   ],
+   "phone": "053-270-381,053-201-509,086-421-5347",
+   "amphoe": "เมือง",
+   "modified": "2019-12-19",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-osm-way-192582618",
+   "metres": 14
+  },
+  {
+   "cmhy": "36439",
+   "name": "เค-โมโต ช็อป แอนด์ เซอร์วิส",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "087-075-9359,083-153-3817",
+   "amphoe": "เมือง",
+   "modified": "2026-03-25",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-36439",
+   "metres": 0
+  },
+  {
+   "cmhy": "36560",
+   "name": "แมด มอเตอร์ไบค์ Mads Motorbike Rental",
+   "tags": [
+    "รถให้เช่า",
+    "รถมอเตอร์ไซค์เช่า"
+   ],
+   "phone": "081-032-0011",
+   "amphoe": "เมือง",
+   "modified": "2023-10-06",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-36560",
+   "metres": 0
+  },
+  {
+   "cmhy": "36572",
+   "name": "วี สกู๊ตเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "093-234-8395",
+   "amphoe": "เมือง",
+   "modified": "2024-03-19",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-36572",
+   "metres": 0
+  },
+  {
+   "cmhy": "36631",
+   "name": "ร้านประดิษฐ์ ซ่อมมอเตอร์ไซค์ ซ่อมเครื่องใช้ไฟฟ้า",
+   "tags": [
+    "ลับคมกรรไกร",
+    "ไดร์เป่าผม",
+    "ลับบัตตาเลี่ยน"
+   ],
+   "phone": "081-951-7883,064-970-5839",
+   "amphoe": "เมือง",
+   "modified": "2025-11-27",
+   "trade": "motorbike",
+   "facets": {
+    "ev": true
+   },
+   "osm": "cm-curated-motorbike-36631",
+   "metres": 0
+  },
+  {
+   "cmhy": "36655",
+   "name": "ลุงกำนัน ซ่อมมอเตอร์ไซค์ [ป่าแก]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "063-940-8502",
+   "amphoe": "เมือง",
+   "modified": "2023-11-23",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-36655",
+   "metres": 0
+  },
+  {
+   "cmhy": "3674",
+   "name": "สมบูรณ์ มอเตอร์ เจ็ดยอด",
+   "tags": [
+    "ปะยางรถมอเตอร์ไซค์",
+    "เปลี่ยนหัวเทียนรถมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องรถมอเตอร์ไซค์"
+   ],
+   "phone": "080-793-4426",
+   "amphoe": "เมือง",
+   "modified": "2022-01-10",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-3674",
+   "metres": 0
+  },
+  {
+   "cmhy": "36779",
+   "name": "วีเลิฟ คาร์เล้นท์",
+   "tags": [
+    "รถยนต์เช่า",
+    "เช่ารถยนต์",
+    "รถยนต์ให้เช่า"
+   ],
+   "phone": "096-491-0008",
+   "amphoe": "เมือง",
+   "modified": "2023-11-17",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-36779",
+   "metres": 0
+  },
+  {
+   "cmhy": "36892",
+   "name": "ช่างอ๊อฟหลังโป",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "064-492-5757",
+   "amphoe": "เมือง",
+   "modified": "2023-11-16",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-36892",
+   "metres": 0
+  },
+  {
+   "cmhy": "36901",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [สี่แยก ถนนรัตนโกสินทร์ วังสิงห์คำ]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "081-426-8432",
+   "amphoe": "เมือง",
+   "modified": "2025-04-25",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-36901",
+   "metres": 0
+  },
+  {
+   "cmhy": "36960",
+   "name": "EV Motorbike Thailand",
+   "tags": [
+    "จักรยานยนต์ไฟฟ้า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-06-12",
+   "trade": "motorbike",
+   "facets": {
+    "ev": true
+   },
+   "osm": "cm-curated-motorbike-36960",
+   "metres": 0
+  },
+  {
+   "cmhy": "37048",
+   "name": "ร้านซ่อมมอเตอร์ไซต์ ช่างอี้ด-มอเตอร์  [แยกข่วงสิงห์]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "082-151-3998",
+   "amphoe": "เมือง",
+   "modified": "2025-08-23",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-37048",
+   "metres": 0
+  },
+  {
+   "cmhy": "3710",
+   "name": "เคพีเอ็นมอเตอร์เซอร์วิส",
+   "tags": [
+    "ปะยาง",
+    "สูบลม",
+    "เปลี่ยนหัวเทียน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2017-06-19",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "37111",
+   "name": "ลักกี้ ไบค์ เรนทรัล",
+   "tags": [
+    "รถมอเตอร์ไซค์ช่า"
+   ],
+   "phone": "098-047-2232",
+   "amphoe": "เมือง",
+   "modified": "2024-09-07",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-37111",
+   "metres": 0
+  },
+  {
+   "cmhy": "37261",
+   "name": "ช.เต๋า สนามก๊อฟท์ลานนา ร้านซ่อมมอเตอร์ไซค์ [โชตนา]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-08-23",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-37261",
+   "metres": 0
+  },
+  {
+   "cmhy": "37288",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [บ้านท่าเดื่อ สันผีเสื้อ ]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-06-13",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-37288",
+   "metres": 0
+  },
+  {
+   "cmhy": "37333",
+   "name": "หรั่งเซอร์วิส ร้านซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "097-984-0335",
+   "amphoe": "เมือง",
+   "modified": "2024-08-29",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-37333",
+   "metres": 0
+  },
+  {
+   "cmhy": "37357",
+   "name": "ไดร์ฟ เล้นท์ อะ คาร์ Drive Car Rental (ท่าอากาศยานเชียงใหม่)",
+   "tags": [
+    "รถเช่าเชียงใหม่",
+    "เช่ารถเชียงใหม่",
+    "เช่ารถยนต์"
+   ],
+   "phone": "053-271-293,084-700-4384",
+   "amphoe": "เมือง",
+   "modified": "2024-03-15",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-osm-node-1474870805",
+   "metres": 44
+  },
+  {
+   "cmhy": "37358",
+   "name": "ยุโรปคาร์ Europcar  (ท่าอากาศยานเชียงใหม่)",
+   "tags": [
+    "รถเช่า",
+    "รถยนต์ให้เช่า",
+    "รถยนต์เช่า"
+   ],
+   "phone": "02-203-0739",
+   "amphoe": "เมือง",
+   "modified": "2024-03-15",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-osm-node-1474870805",
+   "metres": 30
+  },
+  {
+   "cmhy": "37360",
+   "name": "AVIS เอวิส บริการรถเช่า(ท่าอากาศยานเชียงใหม่( ฝั่งผู้โดยสารต่างประเทศ))",
+   "tags": [
+    "รถให้เช่า",
+    "รถยนต์เช่า",
+    "เช่ารถยนต์เชียงใหม่"
+   ],
+   "phone": "02-251-1131",
+   "amphoe": "เมือง",
+   "modified": "2026-06-19",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-osm-node-1474870805",
+   "metres": 11
+  },
+  {
+   "cmhy": "37361",
+   "name": "แท็กซี่ เชียงใหม่แอร์พอร์ต (ท่าอากาศยานเชียงใหม่(ฝั่งผู้โดยสารต่างประเทศ))",
+   "tags": [
+    "บริการแท๊กซี่เช่า",
+    "เหมาแท็กซี่"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-03-15",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "3738",
+   "name": "จอยมอเตอร์",
+   "tags": [
+    "ปะยาง",
+    "สูบลม",
+    "เปลี่ยนหัวเทียน"
+   ],
+   "phone": "080-117-6035",
+   "amphoe": "เมือง",
+   "modified": "2026-01-28",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "37387",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [บ้านเกาะกลาง ]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "0816810215",
+   "amphoe": "เมือง",
+   "modified": "2024-03-15",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-37387",
+   "metres": 0
+  },
+  {
+   "cmhy": "37409",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [อาเขตช้างเผือก ขนส่งที่1 ] อาเขตช้างเผือก",
+   "tags": [
+    "หุ้มเบาะมอเตอร์ไซค์",
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-04-22",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-37409",
+   "metres": 0
+  },
+  {
+   "cmhy": "37430",
+   "name": "จ.เจี๊ยบ & ช่างนก ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "089-668-4206",
+   "amphoe": "เมือง",
+   "modified": "2024-10-24",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-37430",
+   "metres": 0
+  },
+  {
+   "cmhy": "37472",
+   "name": "93 จักรยาน เช่า ซ่อมมอเตอร์ไซค์  ซ่อมจักรยาน",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "053-271-721,084-003-6446",
+   "amphoe": "เมือง",
+   "modified": "2026-04-19",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-37472",
+   "metres": 0
+  },
+  {
+   "cmhy": "37475",
+   "name": "Ann รถเช่า",
+   "tags": [
+    "รถให้เช่า",
+    "มอเตอร์ไซค์เช่า"
+   ],
+   "phone": "083-474-9726",
+   "amphoe": "เมือง",
+   "modified": "2026-04-24",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-37475",
+   "metres": 0
+  },
+  {
+   "cmhy": "37533",
+   "name": "G3 การาจ ไบค์ ช็อป",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "089-262-1334",
+   "amphoe": "เมือง",
+   "modified": "2024-12-16",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-37533",
+   "metres": 0
+  },
+  {
+   "cmhy": "37536",
+   "name": "ซ้น เร้นท์ โมโต คาร์",
+   "tags": [
+    "รถมอเตอร์ไซค์เช่า",
+    "รถให้เช่า",
+    "รถยนต์ให้เช่า"
+   ],
+   "phone": "063-163-8011",
+   "amphoe": "เมือง",
+   "modified": "2024-03-19",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-osm-way-192582618",
+   "metres": 49
+  },
+  {
+   "cmhy": "37538",
+   "name": "บัดเจ็ดแคสเชอร์ BudgetCatcher ล้างอัดฉีด&รถให้เช่า",
+   "tags": [
+    "ล้างรถยนต์",
+    "ล้างอัดฉีด",
+    "รถให้เช่า"
+   ],
+   "phone": "087-622-7688",
+   "amphoe": "เมือง",
+   "modified": "2026-06-16",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "37550",
+   "name": "kengza service ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "061-641-5366",
+   "amphoe": "เมือง",
+   "modified": "2026-06-19",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-37550",
+   "metres": 0
+  },
+  {
+   "cmhy": "37564",
+   "name": "ช่างอ๊อก ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-04-17",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-37564",
+   "metres": 0
+  },
+  {
+   "cmhy": "37625",
+   "name": "ล้างรถ 24 ชั่วโมง & โชคดีรถเช่า เชียงใหม่ & ล้างอัดฉีด",
+   "tags": [
+    "ล้างรถกลางคืน",
+    "ล้างรถ24ชั่วโมง",
+    "ล้างรถเช่า"
+   ],
+   "phone": "097-306-6357,065-415-7998",
+   "amphoe": "เมือง",
+   "modified": "2026-05-29",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-37625",
+   "metres": 0
+  },
+  {
+   "cmhy": "37678",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [ซอยต๋าเหิน เมืองสาตร]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-11-27",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-37678",
+   "metres": 0
+  },
+  {
+   "cmhy": "37719",
+   "name": "ช่างวี ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "083-413-0689",
+   "amphoe": "เมือง",
+   "modified": "2024-10-15",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-37719",
+   "metres": 0
+  },
+  {
+   "cmhy": "37800",
+   "name": "TKL เรสซิ่ง (สาขาฟ้าฮ่าม)",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-03-23",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-osm-way-407663142",
+   "metres": 28
+  },
+  {
+   "cmhy": "37828",
+   "name": "คลินิกซ่อมมอเตอร์ไซค์ [ซอยชมจันทร์]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "094-517-2342",
+   "amphoe": "เมือง",
+   "modified": "2026-06-12",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-37828",
+   "metres": 0
+  },
+  {
+   "cmhy": "37941",
+   "name": "JK รถมอเตอร์ไซค์เช่า",
+   "tags": [
+    "รถมอเตอร์ไซค์เช่า"
+   ],
+   "phone": "083-085-3825",
+   "amphoe": "เมือง",
+   "modified": "2024-05-20",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-37941",
+   "metres": 0
+  },
+  {
+   "cmhy": "38093",
+   "name": "เอส.ที. อีวี มอเตอร์เชียงใหม่",
+   "tags": [
+    "รถมอเตอร์ไซค์ไฟฟ้าจักรยานไฟฟ้า",
+    "รถ",
+    "อีวี"
+   ],
+   "phone": "086-428-9550",
+   "amphoe": "เมือง",
+   "modified": "2024-05-23",
+   "trade": "motorbike",
+   "facets": {
+    "ev": true
+   },
+   "osm": "cm-curated-motorbike-38093",
+   "metres": 0
+  },
+  {
+   "cmhy": "38140",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ ปะยาง [ถ.พัฒนาช้างเผือก]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-06-17",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-38140",
+   "metres": 0
+  },
+  {
+   "cmhy": "38192",
+   "name": "สบาย EV มอเตอร์ มอเตอร์ไซค์ไฟฟ้า",
+   "tags": [
+    "มอเตอร์ไซค์ไฟฟ้า"
+   ],
+   "phone": "096-654-5594",
+   "amphoe": "เมือง",
+   "modified": "2026-06-12",
+   "trade": "motorbike",
+   "facets": {
+    "ev": true
+   },
+   "osm": "cm-curated-motorbike-38192",
+   "metres": 0
+  },
+  {
+   "cmhy": "3826",
+   "name": "ซ่อมมอเตอร์ไซค์ ช่างเคี่ยน",
+   "tags": [
+    "ปะยาง",
+    "สูบลม",
+    "เปลี่ยนหัวเทียน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-07-30",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-3826",
+   "metres": 0
+  },
+  {
+   "cmhy": "38293",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [ท่าเดื่อ]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-08-05",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-38293",
+   "metres": 0
+  },
+  {
+   "cmhy": "38294",
+   "name": "โอ๋มอเตอร์ CNX",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "094-629-9824",
+   "amphoe": "เมือง",
+   "modified": "2024-07-16",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-38294",
+   "metres": 0
+  },
+  {
+   "cmhy": "38450",
+   "name": "กิม ปะยาง ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "094-225-1871",
+   "amphoe": "เมือง",
+   "modified": "2024-08-06",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-38450",
+   "metres": 0
+  },
+  {
+   "cmhy": "38457",
+   "name": "เอฟ เซอร์วิส",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "080-559-7135",
+   "amphoe": "เมือง",
+   "modified": "2024-09-24",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-38457",
+   "metres": 0
+  },
+  {
+   "cmhy": "38524",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [สันติสุข ซอย 1]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "081-468-7489",
+   "amphoe": "เมือง",
+   "modified": "2024-10-26",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-38524",
+   "metres": 0
+  },
+  {
+   "cmhy": "38535",
+   "name": "ช่างเอมอเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-01-09",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-38535",
+   "metres": 0
+  },
+  {
+   "cmhy": "38573",
+   "name": "โมโตไบค์สเตชั่น",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-10-22",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-38573",
+   "metres": 0
+  },
+  {
+   "cmhy": "38615",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ SC Service [ถนน ป่าตัน]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "064-712-7967",
+   "amphoe": "เมือง",
+   "modified": "2024-10-23",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-38615",
+   "metres": 0
+  },
+  {
+   "cmhy": "3862",
+   "name": "ช่างบ้านบ้าน ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ปะยางมอเตอร์ไซค์",
+    "สูบลมมอเตอร์ไซค์",
+    "เปลี่ยนหัวเทียนมอเตอร์ไซค์"
+   ],
+   "phone": "083-478-7529",
+   "amphoe": "เมือง",
+   "modified": "2025-05-24",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-3862",
+   "metres": 0
+  },
+  {
+   "cmhy": "38660",
+   "name": "มอเตอร์ไซค์ให้เช่าเชียงใหม่",
+   "tags": [
+    "มอเตอร์ไซค์ให้เช่า",
+    "มอเตอร์ไซคเช่า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-11-19",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-38660",
+   "metres": 0
+  },
+  {
+   "cmhy": "38707",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ N.service [ถนน ธันนาวัลย์]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "096-869-4783",
+   "amphoe": "เมือง",
+   "modified": "2024-11-20",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-38707",
+   "metres": 0
+  },
+  {
+   "cmhy": "38722",
+   "name": "ร้านซ่อมมอเตอร์ไซค์  อู่ ลีดเดอร์ (เชียงใหม่ 1) [บ้านสันป่าเรียง]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-11-22",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-38722",
+   "metres": 0
+  },
+  {
+   "cmhy": "38726",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [บ้านเสาหิน ซอย 10]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-11-22",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-38726",
+   "metres": 0
+  },
+  {
+   "cmhy": "38731",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [บ้านเสาหิน]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-11-22",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-38731",
+   "metres": 0
+  },
+  {
+   "cmhy": "38781",
+   "name": "ภาสินีแม่แตง (หนองหอย)",
+   "tags": [
+    "โชว์รูมรถมอเตอร์ไซค์",
+    "ออกรถมอเตอร์ไซค์",
+    "รถมอเตอร์ไซค์มือหนึ่ง"
+   ],
+   "phone": "091-070-8893",
+   "amphoe": "เมือง",
+   "modified": "2026-07-25",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-38781",
+   "metres": 0
+  },
+  {
+   "cmhy": "38868",
+   "name": "เดชทัตมอเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "095-902-7870,080-296-3704",
+   "amphoe": "เมือง",
+   "modified": "2025-01-21",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-38868",
+   "metres": 0
+  },
+  {
+   "cmhy": "38882",
+   "name": "ป๊อปรถเช่า 1985",
+   "tags": [
+    "รถให้เช่า",
+    "รถยนต์ให้เช่า",
+    "รถยนต์เช่า"
+   ],
+   "phone": "053-218-850,099-142-3926",
+   "amphoe": "เมือง",
+   "modified": "2025-01-21",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-38882",
+   "metres": 0
+  },
+  {
+   "cmhy": "38992",
+   "name": "มิกเรสซิ่ง",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "064-535-5874",
+   "amphoe": "เมือง",
+   "modified": "2025-01-23",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-38992",
+   "metres": 0
+  },
+  {
+   "cmhy": "39043",
+   "name": "ลิ้มเม่งจั้ว (สาขา ฟ้าฮ่าม)",
+   "tags": [
+    "ฮอนด้า",
+    "honda",
+    "ยามาฮ่า"
+   ],
+   "phone": "065-747-4919",
+   "amphoe": "เมือง",
+   "modified": "2026-06-05",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "39054",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [ถนนช้างเผือก ซอย 2]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-03-05",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-39054",
+   "metres": 0
+  },
+  {
+   "cmhy": "39075",
+   "name": "ฮอลล์มอเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "065-121-4370",
+   "amphoe": "เมือง",
+   "modified": "2025-03-05",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-39075",
+   "metres": 0
+  },
+  {
+   "cmhy": "39197",
+   "name": "ซูซูกิ เชียงใหม่ ซูเปอร์ไบค์(ไทยแลนด์) Suzuki",
+   "tags": [
+    "Super",
+    "Bike",
+    "ซูซูกิ"
+   ],
+   "phone": "081-314-6639,062-239-3998",
+   "amphoe": "เมือง",
+   "modified": "2025-03-07",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "3934",
+   "name": "ช่างตาร์ อู่ซ่อมมอเตอร์ไซต์ [ช่างเคี่ยน]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "066-136-8808",
+   "amphoe": "เมือง",
+   "modified": "2025-07-15",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-3934",
+   "metres": 0
+  },
+  {
+   "cmhy": "39720",
+   "name": "ร้านช่างกรด",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "094-405-3600",
+   "amphoe": "เมือง",
+   "modified": "2025-03-07",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-39720",
+   "metres": 0
+  },
+  {
+   "cmhy": "39725",
+   "name": "น็อคทิส การาจ noctis garage",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "096-243-7593",
+   "amphoe": "เมือง",
+   "modified": "2025-03-07",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-39725",
+   "metres": 0
+  },
+  {
+   "cmhy": "39739",
+   "name": "16 การาจ ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "094-708-4166",
+   "amphoe": "เมือง",
+   "modified": "2026-05-30",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-39739",
+   "metres": 0
+  },
+  {
+   "cmhy": "39740",
+   "name": "ช่างชาญ ร้านซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "084-615-4918",
+   "amphoe": "เมือง",
+   "modified": "2026-05-30",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-39740",
+   "metres": 0
+  },
+  {
+   "cmhy": "3977",
+   "name": "บุญเซอร์วิส",
+   "tags": [
+    "ปะยาง",
+    "สูบลม",
+    "เปลี่ยนหัวเทียน"
+   ],
+   "phone": "088-252-2830",
+   "amphoe": "เมือง",
+   "modified": "2025-04-22",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "39876",
+   "name": "อุทัยเจริญยนต์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-04-22",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-39876",
+   "metres": 0
+  },
+  {
+   "cmhy": "39877",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [ป่าแดดเหนือ]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-04-22",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-39877",
+   "metres": 0
+  },
+  {
+   "cmhy": "40048",
+   "name": "บริการซ่อมมอเตอร์ไซค์ by แม่ข่าพานิช",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "053-234-639",
+   "amphoe": "เมือง",
+   "modified": "2025-06-05",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-osm-node-3670817036",
+   "metres": 16
+  },
+  {
+   "cmhy": "40127",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [ถนน ประชาสัมพันธ์]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-07-13",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-40127",
+   "metres": 0
+  },
+  {
+   "cmhy": "40149",
+   "name": "เอส.ที. อีวี มอเตอร์เชียงใหม่",
+   "tags": [
+    "รถมอเตอร์ไซค์ไฟฟ้า",
+    "จักรยานไฟฟ้า",
+    "รถอีวี"
+   ],
+   "phone": "086-428-9550,099-135-5564,052-009-334",
+   "amphoe": "เมือง",
+   "modified": "2025-07-29",
+   "trade": "motorbike",
+   "facets": {
+    "ev": true
+   },
+   "osm": "cm-curated-motorbike-40149",
+   "metres": 0
+  },
+  {
+   "cmhy": "40150",
+   "name": "อีวีพี รถไฟฟ้า 2,3,4 ล้อ",
+   "tags": [
+    "รถไฟฟ้าสองล้อ",
+    "รถไฟฟ้า3ล้อ",
+    "รถไฟฟ้า4ล้อ"
+   ],
+   "phone": "096-325-9877,091-789-4242",
+   "amphoe": "เมือง",
+   "modified": "2026-06-03",
+   "trade": null,
+   "facets": {
+    "ev": true
+   },
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "40284",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [ช่างเคี่ยน]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-07-15",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-40284",
+   "metres": 0
+  },
+  {
+   "cmhy": "40345",
+   "name": "EVP รถไฟฟ้า สาขาเชียงใหม่",
+   "tags": [
+    "รถไฟฟ้า2ล้อ",
+    "รถไฟฟ้า3ล้อ",
+    "รถไฟฟ้าสามล้อ"
+   ],
+   "phone": "096-325-9877",
+   "amphoe": "เมือง",
+   "modified": "2026-06-19",
+   "trade": null,
+   "facets": {
+    "ev": true
+   },
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "40377",
+   "name": "A.N. คาร์เร้นท์ รถเช่า",
+   "tags": [
+    "รถยนต์ให้เช่า",
+    "เช่ารถยนต์"
+   ],
+   "phone": "064-810-7616,084-615-4985",
+   "amphoe": "เมือง",
+   "modified": "2025-10-04",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-40377",
+   "metres": 0
+  },
+  {
+   "cmhy": "40382",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [บ้านแม่ข่าใต้]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-08-08",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-40382",
+   "metres": 0
+  },
+  {
+   "cmhy": "40385",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [ป่าแดด]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-08-08",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-40385",
+   "metres": 0
+  },
+  {
+   "cmhy": "40386",
+   "name": "วิทยามอเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "084-171-0844",
+   "amphoe": "เมือง",
+   "modified": "2025-08-08",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-40386",
+   "metres": 0
+  },
+  {
+   "cmhy": "40446",
+   "name": "โร เฮ้าส์ การาจ",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "064-619-2556",
+   "amphoe": "เมือง",
+   "modified": "2025-08-08",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-40446",
+   "metres": 0
+  },
+  {
+   "cmhy": "40466",
+   "name": "เชาว์ สกูตเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "092-555-8266",
+   "amphoe": "เมือง",
+   "modified": "2025-08-27",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-40466",
+   "metres": 0
+  },
+  {
+   "cmhy": "40591",
+   "name": "ตี๋ ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมจักรยาน",
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "083-577-2083",
+   "amphoe": "เมือง",
+   "modified": "2025-10-04",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-40591",
+   "metres": 0
+  },
+  {
+   "cmhy": "40604",
+   "name": "จ่าหนอน คาร์พาร์ค รับฝากรถยนต์/รถให้เช่า รับส่งสนามบิน รับส่งรพ.มหาราช",
+   "tags": [
+    "รับฝากรถยนต์",
+    "จอดรถรายเดือน",
+    "ส่งรพมหาราช"
+   ],
+   "phone": "089-999-4323,095-459-3888",
+   "amphoe": "เมือง",
+   "modified": "2025-10-04",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "40739",
+   "name": "ฮอนด้า สหพานิช เชียงใหม่",
+   "tags": [
+    "ฮอนด้า",
+    "Honda",
+    "ร้านขายมอเตอร์ไซค์"
+   ],
+   "phone": "084-047-7901",
+   "amphoe": "เมือง",
+   "modified": "2026-01-06",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-osm-way-314668281",
+   "metres": 9
+  },
+  {
+   "cmhy": "40749",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [ราชวิถี ซอย1]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-10-22",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-40749",
+   "metres": 0
+  },
+  {
+   "cmhy": "4075",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [ถนน ศรีปิงเมือง ซอย 3]",
+   "tags": [
+    "ปะยาง",
+    "สูบลม",
+    "เปลี่ยนหัวเทียน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-12-06",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-4075",
+   "metres": 0
+  },
+  {
+   "cmhy": "40750",
+   "name": "จากัวร์ มอเตอร์ และ รถยนต์ให้เช่า",
+   "tags": [
+    "รถยนต์ให้เช่า",
+    "เช่ารถยนต์",
+    "รถมอเตอร์ไซค์เช่า"
+   ],
+   "phone": "081-882-4580",
+   "amphoe": "เมือง",
+   "modified": "2026-01-09",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-40750",
+   "metres": 0
+  },
+  {
+   "cmhy": "40773",
+   "name": "ช่างจอ ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ร้านซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "095-010-4414",
+   "amphoe": "เมือง",
+   "modified": "2026-05-30",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-40773",
+   "metres": 0
+  },
+  {
+   "cmhy": "40806",
+   "name": "แคท คาร์เร้นท์",
+   "tags": [
+    "รถยนต์ให้เช่า",
+    "เช่ารถยนต์",
+    "รถให้เช่า"
+   ],
+   "phone": "065-509-5055",
+   "amphoe": "เมือง",
+   "modified": "2026-01-09",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-40806",
+   "metres": 0
+  },
+  {
+   "cmhy": "40837",
+   "name": "ไก่มอเตอร์ ร้านซ่อมมอเตอร์ไซค์ [วัดแม่คาว]",
+   "tags": [
+    "ร้านซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-12-30",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-40837",
+   "metres": 0
+  },
+  {
+   "cmhy": "41065",
+   "name": "เอโอเอ็ม คาร์เร้นท์",
+   "tags": [
+    "รถยนต์ให้เช่า",
+    "เช่ารถยนต์",
+    "รถให้เช่า"
+   ],
+   "phone": "096-646-2269",
+   "amphoe": "เมือง",
+   "modified": "2026-01-09",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-41065",
+   "metres": 0
+  },
+  {
+   "cmhy": "41163",
+   "name": "ลิ้มเม่งจั้ว (สาขาราชภัฎเชียงใหม่)",
+   "tags": [
+    "ร้านขายมอเตอร์ไซค์",
+    "โชว์รูมมอเตอร์ไซค์",
+    "ฮอนด้า"
+   ],
+   "phone": "081-951-4418",
+   "amphoe": "เมือง",
+   "modified": "2026-01-07",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-41163",
+   "metres": 0
+  },
+  {
+   "cmhy": "41166",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ SRC service",
+   "tags": [
+    "ร้านซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "062-151-1543",
+   "amphoe": "เมือง",
+   "modified": "2026-01-07",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-41166",
+   "metres": 0
+  },
+  {
+   "cmhy": "4122",
+   "name": "ช่างเล็ก ซ่อมมอเตอร์ไซต์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "086-439-7652",
+   "amphoe": "เมือง",
+   "modified": "2025-12-06",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-4122",
+   "metres": 0
+  },
+  {
+   "cmhy": "41228",
+   "name": "CCR รถเช่า (CM CAR RENTAL)",
+   "tags": [
+    "รถยนต์ให้เช่า",
+    "เช่ารถยนต์",
+    "รถให้เช่า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-01-09",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-41228",
+   "metres": 0
+  },
+  {
+   "cmhy": "4124",
+   "name": "สิทธิ์มอเตอร์เจริญยนต์",
+   "tags": [
+    "ปะยาง",
+    "สูบลม",
+    "เปลี่ยนหัวเทียน"
+   ],
+   "phone": "081-663-1059",
+   "amphoe": "เมือง",
+   "modified": "2021-09-26",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "41240",
+   "name": "แสงชัยมอเตอร์เซลส์ (กาดธานินทร์-สันติธรรม-ช้างเผือก)",
+   "tags": [
+    "ร้านขายมอเตอร์ไซค์",
+    "โชว์รูมมอเตอร์ไซค์",
+    "มอเตอร์ไซค์"
+   ],
+   "phone": "062-708-2236",
+   "amphoe": "เมือง",
+   "modified": "2026-09-03",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-41240",
+   "metres": 0
+  },
+  {
+   "cmhy": "4127",
+   "name": "ถาวรบริการ เซอร์วิส",
+   "tags": [
+    "ปะยางมอเตอร์ไซค์",
+    "สูบลม",
+    "เปลี่ยนหัวเทียน"
+   ],
+   "phone": "086-586-9024",
+   "amphoe": "เมือง",
+   "modified": "2025-05-17",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-4127",
+   "metres": 0
+  },
+  {
+   "cmhy": "4136",
+   "name": "น้อยมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-08-29",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-4136",
+   "metres": 0
+  },
+  {
+   "cmhy": "41385",
+   "name": "รักษ์เจริญยนต์ 888",
+   "tags": [
+    "ร้านซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "088-418-1042",
+   "amphoe": "เมือง",
+   "modified": "2025-12-30",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-41385",
+   "metres": 0
+  },
+  {
+   "cmhy": "41418",
+   "name": "กานต์มอเตอร์ เชียงใหม่  [บ้านป่าข่อยเหนือ ]",
+   "tags": [
+    "ร้านซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "062-310-8757",
+   "amphoe": "เมือง",
+   "modified": "2026-04-10",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-41418",
+   "metres": 0
+  },
+  {
+   "cmhy": "41564",
+   "name": "เอส.ที. มอเตอร์เจียงใหม่ (คำเที่ยง)",
+   "tags": [
+    "ขายรถมอเตอร์ไซค์",
+    "ออกรถมอเตอร์ไซค์",
+    "มอเตอร์ไซค์มือหนึ่ง"
+   ],
+   "phone": "080-040-5345,086-428-9550",
+   "amphoe": "เมือง",
+   "modified": "2026-04-10",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-41564",
+   "metres": 0
+  },
+  {
+   "cmhy": "4158",
+   "name": "ร้านซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ปะยางมอเตอร์ไซค์",
+    "สูเปลี่ยนหัวเทียน",
+    "ถ่ายน้ำมันเครื่อง"
+   ],
+   "phone": "0650042908",
+   "amphoe": "เมือง",
+   "modified": "2024-05-11",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-4158",
+   "metres": 0
+  },
+  {
+   "cmhy": "41743",
+   "name": "บอยร่มเย็น มอเตอร์",
+   "tags": [
+    "ร้านซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "080-868-9018",
+   "amphoe": "เมือง",
+   "modified": "2026-04-10",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-41743",
+   "metres": 0
+  },
+  {
+   "cmhy": "41763",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [บ้านเสาหิน]",
+   "tags": [
+    "ร้านซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-04-10",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-41763",
+   "metres": 0
+  },
+  {
+   "cmhy": "41773",
+   "name": "MC มอเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์นอกสถานที่",
+    "ร้านซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "093-591-4546",
+   "amphoe": "เมือง",
+   "modified": "2026-04-10",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-41773",
+   "metres": 0
+  },
+  {
+   "cmhy": "41975",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [ป่าแพ่ง ถนนรัตนโกสินทร์]",
+   "tags": [
+    "ร้านซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-05-30",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-41975",
+   "metres": 0
+  },
+  {
+   "cmhy": "42004",
+   "name": "สมพงษ์เจริญยนต์ งานกลึง ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "โรงกลึง",
+    "งานกลึง",
+    "ร้านซ่อมมอเตอร์ไซค์"
+   ],
+   "phone": "088-252-9393",
+   "amphoe": "เมือง",
+   "modified": "2026-06-01",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-osm-node-3670817036",
+   "metres": 11
+  },
+  {
+   "cmhy": "42006",
+   "name": "บ้านเด่น เซอร์วิส",
+   "tags": [
+    "ร้านซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "097-964-9250",
+   "amphoe": "เมือง",
+   "modified": "2026-06-01",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-42006",
+   "metres": 0
+  },
+  {
+   "cmhy": "42070",
+   "name": "ร้าน คาร์เล้นท์ แอน์ คาร์วอส",
+   "tags": [
+    "ล้างรถยนต์",
+    "ล้างอัดฉีด",
+    "รถยนต์ให้เช่า"
+   ],
+   "phone": "081-784-7673",
+   "amphoe": "เมือง",
+   "modified": "2026-06-12",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "42591",
+   "name": "แสงชัยมอเตอร์เซลส์ (โรบินสัน แอร์พอร์ต)",
+   "tags": [
+    "ร้านขายมอเตอร์ไซค์",
+    "โชว์รูมมอเตอร์ไซค์",
+    "มอเตอร์ไซค์"
+   ],
+   "phone": "098-749-9860",
+   "amphoe": "เมือง",
+   "modified": "2026-08-06",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-42591",
+   "metres": 0
+  },
+  {
+   "cmhy": "42600",
+   "name": "สกูตเตอร์ ฮับ เชียงใหม่",
+   "tags": [
+    "ร้านเช่ารถมอเตอร์ไซค์",
+    "เช่ารถสกูตเตอร์"
+   ],
+   "phone": "065-348-0108",
+   "amphoe": "เมือง",
+   "modified": "2026-08-03",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-42600",
+   "metres": 0
+  },
+  {
+   "cmhy": "42688",
+   "name": "ภาสินีแม่แตง (หนองป่าครั่ง) เจ๊ฟางจัดให้",
+   "tags": [
+    "โชว์รูมรถมอเตอร์ไซค์",
+    "ออกรถมอเตอร์ไซค์",
+    "รถมอเตอร์ไซค์มือหนึ่ง"
+   ],
+   "phone": "093-497-421",
+   "amphoe": "เมือง",
+   "modified": "2026-08-31",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-42688",
+   "metres": 0
+  },
+  {
+   "cmhy": "4290",
+   "name": "แจ็คบริการ ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ปะยาง",
+    "สูบลม",
+    "เปลี่ยนหัวเทียน"
+   ],
+   "phone": "082-389-1500",
+   "amphoe": "เมือง",
+   "modified": "2021-07-24",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-4290",
+   "metres": 0
+  },
+  {
+   "cmhy": "4293",
+   "name": "เชียงใหม่คาร์เร้นท์",
+   "tags": [],
+   "phone": "084-041-6858",
+   "amphoe": "เมือง",
+   "modified": "2021-04-04",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "4413",
+   "name": "ปะยางซ่อมรถมอเตอร์ไซค์",
+   "tags": [
+    "ถ่ายน้ำมันรถมอเตอร์ไซค์",
+    "เปลี่ยนยางรถมอเตอร์ไซค์"
+   ],
+   "phone": "053-243-068",
+   "amphoe": "เมือง",
+   "modified": "2021-10-08",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-4413",
+   "metres": 0
+  },
+  {
+   "cmhy": "4566",
+   "name": "บิ๊กกี้เชียงใหม่ (ถนนห้วยแก้ว)",
+   "tags": [
+    "รถเช่า",
+    "มอเตอร์ไซต์เช่า"
+   ],
+   "phone": "080-122-0985",
+   "amphoe": "เมือง",
+   "modified": "2021-11-21",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-4566",
+   "metres": 0
+  },
+  {
+   "cmhy": "4610",
+   "name": "แมกซ์สกูตเตอร์ & 69 Tires",
+   "tags": [
+    "เวสป้า",
+    "Scooter",
+    "BigBike"
+   ],
+   "phone": "083-152-2228,091-067-9100,082-950-7956",
+   "amphoe": "เมือง",
+   "modified": "2026-01-28",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "4633",
+   "name": "ร้าน ซ่อมอเตอร์ไซค์ ปะยาง",
+   "tags": [
+    "ฝากขาย",
+    "แลกเปลี่ยน",
+    "ปะยาง"
+   ],
+   "phone": "081-884-0788",
+   "amphoe": "เมือง",
+   "modified": "2023-01-07",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-4633",
+   "metres": 0
+  },
+  {
+   "cmhy": "4639",
+   "name": "ร้าน ปะยางมอเตอร์ไซต์ ถ่ายน้ำมันเครื่อง",
+   "tags": [
+    "เปลี่ยนยางมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-01-07",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-4639",
+   "metres": 0
+  },
+  {
+   "cmhy": "4704",
+   "name": "เอ็นเค ไบรค์ จักรยานให้เช่า",
+   "tags": [
+    "จักรยานให้เช่า",
+    "เช่าจักรยานเสือภูเขา",
+    "เช่าจักรยานพับ"
+   ],
+   "phone": "081-671-1330",
+   "amphoe": "เมือง",
+   "modified": "2025-08-07",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "4714",
+   "name": "ประสิทธิ์บริการ",
+   "tags": [
+    "ปะยาง",
+    "สูบลม",
+    "เปลี่ยนหัวเทียน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-10-18",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "4716",
+   "name": "เฮงบริการ (นครพิงค์บริการ)",
+   "tags": [
+    "ปะยาง",
+    "สูบลม",
+    "เปลี่ยนหัวเทียน"
+   ],
+   "phone": "053-283-354,0961246645",
+   "amphoe": "เมือง",
+   "modified": "2022-11-08",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "4733",
+   "name": "ช่างนึก ซ่อมมอเตอร์ไซต์",
+   "tags": [
+    "ปะยาง",
+    "สูบลม",
+    "เปลี่ยนหัวเทียน"
+   ],
+   "phone": "0980808355",
+   "amphoe": "เมือง",
+   "modified": "2021-12-15",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "4855",
+   "name": "ชัคเชชไบค์ ช้อป",
+   "tags": [
+    "อะไหล่มอเตอร์ไซค์",
+    "เปลี่ยนน้ำมันเครื่อง",
+    "ไส้กรองน้ำมันเครื่อง"
+   ],
+   "phone": "087-789-4298,088-269-5224",
+   "amphoe": "เมือง",
+   "modified": "2021-07-28",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-4855",
+   "metres": 0
+  },
+  {
+   "cmhy": "489",
+   "name": "นอร์ทเทอร์น สไลด์",
+   "tags": [
+    "รถเช่า"
+   ],
+   "phone": "052-002-721",
+   "amphoe": "เมือง",
+   "modified": "2022-01-18",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-489",
+   "metres": 0
+  },
+  {
+   "cmhy": "4938",
+   "name": "ซ่อมมอไซต์ปะยาง(วงเวียนสนามกีฬา)",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "เปลี่ยนน้ำมันเครื่อง",
+    "ปะยาง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-07-27",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-osm-node-13605172882",
+   "metres": 60
+  },
+  {
+   "cmhy": "504",
+   "name": "แดง เซอร์วิส",
+   "tags": [
+    "ปะยาง",
+    "สูบลม",
+    "เปลี่ยนหัวเทียน"
+   ],
+   "phone": "086-732-3049,053-814,848",
+   "amphoe": "เมือง",
+   "modified": "2020-03-26",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "5043",
+   "name": "บิ๊กกี้เชียงใหม่ (อาเขต)",
+   "tags": [
+    "รถเช่า",
+    "มอเตอร์ไซต์เช่า"
+   ],
+   "phone": "084-687-8809,094-229-9599",
+   "amphoe": "เมือง",
+   "modified": "2024-07-15",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-5043",
+   "metres": 0
+  },
+  {
+   "cmhy": "5269",
+   "name": "ซีเอ็ม คาร์เร้นท์",
+   "tags": [
+    "รถเช่า",
+    "รถมอเตอร์ไซต์เช่า",
+    "รถยนต์เช่า"
+   ],
+   "phone": "053-274-706,089-815-4905",
+   "amphoe": "เมือง",
+   "modified": "2022-03-02",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-5269",
+   "metres": 0
+  },
+  {
+   "cmhy": "5287",
+   "name": "ต่อมอเตอร์เฮง",
+   "tags": [
+    "ปะยางมอเตอร์ไซค์",
+    "ตั้งโซ่",
+    "ซ่อมรถมอเตอร์ไซค์"
+   ],
+   "phone": "085-626-8160",
+   "amphoe": "เมือง",
+   "modified": "2026-02-14",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-5287",
+   "metres": 0
+  },
+  {
+   "cmhy": "5491",
+   "name": "ร้านซ่อมมอเตอร์ไซค์ [ศรีบัวเงิน]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "เปลี่ยนน้ำมันเครื่องมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-07-26",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-5491",
+   "metres": 0
+  },
+  {
+   "cmhy": "5514",
+   "name": "ไทยเรสซิ่ง",
+   "tags": [
+    "อุปกรณ์แต่งรถ",
+    "msx",
+    "ksr"
+   ],
+   "phone": "092-593-7298",
+   "amphoe": "เมือง",
+   "modified": "2026-02-27",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "5541",
+   "name": "โจ้ มอเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-08-30",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-5541",
+   "metres": 0
+  },
+  {
+   "cmhy": "5618",
+   "name": "เชียงใหม่วนันท์ชา ซ่อมมอเตอร์ไซต์ ปะยาง",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-10-21",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-5618",
+   "metres": 0
+  },
+  {
+   "cmhy": "562",
+   "name": "มิสเตอร์ แมคแคนิค (ช้อป 1)",
+   "tags": [
+    "รถมอเตอร์ไซต์เช่า",
+    "รถยนต์เช่า"
+   ],
+   "phone": "082-762-8302,053-214-708",
+   "amphoe": "เมือง",
+   "modified": "2025-08-30",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "5753",
+   "name": "สหพานิช ( สาขาช้างม่อย )",
+   "tags": [
+    "เครื่องใช้ไฟฟ้าภายในบ้าน",
+    "มอเตอร์ไซค์",
+    "ฮอนด้า"
+   ],
+   "phone": "053-252-040",
+   "amphoe": "เมือง",
+   "modified": "2026-06-01",
+   "trade": "motorbike",
+   "facets": {
+    "ev": true
+   },
+   "osm": "cm-osm-way-658996880",
+   "metres": 5
+  },
+  {
+   "cmhy": "5788",
+   "name": "ไลฟ์สไตล์ รถเช่า",
+   "tags": [
+    "รถเช่า"
+   ],
+   "phone": "052-007-807,080-498-5582",
+   "amphoe": "เมือง",
+   "modified": "2024-04-17",
+   "trade": "rental",
+   "facets": {},
+   "osm": "cm-curated-rental-5788",
+   "metres": 0
+  },
+  {
+   "cmhy": "5898",
+   "name": "พัฒน์พงษ์เซอร์วิส",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "เปลี่ยนน้ำมันเครื่องมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "081-269-3300",
+   "amphoe": "เมือง",
+   "modified": "2022-05-23",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-5898",
+   "metres": 0
+  },
+  {
+   "cmhy": "6023",
+   "name": "เปอโยต์ by Sangchai",
+   "tags": [
+    "เปอโยต์",
+    "Peugeot"
+   ],
+   "phone": "088-138-0808",
+   "amphoe": "เมือง",
+   "modified": "2026-04-20",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "6052",
+   "name": "ซีเอ็ม ไบค์เกอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "เปลี่ยนน้ำมันเครื่อง",
+    "ปะยาง"
+   ],
+   "phone": "062-449-3664",
+   "amphoe": "เมือง",
+   "modified": "2021-05-15",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-6052",
+   "metres": 0
+  },
+  {
+   "cmhy": "617",
+   "name": "อู่เครื่องจักรดี",
+   "tags": [
+    "ถ่ายน้ำมันเครื่อง",
+    "เช็คเครื่อง",
+    "ชาร์ตแบต"
+   ],
+   "phone": "053-280-222",
+   "amphoe": "เมือง",
+   "modified": "2025-05-31",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "6241",
+   "name": "ช.บริการ",
+   "tags": [
+    "ปะยาง",
+    "ซ่อมเครื่องยนต์",
+    "ถ่ายน้ำมันเครื่อง"
+   ],
+   "phone": "088-547-6271",
+   "amphoe": "เมือง",
+   "modified": "2021-01-22",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "63",
+   "name": "ชัยมอเตอร์",
+   "tags": [
+    "ปะยาง",
+    "สูบลม",
+    "เปลี่ยนหัวเทียน"
+   ],
+   "phone": "0861850294",
+   "amphoe": "เมือง",
+   "modified": "2020-04-03",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "6322",
+   "name": "เบิรด ไบท์ 2",
+   "tags": [
+    "ซ่อมมอเตอร์ไซต์",
+    "เปลี่ยนยาง",
+    "ดัดแผงคอ"
+   ],
+   "phone": "098-818-4123",
+   "amphoe": "เมือง",
+   "modified": "2026-01-28",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "6344",
+   "name": "ธงชัยมอเตอร์",
+   "tags": [
+    "ซ่อมอเตอร์ไซค์",
+    "ทำสีมอเตอร์ไซค์",
+    "หุ้มเบาะมอเตอร์ไซค์"
+   ],
+   "phone": "087-301-8235",
+   "amphoe": "เมือง",
+   "modified": "2024-11-11",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-6344",
+   "metres": 0
+  },
+  {
+   "cmhy": "6387",
+   "name": "ซ่อมมอเตอร์ไซต์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "เปลี่ยนน้ำมันเครื่อง",
+    "ปะยาง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-03-20",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-6387",
+   "metres": 0
+  },
+  {
+   "cmhy": "6472",
+   "name": "ช่างดม ซ่อมมอเตอร์ไซต์(ซอยสนามกีฬา)",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "เปลี่ยนน้ำมันเครื่อง",
+    "ปะยาง"
+   ],
+   "phone": "081-784-1581",
+   "amphoe": "เมือง",
+   "modified": "2021-07-27",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-6472",
+   "metres": 0
+  },
+  {
+   "cmhy": "656",
+   "name": "นครพิงค์ มอเตอร์",
+   "tags": [
+    "ปะยาง",
+    "สูบลม",
+    "เปลี่ยนหัวเทียน"
+   ],
+   "phone": "053-232-085",
+   "amphoe": "เมือง",
+   "modified": "2023-06-03",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "681",
+   "name": "ชัยบริการ รับซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ปะยางมอเตอร์ไซค์",
+    "สูบลมมอเตอร์ไซค์",
+    "เปลี่ยนหัวเทียนมอเตอร์ไซค์"
+   ],
+   "phone": "053-872-066",
+   "amphoe": "เมือง",
+   "modified": "2026-05-30",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-681",
+   "metres": 0
+  },
+  {
+   "cmhy": "6826",
+   "name": "ทวียนต์ (สาขาเจ็ดยอด) Yamaha Square",
+   "tags": [
+    "ยามาฮ่า",
+    "yamaha",
+    "มอเตอร์ไซค์ยามาฮ่า"
+   ],
+   "phone": "053-225-432,091-069-2871,099-236-5554",
+   "amphoe": "เมือง",
+   "modified": "2025-03-14",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-osm-node-3240515673",
+   "metres": 8
+  },
+  {
+   "cmhy": "6901",
+   "name": "สุเมธยนต์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยาง"
+   ],
+   "phone": "0826116859",
+   "amphoe": "เมือง",
+   "modified": "2024-09-24",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-6901",
+   "metres": 0
+  },
+  {
+   "cmhy": "6994",
+   "name": "แม๊กคานิก้า Ducati BigBike",
+   "tags": [
+    "เปลี่ยนยาง",
+    "เปลี่ยนท่อ",
+    "อุปกรณ์แต่ง"
+   ],
+   "phone": "089-003-0002,084-046-8846",
+   "amphoe": "เมือง",
+   "modified": "2022-03-02",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "7040",
+   "name": "ช่างเดช ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "เปลี่ยนน้ำมันเครื่องมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "082-159-7324",
+   "amphoe": "เมือง",
+   "modified": "2021-10-04",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-7040",
+   "metres": 0
+  },
+  {
+   "cmhy": "7170",
+   "name": "ซ่อมมอเตอร์ไซต์ ปะยาง ช่างใหญ่",
+   "tags": [
+    "ปะยาง",
+    "หุ้มเบาะ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-05-19",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "7286",
+   "name": "ซ่อมมอเตอร์ไซค์  the schweine garage",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "เปลี่ยนน้ำมันเครื่อง",
+    "รอซโซ่4"
+   ],
+   "phone": "062-528-7892,098-649-5565",
+   "amphoe": "เมือง",
+   "modified": "2022-01-21",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-osm-way-578703571",
+   "metres": 61
+  },
+  {
+   "cmhy": "7465",
+   "name": "ธนากรมอเตอร์ ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "เปลี่ยนยาง",
+    "แบตเตอรี่",
+    "ซ่อมมอเตอร์ไซค์"
+   ],
+   "phone": "085-529-4542",
+   "amphoe": "เมือง",
+   "modified": "2025-04-23",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-7465",
+   "metres": 0
+  },
+  {
+   "cmhy": "7684",
+   "name": "ร้านซ่อมมอเตอร์ไซต์ [หมื่นด้าพร้าคต ซอย 3 ]",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "เปลี่ยนน้ำมันเครื่อง",
+    "ปะยาง"
+   ],
+   "phone": "087-191-4549",
+   "amphoe": "เมือง",
+   "modified": "2023-07-22",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-7684",
+   "metres": 0
+  },
+  {
+   "cmhy": "7784",
+   "name": "เก่ง เอ็นจิ้น",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ซ่อมKawasaki"
+   ],
+   "phone": "085-033-3364",
+   "amphoe": "เมือง",
+   "modified": "2023-11-23",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-7784",
+   "metres": 0
+  },
+  {
+   "cmhy": "7815",
+   "name": "เขื่อนสุวรรณมอเตอร์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "เปลี่ยนน้ำมันเครื่อง",
+    "ปะยาง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-06-05",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-7815",
+   "metres": 0
+  },
+  {
+   "cmhy": "7836",
+   "name": "เจริญมอเตอร์ ยามาฮ่า (สำนักงานใหญ่)",
+   "tags": [
+    "ยามาฮ่า",
+    "บิ๊กไบค์"
+   ],
+   "phone": "053-327-273,053-327-274",
+   "amphoe": "เมือง",
+   "modified": "2021-01-19",
+   "trade": "motorbike",
+   "facets": {
+    "bigbike": true
+   },
+   "osm": "cm-curated-motorbike-7836",
+   "metres": 0
+  },
+  {
+   "cmhy": "784",
+   "name": "นิยมพานิช (สาขาสันป่าข่อย)",
+   "tags": [
+    "ซ่อมรถมอเตอร์ไซต์",
+    "ปะยาง",
+    "ถ่ายน้ำมันเครื่อง"
+   ],
+   "phone": "053-240355",
+   "amphoe": "เมือง",
+   "modified": "2022-11-03",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "7896",
+   "name": "เอส.ที. มอเตอร์ เจียงใหม่(กาดขะจาว)",
+   "tags": [
+    "ขายรถมอเตอร์ไซค์",
+    "ออกรถมอเตอร์ไซค์",
+    "มอเตอร์ไซค์มือหนึ่ง"
+   ],
+   "phone": "052-002-700,086-428-9550",
+   "amphoe": "เมือง",
+   "modified": "2020-05-26",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-7896",
+   "metres": 0
+  },
+  {
+   "cmhy": "7913",
+   "name": "ช่างบอย เรสซิ่ง ซ่อมมอเตอร์ไซค์ ปะยาง",
+   "tags": [
+    "ปะยางมอเตอร์ไซค์",
+    "ซ่อมมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "094-754-1001",
+   "amphoe": "เมือง",
+   "modified": "2022-03-03",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-7913",
+   "metres": 0
+  },
+  {
+   "cmhy": "7925",
+   "name": "ก้องโมโต",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "084-878-9198",
+   "amphoe": "เมือง",
+   "modified": "2024-06-13",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-7925",
+   "metres": 0
+  },
+  {
+   "cmhy": "794",
+   "name": "สหพานิช (สันป่าข่อย)",
+   "tags": [
+    "จำหน่ายรถจักรยานยนต์",
+    "มือสอง"
+   ],
+   "phone": "053-302-966",
+   "amphoe": "เมือง",
+   "modified": "2022-03-02",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-794",
+   "metres": 0
+  },
+  {
+   "cmhy": "8050",
+   "name": "เอส.ที.มอเตอร์เจียงใหม่ (กาดวรุณ)",
+   "tags": [
+    "ขายรถมอเตอร์ไซค์",
+    "ออกรถมอเตอร์ไซค์",
+    "มอเตอร์ไซค์มือหนึ่ง"
+   ],
+   "phone": "052-002870,086-4289550",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-8050",
+   "metres": 0
+  },
+  {
+   "cmhy": "813",
+   "name": "ร้านปะยางมอเตอร์ไซค์~จักรยาน (แยกสันป่าข่อย)",
+   "tags": [
+    "เปลี่ยนยางมอเตอร์ไซค์",
+    "ปะยางจักรยาน",
+    "ปะยางมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-05-21",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-813",
+   "metres": 0
+  },
+  {
+   "cmhy": "8155",
+   "name": "ช่างวิทย์ ปะยาง ซ่อมมอเตอร์ไซต์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "เปลี่ยนน้ำมันเครื่อง",
+    "ปะยาง"
+   ],
+   "phone": "0863900580",
+   "amphoe": "เมือง",
+   "modified": "2023-02-11",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-8155",
+   "metres": 0
+  },
+  {
+   "cmhy": "8162",
+   "name": "แสงชัยมอเตอร์ (สาขา โรบินสัน-แอร์พอร์ต)",
+   "tags": [
+    "รถยามาฮ่า",
+    "yamaha",
+    "รถมอเตอร์ไซต์"
+   ],
+   "phone": "053-201-818,098-749-9860",
+   "amphoe": "เมือง",
+   "modified": "2022-01-06",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "8189",
+   "name": "สี่แยกมอเตอร์ (แยกสนามบิน)",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "เปลี่ยนน้ำมันเครื่อง",
+    "ปะยาง"
+   ],
+   "phone": "093-220-7978",
+   "amphoe": "เมือง",
+   "modified": "2021-09-26",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-8189",
+   "metres": 0
+  },
+  {
+   "cmhy": "8264",
+   "name": "เฮ้วคัตตอม help customs",
+   "tags": [
+    "สตาเลี่ยน",
+    "แต่งรถมอเตอร์ไซต์",
+    "คอท่อ"
+   ],
+   "phone": "086-917-75788,084-623-6654",
+   "amphoe": "เมือง",
+   "modified": "2023-06-24",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "8311",
+   "name": "พลซ่อมมอเตอร์ไซต์",
+   "tags": [
+    "ปะยาง",
+    "ถ่ายน้ำมันเครื่อง",
+    "หมวกกันน๊อค"
+   ],
+   "phone": "098-647-5624,064-283-0972",
+   "amphoe": "เมือง",
+   "modified": "2025-08-23",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "8368",
+   "name": "โชคบริการ",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-10-22",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-8368",
+   "metres": 0
+  },
+  {
+   "cmhy": "8375",
+   "name": "สหพานิช (สำนักงานใหญ่)",
+   "tags": [
+    "เครื่องใช้ไฟฟ้าภายในบ้าน",
+    "มอเตอร์ไซค์",
+    "ฮอนด้า"
+   ],
+   "phone": "053-220-999",
+   "amphoe": "เมือง",
+   "modified": "2025-10-22",
+   "trade": "motorbike",
+   "facets": {
+    "ev": true
+   },
+   "osm": "cm-osm-way-314668281",
+   "metres": 56
+  },
+  {
+   "cmhy": "8378",
+   "name": "สหพานิชซูซูกิบิ๊กไบค์เชียงใหม่ Suzuki",
+   "tags": [
+    "ซูซูกิบิ๊กไบค์",
+    "บิ๊กไบค์",
+    "Suzuki"
+   ],
+   "phone": "053-220-999",
+   "amphoe": "เมือง",
+   "modified": "2025-10-22",
+   "trade": "motorbike",
+   "facets": {
+    "bigbike": true
+   },
+   "osm": "cm-osm-way-666015788",
+   "metres": 6
+  },
+  {
+   "cmhy": "8518",
+   "name": "เอส.ที.มอเตอร์เจียงใหม่ ( เอื้องคำหนองประทีป)",
+   "tags": [
+    "ขายรถมอเตอร์ไซค์",
+    "ออกรถมอเตอร์ไซค์",
+    "มอเตอร์ไซค์มือหนึ่ง"
+   ],
+   "phone": "0864289550",
+   "amphoe": "เมือง",
+   "modified": "2022-06-30",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-8518",
+   "metres": 0
+  },
+  {
+   "cmhy": "8521",
+   "name": "สหพานิช (สาขาเอื้องคำ)",
+   "tags": [
+    "เครื่องใช้ไฟฟ้าภายในบ้าน",
+    "มอเตอร์ไซค์",
+    "ฮอนด้า"
+   ],
+   "phone": "053-116040",
+   "amphoe": "เมือง",
+   "modified": "2023-03-29",
+   "trade": "motorbike",
+   "facets": {
+    "ev": true
+   },
+   "osm": "cm-curated-motorbike-8521",
+   "metres": 0
+  },
+  {
+   "cmhy": "8551",
+   "name": "ซ่อมมอเตอร์ไซค์ คาสตรอลไบค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "เปลี่ยนน้ำมันเครื่อง",
+    "ปะยาง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-10-23",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-8551",
+   "metres": 0
+  },
+  {
+   "cmhy": "8591",
+   "name": "ศักดิ์มอเตอร์ ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ปะยาง",
+    "เปลี่ยนน้ำมันเครื่อง"
+   ],
+   "phone": "081-366-3535",
+   "amphoe": "เมือง",
+   "modified": "2023-06-29",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-8591",
+   "metres": 0
+  },
+  {
+   "cmhy": "8620",
+   "name": "บลูช็อป",
+   "tags": [
+    "ฮาเลย์",
+    "ชอปเปอร์",
+    "หุ้มหนังขึ้นฟองน้ำ"
+   ],
+   "phone": "089-700-3370",
+   "amphoe": "เมือง",
+   "modified": "2022-05-23",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "8666",
+   "name": "ช็อป 53",
+   "tags": [
+    "ปะยาง",
+    "ถ่ายน้ำมันเครื่อง"
+   ],
+   "phone": "099-1371376",
+   "amphoe": "เมือง",
+   "modified": "2022-10-07",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "8688",
+   "name": "แนทมอเตอร์",
+   "tags": [
+    "ปะยาง",
+    "เปลี่ยนยา"
+   ],
+   "phone": "085-652-8317",
+   "amphoe": "เมือง",
+   "modified": "2021-03-20",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "885",
+   "name": "ขจรยนต์",
+   "tags": [
+    "ปะยาง",
+    "ซ่อมมอเตอร์ไซต์",
+    "เปลี่ยนน้ำมันเครื่อง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-01-21",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "8868",
+   "name": "ส.มอเตอร์ยางยนต์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "086-914-5073,090-7525313",
+   "amphoe": "เมือง",
+   "modified": "2025-12-12",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-8868",
+   "metres": 0
+  },
+  {
+   "cmhy": "897",
+   "name": "นัติมอเตอร์ (สาขาเชียงใหม่)",
+   "tags": [
+    "รถมอเตอร์ไซค์Honda",
+    "ซ่อมมอเตอร์ไซต์",
+    "ฮอนด้า"
+   ],
+   "phone": "053-400-962,088-258-4094,086-312-0074",
+   "amphoe": "เมือง",
+   "modified": "2026-06-16",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-osm-way-314670468",
+   "metres": 6
+  },
+  {
+   "cmhy": "9096",
+   "name": "ต้นพยอมออโต้ไบค์",
+   "tags": [
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ซ่อมมอเตอร์ไซค์"
+   ],
+   "phone": "089-632-5684",
+   "amphoe": "เมือง",
+   "modified": "2022-03-18",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-9096",
+   "metres": 0
+  },
+  {
+   "cmhy": "9098",
+   "name": "ต้นพยอมมอเตอร์",
+   "tags": [
+    "อะไหล่รถจักรยานยนต์",
+    "หมวกกันน๊อค",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "094-556-3552,053-808-376",
+   "amphoe": "เมือง",
+   "modified": "2022-03-18",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-9098",
+   "metres": 0
+  },
+  {
+   "cmhy": "9109",
+   "name": "ต้นพยอมอะไหล่",
+   "tags": [
+    "ถ่ายน้ำมันเครื่อง",
+    "ปะยาง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2017-06-19",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "9243",
+   "name": "ซ่อมมอเตอร์ไซค์ [บ้านใหม่ทรายคำ]",
+   "tags": [
+    "ถ่ายน้ำมันเครื่อง",
+    "ปะยาง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-06-18",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-9243",
+   "metres": 0
+  },
+  {
+   "cmhy": "9261",
+   "name": "เพชรมอเตอร์",
+   "tags": [
+    "ถ่ายน้ำมันเครื่อง",
+    "ปะยางมอเตอร์ไซค์",
+    "หุ้มเบาะ"
+   ],
+   "phone": "084-481-0158",
+   "amphoe": "เมือง",
+   "modified": "2025-10-14",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-9261",
+   "metres": 0
+  },
+  {
+   "cmhy": "9332",
+   "name": "ช.บริการ",
+   "tags": [
+    "ปะยาง",
+    "ซ่อมมอเตอร์ไซต์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-07-18",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "9487",
+   "name": "ตั้มการาจ ท่าเดื่อ ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "082-935-9156",
+   "amphoe": "เมือง",
+   "modified": "2024-07-16",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-9487",
+   "metres": 0
+  },
+  {
+   "cmhy": "9505",
+   "name": "อู่ลุงน้อย ซ่อมมอเตอร์ไซค์",
+   "tags": [
+    "ซ่อมมอเตอร์ไซค์",
+    "ปะยางมอเตอร์ไซค์",
+    "ถ่ายน้ำมันเครื่องมอเตอร์ไซค์"
+   ],
+   "phone": "086-658-9844,089-952-2991",
+   "amphoe": "เมือง",
+   "modified": "2025-06-05",
+   "trade": "motorbike",
+   "facets": {},
+   "osm": "cm-curated-motorbike-9505",
+   "metres": 0
+  },
+  {
+   "cmhy": "9748",
+   "name": "จีพีเอ็กซ์ เรสซิ่ง (ตรีธวัฒน์ มอเตอร์ไซไบค์)",
+   "tags": [
+    "จีพีเอ็กซ์",
+    "ตรีธวัฒน์",
+    "มอเตอร์ไบค์"
+   ],
+   "phone": "063-323-5645,063-323-5641",
+   "amphoe": "เมือง",
+   "modified": "2025-12-05",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "981",
+   "name": "สุชาติเวสป้า",
+   "tags": [
+    "รถเวสป้า",
+    "ซ่อมเวสป้า",
+    "ขายเวสป้า"
+   ],
+   "phone": "053-242-238",
+   "amphoe": "เมือง",
+   "modified": "2020-05-27",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "9878",
+   "name": "ซีเอฟเอ็ม เชียงใหม่",
+   "tags": [
+    "รถชอปเปอร์"
+   ],
+   "phone": "093-242-3322",
+   "amphoe": "เมือง",
+   "modified": "2023-10-18",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "9930",
+   "name": "บีบี ออโต้ ช็อป",
+   "tags": [
+    "ซ่อมรถยนต์",
+    "อู่ซ่อมรถ",
+    "ซ่อมรถ"
+   ],
+   "phone": "053-447-199",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  }
+ ]
+}

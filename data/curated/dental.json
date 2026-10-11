@@ -1,0 +1,4168 @@
+{
+ "_readme": [
+  "WO-57/58 — the dental register, from the CMHY.city read in cache/cmhy/dental/.",
+  "EVERY row is kept so the page can print the denominator, not just the hits.",
+  "`trade` is decided by the row's OWN name and tags, never by the directory's",
+  "category alone; `refused` says why a row is not a record; `osm` names the",
+  "canonical record ALREADY ON THE SAME SHELF within 80 m that is this door.",
+  "A DIRECTORY IS NOT A FIRST-HAND SOURCE: its service tags live here and print",
+  "at the `listed` grade. They never enter enrich.json, which is for a place's",
+  "own site. Hours carry `_hoursSource`; a row with no GPS is `needs-pin`."
+ ],
+ "_built": "2026-09-04",
+ "counts": {
+  "dentist": 157,
+  "matched": 82,
+  "refused": 7,
+  "needs_pin": 0,
+  "cmhy_rows": 246,
+  "written_new": 2,
+  "touched": 0
+ },
+ "rows": [
+  {
+   "cmhy": "10140",
+   "name": "ออลสไมล์",
+   "tags": [
+    "จัดฟัน",
+    "ทำฟัน",
+    "รักษารากฟัน"
+   ],
+   "phone": "052-002-515,095-140-9960",
+   "amphoe": "เมือง",
+   "modified": "2021-03-04",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "rootcanal": true
+   },
+   "record": "cm-curated-dentist-10140"
+  },
+  {
+   "cmhy": "1024",
+   "name": "สไมล์ทูยู ทันตกรรม",
+   "tags": [
+    "อุดฟัน",
+    "ขูดหินปูน",
+    "ฟอกสีฟัน"
+   ],
+   "phone": "053-803-050",
+   "amphoe": "เมือง",
+   "modified": "2020-05-27",
+   "trade": "dentist",
+   "facets": {
+    "veneer": true
+   },
+   "osm": "cm-osm-node-2661443152",
+   "metres": 24
+  },
+  {
+   "cmhy": "10425",
+   "name": "เชียงใหม่สไมล์",
+   "tags": [
+    "จัดฟัน",
+    "ขูดหินปูน",
+    "ถอนฟัน"
+   ],
+   "phone": "053-278-778,093-496-4964",
+   "amphoe": "เมือง",
+   "modified": "2021-07-26",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "osm": "cm-osm-node-4759553025",
+   "metres": 8
+  },
+  {
+   "cmhy": "10509",
+   "name": "เดนทัล พอยท์ 1",
+   "tags": [
+    "วีเนียร์",
+    "จัดฟัน",
+    "ฟอกสีฟัน"
+   ],
+   "phone": "088-087-7799",
+   "amphoe": "เมือง",
+   "modified": "2021-12-12",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "veneer": true
+   },
+   "record": "cm-curated-dentist-10509"
+  },
+  {
+   "cmhy": "10596",
+   "name": "เอ็นสไมล์ (เจ็ดยอด)",
+   "tags": [
+    "จัดฟัน",
+    "อุดฟัน",
+    "ผ่าฟันคุด"
+   ],
+   "phone": "053-212-993,063-596-5916",
+   "amphoe": "เมือง",
+   "modified": "2021-07-30",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "wisdom": true
+   },
+   "osm": "cm-osm-node-4766216568",
+   "metres": 2
+  },
+  {
+   "cmhy": "10606",
+   "name": "ฟันสไมล์แอทหนองหอย",
+   "tags": [
+    "จัดฟัน",
+    "ทำฟัน"
+   ],
+   "phone": "099-615-6978",
+   "amphoe": "เมือง",
+   "modified": "2026-06-12",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-10606"
+  },
+  {
+   "cmhy": "1067",
+   "name": "รักศักดิ์ คลินิค",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "053-800-847,086-670-9058",
+   "amphoe": "เมือง",
+   "modified": "2026-03-15",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-1067"
+  },
+  {
+   "cmhy": "11011",
+   "name": "ฮอลลีวูดสไมล์ (สาขา 2)",
+   "tags": [
+    "ฟอกสีฟัน",
+    "ฟันปลอม",
+    "ครอบฟันการจัดฟัน"
+   ],
+   "phone": "053-216-309,0992398866",
+   "amphoe": "เมือง",
+   "modified": "2022-07-14",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "veneer": true,
+    "denture": true
+   },
+   "record": "cm-curated-dentist-11011"
+  },
+  {
+   "cmhy": "11360",
+   "name": "ไวร์คลับ คลินิกทันตกรรม",
+   "tags": [
+    "ทำฟัน",
+    "อุดฟัน",
+    "ถอนฟัน"
+   ],
+   "phone": "095-689-9389",
+   "amphoe": "เมือง",
+   "modified": "2020-09-04",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-11360"
+  },
+  {
+   "cmhy": "11553",
+   "name": "เฮาส์ออฟเดนทิส",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "ครอบฟัน"
+   ],
+   "phone": "086-428-8280",
+   "amphoe": "เมือง",
+   "modified": "2025-10-19",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "denture": true
+   },
+   "osm": "cm-osm-node-6352082387",
+   "metres": 9
+  },
+  {
+   "cmhy": "11799",
+   "name": "ทีสมายล์",
+   "tags": [
+    "อุดฟัน",
+    "ถอนฟัน",
+    "ขูดหินปูน"
+   ],
+   "phone": "088-252-7526,091-0562717,,043-750468",
+   "amphoe": "เมือง",
+   "modified": "2021-07-29",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-11799"
+  },
+  {
+   "cmhy": "11819",
+   "name": "เดอะเดนทิส (สาขาหน้า มช.)",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "เอกซเรย์ฟ้น"
+   ],
+   "phone": "096-697-1796",
+   "amphoe": "เมือง",
+   "modified": "2022-10-19",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-11819"
+  },
+  {
+   "cmhy": "1186",
+   "name": "ศักดาทันตกรรม",
+   "tags": [
+    "จัดฟัน",
+    "ถอนฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-233-923",
+   "amphoe": "เมือง",
+   "modified": "2020-10-11",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "osm": "cm-osm-node-4538126080",
+   "metres": 1
+  },
+  {
+   "cmhy": "11902",
+   "name": "คลินิกทันตกรรม เดอะวัน",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "ฟอกสีฟัน"
+   ],
+   "phone": "098-0615616,052-065-616",
+   "amphoe": "เมือง",
+   "modified": "2024-03-18",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "veneer": true
+   },
+   "record": "cm-curated-dentist-11902"
+  },
+  {
+   "cmhy": "11918",
+   "name": "นิวนอร์ท",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-412-686,064-486-2510",
+   "amphoe": "เมือง",
+   "modified": "2021-09-21",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-node-3298057029",
+   "metres": 60
+  },
+  {
+   "cmhy": "11940",
+   "name": "เจ็ดยอดคลินิกทันตกรรม",
+   "tags": [
+    "จัดฟัน",
+    "ผ่าฟันคุด",
+    "ฟันเทียม"
+   ],
+   "phone": "093-063-8899",
+   "amphoe": "เมือง",
+   "modified": "2020-05-06",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "wisdom": true,
+    "denture": true
+   },
+   "osm": "cm-osm-node-13411824162",
+   "metres": 4
+  },
+  {
+   "cmhy": "11941",
+   "name": "คลินิกทันตกรรม บลิซเดนท์",
+   "tags": [
+    "จัดฟัน",
+    "ใส่ฟัน",
+    "ฟอกสีฟัน"
+   ],
+   "phone": "052-089-520,063-092-9999",
+   "amphoe": "เมือง",
+   "modified": "2022-11-03",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "veneer": true,
+    "denture": true
+   },
+   "record": "cm-curated-dentist-11941"
+  },
+  {
+   "cmhy": "11999",
+   "name": "คลินิกทันตกรรมโอเพ่นวายด์",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "088-252-5605",
+   "amphoe": "เมือง",
+   "modified": "2026-02-09",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-node-7128510785",
+   "metres": 21
+  },
+  {
+   "cmhy": "12003",
+   "name": "เดนทัล บลูม",
+   "tags": [
+    "จัดฟัน",
+    "รากฟันเทียม",
+    "ฟอกสีฟัน"
+   ],
+   "phone": "052-007-389,091-859-9189",
+   "amphoe": "เมือง",
+   "modified": "2020-10-12",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "implant": true,
+    "veneer": true,
+    "denture": true
+   },
+   "record": "cm-curated-dentist-12003"
+  },
+  {
+   "cmhy": "12024",
+   "name": "คลินิกบ้านฟันสวย",
+   "tags": [
+    "จัดฟัน"
+   ],
+   "phone": "063-343-6156",
+   "amphoe": "เมือง",
+   "modified": "2021-01-23",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-12024"
+  },
+  {
+   "cmhy": "12025",
+   "name": "โจอี้ ทันตกรรม",
+   "tags": [
+    "จัดฟัน",
+    "ฟอกสีฟัน",
+    "ครอบฟัน"
+   ],
+   "phone": "065-249-4299",
+   "amphoe": "เมือง",
+   "modified": "2025-11-28",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "veneer": true,
+    "denture": true
+   },
+   "record": "cm-curated-dentist-12025"
+  },
+  {
+   "cmhy": "12103",
+   "name": "วี-สไมล์ ท่าแพ",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-285-033,061-286-3922",
+   "amphoe": "เมือง",
+   "modified": "2021-12-08",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-node-3322998498",
+   "metres": 15
+  },
+  {
+   "cmhy": "12202",
+   "name": "คูลสไมล์",
+   "tags": [
+    "ฟอกสีฟัน",
+    "ครอบฟัน",
+    "รากเทียม"
+   ],
+   "phone": "062-345-4504",
+   "amphoe": "เมือง",
+   "modified": "2021-01-21",
+   "trade": "dentist",
+   "facets": {
+    "implant": true,
+    "veneer": true,
+    "denture": true
+   },
+   "record": "cm-curated-dentist-12202"
+  },
+  {
+   "cmhy": "12214",
+   "name": "ซีดีซี เดนทัล คลินิก CDC",
+   "tags": [
+    "ฟันปลอม",
+    "โรคเหงือก",
+    "ผ่าฟันคุด"
+   ],
+   "phone": "053-230-136",
+   "amphoe": "เมือง",
+   "modified": "2025-10-21",
+   "trade": "dentist",
+   "facets": {
+    "wisdom": true,
+    "denture": true
+   },
+   "osm": "cm-osm-node-3558858078",
+   "metres": 9
+  },
+  {
+   "cmhy": "12401",
+   "name": "จัส สไมล์",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-274-301,081-531-2822",
+   "amphoe": "เมือง",
+   "modified": "2024-07-09",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-12401"
+  },
+  {
+   "cmhy": "1282",
+   "name": "กิจจา ทันตคลินิค",
+   "tags": [
+    "รักษารากฟันเทียม",
+    "ฟอกสีฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "053-200-201,091-797-7888",
+   "amphoe": "เมือง",
+   "modified": "2020-04-24",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "implant": true,
+    "veneer": true,
+    "rootcanal": true,
+    "denture": true
+   },
+   "osm": "cm-osm-node-5030800523",
+   "metres": 7
+  },
+  {
+   "cmhy": "12865",
+   "name": "เดนทัลพอยท์ 2",
+   "tags": [
+    "ขูดหินปูน",
+    "อุดฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "087-574-7799",
+   "amphoe": "เมือง",
+   "modified": "2022-10-25",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-12865"
+  },
+  {
+   "cmhy": "13081",
+   "name": "เด็นต์คอร์เนอร์ เดนทรัลคลินิก",
+   "tags": [
+    "รักษาฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "090-361-0090",
+   "amphoe": "เมือง",
+   "modified": "2023-02-02",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "osm": "cm-osm-node-4385476590",
+   "metres": 2
+  },
+  {
+   "cmhy": "13155",
+   "name": "สไมล์ 32 เดนทัลคลินิก (เจ็ดยอด)",
+   "tags": [
+    "จัดฟัน",
+    "ทำฟัน",
+    "รากฟันเทียม"
+   ],
+   "phone": "091-076-3232",
+   "amphoe": "เมือง",
+   "modified": "2021-07-30",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "implant": true,
+    "denture": true
+   },
+   "osm": "cm-osm-node-6994689098",
+   "metres": 11
+  },
+  {
+   "cmhy": "1348",
+   "name": "เดนทัล เวิลด์",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "รากฟันเทียม"
+   ],
+   "phone": "053-209-100,053-449-159,082-484-6916",
+   "amphoe": "เมือง",
+   "modified": "2025-11-10",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "implant": true,
+    "denture": true
+   },
+   "osm": "cm-osm-way-1115111496",
+   "metres": 9
+  },
+  {
+   "cmhy": "13494",
+   "name": "หมอเจสซี่ หลังมช FairyDent Dental Clinic",
+   "tags": [
+    "จัดฟัน",
+    "เคลียร์ช่องปาก",
+    "ขูดฟัน"
+   ],
+   "phone": "094-620-4009,‭091-076-5753‬",
+   "amphoe": "เมือง",
+   "modified": "2025-04-04",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "osm": "cm-osm-node-6519106998",
+   "metres": 12
+  },
+  {
+   "cmhy": "13539",
+   "name": "คลินิกทันตกรรมติ๊กสไมล์",
+   "tags": [
+    "จัดฟันเด็ก",
+    "นอนกรนผู้ใหญ่",
+    "ปรับโครงหน้า"
+   ],
+   "phone": "061-808-4004",
+   "amphoe": "เมือง",
+   "modified": "2022-12-10",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "kids": true
+   },
+   "record": "cm-curated-dentist-13539"
+  },
+  {
+   "cmhy": "13597",
+   "name": "สไมล์ไลน์ คลินิกทันตกรรม",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "083-200-5158",
+   "amphoe": "เมือง",
+   "modified": "2026-06-01",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-way-696717704",
+   "metres": 3
+  },
+  {
+   "cmhy": "13637",
+   "name": "ทันตแพทย์เจษฎา",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-251-353",
+   "amphoe": "เมือง",
+   "modified": "2021-07-24",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-13637"
+  },
+  {
+   "cmhy": "1368",
+   "name": "คลินิกทันตแพทย์วรพจน์",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-282-939,089-432-4491",
+   "amphoe": "เมือง",
+   "modified": "2021-01-28",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-1368"
+  },
+  {
+   "cmhy": "1373",
+   "name": "ดาเรศ ทันตคลินิก",
+   "tags": [
+    "จัดฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-271-832",
+   "amphoe": "เมือง",
+   "modified": "2020-10-18",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "osm": "cm-osm-node-11248890435",
+   "metres": 3
+  },
+  {
+   "cmhy": "13862",
+   "name": "ฮักฟัน คลินิกทันตกรรม",
+   "tags": [
+    "จัดฟัน",
+    "ฟันปลอม",
+    "รักษารากฟัน"
+   ],
+   "phone": "090-316-5005,052-087-559",
+   "amphoe": "เมือง",
+   "modified": "2026-08-12",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "rootcanal": true,
+    "denture": true
+   },
+   "osm": "cm-osm-node-4759269487",
+   "metres": 7
+  },
+  {
+   "cmhy": "13866",
+   "name": "มิสเตอร์ ไวส์ ทันตกรรม",
+   "tags": [
+    "จัดฟัน",
+    "ฟอกสีฟันเลเซอร์",
+    "รากฟันเทียม"
+   ],
+   "phone": "098-653-6545",
+   "amphoe": "เมือง",
+   "modified": "2020-10-12",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "implant": true,
+    "veneer": true,
+    "denture": true
+   },
+   "osm": "cm-osm-node-10744523184",
+   "metres": 13
+  },
+  {
+   "cmhy": "14007",
+   "name": "วันทนา คลินิกทันตกรรม",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "รักษารากฟัน"
+   ],
+   "phone": "091-028-4699",
+   "amphoe": "เมือง",
+   "modified": "2026-06-01",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "rootcanal": true
+   },
+   "record": "cm-curated-dentist-14007"
+  },
+  {
+   "cmhy": "14056",
+   "name": "คลินิกทันตกรรมอบอุ่น",
+   "tags": [
+    "จัดฟัน",
+    "รากเทียม",
+    "ทันตกรรมสำหรับเด็ก"
+   ],
+   "phone": "061-542-0666",
+   "amphoe": "เมือง",
+   "modified": "2018-12-17",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "implant": true
+   },
+   "record": "cm-curated-dentist-14056"
+  },
+  {
+   "cmhy": "14086",
+   "name": "บิ๊กเม้าท์เท็น",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-277278,087-6490110",
+   "amphoe": "เมือง",
+   "modified": "2023-05-07",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-14086"
+  },
+  {
+   "cmhy": "14119",
+   "name": "สไมล์ บูทีค",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "ใส่ฟัน"
+   ],
+   "phone": "094-287-3332",
+   "amphoe": "เมือง",
+   "modified": "2026-03-09",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "denture": true
+   },
+   "osm": "cm-osm-node-6992284787",
+   "metres": 12
+  },
+  {
+   "cmhy": "14170",
+   "name": "คลินิคสไมล์ไลน์",
+   "tags": [
+    "รักษาฟัน"
+   ],
+   "phone": "0832005158",
+   "amphoe": "เมือง",
+   "modified": "2020-05-07",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-way-696717704",
+   "metres": 9
+  },
+  {
+   "cmhy": "14235",
+   "name": "เกรซ เด็นทัล แคร์",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "085-695-4581",
+   "amphoe": "เมือง",
+   "modified": "2020-05-06",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "osm": "cm-osm-node-1797033659",
+   "metres": 13
+  },
+  {
+   "cmhy": "14371",
+   "name": "ไทม์เดนทัลแคร์",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "Invisalign"
+   ],
+   "phone": "066-112-9963",
+   "amphoe": "เมือง",
+   "modified": "2026-04-24",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-14371"
+  },
+  {
+   "cmhy": "14439",
+   "name": "โรงพยาบาลทันตกรรม (คณะทันตแพทยศาสตร์)",
+   "tags": [
+    "คลินิกพิเคราะห์โรคช่องปาก",
+    "คลินิกทันตรังสีวิทยา",
+    "คลินิกศัลยศาสตร์ช่องปาก"
+   ],
+   "phone": "0-5394-4490",
+   "amphoe": "เมือง",
+   "modified": "2022-03-18",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-14439"
+  },
+  {
+   "cmhy": "14531",
+   "name": "เอฟเวอรี่เดย์ สไมล์",
+   "tags": [
+    "ฟันปลอม",
+    "อุดฟัน",
+    "ขูดหินปูน"
+   ],
+   "phone": "052-009-654,094-329-2393",
+   "amphoe": "เมือง",
+   "modified": "2025-03-07",
+   "trade": "dentist",
+   "facets": {
+    "denture": true
+   },
+   "record": "cm-curated-dentist-14531"
+  },
+  {
+   "cmhy": "14713",
+   "name": "อบอุ่นเดนทัล คลินิกทันตกรรม",
+   "tags": [
+    "ขูดหินปูน",
+    "จัดฟัน"
+   ],
+   "phone": "098-905-9598,053-245-095",
+   "amphoe": "เมือง",
+   "modified": "2022-05-16",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-14713"
+  },
+  {
+   "cmhy": "15033",
+   "name": "ดีซี คลินิกทันตกรรม",
+   "tags": [
+    "จัดฟัน",
+    "ทำฟัน"
+   ],
+   "phone": "053-222-697,081-179-4400",
+   "amphoe": "เมือง",
+   "modified": "2021-10-04",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "osm": "cm-osm-node-3421207454",
+   "metres": 20
+  },
+  {
+   "cmhy": "15378",
+   "name": "คลินิกทำฟันหมอถาวร",
+   "tags": [
+    "อุดฟัน",
+    "ขูดหินปูน",
+    "ถอนฟัน"
+   ],
+   "phone": "053-234-443",
+   "amphoe": "เมือง",
+   "modified": "2026-06-01",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-15378"
+  },
+  {
+   "cmhy": "15483",
+   "name": "คลินิกศัลยศาสตร์ช่องปาก และ แม็กซิลโลเฟเซีย  (คณะทันตแพทยศาสตร์ )",
+   "tags": [
+    "ศัลยศาสตร์ช่องปาก",
+    "แม็กซิลโลเฟเชียล"
+   ],
+   "phone": "053-944-455,,,053-944-449",
+   "amphoe": "เมือง",
+   "modified": "2022-03-18",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "15484",
+   "name": "คลินิกพิเคราะห์โรคช่องปาก (คณะทันตแพทยศาสตร์ )",
+   "tags": [
+    "ตรวจวินิจฉัยโรคในช่องปาก"
+   ],
+   "phone": "053-944-452",
+   "amphoe": "เมือง",
+   "modified": "2022-03-18",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "15485",
+   "name": "คลินิกทันตกรรม สำหรับเด็ก  (คณะทันตแพทยศาสตร์ )",
+   "tags": [
+    "คลินิกทันตกรรมสำหรับเด็ก"
+   ],
+   "phone": "053-944-461",
+   "amphoe": "เมือง",
+   "modified": "2022-03-18",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-15485"
+  },
+  {
+   "cmhy": "15486",
+   "name": "คลินิกทันตกรรมบูรณะ  (คณะทันตแพทยศาสตร์ )",
+   "tags": [
+    "ครอบฟัน",
+    "ใส่ฟัน",
+    "รากฟัน"
+   ],
+   "phone": "053-944458,,053-944459",
+   "amphoe": "เมือง",
+   "modified": "2022-03-18",
+   "trade": "dentist",
+   "facets": {
+    "denture": true
+   },
+   "record": "cm-curated-dentist-15486"
+  },
+  {
+   "cmhy": "15487",
+   "name": "คลินิกปริทันตวิทยา  (คณะทันตแพทยศาสตร์ )",
+   "tags": [
+    "คลินิกปริทันตวิทยา"
+   ],
+   "phone": "053-944-466",
+   "amphoe": "เมือง",
+   "modified": "2019-02-02",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "15488",
+   "name": "คลินิกทันตกรรมพร้อมมูล  (คณะทันตแพทยศาสตร์ )",
+   "tags": [
+    "โรคช่องปาก",
+    "ฟื้นฟูสุขภาพปาก"
+   ],
+   "phone": "053-944471-72",
+   "amphoe": "เมือง",
+   "modified": "2022-03-18",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-15488"
+  },
+  {
+   "cmhy": "15489",
+   "name": "ศูนย์เอกซเรย์ทางทันตกรรม  (คณะทันตแพทยศาสตร์ )",
+   "tags": [
+    "ถ่ายภาพรังสีทางทันตกรรม",
+    "ตรวจด้วยเครื่องอัลตราซาวด์",
+    "รังสีโคนบีมซีที"
+   ],
+   "phone": "053-941-605",
+   "amphoe": "เมือง",
+   "modified": "2022-03-18",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-15489"
+  },
+  {
+   "cmhy": "15490",
+   "name": "คลินิกรังสีวิทยาช่องปาก และ แม๊กซิลโลเฟเชียล  (คณะทันตแพทยศาสตร์ )",
+   "tags": [
+    "ทันตรังสีวิทยา",
+    "ห้องเอกซเรย์"
+   ],
+   "phone": "053-944-453",
+   "amphoe": "เมือง",
+   "modified": "2022-03-18",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "15607",
+   "name": "พิพัฒน์คลินิก",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "084-3705048",
+   "amphoe": "เมือง",
+   "modified": "2020-04-24",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-15607"
+  },
+  {
+   "cmhy": "15659",
+   "name": "คลินิกทันตกรรมต้นอ้อ",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-839-121,086-672-7468",
+   "amphoe": "เมือง",
+   "modified": "2022-03-25",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-15659"
+  },
+  {
+   "cmhy": "15807",
+   "name": "สไมล์เฟสติวัล",
+   "tags": [
+    "จัดฟัน",
+    "ทำฟัน",
+    "ฟอกสีฟัน"
+   ],
+   "phone": "092-142-4888",
+   "amphoe": "เมือง",
+   "modified": "2022-07-14",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "veneer": true
+   },
+   "record": "cm-curated-dentist-15807"
+  },
+  {
+   "cmhy": "16",
+   "name": "มุขไม้ทันตกรรม",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "053-416-328",
+   "amphoe": "เมือง",
+   "modified": "2021-01-19",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "osm": "cm-osm-node-1619287900",
+   "metres": 10
+  },
+  {
+   "cmhy": "16274",
+   "name": "บ้าน ฟ.ฟัน",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-089-595,091-076-0174,094-603-6411",
+   "amphoe": "เมือง",
+   "modified": "2021-07-28",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "osm": "cm-osm-node-11135208605",
+   "metres": 4
+  },
+  {
+   "cmhy": "16451",
+   "name": "ทูธ เฮ้าส์ เดนทัล คลินิก",
+   "tags": [
+    "จัดฟัน",
+    "ทำฟัน",
+    "ถอนฟัน"
+   ],
+   "phone": "099-242-8008",
+   "amphoe": "เมือง",
+   "modified": "2021-07-26",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "osm": "cm-osm-node-7595842186",
+   "metres": 9
+  },
+  {
+   "cmhy": "16641",
+   "name": "แฮปปี้สไมล์ 2",
+   "tags": [
+    "จัดฟัน",
+    "รากเทียม",
+    "ฟันปลอม"
+   ],
+   "phone": "062-923-5323",
+   "amphoe": "เมือง",
+   "modified": "2020-04-02",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "implant": true,
+    "denture": true
+   },
+   "record": "cm-curated-dentist-16641"
+  },
+  {
+   "cmhy": "17430",
+   "name": "LDC แอลดีซี คลินิก",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-418-115",
+   "amphoe": "เมือง",
+   "modified": "2026-02-12",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-way-743769375",
+   "metres": 18
+  },
+  {
+   "cmhy": "17529",
+   "name": "คลินิกทันตกรรมรวมโชค",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-854-360",
+   "amphoe": "เมือง",
+   "modified": "2020-04-24",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-17529"
+  },
+  {
+   "cmhy": "17535",
+   "name": "ทันตแพทย์พุทธพงศ์",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-242-342,081-993-0840",
+   "amphoe": "เมือง",
+   "modified": "2020-04-24",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-17535"
+  },
+  {
+   "cmhy": "17682",
+   "name": "คลินิกทันตกรรม ทูธไทม์",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "ฟอกสีฟัน"
+   ],
+   "phone": "092-523-9229",
+   "amphoe": "เมือง",
+   "modified": "2025-04-04",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "veneer": true
+   },
+   "osm": "cm-osm-node-7106487586",
+   "metres": 17
+  },
+  {
+   "cmhy": "18277",
+   "name": "ไอสไมล์พลัส (สันติธรรม)",
+   "tags": [
+    "จัดฟัน",
+    "ทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-218-670,062-831-1888",
+   "amphoe": "เมือง",
+   "modified": "2021-03-04",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-18277"
+  },
+  {
+   "cmhy": "1837",
+   "name": "เชียงใหม่ 89 ทันตกรรม",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "ขูดหินปูน"
+   ],
+   "phone": "053-141-072",
+   "amphoe": "เมือง",
+   "modified": "2020-07-18",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-1837"
+  },
+  {
+   "cmhy": "18452",
+   "name": "เดนทิส สไมล์ (เซ็ลทรัลแอร์พอร์ตพลาซ่า)",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "ปรับรูปหน้า"
+   ],
+   "phone": "053-271-714",
+   "amphoe": "เมือง",
+   "modified": "2022-05-16",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-18452"
+  },
+  {
+   "cmhy": "1851",
+   "name": "คลินิกทันตกรรมเดนท์โฮม",
+   "tags": [
+    "ฟอกสีฟัน",
+    "จัดฟัน",
+    "รักษาฟัน"
+   ],
+   "phone": "053-334-201,083-201-8881",
+   "amphoe": "เมือง",
+   "modified": "2026-06-12",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "veneer": true
+   },
+   "osm": "cm-osm-node-4509283285",
+   "metres": 5
+  },
+  {
+   "cmhy": "1875",
+   "name": "ศูนย์ทันตสาธารณสุขระหว่างประเทศ กรมอนามัย กระทรวงสาธารณสุข",
+   "tags": [
+    "ทำฟัน",
+    "ขูดหินปูน",
+    "ศูนย์ทันตสาธารณสุขระหว่างประเทศ"
+   ],
+   "phone": "053-140-141,053-140-142",
+   "amphoe": "เมือง",
+   "modified": "2026-06-12",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-1875"
+  },
+  {
+   "cmhy": "18969",
+   "name": "คลินิกทันตกรรมม่อนปาย",
+   "tags": [
+    "ครอบฟัน",
+    "ทำฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "095-361-4546",
+   "amphoe": "เมือง",
+   "modified": "2026-03-09",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "denture": true
+   },
+   "record": "cm-curated-dentist-18969"
+  },
+  {
+   "cmhy": "19363",
+   "name": "เชียงใหม่ เดนทัล คลินิก",
+   "tags": [
+    "ทำฟัน",
+    "หมอฟัน",
+    "ขูดหินปูน"
+   ],
+   "phone": "053-089-322,,052-089-323",
+   "amphoe": "เมือง",
+   "modified": "2021-02-02",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-node-6561551296",
+   "metres": 7
+  },
+  {
+   "cmhy": "1949",
+   "name": "แกรนด์เดนท์ เดนทรัล คลินิก",
+   "tags": [
+    "รากฟันเทียม",
+    "ฟอกสีฟัน",
+    "ศัลยกรรมฟัน"
+   ],
+   "phone": "053-274-420",
+   "amphoe": "เมือง",
+   "modified": "2025-07-08",
+   "trade": "dentist",
+   "facets": {
+    "implant": true,
+    "veneer": true,
+    "denture": true
+   },
+   "osm": "cm-osm-way-249376159",
+   "metres": 11
+  },
+  {
+   "cmhy": "19816",
+   "name": "เดนทรัลอาร์มกาดก้อม",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "ครอบฟัน"
+   ],
+   "phone": "093-173-9988",
+   "amphoe": "เมือง",
+   "modified": "2020-10-18",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "denture": true
+   },
+   "record": "cm-curated-dentist-19816"
+  },
+  {
+   "cmhy": "20159",
+   "name": "เอธท์ เดนทัล ESTH",
+   "tags": [
+    "ทำฟัน",
+    "อุดฟัน",
+    "ฟันเทียม"
+   ],
+   "phone": "063-453-0666,097-169-9969",
+   "amphoe": "เมือง",
+   "modified": "2022-12-02",
+   "trade": "dentist",
+   "facets": {
+    "denture": true
+   },
+   "record": "cm-curated-dentist-20159"
+  },
+  {
+   "cmhy": "2018",
+   "name": "ฮอลลิวูด สไมล์",
+   "tags": [
+    "ฟอกสีฟัน",
+    "ฟันปลอม",
+    "ครอบฟันการจัดฟัน"
+   ],
+   "phone": "053-273-853,085-870-6413,094-762-3666",
+   "amphoe": "เมือง",
+   "modified": "2021-01-20",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "veneer": true,
+    "denture": true
+   },
+   "osm": "cm-osm-node-4449558138",
+   "metres": 3
+  },
+  {
+   "cmhy": "2027",
+   "name": "วิรัช-กอบกุล ทันตแพทย์ (สาขา 1)",
+   "tags": [
+    "จัดฟัน",
+    "ทันตกรรมประดิษฐ์",
+    "รักษารากฟัน"
+   ],
+   "phone": "053-282-592,,088-547-3434",
+   "amphoe": "เมือง",
+   "modified": "2020-03-31",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "rootcanal": true
+   },
+   "record": "cm-curated-dentist-2027"
+  },
+  {
+   "cmhy": "20325",
+   "name": "เดนซ์ ดีไซน์ เดนทรัล คลินิก",
+   "tags": [
+    "รากฟัน",
+    "จัดฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "089-416-9922",
+   "amphoe": "เมือง",
+   "modified": "2022-03-25",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-20325"
+  },
+  {
+   "cmhy": "20384",
+   "name": "เอ็มเพรสทันตกรรม",
+   "tags": [
+    "ทำฟัน",
+    "ฟอกสีฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "053-112-299",
+   "amphoe": "เมือง",
+   "modified": "2021-09-26",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "veneer": true
+   },
+   "osm": "cm-osm-node-4397224129",
+   "metres": 26
+  },
+  {
+   "cmhy": "2068",
+   "name": "วิรัช-กอบกุล คลินิก (สาขา 2)",
+   "tags": [
+    "จัดฟัน",
+    "ทันตกรรมประดิษฐ์",
+    "รักษารากฟัน"
+   ],
+   "phone": "053-275-103,053-272-200,,088-547-3434",
+   "amphoe": "เมือง",
+   "modified": "2020-10-11",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "rootcanal": true
+   },
+   "osm": "cm-osm-node-11596822006",
+   "metres": 14
+  },
+  {
+   "cmhy": "20695",
+   "name": "ซีเอสดี เดนทรัล คลินิก CSDC   (สาขา บิ้กซีดอนจั่น​ชั้น2​ )",
+   "tags": [
+    "จัดฟัน",
+    "ฟอกสีฟัน",
+    "รักษารากฟัน"
+   ],
+   "phone": "082-113-4262",
+   "amphoe": "เมือง",
+   "modified": "2026-07-13",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "veneer": true,
+    "rootcanal": true
+   },
+   "record": "cm-curated-dentist-20695"
+  },
+  {
+   "cmhy": "2074",
+   "name": "คลินิก ฟันดี",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-818-666",
+   "amphoe": "เมือง",
+   "modified": "2025-09-13",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-2074"
+  },
+  {
+   "cmhy": "20755",
+   "name": "เดนทัลมี คลินิค  3(หน้า มช. (ปันนา))",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "053-218-750",
+   "amphoe": "เมือง",
+   "modified": "2021-11-07",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-20755"
+  },
+  {
+   "cmhy": "20788",
+   "name": "โมทกะ คลินิกทันตกรรม",
+   "tags": [
+    "รักษาฟัน",
+    "ขูดหินปูน"
+   ],
+   "phone": "087-452-5659",
+   "amphoe": "เมือง",
+   "modified": "2021-03-09",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-20788"
+  },
+  {
+   "cmhy": "21690",
+   "name": "เดนท์ ซีเอ็มยู แอดมีโชค",
+   "tags": [
+    "คณะทันต",
+    "ทำฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "092-945-1997,065-365-6158",
+   "amphoe": "เมือง",
+   "modified": "2020-05-01",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "osm": "cm-osm-node-3558858078",
+   "metres": 49
+  },
+  {
+   "cmhy": "21699",
+   "name": "ด๊อกเตอร์ เจน เดนทรัล คลินิก",
+   "tags": [
+    "ฟอกสีฟัน",
+    "ทำฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "091-071-9019",
+   "amphoe": "เมือง",
+   "modified": "2022-03-07",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "veneer": true
+   },
+   "record": "cm-curated-dentist-21699"
+  },
+  {
+   "cmhy": "21748",
+   "name": "สหคลินิกศุภาลัยมอนเต้บิซ",
+   "tags": [
+    "ทำฟัน",
+    "รักษาฟัน"
+   ],
+   "phone": "084-353-7168,053-114-651,053-114-652",
+   "amphoe": "เมือง",
+   "modified": "2026-06-17",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-21748"
+  },
+  {
+   "cmhy": "21851",
+   "name": "เดนทรัลแลนด์",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "053-224-578",
+   "amphoe": "เมือง",
+   "modified": "2020-05-06",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "osm": "cm-osm-node-3421293916",
+   "metres": 1
+  },
+  {
+   "cmhy": "2295",
+   "name": "คลินิกทันตกรรมสวนสุขภาพฟัน",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-226-078",
+   "amphoe": "เมือง",
+   "modified": "2021-07-29",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-node-11382625121",
+   "metres": 8
+  },
+  {
+   "cmhy": "23240",
+   "name": "คลินิกทันตกรรมฮาร์ท",
+   "tags": [
+    "ฟอกสีฟัน",
+    "รักษาฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "053-110-827,094-605-9779",
+   "amphoe": "เมือง",
+   "modified": "2026-08-21",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "veneer": true
+   },
+   "osm": "cm-osm-node-11548828144",
+   "metres": 13
+  },
+  {
+   "cmhy": "23840",
+   "name": "ศูนย์ทันตกรรมเซ็นทรัลเชียงใหม่",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "ถอนฟัน"
+   ],
+   "phone": "065-515-9904,053-819-333",
+   "amphoe": "เมือง",
+   "modified": "2022-02-24",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-23840"
+  },
+  {
+   "cmhy": "24035",
+   "name": "มหาวิทยาลัยกรุงเทพธนบุรี คลินิกทันตกรรม",
+   "tags": [
+    "ทำฟัน",
+    "ขูดหินปูน",
+    "อุดฟัน"
+   ],
+   "phone": "053-277-405",
+   "amphoe": "เมือง",
+   "modified": "2023-06-06",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-way-866506854",
+   "metres": 8
+  },
+  {
+   "cmhy": "2407",
+   "name": "เอ็มเบรส",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-221-221",
+   "amphoe": "เมือง",
+   "modified": "2021-11-21",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-node-3304475323",
+   "metres": 4
+  },
+  {
+   "cmhy": "24967",
+   "name": "เซย์ทีซ คลินิก 1 (สุเทพ)",
+   "tags": [
+    "X-ray3D",
+    "ทำฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "080-519-2856",
+   "amphoe": "เมือง",
+   "modified": "2021-11-20",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "xray3d": true
+   },
+   "osm": "cm-osm-node-10744523184",
+   "metres": 19
+  },
+  {
+   "cmhy": "2564",
+   "name": "คลินิกทันตกรรมพิเศษ (คณะทันตแพทยศาสตร์ )",
+   "tags": [
+    "คลินิกทันตกรรมพิเศษ",
+    "คณะทันตแพทยศาสตร์",
+    "งานรักษาคลองรากฟัน"
+   ],
+   "phone": "081-885-0101,081-885-0110",
+   "amphoe": "เมือง",
+   "modified": "2023-09-05",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-2564"
+  },
+  {
+   "cmhy": "2571",
+   "name": "สวนดอกทันตแพทย์สุวิทย์",
+   "tags": [
+    "จัดฟัน",
+    "ผ่าฟันคุต",
+    "ฝังรากเทียม"
+   ],
+   "phone": "053-280-410,086-430-7026",
+   "amphoe": "เมือง",
+   "modified": "2025-11-16",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "implant": true
+   },
+   "osm": "cm-osm-node-4356162632",
+   "metres": 48
+  },
+  {
+   "cmhy": "2578",
+   "name": "คลินิกรักฟัน",
+   "tags": [
+    "ถอนฟัน",
+    "ใส่ฟัน",
+    "ขูดหินปูน"
+   ],
+   "phone": "0530-252-533",
+   "amphoe": "เมือง",
+   "modified": "2026-01-28",
+   "trade": "dentist",
+   "facets": {
+    "denture": true
+   },
+   "osm": "cm-osm-node-4356162632",
+   "metres": 16
+  },
+  {
+   "cmhy": "2616",
+   "name": "ธานินทร์คลินิกทันตกรรม",
+   "tags": [
+    "ฟอกสีฟัน",
+    "รักษารากฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "053-222-055",
+   "amphoe": "เมือง",
+   "modified": "2026-01-28",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "veneer": true,
+    "rootcanal": true
+   },
+   "osm": "cm-osm-node-3298079406",
+   "metres": 6
+  },
+  {
+   "cmhy": "2634",
+   "name": "โอเค เดนทัล",
+   "tags": [
+    "จัดฟัน",
+    "ฟันเทียม",
+    "รากฟัน"
+   ],
+   "phone": "091-852-3424",
+   "amphoe": "เมือง",
+   "modified": "2020-07-18",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "denture": true
+   },
+   "osm": "cm-osm-node-2682524182",
+   "metres": 1
+  },
+  {
+   "cmhy": "2668",
+   "name": "เด็นต้าแคร์ 2 -หมอสุกิจ",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "081-960-0740,053-214-768",
+   "amphoe": "เมือง",
+   "modified": "2022-08-26",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-node-3298104170",
+   "metres": 12
+  },
+  {
+   "cmhy": "2679",
+   "name": "คลินิกเชียงใหม่ทันตแพทย์",
+   "tags": [
+    "อุดฟัน",
+    "ถอนฟัน",
+    "รากฟัน"
+   ],
+   "phone": "053-217-557",
+   "amphoe": "เมือง",
+   "modified": "2024-03-16",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-node-3289830521",
+   "metres": 7
+  },
+  {
+   "cmhy": "27",
+   "name": "แฟมิลี่ คลินิก (คลินิกทันตสุขภาพ สำหรับครอบครัว)",
+   "tags": [
+    "รักษาฟัน",
+    "จัดฟัน",
+    "รากฟันเทียม"
+   ],
+   "phone": "053-416368,088-252-4368",
+   "amphoe": "เมือง",
+   "modified": "2021-01-19",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "implant": true,
+    "denture": true
+   },
+   "osm": "cm-osm-node-4213529541",
+   "metres": 6
+  },
+  {
+   "cmhy": "27147",
+   "name": "เดนทิฟิก เดนทรัล คลินิก",
+   "tags": [
+    "รากฟันเทียม",
+    "รักษาฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "091-068-1490",
+   "amphoe": "เมือง",
+   "modified": "2021-01-28",
+   "trade": "dentist",
+   "facets": {
+    "implant": true,
+    "denture": true
+   },
+   "record": "cm-curated-dentist-27147"
+  },
+  {
+   "cmhy": "2732",
+   "name": "ปราโมทย์คลินิก",
+   "tags": [
+    "ทำฟัน",
+    "อุดฟัน",
+    "ถอนฟัน"
+   ],
+   "phone": "053-234-453",
+   "amphoe": "เมือง",
+   "modified": "2021-02-25",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-node-4536351788",
+   "metres": 8
+  },
+  {
+   "cmhy": "28680",
+   "name": "เดนทรัล สตูดิโอ อีลีทสไมล์คลินิก",
+   "tags": [
+    "ถอนฟัน",
+    "อุดฟัน",
+    "ขูดหินปูน"
+   ],
+   "phone": "053-288-199,086-4280342",
+   "amphoe": "เมือง",
+   "modified": "2021-07-24",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-node-4559245762",
+   "metres": 5
+  },
+  {
+   "cmhy": "28704",
+   "name": "คาริน เดนทรัล คลินิก",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "รากเทียม"
+   ],
+   "phone": "065-023-1444,065-023-2555",
+   "amphoe": "เมือง",
+   "modified": "2021-09-21",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "implant": true
+   },
+   "record": "cm-curated-dentist-28704"
+  },
+  {
+   "cmhy": "29110",
+   "name": "เบสสไมล์",
+   "tags": [
+    "ทำฟัน"
+   ],
+   "phone": "061-524-4758",
+   "amphoe": "เมือง",
+   "modified": "2022-10-07",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-29110"
+  },
+  {
+   "cmhy": "29127",
+   "name": "วีไบรท์",
+   "tags": [
+    "จัดฟัน",
+    "รากฟันเทียม",
+    "ถอนฟัน"
+   ],
+   "phone": "053-218-932",
+   "amphoe": "เมือง",
+   "modified": "2026-01-07",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "implant": true,
+    "denture": true
+   },
+   "record": "cm-curated-dentist-29127"
+  },
+  {
+   "cmhy": "29144",
+   "name": "ทีมเดนท์",
+   "tags": [
+    "ทำฟัน",
+    "ขูดหินปูน",
+    "อุดฟัน"
+   ],
+   "phone": "064-526-9741",
+   "amphoe": "เมือง",
+   "modified": "2021-12-09",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-29144"
+  },
+  {
+   "cmhy": "29316",
+   "name": "โอดีซี คลินิก  (สาขาเชียงใหม่)",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "095-675-0717",
+   "amphoe": "เมือง",
+   "modified": "2022-04-18",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "osm": "cm-osm-node-6992284787",
+   "metres": 21
+  },
+  {
+   "cmhy": "29413",
+   "name": "ไดมอนด์ เด้นท์",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "095-675-8800",
+   "amphoe": "เมือง",
+   "modified": "2021-07-30",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-29413"
+  },
+  {
+   "cmhy": "29453",
+   "name": "เด็นทรัล แบร์(ช่างเคี่ยน)",
+   "tags": [
+    "จัดฟัน",
+    "ทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "084-132-7505",
+   "amphoe": "เมือง",
+   "modified": "2025-07-15",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-29453"
+  },
+  {
+   "cmhy": "29633",
+   "name": "กู๊ด ฟ. ฟัน แม่เหียะ",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "ถอนฟัน"
+   ],
+   "phone": "065-992-6478",
+   "amphoe": "เมือง",
+   "modified": "2021-09-26",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-29633"
+  },
+  {
+   "cmhy": "29794",
+   "name": "กู๊ฟ เดนทรัล คลินิก",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "วีเนียร์"
+   ],
+   "phone": "061-090-9190",
+   "amphoe": "เมือง",
+   "modified": "2021-09-29",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "veneer": true
+   },
+   "record": "cm-curated-dentist-29794"
+  },
+  {
+   "cmhy": "29842",
+   "name": "บี ฟัน (บิ๊กซีดอนจั่น)",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "ถอนฟัน"
+   ],
+   "phone": "083-695-3642",
+   "amphoe": "เมือง",
+   "modified": "2026-02-25",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-29842"
+  },
+  {
+   "cmhy": "2985",
+   "name": "คลินิกทันตกรรมแฟมิลี่สไมล์",
+   "tags": [
+    "หมอฟัน",
+    "รักษาฟัน"
+   ],
+   "phone": "096-530-8230,053-810-501,053-810-502",
+   "amphoe": "เมือง",
+   "modified": "2020-10-12",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-node-7128510785",
+   "metres": 61
+  },
+  {
+   "cmhy": "30039",
+   "name": "เดนทัลเซนส์ คลินิก",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "invisalign"
+   ],
+   "phone": "097-496-6699",
+   "amphoe": "เมือง",
+   "modified": "2026-06-16",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-30039"
+  },
+  {
+   "cmhy": "3046",
+   "name": "ทันตกรรมเดนตัลไลฟ์",
+   "tags": [
+    "อุดฟัน",
+    "จัดฟัน",
+    "รากฟัน"
+   ],
+   "phone": "053-275-340",
+   "amphoe": "เมือง",
+   "modified": "2025-10-21",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "osm": "cm-osm-node-6519106998",
+   "metres": 78
+  },
+  {
+   "cmhy": "305",
+   "name": "อนุทินทันตคลินิก",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-227-375",
+   "amphoe": "เมือง",
+   "modified": "2025-10-21",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-305"
+  },
+  {
+   "cmhy": "30703",
+   "name": "เซย์ทีธ 2 (บ้านท่อ)",
+   "tags": [
+    "X-ray3D",
+    "ทำฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "063-661-5836",
+   "amphoe": "เมือง",
+   "modified": "2023-11-30",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "xray3d": true
+   },
+   "record": "cm-curated-dentist-30703"
+  },
+  {
+   "cmhy": "31003",
+   "name": "คลินิกทันตกรรมพาสุข (สาขาเชียงใหม่)",
+   "tags": [
+    "ขูดหินปูน",
+    "ขัดฟัน",
+    "เคลือบฟลูออไร"
+   ],
+   "phone": "095-679-0791",
+   "amphoe": "เมือง",
+   "modified": "2025-07-08",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-31003"
+  },
+  {
+   "cmhy": "3102",
+   "name": "เด็นต้าแคร์คลินิค",
+   "tags": [
+    "อุดฟัน",
+    "จัดฟัน",
+    "ถอนฟัน"
+   ],
+   "phone": "081-9600740",
+   "amphoe": "เมือง",
+   "modified": "2020-10-12",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "osm": "cm-osm-node-10744523184",
+   "metres": 36
+  },
+  {
+   "cmhy": "31028",
+   "name": "เดนทรัล อาร์ต คลินิก",
+   "tags": [
+    "ทำฟัน"
+   ],
+   "phone": "093-584-0688",
+   "amphoe": "เมือง",
+   "modified": "2021-12-14",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-31028"
+  },
+  {
+   "cmhy": "3103",
+   "name": "ทันตแพทย์ทองนารถ-ปริฉัตร",
+   "tags": [
+    "เอกซ์เรย์คอมพิวเตอร์",
+    "รากฟันเทียม",
+    "จัดฟัน"
+   ],
+   "phone": "053-277-405",
+   "amphoe": "เมือง",
+   "modified": "2022-03-18",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "implant": true,
+    "denture": true
+   },
+   "osm": "cm-osm-way-866506854",
+   "metres": 11
+  },
+  {
+   "cmhy": "31140",
+   "name": "วาย&บี Y&B เดนทรัล คลินิก",
+   "tags": [
+    "จัดฟัน",
+    "ทำฟัน",
+    "ทันตกรรมฟัน"
+   ],
+   "phone": "053-217-726",
+   "amphoe": "เมือง",
+   "modified": "2021-12-21",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-31140"
+  },
+  {
+   "cmhy": "31243",
+   "name": "ทำ Thamm  เดนทรัล สตูดิโอ",
+   "tags": [
+    "จัดฟัน",
+    "รากเทียม",
+    "veneer"
+   ],
+   "phone": "096-446-4294",
+   "amphoe": "เมือง",
+   "modified": "2023-05-03",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "implant": true,
+    "veneer": true
+   },
+   "record": "cm-curated-dentist-31243"
+  },
+  {
+   "cmhy": "3127",
+   "name": "อาริยาคลินิคทันตกรรม",
+   "tags": [
+    "อุดฟัน",
+    "ถอนฟัน",
+    "ผ่าฟันคุด"
+   ],
+   "phone": "053-204-848,061-806-9900,081-594-0856",
+   "amphoe": "เมือง",
+   "modified": "2021-07-24",
+   "trade": "dentist",
+   "facets": {
+    "wisdom": true
+   },
+   "record": "cm-curated-dentist-3127"
+  },
+  {
+   "cmhy": "3133",
+   "name": "ยัวร์สไมล์คลินิคทันตกรรม (เชียงใหม่แลนด์)",
+   "tags": [
+    "ทันตกรรม",
+    "จัดฟัน"
+   ],
+   "phone": "053-204-800",
+   "amphoe": "เมือง",
+   "modified": "2020-12-25",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-3133"
+  },
+  {
+   "cmhy": "31446",
+   "name": "คลินิกสุภัทร์ชัยทันตแพทย์",
+   "tags": [
+    "ทำฟัน",
+    "ทำฟันปลอม"
+   ],
+   "phone": "088-566-5524",
+   "amphoe": "เมือง",
+   "modified": "2022-01-21",
+   "trade": "dentist",
+   "facets": {
+    "denture": true
+   },
+   "record": "cm-curated-dentist-31446"
+  },
+  {
+   "cmhy": "31495",
+   "name": "เมจิก สไมล์",
+   "tags": [
+    "จัดฟัน",
+    "ทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "063-235-1999",
+   "amphoe": "เมือง",
+   "modified": "2022-01-23",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-31495"
+  },
+  {
+   "cmhy": "31705",
+   "name": "ทรูชดรีม",
+   "tags": [
+    "รักษาฟัน",
+    "รากเทียม",
+    "จัดฟัน"
+   ],
+   "phone": "095-146-3592",
+   "amphoe": "เมือง",
+   "modified": "2023-04-01",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "implant": true
+   },
+   "record": "cm-curated-dentist-31705"
+  },
+  {
+   "cmhy": "31802",
+   "name": "เดนทรัล พลัส",
+   "tags": [
+    "ทำฟัน",
+    "ขูดหินปูน",
+    "อุดฟัน"
+   ],
+   "phone": "088-849-7799",
+   "amphoe": "เมือง",
+   "modified": "2022-03-07",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-31802"
+  },
+  {
+   "cmhy": "31803",
+   "name": "เดอะเดสทินี่",
+   "tags": [
+    "ขูดหินปูน",
+    "อุดฟัน",
+    "ถอนฟัน"
+   ],
+   "phone": "081-592-9246",
+   "amphoe": "เมือง",
+   "modified": "2024-03-19",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-31803"
+  },
+  {
+   "cmhy": "31941",
+   "name": "ปลูกรักสหคลินิก",
+   "tags": [
+    "ทำฟัน",
+    "รักษาฟัน",
+    "ทำฟันเด็กพิเศษ"
+   ],
+   "phone": "098-752-4057",
+   "amphoe": "เมือง",
+   "modified": "2022-03-25",
+   "trade": "dentist",
+   "facets": {
+    "kids": true
+   },
+   "record": "cm-curated-dentist-31941"
+  },
+  {
+   "cmhy": "31946",
+   "name": "ซีเอสดี เดนทรัล คลินิก CSDC (สตาร์อเวนิว 5 หางดง)",
+   "tags": [
+    "จัดฟัน",
+    "ฟอกสีฟัน",
+    "รักษารากฟัน"
+   ],
+   "phone": "095-134-5414",
+   "amphoe": "เมือง",
+   "modified": "2026-07-13",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "veneer": true,
+    "rootcanal": true
+   },
+   "record": "cm-curated-dentist-31946"
+  },
+  {
+   "cmhy": "31956",
+   "name": "เทพปัญญา สมายด์ เดนทัลคลินิก",
+   "tags": [
+    "ทำฟัน",
+    "ถอนฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "052-088-999",
+   "amphoe": "เมือง",
+   "modified": "2022-03-28",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-31956"
+  },
+  {
+   "cmhy": "32059",
+   "name": "แอทโฮม เดนทรัล คลินิก",
+   "tags": [
+    "รักษาฟัน",
+    "จัดฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "097-064-0090",
+   "amphoe": "เมือง",
+   "modified": "2022-04-07",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-32059"
+  },
+  {
+   "cmhy": "32070",
+   "name": "เดนทัล บัดดี้ คลินิก",
+   "tags": [
+    "จัดฟัน",
+    "ทำฟัน"
+   ],
+   "phone": "094-987-4923",
+   "amphoe": "เมือง",
+   "modified": "2022-04-06",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "osm": "cm-osm-node-10744523184",
+   "metres": 18
+  },
+  {
+   "cmhy": "321",
+   "name": "คลินิกฟันสบาย",
+   "tags": [
+    "ทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-212-656",
+   "amphoe": "เมือง",
+   "modified": "2026-05-31",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-321"
+  },
+  {
+   "cmhy": "3226",
+   "name": "เพื่อนฟัน",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-204-366",
+   "amphoe": "เมือง",
+   "modified": "2020-12-25",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-3226"
+  },
+  {
+   "cmhy": "32749",
+   "name": "ซีเชน คลินิกทันตกรรม",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "053-282-849,088-399-0369",
+   "amphoe": "เมือง",
+   "modified": "2022-07-19",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "osm": "cm-osm-node-8893030795",
+   "metres": 6
+  },
+  {
+   "cmhy": "32847",
+   "name": "ซันชายน์ คลินิกทันตกรรม (หนองหอย)",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "094-604-8444",
+   "amphoe": "เมือง",
+   "modified": "2023-01-26",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-32847"
+  },
+  {
+   "cmhy": "32848",
+   "name": "วาบิ เดนทัล",
+   "tags": [
+    "จัดฟัน",
+    "จัดฟันใส",
+    "Invisalign"
+   ],
+   "phone": "080-806-1888",
+   "amphoe": "เมือง",
+   "modified": "2022-07-29",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-32848"
+  },
+  {
+   "cmhy": "3304",
+   "name": "คลาสวัน เฮาท์เดลทัลแคร์",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-217-845,053-217-846,084-613-6612",
+   "amphoe": "เมือง",
+   "modified": "2022-03-30",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-3304"
+  },
+  {
+   "cmhy": "33144",
+   "name": "คลินิกเลิศทันตกรรม",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "จัดฟันใส"
+   ],
+   "phone": "065-955-2325",
+   "amphoe": "เมือง",
+   "modified": "2024-05-09",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-33144"
+  },
+  {
+   "cmhy": "3341",
+   "name": "คลีนิกทันตกรรมฟ้าสวย",
+   "tags": [
+    "จัดฟัน",
+    "ทำฟัน"
+   ],
+   "phone": "053-223-927",
+   "amphoe": "เมือง",
+   "modified": "2021-11-07",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-3341"
+  },
+  {
+   "cmhy": "33732",
+   "name": "ยูนิคอร์น เดนทัล (แอดเคิฟ)",
+   "tags": [
+    "ทำฟัน",
+    "คลินิกทำฟัน"
+   ],
+   "phone": "094-226-9563",
+   "amphoe": "เมือง",
+   "modified": "2022-11-03",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-33732"
+  },
+  {
+   "cmhy": "33948",
+   "name": "กู๊ดเฟรนด์ เดนทรัล คลินิก",
+   "tags": [
+    "จัดฟัน",
+    "ทำฟัน",
+    "จัดฟันใส"
+   ],
+   "phone": "083-878-2655",
+   "amphoe": "เมือง",
+   "modified": "2022-10-19",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-33948"
+  },
+  {
+   "cmhy": "3397",
+   "name": "คลินิกพีระยศทันตกรรม",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-212-653",
+   "amphoe": "เมือง",
+   "modified": "2021-01-22",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-3397"
+  },
+  {
+   "cmhy": "34666",
+   "name": "คลินิกทันตกรรม (ศูนย์ศรีพัฒน์)",
+   "tags": [
+    "ทำฟัน",
+    "ขูดหินปูน",
+    "อุดฟัน"
+   ],
+   "phone": "053-938-838",
+   "amphoe": "เมือง",
+   "modified": "2023-08-07",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-34666"
+  },
+  {
+   "cmhy": "34986",
+   "name": "ซันชายน์ คลินิกทันตกรรม (เจ็ดยอด)",
+   "tags": [
+    "ร้านหมอฟัน",
+    "ร้านทำฟัน",
+    "รักษาฟัน"
+   ],
+   "phone": "094-604-8444",
+   "amphoe": "เมือง",
+   "modified": "2023-01-26",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-34986"
+  },
+  {
+   "cmhy": "3513",
+   "name": "คลีนิคหมออรุโณทัย",
+   "tags": [
+    "รักษารากฟัน",
+    "ใส่ฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-218-756",
+   "amphoe": "เมือง",
+   "modified": "2020-10-11",
+   "trade": "dentist",
+   "facets": {
+    "rootcanal": true,
+    "denture": true
+   },
+   "osm": "cm-osm-node-2420202262",
+   "metres": 6
+  },
+  {
+   "cmhy": "35294",
+   "name": "ซไมล์ เดนทัล",
+   "tags": [
+    "รักษาฟัน"
+   ],
+   "phone": "052-005-439",
+   "amphoe": "เมือง",
+   "modified": "2023-03-04",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "355",
+   "name": "เฟรนด์ลีเดนท์",
+   "tags": [
+    "อุดฟัน",
+    "ฟอกสีฟัน",
+    "ขูดหินปูน"
+   ],
+   "phone": "086-429-3110",
+   "amphoe": "เมือง",
+   "modified": "2026-06-01",
+   "trade": "dentist",
+   "facets": {
+    "veneer": true
+   },
+   "record": "cm-curated-dentist-355"
+  },
+  {
+   "cmhy": "35543",
+   "name": "เดนทัลเพลย์ลิส",
+   "tags": [
+    "รักษาฟัน",
+    "จัดฟันใส",
+    "จัดฟันจัดฟันโลหะ"
+   ],
+   "phone": "096-694-7065",
+   "amphoe": "เมือง",
+   "modified": "2025-07-11",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-35543"
+  },
+  {
+   "cmhy": "35628",
+   "name": "แม่เหียะ เดนทรัล สตูดิโอ by Dental ARM",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "วีเนียร์"
+   ],
+   "phone": "065-242-6811",
+   "amphoe": "เมือง",
+   "modified": "2026-03-27",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "veneer": true
+   },
+   "record": "cm-curated-dentist-35628"
+  },
+  {
+   "cmhy": "36090",
+   "name": "คลินิกทันตกรรมไพร์ม",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "รากฟันเทียม"
+   ],
+   "phone": "095-552-2987",
+   "amphoe": "เมือง",
+   "modified": "2026-08-03",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "implant": true,
+    "denture": true
+   },
+   "record": "cm-curated-dentist-36090"
+  },
+  {
+   "cmhy": "3610",
+   "name": "เอ็ม.สแควร์ เดนทัล แคร์",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "ถอนฟัน"
+   ],
+   "phone": "053-284-959,081-112-2447",
+   "amphoe": "เมือง",
+   "modified": "2021-01-20",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-3610"
+  },
+  {
+   "cmhy": "36302",
+   "name": "บี สไมล์",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "ฟันผุ"
+   ],
+   "phone": "084-998-5565",
+   "amphoe": "เมือง",
+   "modified": "2023-10-18",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "osm": "cm-osm-node-3384110499",
+   "metres": 4
+  },
+  {
+   "cmhy": "36538",
+   "name": "คลินิกทันตกรรม หมอวิสุ",
+   "tags": [
+    "รักษาฟัน",
+    "ทำฟัน",
+    "หมอฟัน"
+   ],
+   "phone": "096-939-9914",
+   "amphoe": "เมือง",
+   "modified": "2024-03-19",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-36538"
+  },
+  {
+   "cmhy": "3662",
+   "name": "คลีนิคทันตกรรม พรเทวา",
+   "tags": [
+    "เอ็กซ์เรย์",
+    "ทำความสะอาด",
+    "ถอนฟัน"
+   ],
+   "phone": "053-400-767",
+   "amphoe": "เมือง",
+   "modified": "2021-07-30",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-node-6994689098",
+   "metres": 49
+  },
+  {
+   "cmhy": "36913",
+   "name": "อายเซ คลินิก AYESays clinic",
+   "tags": [
+    "รักษาฟัน",
+    "คลินิกทันตกรรม",
+    "คลินิกความงาม"
+   ],
+   "phone": "062-145-1991",
+   "amphoe": "เมือง",
+   "modified": "2026-08-14",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-node-4596223591",
+   "metres": 43
+  },
+  {
+   "cmhy": "37437",
+   "name": "คุกกี้เดนทัลสตูดิโอ",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "หมอฟัน"
+   ],
+   "phone": "061-492-9096",
+   "amphoe": "เมือง",
+   "modified": "2024-11-20",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-37437"
+  },
+  {
+   "cmhy": "37537",
+   "name": "ทรัสต์ คลินิก ทันตกรรม & เวชกรรม",
+   "tags": [
+    "รักษาฟัน",
+    "ทำฟัน",
+    "คลินิกความงาม"
+   ],
+   "phone": "093-950-8945",
+   "amphoe": "เมือง",
+   "modified": "2024-03-19",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-37537"
+  },
+  {
+   "cmhy": "37561",
+   "name": "พักใจสหคลินิก",
+   "tags": [
+    "โรคภูมิแพ้",
+    "โรคทางเดินหายใจ",
+    "รักษาทั่วไป"
+   ],
+   "phone": "088-260-7285",
+   "amphoe": "เมือง",
+   "modified": "2024-01-24",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "37662",
+   "name": "เรนนี่ คลินิกทันตกรรม",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "081-484-8198",
+   "amphoe": "เมือง",
+   "modified": "2025-03-07",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "osm": "cm-osm-node-4385476590",
+   "metres": 47
+  },
+  {
+   "cmhy": "37738",
+   "name": "คลินิกทันตกรรมพายัพ",
+   "tags": [
+    "invisalign",
+    "ฟอกสีฟัน",
+    "ฟันปลอม"
+   ],
+   "phone": "095-565-1932,053-240-365,063-789-4623",
+   "amphoe": "เมือง",
+   "modified": "2025-12-05",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "veneer": true,
+    "denture": true
+   },
+   "record": "cm-curated-dentist-37738"
+  },
+  {
+   "cmhy": "37744",
+   "name": "ไฮปส์ เดนทรัล คลินิก",
+   "tags": [
+    "รากฟันเทียม",
+    "X-RAY",
+    "ขูดหินปูน"
+   ],
+   "phone": "092-429-6969",
+   "amphoe": "เมือง",
+   "modified": "2024-06-01",
+   "trade": "dentist",
+   "facets": {
+    "implant": true,
+    "denture": true
+   },
+   "record": "cm-curated-dentist-37744"
+  },
+  {
+   "cmhy": "37793",
+   "name": "ทรัสต์ เดนทรัล คลินิก (สาขา เซ็นทรัลเฟสติวัล เชียงใหม่ ชั้น 4)",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "062-653-6143,063-403-1242",
+   "amphoe": "เมือง",
+   "modified": "2024-06-01",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-37793"
+  },
+  {
+   "cmhy": "37866",
+   "name": "ซีเอสดี เดนทรัล คลินิก (โลตัสคำเที่ยง)",
+   "tags": [
+    "จัดฟัน",
+    "ฟอกสีฟัน",
+    "รักษารากฟัน"
+   ],
+   "phone": "099-297-7179",
+   "amphoe": "เมือง",
+   "modified": "2026-07-13",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "veneer": true,
+    "rootcanal": true
+   },
+   "record": "cm-curated-dentist-37866"
+  },
+  {
+   "cmhy": "38006",
+   "name": "เบสท์เฟรนด์ เดนทรัล แคร์ คลินิก",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "081-097-9596",
+   "amphoe": "เมือง",
+   "modified": "2025-12-06",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-38006"
+  },
+  {
+   "cmhy": "38273",
+   "name": "สไมล์ CNX",
+   "tags": [
+    "หมอฟัน",
+    "รักษาฟัน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-10-24",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-38273"
+  },
+  {
+   "cmhy": "38334",
+   "name": "คลินิกทันตกรรมทีสมายล์ ซีเอ็มอาร์ยู",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-12-11",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-38334"
+  },
+  {
+   "cmhy": "38425",
+   "name": "เดย์ไทม์สไมล์ (สาขาเชียงใหม่ตลาดช้างเผือก)",
+   "tags": [
+    "ร้านทำฟัน",
+    "หมอฟัน",
+    "ทันตกรรม"
+   ],
+   "phone": "062-654-9592",
+   "amphoe": "เมือง",
+   "modified": "2024-12-04",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-38425"
+  },
+  {
+   "cmhy": "38477",
+   "name": "เดนทัลโพร คลินิกทันตกรรม",
+   "tags": [
+    "ทำฟัน",
+    "หมอฟัน",
+    "ฟอกสีฟัน"
+   ],
+   "phone": "090-997-3508",
+   "amphoe": "เมือง",
+   "modified": "2026-06-01",
+   "trade": "dentist",
+   "facets": {
+    "veneer": true
+   },
+   "record": "cm-curated-dentist-38477"
+  },
+  {
+   "cmhy": "38721",
+   "name": "ศูนย์ทันตกรรม เชียงใหม่ ราม เฮลท์ เซ็นเตอร์",
+   "tags": [
+    "หมอฟัน",
+    "ทำฟัน",
+    "รักษาฟัน"
+   ],
+   "phone": "052-004-621,093-130-9922,097-919-9797",
+   "amphoe": "เมือง",
+   "modified": "2026-09-01",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-way-461273738",
+   "metres": 5
+  },
+  {
+   "cmhy": "38811",
+   "name": "คลินิกทันตกรรมนิวพลัส",
+   "tags": [
+    "ขูดหินปูน",
+    "ตรวจสุขภาพช่องปาก",
+    "รักษาฟัน"
+   ],
+   "phone": "093-388-3899",
+   "amphoe": "เมือง",
+   "modified": "2024-11-20",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-38811"
+  },
+  {
+   "cmhy": "39310",
+   "name": "เด็นทรัล แบร์ (หลังมอเชียงใหม่)",
+   "tags": [
+    "จัดฟัน",
+    "ทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "091-859-9189",
+   "amphoe": "เมือง",
+   "modified": "2025-06-06",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-39310"
+  },
+  {
+   "cmhy": "39311",
+   "name": "คลาว เดนทรัล by MG Clinic",
+   "tags": [
+    "จัดฟัน",
+    "ขูดหินปูน",
+    "ทำฟัน"
+   ],
+   "phone": "064-972-9999",
+   "amphoe": "เมือง",
+   "modified": "2025-06-06",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-39311"
+  },
+  {
+   "cmhy": "3959",
+   "name": "เดนทัลมี 2 (หน้า ร.ร. ดารา)",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "053-244-106,088-263-4768",
+   "amphoe": "เมือง",
+   "modified": "2020-03-18",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-3959"
+  },
+  {
+   "cmhy": "40159",
+   "name": "เดนทัลชายน์",
+   "tags": [
+    "รากเทียม",
+    "จัดฟัน",
+    "X-Ray3มิติ"
+   ],
+   "phone": "098-369-9250",
+   "amphoe": "เมือง",
+   "modified": "2025-07-08",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "implant": true
+   },
+   "record": "cm-curated-dentist-40159"
+  },
+  {
+   "cmhy": "40281",
+   "name": "ปังปังเดนทัลคลินิก",
+   "tags": [
+    "ร้านทำฟัน",
+    "หมอฟัน",
+    "รักษาฟัน"
+   ],
+   "phone": "093-558-8826",
+   "amphoe": "เมือง",
+   "modified": "2025-05-29",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-40281"
+  },
+  {
+   "cmhy": "40342",
+   "name": "ซีเอสดี เดนทรัล คลินิกCSDC (สาขาแยกเมญ่า)",
+   "tags": [
+    "จัดฟัน",
+    "ฟอกสีฟัน",
+    "รักษารากฟัน"
+   ],
+   "phone": "081-534-9179",
+   "amphoe": "เมือง",
+   "modified": "2026-07-13",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "veneer": true,
+    "rootcanal": true
+   },
+   "record": "cm-curated-dentist-40342"
+  },
+  {
+   "cmhy": "40358",
+   "name": "มีทูธ คลินิกทันตกรรม",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "ถอนฟัน"
+   ],
+   "phone": "061-594-2944",
+   "amphoe": "เมือง",
+   "modified": "2025-08-07",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-40358"
+  },
+  {
+   "cmhy": "40590",
+   "name": "เด็นทรัล แบร์ 4 (สาขาโอมากาเสะ (หลังวัดสวนดอก))",
+   "tags": [
+    "จัดฟัน",
+    "ทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "082-889-6935",
+   "amphoe": "เมือง",
+   "modified": "2025-10-04",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-40590"
+  },
+  {
+   "cmhy": "40716",
+   "name": "เวลสไมล์",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "ปักรากเทียม"
+   ],
+   "phone": "098-838-9393",
+   "amphoe": "เมือง",
+   "modified": "2025-10-21",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "implant": true
+   },
+   "record": "cm-curated-dentist-40716"
+  },
+  {
+   "cmhy": "40722",
+   "name": "ซีดีซี เดนทัล คลินิก CDC (สาขานิมมาน)",
+   "tags": [
+    "ร้านทำฟัน",
+    "หมอฟัน",
+    "คลินิกทันตกรรม"
+   ],
+   "phone": "097-964-2392",
+   "amphoe": "เมือง",
+   "modified": "2025-10-21",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-node-11382625121",
+   "metres": 42
+  },
+  {
+   "cmhy": "40770",
+   "name": "คลินิกทันตกรรมกิมเฮ้าส์",
+   "tags": [
+    "รักษาคลองรากฟัน",
+    "จัดฟัน",
+    "รากฟันเทียม"
+   ],
+   "phone": "062-424-2287",
+   "amphoe": "เมือง",
+   "modified": "2025-10-23",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "implant": true,
+    "denture": true
+   },
+   "record": "cm-curated-dentist-40770"
+  },
+  {
+   "cmhy": "40821",
+   "name": "ดีดีเอส เดนทัล คลินิก DDS",
+   "tags": [
+    "วีเนียร์",
+    "จัดฟัน",
+    "ฟันปลอม"
+   ],
+   "phone": "094-229-5666",
+   "amphoe": "เมือง",
+   "modified": "2025-12-05",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "veneer": true,
+    "denture": true
+   },
+   "record": "cm-curated-dentist-40821"
+  },
+  {
+   "cmhy": "40932",
+   "name": "นาวอะเดย์ เดนทรัล คลินิก",
+   "tags": [
+    "รักษารากฟัน",
+    "จัดฟัน",
+    "ฟอกสีฟัน"
+   ],
+   "phone": "099-050-2154",
+   "amphoe": "เมือง",
+   "modified": "2025-12-12",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "veneer": true,
+    "rootcanal": true
+   },
+   "record": "cm-curated-dentist-40932"
+  },
+  {
+   "cmhy": "41467",
+   "name": "โกลว์สไมล์ เดนทัลคลินิก",
+   "tags": [
+    "จัดฟันเหล็ก",
+    "จัดฟันใส",
+    "ทำฟัน"
+   ],
+   "phone": "093-178-7929",
+   "amphoe": "เมือง",
+   "modified": "2026-03-09",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-41467"
+  },
+  {
+   "cmhy": "41469",
+   "name": "คลินิกทันตกรรม ทูธสไมล์พลัส",
+   "tags": [
+    "รักษารากฟัน",
+    "ผ่าฟันคุด",
+    "ถอนฟัน"
+   ],
+   "phone": "083-498-9699",
+   "amphoe": "เมือง",
+   "modified": "2026-03-09",
+   "trade": "dentist",
+   "facets": {
+    "rootcanal": true,
+    "wisdom": true
+   },
+   "record": "cm-curated-dentist-41469"
+  },
+  {
+   "cmhy": "41746",
+   "name": "ทันต์คลินิกทันตกรรม",
+   "tags": [
+    "รักษาโรคฟันทั่วไป",
+    "จัดฟัน",
+    "ขูดหินปูน"
+   ],
+   "phone": "090-326-9090",
+   "amphoe": "เมือง",
+   "modified": "2026-03-23",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-41746"
+  },
+  {
+   "cmhy": "41834",
+   "name": "ปลาวาฬคลินิก (เดอะ แบ็คยาร์ด มหิดล)",
+   "tags": [
+    "ทำฟัน",
+    "ทันตกรรม",
+    "ขูดหินปูน"
+   ],
+   "phone": "064-002-4804",
+   "amphoe": "เมือง",
+   "modified": "2026-03-25",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-41834"
+  },
+  {
+   "cmhy": "41952",
+   "name": "คลินิกทันตกรรมสมายดี",
+   "tags": [
+    "จัดฟัน",
+    "คลินิกรักษาฟัน",
+    "คลินิกฟัน"
+   ],
+   "phone": "064-484-2666",
+   "amphoe": "เมือง",
+   "modified": "2026-04-17",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-41952"
+  },
+  {
+   "cmhy": "4238",
+   "name": "ซีเอ็มทันตกรรม",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-266-557,053-266-555,088-258-2962",
+   "amphoe": "เมือง",
+   "modified": "2021-10-23",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-4238"
+  },
+  {
+   "cmhy": "42501",
+   "name": "ซีเอ็ม สไมล์ เดนทรัล คลินิก",
+   "tags": [
+    "ทำฟัน",
+    "รักษาฟัน",
+    "คลินิกทำฟัน"
+   ],
+   "phone": "095-698-9879",
+   "amphoe": "เมือง",
+   "modified": "2026-08-12",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-node-6558265540",
+   "metres": 59
+  },
+  {
+   "cmhy": "42542",
+   "name": "โฮมมี่สไมล์ ฟ้าฮ่าม",
+   "tags": [
+    "รักษาฟัน",
+    "ทำฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "098-663-3595",
+   "amphoe": "เมือง",
+   "modified": "2026-09-02",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-42542"
+  },
+  {
+   "cmhy": "433",
+   "name": "พงศกรทันตคลินิก",
+   "tags": [
+    "รักษาฟัน",
+    "รากฟัน",
+    "ฟอกสีฟัน"
+   ],
+   "phone": "053-206-445",
+   "amphoe": "เมือง",
+   "modified": "2022-03-17",
+   "trade": "dentist",
+   "facets": {
+    "veneer": true
+   },
+   "osm": "cm-osm-node-3266576367",
+   "metres": 5
+  },
+  {
+   "cmhy": "4380",
+   "name": "ทันตแพทย์สุทิสา",
+   "tags": [
+    "ขูดหินปูน",
+    "อุดฟัน",
+    "ถอนฟัน"
+   ],
+   "phone": "062-030-8080,089-631-0526",
+   "amphoe": "เมือง",
+   "modified": "2023-04-01",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-4380"
+  },
+  {
+   "cmhy": "4575",
+   "name": "คลินิกทันตกรรมเหงือกและฟัน",
+   "tags": [
+    "ทำฟันเด็ก",
+    "ทันตกรรมเด็ก",
+    "ทำฟัน"
+   ],
+   "phone": "053-895-544",
+   "amphoe": "เมือง",
+   "modified": "2022-01-23",
+   "trade": "dentist",
+   "facets": {
+    "kids": true
+   },
+   "record": "cm-curated-dentist-4575"
+  },
+  {
+   "cmhy": "4865",
+   "name": "คลินิกทันตกรรมเดลตัลโฮม",
+   "tags": [
+    "ผ่าฟันคุด",
+    "ทันตกรรมเด็ก",
+    "ถอนฟัน"
+   ],
+   "phone": "053-221-843,053-221-865,081-783-1455",
+   "amphoe": "เมือง",
+   "modified": "2026-07-11",
+   "trade": "dentist",
+   "facets": {
+    "wisdom": true,
+    "kids": true
+   },
+   "record": "cm-curated-dentist-4865"
+  },
+  {
+   "cmhy": "492",
+   "name": "หมอไมตรีทันตกรรม",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "081-885-1923",
+   "amphoe": "เมือง",
+   "modified": "2025-08-02",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-492"
+  },
+  {
+   "cmhy": "506",
+   "name": "คลินิค วิไลทันตแพทย์",
+   "tags": [
+    "ทัตนกรรมรากเทียม",
+    "ปริทันต์",
+    "รักษาฟัน"
+   ],
+   "phone": "086-671-6640",
+   "amphoe": "เมือง",
+   "modified": "2023-09-15",
+   "trade": "dentist",
+   "facets": {
+    "implant": true
+   },
+   "osm": "cm-osm-node-3384110499",
+   "metres": 7
+  },
+  {
+   "cmhy": "5103",
+   "name": "คลินิคทันตกรรมฟอร์จูน (มหิดล)",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-281-881,088-258-2503",
+   "amphoe": "เมือง",
+   "modified": "2026-03-25",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-node-8566596039",
+   "metres": 6
+  },
+  {
+   "cmhy": "515",
+   "name": "คลินิกโรคฟันล้านนา สไมล์ฮิปปัส (สาขาพระสิงห์)",
+   "tags": [
+    "รากฟันเทียมคอมพิวเตอร์",
+    "จัดฟันแบบใส"
+   ],
+   "phone": "053-326-221,053-326-222",
+   "amphoe": "เมือง",
+   "modified": "2026-03-30",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "implant": true,
+    "denture": true
+   },
+   "osm": "cm-osm-node-2466325294",
+   "metres": 9
+  },
+  {
+   "cmhy": "5164",
+   "name": "คลินิกทันตแพทย์สวนดอกอัครพล",
+   "tags": [
+    "ทำฟัน",
+    "ขูดหินปูน",
+    "ถอนฟัน"
+   ],
+   "phone": "053-357-608",
+   "amphoe": "เมือง",
+   "modified": "2023-06-24",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-5164"
+  },
+  {
+   "cmhy": "536",
+   "name": "ป้าย่น ทันตคลินิค",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-874-497",
+   "amphoe": "เมือง",
+   "modified": "2018-04-23",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-node-2211025832",
+   "metres": 4
+  },
+  {
+   "cmhy": "5488",
+   "name": "นวภูมิสหคลินิค",
+   "tags": [
+    "เสริมจมูก",
+    "โบท๊อกซ์",
+    "ตกแต่งฟัน"
+   ],
+   "phone": "053-117-207,095-693-9494",
+   "amphoe": "เมือง",
+   "modified": "2021-01-22",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "5728",
+   "name": "เด็นทรัลฟอร์ยู",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-874-149",
+   "amphoe": "เมือง",
+   "modified": "2020-05-28",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-node-2414315188",
+   "metres": 6
+  },
+  {
+   "cmhy": "5822",
+   "name": "ก้องเกียรติทันตกรรมคลินิก (สหทันตคลินิก)",
+   "tags": [
+    "ทำฟัน",
+    "ถอนฟัน",
+    "ขูดหินปูน"
+   ],
+   "phone": "053-235-479",
+   "amphoe": "เมือง",
+   "modified": "2026-05-31",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-node-4538126080",
+   "metres": 31
+  },
+  {
+   "cmhy": "5829",
+   "name": "เดนทัลมี 1 (พระสิงห์)",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "053-327-203,,088-263-2630",
+   "amphoe": "เมือง",
+   "modified": "2021-10-25",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-5829"
+  },
+  {
+   "cmhy": "599",
+   "name": "ฟันแอนด์ฟัน",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-212-651,081-706-4400",
+   "amphoe": "เมือง",
+   "modified": "2021-07-29",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-node-2638125760",
+   "metres": 9
+  },
+  {
+   "cmhy": "6251",
+   "name": "คลินิกทันตกรรมรักษ์ยิ้ม",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-222-543",
+   "amphoe": "เมือง",
+   "modified": "2024-11-14",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-node-2530379603",
+   "metres": 7
+  },
+  {
+   "cmhy": "6325",
+   "name": "เอ-เดนท์ ทันตกรรม",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "086-658-6669",
+   "amphoe": "เมือง",
+   "modified": "2020-10-11",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-6325"
+  },
+  {
+   "cmhy": "6394",
+   "name": "โรงพยาบาลทันตกรรม เอเซีย ฟอร์จูน",
+   "tags": [
+    "จัดฟัน",
+    "อุดฟัน",
+    "ถอนฟัน"
+   ],
+   "phone": "053-262-828,081-993-1993",
+   "amphoe": "เมือง",
+   "modified": "2020-03-21",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-6394"
+  },
+  {
+   "cmhy": "6437",
+   "name": "อินเดนเต้ คลินิก",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "095-697-7888,,052-004-498",
+   "amphoe": "เมือง",
+   "modified": "2021-01-20",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-6437"
+  },
+  {
+   "cmhy": "6456",
+   "name": "สไมล์พลัส",
+   "tags": [
+    "ขูดหินปูน",
+    "อุดฟัน",
+    "ผ่าฟันคุด"
+   ],
+   "phone": "053-851-686",
+   "amphoe": "เมือง",
+   "modified": "2021-01-20",
+   "trade": "dentist",
+   "facets": {
+    "wisdom": true
+   },
+   "record": "cm-curated-dentist-6456"
+  },
+  {
+   "cmhy": "6465",
+   "name": "คลินิกทันตกรรม รพ.นครพิงค์ (ศรีดอนไชย)",
+   "tags": [
+    "ทำฟัน",
+    "อุดฟัน",
+    "ขูดหินปูน"
+   ],
+   "phone": "053-275-970",
+   "amphoe": "เมือง",
+   "modified": "2021-07-05",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-6465"
+  },
+  {
+   "cmhy": "6690",
+   "name": "คลินิกทันตกรรม รพ.แมคคอร์มิค",
+   "tags": [
+    "ทำฟัน",
+    "ตรวจฟัน}อุดฟัน",
+    "ขูดหินปูน"
+   ],
+   "phone": "053-921-777",
+   "amphoe": "เมือง",
+   "modified": "2023-02-26",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-6690"
+  },
+  {
+   "cmhy": "6942",
+   "name": "ซีดีเจ เดนทรัล CDJ",
+   "tags": [
+    "จัดฟัน",
+    "รักษารากฟัน",
+    "ถอนฟัน"
+   ],
+   "phone": "053-400-168",
+   "amphoe": "เมือง",
+   "modified": "2026-08-14",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "rootcanal": true
+   },
+   "osm": "cm-osm-node-4596223591",
+   "metres": 5
+  },
+  {
+   "cmhy": "7224",
+   "name": "เดนทัลจอยพลัส",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน",
+    "ทำฟันประกันสังคม"
+   ],
+   "phone": "053-400-004,087-788-7333",
+   "amphoe": "เมือง",
+   "modified": "2021-11-08",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "osm": "cm-osm-node-6558265540",
+   "metres": 1
+  },
+  {
+   "cmhy": "7247",
+   "name": "ดับเบิ้ลยูเชียงใหม่",
+   "tags": [
+    "จัดฟัน",
+    "อุดฟัน",
+    "ฟอกสีฟัน"
+   ],
+   "phone": "062-395-6969,053-218-100",
+   "amphoe": "เมือง",
+   "modified": "2026-08-12",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "veneer": true
+   },
+   "osm": "cm-osm-node-8829279589",
+   "metres": 4
+  },
+  {
+   "cmhy": "7262",
+   "name": "คลินิกทันตกรรมฟอร์จูน (ห้วยแก้ว)",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-401-100,088-258-0940",
+   "amphoe": "เมือง",
+   "modified": "2026-02-05",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-node-4407877591",
+   "metres": 5
+  },
+  {
+   "cmhy": "7483",
+   "name": "เด็นทาลิต้า หมอเจสซี่ Jessie dental clinic สาขาแม่เหียะ",
+   "tags": [
+    "ทันตกรรม",
+    "จัดฟัน",
+    "ฟอกสี"
+   ],
+   "phone": "061-335-3664",
+   "amphoe": "เมือง",
+   "modified": "2025-10-14",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-7483"
+  },
+  {
+   "cmhy": "7508",
+   "name": "ไอ สไมล์ (แม่เหียะ)",
+   "tags": [
+    "จัดฟัน",
+    "ทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-804-881",
+   "amphoe": "เมือง",
+   "modified": "2025-10-14",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "osm": "cm-osm-node-2456846022",
+   "metres": 5
+  },
+  {
+   "cmhy": "7540",
+   "name": "บลิสสไมล์",
+   "tags": [
+    "จัดฟัน",
+    "ฟันเทียม",
+    "ผ่าฟันคุด"
+   ],
+   "phone": "061-295-4641",
+   "amphoe": "เมือง",
+   "modified": "2021-07-27",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "wisdom": true,
+    "denture": true
+   },
+   "record": "cm-curated-dentist-7540"
+  },
+  {
+   "cmhy": "7742",
+   "name": "ยิ้มแฉ่ง คลินิกทันตกรรม",
+   "tags": [
+    "จัดฟัน",
+    "ทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-247-500,086-421-4122",
+   "amphoe": "เมือง",
+   "modified": "2022-07-18",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-7742"
+  },
+  {
+   "cmhy": "8169",
+   "name": "สมายเวย์ เดนทัล คลินิก",
+   "tags": [
+    "จัดฟัน",
+    "ฟอกสีฟัน",
+    "รากฟัน"
+   ],
+   "phone": "090-321-5673",
+   "amphoe": "เมือง",
+   "modified": "2021-07-22",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "veneer": true
+   },
+   "record": "cm-curated-dentist-8169"
+  },
+  {
+   "cmhy": "8182",
+   "name": "คลินิกทันตกรรมแอร์พอร์ต",
+   "tags": [
+    "จัดฟัน",
+    "อุดฟัน",
+    "ถอนฟัน"
+   ],
+   "phone": "053-274-874,098-184-2868",
+   "amphoe": "เมือง",
+   "modified": "2021-09-26",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-8182"
+  },
+  {
+   "cmhy": "8195",
+   "name": "คลินิกทันตกรรมวันใส",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "053-279-520,,081-468-2392",
+   "amphoe": "เมือง",
+   "modified": "2021-07-22",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-8195"
+  },
+  {
+   "cmhy": "8276",
+   "name": "ทรงธรรม-อัจฉรา ทันตแพทย์",
+   "tags": [
+    "ถอนฟัน",
+    "ฟันปลอม",
+    "รากฟัน"
+   ],
+   "phone": "053-214-006",
+   "amphoe": "เมือง",
+   "modified": "2020-07-18",
+   "trade": "dentist",
+   "facets": {
+    "denture": true
+   },
+   "osm": "cm-osm-node-3298057029",
+   "metres": 13
+  },
+  {
+   "cmhy": "8416",
+   "name": "คลินิกทันตกรรม หมอปูน",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-217-523",
+   "amphoe": "เมือง",
+   "modified": "2026-03-23",
+   "trade": "dentist",
+   "facets": {},
+   "osm": "cm-osm-node-4480934053",
+   "metres": 10
+  },
+  {
+   "cmhy": "8511",
+   "name": "คลินิกทันตแพทย์วุฒินันท์",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-116-119",
+   "amphoe": "เมือง",
+   "modified": "2021-10-09",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-8511"
+  },
+  {
+   "cmhy": "879",
+   "name": "เด็นท์ดาราร์",
+   "tags": [
+    "ทำฟัน",
+    "จัดฟัน"
+   ],
+   "phone": "053-242-464",
+   "amphoe": "เมือง",
+   "modified": "2018-05-11",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-879"
+  },
+  {
+   "cmhy": "8803",
+   "name": "คลินิกทันตกรรมวีพี",
+   "tags": [
+    "ขูดหินปูน",
+    "ผ่าฟันคุด",
+    "ถอนฟัน"
+   ],
+   "phone": "052-086-806,088-253-5696",
+   "amphoe": "เมือง",
+   "modified": "2021-07-27",
+   "trade": "dentist",
+   "facets": {
+    "wisdom": true
+   },
+   "osm": "cm-osm-node-11936097570",
+   "metres": 12
+  },
+  {
+   "cmhy": "8844",
+   "name": "บ้านรักษาฟัน",
+   "tags": [
+    "ทำฟัน",
+    "ร้านทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "053-351-934",
+   "amphoe": "เมือง",
+   "modified": "2024-09-16",
+   "trade": "dentist",
+   "facets": {},
+   "record": "cm-curated-dentist-8844"
+  },
+  {
+   "cmhy": "9101",
+   "name": "โมเดิร์นสไมล์พลัส",
+   "tags": [
+    "จัดฟัน"
+   ],
+   "phone": "053-811-099,099-134-2229",
+   "amphoe": "เมือง",
+   "modified": "2022-07-19",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-9101"
+  },
+  {
+   "cmhy": "9145",
+   "name": "คลินิคทันตกรรม ทูธ ทีธ",
+   "tags": [
+    "ขูดหินปูน",
+    "ฟันเทียม"
+   ],
+   "phone": "053-329-432",
+   "amphoe": "เมือง",
+   "modified": "2020-06-16",
+   "trade": "dentist",
+   "facets": {
+    "denture": true
+   },
+   "record": "cm-curated-dentist-9145"
+  },
+  {
+   "cmhy": "9542",
+   "name": "ซีเอสดี เดนทรัล คลินิก CSDC  (หลังมช.)",
+   "tags": [
+    "จัดฟัน",
+    "ฟอกสีฟัน",
+    "รักษารากฟัน"
+   ],
+   "phone": "095-134-1979",
+   "amphoe": "เมือง",
+   "modified": "2026-07-13",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true,
+    "veneer": true,
+    "rootcanal": true
+   },
+   "record": "cm-curated-dentist-9542"
+  },
+  {
+   "cmhy": "9692",
+   "name": "หมอนุ้ยคลินิคทันตกรรม",
+   "tags": [
+    "ขูดหินปูน",
+    "ทำปันปลอม",
+    "จัดฟัน"
+   ],
+   "phone": "094-036-9467",
+   "amphoe": "เมือง",
+   "modified": "2020-05-28",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-9692"
+  },
+  {
+   "cmhy": "994",
+   "name": "สิรีทันตคลีนิก",
+   "tags": [
+    "จัดฟัน",
+    "ทำฟัน",
+    "อุดฟัน"
+   ],
+   "phone": "062-919-2026",
+   "amphoe": "เมือง",
+   "modified": "2025-03-09",
+   "trade": "dentist",
+   "facets": {
+    "ortho": true
+   },
+   "record": "cm-curated-dentist-994"
+  }
+ ]
+}

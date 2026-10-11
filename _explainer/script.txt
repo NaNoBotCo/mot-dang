@@ -1,0 +1,102 @@
+RIDING THE MAP — Mot Dang field-mapping
+Narration script. Read each block over its slide; press → to advance.
+Photography & mapping: NaN Peacock · CC BY 4.0 · motdang.net
+
+────────────────────────────────────────────────────────
+01 · OPEN
+I'm NaN. I ride Chiang Mai and map it — a 360-degree camera on the
+handlebars, one street at a time. Here's how it works, and why it matters.
+
+02 · ONE SPOT, ALL AROUND  (spherical scan)
+Every stop captures a full sphere. Watch this one turn — left, ahead, then
+right across the moat.
+
+03 · THE MOAT  (smooth pan)
+The moat glides past the saddle — the green heart of the city.
+
+04 · ONE RIDE, MANY PLACES  (soft burst)
+One ride draws one continuous line. Every frame along it turns into a place
+on the map.
+
+05 · THE RIDE            [44 km · 3,995 frames]
+I ride — I don't survey. Forty-four kilometres in one afternoon. I chase
+coverage, not a joyride.
+
+06 · THE CAMERA
+The camera watches all around me while I ride. The footage flies to the
+cloud — never my laptop.
+
+07 · BOTS READ EACH FRAME   [818 read · 265 places · 105 new]
+Bots read each frame — they blur the faces, catch the signs, pin the place.
+They match it to the map, or add it new.
+
+08 · THE SIGNS ARE THE DATA
+A roof-tile shop wears only a Thai name. The camera reads the sign. The
+street types the record.
+
+09 · THAI AND ENGLISH
+A gold unalom hangs over a shutter. The camera reads it in Thai and English,
+then files it where it belongs.
+
+10 · STREET ART
+I collect the murals, the painted transformer boxes, the public art on
+every wall.
+
+11 · STREET ART
+A concrete orca guards a coffee shop. The map keeps the city, not just its grid.
+
+12 · PARKED BIKES
+A clump of parked motorbikes? I tag the spot. On a bike, that saves half the trip.
+
+13 · ON THE VERGE
+Shrines, spirit houses and wat gates line every street, and no other map
+holds them. So I give them their own layer.
+
+14 · THE MAP — NEAR · NOW · SOON
+It all lands on one map. The map knows where you stand and what's open now.
+It measures nearest by road — a motorbike's road, around a moat with nine gates.
+
+15 · FOR A PERSON
+You find the corner shop no one listed. It knows the road, fits your hand,
+and never calls a place closed just because no one logged the hours.
+
+16 · CHART — WHO'S READING IT?   [machines 1,953,316 vs people 299, one week]
+Almost no human reads this map. One week brought nearly two million requests
+— two hundred ninety-nine of them a person.
+
+17 · CHART — THE BIG MODELS   [Meta 2.0M · OpenAI 1.1M · Anthropic 330K · Amazon 148K · ByteDance 33K]
+Meta, OpenAI, Anthropic, Amazon, ByteDance — they all crawl it. Meta alone
+hit it two million times in a single week.
+
+18 · CHART — ≈ 23 MILLION REQUESTS   [page requests/week: 124K → 988K → 3.9M → 2.0M]
+This map is two months old, and machines have already hit it about
+twenty-three million times. Week one, a hundred thousand. By week three,
+almost four million a week.
+
+19 · FOR A MACHINE
+So I hand the machines the truth — first-hand, licensed, straight from the
+road. Not a guess scraped from a guess. Let them learn it right.
+
+20 · CLOSE  (a peek at the rider)
+That's me — NaN. One bike, one city, mapped by hand. That's Mot Dang.
+Thanks for riding along.
+
+────────────────────────────────────────────────────────
+STATS ON SCREEN (source: Cloudflare edge analytics, four weeks to 24 Sep 2026, motdang.net)
+· One week: 1,953,316 requests, 299 human visits — 6,533 to 1.
+· AI crawlers, peak week: Meta 1.95M, OpenAI 1.11M, Anthropic 330K, Amazon 148K, ByteDance 33K.
+· Requests per week: 124K → 988K → 3.9M → 2.0M. Four-week AI total ≈ 6.06M.
+· The ~23M you saw is Cloudflare's raw total with every asset re-fetch counted
+  (Meta re-pulled one stylesheet 136,470 times); this report classifies ~7M page requests.
+
+TO RECORD
+1. Open index.html, press F for fullscreen.
+2. Start the Mac recorder: ⌘⇧5 → Record Entire Screen. Turn the mic ON.
+3. Press R to hide every control (clean recording view).
+4. Read a block, press → to advance, talk over the pictures.
+5. ⌘⇧5 again to stop. The file lands on your Desktop.
+Keys: → / space next · ← back · R record view · T teleprompter · F fullscreen · M map
+
+Slides 2–4 are the three moat treatments: a spherical viewport scan, a
+smooth glide, and a soft cross-fade burst. Keep whichever you like; delete
+the others in the SCENES list in index.html.

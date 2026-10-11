@@ -1,0 +1,428 @@
+{
+ "_note": "Hand-kept links for event series, read by importers/event_links.py (the second rung, after the source's own link). Keyed by series_key(): the title and the venue, normalised. Rows come in through `event_links.py --propose <tsv>`, which keeps a link only when its page names the event or its venue; 'evidence' says which, 'found' the day it was checked, 'by' who or what proposed it; 'kind' is event (a page for this event) or host (the page of whoever runs or hosts it, shown as the host's and not counted as the event's own link).",
+ "series": {
+  "salsaforbeginners@bailamosdancestudio": {
+   "title": "Salsa for beginners",
+   "venue": "Bailamos Dance Studio",
+   "url": "https://www.instagram.com/bailamos_chiangmai/",
+   "found": "2026-10-10",
+   "by": "studio Instagram",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "bachataladiesstyling@bailamosdancestudio": {
+   "title": "Bachata ladies styling",
+   "venue": "Bailamos Dance Studio",
+   "url": "https://www.instagram.com/bailamos_chiangmai/",
+   "found": "2026-10-10",
+   "by": "studio Instagram",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "bachatasolostylingfootwork@bailamosdancestudio": {
+   "title": "Bachata solo styling & footwork",
+   "venue": "Bailamos Dance Studio",
+   "url": "https://www.instagram.com/bailamos_chiangmai/",
+   "found": "2026-10-10",
+   "by": "studio Instagram",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "bachatakizombaforbeginners@bailamosdancestudio": {
+   "title": "Bachata & kizomba for beginners",
+   "venue": "Bailamos Dance Studio",
+   "url": "https://www.instagram.com/bailamos_chiangmai/",
+   "found": "2026-10-10",
+   "by": "studio Instagram",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "chiangmaigaymensgroupcmgmg@sritanacondo2": {
+   "title": "Chiang Mai Gay Men's Group (CMGMG)",
+   "venue": "Sritana Condo 2",
+   "url": "https://www.facebook.com/p/Chiang-Mai-Gay-Mens-Group-100071326691161/",
+   "found": "2026-10-10",
+   "by": "group Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "lannarugbyclubpractice@suthepstadium": {
+   "title": "Lanna Rugby Club practice",
+   "venue": "Suthep Stadium",
+   "url": "https://www.facebook.com/lannarugbyclub",
+   "found": "2026-10-10",
+   "by": "club Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "sketchingclub@attikastudio": {
+   "title": "Sketching club",
+   "venue": "attika Studio",
+   "url": "https://www.facebook.com/attikastudiocnx/",
+   "found": "2026-10-10",
+   "by": "studio Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "soundjourney@attikastudio": {
+   "title": "Sound journey",
+   "venue": "attika Studio",
+   "url": "https://www.facebook.com/attikastudiocnx/",
+   "found": "2026-10-10",
+   "by": "studio Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "fridaysociallanguagenight@attikastudio": {
+   "title": "Friday social & language night",
+   "venue": "attika Studio",
+   "url": "https://www.facebook.com/attikastudiocnx/",
+   "found": "2026-10-10",
+   "by": "studio Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "potterygoodcompany40@mittstudio": {
+   "title": "Pottery & good company (40+)",
+   "venue": "Mitt Studio",
+   "url": "https://www.facebook.com/mittstudio.cnx",
+   "found": "2026-10-10",
+   "by": "studio Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "christcenteredmeditation@sevenfountainsjesuitretreatcenter": {
+   "title": "Christ-centered meditation",
+   "venue": "Seven Fountains Jesuit Retreat Center",
+   "url": "https://www.facebook.com/sevenfountains/",
+   "found": "2026-10-10",
+   "by": "centre Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "lunchbuffetatgajkitchenandbar@chiangmaimarriotthotel": {
+   "title": "Lunch buffet at Gaj Kitchen and Bar",
+   "venue": "Chiang Mai Marriott Hotel",
+   "url": "https://www.gajkitchenchiangmai.com/",
+   "found": "2026-10-10",
+   "by": "Gaj Kitchen and Bar own site",
+   "evidence": "walled to the checker (HTTPError)",
+   "kind": "host"
+  },
+  "loykrathongdinneratfourseasons@fourseasons": {
+   "title": "Loy Krathong Dinner at Four Seasons",
+   "venue": "Four Seasons",
+   "url": "https://www.fourseasons.com/chiangmai/dining/restaurants/khao/",
+   "found": "2026-10-10",
+   "by": "KHAO restaurant page, hosts the dinner",
+   "evidence": "walled to the checker (HTTPError)",
+   "kind": "host"
+  },
+  "thanksgivingbarbecuedinneratfourseasons@fourseasons": {
+   "title": "Thanksgiving Barbecue Dinner at Four Seasons",
+   "venue": "Four Seasons",
+   "url": "https://www.fourseasons.com/chiangmai/dining/restaurants/north/",
+   "found": "2026-10-10",
+   "by": "NORTH restaurant page, hosts the dinner",
+   "evidence": "walled to the checker (HTTPError)",
+   "kind": "host"
+  },
+  "awickedhalloweenfeastatgadlanna@gadlanna": {
+   "title": "A Wicked Halloween Feast at Gad Lanna!",
+   "venue": "Gad Lanna",
+   "url": "https://chiangmai.intercontinental.com/en/offers/halloween-dinner-buffet",
+   "found": "2026-10-10",
+   "by": "hotel offer page for the feast",
+   "evidence": "walled to the checker (HTTPError)",
+   "kind": "event"
+  },
+  "hongschineserestaurantforspiceduo@intercontinentalchiangmaithemaeping": {
+   "title": "HONG’s Chinese Restaurant for Spice Duo",
+   "venue": "InterContinental Chiang Mai The Mae Ping",
+   "url": "https://chiangmai.intercontinental.com/en/offers/spice-duo-four-hands-dinner",
+   "found": "2026-10-10",
+   "by": "hotel offer page for Spice Duo",
+   "evidence": "walled to the checker (HTTPError)",
+   "kind": "event"
+  },
+  "ucisopenhousetrunkortreatthisspecialeventisawonderfulopportunityforourcommunitytogather@unityconcordinternationalschool": {
+   "title": "UCIS Open House & Trunk or Treat This special event is a wonderful opportunity for our community to gather",
+   "venue": "Unity Concord International School",
+   "url": "https://www.ucis.ac.th/",
+   "found": "2026-10-10",
+   "by": "school website",
+   "evidence": "names the venue",
+   "kind": "host"
+  },
+  "chiangmaibigbandliveatmomentsnoticejazzcluboldchiangmaiculturalcentrewualairoad@momentsnoticejazzclub": {
+   "title": "Chiang Mai Big Band Live at Moment’s Notice Jazz Club, Old Chiang Mai Cultural Centre, Wualai Road",
+   "venue": "Moment’s Notice Jazz Club",
+   "url": "https://www.facebook.com/momentsnoticecnx/",
+   "found": "2026-10-10",
+   "by": "club Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "celebrateloykrathongyeepengchiangmaiatchefstogetherbyaoddan@chefstogetherbyaoddan": {
+   "title": "Celebrate Loy Krathong & Yeepeng Chiang Mai at Chef’s Together by Aod & Dan",
+   "venue": "Chef's Together by Aod & Dan",
+   "url": "https://www.facebook.com/chefstogehter/",
+   "found": "2026-10-10",
+   "by": "restaurant Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "boypeacemakerlive@chefstogetherbyaoddan": {
+   "title": "Boy Peacemaker live",
+   "venue": "Chef's Together by Aod & Dan",
+   "url": "https://www.facebook.com/chefstogehter/",
+   "found": "2026-10-10",
+   "by": "restaurant Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "loykrathongexperience2026@comedararestaurant": {
+   "title": "Loy Krathong Experience 2026",
+   "venue": "Comedara Restaurant",
+   "url": "https://www.facebook.com/Comedara/",
+   "found": "2026-10-10",
+   "by": "restaurant Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "halloweenseafoodbuffet@eatrincome": {
+   "title": "Halloween seafood buffet",
+   "venue": "Eat@Rincome",
+   "url": "https://www.facebook.com/EatAtRincome/",
+   "found": "2026-10-10",
+   "by": "restaurant Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "halloweencoverdancechallenge@centralchiangmaiairport": {
+   "title": "Halloween cover dance challenge",
+   "venue": "Central Chiang Mai Airport",
+   "url": "https://www.facebook.com/CentralChiangmaiAirport/",
+   "found": "2026-10-10",
+   "by": "mall Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "halloweenhauntedhouse@thinkpark": {
+   "title": "Halloween Haunted House",
+   "venue": "Think Park",
+   "url": "https://www.facebook.com/p/Think-Park-Shibuya-Chiang-Mai-100063628947039/",
+   "found": "2026-10-10",
+   "by": "venue Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "halloweencoverdancecontestage22andunder@thinkpark": {
+   "title": "Halloween cover dance contest (age 22 and under)",
+   "venue": "Think Park",
+   "url": "https://www.facebook.com/p/Think-Park-Shibuya-Chiang-Mai-100063628947039/",
+   "found": "2026-10-10",
+   "by": "venue Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "frenchmovienightspectateurs@alliancefranaisechiangmai": {
+   "title": "French movie night: Spectateurs",
+   "venue": "Alliance Française Chiang Mai",
+   "url": "https://www.facebook.com/AllianceFrancaiseChiangMai/",
+   "found": "2026-10-10",
+   "by": "Alliance Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "frenchmovienightmakingof@alliancefranaisechiangmai": {
+   "title": "French movie night: Making of",
+   "venue": "Alliance Française Chiang Mai",
+   "url": "https://www.facebook.com/AllianceFrancaiseChiangMai/",
+   "found": "2026-10-10",
+   "by": "Alliance Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "sundayjazzbrunchatoxygendiningroom@oxygendiningroom": {
+   "title": "Sunday Jazz Brunch at Oxygen Dining Room",
+   "venue": "Oxygen Dining Room",
+   "url": "https://www.facebook.com/Oxygendiningroom/",
+   "found": "2026-10-10",
+   "by": "restaurant Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "loykrathongatoxygendiningroomcrosschiangmairiverside@oxygendiningroom": {
+   "title": "Loy Krathong at Oxygen Dining Room, Cross Chiang Mai Riverside",
+   "venue": "Oxygen Dining Room",
+   "url": "https://www.facebook.com/Oxygendiningroom/",
+   "found": "2026-10-10",
+   "by": "restaurant Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "aneveninginfrancewinepairingdinner@lecoqdor": {
+   "title": "An Evening in France: wine pairing dinner",
+   "venue": "Le Coq d'Or",
+   "url": "https://www.facebook.com/LeCoqdOr/",
+   "found": "2026-10-10",
+   "by": "restaurant Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "sundaybrunch@skuggavineyard": {
+   "title": "Sunday brunch",
+   "venue": "Skugga Vineyard",
+   "url": "https://www.facebook.com/SkuggaVineyard/",
+   "found": "2026-10-10",
+   "by": "vineyard Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "sundayroast@yummypizza": {
+   "title": "Sunday roast",
+   "venue": "Yummy Pizza",
+   "url": "https://www.facebook.com/yummypizzachiangmai/",
+   "found": "2026-10-10",
+   "by": "restaurant Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "thesaturdaysocial@realspace": {
+   "title": "The Saturday Social",
+   "venue": "RealSpace",
+   "url": "https://www.facebook.com/realspacecm/",
+   "found": "2026-10-10",
+   "by": "venue Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "mafiasocialdeductiongame@realspace": {
+   "title": "Mafia (social deduction game)",
+   "venue": "RealSpace",
+   "url": "https://www.facebook.com/realspacecm/",
+   "found": "2026-10-10",
+   "by": "venue Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "latinparty@travelodgenimman": {
+   "title": "Latin party",
+   "venue": "Travelodge Nimman",
+   "url": "https://www.facebook.com/TravelodgeNimman/",
+   "found": "2026-10-10",
+   "by": "hotel Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "vintagephotographyexhibitionat137pillarshouse@137pillarshouse": {
+   "title": "Vintage Photography Exhibition at 137 Pillars House",
+   "venue": "137 Pillars House",
+   "url": "https://www.facebook.com/137pillarshouse/",
+   "found": "2026-10-10",
+   "by": "hotel Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "137pillarstradingclubjazzflavour@137pillarshouse": {
+   "title": "137 Pillars Trading Club: Jazz & Flavour",
+   "venue": "137 Pillars House",
+   "url": "https://www.facebook.com/137pillarshouse/",
+   "found": "2026-10-10",
+   "by": "hotel Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "the137pillarstradingclubjazzflavour@137pillarshouse": {
+   "title": "The 137 Pillars Trading Club Jazz & Flavour",
+   "venue": "137 Pillars House",
+   "url": "https://www.facebook.com/137pillarshouse/",
+   "found": "2026-10-10",
+   "by": "hotel Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "loykrathongat137pillarshouse@137pillarshouse": {
+   "title": "Loy Krathong at 137 Pillars House",
+   "venue": "137 Pillars House",
+   "url": "https://www.facebook.com/137pillarshouse/",
+   "found": "2026-10-10",
+   "by": "hotel Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "thanksgivingat137pillarshouse@137pillarshouse": {
+   "title": "Thanksgiving at 137 Pillars House",
+   "venue": "137 Pillars House",
+   "url": "https://www.facebook.com/137pillarshouse/",
+   "found": "2026-10-10",
+   "by": "hotel Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "thanksgivingsetdinneratchiangmaimarriottatfavola@chiangmaimarriottatfavola": {
+   "title": "Thanksgiving Set Dinner at Chiang Mai Marriott at Favola",
+   "venue": "Chiang Mai Marriott at Favola",
+   "url": "https://www.facebook.com/FavolaChiangMai/",
+   "found": "2026-10-10",
+   "by": "restaurant Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "halloweenbuffetdinneratcentarariversidechiangmai@centarariversidechiangmai": {
+   "title": "Halloween Buffet Dinner at Centara Riverside Chiang Mai",
+   "venue": "Centara Riverside Chiang Mai",
+   "url": "https://www.facebook.com/CentaraRiversideChiangMai",
+   "found": "2026-10-10",
+   "by": "hotel Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "sundaybrunchbuffet@centarariversidehotel": {
+   "title": "Sunday brunch buffet",
+   "venue": "Centara Riverside Hotel",
+   "url": "https://www.facebook.com/CentaraRiversideChiangMai",
+   "found": "2026-10-10",
+   "by": "hotel Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "saturdayfeastbuffetdinner@centarariversidehotel": {
+   "title": "Saturday Feast buffet dinner",
+   "venue": "Centara Riverside Hotel",
+   "url": "https://www.facebook.com/CentaraRiversideChiangMai",
+   "found": "2026-10-10",
+   "by": "hotel Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "halloweenweekendlunchbuffet@eastintanchiangmai": {
+   "title": "Halloween weekend lunch buffet",
+   "venue": "Eastin Tan Chiang Mai",
+   "url": "https://www.facebook.com/EastinTanHotelChiangMai/",
+   "found": "2026-10-10",
+   "by": "hotel Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "chiangmaifencingopen@chiangmaihall": {
+   "title": "Chiang Mai Fencing Open",
+   "venue": "Chiang Mai Hall",
+   "url": "https://www.facebook.com/ChiangmaiFencing/",
+   "found": "2026-10-10",
+   "by": "fencing club Facebook page",
+   "evidence": "a social page; a person checks it",
+   "kind": "host"
+  },
+  "sundayfamilybrunch@shangrilachiangmai": {
+   "title": "Sunday family brunch",
+   "venue": "Shangri-La Chiang Mai",
+   "url": "https://www.shangri-la.com/chiangmai/shangrila/dining/restaurants/kad-kafe/",
+   "found": "2026-10-10",
+   "by": "Kad Kafe restaurant page, hosts the brunch",
+   "evidence": "names the event (2 of 3 words)",
+   "kind": "host"
+  }
+ }
+}

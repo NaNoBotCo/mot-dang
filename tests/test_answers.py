@@ -122,6 +122,114 @@ for L in answers_layer.LISTS:
     check("list %s carries ItemList JSON-LD" % L["slug"], '"ItemList"' in page)
 check("lists hub exists", (DOCS / "lists" / "index.html").exists())
 
+# ---- 4. compare-cm-cr: every number is counted, nothing is claimed ---------
+# WO-102 Option A. The page may not be in docs/ until the next build, so the
+# contract is checked by rendering it here from the canonical data, then also
+# against the built file when it exists.
+import html as _html  # noqa: E402
+_cats = json.loads((ROOT / "data" / "categories.json").read_text())
+_cats = _cats["categories"] if isinstance(_cats, dict) else _cats
+_catkeys = {c["key"] for c in _cats}
+_cap = {}
+
+
+def _stub_page(title, body, depth=0, **kw):
+    _cap["title"], _cap["body"] = title, body
+    return body
+
+
+_g = {"bi": lambda th, en: "%s / %s" % (th, en), "esc": _html.escape,
+      "page": _stub_page, "share_block": lambda *a, **k: "",
+      "BASE": "https://motdang.net/",
+      "_CATPAIR": {c["key"]: [c["th"], c["en"]] for c in _cats}}
+rendered = answers_layer.compare_page(_g, data)
+check("compare page renders", bool(rendered))
+if rendered:
+    b = _cap["body"]
+    ncm, ncr = len(data["cm"]), len(data["cr"])
+    check("compare: CM total (%d) is the counted number on the page" % ncm,
+          ("%d" % ncm if ncm < 1000 else "{:,}".format(ncm)) in b)
+    check("compare: CR total (%d) is on the page" % ncr,
+          "{:,}".format(ncr) in b)
+    # the strongest lean is re-derived and must be named
+    ccm = answers_layer._cat_counts(data["cm"])
+    ccr = answers_layer._cat_counts(data["cr"])
+    top_cr = answers_layer._leans(ccr, ncr, ccm, ncm, answers_layer.COMPARE_MIN_CR)
+    check("compare: names Chiang Rai's top lean (%s)"
+          % (top_cr[0][0] if top_cr else "?"),
+          bool(top_cr) and ("cat=%s" % top_cr[0][0]) in b)
+    check("compare: states what it does NOT count (price/safety)",
+          "does <b>not</b> answer" in b)
+    check("compare: never renders a Python None", ">None<" not in b)
+    for c in set(re.findall(r'search\.html\?cat=([a-zA-Z\-]+)', b)):
+        check("compare: cat link %s is a real category" % c, c in _catkeys)
+built = DOCS / "compare-cm-cr.html"
+if built.exists():
+    cb = built.read_text()
+    check("compare built file carries the CR count",
+          "{:,}".format(len(data["cr"])) in cb)
+    check("compare built file is indexable", "index,follow" in cb or "noindex" not in cb)
+else:
+    print("  (compare-cm-cr.html not built yet — the walk will build it)")
+
+# ---- 5. orientation: no claim without provenance --------------------------
+# WO-102 Option A phase two. The directory holds no prices and measures no
+# safety, so every line in the data file must name a source or be Nan's own
+# framing (`by`). A claim from nowhere is the one thing this page cannot ship.
+odoc = json.loads((ROOT / "data" / "curated" / "orientation.json").read_text())
+otopics = odoc.get("topics", [])
+check("orientation has topics", len(otopics) > 0)
+for t in otopics:
+    tid = t.get("id", "?")
+    check("orientation %s has a bilingual question" % tid,
+          bool(t.get("q_th")) and bool(t.get("q_en")))
+    if t.get("items"):
+        # a per-item verdict topic: each item is Nan's call (`by`) plus an
+        # outside view that names its source. A verdict from nowhere cannot ship.
+        check("orientation %s has items" % tid, len(t["items"]) > 0)
+        for it in t["items"]:
+            nm = it.get("en") or it.get("name_en") or "?"
+            check("worth-visiting '%s' has a verdict" % nm,
+                  bool(it.get("verdict")) and bool(it.get("verdict_en")))
+            check("worth-visiting '%s' verdict is attributed" % nm, bool(it.get("by")))
+            check("worth-visiting '%s' outside view names a source" % nm,
+                  bool((it.get("source") or {}).get("url")))
+            for k in ("source", "source2"):
+                s = it.get(k)
+                if s:
+                    check("worth-visiting '%s' source is https" % nm,
+                          str(s.get("url", "")).startswith("https://"))
+        continue
+    check("orientation %s stance is attributed" % tid, bool(t.get("by")))
+    alllines = list(t.get("evidence", [])) + list(t.get("exceptions", []))
+    check("orientation %s has at least one evidence line" % tid,
+          len(t.get("evidence", [])) > 0)
+    for it in alllines:
+        has_src = bool((it.get("source") or {}).get("url")) or bool(it.get("by"))
+        check("orientation %s: '%s' names its provenance"
+              % (tid, (it.get("en") or "")[:40]), has_src)
+        for k in ("source", "source2"):
+            s = it.get(k)
+            if s:
+                check("orientation %s source URL is https" % tid,
+                      str(s.get("url", "")).startswith("https://"))
+rendered_o = answers_layer.orientation_page(_g)
+check("orientation page renders", bool(rendered_o))
+if rendered_o:
+    ob = _cap["body"]
+    check("orientation names the Pai lion source",
+          "chiangmaicitylife.com" in ob or "thethaiger.com" in ob)
+    check("orientation carries the cheap stance", "Cheap" in ob)
+    check("orientation carries the safety stance", "surveillance" in ob)
+    check("orientation carries the worth-visiting verdicts", "Worth it" in ob)
+    check("orientation renders the tiger/lion skip verdict", "ไม่แนะนำ" in ob)
+    check("orientation keeps Nan's Pai / Mae Hong Son note", "Mae Hong Son" in ob)
+    check("orientation keeps Nan's zoo caveat", "black leopard" in ob)
+    check("orientation never renders a Python None", ">None<" not in ob)
+obuilt = DOCS / "cost-of-living-and-safety.html"
+if not obuilt.exists():
+    print("  (cost-of-living-and-safety.html not built yet — the walk will build it)")
+
 print()
 if failures:
     print("FAILED: %d — %s" % (len(failures), ", ".join(failures[:8])))

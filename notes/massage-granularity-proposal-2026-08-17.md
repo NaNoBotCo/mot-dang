@@ -53,8 +53,8 @@ on a business and on the women who work there, published at scale, with our
 name on it. So the whole design rests on one line:
 
 **We record what the venue declares about itself and what a person can see
-from the pavement. We never infer, score, rank, or sort shops by respect-
-ability.** No "PG" flag. No safe/unsafe. No authentic/tourist. The card says
+from the pavement. This does not infer, score, rank, or sort shops by respect-
+ability.** No "PG" flag. No safe/unsafe. No sorting by who a shop is taken to be for. The card says
 what is sold; the reader draws their own conclusion, which they are perfectly
 able to do once the words are in front of them.
 
@@ -106,7 +106,7 @@ judgement at all: **what you wear and where you lie down.**
   fact either way
 
 A shop recorded as *clothed, mat, shared room, price board at the door* is
-unambiguous to any reader, and we never had to characterise it.
+unambiguous to any reader, and it never had to be characterised.
 
 ### Axis 3 — ทะเบียน (thá-biian, "the register"): who says so
 

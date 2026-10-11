@@ -10,7 +10,7 @@ First-hand only. The place's own domain, its own LINE Official Account, its own
 schema.org block — nothing from a directory site's copy, nothing from Google or
 Facebook listing pages. Every field lands in data/curated/enrich.json with the
 URL it was read off and the date, so any line on the built site can be traced
-back to the page that said it.
+back to the page it came from.
 
 Politeness, because these are small businesses' servers:
   - robots.txt is fetched once per host and obeyed
@@ -46,9 +46,22 @@ PAUSE = 1.0          # seconds between requests
 TIMEOUT = 20
 MAX_BYTES = 1_500_000
 
-# Hosts that host other people's listings rather than their own. A phone number
-# found on one of these is somebody's copy of a fact, not the fact — and some of
-# them we are asked to leave alone outright.
+# Hosts that host OTHER PEOPLE'S listings rather than their own. A phone number
+# found on one of these is somebody's copy of a fact, not the fact.
+#
+# facebook.com and instagram.com were in this tuple until 2026-09-06 and did not
+# belong: a page the shop writes and runs is the shop's own voice, not a
+# directory's card, and in this city it is more often the only voice there is
+# (Nan, 2026-09-06: "MANY places we have listed describe themselves to the
+# public on Facebook"; "OSM should not be the single or even the first source of
+# ground truth"). They stay skipped HERE for a measured reason, not a policy
+# one: Facebook serves a logged-out fetcher a shell. Five pages tried on
+# 2026-09-06 — akhaamacoffee, gatewaycoffeeroasters, WatDuangDee, and the
+# mbasic. and /about variants — all returned the og:title and nothing else,
+# 0 of 5 with hours, phone or address. Sending this crawler at them spends the
+# budget to learn a name we already have. Reading them properly needs a
+# logged-in browser and belongs in its own targeted lane, not in this pass.
+# If that lane is built, take these two out of the tuple; the rest belong.
 NOT_FIRST_HAND = (
     "facebook.com", "instagram.com", "google.", "goo.gl", "tripadvisor.",
     "agoda.", "booking.com", "airbnb.", "foursquare.com", "wongnai.com",
@@ -283,7 +296,7 @@ def mark_brand_scope(doc):
     office's switchboard is a WRONG number for the station on your soi, and its
     opening hours are not that branch's hours — so both are dropped where a
     source is shared. The brand's Facebook and email survive, because a branch
-    pointing at its brand's page is honest and the site already knows how to
+    pointing at its brand's page is accurate and the site already knows how to
     label that ("เว็บของแบรนด์ · Brand site").
 
     Returns how many entries were re-scoped.

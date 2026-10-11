@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-04",
+ "generated": "2026-10-09",
  "cycle": {
   "rule": "seed = strength*1000 + day_pillar*37 + kham*7 + bead; index = (seed*stride) mod n",
   "katha": {
@@ -83,15 +83,15 @@
   "psalms": "2670a564d0e900a0"
  },
  "today": {
-  "date": "2026-09-04",
-  "seed": 21693,
+  "date": "2026-10-09",
+  "seed": 23023,
   "kham": {
-   "day": 9,
+   "day": 14,
    "waning": true,
    "wan_phra": false
   },
-  "katha_idx": 183,
-  "psalm_idx": 13
+  "katha_idx": 245,
+  "psalm_idx": 119
  },
  "files": {
   "katha": "data/katha.json",

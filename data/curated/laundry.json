@@ -1,0 +1,6680 @@
+{
+ "_readme": [
+  "WO-57/58 — the laundry register, from the CMHY.city read in cache/cmhy/laundry/.",
+  "EVERY row is kept so the page can print the denominator, not just the hits.",
+  "`trade` is decided by the row's OWN name and tags, never by the directory's",
+  "category alone; `refused` says why a row is not a record; `osm` names the",
+  "canonical record ALREADY ON THE SAME SHELF within 80 m that is this door.",
+  "A DIRECTORY IS NOT A FIRST-HAND SOURCE: its service tags live here and print",
+  "at the `listed` grade. They never enter enrich.json, which is for a place's",
+  "own site. Hours carry `_hoursSource`; a row with no GPS is `needs-pin`."
+ ],
+ "_built": "2026-09-04",
+ "counts": {
+  "laundry": 375,
+  "matched": 45,
+  "refused": 2,
+  "needs_pin": 0,
+  "cmhy_rows": 422,
+  "written_new": 375,
+  "touched": 0
+ },
+ "rows": [
+  {
+   "cmhy": "10033",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2017-06-19",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-10033"
+  },
+  {
+   "cmhy": "10085",
+   "name": "ซักผ้าหยอดเหรียญ(อุ้ยตาแมนชั่น)",
+   "tags": [],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2017-06-19",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-10085"
+  },
+  {
+   "cmhy": "10228",
+   "name": "วอส แอนด์โก",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-06-06",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-10228"
+  },
+  {
+   "cmhy": "10255",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-02-18",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-10255"
+  },
+  {
+   "cmhy": "10275",
+   "name": "ซักผ้าหยอดเหรียญ(ภูสยามเพลส)",
+   "tags": [],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-06-27",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-10275"
+  },
+  {
+   "cmhy": "10277",
+   "name": "ซูปเปอร์ คลีน ลอนดรี้",
+   "tags": [
+    "ซักอบรีด",
+    "ซักรายชิ้น",
+    "ซักรายเดือน"
+   ],
+   "phone": "082-113-1238",
+   "amphoe": "เมือง",
+   "modified": "2026-08-14",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-10277"
+  },
+  {
+   "cmhy": "10289",
+   "name": "ควิก คลีนแอนด์ดราย",
+   "tags": [
+    "ซักแห้ง",
+    "ซักอบรีด"
+   ],
+   "phone": "088-407-8414",
+   "amphoe": "เมือง",
+   "modified": "2022-01-18",
+   "trade": "laundry",
+   "facets": {
+    "dryclean": true
+   },
+   "record": "cm-curated-laundry-10289"
+  },
+  {
+   "cmhy": "1030",
+   "name": "ซูปเปอร์คลีน ซักอบรีด",
+   "tags": [
+    "ซักแห้ง",
+    "ซักสูท",
+    "ซักผ้าไหม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-02-17",
+   "trade": "laundry",
+   "facets": {
+    "dryclean": true
+   },
+   "record": "cm-curated-laundry-1030"
+  },
+  {
+   "cmhy": "10313",
+   "name": "เอม ซักอบรีด (นิมมาน)",
+   "tags": [
+    "ซักแห้ง",
+    "ซักน้ำร้อน",
+    "ซักด่วน"
+   ],
+   "phone": "082-180-1303",
+   "amphoe": "เมือง",
+   "modified": "2026-06-16",
+   "trade": "laundry",
+   "facets": {
+    "dryclean": true
+   },
+   "record": "cm-curated-laundry-10313"
+  },
+  {
+   "cmhy": "10390",
+   "name": "ซักผ้าหยอดเหรียญ(ศิริวัฒนา คอร์ท)",
+   "tags": [],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2017-06-19",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-10390"
+  },
+  {
+   "cmhy": "10570",
+   "name": "ปิ่นซักอบรีด",
+   "tags": [
+    "ซักอบรีด"
+   ],
+   "phone": "091-140-1672",
+   "amphoe": "เมือง",
+   "modified": "2026-02-05",
+   "trade": "laundry",
+   "facets": {},
+   "osm": "cm-osm-node-2144917963",
+   "metres": 37
+  },
+  {
+   "cmhy": "10575",
+   "name": "ลอนดรี้ คาเฟ่",
+   "tags": [
+    "ซักผ้า",
+    "ซักอบรีด",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-02-02",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-2144917963",
+   "metres": 79
+  },
+  {
+   "cmhy": "10587",
+   "name": "ร้านซักทีเถอะ ซักอบรีด ซักแห้ง",
+   "tags": [
+    "ซักแห้ง",
+    "ซักรายเดือน",
+    "ซักตุ๊กตา"
+   ],
+   "phone": "084-986-0867",
+   "amphoe": "เมือง",
+   "modified": "2025-05-31",
+   "trade": "laundry",
+   "facets": {
+    "dryclean": true
+   },
+   "record": "cm-curated-laundry-10587"
+  },
+  {
+   "cmhy": "10595",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2017-06-19",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-10595"
+  },
+  {
+   "cmhy": "10609",
+   "name": "คลีนโปร เอ๊กซ์เพลส  สะดวกซัก 24 HR(คำเที่ยง)",
+   "tags": [
+    "ซักเอง",
+    "เครื่องซักหยอดเหรียญ",
+    "ซักอบรีด"
+   ],
+   "phone": "053-217-331,02-759-9515",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-10609"
+  },
+  {
+   "cmhy": "10657",
+   "name": "ซักผ้าเชียงใหม่",
+   "tags": [
+    "ซักแห้ง",
+    "ซักน้ำมัน",
+    "ซักรายเดือน"
+   ],
+   "phone": "088-732-9955",
+   "amphoe": "เมือง",
+   "modified": "2024-08-06",
+   "trade": "laundry",
+   "facets": {
+    "dryclean": true
+   },
+   "record": "cm-curated-laundry-10657"
+  },
+  {
+   "cmhy": "10890",
+   "name": "ซักผัาหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-11-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-7103990187",
+   "metres": 29
+  },
+  {
+   "cmhy": "11302",
+   "name": "คลีนโปร เอ๊กซ์เพลส ร้านสะดวกซัก 24 HR(คูเมือง)",
+   "tags": [
+    "ซักอบแห้ง",
+    "ร้านสะดวกซัก",
+    "ซักเอง"
+   ],
+   "phone": "053-217-331,02-759-9515",
+   "amphoe": "เมือง",
+   "modified": "2024-10-22",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-4886910421",
+   "metres": 9
+  },
+  {
+   "cmhy": "11336",
+   "name": "น้อย ซักอบรีด",
+   "tags": [
+    "ซักอบรีด"
+   ],
+   "phone": "053-233-052",
+   "amphoe": "เมือง",
+   "modified": "2023-06-06",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-11336"
+  },
+  {
+   "cmhy": "11451",
+   "name": "ลอนดรี้บาร์ (กาดธานินทร์ )",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "สะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-04-29",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-4351257789",
+   "metres": 4
+  },
+  {
+   "cmhy": "11684",
+   "name": "ซักผ้าตู้หยอดเหรียญ [ธนุษย์พงษ์]",
+   "tags": [
+    "ซักผ้าตู้หยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-04-30",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-11684"
+  },
+  {
+   "cmhy": "11685",
+   "name": "ซักผ้าตู้หยอดเหรียญ",
+   "tags": [
+    "ซักผ้าตู้หยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-12-22",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-11685"
+  },
+  {
+   "cmhy": "11808",
+   "name": "ซักผ้าตู้หยอดเหรียญ",
+   "tags": [],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2018-05-27",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-11808"
+  },
+  {
+   "cmhy": "11859",
+   "name": "ณัท ซักอบรีด",
+   "tags": [
+    "ซักรายเดือน",
+    "ผ้านวม",
+    "ซักรายชิ้น"
+   ],
+   "phone": "094-610-9900",
+   "amphoe": "เมือง",
+   "modified": "2022-09-12",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-11859"
+  },
+  {
+   "cmhy": "11959",
+   "name": "คลีนโปร เอ๊กซ์เพลส ร้านสะดวกซัก 24 HR (พระสิงห์)",
+   "tags": [
+    "ซักเอง",
+    "เครื่องซักหยอดเหรียญ",
+    "ซักอบรีด"
+   ],
+   "phone": "053-217-331,02-759-9515",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-11959"
+  },
+  {
+   "cmhy": "11972",
+   "name": "อ๊อตเทริ วอช แอนด์ ดราย (สาขาซอยสันติสุข)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "086-919-3818",
+   "amphoe": "เมือง",
+   "modified": "2025-12-12",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-11972"
+  },
+  {
+   "cmhy": "11975",
+   "name": "อ๊อตเทริ วอช แอนด์ ดราย (สาขา วัดอุโมงค์ ซ.4)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง"
+   ],
+   "phone": "084-029-2525",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-11975"
+  },
+  {
+   "cmhy": "1206",
+   "name": "เจียระนัย ซักอบรีด",
+   "tags": [
+    "ซักอบรีด",
+    "รับซักผ้า",
+    "รับซักผ้านวม"
+   ],
+   "phone": "053-233-054,081-980-9293",
+   "amphoe": "เมือง",
+   "modified": "2026-05-31",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-1206"
+  },
+  {
+   "cmhy": "12115",
+   "name": "รัานซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "สะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "089-955-6125",
+   "amphoe": "เมือง",
+   "modified": "2021-01-23",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-12115"
+  },
+  {
+   "cmhy": "12150",
+   "name": "ซักผ้าหยอดเหรียญ (ใกล้ วัดกู่ขาว)",
+   "tags": [],
+   "phone": "086-910-9276",
+   "amphoe": "เมือง",
+   "modified": "2021-09-27",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-12150"
+  },
+  {
+   "cmhy": "12162",
+   "name": "ซักผ้าตู้หยอดเหรียญ [หมู่บ้านชัยพฤกษ์]",
+   "tags": [
+    "ซักผ้าตู้หยอดเหรียญ",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-04-24",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-12162"
+  },
+  {
+   "cmhy": "12172",
+   "name": "ซักผ้าตู้หยอดเหรียญ",
+   "tags": [],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2018-06-05",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-12172"
+  },
+  {
+   "cmhy": "12173",
+   "name": "นิวบูมส์ ซักอบรีด",
+   "tags": [
+    "ซักผ้ารายชิ้น",
+    "ซักผ้ารายเดือน"
+   ],
+   "phone": "085-033-5497",
+   "amphoe": "เมือง",
+   "modified": "2025-04-25",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-12173"
+  },
+  {
+   "cmhy": "12225",
+   "name": "โถดี ลอนดรี้ (มีโชคพลาซ่า)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "084-596-2893",
+   "amphoe": "เมือง",
+   "modified": "2026-02-09",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-12225"
+  },
+  {
+   "cmhy": "12326",
+   "name": "คลีนโปร เอ๊กซ์เพลส ร้านสะดวกซัก 24 HR(บิสสิเนสพาร์ค)",
+   "tags": [
+    "ซักเอง",
+    "เครื่องซักหยอดเหรียญ",
+    "ซักอบรีด"
+   ],
+   "phone": "053-217-331,093-140-1931,02-759-9515",
+   "amphoe": "เมือง",
+   "modified": "2023-03-02",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-12326"
+  },
+  {
+   "cmhy": "12341",
+   "name": "คลีนโปร เอ๊กซ์เพลส ร้านสะดวกซัก 24 HR(หลังมอชอ B CMU)",
+   "tags": [
+    "ซักเอง",
+    "เครื่องซักหยอดเหรียญ",
+    "ซักอบรีด"
+   ],
+   "phone": "053-217-331,093-140-1931,02-759-9515",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-12341"
+  },
+  {
+   "cmhy": "12453",
+   "name": "ซักผ้าตู้หยอดเหรียญ",
+   "tags": [],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2018-05-20",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-12453"
+  },
+  {
+   "cmhy": "12455",
+   "name": "ซักผ้าตู้หยอดเหรียญ[ใกล้ป่าช้าสันกู่เหล็ก]",
+   "tags": [],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2018-05-20",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-12455"
+  },
+  {
+   "cmhy": "12607",
+   "name": "ลิงลิง ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักหยอดเหรียญ",
+    "เครื่องอบผ้า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-03-29",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-12607"
+  },
+  {
+   "cmhy": "12909",
+   "name": "ซักผ้าตู้หยอดเหรียญ",
+   "tags": [
+    "ซักผ้าตู้หยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-12-15",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-12909"
+  },
+  {
+   "cmhy": "12982",
+   "name": "หมีปั่นผ้า",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "084-222-6261",
+   "amphoe": "เมือง",
+   "modified": "2022-07-13",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-12982"
+  },
+  {
+   "cmhy": "12984",
+   "name": "คลีนโปร เอ๊กซ์เพลส ร้านสะดวกซัก 24 HR(สามล้าน)",
+   "tags": [
+    "ซักเอง",
+    "เครื่องซักหยอดเหรียญ",
+    "ซักอบรีด"
+   ],
+   "phone": "053-217-331,02-759-9515",
+   "amphoe": "เมือง",
+   "modified": "2024-10-24",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-13428050264",
+   "metres": 56
+  },
+  {
+   "cmhy": "1299",
+   "name": "ซักอบรีด nb",
+   "tags": [
+    "ซักอบรีด",
+    "รับซักผ้า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-05-02",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-1299"
+  },
+  {
+   "cmhy": "13088",
+   "name": "ซักผ้าตู้หยอดเหรียญ",
+   "tags": [],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2018-07-24",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-13088"
+  },
+  {
+   "cmhy": "13109",
+   "name": "ซักผ้าตู้หยอดเหรียญ (วันชัย แมนชั่น)",
+   "tags": [],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2018-07-24",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-13109"
+  },
+  {
+   "cmhy": "13120",
+   "name": "ซักผ้าตู้หยอดเหรียญ",
+   "tags": [],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2018-07-29",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-13120"
+  },
+  {
+   "cmhy": "13271",
+   "name": "อ๊อตเทริ วอช แอนด์ ดราย (ศิริมหามังคลาจารย์)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "อ๊อตเทริ"
+   ],
+   "phone": "084-029-2525",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-13271"
+  },
+  {
+   "cmhy": "13359",
+   "name": "อ๊อตเทริ วอช แอนด์ ดราย (ช่างเคี่ยน)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "อ๊อตเทริ"
+   ],
+   "phone": "084-046-7455",
+   "amphoe": "เมือง",
+   "modified": "2025-07-15",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-13359"
+  },
+  {
+   "cmhy": "13360",
+   "name": "อ๊อตเทริ วอช แอนด์ ดราย (หัสดิเสวี)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "อ๊อตเทริ"
+   ],
+   "phone": "084-029-2525",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-13360"
+  },
+  {
+   "cmhy": "13381",
+   "name": "แมวซักรีด",
+   "tags": [
+    "ซักผ้า",
+    "ซักอบรีด"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-02-09",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-13381"
+  },
+  {
+   "cmhy": "13409",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2018-10-10",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-13409"
+  },
+  {
+   "cmhy": "13441",
+   "name": "เอม ซักอบรีด (ช้างคลาน)",
+   "tags": [
+    "ซักแห้ง",
+    "ซักน้ำร้อน",
+    "ซักด่วน"
+   ],
+   "phone": "082-180-1303",
+   "amphoe": "เมือง",
+   "modified": "2021-10-13",
+   "trade": "laundry",
+   "facets": {
+    "dryclean": true
+   },
+   "record": "cm-curated-laundry-13441"
+  },
+  {
+   "cmhy": "13470",
+   "name": "อ๊อตเทริ วอช แอนด์ ดราย (ประตูท่าแพ)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "อ๊อตเทริ"
+   ],
+   "phone": "088-823-6542",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-6110434688",
+   "metres": 16
+  },
+  {
+   "cmhy": "13515",
+   "name": "ซักผ้าหยอดเหรียญ (ณภัทร)",
+   "tags": [],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2018-10-17",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-13515"
+  },
+  {
+   "cmhy": "13557",
+   "name": "ริน & ดา ซักอบรีด",
+   "tags": [
+    "ซักรายชิ้น",
+    "ซักรายวัน",
+    "ซักรายเดือน"
+   ],
+   "phone": "0892622694",
+   "amphoe": "เมือง",
+   "modified": "2022-12-10",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-13557"
+  },
+  {
+   "cmhy": "13578",
+   "name": "ซักผ้าหยอดเหรียญ (หอพักชาย สวนดอก)",
+   "tags": [],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2018-10-22",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-13578"
+  },
+  {
+   "cmhy": "13681",
+   "name": "ซุปเปอร์วอซ (ศรีดอนไชย)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "064-613-1784",
+   "amphoe": "เมือง",
+   "modified": "2024-01-22",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-13681"
+  },
+  {
+   "cmhy": "13736",
+   "name": "ร้านซักอบรีด [ถนนเวียงบัว]",
+   "tags": [
+    "ซักรีด",
+    "ซักตาก",
+    "รายเดือน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-03-27",
+   "trade": "laundry",
+   "facets": {},
+   "osm": "cm-osm-node-2530379633",
+   "metres": 73
+  },
+  {
+   "cmhy": "13753",
+   "name": "จา ซักรีด",
+   "tags": [
+    "ซักอบรีด",
+    "บริการซักรีด",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "081-960-1147,095-712-1248",
+   "amphoe": "เมือง",
+   "modified": "2026-06-16",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-13753"
+  },
+  {
+   "cmhy": "1376",
+   "name": "ซักผ้า หยอดเหรียญ",
+   "tags": [
+    "ซักรายชิ้น",
+    "ซักรายเดือน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2018-12-23",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-1376"
+  },
+  {
+   "cmhy": "13768",
+   "name": "ซักผ้าหยอดเหรียญ(summer house)",
+   "tags": [],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2018-11-03",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-13768"
+  },
+  {
+   "cmhy": "13777",
+   "name": "มีตังค์ ซักอบรีด",
+   "tags": [
+    "ซักผ้านวม",
+    "ซักผ้าห่ม"
+   ],
+   "phone": "080-678-9894",
+   "amphoe": "เมือง",
+   "modified": "2026-02-09",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-13777"
+  },
+  {
+   "cmhy": "13918",
+   "name": "อ๊อตเทริ วอช แอนด์ ดราย (เจ็ดยอด)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "อ๊อตเทริ"
+   ],
+   "phone": "089-876-8796",
+   "amphoe": "เมือง",
+   "modified": "2023-02-02",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-13918"
+  },
+  {
+   "cmhy": "13919",
+   "name": "อ๊อตเทริ วอช  แอนด์ ดราย (ม.พายัพ)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "อ๊อตเทริ"
+   ],
+   "phone": "089-876-8796",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-13919"
+  },
+  {
+   "cmhy": "13971",
+   "name": "ซักผ้าหยอดเหรียญ (urban bed)",
+   "tags": [],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2018-11-07",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-13971"
+  },
+  {
+   "cmhy": "13974",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2018-11-07",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-6567944597",
+   "metres": 11
+  },
+  {
+   "cmhy": "14038",
+   "name": "ซักผ้าหยอดเหรียญ (p&d)",
+   "tags": [],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2018-11-09",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-14038"
+  },
+  {
+   "cmhy": "14097",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-10-11",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-14097"
+  },
+  {
+   "cmhy": "14176",
+   "name": "ซักด่วน Laundry & Dryclean",
+   "tags": [
+    "ซักแห้ง",
+    "ซักน้ำร้อน",
+    "ซักด่วน"
+   ],
+   "phone": "097-235-3514",
+   "amphoe": "เมือง",
+   "modified": "2022-04-18",
+   "trade": "laundry",
+   "facets": {
+    "dryclean": true
+   },
+   "record": "cm-curated-laundry-14176"
+  },
+  {
+   "cmhy": "14387",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-03-05",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-14387"
+  },
+  {
+   "cmhy": "14399",
+   "name": "ร้านน้องนทซักรีด",
+   "tags": [
+    "ซักผ้าห่ม",
+    "ซักตุ๊กตา",
+    "ร้านซักอบรีด"
+   ],
+   "phone": "088-268-7078",
+   "amphoe": "เมือง",
+   "modified": "2026-04-28",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-14399"
+  },
+  {
+   "cmhy": "14463",
+   "name": "อัมพร ซักรีด",
+   "tags": [
+    "ซักแห้ง",
+    "ซักรีด"
+   ],
+   "phone": "081-168-0551",
+   "amphoe": "เมือง",
+   "modified": "2018-12-02",
+   "trade": "laundry",
+   "facets": {
+    "dryclean": true
+   },
+   "record": "cm-curated-laundry-14463"
+  },
+  {
+   "cmhy": "14465",
+   "name": "รัานสะดวกซัก ซักผ้าหยอดเหรียญ 24hr",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "สะดวกซัก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-14465"
+  },
+  {
+   "cmhy": "14541",
+   "name": "ซักผ้าหยอดเหรียญ (เคียงดอยเพลส)",
+   "tags": [],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2018-12-07",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-14541"
+  },
+  {
+   "cmhy": "14549",
+   "name": "รับอบผ้าให้แห้ง",
+   "tags": [
+    "ซักรีด",
+    "ซักแห้ง",
+    "ซักตาก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2018-12-11",
+   "trade": "laundry",
+   "facets": {
+    "dryclean": true
+   },
+   "record": "cm-curated-laundry-14549"
+  },
+  {
+   "cmhy": "14636",
+   "name": "สม  ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-06-24",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-14636"
+  },
+  {
+   "cmhy": "1480",
+   "name": "ร้านซักอบรีด",
+   "tags": [
+    "ซักผ้า",
+    "ซักอบรีด"
+   ],
+   "phone": "096-762-0201",
+   "amphoe": "เมือง",
+   "modified": "2023-03-29",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-1480"
+  },
+  {
+   "cmhy": "14845",
+   "name": "ซักผ้าอบผ้า หยอดเหรียญ",
+   "tags": [
+    "ซักผ้าอบผ้า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2018-12-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-14845"
+  },
+  {
+   "cmhy": "1486",
+   "name": "ตู้หยอดเหรียญ  w hostel",
+   "tags": [
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "เครื่องซักหยอดเหรียญ",
+    "ตู้ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-04-16",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-1486"
+  },
+  {
+   "cmhy": "14951",
+   "name": "ไอบุ ซายาง (ประตูเชียงใหม่)",
+   "tags": [
+    "ร้านสะดวกซัก",
+    "อบผ้า",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "085-700-5528,093-140-1931",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-14951"
+  },
+  {
+   "cmhy": "14959",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-01-01",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-14959"
+  },
+  {
+   "cmhy": "15005",
+   "name": "น้ำซักรีด",
+   "tags": [
+    "ร้านซักอบรีด",
+    "ซักผ้ารายเดือน"
+   ],
+   "phone": "081-764-6033",
+   "amphoe": "เมือง",
+   "modified": "2025-04-04",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-15005"
+  },
+  {
+   "cmhy": "15006",
+   "name": "หน่อยซักรีด",
+   "tags": [
+    "ร้านซักอบรีด",
+    "ซักผ้ารายเดือน"
+   ],
+   "phone": "089-163-2152",
+   "amphoe": "เมือง",
+   "modified": "2025-04-04",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-15006"
+  },
+  {
+   "cmhy": "1504",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "เครื่องซักหยอดเหรียญ",
+    "ตู้ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-02-06",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-1504"
+  },
+  {
+   "cmhy": "1505",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "เครื่องซักหยอดเหรียญ",
+    "ตู้ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2017-06-19",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-1505"
+  },
+  {
+   "cmhy": "1506",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "เครื่องซักหยอดเหรียญ",
+    "ตู้ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-10-22",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-1506"
+  },
+  {
+   "cmhy": "15153",
+   "name": "เบ็ตเทอร์ วอส",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-08-08",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-15153"
+  },
+  {
+   "cmhy": "15173",
+   "name": "อ๊อตเทริ วอช แอนด์ ดราย (ซอย ชมจันทร์)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "อ๊อตเทริ"
+   ],
+   "phone": "064-496-4646",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-15173"
+  },
+  {
+   "cmhy": "15273",
+   "name": "ซักผ้าหยอดเหรียญ(โปเต้)",
+   "tags": [],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-01-14",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-15273"
+  },
+  {
+   "cmhy": "15298",
+   "name": "น้ำน่าน ซักอบรีด",
+   "tags": [
+    "ซักรีดแห้ง",
+    "อบผ้าแห้ง",
+    "ซักผ้านวม"
+   ],
+   "phone": "084-366-5214",
+   "amphoe": "เมือง",
+   "modified": "2026-02-11",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-15298"
+  },
+  {
+   "cmhy": "15300",
+   "name": "ซักผ้า หยอดเหรียญ 24 hr [ราชเชียงแสน]",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "081-883-7327",
+   "amphoe": "เมือง",
+   "modified": "2024-05-20",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-15300"
+  },
+  {
+   "cmhy": "15306",
+   "name": "โปรคลีนเนอร์",
+   "tags": [
+    "ซักอบรีด",
+    "ซักผ้าโรงแรม",
+    "ซักผ้าปู"
+   ],
+   "phone": "081-830-9630,,093-139-1852",
+   "amphoe": "เมือง",
+   "modified": "2020-10-18",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-15306"
+  },
+  {
+   "cmhy": "15308",
+   "name": "ลอนดรี้ ลอนโด้",
+   "tags": [
+    "ซักอบรีด",
+    "ซักผ้าหยอดเรียญ"
+   ],
+   "phone": "053-270-098,081-162-9898",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {},
+   "osm": "cm-osm-node-7003552085",
+   "metres": 11
+  },
+  {
+   "cmhy": "15450",
+   "name": "ร้านสะดวกซัก ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก",
+    "สะดวกซักอบผ้า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-04-14",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-15450"
+  },
+  {
+   "cmhy": "15454",
+   "name": "อ๊อตเทริ วอช แอนด์ ดราย (ช่างหล่อ(แจ่งขะต่ำ))",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "อ๊อตเทริ"
+   ],
+   "phone": "088-242-4262",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-6514349387",
+   "metres": 10
+  },
+  {
+   "cmhy": "15461",
+   "name": "เยลโลว์ เฮาส์ ซักอบรีด",
+   "tags": [
+    "ซักผ้า",
+    "ซักอบรีด",
+    "ซักผ้านวม"
+   ],
+   "phone": "094-630-212",
+   "amphoe": "เมือง",
+   "modified": "2026-02-11",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-15461"
+  },
+  {
+   "cmhy": "15580",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-02-12",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-15580"
+  },
+  {
+   "cmhy": "15698",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-02-12",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-15698"
+  },
+  {
+   "cmhy": "15718",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-04-11",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-4273017089",
+   "metres": 17
+  },
+  {
+   "cmhy": "15767",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-04-05",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-15767"
+  },
+  {
+   "cmhy": "15785",
+   "name": "ซักผ้าหยอดเหรียญ เคหะหยอดเหรียญ [สามแยกการเคหะหนองหอย]",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ตู้น้ำหยอดเหรียญ",
+    "เครื่องอบผ้า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-06-01",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-15785"
+  },
+  {
+   "cmhy": "15814",
+   "name": "ร้านสะดวกซัก open 24",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-03-27",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-15814"
+  },
+  {
+   "cmhy": "15821",
+   "name": "เครื่องซักผ้า อบผ้า หยอดเหรียญ [ถนนราชพฤกษ์]",
+   "tags": [
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "ซักผ้าหยอดเหรียญ",
+    "อบผ้า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-08-23",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-15821"
+  },
+  {
+   "cmhy": "15824",
+   "name": "เครื่องซักผ้าหยอดเหรียญ(วรดาเพลส)",
+   "tags": [
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-08-06",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-15824"
+  },
+  {
+   "cmhy": "1585",
+   "name": "ตู้หยอดเหรียญ",
+   "tags": [
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "เครื่องซักหยอดเหรียญ",
+    "ตู้ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2018-11-12",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-1585"
+  },
+  {
+   "cmhy": "15953",
+   "name": "เครื่องซักผ้าหยอดเหรียญ",
+   "tags": [
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-02-18",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-15953"
+  },
+  {
+   "cmhy": "15982",
+   "name": "เครื่องซักผ้าหยอดเหรียญ(สล่ายา)",
+   "tags": [
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-09-12",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-15982"
+  },
+  {
+   "cmhy": "16001",
+   "name": "ซักผ้า หยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-14",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16001"
+  },
+  {
+   "cmhy": "16021",
+   "name": "ลาวดี้ รูม",
+   "tags": [
+    "ซักอบรีด"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-13",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-16021"
+  },
+  {
+   "cmhy": "16027",
+   "name": "ซักผ้า หยอดเหรียญ (ฮักโฮม)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-14",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16027"
+  },
+  {
+   "cmhy": "16031",
+   "name": "พี่โอ๊ด",
+   "tags": [
+    "ซักอบรีด"
+   ],
+   "phone": "091-796-6788",
+   "amphoe": "เมือง",
+   "modified": "2019-03-13",
+   "trade": "laundry",
+   "facets": {},
+   "osm": "cm-osm-node-4353683216",
+   "metres": 8
+  },
+  {
+   "cmhy": "16038",
+   "name": "ซักผ้าหยอดเหรียญ (เคียงดอย คอร์ท)",
+   "tags": [],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-13",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16038"
+  },
+  {
+   "cmhy": "16067",
+   "name": "อ้อมซักอบรีด หลังมช.",
+   "tags": [
+    "อัดกลีบ",
+    "ซักผ้ารายเดือน",
+    "ซักอบรีด"
+   ],
+   "phone": "064-956-4649",
+   "amphoe": "เมือง",
+   "modified": "2024-07-08",
+   "trade": "laundry",
+   "facets": {},
+   "osm": "cm-osm-node-4353683216",
+   "metres": 43
+  },
+  {
+   "cmhy": "16081",
+   "name": "ซักผ้า หยอดเหรียญ (yellow hill)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-14",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16081"
+  },
+  {
+   "cmhy": "16088",
+   "name": "ซักผ้า หยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-14",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16088"
+  },
+  {
+   "cmhy": "16089",
+   "name": "ซักผ้า หยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-14",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16089"
+  },
+  {
+   "cmhy": "16096",
+   "name": "คุนิซังซักผ้า หยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "065-009-3133",
+   "amphoe": "เมือง",
+   "modified": "2025-04-09",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16096"
+  },
+  {
+   "cmhy": "16099",
+   "name": "ซักผ้า หยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-14",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16099"
+  },
+  {
+   "cmhy": "16103",
+   "name": "ซักผ้า หยอดเหรียญ ( Home & Hill)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-14",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16103"
+  },
+  {
+   "cmhy": "16114",
+   "name": "ซักผ้า หยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-14",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-13135642801",
+   "metres": 50
+  },
+  {
+   "cmhy": "16115",
+   "name": "ร้านซักอบรีด [บ้านใหม่หลังมอ]",
+   "tags": [
+    "ซักอบรีด",
+    "ซักผ้ารายเดือน"
+   ],
+   "phone": "081-998-8720",
+   "amphoe": "เมือง",
+   "modified": "2025-06-05",
+   "trade": "laundry",
+   "facets": {},
+   "osm": "cm-osm-node-13135642801",
+   "metres": 48
+  },
+  {
+   "cmhy": "16119",
+   "name": "โมโม ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-04-04",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-13135642801",
+   "metres": 15
+  },
+  {
+   "cmhy": "16138",
+   "name": "ซักผ้า หยอดเหรียญ (หอพักอุ่นแสง)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-04-05",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16138"
+  },
+  {
+   "cmhy": "16151",
+   "name": "ซักผ้า หยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-08-26",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16151"
+  },
+  {
+   "cmhy": "16154",
+   "name": "ซักผ้า หยอดเหรียญ (บ้านเลขที่ 12)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-06-24",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16154"
+  },
+  {
+   "cmhy": "16206",
+   "name": "ซักผ้า หยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-14",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16206"
+  },
+  {
+   "cmhy": "16237",
+   "name": "ซักผ้า หยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-04-06",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16237"
+  },
+  {
+   "cmhy": "16270",
+   "name": "ซักผ้า หยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-03-14",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16270"
+  },
+  {
+   "cmhy": "16398",
+   "name": "ช่างไทยซักแห้ง (สี่แยกกลางเวียง)",
+   "tags": [
+    "ซักอบรีด",
+    "ซักแห้ง",
+    "ซักผ้า"
+   ],
+   "phone": "090-895-2128,080-278-3963,091-857-1953",
+   "amphoe": "เมือง",
+   "modified": "2024-07-08",
+   "trade": "laundry",
+   "facets": {
+    "dryclean": true
+   },
+   "record": "cm-curated-laundry-16398"
+  },
+  {
+   "cmhy": "16492",
+   "name": "เบส วอส",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-6352068895",
+   "metres": 3
+  },
+  {
+   "cmhy": "16563",
+   "name": "อ๊อตเทริ วอช แอนด์ ดราย (แจ่มฟ้า)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "อ๊อตเทริ"
+   ],
+   "phone": "084-514-4546",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16563"
+  },
+  {
+   "cmhy": "16615",
+   "name": "ซักผ้าหยอดเหรียญ(ศิริคอร์ท)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-04-06",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16615"
+  },
+  {
+   "cmhy": "16625",
+   "name": "ซักผ้าหยอดเหรียญ [ซอย 4 ช้างเผือก]",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-07-26",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16625"
+  },
+  {
+   "cmhy": "16668",
+   "name": "วาวา วอส แอนด์ ดราย (เคหะหนองหอย)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-06-01",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16668"
+  },
+  {
+   "cmhy": "16682",
+   "name": "ซักสบาย 24ชั่วโมง",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "093-139-9651",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16682"
+  },
+  {
+   "cmhy": "16736",
+   "name": "ซักผ้าหยอดเหรียญ(หน้าอุดมผล)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-07-26",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16736"
+  },
+  {
+   "cmhy": "16749",
+   "name": "คลีน สเปซ (ท่าแพ)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16749"
+  },
+  {
+   "cmhy": "16751",
+   "name": "ร้านซักอบรีด [ท่าแพ ซอย 2]",
+   "tags": [
+    "ร้านซักอบรีด",
+    "ซักผ้ารายวัน",
+    "ซักผ้ารายเดือน"
+   ],
+   "phone": "095-197-8017",
+   "amphoe": "เมือง",
+   "modified": "2024-09-24",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-16751"
+  },
+  {
+   "cmhy": "16773",
+   "name": "วอสอัพ ลอนดรี้",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16773"
+  },
+  {
+   "cmhy": "16820",
+   "name": "ซักผ้าหยอดเหรียญ (ซีเกมส์)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-04-06",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16820"
+  },
+  {
+   "cmhy": "16868",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-04-06",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16868"
+  },
+  {
+   "cmhy": "16872",
+   "name": "ซักผ้าหยอดเหรียญ (ราชาเพลส)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-04-06",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16872"
+  },
+  {
+   "cmhy": "16873",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-07-29",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-16873"
+  },
+  {
+   "cmhy": "17013",
+   "name": "ร้านสะดวกซัก 24hr [ถนนสิโรรส]",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-03-08",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-17013"
+  },
+  {
+   "cmhy": "17056",
+   "name": "คลีน แอนด์ แคร์ (ใต้หอพักชายคณะแพทย์ 7)",
+   "tags": [
+    "ซักรายเดือน",
+    "ซักอบรีด"
+   ],
+   "phone": "083-571-7961,062-309-5115",
+   "amphoe": "เมือง",
+   "modified": "2022-03-16",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-17056"
+  },
+  {
+   "cmhy": "17057",
+   "name": "ซักผ้าหยอดเหรียญ [หอพักนักศึกษาแพทย์ 7]",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-12-15",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-17057"
+  },
+  {
+   "cmhy": "17086",
+   "name": "ซักผ้าหยอดเหรียญ [กู่เต้า]",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-07-15",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-17086"
+  },
+  {
+   "cmhy": "17107",
+   "name": "ร้านชำ ตาวี",
+   "tags": [
+    "ข้าวเหนียว",
+    "ผักสด",
+    "ของใช้ทั่วไป"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-03-12",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "17135",
+   "name": "ซักผ้าหยอดเหรียญ(ภัทธาราเพลส)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-04-30",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-17135"
+  },
+  {
+   "cmhy": "17143",
+   "name": "ซักผ้าหยอดเหรียญ(pp apartment)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-04-30",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-17143"
+  },
+  {
+   "cmhy": "17204",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-05-08",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-17204"
+  },
+  {
+   "cmhy": "17213",
+   "name": "ซักผ้าหยอดเหรียญ(อยู่เย็น)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-04-30",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-17213"
+  },
+  {
+   "cmhy": "17284",
+   "name": "คลีนอัพ วอส&ดราย",
+   "tags": [
+    "ร้านสะดวกซัก",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "081-884-4042",
+   "amphoe": "เมือง",
+   "modified": "2024-09-15",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-17284"
+  },
+  {
+   "cmhy": "17313",
+   "name": "ซักผ้าหยอดเหรียญ (ถนนจ่าบ้าน)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-07-06",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-17313"
+  },
+  {
+   "cmhy": "17326",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-24",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-17326"
+  },
+  {
+   "cmhy": "17328",
+   "name": "บริการซักอบรีด [ถนน เวสาลี ซอย 1]",
+   "tags": [
+    "ซักอบรีด",
+    "ซักรายชิ้น",
+    "ซักรายเดือน"
+   ],
+   "phone": "062-035-0314",
+   "amphoe": "เมือง",
+   "modified": "2024-09-13",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-17328"
+  },
+  {
+   "cmhy": "17331",
+   "name": "ซักผ้าหยอดเหรียญ [เวสาลี]",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-04-21",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-17331"
+  },
+  {
+   "cmhy": "17334",
+   "name": "ซักผ้าหยอดเหรียญ (n & n)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-08-30",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-17334"
+  },
+  {
+   "cmhy": "17337",
+   "name": "ซักผ้าหยอดเหรียญ (สันพะเยาแมนชั่น)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-03-16",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-17337"
+  },
+  {
+   "cmhy": "17343",
+   "name": "ซักผ้าหยอดเหรียญ (พจน์&พัชแมนชั่น)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-24",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-17343"
+  },
+  {
+   "cmhy": "17344",
+   "name": "ฟ้าใส ซักอบรีด",
+   "tags": [
+    "ซักอบรีด",
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "061-023-6523",
+   "amphoe": "เมือง",
+   "modified": "2023-04-21",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-17344"
+  },
+  {
+   "cmhy": "17349",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-24",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-17349"
+  },
+  {
+   "cmhy": "17351",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-24",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-17351"
+  },
+  {
+   "cmhy": "17367",
+   "name": "ซักผ้าหยอดเหรียญ (อัจฉรา เพลส)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-24",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-17367"
+  },
+  {
+   "cmhy": "17377",
+   "name": "ซักผ้าหยอดเหรียญ (b19 space living)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-24",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-17377"
+  },
+  {
+   "cmhy": "17379",
+   "name": "ป้าฟอง ซักรีด",
+   "tags": [
+    "ซักรีด",
+    "ซักอบรีด"
+   ],
+   "phone": "084-406-1697",
+   "amphoe": "เมือง",
+   "modified": "2019-07-03",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-17379"
+  },
+  {
+   "cmhy": "1743",
+   "name": "น้องเนย ซักอบรีด",
+   "tags": [
+    "ซักอบรีด"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-12-01",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-1743"
+  },
+  {
+   "cmhy": "17457",
+   "name": "ซักผ้าหยอดเหรียญ [ถนนราชภาคินัย หน้าวัดเชียงมั่น]",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-05-11",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-17457"
+  },
+  {
+   "cmhy": "17619",
+   "name": "ซักผ้าหยอดเหรียญ (ชมดอยคอนโด)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-03-30",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-17619"
+  },
+  {
+   "cmhy": "17667",
+   "name": "ซักผ้าหยอดเหรียญ (คุณนายเรสซิเดนซ์)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-24",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-17667"
+  },
+  {
+   "cmhy": "17669",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-05-24",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-17669"
+  },
+  {
+   "cmhy": "17671",
+   "name": "ร้านซักอบรีด [ซอย สวนดอก]",
+   "tags": [
+    "ซักรายชิ้น",
+    "ซักรายเดือน"
+   ],
+   "phone": "083-574-2755",
+   "amphoe": "เมือง",
+   "modified": "2025-06-10",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-17671"
+  },
+  {
+   "cmhy": "17711",
+   "name": "วอชดรอป ซักรีดเสื้อผ้าบริการรับส่งถึงบ้าน (เชียงใหม่บิสสิเนสพาร์ค)",
+   "tags": [
+    "ซักรีดเสื้อผ้าบริการรับส่ง",
+    "บริการซักอบรีด",
+    "รับส่งซักอบรีด"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-04-21",
+   "trade": "laundry",
+   "facets": {
+    "pickup": true
+   },
+   "record": "cm-curated-laundry-17711"
+  },
+  {
+   "cmhy": "17712",
+   "name": "อีซี่วอส เดลิเวอรี่",
+   "tags": [
+    "ซักผ้าห่ม",
+    "ปอกหมอน",
+    "ซักอบรีดรับ-ส่ง"
+   ],
+   "phone": "081-887-1085",
+   "amphoe": "เมือง",
+   "modified": "2023-06-19",
+   "trade": "laundry",
+   "facets": {
+    "pickup": true
+   },
+   "record": "cm-curated-laundry-17712"
+  },
+  {
+   "cmhy": "17848",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "เครื่องอบผ้า",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-11-13",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-17848"
+  },
+  {
+   "cmhy": "17861",
+   "name": "ไอวอสยู",
+   "tags": [
+    "ร้านสะดวกซัก",
+    "อบผ้า",
+    "ตู้ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-09-22",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-17861"
+  },
+  {
+   "cmhy": "17862",
+   "name": "ลอนดรี้บาร์ (มณีนพรัตน์)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องอบผ้า",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "092-675-4455",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-17862"
+  },
+  {
+   "cmhy": "17921",
+   "name": "ช่างไทยซักแห้ง (สาขาซุปเปอร์ไฮเวย์ สี่แยกข่วงสิงห์)",
+   "tags": [
+    "ซักอบรีด",
+    "ซักแห้ง",
+    "ซักผ้า"
+   ],
+   "phone": "090-895-2128",
+   "amphoe": "เมือง",
+   "modified": "2026-03-24",
+   "trade": "laundry",
+   "facets": {
+    "dryclean": true
+   },
+   "record": "cm-curated-laundry-17921"
+  },
+  {
+   "cmhy": "18918",
+   "name": "เค-ริน วอสแอนด์ดราย",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "095-682-4312",
+   "amphoe": "เมือง",
+   "modified": "2026-02-12",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-18918"
+  },
+  {
+   "cmhy": "19034",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-11-19",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-19034"
+  },
+  {
+   "cmhy": "19207",
+   "name": "คลีนโปร เอ๊กซ์เพลส ร้านสะดวกซัก 24 HR(วินเพลส)",
+   "tags": [
+    "ซักเอง",
+    "เครื่องซักหยอดเหรียญ",
+    "ซักอบรีด"
+   ],
+   "phone": "093-140-1931",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-19207"
+  },
+  {
+   "cmhy": "19218",
+   "name": "ลอนดรี้บาร์ (ช้างคลาน)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องอบผ้า",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "092-675-4455",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-19218"
+  },
+  {
+   "cmhy": "19387",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-04-20",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-19387"
+  },
+  {
+   "cmhy": "19393",
+   "name": "โทโบฟาส สะดวกซัก (turbofast pro vleaner)",
+   "tags": [
+    "ร้านสะดวกซัก",
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-02-02",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-5582581121",
+   "metres": 6
+  },
+  {
+   "cmhy": "19422",
+   "name": "คลีนโปร เอ๊กซ์เพลส ร้านสะดวกซัก 24 HR(เจ็ดยอด)",
+   "tags": [
+    "ซักเอง",
+    "เครื่องซักหยอดเหรียญ",
+    "ซักอบรีด"
+   ],
+   "phone": "020263699",
+   "amphoe": "เมือง",
+   "modified": "2025-05-31",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-19422"
+  },
+  {
+   "cmhy": "19436",
+   "name": "ซักผ้าหยอดเหรียญ (tthouse)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-11-19",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-19436"
+  },
+  {
+   "cmhy": "19452",
+   "name": "อ๊อตเทริ วอช แอนด์ ดราย (เชียงใหม่บิสซิเนสพาร์ค)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "อ๊อตเทริ"
+   ],
+   "phone": "086-670-5503",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-12351558345",
+   "metres": 50
+  },
+  {
+   "cmhy": "19453",
+   "name": "อ๊อตเทริ วอช แอนด์ ดราย (กาดก้อม-นาฏศิลป์)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "อ๊อตเทริ"
+   ],
+   "phone": "088-242-4262",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-19453"
+  },
+  {
+   "cmhy": "19471",
+   "name": "ซักผ้าหยอดเหรียญ (ศรีสุวรรณแมนชั่น)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-11-19",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-19471"
+  },
+  {
+   "cmhy": "19637",
+   "name": "คลีนโปร เอ๊กซ์เพลส 24 HR(แจ่งหัวริน)",
+   "tags": [
+    "ซักเอง",
+    "เครื่องซักหยอดเหรียญ",
+    "ซักอบรีด"
+   ],
+   "phone": "02-026-3699",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-19637"
+  },
+  {
+   "cmhy": "19794",
+   "name": "ซักผ้าหยอดเหรียญ [ข้างวัดศรีบุญเรือง]",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-05-01",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-11652195486",
+   "metres": 66
+  },
+  {
+   "cmhy": "19802",
+   "name": "ซักผ้าหยอดเหรียญ (ร้านของชำ)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-11-19",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-19802"
+  },
+  {
+   "cmhy": "20295",
+   "name": "ซักผ้าหยอดเหรียญ(t&k apartment)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-12-29",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-20295"
+  },
+  {
+   "cmhy": "20301",
+   "name": "หนุงหนิง ร้านซักรีด",
+   "tags": [
+    "ซักผ้านวม",
+    "ซักตุ๊กตา",
+    "ซักรองเท้า"
+   ],
+   "phone": "092-537-7283",
+   "amphoe": "เมือง",
+   "modified": "2022-04-18",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-20301"
+  },
+  {
+   "cmhy": "20302",
+   "name": "ลอนดรี้บาร์ (ราชภัฎ)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องอบผ้า",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "092-675-4455",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-20302"
+  },
+  {
+   "cmhy": "20397",
+   "name": "คลีนโปร เอ๊กซ์เพลส 24 HR(แม่เหียะ)",
+   "tags": [
+    "ซักเอง",
+    "เครื่องซักหยอดเหรียญ",
+    "ซักอบรีด"
+   ],
+   "phone": "02-026-3699",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-10794696763",
+   "metres": 2
+  },
+  {
+   "cmhy": "20398",
+   "name": "สาซักรีด",
+   "tags": [
+    "ซักผ้า",
+    "ซักอบรีด",
+    "ซักอบรีด"
+   ],
+   "phone": "085-401-8340,084-605-7819",
+   "amphoe": "เมือง",
+   "modified": "2020-04-24",
+   "trade": "laundry",
+   "facets": {},
+   "osm": "cm-osm-node-10794696763",
+   "metres": 29
+  },
+  {
+   "cmhy": "20401",
+   "name": "ลอนดรี้บาร์ (มะลิเพลส)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องอบผ้า",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "092-675-4455",
+   "amphoe": "เมือง",
+   "modified": "2023-05-18",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-20401"
+  },
+  {
+   "cmhy": "20480",
+   "name": "ภูมิใจบริการ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-12-29",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-20480"
+  },
+  {
+   "cmhy": "20481",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-12-29",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-20481"
+  },
+  {
+   "cmhy": "20483",
+   "name": "ซักผ้า อบผ้า หยอดเหรียญ [ศรีปิงเมือง]",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-08-15",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-20483"
+  },
+  {
+   "cmhy": "20487",
+   "name": "พี่เล็ก ซักรีด",
+   "tags": [
+    "ซักผ้า",
+    "ซักอบรีด",
+    "ซักอบรีด"
+   ],
+   "phone": "093-263-2157",
+   "amphoe": "เมือง",
+   "modified": "2024-05-27",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-20487"
+  },
+  {
+   "cmhy": "20581",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2019-12-29",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-20581"
+  },
+  {
+   "cmhy": "20671",
+   "name": "โถดี ลอนดรี้ (ม.พายัพ)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "0845962893",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-20671"
+  },
+  {
+   "cmhy": "20672",
+   "name": "รับซักอบรีด ม.พายัพ",
+   "tags": [
+    "ซักผ้าห่ม",
+    "ซักผ้า",
+    "ซักอบรีด"
+   ],
+   "phone": "084-596-2893",
+   "amphoe": "เมือง",
+   "modified": "2022-04-11",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-20672"
+  },
+  {
+   "cmhy": "20727",
+   "name": "ร้านน้องพร",
+   "tags": [
+    "ผ้านวม",
+    "ซักเสื้อสูท",
+    "ซักผ้า"
+   ],
+   "phone": "089-109-048,081-161-1197",
+   "amphoe": "เมือง",
+   "modified": "2022-01-19",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-20727"
+  },
+  {
+   "cmhy": "20761",
+   "name": "ลอนดรี้บาร์ (หน้า ม.ช.)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องอบผ้า",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "092-675-4455",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-20761"
+  },
+  {
+   "cmhy": "20816",
+   "name": "สปินน์ ซัก อบ 24 ชั่วโมง ( Laundromat 24/7)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "อบผ้าหยอดเหรียญ",
+    "อบผ้า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-10-22",
+   "trade": "laundry",
+   "facets": {
+    "coin": true,
+    "open24": true
+   },
+   "record": "cm-curated-laundry-20816"
+  },
+  {
+   "cmhy": "20851",
+   "name": "ตู้ซักผ้าหยอดเหรียญ (Smile)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-01-14",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-20851"
+  },
+  {
+   "cmhy": "20854",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-01-14",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-20854"
+  },
+  {
+   "cmhy": "20861",
+   "name": "สมายด์ ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-03-14",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-20861"
+  },
+  {
+   "cmhy": "20865",
+   "name": "บับเบิลวอส  (Bubble Wash)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "089-791-2634",
+   "amphoe": "เมือง",
+   "modified": "2021-03-20",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-20865"
+  },
+  {
+   "cmhy": "20888",
+   "name": "ลอนดรี้บาร์ (สุขเกษม)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องอบผ้า",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "092-675-4455",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-20888"
+  },
+  {
+   "cmhy": "20908",
+   "name": "ศรีธน ซักอบรีด",
+   "tags": [
+    "ซักอบรีด",
+    "ซักผ้ารายเดือน"
+   ],
+   "phone": "053-201-467,081-022-9042",
+   "amphoe": "เมือง",
+   "modified": "2022-01-21",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-20908"
+  },
+  {
+   "cmhy": "20999",
+   "name": "น้องปุย",
+   "tags": [
+    "ซักตุ๊กตา",
+    "ซักผ้าปู",
+    "ซักผ้าห่ม"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-03-21",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-20999"
+  },
+  {
+   "cmhy": "21046",
+   "name": "คลีนโปร เอ๊กซ์เพลส 24 HR(สันป่าเลียง) [หมู่บ้านชัยพฤกษ์]",
+   "tags": [
+    "ซักเอง",
+    "เครื่องซักหยอดเหรียญ",
+    "ซักอบรีด"
+   ],
+   "phone": "02-026-3699",
+   "amphoe": "เมือง",
+   "modified": "2026-06-02",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-21046"
+  },
+  {
+   "cmhy": "21062",
+   "name": "ดวงดาว ซักอบรีด",
+   "tags": [
+    "ซักรายเดือน",
+    "ซักอบรีด"
+   ],
+   "phone": "095-941-4563",
+   "amphoe": "เมือง",
+   "modified": "2020-03-26",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-21062"
+  },
+  {
+   "cmhy": "21094",
+   "name": "สนุกซัก ซักอบผ้า (รพ.ล้านนา)",
+   "tags": [
+    "ซักผ้า",
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องอบผ้า"
+   ],
+   "phone": "098-848-1117,02-187-2755",
+   "amphoe": "เมือง",
+   "modified": "2022-05-28",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-21094"
+  },
+  {
+   "cmhy": "21117",
+   "name": "ซักสะอาด 24 ชั่วโมง",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ซักผ้า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-04-01",
+   "trade": "laundry",
+   "facets": {
+    "coin": true,
+    "open24": true
+   },
+   "record": "cm-curated-laundry-21117"
+  },
+  {
+   "cmhy": "21179",
+   "name": "อ๊อตเทริ วอช แอนด์ ดราย (แม่เหียะ)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "อ๊อตเทริ"
+   ],
+   "phone": "088-242-4262",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-21179"
+  },
+  {
+   "cmhy": "21180",
+   "name": "มิสลอนดรี้ สะดวกซัก 24 ชั่วโมง",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "062-918-9353",
+   "amphoe": "เมือง",
+   "modified": "2023-09-15",
+   "trade": "laundry",
+   "facets": {
+    "coin": true,
+    "open24": true
+   },
+   "record": "cm-curated-laundry-21180"
+  },
+  {
+   "cmhy": "21265",
+   "name": "จัมโบ้วอส 24 ชั่วโมง",
+   "tags": [
+    "ซักเอง",
+    "เครื่องซักหยอดเหรียญ",
+    "ซักอบรีด"
+   ],
+   "phone": "089-333-6663",
+   "amphoe": "เมือง",
+   "modified": "2026-06-12",
+   "trade": "laundry",
+   "facets": {
+    "coin": true,
+    "open24": true
+   },
+   "record": "cm-curated-laundry-21265"
+  },
+  {
+   "cmhy": "21321",
+   "name": "เลิฟลี่แคท โฮม",
+   "tags": [
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-04-24",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-21321"
+  },
+  {
+   "cmhy": "21322",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-04-06",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-21322"
+  },
+  {
+   "cmhy": "21350",
+   "name": "ดีดีซักอบรีด",
+   "tags": [
+    "ซักผ้ารายชิ้น",
+    "ซักผ้ารายเดือน",
+    "ซักผ้าห่ม"
+   ],
+   "phone": "053-820-316",
+   "amphoe": "เมือง",
+   "modified": "2025-06-10",
+   "trade": "laundry",
+   "facets": {},
+   "osm": "cm-osm-node-5865421938",
+   "metres": 49
+  },
+  {
+   "cmhy": "21354",
+   "name": "นาคารา ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "0658794909",
+   "amphoe": "เมือง",
+   "modified": "2020-04-08",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-21354"
+  },
+  {
+   "cmhy": "21364",
+   "name": "ร้านสะดวกซัก 20 บาท",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-04-11",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-21364"
+  },
+  {
+   "cmhy": "21371",
+   "name": "ม่อนมี ซักรีด",
+   "tags": [
+    "ซักรายชิ้น",
+    "ซักรายเดือน",
+    "ซักกิโล"
+   ],
+   "phone": "0638383538",
+   "amphoe": "เมือง",
+   "modified": "2026-08-15",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-21371"
+  },
+  {
+   "cmhy": "21373",
+   "name": "รันรัน 24 ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "062-159-8296",
+   "amphoe": "เมือง",
+   "modified": "2020-04-11",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-21373"
+  },
+  {
+   "cmhy": "21392",
+   "name": "ซักอบรีด",
+   "tags": [
+    "ซักอบรีด"
+   ],
+   "phone": "089-499-5301",
+   "amphoe": "เมือง",
+   "modified": "2020-04-13",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-21392"
+  },
+  {
+   "cmhy": "2152",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "เครื่องซักหยอดเหรียญ",
+    "ตู้ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2017-06-19",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-2152"
+  },
+  {
+   "cmhy": "21576",
+   "name": "นายสะอาด ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-07-16",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-21576"
+  },
+  {
+   "cmhy": "21702",
+   "name": "แฮปปี้ วอช (รวมโชค สวนนนทรี) ซักแห้ง ซักรีด",
+   "tags": [
+    "ซักอบรีด",
+    "ซักผ้า",
+    "บริการซักผ้า"
+   ],
+   "phone": "099-240-5959",
+   "amphoe": "เมือง",
+   "modified": "2026-02-16",
+   "trade": "laundry",
+   "facets": {
+    "dryclean": true
+   },
+   "record": "cm-curated-laundry-21702"
+  },
+  {
+   "cmhy": "21704",
+   "name": "ดี ดี ผ้าหอม รวมโชคเชียงใหม่",
+   "tags": [
+    "ซักผ้า",
+    "อบผ้า",
+    "ซักแห้ง"
+   ],
+   "phone": "086-187-3366",
+   "amphoe": "เมือง",
+   "modified": "2025-08-05",
+   "trade": "laundry",
+   "facets": {
+    "dryclean": true
+   },
+   "record": "cm-curated-laundry-21704"
+  },
+  {
+   "cmhy": "2174",
+   "name": "ซักผ้าหยอดเหรียญ [กาดก้อม]",
+   "tags": [
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "เครื่องซักหยอดเหรียญ",
+    "ตู้ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-09-03",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-2174"
+  },
+  {
+   "cmhy": "21751",
+   "name": "ลอนดรี้บาร์ (โพธาราม)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องอบผ้า",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "092-675-4455",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-21751"
+  },
+  {
+   "cmhy": "21760",
+   "name": "น้องนัท ซักอบรีด",
+   "tags": [
+    "ซักอบรีด"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-03-20",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-21760"
+  },
+  {
+   "cmhy": "21850",
+   "name": "ซักผ้าหยอดเหรียญ TWJ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-01-31",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-21850"
+  },
+  {
+   "cmhy": "21985",
+   "name": "ซักผ้าหยอดเหรียญ 06:30~5ทุ่ม",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-11-22",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-21985"
+  },
+  {
+   "cmhy": "22304",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-08-29",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-22304"
+  },
+  {
+   "cmhy": "22465",
+   "name": "พี่แหวน ซักอบรีด",
+   "tags": [
+    "ซักอบรีด"
+   ],
+   "phone": "097-969-5921",
+   "amphoe": "เมือง",
+   "modified": "2020-05-26",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-22465"
+  },
+  {
+   "cmhy": "22614",
+   "name": "ซักผ้า/อบผ้า หยอดเหรียญ [หมื่นด้ามพร้าคต ซอย 7]",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "อบผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-07-22",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-22614"
+  },
+  {
+   "cmhy": "22622",
+   "name": "ซักผ้าหยอดเหรียญ เริ่มต้น 10 บาท",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-06-16",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-22622"
+  },
+  {
+   "cmhy": "22630",
+   "name": "ซักผ้าหยอดเหรียญ (พี.พี.แมนชั่น)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-06-08",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-22630"
+  },
+  {
+   "cmhy": "22635",
+   "name": "แฟตแคท คาเฟ่ แอนด์ ลอนดรี้",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เกียวโต",
+    "มัชชะ"
+   ],
+   "phone": "062-654-1544",
+   "amphoe": "เมือง",
+   "modified": "2026-06-21",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-11407178348",
+   "metres": 8
+  },
+  {
+   "cmhy": "22744",
+   "name": "ซักผ้าหยอดเหรียญ(ร้านของชำ ป้าศรี)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-06-14",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-22744"
+  },
+  {
+   "cmhy": "22800",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-06-14",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-22800"
+  },
+  {
+   "cmhy": "22808",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-06-14",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-22808"
+  },
+  {
+   "cmhy": "22827",
+   "name": "ลอนดรี้บาร์ (เชียงใหม่บิสซิเนส)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "092-675-4455",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-22827"
+  },
+  {
+   "cmhy": "22838",
+   "name": "คลีน มอ",
+   "tags": [
+    "ซักอบรีด",
+    "ซักผ้า",
+    "บริการซักรีด"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-07-13",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-22838"
+  },
+  {
+   "cmhy": "22846",
+   "name": "กอและ ซักผ้าหยอดเหรียญ (อุโมงค์)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-4353683216",
+   "metres": 42
+  },
+  {
+   "cmhy": "22850",
+   "name": "คิวซี วอเทอร์ร้านสะดวกซัก 24 ชั่วโมง (ซอยวัดอุโมงค์)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true,
+    "open24": true
+   },
+   "record": "cm-curated-laundry-22850"
+  },
+  {
+   "cmhy": "22856",
+   "name": "คูมะ วอส แอนด์ ดราย",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "อบผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-22856"
+  },
+  {
+   "cmhy": "22858",
+   "name": "กรีนเทค ซัก อบ รีด",
+   "tags": [
+    "ซักเสื้อนวม",
+    "ซักตุ๊กตา",
+    "ซักหมอน"
+   ],
+   "phone": "096-682-0786",
+   "amphoe": "เมือง",
+   "modified": "2020-06-16",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "22865",
+   "name": "พี่ลูกจันทร์",
+   "tags": [
+    "ซักอบรีด"
+   ],
+   "phone": "061-310-0086",
+   "amphoe": "เมือง",
+   "modified": "2020-06-14",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-22865"
+  },
+  {
+   "cmhy": "22959",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-11-08",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-22959"
+  },
+  {
+   "cmhy": "22981",
+   "name": "ป้าดวลซักอบรีด",
+   "tags": [
+    "ซักอบรีด",
+    "ซักผ้ารายเดือน",
+    "บริการซักรีด"
+   ],
+   "phone": "095-998-1606",
+   "amphoe": "เมือง",
+   "modified": "2022-02-25",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-22981"
+  },
+  {
+   "cmhy": "23031",
+   "name": "ซีนาย ซักอบรีด",
+   "tags": [
+    "ผ้าห่ม",
+    "ผ้านวม",
+    "ซักอบรีด"
+   ],
+   "phone": "081-530-1805",
+   "amphoe": "เมือง",
+   "modified": "2024-03-31",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-23031"
+  },
+  {
+   "cmhy": "23036",
+   "name": "ณัฐ ซักรีด",
+   "tags": [
+    "ผ้าปู",
+    "ผ้าห่ม",
+    "ซักอบรีด"
+   ],
+   "phone": "086-116-9564",
+   "amphoe": "เมือง",
+   "modified": "2024-03-31",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-23036"
+  },
+  {
+   "cmhy": "23177",
+   "name": "บริษัท ลอนดรี้ รีพับลิค  ซักอบรีด  อุตสาหกรรมท่องเที่ยว",
+   "tags": [
+    "ซักอบรีด",
+    "ซักผ้าปูที่นอน",
+    "ซักผ้าโรงแรม"
+   ],
+   "phone": "061-536-6641",
+   "amphoe": "เมือง",
+   "modified": "2026-02-19",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-23177"
+  },
+  {
+   "cmhy": "23199",
+   "name": "w วอชมี",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "089-757-9018",
+   "amphoe": "เมือง",
+   "modified": "2023-09-24",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-12433886001",
+   "metres": 9
+  },
+  {
+   "cmhy": "23410",
+   "name": "ซักอบรีดซักผ้าห่ม",
+   "tags": [
+    "ซักอบรีด",
+    "ซักผ้าห่ม",
+    "ซักรายเดือน"
+   ],
+   "phone": "082-389-5700",
+   "amphoe": "เมือง",
+   "modified": "2021-01-06",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-23410"
+  },
+  {
+   "cmhy": "23603",
+   "name": "อ๊อตเทริ วอช แอนด์ ดราย (หอพักสีชมพู ม.เชียงใหม่)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "อ๊อตเทริ"
+   ],
+   "phone": "088-242-4262",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-23603"
+  },
+  {
+   "cmhy": "23626",
+   "name": "ร้านซักอบรีด [ ถนน สันติสุข ซอย 1]",
+   "tags": [
+    "ผ้านวม",
+    "ซักอบรีด"
+   ],
+   "phone": "0626455190",
+   "amphoe": "เมือง",
+   "modified": "2026-01-10",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-23626"
+  },
+  {
+   "cmhy": "23838",
+   "name": "ป๊อปซักอบรีด",
+   "tags": [
+    "รายวัน",
+    "รายชิ้น",
+    "ร้านซักอบรีด"
+   ],
+   "phone": "094-490-8529",
+   "amphoe": "เมือง",
+   "modified": "2024-09-07",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-23838"
+  },
+  {
+   "cmhy": "23907",
+   "name": "แมลโลคลีน",
+   "tags": [
+    "ซ้กผ้าหยอดเหรียญ",
+    "สะดวกซัก",
+    "อบผ้าหยอดเหรียญ"
+   ],
+   "phone": "065-971-9130",
+   "amphoe": "เมือง",
+   "modified": "2022-02-06",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-2530379633",
+   "metres": 43
+  },
+  {
+   "cmhy": "24071",
+   "name": "สกาย วอส (บ้านใหม่หลังมอ)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "สะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "089-876-8796",
+   "amphoe": "เมือง",
+   "modified": "2024-01-19",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-13135642801",
+   "metres": 17
+  },
+  {
+   "cmhy": "24072",
+   "name": "หมูหมู วอส แอนด์ ดราย",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "สะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "082-389-8844",
+   "amphoe": "เมือง",
+   "modified": "2025-04-04",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-13135642801",
+   "metres": 12
+  },
+  {
+   "cmhy": "24136",
+   "name": "วอสแมชชีน ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "สะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-04-28",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-24136"
+  },
+  {
+   "cmhy": "24317",
+   "name": "เป็ดสะอาด (เชียงใหม่แลนด์)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "อ๊อตเทริ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-07-12",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-24317"
+  },
+  {
+   "cmhy": "25063",
+   "name": "คุณแม่ซักรีด",
+   "tags": [
+    "ซักอบรีด"
+   ],
+   "phone": "065-793-9615",
+   "amphoe": "เมือง",
+   "modified": "2024-07-15",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-25063"
+  },
+  {
+   "cmhy": "25064",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "สะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-11-17",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-25064"
+  },
+  {
+   "cmhy": "25072",
+   "name": "ฮักฮอม",
+   "tags": [
+    "ซักอบรีด"
+   ],
+   "phone": "080-134-0669",
+   "amphoe": "เมือง",
+   "modified": "2026-09-02",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-25072"
+  },
+  {
+   "cmhy": "25152",
+   "name": "หนุ่ย ซักอบรีด [ราชเชียงแสน ซอย 2]",
+   "tags": [
+    "ซักอบรีด",
+    "ซักผ้ารายเดือน"
+   ],
+   "phone": "086-389-4447",
+   "amphoe": "เมือง",
+   "modified": "2025-04-29",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-25152"
+  },
+  {
+   "cmhy": "25256",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "สะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-11-17",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-25256"
+  },
+  {
+   "cmhy": "25259",
+   "name": "ร้านซักอบรีด [ศรีปิงเมือง 3]",
+   "tags": [
+    "ซักอบรีด",
+    "ซักผ้าห่ม",
+    "ซักรายเดือน"
+   ],
+   "phone": "095-127-0544",
+   "amphoe": "เมือง",
+   "modified": "2024-05-21",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-25259"
+  },
+  {
+   "cmhy": "25277",
+   "name": "วอสแฮปเพ็นส์ Wash Happens (สาขา หนองหอย)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "063-835-8383",
+   "amphoe": "เมือง",
+   "modified": "2026-06-12",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-25277"
+  },
+  {
+   "cmhy": "25452",
+   "name": "โอเค มั๊ย? (กาดทวีโชค(กาดปอยหลวง))",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "สะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "062-853-8726",
+   "amphoe": "เมือง",
+   "modified": "2023-03-21",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-25452"
+  },
+  {
+   "cmhy": "25846",
+   "name": "ดีดี คอร์น",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "สะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-01-20",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-25846"
+  },
+  {
+   "cmhy": "2606",
+   "name": "พินซักอบรีด",
+   "tags": [
+    "ซักผ้านวม",
+    "ซักแห้งสูท",
+    "ซักอบรีด"
+   ],
+   "phone": "053-274-236",
+   "amphoe": "เมือง",
+   "modified": "2020-10-12",
+   "trade": "laundry",
+   "facets": {
+    "dryclean": true
+   },
+   "record": "cm-curated-laundry-2606"
+  },
+  {
+   "cmhy": "2629",
+   "name": "ช่างไทย ซักแห้ง  (แยกราชภัฎเชียงใหม่)",
+   "tags": [
+    "ซักอบรีด",
+    "ซักแห้ง",
+    "ซักผ้า"
+   ],
+   "phone": "092-480-4432",
+   "amphoe": "เมือง",
+   "modified": "2026-01-07",
+   "trade": "laundry",
+   "facets": {
+    "dryclean": true
+   },
+   "record": "cm-curated-laundry-2629"
+  },
+  {
+   "cmhy": "26473",
+   "name": "วอสเชอร์ดราย",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "สะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-01-06",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-26473"
+  },
+  {
+   "cmhy": "26969",
+   "name": "กอและ ซักผ้าหยอดเหรียญ (ศิริมังคลาจารย์)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "สะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-26969"
+  },
+  {
+   "cmhy": "27107",
+   "name": "วอสแฮปเพ็นส์ Wash Happens (สาขา ซอยชมจันทร์)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "063-835-8383",
+   "amphoe": "เมือง",
+   "modified": "2026-06-12",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-27107"
+  },
+  {
+   "cmhy": "27184",
+   "name": "เคหะหยอดเหรียญ สาขา 2",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "สะดวกซัก"
+   ],
+   "phone": "086-440-9353",
+   "amphoe": "เมือง",
+   "modified": "2022-09-12",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-27184"
+  },
+  {
+   "cmhy": "27253",
+   "name": "ซักอบคุณหมอ ร้านสะดวกซัก",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "098-782-6761",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-27253"
+  },
+  {
+   "cmhy": "27263",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "สะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-01-17",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-27263"
+  },
+  {
+   "cmhy": "27267",
+   "name": "ไอซ์ เสื้อผ้ามือสอง ซักอบรีด",
+   "tags": [
+    "เสื้อผ้ามือสอง",
+    "รับซักผ้า",
+    "ซักอบรีด"
+   ],
+   "phone": "081-595-8072",
+   "amphoe": "เมือง",
+   "modified": "2021-08-30",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-27267"
+  },
+  {
+   "cmhy": "27268",
+   "name": "อ้อม-แอ้มซักรีด",
+   "tags": [
+    "รับซักผ้ารายเดือน",
+    "ซักรายวัน"
+   ],
+   "phone": "087-525-6111",
+   "amphoe": "เมือง",
+   "modified": "2021-01-17",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-27268"
+  },
+  {
+   "cmhy": "27311",
+   "name": "ซักผ้าหยอดเหรียญ imm hotel",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "สะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-03-03",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-27311"
+  },
+  {
+   "cmhy": "27315",
+   "name": "ร้านซักอบรีด",
+   "tags": [
+    "ซักผ้ารายเดือน"
+   ],
+   "phone": "053-206-418",
+   "amphoe": "เมือง",
+   "modified": "2023-01-29",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-27315"
+  },
+  {
+   "cmhy": "27416",
+   "name": "ชิบะ อินุ วอส แอนด์ ดราย",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-27416"
+  },
+  {
+   "cmhy": "27555",
+   "name": "โฟกัส ซักอบรีด",
+   "tags": [
+    "ซักอบรีด",
+    "ซักผ้ารายชิ้น",
+    "ซักผ้ารายเดือน"
+   ],
+   "phone": "099-291-7829",
+   "amphoe": "เมือง",
+   "modified": "2024-10-26",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-27555"
+  },
+  {
+   "cmhy": "27577",
+   "name": "อ๊อตเทริ วอช แอนด์ ดราย(หมื่นด้ามพร้าคต ซ.6 ราชภัฎ)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "อ๊อตเทริ"
+   ],
+   "phone": "088-242-4262",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-27577"
+  },
+  {
+   "cmhy": "27578",
+   "name": "สปิน@โฮม",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก",
+    "ซักอบรีด"
+   ],
+   "phone": "092-634-1621",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-27578"
+  },
+  {
+   "cmhy": "27631",
+   "name": "65 ซักรีด",
+   "tags": [
+    "ซักอบรีด",
+    "ซักรายเดือน",
+    "ซักผ้ารายเดือน"
+   ],
+   "phone": "093-282-4192",
+   "amphoe": "เมือง",
+   "modified": "2026-02-24",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-27631"
+  },
+  {
+   "cmhy": "27637",
+   "name": "วอชมอส์ (หนองป่าครั่ง) washmore",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "098-879-9516",
+   "amphoe": "เมือง",
+   "modified": "2026-04-29",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-27637"
+  },
+  {
+   "cmhy": "27642",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-02-17",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-27642"
+  },
+  {
+   "cmhy": "28007",
+   "name": "อ๊อตเทริ วอช แอนด์ ดราย(HOP INN แอร์พอร์ต เชียงใหม่)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "อ๊อตเทริ"
+   ],
+   "phone": "095-067-0444",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-28007"
+  },
+  {
+   "cmhy": "28064",
+   "name": "มารุ ลอนดรี้ สะดวกซัก (สาขาทุ่งโฮเต็ล)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "081-903-0989",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-28064"
+  },
+  {
+   "cmhy": "28066",
+   "name": "แฮปปี้ วอช (สาขา 3 แยกราชพฤกษ์)",
+   "tags": [
+    "ซักอบรีด",
+    "ซักผ้า",
+    "บริการซักผ้า"
+   ],
+   "phone": "099-240-5959",
+   "amphoe": "เมือง",
+   "modified": "2022-03-25",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-28066"
+  },
+  {
+   "cmhy": "28487",
+   "name": "ซักผ้าหยอดเหรียญ [บ้านบวกครกน้อยริมคาว หมู่ 7]",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-12-05",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-28487"
+  },
+  {
+   "cmhy": "28490",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-06-24",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-28490"
+  },
+  {
+   "cmhy": "28681",
+   "name": "อังเคิลจอร์น ลอนดรี้",
+   "tags": [
+    "ซักอบรีด",
+    "ซักผ้า",
+    "บริการซักผ้า"
+   ],
+   "phone": "081-145-8264",
+   "amphoe": "เมือง",
+   "modified": "2026-02-25",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-28681"
+  },
+  {
+   "cmhy": "28714",
+   "name": "สะอาด สะอ้าน",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "สะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "082-620-2424",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-28714"
+  },
+  {
+   "cmhy": "28738",
+   "name": "แฮปปี้ ลอนดรี้ & ดราย 89",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-06-12",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-28738"
+  },
+  {
+   "cmhy": "2880",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "เครื่องซักหยอดเหรียญ",
+    "ตู้ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2017-06-19",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-2880"
+  },
+  {
+   "cmhy": "28806",
+   "name": "มิลค์ ลอนดรี้",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-28806"
+  },
+  {
+   "cmhy": "2881",
+   "name": "ซักผ้าหยอดเหรียญ [โชคชัย]",
+   "tags": [
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "เครื่องซักหยอดเหรียญ",
+    "ตู้ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-01-08",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-9784521017",
+   "metres": 19
+  },
+  {
+   "cmhy": "28856",
+   "name": "ดัคซัก วอส & ดราย",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-07-28",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-28856"
+  },
+  {
+   "cmhy": "28881",
+   "name": "อ๊อตเทริ วอช แอนด์ ดราย(สันป่าข่อย)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "อ๊อตเทริ"
+   ],
+   "phone": "088-242-4262",
+   "amphoe": "เมือง",
+   "modified": "2025-12-01",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-28881"
+  },
+  {
+   "cmhy": "28957",
+   "name": "ตายาย ซักอบรีด",
+   "tags": [
+    "ซักอบรีด",
+    "ซักผ้า",
+    "บริการซักผ้า"
+   ],
+   "phone": "062-451-4796",
+   "amphoe": "เมือง",
+   "modified": "2026-06-12",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-28957"
+  },
+  {
+   "cmhy": "29027",
+   "name": "เพนกวิน PenguinLaundry (ต้นขาม)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "สะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "083-766-1645",
+   "amphoe": "เมือง",
+   "modified": "2024-11-26",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-29027"
+  },
+  {
+   "cmhy": "29135",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-06-24",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-29135"
+  },
+  {
+   "cmhy": "29137",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-08-30",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-29137"
+  },
+  {
+   "cmhy": "29141",
+   "name": "คลีนสเปซ ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-28",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-29141"
+  },
+  {
+   "cmhy": "29169",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-10-27",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-29169"
+  },
+  {
+   "cmhy": "29185",
+   "name": "ไก่ซักอบรีด",
+   "tags": [
+    "ซักอบรีด",
+    "ซักแห้ง",
+    "ซักเสื้อผ้า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-03-04",
+   "trade": "laundry",
+   "facets": {
+    "dryclean": true
+   },
+   "record": "cm-curated-laundry-29185"
+  },
+  {
+   "cmhy": "2920",
+   "name": "ออมสิน ซักอบรีด",
+   "tags": [
+    "ซัุดยูนิฟอร์ม",
+    "ผ้าห่ม",
+    "ผ้านวม"
+   ],
+   "phone": "086-874-3925",
+   "amphoe": "เมือง",
+   "modified": "2021-01-20",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-2920"
+  },
+  {
+   "cmhy": "29208",
+   "name": "ลอนดรี้ แอนด์ ดรายคลีนนิ่ง (เซ็นทรัลเฟสติวัล)",
+   "tags": [
+    "ซักอบรีด",
+    "ซักผ้า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-06-30",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-29208"
+  },
+  {
+   "cmhy": "29248",
+   "name": "บ้านไม้ซักอบรีด",
+   "tags": [
+    "ซักอบรีด",
+    "ซักผ้าโฮสเทล",
+    "ซักผ้าโรงแรม"
+   ],
+   "phone": "097-298-8346",
+   "amphoe": "เมือง",
+   "modified": "2024-04-18",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-29248"
+  },
+  {
+   "cmhy": "29250",
+   "name": "ชัก-อบ-รีด",
+   "tags": [
+    "ซักอบรีด"
+   ],
+   "phone": "091-068-9738",
+   "amphoe": "เมือง",
+   "modified": "2025-01-11",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-29250"
+  },
+  {
+   "cmhy": "29267",
+   "name": "ซักผ้า/อบแห้ง หยอดเหรียญ 20 บาท 24 ชั่วโมง",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-03-15",
+   "trade": "laundry",
+   "facets": {
+    "coin": true,
+    "open24": true
+   },
+   "record": "cm-curated-laundry-29267"
+  },
+  {
+   "cmhy": "29329",
+   "name": "แม่สุมาลี ซักอบรีด",
+   "tags": [
+    "ซักแห้ง",
+    "ซักอบรีด"
+   ],
+   "phone": "093-141-5443",
+   "amphoe": "เมือง",
+   "modified": "2024-11-20",
+   "trade": "laundry",
+   "facets": {
+    "dryclean": true
+   },
+   "record": "cm-curated-laundry-29329"
+  },
+  {
+   "cmhy": "29398",
+   "name": "เจ J สะดวกซัก",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-29398"
+  },
+  {
+   "cmhy": "29422",
+   "name": "ซักผ้าหยอดเหรียญ 20 บาท",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-07-20",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-29422"
+  },
+  {
+   "cmhy": "29431",
+   "name": "มารุ ลอนดรี้ สะดวกซัก ( ถนนราษฎร์อุทิศ)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "081-716-9334",
+   "amphoe": "เมือง",
+   "modified": "2026-09-03",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-29431"
+  },
+  {
+   "cmhy": "29461",
+   "name": "ลอนดรี้บาร์ (ช่างเคี่ยน)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "สะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "087-733-3773",
+   "amphoe": "เมือง",
+   "modified": "2025-05-24",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-29461"
+  },
+  {
+   "cmhy": "29518",
+   "name": "คลีนนี่วอส ร้านสะดวกซัก",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-29518"
+  },
+  {
+   "cmhy": "29551",
+   "name": "มารุ ลอนดรี้ สะดวกซัก ( ถนนวัวลาย)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "081-716-9334",
+   "amphoe": "เมือง",
+   "modified": "2024-01-24",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-12428726001",
+   "metres": 2
+  },
+  {
+   "cmhy": "29582",
+   "name": "ดี ลอนดรี้ (โครงการดีใจ๋ มอลล์)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "089-876-6761",
+   "amphoe": "เมือง",
+   "modified": "2023-11-23",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-29582"
+  },
+  {
+   "cmhy": "29596",
+   "name": "ลอนดรี้บาร์ (รวมโชคมอลล์)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "สะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "094-959-6111",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-29596"
+  },
+  {
+   "cmhy": "29601",
+   "name": "เจนซักอบรีด",
+   "tags": [
+    "ซักผ้าห่ม",
+    "ซักผ้านวม",
+    "บริการซักผ้า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-01-07",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-29601"
+  },
+  {
+   "cmhy": "29687",
+   "name": "อ๊อตเทริ วอช แอนด์ ดราย (สตาร์อเวนิว 2)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "อ๊อตเทริ"
+   ],
+   "phone": "094-487-1390",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-29687"
+  },
+  {
+   "cmhy": "29695",
+   "name": "ลอนดรี้บาร์ (สวนดอก)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "สะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "094-959-6111",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-29695"
+  },
+  {
+   "cmhy": "29697",
+   "name": "สวนดอก วอส & ดราย",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "สะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "080-672-9393",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-29697"
+  },
+  {
+   "cmhy": "29709",
+   "name": "เดือนเพ็ญซักรีด",
+   "tags": [
+    "ซักตุ๊กตา",
+    "ซักหมอน",
+    "ซักรายเดือน"
+   ],
+   "phone": "095-807-9792",
+   "amphoe": "เมือง",
+   "modified": "2025-10-04",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-29709"
+  },
+  {
+   "cmhy": "2978",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2020-09-09",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-2978"
+  },
+  {
+   "cmhy": "29780",
+   "name": "วอสบาร์ 247",
+   "tags": [
+    "ร้านสะดวกซัก",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-29780"
+  },
+  {
+   "cmhy": "29800",
+   "name": "น้องกับตัน",
+   "tags": [
+    "ซักผ้ารายวัน",
+    "ซักผ้ารายชิ้น",
+    "ซักผ้านวม"
+   ],
+   "phone": "061-337-7615",
+   "amphoe": "เมือง",
+   "modified": "2021-09-08",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-29800"
+  },
+  {
+   "cmhy": "29876",
+   "name": "หมูหมู วอส แอนด์ ดราย",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "สะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "082-389-8844",
+   "amphoe": "เมือง",
+   "modified": "2025-02-02",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-29876"
+  },
+  {
+   "cmhy": "29938",
+   "name": "คุง ลอนดรี้",
+   "tags": [
+    "ซักอบรีด",
+    "ซักผ้ารายเดือน"
+   ],
+   "phone": "097-965-9945",
+   "amphoe": "เมือง",
+   "modified": "2025-04-07",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-29938"
+  },
+  {
+   "cmhy": "30008",
+   "name": "ลอนดรี้บาร์ (เชียงใหม่-สันกำแพง)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "สะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "094-959-6111",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-30008"
+  },
+  {
+   "cmhy": "30023",
+   "name": "ร้านซักอบรีด  [ถนนมรกต]",
+   "tags": [
+    "ซักผ้ารายเดือน",
+    "ซักอบรีด",
+    "ซักตุ๊กตา"
+   ],
+   "phone": "083-570-6906,061-303-1648",
+   "amphoe": "เมือง",
+   "modified": "2024-07-03",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-30023"
+  },
+  {
+   "cmhy": "30036",
+   "name": "ซัก สะอาด 24HR",
+   "tags": [
+    "ร้านสะดวกซัก",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-10-13",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-30036"
+  },
+  {
+   "cmhy": "30125",
+   "name": "ซัมเมอร์ ซักผ้า อบผ้า  24h:r",
+   "tags": [
+    "ร้านสะดวกซัก",
+    "ซักผ้าหยอดเหรียญ",
+    "อบผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-03-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-30125"
+  },
+  {
+   "cmhy": "30160",
+   "name": "แคร์คลีน ลอนดรี แอนด์ดรายคลีนนิ่ง",
+   "tags": [
+    "ซักอบรีด",
+    "ซักแห้ง",
+    "ผ้าโรงแรม"
+   ],
+   "phone": "095-992-4449,082-888-7900,053-117-408",
+   "amphoe": "เมือง",
+   "modified": "2022-03-24",
+   "trade": "laundry",
+   "facets": {
+    "dryclean": true
+   },
+   "record": "cm-curated-laundry-30160"
+  },
+  {
+   "cmhy": "30315",
+   "name": "ซักผ้าหยอดเหรียญ [บ้านศรีบัวเงิน ซอย 13",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-10-28",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-30315"
+  },
+  {
+   "cmhy": "30336",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-10-31",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-30336"
+  },
+  {
+   "cmhy": "30535",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-03-04",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-30535"
+  },
+  {
+   "cmhy": "3055",
+   "name": "ซักผ้าหยอดเหรียญ [ซอยวัดอุโมงค์]",
+   "tags": [
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "เครื่องซักหยอดเหรียญ",
+    "ตู้ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-08-16",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-3055"
+  },
+  {
+   "cmhy": "30588",
+   "name": "ซับ ดี ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-30588"
+  },
+  {
+   "cmhy": "30694",
+   "name": "เดอะ คอมมอน ลอนดรี้ ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก",
+    "เครื่องอบผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-04-01",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-5865421938",
+   "metres": 42
+  },
+  {
+   "cmhy": "30757",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-11-29",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-30757"
+  },
+  {
+   "cmhy": "30769",
+   "name": "ร้านซักอบรีด (ถนนประชาสัมพันธ์)",
+   "tags": [
+    "ซักอบรีด"
+   ],
+   "phone": "084-6102-254",
+   "amphoe": "เมือง",
+   "modified": "2025-06-10",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-30769"
+  },
+  {
+   "cmhy": "30871",
+   "name": "สปิน วอช แอนด์ ดราย (คันคลองชลประทาน)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก",
+    "สะดวกซัก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-05-06",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-30871"
+  },
+  {
+   "cmhy": "30884",
+   "name": "ร้านสวนดอก 2 ซักผ้าหยอดเหรียญ อบผ้าหยอดเหรียญ 24 ชั่วโทง",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "อบผ้าหยอดเหรียญ"
+   ],
+   "phone": "087-656-4888",
+   "amphoe": "เมือง",
+   "modified": "2025-10-04",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-30884"
+  },
+  {
+   "cmhy": "30892",
+   "name": "ร้านผ้าหอม ซักอบรีด และทำเล็บ",
+   "tags": [
+    "ซักผ้ารายชิ้น",
+    "ซักผ้ารายเดือน",
+    "ซักอบรีด"
+   ],
+   "phone": "062-296-9196",
+   "amphoe": "เมือง",
+   "modified": "2025-08-06",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-30892"
+  },
+  {
+   "cmhy": "30898",
+   "name": "ซักผ้าหยอดเหรียญ (ใต้รุคส์คอนโดเทล)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-11-29",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-30898"
+  },
+  {
+   "cmhy": "30947",
+   "name": "แบร์ วอส",
+   "tags": [
+    "ร้านสะดวกซัก",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-6514349387",
+   "metres": 3
+  },
+  {
+   "cmhy": "30965",
+   "name": "สปิน คลีน (โชตนา 22)",
+   "tags": [
+    "ร้านสะดวกซัก",
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านอบผ้า"
+   ],
+   "phone": "061-654-5294",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-30965"
+  },
+  {
+   "cmhy": "31036",
+   "name": "ซักผ้าหยอดเหรียญ น้ำประปา",
+   "tags": [
+    "ซักผ้าหยอดเหรียญน้ำประปา"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2021-12-13",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-31036"
+  },
+  {
+   "cmhy": "31052",
+   "name": "อ๊อตเทริ วอช แอนด์ ดราย (สตาร์อเวนิว 5)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "อ๊อตเทริ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-10-14",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-31052"
+  },
+  {
+   "cmhy": "31116",
+   "name": "ต๋อมต๋อมซักอบรีด",
+   "tags": [
+    "ซักอบรีด"
+   ],
+   "phone": "089-261-1443",
+   "amphoe": "เมือง",
+   "modified": "2021-12-29",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-31116"
+  },
+  {
+   "cmhy": "31121",
+   "name": "กอและ ซักผ้าหยอดเหรียญ (เจ็ดยอด)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "สะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-31121"
+  },
+  {
+   "cmhy": "31171",
+   "name": "ร้านซักอบรีด [หนองป่าครั่ง ซอย 2]",
+   "tags": [
+    "ซักอบรีด",
+    "ซักผ้ารายเดือน",
+    "ซักผ้า"
+   ],
+   "phone": "093-158-8586",
+   "amphoe": "เมือง",
+   "modified": "2024-10-29",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-31171"
+  },
+  {
+   "cmhy": "31236",
+   "name": "อ๊อตเทริ วอช แอนด์ ดราย Otteri (ปตท.ถนนมหิดล เชียงใหม่)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "อ๊อตเทริ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-05-29",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-9561715979",
+   "metres": 30
+  },
+  {
+   "cmhy": "31387",
+   "name": "อยู่สบาย ซักอบรีด",
+   "tags": [
+    "ซักอบรีด",
+    "ซักผ้ารายเดือน"
+   ],
+   "phone": "081-366-8328",
+   "amphoe": "เมือง",
+   "modified": "2026-03-25",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-31387"
+  },
+  {
+   "cmhy": "31388",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-31388"
+  },
+  {
+   "cmhy": "31405",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "ตู้ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-31405"
+  },
+  {
+   "cmhy": "31413",
+   "name": "ลอนดรี้บาร์ (หมู่บ้านวรุณนิเวศน์)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "สะดวกซัก",
+    "ซักผ้า24ชั่วโมง"
+   ],
+   "phone": "092-675-4455",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-31413"
+  },
+  {
+   "cmhy": "31489",
+   "name": "เนโกะ ร้านสะดวกซัก (ศิริมังคลาจารย์)",
+   "tags": [
+    "ร้านสะดวกซัก",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "084-029-2525",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-31489"
+  },
+  {
+   "cmhy": "31526",
+   "name": "บริการ ซักอบรีด [ถนน ระแกง หายยา]",
+   "tags": [
+    "ซักอบรีด",
+    "ซักผ้ารายเดือน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-04-17",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-31526"
+  },
+  {
+   "cmhy": "31533",
+   "name": "ซักผ้าหยอดเหรียญ ชุมชนลอยเคราะห์",
+   "tags": [
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "ตู้ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-01-26",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-31533"
+  },
+  {
+   "cmhy": "31551",
+   "name": "ซักผ้าหยอดเหรียญ [ลอยเคราะ ซอย 4]",
+   "tags": [
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "ตู้ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-03-29",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-5316110822",
+   "metres": 32
+  },
+  {
+   "cmhy": "31553",
+   "name": "เซลฟเซอร์วิส ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "ตู้ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-03-29",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-5316110822",
+   "metres": 17
+  },
+  {
+   "cmhy": "31556",
+   "name": "นายสะอาดซักผ้าหยอดเหรียญ",
+   "tags": [
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "ตู้ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-01-26",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-31556"
+  },
+  {
+   "cmhy": "31562",
+   "name": "บริการซักผ้าหยอดเหรียญ",
+   "tags": [
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "ตู้ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "089-635-1219",
+   "amphoe": "เมือง",
+   "modified": "2022-01-26",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-31562"
+  },
+  {
+   "cmhy": "31697",
+   "name": "ซักผ้าหยอดเหรียญ (พลอยเพชรแมนชั่น)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-02-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-2530379633",
+   "metres": 6
+  },
+  {
+   "cmhy": "31698",
+   "name": "OB:B.b Cafe & Laundry (ใบบัวแมนชั่น)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "097-936-4942",
+   "amphoe": "เมือง",
+   "modified": "2022-10-07",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-31698"
+  },
+  {
+   "cmhy": "31703",
+   "name": "ซักผ้าหยอดเหรียญ (ทองกวาวอพาร์เม้นท์ 2)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-02-17",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-31703"
+  },
+  {
+   "cmhy": "31708",
+   "name": "วอส แอนด์ ดราย",
+   "tags": [
+    "ร้านสะดวกซัก",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-31708"
+  },
+  {
+   "cmhy": "31735",
+   "name": "โฮม ซักอบ ฟรีน้ำยา",
+   "tags": [
+    "ร้านสะดวกซัก",
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "อบผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-31735"
+  },
+  {
+   "cmhy": "31788",
+   "name": "มีว วอส แอนด์ ดราย",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-10",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-31788"
+  },
+  {
+   "cmhy": "31814",
+   "name": "Skunk ร้านสะดวกซัก",
+   "tags": [
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "ตู้ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-31814"
+  },
+  {
+   "cmhy": "31834",
+   "name": "อีซี่วอส สะดวก ซัก 24HR",
+   "tags": [
+    "ร้านสะดวกซัก",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-31834"
+  },
+  {
+   "cmhy": "31887",
+   "name": "ซักผ้าหยอดเหรียญ สมายกรีน",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-11-12",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-31887"
+  },
+  {
+   "cmhy": "31913",
+   "name": "ดี ลอนดรี้ (ถนนชัยภูมิ)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-03-12",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-6351319485",
+   "metres": 7
+  },
+  {
+   "cmhy": "31984",
+   "name": "อ๊อตเทริ วอช แอนด์ ดราย  Otteri  (ตลาดสดแม่เหียะ)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "อ๊อตเทริ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-03-27",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-31984"
+  },
+  {
+   "cmhy": "32034",
+   "name": "แฮป ปี้ ซักอบรีด",
+   "tags": [
+    "ซักอบรีด"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-03-31",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-32034"
+  },
+  {
+   "cmhy": "32043",
+   "name": "สปีดวอส Speed Wash (ดอนจั่น เรสซิเดนซ์)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก",
+    "ตู้อบผ้า"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-32043"
+  },
+  {
+   "cmhy": "32061",
+   "name": "อ๊อตเทริ วอช แอนด์ ดราย (วัดอุโมงค์ ซ.3 )",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "อ๊อตเทริ"
+   ],
+   "phone": "093-471-7232",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-32061"
+  },
+  {
+   "cmhy": "32062",
+   "name": "ลอนดรี้บาร์ (แยกสันติธรรม)",
+   "tags": [
+    "ร้านสะดวกซัก",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "092-675-4455",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-9785869274",
+   "metres": 11
+  },
+  {
+   "cmhy": "32073",
+   "name": "เนโกะ ร้านสะดวกซัก (ซอย 3 วัดอุโมงค์)",
+   "tags": [
+    "ร้านสะดวกซัก",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-32073"
+  },
+  {
+   "cmhy": "32075",
+   "name": "เนโกะ ร้านสะดวกซัก (สาขาประตูวิศวะ)",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-06-06",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-4353683215",
+   "metres": 58
+  },
+  {
+   "cmhy": "32082",
+   "name": "ผ้าหอม ซักอบรีด [หลังมช.]",
+   "tags": [
+    "ซักผ้า",
+    "ซักอบรีด",
+    "ซักรายชิ้น"
+   ],
+   "phone": "098-955-2353,095-116-8034",
+   "amphoe": "เมือง",
+   "modified": "2025-06-06",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-32082"
+  },
+  {
+   "cmhy": "32083",
+   "name": "คิวซี วอเทอร์ร้านสะดวกซัก 24 ชั่วโมง (บ้านใหม่หลังมอ)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true,
+    "open24": true
+   },
+   "record": "cm-curated-laundry-32083"
+  },
+  {
+   "cmhy": "32099",
+   "name": "ซักผ้าหยอดเหรียญ (gam boom)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-04-18",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-32099"
+  },
+  {
+   "cmhy": "32121",
+   "name": "สี่แยก สะดวกซัก",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "เครื่องซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-07-04",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-32121"
+  },
+  {
+   "cmhy": "32131",
+   "name": "ร้านกันเองสะดวกซัก ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-01",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-11652195486",
+   "metres": 14
+  },
+  {
+   "cmhy": "32139",
+   "name": "เอสพีพี SPP ลอนดรี้ ร้านสะดวกซัก",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ",
+    "ร้านสะดวกซัก"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-05-25",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-32139"
+  },
+  {
+   "cmhy": "32146",
+   "name": "ซักผ้าหยอดเหรียญ (บ้านลุงแสง)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-32146"
+  },
+  {
+   "cmhy": "32152",
+   "name": "ร้านซักอบรีด [บ้านใหม่สามัคคี บ้านร้องเรือนคำ]",
+   "tags": [
+    "ซักผ้า",
+    "ซักอบรีด",
+    "ซักรายชิ้น"
+   ],
+   "phone": "098-246-3542",
+   "amphoe": "เมือง",
+   "modified": "2025-04-21",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-32152"
+  },
+  {
+   "cmhy": "32158",
+   "name": "ร้านสะดวกซัก Show Wash & Dry (บ้านร้องเรือคำ)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-04-21",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-32158"
+  },
+  {
+   "cmhy": "32169",
+   "name": "นัท ซักอบรีด",
+   "tags": [
+    "ซักผ้า",
+    "ซักอบรีด",
+    "ซักรายชิ้น"
+   ],
+   "phone": "094-620-5546",
+   "amphoe": "เมือง",
+   "modified": "2025-04-21",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-32169"
+  },
+  {
+   "cmhy": "32170",
+   "name": "ซักผ้าหยอดเหรียญ พีระเซอร์วิส",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2023-09-13",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-32170"
+  },
+  {
+   "cmhy": "32194",
+   "name": "ซักผ้าหยอดเหรียญ [บ้านร้องเรือคำ]",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-04-22",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-32194"
+  },
+  {
+   "cmhy": "32422",
+   "name": "อ๊อตเทริ วอช แอนด์ ดราย Otteri (ถนนสุเทพ )",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "อ๊อตเทริ"
+   ],
+   "phone": "099-618-0826",
+   "amphoe": "เมือง",
+   "modified": "2024-03-18",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-32422"
+  },
+  {
+   "cmhy": "32760",
+   "name": "ดีลอนดรี้",
+   "tags": [
+    "รัานซักอบรีด"
+   ],
+   "phone": "093-150-8030",
+   "amphoe": "เมือง",
+   "modified": "2025-07-29",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-32760"
+  },
+  {
+   "cmhy": "32786",
+   "name": "อ๊อตเทริ วอช แอนด์ ดราย Otteri (ปตท.หนองหอย )",
+   "tags": [
+    "ร้านซักผ้าหยอดเหรียญ",
+    "ซักผ้าให้บริการตนเอง",
+    "อ๊อตเทริ"
+   ],
+   "phone": "099-618-0826",
+   "amphoe": "เมือง",
+   "modified": "2022-07-21",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-32786"
+  },
+  {
+   "cmhy": "32799",
+   "name": "ร้านซักอบรีด ผ้าห่ม ผ้านวม [ถนนสันติสุข สันติธรรม]",
+   "tags": [
+    "ร้านซักอบรีด",
+    "ผ้าห่ม",
+    "ผ้านวม"
+   ],
+   "phone": "081-950-1948",
+   "amphoe": "เมือง",
+   "modified": "2023-10-11",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-32799"
+  },
+  {
+   "cmhy": "32999",
+   "name": "ร้านซักรีดป้าแมว [ใต้หอพักพยาบาล 1]",
+   "tags": [
+    "ซักอบรีด",
+    "ซักผ้ารายเดือน",
+    "ร้านซักผ้า"
+   ],
+   "phone": "086-919-8555",
+   "amphoe": "เมือง",
+   "modified": "2023-11-22",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-32999"
+  },
+  {
+   "cmhy": "33007",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-08-08",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-7001610990",
+   "metres": 69
+  },
+  {
+   "cmhy": "33069",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-08-15",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-33069"
+  },
+  {
+   "cmhy": "33083",
+   "name": "ซักผ้าหยอดเหรียญ (eurana)",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-09-12",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-33083"
+  },
+  {
+   "cmhy": "33086",
+   "name": "ปุ้ย ซักอบรีด",
+   "tags": [
+    "ซักอบรีด",
+    "ร้านรับซักผ้ารายเดือน"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-09-12",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-33086"
+  },
+  {
+   "cmhy": "33092",
+   "name": "AT 24 ซักอบรีด",
+   "tags": [
+    "ซักอบรีด"
+   ],
+   "phone": "099-264-3553",
+   "amphoe": "เมือง",
+   "modified": "2025-07-09",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-33092"
+  },
+  {
+   "cmhy": "33139",
+   "name": "ร้านซักอบรีด [ถนน ราชภาคินัย]",
+   "tags": [
+    "ร้านซักอบรีด"
+   ],
+   "phone": "065-623-9665",
+   "amphoe": "เมือง",
+   "modified": "2023-09-26",
+   "trade": "laundry",
+   "facets": {},
+   "osm": "cm-osm-node-6482441287",
+   "metres": 12
+  },
+  {
+   "cmhy": "33148",
+   "name": "สกายวอส (สาขาซอยแจ่มฟ้า)",
+   "tags": [
+    "ร้านสะดวกซัก",
+    "ซักผ้าหยอดเหรียญ",
+    "ซักอบผ้า24ชั่วโมง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-08-23",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-33148"
+  },
+  {
+   "cmhy": "33369",
+   "name": "Dr.ไทเกอร์ ร้านสะดวกซัก",
+   "tags": [
+    "ร้านสะดวกซัก",
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2026-03-30",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "osm": "cm-osm-node-11936106069",
+   "metres": 8
+  },
+  {
+   "cmhy": "33438",
+   "name": "แอน ซักอบรีด",
+   "tags": [
+    "ซักอบรีด",
+    "ซักผ้ารายเดือน"
+   ],
+   "phone": "097-920-0399",
+   "amphoe": "เมือง",
+   "modified": "2024-09-24",
+   "trade": "laundry",
+   "facets": {},
+   "record": "cm-curated-laundry-33438"
+  },
+  {
+   "cmhy": "33443",
+   "name": "ซักผ้าหยอดเหรียญ",
+   "tags": [
+    "ซักผ้าหยอดเหรียญ"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-09-22",
+   "trade": "laundry",
+   "facets": {
+    "coin": true
+   },
+   "record": "cm-curated-laundry-33443"
+  }
+ ]
+}

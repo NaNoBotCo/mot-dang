@@ -53,7 +53,7 @@ one whose category tree is written from the inside.
 
 Read those together and the finding is not subtle:
 
-  MOT DANG'S MASSAGE SHELF IS AN ENGLISH-NAMED, OSM-DERIVED, TOURIST-FACING
+  MOT DANG'S MASSAGE SHELF IS AN ENGLISH-NAMED, OSM-DERIVED, VISITOR-FACING
   SLICE OF THE TRADE. The Thai-named massage economy — which is the only
   place the words ตอกเส้น, ย่ำขาง, จับเส้น, ประคบ ever appear — was never
   ingested at all.
@@ -133,7 +133,7 @@ It converts "we ought to have tok sen" from a feeling into a specification.
 --------------------------------------------------------------------------
 4.2  COVERAGE AS A NUMBER, NOT A SHELF COUNT.
 --------------------------------------------------------------------------
-For every home-ground term: what we hold, versus what an outside source says
+For every home-ground term: the records held, versus what an outside source says
 exists. "Expected 20+, holding 0" is a defect with a magnitude attached.
 This is precisely "tech debt, not praxis" made operational — the shelf stops
 being empty-and-shrugged-at and starts being a number that is wrong.
@@ -162,7 +162,7 @@ already use (scrubToolVia: reader-review):
               {k: "prakhop", via: "menu-photo",   seen: "2026-09-05"} ]
 
 This is what makes "who does tok sen near me, open at 21:00" answerable, and
-it is the honest shape of the data: a menu is a list, and a shop can be a
+it is the shape of the data: a menu is a list, and a shop can be a
 thai-traditional shop that also does tok sen on Tuesdays.
 
 --------------------------------------------------------------------------

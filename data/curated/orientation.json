@@ -1,0 +1,167 @@
+{
+  "updated": "2026-09-26",
+  "note": "Curated answers to the orientation questions the CM/CR keyword survey named (WO-102, Option A). The directory holds no prices and measures no safety, so these come from a named source or from Nan's own read of the place — never from nowhere. Every claim below carries its provenance: `client` is Nan's framing, a `source` object is a cited fact.",
+  "topics": [
+    {
+      "id": "cost-of-living",
+      "q_th": "ค่าครองชีพเชียงใหม่-เชียงรายแพงไหม",
+      "q_en": "Is Chiang Mai / Chiang Rai expensive?",
+      "stance_th": "ถูก — มีข้อยกเว้นไม่กี่อย่าง.",
+      "stance_en": "Cheap — with a few exceptions.",
+      "by": "client, 2026-09-26",
+      "evidence": [
+        {
+          "th": "ห้องหนึ่งนอนใจกลางเมือง ราว ฿15,640 ต่อเดือน นอกเมือง ราว ฿9,315 (ประมาณ $430 กับ $260)",
+          "en": "A one-bedroom runs about ฿15,640/month in the city centre, ฿9,315 outside it — roughly $430 and $260.",
+          "source": {"name": "Numbeo, Jul 2026", "url": "https://www.numbeo.com/cost-of-living/in/Chiang-Mai"}
+        },
+        {
+          "th": "คนทำงานทางไกลคนเดียว อยู่สบาย ๆ ราว $1,800–$2,500 ต่อเดือน รวมห้องส่วนตัว โคเวิร์กกิ้ง กินข้าวนอกบ้าน และค่าเดินทาง",
+          "en": "A single remote worker lives comfortably on about $1,800–$2,500 a month — a private apartment, coworking, eating out and getting around, all in.",
+          "source": {"name": "Remitly, 2026", "url": "https://www.remitly.com/blog/immigration/cost-of-living-in-thailand/"}
+        }
+      ],
+      "exceptions": [
+        {
+          "th": "ของนำเข้าและของฝรั่ง ไวน์กับเหล้านำเข้า และรถยนต์ ราคาใกล้เคียงฝั่งตะวันตก",
+          "en": "Imported and Western groceries, wine and imported spirits, and cars sit near Western prices.",
+          "by": "client, 2026-09-26"
+        }
+      ]
+    },
+    {
+      "id": "safety",
+      "q_th": "เชียงใหม่-เชียงรายปลอดภัยไหม",
+      "q_en": "Is Chiang Mai / Chiang Rai safe?",
+      "stance_th": "ปลอดภัยเกือบทุกที่ — ถ้าไม่ถือเรื่องกล้องวงจรปิดเต็มเมือง.",
+      "stance_en": "Safe almost anywhere — if you don't mind the surveillance.",
+      "by": "client, 2026-09-26",
+      "evidence": [
+        {
+          "th": "กุมภาพันธ์ 2569: นักท่องเที่ยวชาวอิตาลีขโมยรูปปั้นสิงห์สีทองจากร้านแจ๊สย่านถนนพระปกเกล้า แล้วหนีขึ้นปาย ตำรวจเมืองเชียงใหม่ ตำรวจท่องเที่ยว และตำรวจปาย ประสานงานพาตัวกลับมา เขาไหว้ขอโทษเจ้าของและคืนของ.",
+          "en": "February 2026: an Italian visitor took a gold lion statue from a jazz restaurant on Phra Pok Klao Road and drove up to Pai. Mueang Chiang Mai police, the Tourist Police and Pai police coordinated, brought him back to the city, and he apologized with a wai and returned it.",
+          "source": {"name": "Chiang Mai Citylife, Feb 2026", "url": "https://www.chiangmaicitylife.com/citynews/general/tourist-arrested-after-stealing-golden-lion-statue-at-jazz-bar/"},
+          "source2": {"name": "The Thaiger", "url": "https://thethaiger.com/news/national/foreigners-caught-on-cctv-stealing-statue-from-chiang-mai-pub"}
+        }
+      ]
+    },
+    {
+      "id": "worth-visiting",
+      "q_th": "เที่ยวเชียงใหม่-เชียงราย ที่ไหนคุ้มไปจริง",
+      "q_en": "Chiang Mai / Chiang Rai — what is actually worth visiting?",
+      "intro_th": "แต่ละที่มีสองเสียง: คำตัดสินของนันเอง (ไปมาแล้ว) กับเสียงส่วนใหญ่จากข้างนอกพร้อมที่มา. ทั้งสองอยู่ตรงนี้ ไม่กลบกัน.",
+      "intro_en": "Each spot gets two reads: Nan's own verdict, and the outside consensus with its source. Both are here — neither is hidden behind the other.",
+      "items": [
+        {
+          "name_th": "เมืองเชียงใหม่", "name_en": "Chiang Mai (the city)",
+          "verdict": "worth", "verdict_th": "คุ้ม", "verdict_en": "Worth it", "by": "client, 2026-09-26",
+          "outside_th": "เสียงข้างนอกปนกัน: ชอบเรื่องของกิน ค่าครองชีพถูก และเป็นฐานขึ้นดอย บางคนว่าตัวเมืองธรรมดาและมีฝุ่นช่วงหน้าเผา มักแนะ 2–3 คืน.",
+          "outside_en": "Outside view is mixed: loved for food, low cost and mountain access; a minority finds the city itself ordinary and flags burning-season air. Common advice is 2–3 nights.",
+          "source": {"name": "Fodor's forum", "url": "https://www.fodors.com/community/asia/hate-chiang-mai-420918"}
+        },
+        {
+          "name_th": "เมืองเชียงราย", "name_en": "Chiang Rai (the city)",
+          "verdict": "worth", "verdict_th": "คุ้ม", "verdict_en": "Worth it", "by": "client, 2026-09-26",
+          "outside_th": "เสียงข้างนอกปนกัน: ที่เที่ยวเด่นอยู่ใกล้กันพอเที่ยว 2–3 วัน แต่ขับจากเชียงใหม่ราว 3 ชม.ต่อเที่ยว ไปเช้าเย็นกลับไม่คุ้ม ควรค้างสักคืน.",
+          "outside_en": "Mixed: its headline sights cluster well for two or three days, but the ~3-hour drive each way makes a single day-trip poor value — stay a night.",
+          "source": {"name": "Tripadvisor forum", "url": "https://www.tripadvisor.com/ShowTopic-g293917-i9325-k14942629-Is_Chiang_Rai_worth_it_as_a_day_trip-Chiang_Mai.html"}
+        },
+        {
+          "name_th": "วัดร่องขุ่น (วัดขาว)", "name_en": "Wat Rong Khun (the White Temple)",
+          "verdict": "worth", "verdict_th": "คุ้ม", "verdict_en": "Worth it", "by": "client, 2026-09-26",
+          "outside_th": "เสียงข้างนอกยกให้คุ้มชัดเจน: งานศิลป์ร่วมสมัยสีขาวที่ไม่เหมือนที่ไหน คนเยอะกลางวัน ไปก่อน 9 โมงหรือหลังบ่าย 4.",
+          "outside_en": "Widely rated worth it — a one-of-a-kind contemporary all-white temple. Very crowded midday; go before 9am or after 4pm.",
+          "source": {"name": "Passport & Stamps", "url": "https://passportandstamps.com/white-temple-chiang-rai-wat-rong-khun/"}
+        },
+        {
+          "name_th": "วัดพระธาตุดอยสุเทพ", "name_en": "Wat Phra That Doi Suthep",
+          "verdict": "worth", "verdict_th": "คุ้ม", "verdict_en": "Worth it", "by": "client, 2026-09-26",
+          "outside_th": "เสียงข้างนอกยกให้คุ้ม: วัดศักดิ์สิทธิ์ วิวเมืองทั้งเมืองจากบนดอย ทัวร์เยอะช่วงสาย ไปเช้าดีกว่า.",
+          "outside_en": "Widely worth it — a sacred temple with a full panorama over the city. Heavy tour crowds by late morning, so go early.",
+          "source": {"name": "Bon Voyage Thailand", "url": "https://www.bonvoyagethailand.com/travel-guides/chiang-mai/doi-suthep-chiang-mai/wat-phra-that-doi-suthep/"}
+        },
+        {
+          "name_th": "เชียงใหม่ไนท์ซาฟารี", "name_en": "Chiang Mai Night Safari",
+          "verdict": "worth", "verdict_th": "คุ้ม", "verdict_en": "Worth it", "by": "client, 2026-09-26",
+          "outside_th": "เสียงข้างนอกมีข้อกังขาเรื่องสวัสดิภาพสัตว์: Tripadvisor เลิกขายตั๋วหลังพบปัญหา รีวิวเล่าถึงสัตว์ถูกล่าม กรงแคบ และโชว์ที่ใช้อาหารล่อ.",
+          "outside_en": "Contested on animal welfare: Tripadvisor stopped selling tickets over welfare concerns, and reviewers describe chained animals, small enclosures and food-baited shows.",
+          "source": {"name": "Perceptive Travel", "url": "https://perceptivetravel.com/blog/2019/04/05/chiang-mai-night-safari/"},
+          "source2": {"name": "Tripadvisor review", "url": "https://www.tripadvisor.co.uk/ShowUserReviews-g293917-d1081069-r943224301-Chiang_Mai_Night_Safari-Chiang_Mai.html"}
+        },
+        {
+          "name_th": "สวนสัตว์เชียงใหม่", "name_en": "Chiang Mai Zoo",
+          "verdict": "depends", "verdict_th": "ชอบสวนสัตว์ค่อยไป", "verdict_en": "Go if you like zoos", "by": "client, 2026-09-26",
+          "note_th": "สวนสัตว์ก็แบบนั้นแหละ ของเชียงใหม่มีเสือดำอ้วน ๆ ท่าทางเศร้าอยู่ตัวหนึ่ง — ถ้าชอบสวนสัตว์ก็ไป.",
+          "note_en": "All zoos kind of suck; Chiang Mai's has a sad, obese black leopard. If you like zoos, go.",
+          "outside_th": "เสียงข้างนอกมักติเรื่องสวัสดิภาพสัตว์: รีวิวพูดถึงกรงแคบและสัตว์ดูเครียด ทางสวนสัตว์เคยออกมาปฏิเสธข้อกล่าวหาปล่อยปละ.",
+          "outside_en": "Often criticised on animal welfare — reviews cite small enclosures and distressed animals; the zoo has publicly denied neglect.",
+          "source": {"name": "The Thailand Life", "url": "https://www.thethailandlife.com/chiang-mai-zoo-review"},
+          "source2": {"name": "Bangkok Post", "url": "https://www.bangkokpost.com/thailand/general/2399455/chiang-mai-zoo-refutes-charges-of-neglect"}
+        },
+        {
+          "name_th": "ปางช้าง (ที่มีจริยธรรม)", "name_en": "Elephant sanctuaries",
+          "verdict": "worth", "verdict_th": "คุ้ม เฉพาะที่มีจริยธรรมจริง", "verdict_en": "Worth it — the genuinely ethical ones", "by": "client, 2026-09-26",
+          "outside_th": "เสียงข้างนอก: คุ้มเฉพาะปางที่ไม่ให้ขี่-ไม่มีโชว์จริง ๆ คำว่า “ปางอนุรักษ์” ถูกใช้พร่ำเพรื่อ หลายที่ยังให้ขี่/อาบน้ำ/โชว์ ทัวร์กลุ่มใหญ่ราคาถูกมากเป็นสัญญาณอันตราย.",
+          "outside_en": "Worth it only at truly no-riding, no-show sanctuaries. 'Sanctuary' is widely misused — many camps still ride, bathe or perform, and very cheap large-group tours are a red flag.",
+          "source": {"name": "Guidestination", "url": "https://www.guidestination.com/blog/ethical-elephant-sanctuaries-chiang-mai"}
+        },
+        {
+          "name_th": "ปางเสือ / ลูบคลำเสือ-สิงโต", "name_en": "Tiger & lion petting",
+          "verdict": "skip", "verdict_th": "ไม่แนะนำ", "verdict_en": "Don't", "by": "client, 2026-09-26",
+          "note_th": "นันไม่แนะนำการลูบคลำเสือหรือสิงโต.",
+          "note_en": "Nan does not recommend petting tigers or lions.",
+          "outside_th": "เสียงข้างนอกมีข้อกังขาเรื่องสวัสดิภาพ: ลูกสัตว์ถูกปลุกให้คนอุ้ม และมีคำถามค้างเรื่องทำไมสัตว์ถึงเชื่อง รวมถึงข้อกังขาเรื่องยากล่อมในวงการเสือเพื่อการท่องเที่ยว.",
+          "outside_en": "Welfare-contested: cubs are woken to be handled, the animals' docility raises unanswered questions, and the wider captive-tiger tourism trade carries sedation and abuse concerns.",
+          "source": {"name": "The Wise Traveller", "url": "https://www.thewisetraveller.com/Articles/view/?permalink=thailands-tiger-tourism"}
+        },
+        {
+          "name_th": "สามเหลี่ยมทองคำ (สบรวก)", "name_en": "The Golden Triangle (Sop Ruak)",
+          "verdict": "worth", "verdict_th": "คุ้ม", "verdict_en": "Worth it", "by": "client, 2026-09-26",
+          "outside_th": "เสียงข้างนอกปนกัน: จุดบรรจบสามแผ่นดินริมโขงเป็นของแปลก พิพิธภัณฑ์หอฝิ่นได้คำชมสูง แต่จุดชมวิวกับล่องเรือ-เกาะของที่ระลึกฝั่งลาวหลายคนว่าไม่คุ้ม.",
+          "outside_en": "Mixed: the tri-border Mekong point is a novelty and the Hall of Opium museum rates highly, but the viewpoint and the boat / Laos souvenir-island add-ons are widely called skippable.",
+          "source": {"name": "Bon Voyage Thailand", "url": "https://www.bonvoyagethailand.com/chiang-rai/golden-triangle-thailand/"}
+        },
+        {
+          "name_th": "ปาย (ไปจากเชียงใหม่)", "name_en": "Pai (a trip from Chiang Mai)",
+          "verdict": "depends", "verdict_th": "เฉพาะบนลูปแม่ฮ่องสอน", "verdict_en": "Only on the Mae Hong Son loop", "by": "client, 2026-09-26",
+          "note_th": "ไปปายเช้าเย็นกลับแบบทัวร์ไม่คุ้มค่าเดินทาง — ไปเป็นส่วนหนึ่งของลูปแม่ฮ่องสอนดีกว่า ตรงที่การเดินทางคือตัวเรื่อง.",
+          "note_en": "A quick there-and-back to Pai is too much travel for what you get. Do it as a leg of the Mae Hong Son loop, where the road itself is the point.",
+          "outside_th": "เสียงข้างนอก: คุ้มถ้าตั้งความคาดหวังถูก เมืองภูเขาสบาย ๆ แต่ถนน 1095 มี 762 โค้งทำให้เมารถ และเหมาะค้างคืนมากกว่าไปเช้าเย็นกลับ.",
+          "outside_en": "Worth it with expectations set — a relaxed mountain town, but Route 1095's 762 curves bring motion sickness and it suits an overnight, not a there-and-back day.",
+          "source": {"name": "Destination Thailand", "url": "https://destinationthailand.io/pai-northern-thailand-essay/"}
+        },
+        {
+          "name_th": "ถนนคนเดินวันอาทิตย์ / ไนท์บาซาร์", "name_en": "Sunday Walking Street / Night Bazaar",
+          "verdict": "worth", "verdict_th": "อย่างน้อยควรไปสักครั้ง", "verdict_en": "Worth seeing at least once", "by": "client, 2026-09-26",
+          "outside_th": "เสียงข้างนอก: ถนนคนเดินวันอาทิตย์ได้คำชมเรื่องงานคราฟต์-อาหาร (ไปชั่วโมงแรก คนแน่นมาก) ส่วนไนท์บาซาร์รายวันหลายคนว่าซ้ำ ๆ และตั้งราคาสูงกว่า.",
+          "outside_en": "Sunday Walking Street rates well for maker crafts and food — go in the first hour, it's mobbed; the daily Night Bazaar is widely called repetitive with higher markups.",
+          "source": {"name": "Live and Work in Thailand", "url": "https://www.live-and-work-in-thailand.com/live-and-work-in-thailand-blog/chiang-mai-night-markets-night-bazaar-vs-sunday-walking-streettwo-completely-different-experiences"}
+        },
+        {
+          "name_th": "วัดร่องเสือเต้น (วัดน้ำเงิน)", "name_en": "Wat Rong Suea Ten (the Blue Temple)",
+          "verdict": "worth", "verdict_th": "คุ้ม", "verdict_en": "Worth it", "by": "client, 2026-09-26",
+          "outside_th": "เสียงข้างนอกยกให้คุ้ม: วัดสีน้ำเงิน-ทองสด เข้าฟรีและเงียบกว่าวัดขาว แต่เล็ก (ราว 45 นาที) ไปเช้าถ่ายรูปสวย.",
+          "outside_en": "Widely worth it — a vivid blue-and-gold temple, free and calmer than the White Temple, but small (about 45 minutes); arrive early for photos.",
+          "source": {"name": "The Blond Travels", "url": "https://www.theblondtravels.com/blue-temple-chiang-rai-wat-rong-suea-ten"}
+        },
+        {
+          "name_th": "บ้านดำ", "name_en": "Baan Dam (the Black House)",
+          "verdict": "worth", "verdict_th": "คุ้ม", "verdict_en": "Worth it", "by": "client, 2026-09-26",
+          "outside_th": "เสียงข้างนอกปนกัน: หมู่เรือนไม้ดำแนวศิลป์แปลกตา แต่หนังและกระดูกสัตว์ที่ใช้ตกแต่งทำให้บางคนอึดอัด และบางคนว่าเดินชมไว.",
+          "outside_en": "Mixed: a striking dark art complex, but the animal skins and bones in its decor unsettle some, and a few find it a quick walk-through.",
+          "source": {"name": "Bon Voyage Thailand", "url": "https://www.bonvoyagethailand.com/chiang-rai/black-house-baan-dam-chiang-rai/"}
+        },
+        {
+          "name_th": "หมู่บ้านกะเหรี่ยงคอยาว", "name_en": "Karen (long-neck) village",
+          "verdict": "worth", "verdict_th": "แนะนำอย่างยิ่ง", "verdict_en": "Highly recommend", "by": "client, 2026-09-26",
+          "note_th": "หญิงกะเหรี่ยงคอยาวใส่ห่วงทองเหลืองเป็นประเพณีและความสมัครใจของเขาเอง ไม่ว่าคุณจะซื้อของหรือไม่ อย่าให้ข้อถกเถียงมากั้นคุณจากประสบการณ์วัฒนธรรมที่หาที่อื่นไม่ได้.",
+          "note_en": "The Kayan women wear the brass rings as their own tradition and choice, whether or not you buy anything. Don't let the debate keep you from a rare cultural experience.",
+          "outside_th": "มีข้อถกเถียงด้านสิทธิมนุษยชน: เอ็นจีโอบางส่วนเรียกหมู่บ้านเพื่อการท่องเที่ยวว่า “สวนสัตว์มนุษย์” และ UNHCR เคยแนะให้นักท่องเที่ยวเลี่ยง เพราะหลายคนเป็นผู้ลี้ภัย-ไร้รัฐจึงมีทางเลือกจำกัด ขณะที่หลายคนก็เลือกอยู่เองเพราะมีรายได้ที่ตัวเองคุมและดีกว่ากลับพม่า.",
+          "outside_en": "Human-rights-contested: some NGOs call the tourism-built villages 'human zoos' and the UN refugee agency has encouraged visitors to stay away, since many residents are refugees or stateless with limited alternatives — while many also choose to stay for an income they control and prefer it to returning to Myanmar.",
+          "source": {"name": "The World (PRX)", "url": "https://theworld.org/stories/2016/08/02/thailand-tourism-would-you-visit-human-zoo"},
+          "source2": {"name": "Matador Network", "url": "https://matadornetwork.com/read/reality-behind-thailands-karen-long-neck-hill-tribe-will-make-rethink-trip/"}
+        }
+      ]
+    }
+  ]
+}

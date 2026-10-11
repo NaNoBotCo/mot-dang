@@ -164,7 +164,7 @@ THE FORKS — YOURS, NONE ANSWERED
   F7  Fold the 1,070 cached OSM temples in as records? Doubles the wat shelf,
       every new record pinned. A corpus decision, not a pin fix.
   F8  The pin cap: ±3 km (287 pins) · ±1.5 km (~30) · measured uncertainty with
-      no cap (~1,267, honestly labelled). Decides how many "near me" answers exist.
+      no cap (~1,267, labelled as such). Decides how many "near me" answers exist.
   F9  New shelves the corpus already fills: pets/pet-shop (64), food/northern as a
       cuisine (58), and the four CR tourism kinds (228). Each is a categories.json row.
 

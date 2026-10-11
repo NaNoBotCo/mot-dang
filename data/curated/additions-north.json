@@ -1,0 +1,47 @@
+[
+ {
+  "id": "lpn-newsletter-i-love-banthi",
+  "province": "lpn",
+  "cat": [
+   "food"
+  ],
+  "sub": [
+   "cafe"
+  ],
+  "name": "I Love Banthi",
+  "nameTh": null,
+  "nameEn": "I Love Banthi",
+  "lat": 18.6562517,
+  "lng": 99.1374426,
+  "geoPrecision": "approx",
+  "address": "Ban Thi District, Lamphun",
+  "phone": "053-597-260",
+  "website": null,
+  "hours": "Daily 09:00–22:00",
+  "attrs": {
+   "kind": "café among the Mae Thi hills; Moonlight Sky Lantern 2026 is held here (24–25 November 2026)",
+   "pinNote": "coordinates from the Lamphun PAO tourism page, not checked on the ground"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://tiny.cc/stevesemail",
+    "fetched": "2026-10-05",
+    "via": "steve-newsletter",
+    "edition": "2026-10-05",
+    "credit": "weekly Chiang Mai events newsletter"
+   },
+   {
+    "type": "web",
+    "ref": "https://travel.lamphunpao.go.th/en/tourist-attraction/ny97x1b8cudj1t2yp7y8a6sm",
+    "fetched": "2026-10-05",
+    "via": "provincial tourism register",
+    "credit": "pin, phone and hours"
+   }
+  ],
+  "confidence": "third-party",
+  "updatedAt": "2026-10-05"
+ }
+]

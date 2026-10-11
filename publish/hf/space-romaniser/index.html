@@ -1,0 +1,131 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ไทย → RTGS</title>
+<style>
+  :root { --ink:#1b1a17; --bg:#faf8f4; --line:#d9d2c5; --red:#b3121f; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#f2ede3; --bg:#17171a; --line:#3a3733; --red:#ff6b6b; }
+  }
+  * { box-sizing: border-box }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.55 ui-sans-serif,-apple-system,"Noto Sans Thai",sans-serif; }
+  main { max-width:44rem; margin:0 auto; padding:2rem 1.1rem 4rem }
+  h1 { font-size:1.6rem; margin:0 0 .2rem; letter-spacing:-.01em }
+  p.sub { margin:.1rem 0 1.6rem; color:var(--ink); opacity:.72 }
+  a { color:var(--red) }
+  textarea, output {
+    width:100%; display:block; border:1px solid var(--line); border-radius:.4rem;
+    background:transparent; color:inherit; padding:.7rem .8rem; font:inherit; }
+  textarea { min-height:5.2rem; resize:vertical }
+  output { min-height:2.9rem; white-space:pre-wrap }
+  label { display:block; font-size:.8rem; text-transform:uppercase;
+          letter-spacing:.06em; opacity:.6; margin:1.3rem 0 .35rem }
+  .row { display:flex; gap:1rem; align-items:center; margin-top:.9rem; flex-wrap:wrap }
+  button { font:inherit; padding:.45rem 1.1rem; border-radius:.4rem;
+           border:1px solid var(--red); background:var(--red); color:#fff; cursor:pointer }
+  button.ghost { background:transparent; color:var(--red) }
+  .chips { margin:1.4rem 0 0; display:flex; gap:.4rem; flex-wrap:wrap }
+  .chips button { background:transparent; color:inherit; border:1px solid var(--line);
+                  padding:.3rem .6rem; font-size:.95rem }
+  footer { margin-top:2.6rem; padding-top:1.1rem; border-top:1px solid var(--line);
+           font-size:.85rem; opacity:.72 }
+  #status { font-size:.85rem; opacity:.7; min-height:1.2em }
+</style>
+<main>
+  <h1>ไทย → RTGS</h1>
+  <p class="sub">Royal Thai General System romanisation, by rule. The engine
+    behind <a href="https://motdang.net">motdang.net</a>, a directory of 88,161
+    places in Chiang Mai and Chiang Rai. It runs here in your browser.</p>
+
+  <label for="src">ภาษาไทย</label>
+  <textarea id="src" placeholder="วัดพระสิงห์วรมหาวิหาร" autofocus></textarea>
+
+  <div class="chips" id="chips"></div>
+
+  <div class="row">
+    <button id="go">Romanise</button>
+    <label style="margin:0;text-transform:none;letter-spacing:0;opacity:1;font-size:.95rem">
+      <input type="checkbox" id="syl"> show syllable breaks</label>
+    <span id="status">loading Python…</span>
+  </div>
+
+  <label for="out">reading (RTGS)</label>
+  <output id="out"></output>
+  <label for="cap">as a title</label>
+  <output id="cap"></output>
+
+  <footer>
+    Agreement with
+    <a href="https://huggingface.co/datasets/pythainlp/thai-romanization-dataset">pythainlp/thai-romanization-dataset</a>:
+    79.62% of 153,948 Thai words, 84.22% of the 21,425 that appear in a place name —
+    <a href="https://huggingface.co/datasets/NaNoBotCo/thai-place-name-romanisation-benchmark">the benchmark</a>,
+    <a href="https://huggingface.co/datasets/NaNoBotCo/thai-rtgs-romanisation-lexicon">the exception lexicon</a>,
+    <a href="https://huggingface.co/datasets/NaNoBotCo/thai-trade-words-chiang-mai">the trade words</a>.
+    <br><br>
+    Segmentation uses a 151,110-word list: 150,475 words from
+    pythainlp/thai-romanization-dataset (CC BY-SA 3.0) plus 1,002
+    administrative names and lexicon entries from motdang.net. The site's own
+    corpus dictionary has no licence we can name, so it is not bundled and a
+    few readings here differ from the ones on the site.
+    <br><br>
+    A reading is a reading; it is never a name. Where a place has a settled
+    English spelling, that spelling wins — that is what the exception lexicon
+    is for.
+  </footer>
+</main>
+<script type="module">
+const EX = ["ถนนแก้วนวรัฐ","ก๋วยเตี๋ยวเรือ","เพชรเกษม","ตู้น้ำดื่มหยอดเหรียญ",
+            "ฌาปนกิจสถาน","โรงพยาบาลมหาราชนครเชียงใหม่"];
+const $ = id => document.getElementById(id);
+const chips = $("chips");
+for (const t of EX) {
+  const b = document.createElement("button");
+  b.type = "button"; b.textContent = t;
+  b.onclick = () => { $("src").value = t; run(); };
+  chips.append(b);
+}
+
+let py = null;
+async function boot() {
+  const { loadPyodide } = await import("https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.mjs");
+  py = await loadPyodide({ indexURL: "https://cdn.jsdelivr.net/pyodide/v0.26.4/full/" });
+  const [src, lex, dict] = await Promise.all([
+    fetch("translit.py").then(r => r.text()),
+    fetch("data/curated/rtgs_lexicon.json").then(r => r.text()),
+    fetch("dict.txt").then(r => r.text()),
+  ]);
+  py.FS.mkdirTree("/app/data/curated");
+  py.FS.writeFile("/app/translit.py", src);
+  py.FS.writeFile("/app/data/curated/rtgs_lexicon.json", lex);
+  py.FS.writeFile("/app/dict.txt", dict);
+  await py.runPythonAsync(`
+import sys; sys.path.insert(0, "/app")
+import translit
+translit._DICT = ({w.strip() for w in open("/app/dict.txt") if w.strip() and not w.startswith("#")}
+                  | set(translit.HEADWORDS) | set(translit._lexicon()))
+`);
+  $("status").textContent = "";
+  run();
+}
+
+function run() {
+  if (!py) return;
+  const text = $("src").value.trim();
+  if (!text) { $("out").textContent = ""; $("cap").textContent = ""; return; }
+  py.globals.set("_t", text);
+  py.globals.set("_s", $("syl").checked ? "·" : "");
+  try {
+    $("out").textContent = py.runPython("translit.romanize(_t, syl_sep=_s)");
+    $("cap").textContent = py.runPython("translit.title(_t, syl_sep=_s)");
+  } catch (e) {
+    $("status").textContent = String(e).split("\n").pop();
+  }
+}
+$("go").onclick = run;
+$("syl").onchange = run;
+$("src").addEventListener("keydown", e => {
+  if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) run();
+});
+boot().catch(e => { $("status").textContent = "failed to load: " + e; });
+</script>

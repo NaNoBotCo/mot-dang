@@ -404,7 +404,7 @@ def is_gone(t):
 # international, which is the single worst thing this shelf could say.
 #
 # What a school IS, it mostly says in its own name, and Thai school names are
-# unusually honest: โรงเรียนอนุบาล is a kindergarten, โรงเรียนสอนขับรถ teaches
+# unusually literal: โรงเรียนอนุบาล is a kindergarten, โรงเรียนสอนขับรถ teaches
 # driving, ค่ายมวย is a muay thai camp. The tag settles the easy cases and the
 # name settles the rest.
 
@@ -1264,7 +1264,7 @@ def parking_name(t):
 
     Returns None only when the element is not a parking feature at all, which
     inside the parking file means somebody widened the selectors without
-    coming here — the fence refuses it rather than letting classify() guess.
+    coming here — the fence drops it rather than letting classify() guess.
 
     A named lot keeps its own name untouched; the synthesis is for the 95%
     that have none, and even for a named one the subs come from the tags.
@@ -1638,6 +1638,14 @@ def records(province="cm"):
                     # CITIZENinfo import states a sector, because there it is
                     # true by construction — that register IS the state list.
                     "facilityType": (sub if cat == "medical" else None),
+                    # The tag that put it on the hire shelf, and OSM's own
+                    # list of what it hires — vehicle_hire.py reads both when
+                    # the name names no vehicle (Nan, 2026-10-04: cars and
+                    # bikes are separate shelves).
+                    "hireTag": next((v for v in (t.get("amenity"), t.get("shop"))
+                                     if v in ("car_rental", "motorcycle_rental",
+                                              "bicycle_rental")), None),
+                    "hireTypes": t.get("rental"),
                     "brand": brand, "brandFrom": brand_from,
                     "cuisine": t.get("cuisine"),
                     "operator": t.get("operator"), "lineId": line,

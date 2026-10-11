@@ -1,0 +1,3284 @@
+{
+ "_readme": [
+  "WO-57/58 — the vets register, from the CMHY.city read in cache/cmhy/vets/.",
+  "EVERY row is kept so the page can print the denominator, not just the hits.",
+  "`trade` is decided by the row's OWN name and tags, never by the directory's",
+  "category alone; `refused` says why a row is not a record; `osm` names the",
+  "canonical record ALREADY ON THE SAME SHELF within 80 m that is this door.",
+  "A DIRECTORY IS NOT A FIRST-HAND SOURCE: its service tags live here and print",
+  "at the `listed` grade. They never enter enrich.json, which is for a place's",
+  "own site. Hours carry `_hoursSource`; a row with no GPS is `needs-pin`."
+ ],
+ "_built": "2026-09-04",
+ "counts": {
+  "vet": 0,
+  "grooming": 0,
+  "petshop": 64,
+  "matched": 120,
+  "refused": 25,
+  "needs_pin": 0,
+  "cmhy_rows": 209,
+  "written_new": 0,
+  "touched": 64
+ },
+ "rows": [
+  {
+   "cmhy": "11173",
+   "name": "เดอะ เอ๊กซ์คาเฟ่",
+   "tags": [
+    "สัตว์แปลก",
+    "กิ้งก่า",
+    "สัตว์พิเศษ"
+   ],
+   "phone": "062-463-2653",
+   "amphoe": "เมือง",
+   "modified": "2025-07-08",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "11868",
+   "name": "คลินิกรักษาสัตว์ เอ็น.ที. NT",
+   "tags": [
+    "ฉีดวัคซีน",
+    "ทำหมัน",
+    "เอ็กซเรย์"
+   ],
+   "phone": "053-853-063,081-662-1486",
+   "amphoe": "เมือง",
+   "modified": "2022-03-04",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-11868",
+   "metres": 0
+  },
+  {
+   "cmhy": "11936",
+   "name": "เพท เฮาส์ บริการอาบน้ำตัดขนสุนัขและแมว",
+   "tags": [
+    "อาบน้ำสัตว์",
+    "ตัดขนสัตว์",
+    "ฝากเลี้ยงสุนัข"
+   ],
+   "phone": "086-429-5361",
+   "amphoe": "เมือง",
+   "modified": "2022-11-03",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-11936",
+   "metres": 0
+  },
+  {
+   "cmhy": "12224",
+   "name": "มีโชคสัตวแพทย์",
+   "tags": [
+    "ผ่าตัด",
+    "ทำหมัน",
+    "วัคซีน"
+   ],
+   "phone": "053-852-415,081-454-6191",
+   "amphoe": "เมือง",
+   "modified": "2023-03-20",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-osm-node-2147741862",
+   "metres": 16
+  },
+  {
+   "cmhy": "12367",
+   "name": "เอส แอนด์ พี เพ็ทช้อป",
+   "tags": [
+    "ขายนก"
+   ],
+   "phone": "090-321-3837",
+   "amphoe": "เมือง",
+   "modified": "2026-02-09",
+   "trade": null,
+   "facets": {
+    "exotic": true
+   },
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "12735",
+   "name": "พลอยบริการ",
+   "tags": [
+    "อาบน้ำ",
+    "ฝากเลี้ยง",
+    "ตัดแต่งขนสุนัข"
+   ],
+   "phone": "053-412-013,081-681-1336",
+   "amphoe": "เมือง",
+   "modified": "2020-09-04",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-12735",
+   "metres": 0
+  },
+  {
+   "cmhy": "12738",
+   "name": "บ้านกระต่ายเชียงใหม่",
+   "tags": [
+    "กระต่าย",
+    "อาหารกระต่าย"
+   ],
+   "phone": "088-267-2554",
+   "amphoe": "เมือง",
+   "modified": "2020-11-18",
+   "trade": null,
+   "facets": {
+    "exotic": true
+   },
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "12749",
+   "name": "ร้านโชกุนฟาร์ม ขายปลาสวยงาม",
+   "tags": [
+    "ขายปลา",
+    "อาหารปลา",
+    "อุปกรณ์"
+   ],
+   "phone": "089-755-5568",
+   "amphoe": "เมือง",
+   "modified": "2025-04-25",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "12779",
+   "name": "ฅนรักสัตว์",
+   "tags": [
+    "จำหน่ายอุปกรณ์สัตว์เลี้ยง"
+   ],
+   "phone": "053-227-292,089-264-3708",
+   "amphoe": "เมือง",
+   "modified": "2020-09-04",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-12779"
+  },
+  {
+   "cmhy": "12836",
+   "name": "บ้านสี่ขา สัตวแพทย์",
+   "tags": [
+    "อาหารสัตว์",
+    "วัคซีน",
+    "อุปกรณ์สัตว์เลี้ยง"
+   ],
+   "phone": "085-123-4444",
+   "amphoe": "เมือง",
+   "modified": "2020-04-24",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-12836",
+   "metres": 0
+  },
+  {
+   "cmhy": "1290",
+   "name": "โรงพยาบาลสัตว์เล็ก มหาวิทยาลัยเชียงใหม่",
+   "tags": [
+    "โรงพยาบาลสัตว์เล็ก",
+    "ผ่าตัดสัตว์",
+    "รักษาสัตว์พิเศษ"
+   ],
+   "phone": "053-948-031,053-948-112",
+   "amphoe": "เมือง",
+   "modified": "2023-09-15",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-osm-way-97986630",
+   "metres": 17
+  },
+  {
+   "cmhy": "1291",
+   "name": "โรงพยาบาลสัตว์บ้านหมากะแมว",
+   "tags": [
+    "โรงพยาบาลสัตว์",
+    "บ้านหมากะแมว",
+    "รักษาแมว"
+   ],
+   "phone": "053-205-155,053-204-215,081-028-6316",
+   "amphoe": "เมือง",
+   "modified": "2026-05-29",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-osm-node-3755679508",
+   "metres": 3
+  },
+  {
+   "cmhy": "1292",
+   "name": "โรงพยาบาลสัตว์เพื่อพูน",
+   "tags": [
+    "โรงพยาบาลสัตว์เล็ก",
+    "ผ่าตัด",
+    "เปิด24ชั่วโมง"
+   ],
+   "phone": "053-200-535,053-200-537",
+   "amphoe": "เมือง",
+   "modified": "2022-06-09",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-1292",
+   "metres": 0
+  },
+  {
+   "cmhy": "1293",
+   "name": "บำรุงราษฎร์ สัตวแพทย์",
+   "tags": [
+    "รักษาสัตว์",
+    "แมว",
+    "สุนัข"
+   ],
+   "phone": "053-260-154,0801073181",
+   "amphoe": "เมือง",
+   "modified": "2026-06-02",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-osm-node-4584123370",
+   "metres": 4
+  },
+  {
+   "cmhy": "13507",
+   "name": "วนิดา ตัดแต่งขนสุนัข",
+   "tags": [
+    "ตัดขนหมา",
+    "กำจัดเห็บ",
+    "อาบน้ำ"
+   ],
+   "phone": "084-612-7733",
+   "amphoe": "เมือง",
+   "modified": "2023-01-07",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-13507",
+   "metres": 0
+  },
+  {
+   "cmhy": "13772",
+   "name": "แคท เฮ้าส์",
+   "tags": [
+    "อาบน้ำแมว",
+    "ตัดขนแมว",
+    "รับฝากแมว"
+   ],
+   "phone": "061-679-1177",
+   "amphoe": "เมือง",
+   "modified": "2026-02-24",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-13772",
+   "metres": 0
+  },
+  {
+   "cmhy": "13848",
+   "name": "เพ็ท โชน",
+   "tags": [
+    "อาหารสัตว์",
+    "อาหารสัตว์เลี้ยง"
+   ],
+   "phone": "094-629-2999",
+   "amphoe": "เมือง",
+   "modified": "2026-02-10",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-13848"
+  },
+  {
+   "cmhy": "13863",
+   "name": "อันธิกา เพ็ทช็อป (แยกภูคำ)",
+   "tags": [
+    "สมาร์ทฮาร์ท",
+    "อาหารสัตว์",
+    "อาหารหมา"
+   ],
+   "phone": "081-952-3459,089-758-3949",
+   "amphoe": "เมือง",
+   "modified": "2026-08-10",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-13863"
+  },
+  {
+   "cmhy": "14133",
+   "name": "คำเที่ยงรักษาสัตว์",
+   "tags": [
+    "ฉีดวัคซีนสัตว์",
+    "รักษาสัตว์",
+    "กำจับหมัดเห็บสัตว์"
+   ],
+   "phone": "052-000-648,062-698-5412",
+   "amphoe": "เมือง",
+   "modified": "2022-08-29",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-osm-node-6553804156",
+   "metres": 10
+  },
+  {
+   "cmhy": "14137",
+   "name": "เพื่อน เพ็ทช็อป (สันติธรรม)",
+   "tags": [
+    "อาหารสัตว์",
+    "อาหารแมว",
+    "อาหารหมา"
+   ],
+   "phone": "063-795-7272",
+   "amphoe": "เมือง",
+   "modified": "2025-08-06",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-14137"
+  },
+  {
+   "cmhy": "1462",
+   "name": "สมายด๊อก เพ็ท ช็อป (สาขา สันป่าข่อย)",
+   "tags": [
+    "อาหารสัตว์",
+    "อาหารแมว",
+    "อาหารหมา"
+   ],
+   "phone": "084-173-6166,086-631-3829,061-6924289",
+   "amphoe": "เมือง",
+   "modified": "2025-09-30",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-1462"
+  },
+  {
+   "cmhy": "14792",
+   "name": "การุณ สัตวแพทย์",
+   "tags": [
+    "รักษาสัตว์",
+    "อาบน้ำสัตว์",
+    "รักษาสุนัข"
+   ],
+   "phone": "053-117-250,095-632-9654",
+   "amphoe": "เมือง",
+   "modified": "2021-01-22",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-14792",
+   "metres": 0
+  },
+  {
+   "cmhy": "15586",
+   "name": "ตุ๊กตา เสริมสวยสุนัข",
+   "tags": [
+    "ฝากเลี้ยงสุนัข",
+    "ตัดขนสุนัข",
+    "กำจัดเห็บ"
+   ],
+   "phone": "094-602-8668",
+   "amphoe": "เมือง",
+   "modified": "2026-04-24",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-15586",
+   "metres": 0
+  },
+  {
+   "cmhy": "15629",
+   "name": "น้ำปิงปศุสัตว์ (แม่เหียะ)",
+   "tags": [
+    "ยาสัตว์",
+    "อาหารสัตว์",
+    "วัคซีน"
+   ],
+   "phone": "053-447669",
+   "amphoe": "เมือง",
+   "modified": "2022-09-21",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-15629"
+  },
+  {
+   "cmhy": "15634",
+   "name": "เชียงใหม่ยาสัตว์",
+   "tags": [
+    "วัคซีนสัตว์",
+    "อาหารสัตว์",
+    "อุปกรณ์สัตว์เลี้ยง"
+   ],
+   "phone": "088-263-4919,053-447-698",
+   "amphoe": "เมือง",
+   "modified": "2022-10-07",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-15634"
+  },
+  {
+   "cmhy": "15770",
+   "name": "ร้านตันโจ  (สาขาสวนบวกหาด) จำหน่ายนกเเละสัตว์",
+   "tags": [
+    "ขายกระต่าย",
+    "ขายนก",
+    "ขายกรงสัตว์"
+   ],
+   "phone": "099-137-3131",
+   "amphoe": "เมือง",
+   "modified": "2023-04-17",
+   "trade": null,
+   "facets": {
+    "exotic": true
+   },
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "15771",
+   "name": "เพ็ทเวิลด์ เชียงใหม่  Petz World Chiang Mai",
+   "tags": [
+    "จำหน่ายสัตว์เลี้ยง",
+    "อุปกรณ์สัตว์เลี้ยง",
+    "กระต่าย"
+   ],
+   "phone": "084-804-7286",
+   "amphoe": "เมือง",
+   "modified": "2024-06-07",
+   "trade": "petshop",
+   "facets": {
+    "exotic": true
+   },
+   "record": "cm-curated-petshop-15771"
+  },
+  {
+   "cmhy": "15788",
+   "name": "เคหะเอื้ออาทรสัตวแพทย์ (นครพิงค์รักษ์สัตว์ สาขา 2)",
+   "tags": [
+    "วัคซีน",
+    "ถ่ายพยาธิ",
+    "รักษาสัตว์"
+   ],
+   "phone": "094-251-3509",
+   "amphoe": "เมือง",
+   "modified": "2026-06-01",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-15788",
+   "metres": 0
+  },
+  {
+   "cmhy": "15933",
+   "name": "ดี.ดี. ฟาร์ม แอนด์ แฟชั่นด๊อก (กาดหน้ามอ)",
+   "tags": [
+    "กรงสัตว์",
+    "แมว",
+    "หนูแฮมเตอร์"
+   ],
+   "phone": "081-706-1035",
+   "amphoe": "เมือง",
+   "modified": "2022-11-03",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "15940",
+   "name": "ด๊อกดูดี",
+   "tags": [
+    "อาบน้ำ",
+    "ตัดขนสัตว์",
+    "ฝากเลี้ยง"
+   ],
+   "phone": "099-765-7204,096-763-4102",
+   "amphoe": "เมือง",
+   "modified": "2022-03-28",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-15940",
+   "metres": 0
+  },
+  {
+   "cmhy": "15976",
+   "name": "เลิฟเลิฟ เพ็ทช้อป",
+   "tags": [
+    "อาหารสัตว์",
+    "อุปกรณ์สัตว์เลี้ยง"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-10-23",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-15976"
+  },
+  {
+   "cmhy": "1630",
+   "name": "ดูโอ้ ด๊อกส",
+   "tags": [
+    "อาบน้ำสุนัข",
+    "แต่งขนสุนัข",
+    "จำหน่ายอาหารสัตว์"
+   ],
+   "phone": "053-231-789,089-434-9009",
+   "amphoe": "เมือง",
+   "modified": "2020-07-19",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-1630",
+   "metres": 0
+  },
+  {
+   "cmhy": "16488",
+   "name": "ทวีพร",
+   "tags": [
+    "อาหารแมว",
+    "อาหารหมา",
+    "อาหารสุนัข"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-12-02",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "167",
+   "name": "นวรัฐสัตวแพทย์",
+   "tags": [
+    "ฉีดวัคซีน",
+    "อาบน้ำ",
+    "เสื้อผ้าสุนัข-แมว"
+   ],
+   "phone": "053-249-956,0896356744",
+   "amphoe": "เมือง",
+   "modified": "2020-04-23",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-167",
+   "metres": 0
+  },
+  {
+   "cmhy": "16788",
+   "name": "โรงพยาบาลสัตว์ แฟมิลี่ เพ็ท คลินิก",
+   "tags": [
+    "โรงพยาบาลสัตว์",
+    "รับฝากเลี้ยง",
+    "ผ่าตัดศัลยกรรม"
+   ],
+   "phone": "080-916-1809",
+   "amphoe": "เมือง",
+   "modified": "2026-03-20",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-16788",
+   "metres": 0
+  },
+  {
+   "cmhy": "16857",
+   "name": "สบายดีเพ็ทคลินิก",
+   "tags": [
+    "กำจัดเห็บมัด",
+    "อาบน้ำ",
+    "วัคซีน"
+   ],
+   "phone": "081-386-2200",
+   "amphoe": "เมือง",
+   "modified": "2020-05-06",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-16857",
+   "metres": 0
+  },
+  {
+   "cmhy": "17373",
+   "name": "บิวตี้ด๊อก",
+   "tags": [
+    "อาบน้ำตัดขนสัตว์",
+    "อาบน้ำสุนัข",
+    "อาบน้ำหมา"
+   ],
+   "phone": "089-554-2002",
+   "amphoe": "เมือง",
+   "modified": "2026-02-11",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-17373",
+   "metres": 0
+  },
+  {
+   "cmhy": "17532",
+   "name": "โฮ่ง โฮ่ง เหมียว",
+   "tags": [
+    "ทำคลอด",
+    "ทำหมัน",
+    "ขูดหิน"
+   ],
+   "phone": "053-266-343",
+   "amphoe": "เมือง",
+   "modified": "2020-04-24",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "17533",
+   "name": "น้ำปิงปศุสัตว์ (รวมโชค)",
+   "tags": [
+    "จำหน่ายอาหารสัตว์",
+    "ขายอาหารสัตว์",
+    "อาหารแมว"
+   ],
+   "phone": "053-230-210,0818817326",
+   "amphoe": "เมือง",
+   "modified": "2020-11-25",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-17533"
+  },
+  {
+   "cmhy": "17537",
+   "name": "วัวลายนำโชค",
+   "tags": [
+    "จำหน่ายอาหารสัตว์",
+    "ขายอาหารสัตว์",
+    "อาหารแมว"
+   ],
+   "phone": "053-854-200",
+   "amphoe": "เมือง",
+   "modified": "2020-04-24",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-17537"
+  },
+  {
+   "cmhy": "1756",
+   "name": "ปรินส์ สัตวแพทย์",
+   "tags": [
+    "รักษาสุนัข",
+    "รักษาแมว"
+   ],
+   "phone": "084-046-8840",
+   "amphoe": "เมือง",
+   "modified": "2025-04-01",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-1756",
+   "metres": 0
+  },
+  {
+   "cmhy": "1827",
+   "name": "น้ำปิงปศุสัตว์(หนองหอย)",
+   "tags": [
+    "ยาสัตว์",
+    "อาหารสัตว์",
+    "วัคซีน"
+   ],
+   "phone": "053-334-638",
+   "amphoe": "เมือง",
+   "modified": "2020-03-18",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-1827"
+  },
+  {
+   "cmhy": "1840",
+   "name": "ต้นยางสัตวแพทย์(สาขาสี่แยกหนองหอย)",
+   "tags": [
+    "ทำหมัน",
+    "วัคซีน",
+    "รักษาแมว"
+   ],
+   "phone": "053-141-015",
+   "amphoe": "เมือง",
+   "modified": "2021-08-01",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-osm-node-1441783408",
+   "metres": 6
+  },
+  {
+   "cmhy": "18807",
+   "name": "คลินิกบ้านสุขใจรักษาสัตว์",
+   "tags": [
+    "อาบน้ำ",
+    "ตัดขน",
+    "ฝากเลี้ยง"
+   ],
+   "phone": "052-002-775,094-741-8643",
+   "amphoe": "เมือง",
+   "modified": "2021-03-09",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-18807",
+   "metres": 0
+  },
+  {
+   "cmhy": "1908",
+   "name": "ร้านสายน้ำผึ้ง",
+   "tags": [
+    "กรงสัตว์",
+    "อาหารสัตว์",
+    "รับซื้อสุนัข"
+   ],
+   "phone": "085-107-9229",
+   "amphoe": "เมือง",
+   "modified": "2026-01-28",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-1908"
+  },
+  {
+   "cmhy": "1910",
+   "name": "เฉลิมมัจฉา",
+   "tags": [
+    "ขายปลาสวยงาม",
+    "ขายปลา",
+    "อุปกรณ์ตู้ปลา"
+   ],
+   "phone": "095-935-3618",
+   "amphoe": "เมือง",
+   "modified": "2021-11-16",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "1911",
+   "name": "อันธิกา เพ็ทช็อป (หายยา)",
+   "tags": [
+    "อาหารสัตว์",
+    "อาหารหมา",
+    "อาหารแมว"
+   ],
+   "phone": "053-203-819,089-635-4535",
+   "amphoe": "เมือง",
+   "modified": "2026-01-28",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-1911"
+  },
+  {
+   "cmhy": "1912",
+   "name": "แชมป์ จำหน่ายปลาและนก",
+   "tags": [
+    "ขายปลาสวยงาม",
+    "อุปกรณ์เลี้ยงปลา",
+    "ยาปลา"
+   ],
+   "phone": "084-177-3320,089-637-4446",
+   "amphoe": "เมือง",
+   "modified": "2026-01-28",
+   "trade": null,
+   "facets": {
+    "exotic": true
+   },
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "1913",
+   "name": "ร้านฟิชโชว์",
+   "tags": [
+    "ขายปลา",
+    "อาหารปลา",
+    "อุปกรณ์เลี้ยงปลา"
+   ],
+   "phone": "086-999-2899",
+   "amphoe": "เมือง",
+   "modified": "2026-01-01",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "1979",
+   "name": "เชียงใหม่ธนากุล",
+   "tags": [
+    "อาหารสัตว์",
+    "ธนากุลไข่สด",
+    "ไข่ไก่สด"
+   ],
+   "phone": "053-274-047",
+   "amphoe": "เมือง",
+   "modified": "2026-08-01",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-1979"
+  },
+  {
+   "cmhy": "19796",
+   "name": "นกกรูมมิ่ง",
+   "tags": [
+    "อาบน้ำตัดขนสุนัข",
+    "อาบน้ำสุนัข",
+    "อาบน้ำหมา"
+   ],
+   "phone": "062-354-2663",
+   "amphoe": "เมือง",
+   "modified": "2022-04-20",
+   "trade": "grooming",
+   "facets": {
+    "exotic": true
+   },
+   "osm": "cm-curated-grooming-19796",
+   "metres": 0
+  },
+  {
+   "cmhy": "19887",
+   "name": "คลินิกสัตว์ฮักหมาฮักแมว",
+   "tags": [
+    "ฝากเลี้ยง",
+    "รักษาสัตว์",
+    "อาบน้ำตัดขน"
+   ],
+   "phone": "099-294-9393",
+   "amphoe": "เมือง",
+   "modified": "2024-03-19",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-19887",
+   "metres": 0
+  },
+  {
+   "cmhy": "2032",
+   "name": "สัตวแพทย์ คลินิก",
+   "tags": [
+    "รักษาสัตว์"
+   ],
+   "phone": "053-272-701",
+   "amphoe": "เมือง",
+   "modified": "2020-03-31",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-osm-node-4834718721",
+   "metres": 6
+  },
+  {
+   "cmhy": "20443",
+   "name": "ศูนย์บริการสุขภาพสัตว์เลี้ยง เทศบาลนครเชียงใหม่",
+   "tags": [
+    "รักษาสัตว์",
+    "วัคซีนสัตว์",
+    "ทำหมันแมว"
+   ],
+   "phone": "053-259-136",
+   "amphoe": "เมือง",
+   "modified": "2026-06-01",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-20443",
+   "metres": 0
+  },
+  {
+   "cmhy": "2059",
+   "name": "โรงพยาบาลสัตว์หมอนุก",
+   "tags": [
+    "หมอนุก",
+    "โรงพยาบาลสัตว์",
+    "รักษาสัตว์"
+   ],
+   "phone": "053-818-905,081-883-5430",
+   "amphoe": "เมือง",
+   "modified": "2025-06-10",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-2059",
+   "metres": 0
+  },
+  {
+   "cmhy": "20815",
+   "name": "เพื่อน เพ็ทช็อป (โชตนา)",
+   "tags": [
+    "จำหน่ายอาหารสัตว์",
+    "ขนม",
+    "อุปกรณ์"
+   ],
+   "phone": "063-795-7272",
+   "amphoe": "เมือง",
+   "modified": "2025-10-22",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-20815"
+  },
+  {
+   "cmhy": "20859",
+   "name": "มะหมาซาลอน",
+   "tags": [
+    "อาบน้ำสุนัข",
+    "ตัดขนสุนัข",
+    "กำจัดเห็บหมัด"
+   ],
+   "phone": "098-741-5101",
+   "amphoe": "เมือง",
+   "modified": "2021-11-23",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-20859",
+   "metres": 0
+  },
+  {
+   "cmhy": "21598",
+   "name": "หมอจ๋า  สัตวแพทย์",
+   "tags": [
+    "รักษาแมว",
+    "รักษาสุนัข",
+    "รักษาสัตว์"
+   ],
+   "phone": "085-867-2686",
+   "amphoe": "เมือง",
+   "modified": "2025-01-23",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-21598",
+   "metres": 0
+  },
+  {
+   "cmhy": "2181",
+   "name": "สถานพยาบาลสัตว์ เวียงพิงค์",
+   "tags": [
+    "ฉีดวัคซีน",
+    "ผ่าตัด",
+    "ทำหมัน"
+   ],
+   "phone": "080-790-3652,053-306-205",
+   "amphoe": "เมือง",
+   "modified": "2026-05-21",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "21883",
+   "name": "ศูนย์พยาบาลสัตว์เชียงใหม่ vishnu",
+   "tags": [
+    "รักษาสัตว์",
+    "ศูนย์พยาบาลสัตว์เชียงใหม่"
+   ],
+   "phone": "081-530-7170",
+   "amphoe": "เมือง",
+   "modified": "2026-08-23",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-21883",
+   "metres": 0
+  },
+  {
+   "cmhy": "22111",
+   "name": "หนึ่งเก้าเพ็ทช็อป",
+   "tags": [
+    "อาหารสัตว์",
+    "อาหารแมว",
+    "อาหารหมา"
+   ],
+   "phone": "083-474-2552",
+   "amphoe": "เมือง",
+   "modified": "2020-08-18",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-22111"
+  },
+  {
+   "cmhy": "22341",
+   "name": "น้องพลอย อุปกรณ์สัตว์เลี้ยง อุปกรณ์ตกปลา",
+   "tags": [
+    "อุปกรณ์สัตว์เลี้ยง",
+    "อุปกรณ์ตกปลา"
+   ],
+   "phone": "089-435-010,081-031-4429",
+   "amphoe": "เมือง",
+   "modified": "2024-07-16",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-22341"
+  },
+  {
+   "cmhy": "22609",
+   "name": "มาว มาว เพ็ท คลีนิก",
+   "tags": [
+    "รักษาสัตว์",
+    "รักษาหมา",
+    "รักษาแมว"
+   ],
+   "phone": "088-168-2111",
+   "amphoe": "เมือง",
+   "modified": "2020-06-16",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-osm-node-6553804156",
+   "metres": 48
+  },
+  {
+   "cmhy": "22932",
+   "name": "เจอาร์ เพ็ทช็อป อาบน้ำตัดขน",
+   "tags": [
+    "อุปกรณ์สัตว์เลี้ยง",
+    "อาหารสัตว์",
+    "อาหารแมว"
+   ],
+   "phone": "083-760-6310",
+   "amphoe": "เมือง",
+   "modified": "2026-02-19",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-22932",
+   "metres": 0
+  },
+  {
+   "cmhy": "23000",
+   "name": "แอนิมอล คลินิก",
+   "tags": [
+    "รักษาสัตว์",
+    "รักษาสนัข",
+    "ทำหมันสัตว์"
+   ],
+   "phone": "093-280-3175",
+   "amphoe": "เมือง",
+   "modified": "2026-02-19",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-23000",
+   "metres": 0
+  },
+  {
+   "cmhy": "23048",
+   "name": "กิ๊ฟ กรูม",
+   "tags": [
+    "ฝากเลี้ยง",
+    "อาบน้ำหมา",
+    "อาบน้ำแมว"
+   ],
+   "phone": "098-415-6356,081-951-2882",
+   "amphoe": "เมือง",
+   "modified": "2023-04-21",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-23048",
+   "metres": 0
+  },
+  {
+   "cmhy": "23174",
+   "name": "พาราไดซ์ เพ็ทช็อป",
+   "tags": [
+    "อาหารสัตว์",
+    "อุปกรณ์สัตว์เลี้ยง",
+    "อาหารกระต่าย"
+   ],
+   "phone": "088-404-8529,087-859-1189",
+   "amphoe": "เมือง",
+   "modified": "2021-09-29",
+   "trade": "petshop",
+   "facets": {
+    "exotic": true
+   },
+   "record": "cm-curated-petshop-23174"
+  },
+  {
+   "cmhy": "23359",
+   "name": "โฮ่งเหมียว",
+   "tags": [
+    "อาบน้ำแมว",
+    "อาบน้ำหมา",
+    "ตัดขนหมา"
+   ],
+   "phone": "089-636-2020",
+   "amphoe": "เมือง",
+   "modified": "2022-01-19",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-23359",
+   "metres": 0
+  },
+  {
+   "cmhy": "23809",
+   "name": "เอเอ็มดีเอส AMDS หน่วยบริการวินิจฉัยระดับโมเลกุลในสัตว์",
+   "tags": [
+    "หน่วยบริการวินิจฉัยระดับโมเลกุลในสัตว์"
+   ],
+   "phone": "082-391-4940",
+   "amphoe": "เมือง",
+   "modified": "2020-09-04",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "23873",
+   "name": "ช่างนุช กรูมมิ่ง",
+   "tags": [
+    "อาบน้ำสัตว์",
+    "ตัดขนหมา",
+    "ตัดขนสุนัข"
+   ],
+   "phone": "053-227-379,089-264-3708",
+   "amphoe": "เมือง",
+   "modified": "2020-09-04",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-23873",
+   "metres": 0
+  },
+  {
+   "cmhy": "23874",
+   "name": "ซาฟารี เพท เชียงใหม่",
+   "tags": [
+    "ขายนก",
+    "กรงนก",
+    "อาหารนก"
+   ],
+   "phone": "089-790-9911,081-733-7442",
+   "amphoe": "เมือง",
+   "modified": "2020-09-04",
+   "trade": null,
+   "facets": {
+    "exotic": true
+   },
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "24082",
+   "name": "หมานคร เชียงใหม่",
+   "tags": [
+    "อาบน้ำตัดขน",
+    "ฝากเลี้ยงสุนัข",
+    "ฝากเลี้ยงแมว"
+   ],
+   "phone": "099-415-2116",
+   "amphoe": "เมือง",
+   "modified": "2025-12-19",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-24082",
+   "metres": 0
+  },
+  {
+   "cmhy": "24116",
+   "name": "รักษาสัตว์บ้านท่อ",
+   "tags": [
+    "รักษาสัตว์",
+    "อาบน้ำสัตว์",
+    "อาบน้ำสุนัข"
+   ],
+   "phone": "085-582-0366",
+   "amphoe": "เมือง",
+   "modified": "2026-02-23",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-24116",
+   "metres": 0
+  },
+  {
+   "cmhy": "24322",
+   "name": "แคท สเปซ กรูมมิ่ง & โฮลเทล",
+   "tags": [
+    "ฝากเลี้ยงแมว",
+    "อาบน้ำตัดขนแมว",
+    "อาบน้ำโอโซน"
+   ],
+   "phone": "090-091-9111",
+   "amphoe": "เมือง",
+   "modified": "2020-12-25",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-24322",
+   "metres": 0
+  },
+  {
+   "cmhy": "24874",
+   "name": "ไดมอนด์ อาบน้ำตัดขนสัตว์",
+   "tags": [
+    "อาบน้ำตัดขนสัตว์"
+   ],
+   "phone": "081-024-2271",
+   "amphoe": "เมือง",
+   "modified": "2026-09-03",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-24874",
+   "metres": 0
+  },
+  {
+   "cmhy": "25178",
+   "name": "คลินิกบ้านรักษ์สัตว์ สันป่าข่อย",
+   "tags": [
+    "รักษาโรคสัตว์เลี้ยง",
+    "บริการอาบน้ำตัดขน",
+    "ฝากเลี้ยง"
+   ],
+   "phone": "086-959-1269",
+   "amphoe": "เมือง",
+   "modified": "2024-02-12",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-25178",
+   "metres": 0
+  },
+  {
+   "cmhy": "2596",
+   "name": "น้ำปิงปศุสัตว์ (สำนักงานใหญ่)",
+   "tags": [
+    "ยาสัตว์",
+    "อาหารสัตว์",
+    "วัคซีน"
+   ],
+   "phone": "053-809-018,053-809-019",
+   "amphoe": "เมือง",
+   "modified": "2025-10-04",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-2596"
+  },
+  {
+   "cmhy": "2645",
+   "name": "ช้างเผือกสัตวแพทย์",
+   "tags": [
+    "วัคซีน",
+    "ทำหมันสัตว์",
+    "ถ่ายพยาธิ"
+   ],
+   "phone": "053-213-270,089-191-8722",
+   "amphoe": "เมือง",
+   "modified": "2021-01-22",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-osm-node-3298097235",
+   "metres": 1
+  },
+  {
+   "cmhy": "27083",
+   "name": "นราวดีเว็ทคลินิก",
+   "tags": [
+    "รักษาสัตว์",
+    "ฉีดวัคซีนสัตว์",
+    "ทำหมันสัตว์"
+   ],
+   "phone": "082-969-2235",
+   "amphoe": "เมือง",
+   "modified": "2021-01-25",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-27083",
+   "metres": 0
+  },
+  {
+   "cmhy": "27084",
+   "name": "นราวดีเพ็ทช็อป",
+   "tags": [
+    "อุปกรณ์สัตว์เลี้ยง",
+    "อาหารสัตว์เลี้ยง",
+    "ยาสัตว์"
+   ],
+   "phone": "082-969-2235",
+   "amphoe": "เมือง",
+   "modified": "2021-01-25",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-27084"
+  },
+  {
+   "cmhy": "27093",
+   "name": "อันธิกา เพ็ทช้อป (เป่าเปา เชียงใหม่-หางดง)",
+   "tags": [
+    "สมาร์ทฮาร์ท",
+    "อาหารสัตว์",
+    "อาหารหมา"
+   ],
+   "phone": "093-694-1978",
+   "amphoe": "เมือง",
+   "modified": "2026-04-26",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-27093"
+  },
+  {
+   "cmhy": "29308",
+   "name": "โรงพยาบาลสัตว์เชียงใหม่ เซ็นเตอร์",
+   "tags": [
+    "โรงพยาบาลสัตว์",
+    "วัคซีนหมา",
+    "วัคซีนแมว"
+   ],
+   "phone": "052-001-104,098-325-4414",
+   "amphoe": "เมือง",
+   "modified": "2023-07-26",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-29308",
+   "metres": 0
+  },
+  {
+   "cmhy": "29571",
+   "name": "เอ็มเอ็น เพ็ทมาร์ท",
+   "tags": [
+    "อาหารแมว",
+    "อาหารสัตว์เลี้ยง",
+    "อาหารหมา"
+   ],
+   "phone": "093-524-2453",
+   "amphoe": "เมือง",
+   "modified": "2021-10-26",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-29571"
+  },
+  {
+   "cmhy": "29640",
+   "name": "ราชพฤกษ์สัตวแพทย์",
+   "tags": [
+    "รักษาสัตว์",
+    "รักษาแมว",
+    "รักษาหมา"
+   ],
+   "phone": "053-111-196",
+   "amphoe": "เมือง",
+   "modified": "2026-03-27",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-osm-node-2094920947",
+   "metres": 9
+  },
+  {
+   "cmhy": "29717",
+   "name": "ลักษณ์เก้าเพ็ทช็อป",
+   "tags": [
+    "อุปกรณ์สัตว์เลี้ยง",
+    "อาหารสัตว์",
+    "อาหารแมว"
+   ],
+   "phone": "094-353-6398",
+   "amphoe": "เมือง",
+   "modified": "2026-06-05",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-29717"
+  },
+  {
+   "cmhy": "30",
+   "name": "ด๊อกแอนด์ดุ๊กคลีนิก",
+   "tags": [
+    "รักษาสัตว์",
+    "ฉีดวัคซีน",
+    "ผ่าคลอดสัตว์ฉุกเฉิน"
+   ],
+   "phone": "093-789-4416",
+   "amphoe": "เมือง",
+   "modified": "2024-06-14",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-30",
+   "metres": 0
+  },
+  {
+   "cmhy": "30167",
+   "name": "น้ำปิงเพ็ทแคร์ (สาขาบวกครก)",
+   "tags": [
+    "รักษาสัตว์",
+    "รักษาหมา",
+    "รักษาสุนัข"
+   ],
+   "phone": "096-687-6789",
+   "amphoe": "เมือง",
+   "modified": "2024-03-22",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-30167",
+   "metres": 0
+  },
+  {
+   "cmhy": "30269",
+   "name": "น้ำปิงเพ็ทแคร์ (สาขาแม่เหียะ)",
+   "tags": [
+    "รักษาสัตว์",
+    "รักษาหมา",
+    "รักษาสุนัข"
+   ],
+   "phone": "083-063-6789",
+   "amphoe": "เมือง",
+   "modified": "2022-03-25",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-30269",
+   "metres": 0
+  },
+  {
+   "cmhy": "30655",
+   "name": "คลินิกเพ็ทฮับ รักษาสัตว์",
+   "tags": [
+    "รักษาสัตว์"
+   ],
+   "phone": "064-196-0088",
+   "amphoe": "เมือง",
+   "modified": "2022-03-30",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-30655",
+   "metres": 0
+  },
+  {
+   "cmhy": "30664",
+   "name": "มังกี้ เอ็กซ์โชติก เพ็ท",
+   "tags": [
+    "กระต่าย",
+    "นกเลี้ยง",
+    "อาหารสัตว์"
+   ],
+   "phone": "095-238-3556",
+   "amphoe": "เมือง",
+   "modified": "2023-03-30",
+   "trade": "petshop",
+   "facets": {
+    "exotic": true
+   },
+   "record": "cm-curated-petshop-30664"
+  },
+  {
+   "cmhy": "31044",
+   "name": "นู๋จ้า แฮมสเตอร์ เพทเวิลด์",
+   "tags": [
+    "แฮมสเตอร์",
+    "หนูแก๊สบี้",
+    "กระต่าย"
+   ],
+   "phone": "095-194-4992,064-192-4445",
+   "amphoe": "เมือง",
+   "modified": "2021-12-14",
+   "trade": null,
+   "facets": {
+    "exotic": true
+   },
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "31075",
+   "name": "เพื่อน เพ็ทช็อป (โลตัส หางดง)",
+   "tags": [
+    "อุปกรณ์สัตว์เลี้ยง",
+    "อาหารสัตว์",
+    "อาหารหมา"
+   ],
+   "phone": "063-795-7272",
+   "amphoe": "เมือง",
+   "modified": "2025-08-06",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-31075"
+  },
+  {
+   "cmhy": "31128",
+   "name": "ฮักจัง อาบน้ำตัดขน",
+   "tags": [
+    "อาบน้ำตัดขนสุนัข",
+    "อาบน้ำสุนัข",
+    "อาบน้ำหมา"
+   ],
+   "phone": "086-922-1223",
+   "amphoe": "เมือง",
+   "modified": "2025-03-09",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-31128",
+   "metres": 0
+  },
+  {
+   "cmhy": "31289",
+   "name": "เบิร์ดเวิลด์ เชียงใหม่",
+   "tags": [
+    "อุปกรณ์สัตว์เลี้ยง",
+    "อาหารนก",
+    "นกเลี้ยง"
+   ],
+   "phone": "084-804-7286",
+   "amphoe": "เมือง",
+   "modified": "2022-01-15",
+   "trade": "petshop",
+   "facets": {
+    "exotic": true
+   },
+   "record": "cm-curated-petshop-31289"
+  },
+  {
+   "cmhy": "3146",
+   "name": "โรงพยาบาลสัตว์เมตตา",
+   "tags": [
+    "โรงพยาบาลสัตว์"
+   ],
+   "phone": "053-205-055,053-205-056",
+   "amphoe": "เมือง",
+   "modified": "2020-04-02",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-3146",
+   "metres": 0
+  },
+  {
+   "cmhy": "31722",
+   "name": "แสนดีเพ็ทช็อป (สาขาช้างคลาน)",
+   "tags": [
+    "อาหารหมา",
+    "อาหารแมว",
+    "อาหารสัตว์เลี้ยง"
+   ],
+   "phone": "092-992-2593",
+   "amphoe": "เมือง",
+   "modified": "2023-03-24",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-31722"
+  },
+  {
+   "cmhy": "31829",
+   "name": "เจ๊อู๊ด อาบน้ำ ตัดแต่งขนสุนัข",
+   "tags": [
+    "อาบน้ำหมา",
+    "ตัดแต่งขนสุนัข",
+    "ตัดขนหมา"
+   ],
+   "phone": "089-915-1685",
+   "amphoe": "เมือง",
+   "modified": "2023-04-09",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-31829",
+   "metres": 0
+  },
+  {
+   "cmhy": "31848",
+   "name": "เพ็ท ช้อป",
+   "tags": [
+    "อาหารหมา",
+    "อาหารแมว",
+    "อาหารสัตว์"
+   ],
+   "phone": "089-558-6059,093-059-0022",
+   "amphoe": "เมือง",
+   "modified": "2022-03-10",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-31848"
+  },
+  {
+   "cmhy": "31916",
+   "name": "นำโชค เพ็ทช๊อป",
+   "tags": [
+    "อาหารหมา",
+    "อาหารแมว",
+    "อาหารสัตว์"
+   ],
+   "phone": "092-693-9689",
+   "amphoe": "เมือง",
+   "modified": "2022-03-18",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-31916"
+  },
+  {
+   "cmhy": "31942",
+   "name": "โอคามิเพ็ทช้อป (สาขาแม่เหียะ)",
+   "tags": [
+    "อาหารสัตว์",
+    "อาหารแมว",
+    "อาหารหมา"
+   ],
+   "phone": "099-235-5282",
+   "amphoe": "เมือง",
+   "modified": "2025-03-09",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-31942"
+  },
+  {
+   "cmhy": "31966",
+   "name": "ตันโจเพ็ทช็อป (สาขาป่าแดด)",
+   "tags": [
+    "สัตว์เลี้ยง",
+    "กรงสัตว์",
+    "กรงหมา"
+   ],
+   "phone": "081-675-5597",
+   "amphoe": "เมือง",
+   "modified": "2022-03-25",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "3202",
+   "name": "โหน่งกรูมเมอร์ ตัดแต่งขนสุนัข",
+   "tags": [
+    "อาบน้ำสุนัข",
+    "ตัดขนสัตว์"
+   ],
+   "phone": "065-498-2622",
+   "amphoe": "เมือง",
+   "modified": "2020-04-02",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-3202",
+   "metres": 0
+  },
+  {
+   "cmhy": "32143",
+   "name": "วิงค์ กรูมมิ่ง & โฮเทล WINK",
+   "tags": [
+    "อาบน้ำแมว",
+    "ตัดขนแมว",
+    "ทำสปาแมว"
+   ],
+   "phone": "053-240-230",
+   "amphoe": "เมือง",
+   "modified": "2023-06-10",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-32143",
+   "metres": 0
+  },
+  {
+   "cmhy": "32314",
+   "name": "ไวกิ้ง อาบน้ำตัดขนสุนัขแมว viking",
+   "tags": [
+    "อาบน้ำหมา",
+    "ตัดขนหมา",
+    "ตัดขนสุนัข"
+   ],
+   "phone": "065-965-3550",
+   "amphoe": "เมือง",
+   "modified": "2024-07-18",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-32314",
+   "metres": 0
+  },
+  {
+   "cmhy": "32762",
+   "name": "คลินิกสัตว์เพื่อนมนุษย์",
+   "tags": [
+    "คลินิกสัตว์",
+    "รักษาสัตว์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-07-19",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-32762",
+   "metres": 0
+  },
+  {
+   "cmhy": "32778",
+   "name": "โรงพยาบาลสัตว์ ซูซู",
+   "tags": [
+    "โรงพยาบาลสัตว์",
+    "รักษาหมา",
+    "รักษาแมว"
+   ],
+   "phone": "082-692-4228",
+   "amphoe": "เมือง",
+   "modified": "2022-07-19",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-32778",
+   "metres": 0
+  },
+  {
+   "cmhy": "32822",
+   "name": "โรงแรมเหมียว โรยัลแคท",
+   "tags": [
+    "รับฝากแมว",
+    "โรงแรมแมว",
+    "อาบน้ำแมว"
+   ],
+   "phone": "083-628-6648,082-481-2264",
+   "amphoe": "เมือง",
+   "modified": "2025-06-28",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-32822",
+   "metres": 0
+  },
+  {
+   "cmhy": "33104",
+   "name": "ถนอม เพ็ทช็อป อาหารเต่า",
+   "tags": [
+    "อาหารเต่า",
+    "อาหารชูก้าไรเดอร์",
+    "อาหารเม่นแคระ"
+   ],
+   "phone": "088-251-2058",
+   "amphoe": "เมือง",
+   "modified": "2026-03-24",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "33107",
+   "name": "Mn เพ็ทมาร์ท (ตลาดธานินทร์)",
+   "tags": [
+    "อาหารสัตว์",
+    "อาหารแมว",
+    "อาหารหมา"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2022-11-08",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-33107"
+  },
+  {
+   "cmhy": "33715",
+   "name": "ร้านบูลเฮ้าส์กรูม",
+   "tags": [
+    "อาบน้ำแต่งขนสัตว์",
+    "อาบน้ำแต่งขนแมว",
+    "อาบน้ำแต่งขนหมา"
+   ],
+   "phone": "064-541-9546",
+   "amphoe": "เมือง",
+   "modified": "2022-10-07",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-33715",
+   "metres": 0
+  },
+  {
+   "cmhy": "33852",
+   "name": "คลินิกรักษาสัตว์วอทเดอะเพ็ท What the pet",
+   "tags": [
+    "รักษาสัตว์",
+    "อาหารสัตว์",
+    "ยาสัตว์"
+   ],
+   "phone": "081-145-6929",
+   "amphoe": "เมือง",
+   "modified": "2025-03-05",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-33852",
+   "metres": 0
+  },
+  {
+   "cmhy": "34772",
+   "name": "แคท คัสเติล รับฝากแมว อาบน้ำตัดขนแมว",
+   "tags": [
+    "รับฝากแมว",
+    "อาบน้ำแมว",
+    "ตัดขนแมว"
+   ],
+   "phone": "092-659-5979",
+   "amphoe": "เมือง",
+   "modified": "2023-01-30",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-34772",
+   "metres": 0
+  },
+  {
+   "cmhy": "3522",
+   "name": "วัวลายการเกษตร",
+   "tags": [
+    "ขายอาหารสัตว์",
+    "อาหารแมว",
+    "อาหารสุนัข"
+   ],
+   "phone": "053-200-805",
+   "amphoe": "เมือง",
+   "modified": "2021-07-22",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-3522"
+  },
+  {
+   "cmhy": "35264",
+   "name": "โรงพยาบาลสัตว์ แมนนิมอล",
+   "tags": [
+    "โรงพยาบาลสัตว์",
+    "รักษาสัตว์",
+    "รักษาหมา"
+   ],
+   "phone": "062-210-1032",
+   "amphoe": "เมือง",
+   "modified": "2023-03-02",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-35264",
+   "metres": 0
+  },
+  {
+   "cmhy": "35293",
+   "name": "มานา เพ็ท ช็อป",
+   "tags": [
+    "อาหารหมา",
+    "อาหารแมว",
+    "อาหารสัตว์เลี้ยง"
+   ],
+   "phone": "089-838-7097,080-127-3966",
+   "amphoe": "เมือง",
+   "modified": "2023-03-04",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-35293"
+  },
+  {
+   "cmhy": "35440",
+   "name": "กรูม วิท เลิฟ",
+   "tags": [
+    "อาบน้ำ",
+    "แต่งขนสัตว์"
+   ],
+   "phone": "096-307-9531",
+   "amphoe": "เมือง",
+   "modified": "2023-05-03",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-35440",
+   "metres": 0
+  },
+  {
+   "cmhy": "35600",
+   "name": "ดี เพ็ทช็อป  (สาขา 1 หลังวัดบ้านท่อ)",
+   "tags": [
+    "อาหารสัตว์",
+    "อาหารหมา",
+    "อาหารแมว"
+   ],
+   "phone": "063-776-7232",
+   "amphoe": "เมือง",
+   "modified": "2025-08-27",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-35600"
+  },
+  {
+   "cmhy": "35630",
+   "name": "เพ็ทโทเปีย Petopia  โรงแรมรับฝากแมว อาบน้ำตัดขนแมว",
+   "tags": [
+    "โรงแรมรับฝากแมว",
+    "อาบน้ำตัดขนแมว"
+   ],
+   "phone": "063-459-8242",
+   "amphoe": "เมือง",
+   "modified": "2026-03-27",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-35630",
+   "metres": 0
+  },
+  {
+   "cmhy": "35780",
+   "name": "สมายด็อกเพ็ทช็อป (สาขา 2 ข่วงสิงห์)",
+   "tags": [
+    "อาหารสัตว์",
+    "อาหารแมว",
+    "อาหารหมา"
+   ],
+   "phone": "096-936-9651",
+   "amphoe": "เมือง",
+   "modified": "2025-10-22",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-35780"
+  },
+  {
+   "cmhy": "35785",
+   "name": "ทาร์มทูฟีต",
+   "tags": [
+    "อาหารแมว",
+    "อาหารหมา",
+    "อาหารสุนัข"
+   ],
+   "phone": "095-818-3199",
+   "amphoe": "เมือง",
+   "modified": "2026-03-25",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "36223",
+   "name": "เพ็ทมาเนียเชียงใหม่ [เคหะชุมชนหนองหอย]",
+   "tags": [
+    "อาหารกระต่าย",
+    "อาหารหนู",
+    "อาหารสัตว์"
+   ],
+   "phone": "089-007-5566",
+   "amphoe": "เมือง",
+   "modified": "2026-06-01",
+   "trade": "petshop",
+   "facets": {
+    "exotic": true
+   },
+   "record": "cm-curated-petshop-36223"
+  },
+  {
+   "cmhy": "36256",
+   "name": "อินทนนท์ กรูมมิ่ง แอนด์ แคทโฮเทล",
+   "tags": [
+    "ตัดขนแมว",
+    "โรงแรมแมว",
+    "ตัดขนสัตว์"
+   ],
+   "phone": "080-517-5519",
+   "amphoe": "เมือง",
+   "modified": "2023-10-18",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-36256",
+   "metres": 0
+  },
+  {
+   "cmhy": "36289",
+   "name": "PET CMU ศูนย์ดูแลสัตว์เลี้ยง คณะสัตวแพทยศาสตร์ มหาวิทยาลัยเชียงใหม่",
+   "tags": [
+    "รักษาหมา",
+    "รักษาแมว",
+    "รักษาสัตว์"
+   ],
+   "phone": "082-273-3224",
+   "amphoe": "เมือง",
+   "modified": "2023-09-19",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-36289",
+   "metres": 0
+  },
+  {
+   "cmhy": "36318",
+   "name": "ซีซี เพ็ทช้อป",
+   "tags": [
+    "อาหารสัตว์",
+    "อาหารแมว",
+    "อาหารหมา"
+   ],
+   "phone": "094-992-8965",
+   "amphoe": "เมือง",
+   "modified": "2023-11-17",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-36318"
+  },
+  {
+   "cmhy": "36435",
+   "name": "เพ็ทมาร์ท (สาขา มหิดล )",
+   "tags": [
+    "กรงสัตว์",
+    "อาหารสัตว์เลี้ยง",
+    "อุปกรณ์สัตว์เลี้ยง"
+   ],
+   "phone": "095-423-6262",
+   "amphoe": "เมือง",
+   "modified": "2026-05-29",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-36435"
+  },
+  {
+   "cmhy": "36673",
+   "name": "พอลิเดย์ Pawliday Pet Wellness Center",
+   "tags": [
+    "รักษาสัตว์",
+    "รักษาหมา",
+    "รักษาแมว"
+   ],
+   "phone": "082-232-6444",
+   "amphoe": "เมือง",
+   "modified": "2023-11-23",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-36673",
+   "metres": 0
+  },
+  {
+   "cmhy": "36676",
+   "name": "การ์ฟิล อาบน้ำตัดขนแมว",
+   "tags": [
+    "อาบน้ำแมว",
+    "ตัดขนแมว",
+    "รับฝากแมว"
+   ],
+   "phone": "080-067-8415",
+   "amphoe": "เมือง",
+   "modified": "2026-02-24",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-36676",
+   "metres": 0
+  },
+  {
+   "cmhy": "3712",
+   "name": "เกรียงไกรสัตวแพทย์",
+   "tags": [
+    "ตรวจโรค",
+    "ทำหมัน",
+    "รักษาสัตว์"
+   ],
+   "phone": "080-494-2221",
+   "amphoe": "เมือง",
+   "modified": "2020-03-18",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-3712",
+   "metres": 0
+  },
+  {
+   "cmhy": "37259",
+   "name": "Pet Us เชียงใหม่คำเที่ยง อาบน้ำแต่งขน และอุปกรณ์สัตว์เลี้ยง",
+   "tags": [
+    "อาบน้ำแมว",
+    "อาบน้ำหมา",
+    "อาบน้ำสุนัข"
+   ],
+   "phone": "080-897-8966",
+   "amphoe": "เมือง",
+   "modified": "2024-03-02",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-37259",
+   "metres": 0
+  },
+  {
+   "cmhy": "37526",
+   "name": "คลินิกรักษาสัตว์เพ็ทเพลิน อาบน้ำตัดขนสัตว์",
+   "tags": [
+    "รักษาสัตว์",
+    "อาบน้ำตัดขน",
+    "อาบน้ำหมา"
+   ],
+   "phone": "064-868-7987",
+   "amphoe": "เมือง",
+   "modified": "2025-03-05",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-37526",
+   "metres": 0
+  },
+  {
+   "cmhy": "37647",
+   "name": "ปลาทู petshop",
+   "tags": [
+    "ร้านอาหารสัตว์",
+    "อาหารแมว",
+    "อาหารหมา"
+   ],
+   "phone": "080-064-1662",
+   "amphoe": "เมือง",
+   "modified": "2026-02-26",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-37647"
+  },
+  {
+   "cmhy": "37733",
+   "name": "วีเอสซีรักษาสัตว์",
+   "tags": [
+    "รักษาหมา",
+    "รักษาสุนัข",
+    "รักษาสัตว์"
+   ],
+   "phone": "092-299-8395",
+   "amphoe": "เมือง",
+   "modified": "2025-07-23",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-37733",
+   "metres": 0
+  },
+  {
+   "cmhy": "37779",
+   "name": "นันทารามรักษาสัตว์",
+   "tags": [
+    "รักษาแมว",
+    "คลินิกสัตว์",
+    "รักษาหมา"
+   ],
+   "phone": "092-648-9944",
+   "amphoe": "เมือง",
+   "modified": "2024-07-12",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-37779",
+   "metres": 0
+  },
+  {
+   "cmhy": "37961",
+   "name": "เพ็ทพาว สาขาเชียงใหม่ (W Mall Life Style)",
+   "tags": [
+    "อาหารแมว",
+    "อาหารหมา",
+    "อาหารสัตว์เลี้ยง"
+   ],
+   "phone": "063-875-7657",
+   "amphoe": "เมือง",
+   "modified": "2024-05-21",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-37961"
+  },
+  {
+   "cmhy": "37994",
+   "name": "สี่ขามากรูม & โรงแรมแมว",
+   "tags": [
+    "ฝากเลี้ยง",
+    "โรงแรมแมว",
+    "อาบน้ำตัดขนหมา"
+   ],
+   "phone": "061-239-1408",
+   "amphoe": "เมือง",
+   "modified": "2024-05-21",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-37994",
+   "metres": 0
+  },
+  {
+   "cmhy": "38109",
+   "name": "ลักษณ์เก้าเพ็ทการ์เด้น",
+   "tags": [
+    "อาหารสัตว์",
+    "อาหารแมว",
+    "อาหารหมา"
+   ],
+   "phone": "088-267-4137",
+   "amphoe": "เมือง",
+   "modified": "2024-06-25",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-38109"
+  },
+  {
+   "cmhy": "38111",
+   "name": "รพ.สัตว์ทองหล่อ (สาขา เชียงใหม่ แอร์พอร์ต) *24 ชั่วโมง*",
+   "tags": [
+    "โรคตาสัตว์",
+    "โรคผิวหนังสัตว์",
+    "โรคหัวใจสัตว์"
+   ],
+   "phone": "052-005-331",
+   "amphoe": "เมือง",
+   "modified": "2025-07-28",
+   "trade": null,
+   "facets": {
+    "open24": true
+   },
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "38193",
+   "name": "เพ็ทเวิลด์  Petz World (สาขาหนองหอย)",
+   "tags": [
+    "จำหน่ายสัตว์เลี้ยง",
+    "อุปกรณ์สัตว์เลี้ยง"
+   ],
+   "phone": "064-017-7624",
+   "amphoe": "เมือง",
+   "modified": "2024-11-11",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-38193"
+  },
+  {
+   "cmhy": "38261",
+   "name": "ไอแอมเว็ท เพ็ทคลินิก",
+   "tags": [
+    "รักษาสัตว์",
+    "อาบน้ำสัตว์",
+    "ตัดขนสัตว์"
+   ],
+   "phone": "090-996-5923",
+   "amphoe": "เมือง",
+   "modified": "2024-07-15",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-38261",
+   "metres": 0
+  },
+  {
+   "cmhy": "38519",
+   "name": "ริมรางสัตวแพทย์",
+   "tags": [
+    "สัตวแพทย์",
+    "รักษาสัตว์",
+    "รักษาหมา"
+   ],
+   "phone": "063-516-1735",
+   "amphoe": "เมือง",
+   "modified": "2026-08-13",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-38519",
+   "metres": 0
+  },
+  {
+   "cmhy": "3853",
+   "name": "บีเอ็น. เพ็ทเพอร์เฟค",
+   "tags": [
+    "อาบน้ำ",
+    "ตัดขน",
+    "ฝากเลี้ยง"
+   ],
+   "phone": "088-228-3380,099-383-3553",
+   "amphoe": "เมือง",
+   "modified": "2026-01-28",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-3853",
+   "metres": 0
+  },
+  {
+   "cmhy": "38607",
+   "name": "โรงพยาบาลสัตว์ นิวโฮป",
+   "tags": [
+    "โรงพยาบาลสัตว์",
+    "รักษาสุนัข",
+    "รักษาแมว"
+   ],
+   "phone": "094-749-3883",
+   "amphoe": "เมือง",
+   "modified": "2026-06-19",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-osm-node-3291664827",
+   "metres": 5
+  },
+  {
+   "cmhy": "38620",
+   "name": "ร้านขายอาหารสัตว์ [บ้านท่อ]",
+   "tags": [
+    "อาหารหมา",
+    "อาหารแมว",
+    "อาหารสัตว์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2024-10-23",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-38620"
+  },
+  {
+   "cmhy": "38812",
+   "name": "โรงพยาบาลสัตว์อารักษ์ สาขาเชียงใหม่",
+   "tags": [
+    "บริการรักษาสัตว์เลี้ยงพิเศษ",
+    "รักษาหมา",
+    "รักษาแมว"
+   ],
+   "phone": "093-219-9191",
+   "amphoe": "เมือง",
+   "modified": "2025-01-21",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-38812",
+   "metres": 0
+  },
+  {
+   "cmhy": "39884",
+   "name": "แคปบิท โรงแรม และ อาบน้ำตัดขนสัตว์",
+   "tags": [
+    "โรงแรมสัตว์",
+    "อาบน้ำตัดขนสัตว์",
+    "อาบน้ำแมว"
+   ],
+   "phone": "093-264-5545",
+   "amphoe": "เมือง",
+   "modified": "2025-04-23",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-39884",
+   "metres": 0
+  },
+  {
+   "cmhy": "39912",
+   "name": "โรงพยาบาลสัตว์เวทโทเปีย",
+   "tags": [
+    "โรงพยาบาลสัตว์",
+    "รักษาสัตว์",
+    "รักษาหมา"
+   ],
+   "phone": "083-490-9202",
+   "amphoe": "เมือง",
+   "modified": "2025-07-23",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-39912",
+   "metres": 0
+  },
+  {
+   "cmhy": "40287",
+   "name": "วอส อะ แคท กรูมมิ่ง&โฮเต็ล",
+   "tags": [
+    "อาบน้ำแมว",
+    "ตัดขนแมว",
+    "รับฝากแมว"
+   ],
+   "phone": "088-999-3583,080-130-2158",
+   "amphoe": "เมือง",
+   "modified": "2025-07-28",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-40287",
+   "metres": 0
+  },
+  {
+   "cmhy": "40344",
+   "name": "เพื่อน เพ็ทช็อป 4 (สันกู่เหล็ก)",
+   "tags": [
+    "อุปกรณ์สัตว์เลี้ยง",
+    "อาหารสัตว์",
+    "อาหารหมา"
+   ],
+   "phone": "081-798-9009",
+   "amphoe": "เมือง",
+   "modified": "2025-08-06",
+   "trade": "petshop",
+   "facets": {
+    "exotic": true
+   },
+   "record": "cm-curated-petshop-40344"
+  },
+  {
+   "cmhy": "40360",
+   "name": "ดลยา ด็อกช็อป (ตลาดกาดก้อม)",
+   "tags": [
+    "อาหารหมา",
+    "อาหารแมว",
+    "อาหารสัตว์"
+   ],
+   "phone": "",
+   "amphoe": "เมือง",
+   "modified": "2025-08-07",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-40360"
+  },
+  {
+   "cmhy": "40362",
+   "name": "กาดก้อมอาหารสัตว์",
+   "tags": [
+    "อาหารหมา",
+    "อาหารแมว",
+    "อาหารสัตว์"
+   ],
+   "phone": "093-130-4700",
+   "amphoe": "เมือง",
+   "modified": "2025-08-07",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-40362"
+  },
+  {
+   "cmhy": "40456",
+   "name": "ซีซี เพ็ทช็อป (สาขาอูโด้มอลล์)",
+   "tags": [
+    "อาหารหมา",
+    "อาหารแมว",
+    "อาหารสัตว์"
+   ],
+   "phone": "094-924-2646",
+   "amphoe": "เมือง",
+   "modified": "2025-08-27",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-40456"
+  },
+  {
+   "cmhy": "40461",
+   "name": "มาย แคท เฮาส์ & เพ็ทช้อป",
+   "tags": [
+    "อาบน้ำสุนัข",
+    "อาบน้ำหมา",
+    "ตัดขนหมา"
+   ],
+   "phone": "086-469-3551",
+   "amphoe": "เมือง",
+   "modified": "2025-08-08",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-40461",
+   "metres": 0
+  },
+  {
+   "cmhy": "40572",
+   "name": "เพ็ทโปร (สาขา ท่าศาลา) Pet Pro",
+   "tags": [
+    "อาหารสัตว์",
+    "อุปกรณ์สัตว์เลี้ยง",
+    "อาหารแมว"
+   ],
+   "phone": "096-6919495",
+   "amphoe": "เมือง",
+   "modified": "2026-04-09",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-40572"
+  },
+  {
+   "cmhy": "40577",
+   "name": "โรงพยาบาลสัตว์โคซี่แอนด์แคร์",
+   "tags": [
+    "โรงพยาบาลสัตว์",
+    "ผ่าตัดสัตว์",
+    "รักษาสัตว์ฉุกเฉิน"
+   ],
+   "phone": "081-446-4463",
+   "amphoe": "เมือง",
+   "modified": "2025-08-06",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-40577",
+   "metres": 0
+  },
+  {
+   "cmhy": "40638",
+   "name": "ดี เพ็ทช็อป 2 (สาขาป่าข่อยใต้)",
+   "tags": [
+    "อาหารหมา",
+    "อาหารแมว",
+    "อาหารสัตว์"
+   ],
+   "phone": "062-958-4426",
+   "amphoe": "เมือง",
+   "modified": "2025-08-27",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-40638"
+  },
+  {
+   "cmhy": "40657",
+   "name": "ชิคด๊อก ฟาร์ม กรูมมิ่ง",
+   "tags": [
+    "อาบน้ำตัดขนสุนัข",
+    "ฟาร์มปอมเมอเรเนียน"
+   ],
+   "phone": "091-072-0197",
+   "amphoe": "เมือง",
+   "modified": "2025-11-11",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-40657",
+   "metres": 0
+  },
+  {
+   "cmhy": "41076",
+   "name": "วรุณรักษ์ รักษาสัตว์",
+   "tags": [
+    "รักษาสัตว์",
+    "อาบน้ำตัดขนสัตว์",
+    "รักษาสัตว์เลี้ยงพิเศษ"
+   ],
+   "phone": "094-191-4425",
+   "amphoe": "เมือง",
+   "modified": "2026-03-25",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-41076",
+   "metres": 0
+  },
+  {
+   "cmhy": "41429",
+   "name": "เบสเฟรนด์รักสัตว์ (สาขาใหญ่ หายยา)",
+   "tags": [
+    "อาหารหมา",
+    "อาหารแมว",
+    "ร้านขายอาหารสัตว์"
+   ],
+   "phone": "081-469-4289,092-997-9659",
+   "amphoe": "เมือง",
+   "modified": "2026-05-06",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-41429"
+  },
+  {
+   "cmhy": "41693",
+   "name": "ร้าน เพ็ทแฟมิลี่ 1",
+   "tags": [
+    "อาหารหมา",
+    "อาหารแมว",
+    "ร้านขายอาหารสัตว์"
+   ],
+   "phone": "093-694-1978",
+   "amphoe": "เมือง",
+   "modified": "2026-04-09",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-41693"
+  },
+  {
+   "cmhy": "41702",
+   "name": "เพ็ทโปร (สาขา พืชสวนโลก) Pet Pro (สำนักงานใหญ่)",
+   "tags": [
+    "อาหารสัตว์",
+    "อุปกรณ์สัตว์เลี้ยง",
+    "อาหารแมว"
+   ],
+   "phone": "082-252-5254",
+   "amphoe": "เมือง",
+   "modified": "2026-04-09",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-41702"
+  },
+  {
+   "cmhy": "41744",
+   "name": "แม่หยวกรักษาสัตว์",
+   "tags": [
+    "ผ่าตัดทำหมัน",
+    "โรงแรมแมว",
+    "กำจัดเห็บหมัด"
+   ],
+   "phone": "080-821-9757",
+   "amphoe": "เมือง",
+   "modified": "2026-03-23",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-41744",
+   "metres": 0
+  },
+  {
+   "cmhy": "42068",
+   "name": "เบสเฟรนด์รักสัตว์ (สาขา แม่เหียะ)",
+   "tags": [
+    "อาหารสัตว์",
+    "อุปกรณ์สัตว์เลี้ยง",
+    "อาหารแมว"
+   ],
+   "phone": "089-635-4535,081-469-4289",
+   "amphoe": "เมือง",
+   "modified": "2026-06-12",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-42068"
+  },
+  {
+   "cmhy": "42506",
+   "name": "โรงพยาบาลสัตว์ใกล้มอ 24 ชั่วโมง",
+   "tags": [
+    "ผ่าตัดฉุกเฉิน",
+    "ผ่ากระดูกและเนื้อเยื่ออ่อนสัตว์",
+    "ถ่ายพยาธิป้องกันเห็บหมัดไร"
+   ],
+   "phone": "062-554-4919",
+   "amphoe": "เมือง",
+   "modified": "2026-08-12",
+   "trade": "vet",
+   "facets": {
+    "open24": true
+   },
+   "osm": "cm-curated-vet-42506",
+   "metres": 0
+  },
+  {
+   "cmhy": "4775",
+   "name": "คลินิก เชียงใหม่-ลำพูน สัตวแพทย์ (หนองหอย)",
+   "tags": [
+    "ฉีดวัคซีน",
+    "ผ่าตัดสัตว์",
+    "ทำหมันสัตว์"
+   ],
+   "phone": "053-329-787,063-781-5619",
+   "amphoe": "เมือง",
+   "modified": "2026-06-12",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-4775",
+   "metres": 0
+  },
+  {
+   "cmhy": "4826",
+   "name": "เบสท์ เพ็ทช็อป  (สตาร์อเวนิว)",
+   "tags": [
+    "อาหารสุนัข",
+    "อาหารแมว",
+    "ห้องน้ำแมว"
+   ],
+   "phone": "097-979-0946",
+   "amphoe": "เมือง",
+   "modified": "2026-04-24",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "4827",
+   "name": "คลินิกสัตว์ดอนจั่น",
+   "tags": [
+    "รักษาสัตว์",
+    "รักษาสุนัข",
+    "รักษาแมว"
+   ],
+   "phone": "053-308-880",
+   "amphoe": "เมือง",
+   "modified": "2020-06-16",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-osm-node-3020442320",
+   "metres": 3
+  },
+  {
+   "cmhy": "4859",
+   "name": "โรงพยาบาลสัตว์ เชียงใหม่โชตนา",
+   "tags": [
+    "อาบน้ำสัตว์",
+    "รักษาสัตว์",
+    "โรงพยาบาลสัตว์"
+   ],
+   "phone": "053-412-794,053-235-005,053-215-333",
+   "amphoe": "เมือง",
+   "modified": "2026-03-19",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-osm-node-3191104418",
+   "metres": 13
+  },
+  {
+   "cmhy": "4879",
+   "name": "นาทีทรัพย์ รักษาสัตว์",
+   "tags": [
+    "รักษาสัตว์",
+    "รักษาสัตว์นอกสถานที่"
+   ],
+   "phone": "053-212-300",
+   "amphoe": "เมือง",
+   "modified": "2026-03-19",
+   "trade": "vet",
+   "facets": {
+    "housecall": true
+   },
+   "osm": "cm-curated-vet-4879",
+   "metres": 0
+  },
+  {
+   "cmhy": "4924",
+   "name": "ไออุ่นสัตวแพทย์",
+   "tags": [
+    "สัตวแพทย์",
+    "รักษาสัตว์",
+    "อาบน้ำสัตว์"
+   ],
+   "phone": "053-892-458,082-634-9298",
+   "amphoe": "เมือง",
+   "modified": "2025-07-09",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-4924",
+   "metres": 0
+  },
+  {
+   "cmhy": "500",
+   "name": "ศุภชัยสัตวแพทย์",
+   "tags": [
+    "รักษาแมว",
+    "รักษาหมา",
+    "รักษาสุนัข"
+   ],
+   "phone": "053-815105,089-560-8448",
+   "amphoe": "เมือง",
+   "modified": "2025-12-14",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-osm-node-3384119225",
+   "metres": 3
+  },
+  {
+   "cmhy": "5199",
+   "name": "ด๊อกด๊อก ช็อป อาหารสัตว์",
+   "tags": [
+    "อุปกรณ์สัตว์เลี้ยง",
+    "อาหารหมา",
+    "อาหารสัตว์"
+   ],
+   "phone": "084-151-1077",
+   "amphoe": "เมือง",
+   "modified": "2022-08-26",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-5199"
+  },
+  {
+   "cmhy": "577",
+   "name": "คลินิกรักษาสัตว์",
+   "tags": [
+    "รักษาแมว",
+    "รักษาสุนัข"
+   ],
+   "phone": "053-216-347",
+   "amphoe": "เมือง",
+   "modified": "2022-08-29",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-577",
+   "metres": 0
+  },
+  {
+   "cmhy": "5889",
+   "name": "นครพิงค์รักษ์สัตว์",
+   "tags": [
+    "วัคซีน",
+    "ถ่ายพยาธิ",
+    "รักษาหมา"
+   ],
+   "phone": "086-337-0547",
+   "amphoe": "เมือง",
+   "modified": "2021-10-07",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "5932",
+   "name": "อาบน้ำ ตัดแต่ง ขนสุนัข",
+   "tags": [
+    "ตัดขน",
+    "แต่งขน",
+    "อาบน้ำหมา"
+   ],
+   "phone": "085-029-1960,0894351010",
+   "amphoe": "เมือง",
+   "modified": "2022-10-17",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-5932",
+   "metres": 0
+  },
+  {
+   "cmhy": "6116",
+   "name": "รักสัตว์ โอเวอร์ซีส์ เพ็ทช็อป",
+   "tags": [
+    "อาหารสัตว์",
+    "อุปกรณ์สัตว์เลี้ยง"
+   ],
+   "phone": "053-304-569,094-470-8505",
+   "amphoe": "เมือง",
+   "modified": "2021-11-13",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-6116"
+  },
+  {
+   "cmhy": "6220",
+   "name": "ไอ-กรูม",
+   "tags": [
+    "อาบน้ำสัตว์",
+    "อาบน้ำหมา",
+    "ตัดขนสัตว์"
+   ],
+   "phone": "053-260-464,089-701-3575",
+   "amphoe": "เมือง",
+   "modified": "2026-06-05",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-6220",
+   "metres": 0
+  },
+  {
+   "cmhy": "6458",
+   "name": "โอ้มายด๊อก อาบน้ำ ตัดขน",
+   "tags": [
+    "อาบน้ำ",
+    "ตัดขน",
+    "อุปกรณ์สัตว์เลี้ยง"
+   ],
+   "phone": "053-851-693",
+   "amphoe": "เมือง",
+   "modified": "2023-02-20",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-6458",
+   "metres": 0
+  },
+  {
+   "cmhy": "6532",
+   "name": "เอเซียปศุสัตว์ (ช้างเผือก)",
+   "tags": [
+    "ยาสัตว์",
+    "ลูกเป็ด",
+    "ลูกไก่"
+   ],
+   "phone": "053-213-923,053-214-393",
+   "amphoe": "เมือง",
+   "modified": "2026-06-02",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "6667",
+   "name": "วรพจน์สัตวแพทย์",
+   "tags": [
+    "รักษาสัตว์"
+   ],
+   "phone": "089-430-2400",
+   "amphoe": "เมือง",
+   "modified": "2021-05-15",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-6667",
+   "metres": 0
+  },
+  {
+   "cmhy": "694",
+   "name": "ปอยหลวง เพทช้อป",
+   "tags": [
+    "ตัดแต่งขนสัตว์",
+    "อุปกรณ์สัตว์เลี้ยง",
+    "ร้านเสริมสวยสุนัขปอยหลวง"
+   ],
+   "phone": "053-412-281",
+   "amphoe": "เมือง",
+   "modified": "2020-09-04",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-694"
+  },
+  {
+   "cmhy": "7229",
+   "name": "โรงพยาบาลสัตว์ บ้านเท้าปุย",
+   "tags": [
+    "รักษาสัตว์",
+    "โรคผิวหนังสัตว์",
+    "รักษาโรคกระต่าย"
+   ],
+   "phone": "085-678-9366,053-216-040",
+   "amphoe": "เมือง",
+   "modified": "2024-06-18",
+   "trade": "vet",
+   "facets": {
+    "exotic": true
+   },
+   "osm": "cm-curated-vet-7229",
+   "metres": 0
+  },
+  {
+   "cmhy": "7340",
+   "name": "คลินิกสวนดอกสัตวแพทย์",
+   "tags": [
+    "ฉีดวัคซีน",
+    "ฉีดยาคุม",
+    "ทำหมัน"
+   ],
+   "phone": "053-808224,085-222-1533",
+   "amphoe": "เมือง",
+   "modified": "2020-09-04",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-7340",
+   "metres": 0
+  },
+  {
+   "cmhy": "7371",
+   "name": "โรงพยาบาลสัตว์ฟ้าใส",
+   "tags": [
+    "อัลตราซาวด์",
+    "ฝังไมโครชิฟ",
+    "ทำหมัน"
+   ],
+   "phone": "053-014-216",
+   "amphoe": "เมือง",
+   "modified": "2024-09-16",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-osm-node-3291664827",
+   "metres": 4
+  },
+  {
+   "cmhy": "7374",
+   "name": "น้ำปิงปศุสัตว์ (แยกศาลเด็ก)",
+   "tags": [
+    "ยาสัตว์",
+    "อาหารสัตว์",
+    "วัคซีน"
+   ],
+   "phone": "053-492161,053-014349",
+   "amphoe": "เมือง",
+   "modified": "2026-06-05",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-7374"
+  },
+  {
+   "cmhy": "7485",
+   "name": "คลินิกเพื่อสัตว์เลี้ยง ตั้งใจรักษาสัตว์",
+   "tags": [
+    "รักษาสัตว์",
+    "รักษาหมา",
+    "รักษาแมว"
+   ],
+   "phone": "053-284-048,081-820-2285",
+   "amphoe": "เมือง",
+   "modified": "2025-10-14",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-7485",
+   "metres": 0
+  },
+  {
+   "cmhy": "7546",
+   "name": "แม่เหียะรักษาสัตว์",
+   "tags": [
+    "ฉีดยาสัตว์",
+    "อาบน้ำสัตว์",
+    "ผ่าคลอดสัตว์"
+   ],
+   "phone": "095-932-6654",
+   "amphoe": "เมือง",
+   "modified": "2026-02-05",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-7546",
+   "metres": 0
+  },
+  {
+   "cmhy": "7590",
+   "name": "สันติเพทช็อป",
+   "tags": [
+    "จำหน่ายอาหารสัตว์",
+    "ขายอาหารสัตว์",
+    "อาหารแมว"
+   ],
+   "phone": "0918577719",
+   "amphoe": "เมือง",
+   "modified": "2020-01-30",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-7590"
+  },
+  {
+   "cmhy": "7732",
+   "name": "เอเซียปศุสัตว์ (แม่โจ้)",
+   "tags": [
+    "ยาสัตว์",
+    "ลูกเป็ด",
+    "ลูกไก่"
+   ],
+   "phone": "053-247-725,053-247-728",
+   "amphoe": "เมือง",
+   "modified": "2023-09-01",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "7773",
+   "name": "โรงพยาบาลบ้านหมอรักษ์สัตว์",
+   "tags": [
+    "รักษาสัตว์",
+    "วัคซีน",
+    "รักษาแมว"
+   ],
+   "phone": "086-930-3001,053-244-296",
+   "amphoe": "เมือง",
+   "modified": "2025-10-18",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-7773",
+   "metres": 0
+  },
+  {
+   "cmhy": "7889",
+   "name": "เวียงพิงค์รักษาสัตว์",
+   "tags": [
+    "ฉีดวัคซีน",
+    "กำจัดเห็บ",
+    "รักษาสัตว์"
+   ],
+   "phone": "092-615-5926,053-242-417",
+   "amphoe": "เมือง",
+   "modified": "2026-09-02",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-7889",
+   "metres": 0
+  },
+  {
+   "cmhy": "7900",
+   "name": "กงจา บริการอาบน้ำ ตัดขนสุนัข",
+   "tags": [
+    "บริการอาบน้ำ",
+    "ตัดขนสุนัข"
+   ],
+   "phone": "089-555-4477",
+   "amphoe": "เมือง",
+   "modified": "2024-05-27",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-7900",
+   "metres": 0
+  },
+  {
+   "cmhy": "83",
+   "name": "อนุรักษ์ ปลาสวยงาม",
+   "tags": [
+    "อาหารปลา",
+    "ปลาตู้",
+    "อุปกรณ์เลี้ยงปลา"
+   ],
+   "phone": "053-815862",
+   "amphoe": "เมือง",
+   "modified": "2022-01-15",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "8303",
+   "name": "น้ำปิงปศุสัตว์(สาขาข่วงสิงห์)",
+   "tags": [
+    "ยาสัตว์",
+    "อาหารสัตว์",
+    "วัคซีน"
+   ],
+   "phone": "053-212-918,0819817326",
+   "amphoe": "เมือง",
+   "modified": "2024-11-04",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-8303"
+  },
+  {
+   "cmhy": "8419",
+   "name": "โรงพยาบาลสัตว์เชียงใหม่-แม่ริม",
+   "tags": [
+    "โรงพยาบาลสัตว์",
+    "ผ่าคลอด",
+    "เอ็กซเรย์"
+   ],
+   "phone": "099-271-1616,089-633-7670",
+   "amphoe": "เมือง",
+   "modified": "2026-03-23",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-osm-node-4480934054",
+   "metres": 8
+  },
+  {
+   "cmhy": "8570",
+   "name": "น้ำปิงปศุสัตว์(สาขาบวกครก)",
+   "tags": [
+    "ยาสัตว์",
+    "อาหารสัตว์",
+    "วัคซีน"
+   ],
+   "phone": "053-116-568",
+   "amphoe": "เมือง",
+   "modified": "2021-10-23",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-8570"
+  },
+  {
+   "cmhy": "8594",
+   "name": "ฟิชมาเนีย",
+   "tags": [
+    "เลี้ยงปลา",
+    "อาหารปลา",
+    "จำหน่ายปลา"
+   ],
+   "phone": "53-117-387,089-7009459,081-5534065",
+   "amphoe": "เมือง",
+   "modified": "2021-10-23",
+   "trade": null,
+   "facets": {},
+   "refused": "no trade word in its own name or tags"
+  },
+  {
+   "cmhy": "8782",
+   "name": "ด็อกฟินเว่อร์ #หลังวัดโลกโมฬี",
+   "tags": [
+    "อาบน้ำหมา",
+    "กำจัดเห็บ",
+    "แต่งขนสุนัข"
+   ],
+   "phone": "083-574-0788",
+   "amphoe": "เมือง",
+   "modified": "2021-01-22",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-8782",
+   "metres": 0
+  },
+  {
+   "cmhy": "8849",
+   "name": "โรงพยาบาลสัตว์ สันทรายทอง",
+   "tags": [
+    "ฝากคลอดสัตว์",
+    "ทำหมันสัตว์",
+    "ผ่าคลอดสัตว์"
+   ],
+   "phone": "086-730-2207,053-380-063,086-730-2207",
+   "amphoe": "เมือง",
+   "modified": "2023-10-16",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-8849",
+   "metres": 0
+  },
+  {
+   "cmhy": "8871",
+   "name": "โรงพยาบาลสัตว์ทองหล่อ 24 ชั่วโมง",
+   "tags": [
+    "โรงพยาบาลสัตว์",
+    "โรคตาสัตว์",
+    "โรคผิวหนังสัตว์"
+   ],
+   "phone": "053-014-340,053-014-341",
+   "amphoe": "เมือง",
+   "modified": "2025-12-12",
+   "trade": "vet",
+   "facets": {
+    "open24": true
+   },
+   "osm": "cm-osm-node-3778360059",
+   "metres": 18
+  },
+  {
+   "cmhy": "9099",
+   "name": "ช้างน้อยสัตวแพทย์ รักษาสัตว์เฉพาะทาง โรคตาสัตว์",
+   "tags": [
+    "โรคตาสัตว์",
+    "รักษาสัตว์",
+    "รักษาตาสุนัข"
+   ],
+   "phone": "083-948-2244",
+   "amphoe": "เมือง",
+   "modified": "2025-10-30",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-9099",
+   "metres": 0
+  },
+  {
+   "cmhy": "9125",
+   "name": "หลังมอยาสัตว์",
+   "tags": [
+    "ยาสัตว์เลี้ยง",
+    "วัคซีนสัตว์เลี้ยง",
+    "อาหารสัตว์เลี้ยง"
+   ],
+   "phone": "086-420-6349,053-283-341",
+   "amphoe": "เมือง",
+   "modified": "2022-07-19",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-9125"
+  },
+  {
+   "cmhy": "9216",
+   "name": "สมายด๊อกซ์ กรูมมิ่ง",
+   "tags": [
+    "อาบน้ำ",
+    "ตัดขนสัตว์",
+    "ตัดขนหมา"
+   ],
+   "phone": "084-806-2960",
+   "amphoe": "เมือง",
+   "modified": "2024-06-18",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-9216",
+   "metres": 0
+  },
+  {
+   "cmhy": "9233",
+   "name": "คิกุจัง ตัดแต่งขนสุนัข",
+   "tags": [
+    "อาบน้ำสัตว์",
+    "ตัดขนสัตว์",
+    "ตัดแต่งขนสุนัข"
+   ],
+   "phone": "086-180-1368",
+   "amphoe": "เมือง",
+   "modified": "2021-10-07",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-9233",
+   "metres": 0
+  },
+  {
+   "cmhy": "9237",
+   "name": "อุ่นรักสัตวแพทย์",
+   "tags": [
+    "ตรวจเลือดสัตว์",
+    "วัคซีนสัตว์",
+    "ผ่าตัดสัตว์"
+   ],
+   "phone": "053-111-448,085-348-2996",
+   "amphoe": "เมือง",
+   "modified": "2021-10-07",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-osm-node-3419876094",
+   "metres": 11
+  },
+  {
+   "cmhy": "944",
+   "name": "โรงพยาบาลเอ็นดูรักษาสัตว์",
+   "tags": [
+    "ผังชิบ",
+    "วัคซีนสัตว์",
+    "อาบน้ำ"
+   ],
+   "phone": "053-890-797",
+   "amphoe": "เมือง",
+   "modified": "2020-03-21",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-osm-node-8586533311",
+   "metres": 3
+  },
+  {
+   "cmhy": "9751",
+   "name": "เดอะวัน เพ็ทมาร์ท อาหารสัตว์",
+   "tags": [
+    "อาหารสัตว์",
+    "อุปกรณ์สัตว์เลี้ยง"
+   ],
+   "phone": "096-838-1419",
+   "amphoe": "เมือง",
+   "modified": "2026-04-28",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-9751"
+  },
+  {
+   "cmhy": "9805",
+   "name": "ด๊อกเฮ้าส์",
+   "tags": [
+    "อาบน้ำ",
+    "ตัดขน",
+    "ฝากเลี้ยง"
+   ],
+   "phone": "084-177-4711",
+   "amphoe": "เมือง",
+   "modified": "2020-04-06",
+   "trade": "grooming",
+   "facets": {},
+   "osm": "cm-curated-grooming-9805",
+   "metres": 0
+  },
+  {
+   "cmhy": "9854",
+   "name": "เพ็ทวิลเลจ & เพ็ทซาลอน",
+   "tags": [
+    "รับฝากสัตว์เลี้ยง",
+    "ยาสัตว์",
+    "อาหารสัตว์"
+   ],
+   "phone": "053-444-094",
+   "amphoe": "เมือง",
+   "modified": "2023-10-18",
+   "trade": "petshop",
+   "facets": {},
+   "record": "cm-curated-petshop-9854"
+  },
+  {
+   "cmhy": "9890",
+   "name": "หมอฟ้ารักษ์สัตว์ ครอบครัวรักสัตว์ (หมอฟ้า)",
+   "tags": [
+    "วัคซีนสัตว์",
+    "รักษาสัตว์",
+    "ผ่าตัดสัตว์"
+   ],
+   "phone": "081-740-4078",
+   "amphoe": "เมือง",
+   "modified": "2025-08-08",
+   "trade": "vet",
+   "facets": {},
+   "osm": "cm-curated-vet-9890",
+   "metres": 0
+  }
+ ]
+}

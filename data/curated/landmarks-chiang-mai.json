@@ -1,0 +1,1896 @@
+[
+ {
+  "id": "cm-curated-chang-moi-gate",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "gate"
+  ],
+  "name": "ประตูช้างม่อย",
+  "nameTh": "ประตูช้างม่อย",
+  "nameEn": "Chang Moi Gate",
+  "lat": 18.793,
+  "lng": 98.9945,
+  "geoPrecision": "approx",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/gates/chang-moi-gate/"
+  },
+  "featured": true,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/gates/chang-moi-gate/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26",
+  "history": {
+   "en": "An outer gate in the earthen wall, dated to 1282 in the chronicle, gone since the 1910s. Between 1910 and 1915 the earth bank and the gate were removed and the inner brick wall pierced so that Ratchawithi Road could run straight out to the new Chang Moi Road and the river.\n\n*Inference —* this is the first documented case in the city of a wall giving way to a road, thirty-five years before the moat roads did it wholesale. The pattern was set: the straight line wins.",
+   "th": "ประตูชั้นนอกในกำแพงดิน ตำนานพื้นเมืองให้ปี พ.ศ. 1825 หายไปตั้งแต่ทศวรรษ 2450 ระหว่างปี 2453–2458 รื้อคันดินและประตู แล้วเจาะกำแพงอิฐชั้นในเพื่อให้ถนนราชวิถีวิ่งตรงออกไปถนนช้างม่อยสายใหม่และแม่น้ำ\n\n*อนุมาน —* นี่คือกรณีแรกที่มีบันทึกของเมืองที่กำแพงยอมให้ถนน สามสิบห้าปีก่อนถนนรอบคูเมืองจะทำแบบเดียวกันทั้งเวียง แบบแผนถูกวางไว้แล้ว เส้นตรงชนะ"
+  },
+  "gallery": [
+   {
+    "file": "photos/landmarks/chang-moi-gate/chang-moi-gate-chiang-mai-chang-moi-kao-road-0001.jpg",
+    "thumb": "photos/landmarks/chang-moi-gate/chang-moi-gate-chiang-mai-chang-moi-kao-road-0001.thumb.jpg",
+    "author": "Stefan Fussan",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AChiang_Mai_-_Chang_Moi_Kao_Road_-_0001.jpg",
+    "alt": "Chang Moi Kao Road, Chiang Mai, Thailand"
+   }
+  ]
+ },
+ {
+  "id": "cm-curated-chang-phueak-gate",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "gate"
+  ],
+  "name": "ประตูช้างเผือก",
+  "nameTh": "ประตูช้างเผือก",
+  "nameEn": "Chang Phueak Gate",
+  "lat": 18.7962,
+  "lng": 98.986,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/gates/chang-phueak-gate/",
+   "fieldScenes": [
+    {
+     "url": "/field/scenes/chang-phueak-gate-bastion/",
+     "th": "ป้อมมุมประตูช้างเผือก",
+     "en": "Chang Phueak Gate bastion"
+    }
+   ]
+  },
+  "featured": true,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/gates/chang-phueak-gate/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26",
+  "history": {
+   "en": "The northern gate, formerly Hua Wiang, the head of the city. Kings entered here; the road north to Mae Rim and Fang, Route 107, still begins outside it.\n\n*Tradition holds —* the north is the auspicious direction in Lanna town planning, so the gate at the head of the city was the ceremonial one. The white elephant monument beside it is a separate thing, from a separate century.",
+   "th": "ประตูด้านเหนือ เดิมชื่อประตูหัวเวียง หัวของเมือง กษัตริย์เข้าเมืองทางนี้ ถนนขึ้นเหนือไปแม่ริมและฝาง ทางหลวง 107 ยังเริ่มหน้าประตูนี้\n\n*ตามธรรมเนียม —* ทิศเหนือคือทิศมงคลในการวางผังเมืองล้านนา ประตูที่หัวเวียงจึงเป็นประตูพิธี อนุสาวรีย์ช้างเผือกข้าง ๆ เป็นคนละเรื่อง คนละศตวรรษ"
+  },
+  "gallery": [
+   {
+    "file": "photos/landmarks/chang-phueak-gate/chang-phueak-gate-201703291151b-p-chiang-mai-city-wall-chang-phuak-gate.jpg",
+    "thumb": "photos/landmarks/chang-phueak-gate/chang-phueak-gate-201703291151b-p-chiang-mai-city-wall-chang-phuak-gate.thumb.jpg",
+    "author": "Hartmann Linge",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3A201703291151b_P_Chiang_Mai%2C_City_Wall%2C_Chang_Phuak_Gate.jpg",
+    "alt": "Pratu Chang Phuak or Chang Phuak Gate is the northern gate in the city wall of Chiang Mai."
+   },
+   {
+    "file": "photos/landmarks/chang-phueak-gate/chang-phueak-gate-chang-phueak-gate-1.jpg",
+    "thumb": "photos/landmarks/chang-phueak-gate/chang-phueak-gate-chang-phueak-gate-1.thumb.jpg",
+    "author": "Krzysztof Golik",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AChang_Phueak_Gate_%281%29.jpg",
+    "alt": "Chang Phueak Gate in Chang Mai, Chang Mai Province, Thailand"
+   }
+  ]
+ },
+ {
+  "id": "cm-curated-chiang-mai-gate",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "gate"
+  ],
+  "name": "ประตูเชียงใหม่",
+  "nameTh": "ประตูเชียงใหม่",
+  "nameEn": "Chiang Mai Gate",
+  "lat": 18.7809,
+  "lng": 98.9865,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/gates/chiang-mai-gate/",
+   "fieldScenes": [
+    {
+     "url": "/field/scenes/chiang-mai-gate-across-the-roundabout/",
+     "th": "ประตูเชียงใหม่มองข้ามวงเวียน",
+     "en": "Chiang Mai Gate across the roundabout"
+    },
+    {
+     "url": "/field/scenes/chiang-mai-gate-market-s-roofline/",
+     "th": "หลังคาตลาดประตูเชียงใหม่",
+     "en": "Chiang Mai Gate Market&#x27;s roofline"
+    },
+    {
+     "url": "/field/scenes/chiang-mai-gate-market-under-the-trees/",
+     "th": "ตลาดประตูเชียงใหม่ใต้ร่มไม้",
+     "en": "Chiang Mai Gate market under the trees"
+    },
+    {
+     "url": "/field/scenes/chiang-mai-gate-s-brick-remnant/",
+     "th": "ซากกำแพงอิฐประตูเชียงใหม่",
+     "en": "Chiang Mai Gate&#x27;s brick remnant"
+    }
+   ]
+  },
+  "featured": true,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/gates/chiang-mai-gate/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26",
+  "history": {
+   "en": "The southern gate, formerly Tai Wiang, the foot of the city. A market sits against it, open before dawn, and Wua Lai Road runs south from it.",
+   "th": "ประตูด้านใต้ เดิมชื่อประตูท้ายเวียง ท้ายของเมือง มีกาดตั้งชิดประตู เปิดก่อนฟ้าสาง และถนนวัวลายวิ่งลงใต้จากตรงนี้"
+  },
+  "gallery": [
+   {
+    "file": "photos/landmarks/chiang-mai-gate/chiang-mai-gate-pratoo-chiang-mai-market-panoramio-gary4now.jpg",
+    "thumb": "photos/landmarks/chiang-mai-gate/chiang-mai-gate-pratoo-chiang-mai-market-panoramio-gary4now.thumb.jpg",
+    "author": "gary4now",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3APratoo_Chiang_Mai_market_-_panoramio_-_gary4now.jpg",
+    "alt": "Pratoo Chiang Mai market"
+   }
+  ]
+ },
+ {
+  "id": "cm-curated-hua-lin-corner",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "corner"
+  ],
+  "name": "แจ่งหัวลิน",
+  "nameTh": "แจ่งหัวลิน",
+  "nameEn": "Hua Lin Corner",
+  "lat": 18.796,
+  "lng": 98.9775,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/gates/hua-lin-corner/"
+  },
+  "featured": true,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/gates/hua-lin-corner/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26",
+  "history": {
+   "en": "The northwest corner of the moat, one of the four bastions (chaeng) added to the wall in later restorations. Where two straight sides of the moat meet, and where the one-way traffic makes its turn. Hua Lin means the head of the water channel: the moat was fed from Doi Suthep at this corner, and the water still enters here.",
+   "th": "แจ่งตะวันตกเฉียงเหนือของคูเมือง หนึ่งในสี่ป้อมมุมที่เพิ่มเข้าไปในการบูรณะยุคหลัง ตี้สองด้านตรงของคูเมืองมาบรรจบ และตี้รถทางเดียวเลี้ยวหัวมุม หัวลินแปลว่าหัวรางน้ำ คูเมืองรับน้ำจากดอยสุเทพที่แจ่งนี้ และน้ำยังเข้าตรงนี้"
+  },
+  "gallery": [
+   {
+    "file": "photos/landmarks/hua-lin-corner/hua-lin-corner-201703291201a-p-chiang-mai-city-wall-and-moat.jpg",
+    "thumb": "photos/landmarks/hua-lin-corner/hua-lin-corner-201703291201a-p-chiang-mai-city-wall-and-moat.thumb.jpg",
+    "author": "Hartmann Linge",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3A201703291201a_P_Chiang_Mai%2C_City_Wall_and_Moat.jpg",
+    "alt": "City moat of Chiang Mai between Hua Rin Corner and Chang Phuak Gate"
+   },
+   {
+    "file": "photos/landmarks/hua-lin-corner/hua-lin-corner-201703291210d-p-chiang-mai-city-wall-hua-lin-corner.jpg",
+    "thumb": "photos/landmarks/hua-lin-corner/hua-lin-corner-201703291210d-p-chiang-mai-city-wall-hua-lin-corner.thumb.jpg",
+    "author": "Hartmann Linge",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3A201703291210d_P_Chiang_Mai%2C_City_Wall%2C_Hua_Lin_Corner.jpg",
+    "alt": "Jaeng Hua Rin or Hua Rin Corner is the northwestern citadel of the Chiang Mai city wall. It was built at the turn of the 18th to the 19th century."
+   }
+  ]
+ },
+ {
+  "id": "cm-curated-katam-corner",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "corner"
+  ],
+  "name": "แจ่งก๊ะต๊ำ",
+  "nameTh": "แจ่งก๊ะต๊ำ",
+  "nameEn": "Katam Corner",
+  "lat": 18.7808,
+  "lng": 98.9938,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/gates/katam-corner/"
+  },
+  "featured": true,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/gates/katam-corner/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26",
+  "history": {
+   "en": "The southeast corner of the moat, one of the four bastions (chaeng) added to the wall in later restorations. Where two straight sides of the moat meet, and where the one-way traffic makes its turn. Katam is a fish trap in Kam Mueang; the corner where the moat water was let out and the fish gathered.",
+   "th": "แจ่งตะวันออกเฉียงใต้ของคูเมือง หนึ่งในสี่ป้อมมุมที่เพิ่มเข้าไปในการบูรณะยุคหลัง ตี้สองด้านตรงของคูเมืองมาบรรจบ และตี้รถทางเดียวเลี้ยวหัวมุม ก๊ะต๊ำคือเครื่องดักปลาในกำเมือง แจ่งตี้น้ำคูเมืองไหลออกและปลามารวมกัน"
+  },
+  "gallery": [
+   {
+    "file": "photos/landmarks/katam-corner/katam-corner-201703291051b-p-chiang-mai-city-wall-katam-corner.jpg",
+    "thumb": "photos/landmarks/katam-corner/katam-corner-201703291051b-p-chiang-mai-city-wall-katam-corner.thumb.jpg",
+    "author": "Hartmann Linge",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3A201703291051b_P_Chiang_Mai%2C_City_Wall%2C_Katam_Corner.jpg",
+    "alt": "Jaeng Katam or Katam Corner is the souteastern citadel of the Chiang Mai city wall. It was built at the turn of the 18th to the 19th century."
+   },
+   {
+    "file": "photos/landmarks/katam-corner/katam-corner-201703291052a-chiang-mai-city-wall-katam-corner.jpg",
+    "thumb": "photos/landmarks/katam-corner/katam-corner-201703291052a-chiang-mai-city-wall-katam-corner.thumb.jpg",
+    "author": "Hartmann Linge",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3A201703291052a_Chiang_Mai%2C_City_Wall%2C_Katam_Corner.jpg",
+    "alt": "Jaeng Katam or Katam Corner is the souteastern citadel of the Chiang Mai city wall. It was built at the turn of the 18th to the 19th century."
+   }
+  ]
+ },
+ {
+  "id": "cm-curated-ku-hueang-corner",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "corner"
+  ],
+  "name": "แจ่งกู่เฮือง",
+  "nameTh": "แจ่งกู่เฮือง",
+  "nameEn": "Ku Hueang Corner",
+  "lat": 18.7808,
+  "lng": 98.9775,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/gates/ku-hueang-corner/",
+   "fieldScenes": [
+    {
+     "url": "/field/scenes/festive-pavilion-at-the-chaeng-ku-hueang-corner-park/",
+     "th": "ศาลาประดับผ้าระบายที่สวนแจ่งกู่เฮือง",
+     "en": "Festive pavilion at the Chaeng Ku Hueang corner park"
+    }
+   ]
+  },
+  "featured": true,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/gates/ku-hueang-corner/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26",
+  "history": {
+   "en": "The southwest corner of the moat, one of the four bastions (chaeng) added to the wall in later restorations. Where two straight sides of the moat meet, and where the one-way traffic makes its turn. Ku Hueang is a reliquary: a chedi to a jailer, or a prince, depending on the telling.",
+   "th": "แจ่งตะวันตกเฉียงใต้ของคูเมือง หนึ่งในสี่ป้อมมุมที่เพิ่มเข้าไปในการบูรณะยุคหลัง ตี้สองด้านตรงของคูเมืองมาบรรจบ และตี้รถทางเดียวเลี้ยวหัวมุม กู่เฮืองคือกู่บรรจุอัฐิ ของผู้คุมคุกหรือของเจ้า แล้วแต่ตำนานที่เล่า"
+  },
+  "gallery": [
+   {
+    "file": "photos/landmarks/ku-hueang-corner/ku-hueang-corner-201703281534b-p-chiang-mai-city-wall-ku-ruang-corner.jpg",
+    "thumb": "photos/landmarks/ku-hueang-corner/ku-hueang-corner-201703281534b-p-chiang-mai-city-wall-ku-ruang-corner.thumb.jpg",
+    "author": "Hartmann Linge",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3A201703281534b_P_Chiang_Mai%2C_City_Wall%2C_Ku_Ruang_Corner.jpg",
+    "alt": "Chiang Mai city wall, Ku Ruang Coner (southwestern fort"
+   },
+   {
+    "file": "photos/landmarks/ku-hueang-corner/ku-hueang-corner-ku-huang-citadel-chiang-mai-02.jpg",
+    "thumb": "photos/landmarks/ku-hueang-corner/ku-hueang-corner-ku-huang-citadel-chiang-mai-02.thumb.jpg",
+    "author": "Takeaway",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AKu_Huang_citadel_Chiang_Mai_02.JPG",
+    "alt": "Ku Huang citadel: the south-west corner of the old city of Chiang Mai. Looking towards the east."
+   }
+  ]
+ },
+ {
+  "id": "cm-curated-si-phum-corner",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "corner"
+  ],
+  "name": "แจ่งศรีภูมิ",
+  "nameTh": "แจ่งศรีภูมิ",
+  "nameEn": "Si Phum Corner",
+  "lat": 18.796,
+  "lng": 98.9938,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/gates/si-phum-corner/"
+  },
+  "featured": true,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/gates/si-phum-corner/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26",
+  "history": {
+   "en": "The northeast corner of the moat, one of the four bastions (chaeng) added to the wall in later restorations. Where two straight sides of the moat meet, and where the one-way traffic makes its turn. The Kamphaeng Din, the outer earthen wall, begins its curve from here, and the corner was the auspicious one at the founding: the first brick of the city was laid at the northeast.",
+   "th": "แจ่งตะวันออกเฉียงเหนือของคูเมือง หนึ่งในสี่ป้อมมุมที่เพิ่มเข้าไปในการบูรณะยุคหลัง ตี้สองด้านตรงของคูเมืองมาบรรจบ และตี้รถทางเดียวเลี้ยวหัวมุม กำแพงดิน กำแพงดินชั้นนอก เริ่มโค้งจากตรงนี้ และแจ่งนี้เป็นแจ่งมงคลตอนสร้างเมือง อิฐก้อนแรกของเวียงวางที่ทิศตะวันออกเฉียงเหนือ"
+  },
+  "gallery": [
+   {
+    "file": "photos/landmarks/si-phum-corner/si-phum-corner-201703291134b-p-chiang-mai-city-wall-si-phum-corner.jpg",
+    "thumb": "photos/landmarks/si-phum-corner/si-phum-corner-201703291134b-p-chiang-mai-city-wall-si-phum-corner.thumb.jpg",
+    "author": "Hartmann Linge",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3A201703291134b_P_Chiang_Mai%2C_City_Wall%2C_Si_Phum_Corner.jpg",
+    "alt": "Jaeng Sri Phum or Sri Phum Corner is the norteastern citadel of the Chiang Mai city wall. It was built at the turn of the 18th to the 19th century."
+   },
+   {
+    "file": "photos/landmarks/si-phum-corner/si-phum-corner-201703291136c-chiang-mai-city-wall-si-phum-corner.jpg",
+    "thumb": "photos/landmarks/si-phum-corner/si-phum-corner-201703291136c-chiang-mai-city-wall-si-phum-corner.thumb.jpg",
+    "author": "Hartmann Linge",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3A201703291136c_Chiang_Mai%2C_City_Wall%2C_Si_Phum_Corner.jpg",
+    "alt": "Jaeng Sri Phum or Sri Phum Corner is the norteastern citadel of the Chiang Mai city wall. It was built at the turn of the 18th to the 19th century."
+   }
+  ]
+ },
+ {
+  "id": "cm-curated-suan-dok-gate",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "gate"
+  ],
+  "name": "ประตูสวนดอก",
+  "nameTh": "ประตูสวนดอก",
+  "nameEn": "Suan Dok Gate",
+  "lat": 18.7887,
+  "lng": 98.9776,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/gates/suan-dok-gate/",
+   "fieldScenes": [
+    {
+     "url": "/field/scenes/old-city-wall-near-suan-dok-gate/",
+     "th": "กำแพงเมืองเก่าใกล้ประตูสวนดอก",
+     "en": "The old city wall near Suan Dok Gate"
+    },
+    {
+     "url": "/field/scenes/suan-dok-gate-arch-over-the-avenue/",
+     "th": "ซุ้มประตูสวนดอกคร่อมถนน",
+     "en": "Suan Dok Gate arch over the avenue"
+    },
+    {
+     "url": "/field/scenes/suan-dok-gate-s-crenellated-brick-wall/",
+     "th": "กำแพงอิฐใบเสมาประตูสวนดอก",
+     "en": "Suan Dok Gate&#x27;s crenellated brick wall"
+    }
+   ]
+  },
+  "featured": true,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/gates/suan-dok-gate/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26",
+  "history": {
+   "en": "The western gate, the flower-garden gate, named for the royal garden that became Wat Suan Dok outside it. Suthep Road leaves here for the university and Doi Suthep.",
+   "th": "ประตูด้านตะวันตก ประตูสวนดอกไม้ ตั้งชื่อตามสวนหลวงที่กลายเป็นวัดสวนดอกหน้าประตู ถนนสุเทพออกจากตรงนี้ไปมหาวิทยาลัยและดอยสุเทพ"
+  },
+  "gallery": [
+   {
+    "file": "photos/landmarks/suan-dok-gate/suan-dok-gate-201703291225a-p-chiang-mai-city-wall-saun-dok-gate.jpg",
+    "thumb": "photos/landmarks/suan-dok-gate/suan-dok-gate-201703291225a-p-chiang-mai-city-wall-saun-dok-gate.thumb.jpg",
+    "author": "Hartmann Linge",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3A201703291225a_P_Chiang_Mai%2C_City_Wall%2C_Saun_Dok_Gate.jpg",
+    "alt": "Pratu Suan Dok or Suan Dok Gate is the western gate in the city wall of Chiang Mai."
+   },
+   {
+    "file": "photos/landmarks/suan-dok-gate/suan-dok-gate-moat-near-the-suan-dok-gate.jpg",
+    "thumb": "photos/landmarks/suan-dok-gate/suan-dok-gate-moat-near-the-suan-dok-gate.thumb.jpg",
+    "author": "Christophe95",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AMoat_near_the_Suan_Dok_Gate.jpg",
+    "alt": "Moat near the Suan Dok Gate in Chiang Mai."
+   }
+  ]
+ },
+ {
+  "id": "cm-curated-suan-prung-gate",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "gate"
+  ],
+  "name": "ประตูสวนปรุง",
+  "nameTh": "ประตูสวนปรุง",
+  "nameEn": "Suan Prung Gate",
+  "lat": 18.7809,
+  "lng": 98.9803,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/gates/suan-prung-gate/",
+   "fieldScenes": [
+    {
+     "url": "/field/scenes/suan-prung-gate-square-on-beside-the-bike/",
+     "th": "ประตูสวนปรุงมองตรงข้างรถ",
+     "en": "Suan Prung Gate, square-on beside the bike"
+    }
+   ]
+  },
+  "featured": true,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/gates/suan-prung-gate/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26",
+  "history": {
+   "en": "The second gate in the south wall, added under King Sam Fang Kaen in the 1400s, so that the south wall alone has two. The hospital of the same name is outside it.\n\n*Tradition holds —* the dead left the city through this gate, which is why it was cut into the south wall rather than the auspicious north. The road outside it is still the way to the crematorium.",
+   "th": "ประตูที่สองบนกำแพงด้านใต้ เพิ่มในสมัยพญาสามฝั่งแกนช่วงพุทธศตวรรษที่ 20 กำแพงใต้จึงมีสองประตู โรงพยาบาลชื่อเดียวกันอยู่นอกประตู\n\n*ตามธรรมเนียม —* ศพออกจากเวียงทางประตูนี้ นี่คือเหตุที่เจาะกำแพงใต้ ไม่ใช่ทิศเหนืออันเป็นมงคล ถนนหน้าประตูยังเป็นทางไปสุสาน"
+  },
+  "gallery": [
+   {
+    "file": "photos/landmarks/suan-prung-gate/suan-prung-gate-201703291143a-p-chiang-mai-city-moat.jpg",
+    "thumb": "photos/landmarks/suan-prung-gate/suan-prung-gate-201703291143a-p-chiang-mai-city-moat.thumb.jpg",
+    "author": "Hartmann Linge",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3A201703291143a_P_Chiang_Mai%2C_City_Moat.jpg",
+    "alt": "City moat of Chiang Mai between Chang Phuak Gate and Sri Phum Corner"
+   }
+  ]
+ },
+ {
+  "id": "cm-curated-tha-phae-gate",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "gate"
+  ],
+  "name": "ประตูท่าแพ",
+  "nameTh": "ประตูท่าแพ",
+  "nameEn": "Tha Phae Gate",
+  "lat": 18.7877,
+  "lng": 98.9932,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/gates/tha-phae-gate/",
+   "fieldScenes": [
+    {
+     "url": "/field/scenes/fountain-and-lamp-posts-at-tha-phae-gate-square/",
+     "th": "น้ำพุและเสาไฟที่ข่วงประตูท่าแพ",
+     "en": "Fountain and lamp posts at Tha Phae Gate Square"
+    },
+    {
+     "url": "/field/scenes/tha-phae-gate/",
+     "th": "ประตูท่าแพ",
+     "en": "Tha Phae Gate"
+    },
+    {
+     "url": "/field/scenes/tha-phae-gate-across-the-plaza/",
+     "th": "ประตูท่าแพมองข้ามลาน",
+     "en": "Tha Phae Gate across the plaza"
+    },
+    {
+     "url": "/field/scenes/tha-phae-gate-mural-at-sunset/",
+     "th": "ภาพวาดประตูท่าแพยามพระอาทิตย์ตก",
+     "en": "Tha Phae Gate mural at sunset"
+    },
+    {
+     "url": "/field/scenes/tha-phae-gate-s-crenellated-wall/",
+     "th": "กำแพงใบเสมาประตูท่าแพ",
+     "en": "Tha Phae Gate&#x27;s crenellated wall"
+    }
+   ]
+  },
+  "featured": true,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/gates/tha-phae-gate/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26",
+  "history": {
+   "en": "The eastern gate of the walled city, at the head of Tha Phae Road, facing the river a kilometre away. Originally Chiang Rueak Gate, after the trading village outside it.\n\nWhat stands there now is a reconstruction. The municipality and the Fine Arts Department rebuilt the gate and its lawn in 1985–87 from records, archaeology and a single old photograph; it is the only inner gate with a complete set of wooden doors.\n\n*Inference —* the lawn in front is the city's living room: the Sunday walking street begins here, protests gather here, and the pigeons are a business. A gate that was demolished in 1948 to make way for the moat roads became, forty years later, the picture on the postcard. That is the whole history of Chiang Mai's road-building in one square.",
+   "th": "ประตูด้านตะวันออกของเวียง อยู่หัวถนนท่าแพ หันหน้าไปทางแม่ปิงที่ห่างออกไปหนึ่งกิโลเมตร เดิมชื่อประตูเชียงเรือก ตามหมู่บ้านค้าขายที่อยู่หน้าประตู\n\nที่ยืนอยู่ตรงนั้นตอนนี้คือของสร้างใหม่ เทศบาลกับกรมศิลปากรสร้างประตูและสนามหญ้าขึ้นใหม่ในปี 2528–30 จากบันทึก หลักฐานโบราณคดี และรูปถ่ายเก่าเพียงรูปเดียว เป็นประตูชั้นในแห่งเดียวที่มีบานประตูไม้ครบ\n\n*อนุมาน —* สนามหญ้าหน้าประตูคือห้องนั่งเล่นของเมือง ถนนคนเดินวันอาทิตย์เริ่มตรงนี้ การชุมนุมรวมตัวตรงนี้ และนกพิราบเป็นธุรกิจ ประตูที่ถูกรื้อในปี 2491 เพื่อให้ถนนรอบคูเมืองผ่าน กลายเป็นรูปบนโปสการ์ดในอีกสี่สิบปีต่อมา นั่นคือประวัติการสร้างถนนของเชียงใหม่ทั้งหมดในจัตุรัสเดียว"
+  },
+  "gallery": [
+   {
+    "file": "photos/landmarks/tha-phae-gate/tha-phae-gate-201703291111a-chiang-mai-city-wall-tha-phae-gate.jpg",
+    "thumb": "photos/landmarks/tha-phae-gate/tha-phae-gate-201703291111a-chiang-mai-city-wall-tha-phae-gate.thumb.jpg",
+    "author": "Hartmann Linge",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3A201703291111a_Chiang_Mai%2C_City_Wall%2C_Tha_Phae_Gate.jpg",
+    "alt": "Pratu Tha Pae or Tha Pae Gate is the eastern gate in the city wall of Chiang Mai."
+   },
+   {
+    "file": "photos/landmarks/tha-phae-gate/tha-phae-gate-201703291115a-chiang-mai-city-wall-tha-phae-gate.jpg",
+    "thumb": "photos/landmarks/tha-phae-gate/tha-phae-gate-201703291115a-chiang-mai-city-wall-tha-phae-gate.thumb.jpg",
+    "author": "Hartmann Linge",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3A201703291115a_Chiang_Mai%2C_City_Wall%2C_Tha_Phae_Gate.jpg",
+    "alt": "Pratu Tha Pae or Tha Pae Gate is the eastern gate in the city wall of Chiang Mai."
+   },
+   {
+    "file": "photos/landmarks/tha-phae-gate/tha-phae-gate-20171105-tha-phae-gate-chiang-mai-9784-dxo.jpg",
+    "thumb": "photos/landmarks/tha-phae-gate/tha-phae-gate-20171105-tha-phae-gate-chiang-mai-9784-dxo.thumb.jpg",
+    "author": "Jakub Hałun",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3A20171105_Tha_Phae_Gate_Chiang_Mai_9784_DxO.jpg",
+    "alt": "Tha Phae Gate in Chiang Mai"
+   }
+  ]
+ },
+ {
+  "id": "cm-curated-arcade-bus-terminal",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "landmark"
+  ],
+  "name": "สถานีขนส่งอาเขต",
+  "nameTh": "สถานีขนส่งอาเขต",
+  "nameEn": "Arcade bus terminal",
+  "lat": 18.8033,
+  "lng": 99.018,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/places/arcade-bus-terminal/"
+  },
+  "featured": true,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/places/arcade-bus-terminal/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26",
+  "history": {
+   "en": "The intercity bus station on Kaew Nawarat Road, northeast of the river, beside the Superhighway. Terminals 2 and 3 serve the north and the rest of the country. Talk of a new terminal elsewhere turned up nothing this project could name.",
+   "th": "สถานีขนส่งระหว่างเมืองบนถนนแก้วนวรัฐ ทางตะวันออกเฉียงเหนือของแม่น้ำ ข้างซุปเปอร์ไฮเวย์ อาคาร 2 และ 3 รับสายเหนือและทั่วประเทศ เรื่องสถานีใหม่ที่อื่น โครงการนี้หาแหล่งที่ระบุชื่อได้บ่พบ"
+  },
+  "gallery": [
+   {
+    "file": "photos/landmarks/arcade-bus-terminal/arcade-bus-terminal-chiang-mai-thailand-taxis-at-arcade-bus-station-01.jpg",
+    "thumb": "photos/landmarks/arcade-bus-terminal/arcade-bus-terminal-chiang-mai-thailand-taxis-at-arcade-bus-station-01.thumb.jpg",
+    "author": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AChiang-Mai_Thailand_Taxis-at-Arcade-Bus-Station-01.jpg",
+    "alt": "Chiang Mai, Thailand: Tour taxis, waiting at the Arcade bus terminal"
+   }
+  ]
+ },
+ {
+  "id": "cm-curated-chiang-mai-airport",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "landmark"
+  ],
+  "name": "ท่าอากาศยานเชียงใหม่",
+  "nameTh": "ท่าอากาศยานเชียงใหม่",
+  "nameEn": "Chiang Mai Airport",
+  "lat": 18.7668,
+  "lng": 98.9626,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/places/chiang-mai-airport/"
+  },
+  "featured": true,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/places/chiang-mai-airport/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26",
+  "history": {
+   "en": "The airport sits inside the first ring, so close to the old city that Mahidol Road, the southern arc of that ring, had to be threaded past its fence. An upgrade of 24,000 million baht runs from 2025, and a second airport is planned across the provincial line at Ban Thi.",
+   "th": "สนามบินอยู่ในวงแหวนรอบแรก ใกล้เวียงเก่าขนาดถนนมหิดล ส่วนโค้งด้านใต้ของวงนั้น ต้องร้อยผ่านรั้วสนามบิน มีแผนปรับปรุง 24,000 ล้านบาทตั้งแต่ปี 2568 และวางแผนสนามบินแห่งที่สองข้ามเขตจังหวัดที่บ้านธิ"
+  },
+  "gallery": [
+   {
+    "file": "photos/landmarks/chiang-mai-airport/chiang-mai-airport-chiang-mai-airport-runway-aerial-view.jpg",
+    "thumb": "photos/landmarks/chiang-mai-airport/chiang-mai-airport-chiang-mai-airport-runway-aerial-view.thumb.jpg",
+    "author": "Adbar",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AChiang_Mai_Airport_runway_aerial_view.JPG",
+    "alt": "Aerial view of Chiang Mai International Airport's runways and of the southern part of the city. Picture taken from Doi Suthep temple."
+   },
+   {
+    "file": "photos/landmarks/chiang-mai-airport/chiang-mai-airport-chiang-mai-international-airport-2025.jpg",
+    "thumb": "photos/landmarks/chiang-mai-airport/chiang-mai-airport-chiang-mai-international-airport-2025.thumb.jpg",
+    "author": "Setawut",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AChiang_Mai_International_Airport_2025.jpg",
+    "alt": "Chiang Mai International Airport"
+   }
+  ]
+ },
+ {
+  "id": "cm-curated-chiang-mai-station",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "landmark"
+  ],
+  "name": "สถานีรถไฟเชียงใหม่",
+  "nameTh": "สถานีรถไฟเชียงใหม่",
+  "nameEn": "Chiang Mai railway station",
+  "lat": 18.7846,
+  "lng": 99.0169,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/places/chiang-mai-station/"
+  },
+  "featured": true,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/places/chiang-mai-station/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26",
+  "history": {
+   "en": "The end of the northern line, east of the river. The first train ran on 1 January 1921 through the Khun Tan tunnel; Tha Phae became the commercial centre in the years after, and most of the surviving heritage houses on that road date from that period. Charoen Mueang Road links the station to the Nawarat Bridge.",
+   "th": "ปลายทางรถไฟสายเหนือ ฝั่งตะวันออกของแม่น้ำ รถไฟขบวนแรกวิ่งวันที่ 1 มกราคม 2464 ผ่านอุโมงค์ขุนตาน ท่าแพกลายเป็นศูนย์กลางการค้าในปีต่อ ๆ มา และเรือนเก่าส่วนใหญ่บนถนนนั้นมาจากยุคนี้ ถนนเจริญเมืองเชื่อมสถานีกับสะพานนวรัฐ"
+  },
+  "gallery": [
+   {
+    "file": "photos/landmarks/chiang-mai-station/chiang-mai-station-chiang-mai-thailand-chiang-mai-railway-station-01.jpg",
+    "thumb": "photos/landmarks/chiang-mai-station/chiang-mai-station-chiang-mai-thailand-chiang-mai-railway-station-01.thumb.jpg",
+    "author": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AChiang_Mai_Thailand_Chiang-Mai-Railway-Station-01.jpg",
+    "alt": "Chiang Mai, Thailand: Chiang Mai Railway Station"
+   },
+   {
+    "file": "photos/landmarks/chiang-mai-station/chiang-mai-station-phap-mueang-thai-1943-p-063.jpg",
+    "thumb": "photos/landmarks/chiang-mai-station/chiang-mai-station-phap-mueang-thai-1943-p-063.thumb.jpg",
+    "author": "Office of the Prime Minister",
+    "license": "Public domain",
+    "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+    "source": "https://commons.wikimedia.org/wiki/File%3APhap_Mueang_Thai_%281943%2C_p_063%29.jpg",
+    "alt": "This picture is described as follows:\nOriginal caption: \"Northern Line railroad bridge.\""
+   }
+  ]
+ },
+ {
+  "id": "cm-curated-chiang-mai-university",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "landmark"
+  ],
+  "name": "มหาวิทยาลัยเชียงใหม่",
+  "nameTh": "มหาวิทยาลัยเชียงใหม่",
+  "nameEn": "Chiang Mai University",
+  "lat": 18.8005,
+  "lng": 98.952,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/places/chiang-mai-university/"
+  },
+  "featured": true,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/places/chiang-mai-university/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26",
+  "history": {
+   "en": "The university at the foot of Doi Suthep, opened 1964 on land the Nimmanhaemin family gave to the government in 1963. The road along the gift's edge, linking Suthep Road to Huay Kaew, took the family's name.",
+   "th": "มหาวิทยาลัยตีนดอยสุเทพ เปิดปี 2507 บนที่ดินที่ตระกูลนิมมานเหมินท์มอบให้รัฐบาลปี 2506 ถนนตามขอบที่ดินที่ยกให้ เชื่อมถนนสุเทพกับห้วยแก้ว ได้ชื่อตระกูล"
+  },
+  "gallery": [
+   {
+    "file": "photos/landmarks/chiang-mai-university/chiang-mai-university-chiang-mai-university-gate.jpg",
+    "thumb": "photos/landmarks/chiang-mai-university/chiang-mai-university-chiang-mai-university-gate.thumb.jpg",
+    "author": "Christophe95",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AChiang_Mai_University_gate.jpg",
+    "alt": "A gate of Chiang Mai University."
+   },
+   {
+    "file": "photos/landmarks/chiang-mai-university/chiang-mai-university-red-car-chiang-mai-queue-behind-chiang-mai-university.jpg",
+    "thumb": "photos/landmarks/chiang-mai-university/chiang-mai-university-red-car-chiang-mai-queue-behind-chiang-mai-university.thumb.jpg",
+    "author": "Patiparn.Nice2002bkk",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3ARed_Car_Chiang_Mai_queue_behind_Chiang_Mai_University.jpg",
+    "alt": "Red Car Chiang Mai queue behind Chiang Mai University"
+   }
+  ]
+ },
+ {
+  "id": "cm-curated-doi-suthep",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "landmark"
+  ],
+  "name": "ดอยสุเทพ",
+  "nameTh": "ดอยสุเทพ",
+  "nameEn": "Doi Suthep",
+  "lat": 18.8048,
+  "lng": 98.9217,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/places/doi-suthep/"
+  },
+  "featured": true,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/places/doi-suthep/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26",
+  "history": {
+   "en": "The mountain west of the city, 1,676 m, with the temple two-thirds of the way up. Huay Kaew Road and then the monk's road of 1935 climb it; the moat's water comes down from it; and the western ring road runs along its foot on the irrigation canal.\n\n*Inference —* the 2025 plan for an elevated road on Route 121 was argued against partly because it might block the view of this mountain from the plain. A road in this city is judged by whether you can still see the mountain over it.",
+   "th": "ดอยทางตะวันตกของเมือง สูง 1,676 เมตร มีวัดอยู่สองในสามของทางขึ้น ถนนห้วยแก้วแล้วต่อด้วยถนนครูบาปี 2478 ไต่ขึ้นไป น้ำคูเมืองไหลลงมาจากมัน และถนนวงแหวนด้านตะวันตกวิ่งเลียบตีนดอยบนคลองชลประทาน\n\n*อนุมาน —* แผนทางยกระดับบนทางหลวง 121 ปี 2568 ถูกคัดค้านส่วนหนึ่งเพราะอาจบังวิวดอยจากที่ราบ ถนนในเมืองนี้ถูกตัดสินด้วยว่ายังเห็นดอยข้ามมันได้ก่ออยู่"
+  },
+  "gallery": [
+   {
+    "file": "photos/landmarks/doi-suthep/doi-suthep-chiang-mai-panorama-from-doi-suthep-lookout-2014-08-08.jpg",
+    "thumb": "photos/landmarks/doi-suthep/doi-suthep-chiang-mai-panorama-from-doi-suthep-lookout-2014-08-08.thumb.jpg",
+    "author": "Pratyeka",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AChiang_Mai_Panorama_from_Doi_Suthep_Lookout_%282014-08-08%29.jpg",
+    "alt": "A panorama looking east back to the city of Chiang Mai from the lookout half-way up Doi Suthep, a famous mountain to the west of the city."
+   },
+   {
+    "file": "photos/landmarks/doi-suthep/doi-suthep-chiang-mai-pano-2010-0128.jpg",
+    "thumb": "photos/landmarks/doi-suthep/doi-suthep-chiang-mai-pano-2010-0128.thumb.jpg",
+    "author": "Takeaway",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AChiang_mai_pano_2010_0128.jpg",
+    "alt": "Panorama of the city of Chiang Mai, part of the surrounding valley and the mountains east of the city of Chiang Mai. The photo was made from the viewpoint halfway up the road towards Wat Phrathat Doi"
+   },
+   {
+    "file": "photos/landmarks/doi-suthep/doi-suthep-thaichiangmaidoisuthep.jpg",
+    "thumb": "photos/landmarks/doi-suthep/doi-suthep-thaichiangmaidoisuthep.thumb.jpg",
+    "author": "Ziegler175",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AThaiChiangMaiDoiSuthep.jpg",
+    "alt": "Blick vom Doi Suthep auf Chiang Mai"
+   }
+  ]
+ },
+ {
+  "id": "cm-curated-kamphaeng-din",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "landmark"
+  ],
+  "name": "กำแพงดิน",
+  "nameTh": "กำแพงดิน",
+  "nameEn": "Kamphaeng Din, the earthen wall",
+  "lat": 18.7855,
+  "lng": 98.999,
+  "geoPrecision": "approx",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/places/kamphaeng-din/"
+  },
+  "featured": true,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/places/kamphaeng-din/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26",
+  "history": {
+   "en": "A semicircular outer rampart of earth, running from Si Phum Corner round the east side and along the south to Ku Hueang Corner, enclosing the trading quarter between the square and the river. No firm date; presumed Mangrai's era. Brick was found under the bank on the southwest stretch. Parts survive beside the Night Bazaar, where Kamphaeng Din Road runs on its line.\n\n*Inference —* the earthen wall is the reason the city is not a square: the streets between Tha Phae and Chang Klan bend, because they follow a curve that has been demolished. The length in kilometres is not on this disk.",
+   "th": "กำแพงดินชั้นนอกรูปครึ่งวงกลม วิ่งจากแจ่งศรีภูมิอ้อมด้านตะวันออกและเลียบด้านใต้ไปแจ่งกู่เฮือง ล้อมย่านค้าขายระหว่างเวียงกับแม่น้ำ ไม่มีวันที่แน่ชัด สันนิษฐานว่าสมัยพญามังราย พบอิฐใต้คันดินช่วงตะวันตกเฉียงใต้ เหลือบางส่วนข้างไนท์บาซาร์ ตี้ถนนกำแพงดินวิ่งบนแนวเดิม\n\n*อนุมาน —* กำแพงดินคือเหตุที่เมืองบ่ใช่สี่เหลี่ยม ถนนระหว่างท่าแพกับช้างคลานโค้ง เพราะมันเดินตามเส้นโค้งที่ถูกรื้อไปแล้ว ความยาวเป็นกิโลเมตรบ่มีในแผ่นนี้"
+  },
+  "gallery": [
+   {
+    "file": "photos/landmarks/kamphaeng-din/kamphaeng-din-chiang-mai-city-map-chiengmai-1890.png",
+    "thumb": null,
+    "author": "James McCarthy (1853–1919)",
+    "license": "Public domain",
+    "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+    "source": "https://commons.wikimedia.org/wiki/File%3AChiang_Mai_City_Map_%28Chiengmai%29_1890.png",
+    "alt": "Chiang Mai City map of 1900. The city was also called Chiengmai in Thailand. The front of the temple faces east on the newly built Chang Moi Road, where Mae Kha Canal flows through. Along the second c"
+   }
+  ]
+ },
+ {
+  "id": "cm-curated-mae-kha-canal",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "landmark"
+  ],
+  "name": "คลองแม่ข่า",
+  "nameTh": "คลองแม่ข่า",
+  "nameEn": "Mae Kha canal",
+  "lat": 18.783,
+  "lng": 99.0,
+  "geoPrecision": "approx",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/places/mae-kha-canal/"
+  },
+  "featured": true,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/places/mae-kha-canal/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26",
+  "history": {
+   "en": "A stream of about 31 km that Mangrai counted among the site's seven auspicious features and used as the outer moat, east of the earthen wall. By the 2010s its water was in the worst pollution class. The municipality began a restoration in 2017 with 50 million baht and a master plan for 2018–22; the stretch behind Chang Klan is now a walkway.",
+   "th": "ลำน้ำราว 31 กม. ที่พญามังรายนับเป็นหนึ่งในชัยมงคลเจ็ดประการของที่ตั้งเมือง และใช้เป็นคูชั้นนอก ทางตะวันออกของกำแพงดิน ถึงทศวรรษ 2550 น้ำอยู่ในชั้นคุณภาพแย่ที่สุด เทศบาลเริ่มฟื้นฟูปี 2560 ด้วยงบ 50 ล้านบาทและแผนแม่บท 2561–65 ช่วงหลังช้างคลานตอนนี้เป็นทางเดิน"
+  },
+  "gallery": [
+   {
+    "file": "photos/landmarks/mae-kha-canal/mae-kha-canal-khlong-mae-kha.jpg",
+    "thumb": "photos/landmarks/mae-kha-canal/mae-kha-canal-khlong-mae-kha.thumb.jpg",
+    "author": "Vano111ru",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AKhlong_Mae_Kha.jpg",
+    "alt": "Khlong Mae Kha"
+   },
+   {
+    "file": "photos/landmarks/mae-kha-canal/mae-kha-canal-khlong-mae-kha-bridge-ragang-rd-img-20230225-172728.jpg",
+    "thumb": "photos/landmarks/mae-kha-canal/mae-kha-canal-khlong-mae-kha-bridge-ragang-rd-img-20230225-172728.thumb.jpg",
+    "author": "FredTC",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AKhlong_Mae_Kha_bridge_Ragang_Rd_IMG_20230225_172728.jpg",
+    "alt": "Dit is de brug aan de verkeersweg (Ragang Road)."
+   }
+  ]
+ },
+ {
+  "id": "cm-curated-ping-river",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "landmark"
+  ],
+  "name": "แม่น้ำปิง",
+  "nameTh": "แม่น้ำปิง",
+  "nameEn": "The Ping",
+  "lat": 18.79,
+  "lng": 99.004,
+  "geoPrecision": "approx",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/places/ping-river/",
+   "fieldScenes": [
+    {
+     "url": "/field/scenes/ping-river-toward-the-city-skyline/",
+     "th": "มองแม่น้ำปิงสู่เส้นขอบฟ้าเมือง",
+     "en": "Ping River toward the city skyline"
+    }
+   ]
+  },
+  "featured": true,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/places/ping-river/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26",
+  "history": {
+   "en": "The river east of the old city. Mangrai put the square on the higher ground between Doi Suthep and the Ping rather than on the bank; the bank flooded then and it floods now. Every bridge across it is counted on this site from the map, and the ones with a story have a record.\n\nIn October 2024 the gauge at Nawarat Bridge, P.1, read 5.30 m at noon on 5 October, 1.10 m over the bank, 638 cubic metres a second. Tha Phae Road flooded from the bridge to the bank at Krung Thai; the Superhighway, the Don Chan and Chiang Kham overpasses, all of Mahidol Road, Warorot Market, the railway station and Nong Prathip junction went under. The water stood about 2 km east of the river.",
+   "th": "แม่น้ำทางตะวันออกของเวียงเก่า พญามังรายวางเวียงบนที่สูงระหว่างดอยสุเทพกับแม่ปิง ไม่ใช่บนฝั่ง ฝั่งน้ำท่วมตอนนั้นและท่วมตอนนี้ ขัวข้ามทุกแห่งถูกนับจากแผนที่บนเว็บนี้ และขัวที่มีเรื่องเล่ามีบันทึกของตัวเอง\n\nตุลาคม 2567 สถานีวัดน้ำ P.1 ที่สะพานนวรัฐอ่านได้ 5.30 เมตรตอนเที่ยงวันที่ 5 ตุลาคม สูงกว่าตลิ่ง 1.10 เมตร 638 ลูกบาศก์เมตรต่อวินาที ถนนท่าแพจมจากสะพานถึงธนาคารกรุงไทย ซุปเปอร์ไฮเวย์ สะพานข้ามแยกดอนจั่นและเชียงคำ ถนนมหิดลทั้งสาย กาดหลวง สถานีรถไฟ และแยกหนองประทีปจมหมด น้ำแผ่ไปทางตะวันออกของแม่น้ำราว 2 กม."
+  },
+  "gallery": [
+   {
+    "file": "photos/landmarks/ping-river/ping-river-pano-cm-2010-0928a3-1.jpg",
+    "thumb": "photos/landmarks/ping-river/ping-river-pano-cm-2010-0928a3-1.thumb.jpg",
+    "author": "Takeaway",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3APano_CM_2010_0928a3-1.jpg",
+    "alt": "Panorama of Chiang Mai during the rainy season when the skies are more clear and the surroundings more luscious green. The image was taken from the viewpoint halfway up Doi Suthep. The mountains on th"
+   },
+   {
+    "file": "photos/landmarks/ping-river/ping-river-ping-river-1.jpg",
+    "thumb": "photos/landmarks/ping-river/ping-river-ping-river-1.thumb.jpg",
+    "author": "Rinto Jiang",
+    "license": "Public domain",
+    "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+    "source": "https://commons.wikimedia.org/wiki/File%3APing_River-1.JPG",
+    "alt": "Night view of Ping river from Nawarat Bridge"
+   },
+   {
+    "file": "photos/landmarks/ping-river/ping-river-ping-river-in-chiang-mai-4.jpg",
+    "thumb": "photos/landmarks/ping-river/ping-river-ping-river-in-chiang-mai-4.thumb.jpg",
+    "author": "Christophe95",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3APing_River_in_Chiang_Mai_4.jpg",
+    "alt": "View of the Ping River from the Nawarat Bridge in Chiang Mai."
+   },
+   {
+    "file": "photos/landmarks/ping-river/ping-river-athibai-rayathang-long-lamnam-phing-1930-p-21.jpg",
+    "thumb": "photos/landmarks/ping-river/ping-river-athibai-rayathang-long-lamnam-phing-1930-p-21.thumb.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain",
+    "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+    "source": "https://commons.wikimedia.org/wiki/File%3AAthibai_Rayathang_Long_Lamnam_Phing_%281930%2C_p_21%29.jpg",
+    "alt": "Original caption: \"Boat sailing amidst rapids\""
+   },
+   {
+    "file": "photos/landmarks/ping-river/ping-river-athibai-rayathang-long-lamnam-phing-1930-p-24.jpg",
+    "thumb": "photos/landmarks/ping-river/ping-river-athibai-rayathang-long-lamnam-phing-1930-p-24.thumb.jpg",
+    "author": "Unknown authorUnknown author",
+    "license": "Public domain",
+    "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+    "source": "https://commons.wikimedia.org/wiki/File%3AAthibai_Rayathang_Long_Lamnam_Phing_%281930%2C_p_24%29.jpg",
+    "alt": "Original caption: \"Boats sailing amidst rapids\""
+   }
+  ]
+ },
+ {
+  "id": "cm-curated-the-moat",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "landmark"
+  ],
+  "name": "คูเมือง",
+  "nameTh": "คูเมือง",
+  "nameEn": "The moat",
+  "lat": 18.7883,
+  "lng": 98.9855,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/places/the-moat/",
+   "fieldScenes": [
+    {
+     "url": "/field/scenes/giant-tiger-mural-over-the-moat-road/",
+     "th": "ภาพเสือขนาดยักษ์เหนือถนนริมคูเมือง",
+     "en": "Giant tiger mural over the moat road"
+    },
+    {
+     "url": "/field/scenes/red-footbridge-over-the-moat/",
+     "th": "สะพานไม้สีแดงข้ามคูเมือง",
+     "en": "Red footbridge over the moat"
+    },
+    {
+     "url": "/field/scenes/red-iron-footbridge-over-the-moat/",
+     "th": "สะพานเหล็กสีแดงข้ามคูเมือง",
+     "en": "Red iron footbridge over the moat"
+    },
+    {
+     "url": "/field/scenes/saen-pung-gate-wall-along-the-moat/",
+     "th": "กำแพงประตูแสนปุงริมคูเมือง",
+     "en": "Saen Pung Gate wall along the moat"
+    },
+    {
+     "url": "/field/scenes/shade-tree-reflected-in-the-moat-canal/",
+     "th": "ต้นไม้ใหญ่เงาสะท้อนในคูเมือง",
+     "en": "Shade tree reflected in the moat canal"
+    },
+    {
+     "url": "/field/scenes/temple-roof-across-the-moat/",
+     "th": "หลังคาวัดฝั่งตรงข้ามคูเมือง",
+     "en": "Temple roof across the moat"
+    },
+    {
+     "url": "/field/scenes/white-mansion-behind-the-moat-park/",
+     "th": "คฤหาสน์สีขาวหลังสวนคูเมือง",
+     "en": "White mansion behind the moat park"
+    },
+    {
+     "url": "/field/scenes/white-tower-across-the-moat/",
+     "th": "ตึกยอดแหลมสีขาวฝั่งคูเมือง",
+     "en": "White tower across the moat"
+    }
+   ]
+  },
+  "featured": true,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/places/the-moat/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26",
+  "history": {
+   "en": "The water square around the old city: 6.54 km round, about 1.6 by 1.7 km, the north side the longest at 1.67 km. About 13 m wide now, up to 25 m once, 4 m deep at most. Dug at the founding in 1296, deepened and given its corner bastions by later rulers.\n\nAbout 603 m of the original brick wall survive. The municipality, founded in 1936, began demolishing sections in 1948 to build the roads that now run on both banks. The wall and moat were registered as a national monument in 1935, thirteen years before the demolition began.\n\n*Inference —* every measurement on this site starts from this square. It is the one thing in the city that has not moved in 730 years, so it is the ruler everything else is laid against.",
+   "th": "สี่เหลี่ยมน้ำรอบเวียงเก่า ยาวรอบ 6.54 กม. ราว 1.6 คูณ 1.7 กม. ด้านเหนือยาวสุด 1.67 กม. กว้างราว 13 เมตรตอนนี้ เคยถึง 25 เมตร ลึกสุด 4 เมตร ขุดตอนสร้างเมืองปี 1839 ขุดลึกและเพิ่มแจ่งโดยเจ้าเมืองรุ่นหลัง\n\nกำแพงอิฐเดิมเหลือราว 603 เมตร เทศบาลซึ่งตั้งปี 2479 เริ่มรื้อบางช่วงในปี 2491 เพื่อสร้างถนนที่วิ่งบนสองฝั่งคูตอนนี้ กำแพงและคูขึ้นทะเบียนโบราณสถานปี 2478 สิบสามปีก่อนเริ่มรื้อ\n\n*อนุมาน —* ทุกการวัดบนเว็บนี้เริ่มจากสี่เหลี่ยมนี้ มันคือสิ่งเดียวในเมืองที่บ่ได้ขยับมา 730 ปี มันจึงเป็นไม้บรรทัดที่ทุกอย่างถูกวางเทียบ"
+  },
+  "gallery": [
+   {
+    "file": "photos/landmarks/the-moat/the-moat-201703291029a-chiang-mai-city-moat.jpg",
+    "thumb": "photos/landmarks/the-moat/the-moat-201703291029a-chiang-mai-city-moat.thumb.jpg",
+    "author": "Hartmann Linge",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3A201703291029a_Chiang_Mai%2C_City_Moat.jpg",
+    "alt": "City moat of Chiang Mai between Chiang Mai Gate and Suan Prung Gate"
+   },
+   {
+    "file": "photos/landmarks/the-moat/the-moat-201703291126a-chiang-mai-city-moat.jpg",
+    "thumb": "photos/landmarks/the-moat/the-moat-201703291126a-chiang-mai-city-moat.thumb.jpg",
+    "author": "Hartmann Linge",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3A201703291126a_Chiang_Mai%2C_City_Moat.jpg",
+    "alt": "City moat of Chiang Mai between Sri Phum Corner and Tha Phae Gate"
+   },
+   {
+    "file": "photos/landmarks/the-moat/the-moat-201703291220a-chiang-mai-city-moat.jpg",
+    "thumb": "photos/landmarks/the-moat/the-moat-201703291220a-chiang-mai-city-moat.thumb.jpg",
+    "author": "Hartmann Linge",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3A201703291220a_Chiang_Mai%2C_City_Moat.jpg",
+    "alt": "Undertaker beside the city moat of Chiang Mai between Suan Dok Gate and Hua Rin Corner"
+   }
+  ]
+ },
+ {
+  "id": "cm-curated-wiang-kum-kam",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "landmark"
+  ],
+  "name": "เวียงกุมกาม",
+  "nameTh": "เวียงกุมกาม",
+  "nameEn": "Wiang Kum Kam",
+  "lat": 18.75,
+  "lng": 99.005,
+  "geoPrecision": "approx",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/places/wiang-kum-kam/"
+  },
+  "featured": true,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/places/wiang-kum-kam/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26",
+  "history": {
+   "en": "Mangrai's first city on this plain, founded 1286 on the Ping's bank south of the present city and abandoned after floods; the ruins were dug out of the fields of Saraphi from 1984. The middle ring road has an underpass named for it.\n\n*Inference —* it is the argument for the moat square's location in one ruin. A city on the bank drowned; a city a kilometre from the bank is still here.",
+   "th": "เมืองแรกของพญามังรายบนที่ราบนี้ สร้างปี 1829 บนฝั่งแม่ปิงทางใต้ของเมืองปัจจุบัน ทิ้งร้างหลังน้ำท่วม ซากถูกขุดจากท้องนาสารภีตั้งแต่ปี 2527 ถนนวงแหวนรอบกลางมีทางลอดชื่อตามมัน\n\n*อนุมาน —* มันคือข้อโต้แย้งเรื่องตำแหน่งของเวียงสี่เหลี่ยมในซากเดียว เมืองบนฝั่งจม เมืองห่างฝั่งหนึ่งกิโลยังอยู่"
+  },
+  "gallery": [
+   {
+    "file": "photos/landmarks/wiang-kum-kam/wiang-kum-kam-wiang-kum-kam-174064203.jpg",
+    "thumb": "photos/landmarks/wiang-kum-kam/wiang-kum-kam-wiang-kum-kam-174064203.thumb.jpg",
+    "author": "Mathew Schwartz",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AWiang_Kum_Kam_%28174064203%29.jpeg",
+    "alt": "500px provided description: Chiangmai Thailand, one of the many sites part of the Wiang Kum Kam. This site was excavated and its original form. Really amazing to see something so old and well preserve"
+   },
+   {
+    "file": "photos/landmarks/wiang-kum-kam/wiang-kum-kam-wiang-kum-kam-1.jpg",
+    "thumb": "photos/landmarks/wiang-kum-kam/wiang-kum-kam-wiang-kum-kam-1.thumb.jpg",
+    "author": "Mathew Schwartz",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AWiang_Kum_Kam_1.jpg",
+    "alt": "Wiang Kum Kam 1.jpg"
+   }
+  ]
+ },
+ {
+  "id": "cm-curated-chansom-memorial-bridge",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "bridge"
+  ],
+  "name": "สะพานจันทร์สมอนุสรณ์",
+  "nameTh": "สะพานจันทร์สมอนุสรณ์",
+  "nameEn": "Chansom Memorial Bridge",
+  "lat": 18.793,
+  "lng": 99.0045,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/bridges/chansom-memorial-bridge/"
+  },
+  "featured": true,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/bridges/chansom-memorial-bridge/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26",
+  "history": {
+   "en": "A road bridge over the Ping in the city centre, carrying the Chang Moi–Wat Ket link. Its date is not on this disk; it is counted with the rest on the crossings page and has a picture.",
+   "th": "ขัวรถข้ามแม่ปิงในใจกลางเมือง รับถนนเชื่อมช้างม่อย–วัดเกต วันที่บ่มีในแผ่นนี้ ถูกนับรวมกับขัวอื่นบนหน้าจุดข้าม และมีรูป"
+  },
+  "gallery": [
+   {
+    "file": "photos/landmarks/chansom-memorial-bridge/chansom-memorial-bridge-chansom-memorial-bridge.jpg",
+    "thumb": "photos/landmarks/chansom-memorial-bridge/chansom-memorial-bridge-chansom-memorial-bridge.thumb.jpg",
+    "author": "This Photo was taken by Supanut Arunoprayote.\n\nFeel free to use any of my images, but please mention me as the author and may send me a message.  (สามารถใช้ภาพได้อิสระ แต่กรุณาใส่เครดิตผู้ถ่ายและอาจส่",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AChansom_Memorial_Bridge.jpg",
+    "alt": "Chansom Memorial Bridge, Chiang Mai."
+   },
+   {
+    "file": "photos/landmarks/chansom-memorial-bridge/chansom-memorial-bridge-ping-river-in-chiang-mai-1.jpg",
+    "thumb": "photos/landmarks/chansom-memorial-bridge/chansom-memorial-bridge-ping-river-in-chiang-mai-1.thumb.jpg",
+    "author": "Christophe95",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3APing_River_in_Chiang_Mai_1.jpg",
+    "alt": "View of the Ping River from the Chansom Memorial Bridge in Chiang Mai."
+   }
+  ]
+ },
+ {
+  "id": "cm-curated-iron-bridge",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "bridge"
+  ],
+  "name": "ขัวเหล็ก",
+  "nameTh": "ขัวเหล็ก",
+  "nameEn": "Khua Lek, the Iron Bridge",
+  "lat": 18.784,
+  "lng": 99.0035,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/bridges/iron-bridge/"
+  },
+  "featured": true,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/bridges/iron-bridge/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26",
+  "history": {
+   "en": "The steel truss bridge south of Nawarat, at the end of Loi Kroh Road, painted and lit and mostly walked. Its dates and its builder are on the English Wikipedia page this record cites and are not repeated here without checking; what this site vouches for is that the name is khua, not saphan, in every mouth in the city.",
+   "th": "ขัวเหล็กโครงถักทางใต้ของนวรัฐ ปลายถนนลอยเคราะห์ ทาสี ติดไฟ และส่วนใหญ่ใช้เดิน วันที่และผู้สร้างอยู่ในหน้าวิกิพีเดียอังกฤษที่บันทึกนี้อ้าง และไม่นำมาพูดซ้ำโดยไม่ตรวจ สิ่งที่เว็บนี้รับรองคือชื่อมันคือขัว ไม่ใช่สะพาน ในทุกปากในเมือง"
+  },
+  "gallery": [
+   {
+    "file": "photos/landmarks/iron-bridge/iron-bridge-iron-bridge-in-chiang-mai.jpg",
+    "thumb": "photos/landmarks/iron-bridge/iron-bridge-iron-bridge-in-chiang-mai.thumb.jpg",
+    "author": "Christophe95",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AIron_Bridge_in_Chiang_Mai.jpg",
+    "alt": "View of the Iron Bridge in Chiang Mai."
+   },
+   {
+    "file": "photos/landmarks/iron-bridge/iron-bridge-ping-river-in-chiang-mai-panoramio-erebusso-7.jpg",
+    "thumb": "photos/landmarks/iron-bridge/iron-bridge-ping-river-in-chiang-mai-panoramio-erebusso-7.thumb.jpg",
+    "author": "Erebusso.",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3APing_River_in_Chiang_Mai_-_panoramio_-_Erebusso._%287%29.jpg",
+    "alt": "Ping River in Chiang Mai with Khua Lek (Iron Bridge) and Diamond Riverside Hotel."
+   }
+  ]
+ },
+ {
+  "id": "cm-curated-moat-bridges",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "bridge"
+  ],
+  "name": "ขัวข้ามคูเมือง",
+  "nameTh": "ขัวข้ามคูเมือง",
+  "nameEn": "The bridges over the moat",
+  "lat": 18.7883,
+  "lng": 98.9855,
+  "geoPrecision": "approx",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/bridges/moat-bridges/"
+  },
+  "featured": true,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/bridges/moat-bridges/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26",
+  "history": {
+   "en": "The moat is crossed by short road and foot bridges at the gates and between them. They are counted from the map on the crossings page alongside the Ping bridges; the Loi Kroh bridge and the one people call the rat bridge have pictures.",
+   "th": "คูเมืองถูกข้ามด้วยขัวรถและขัวคนสั้น ๆ ตรงประตูและระหว่างประตู ถูกนับจากแผนที่บนหน้าจุดข้ามพร้อมขัวแม่ปิง ขัวลอยเคราะห์และขัวที่คนเรียกขัวหนูมีรูป"
+  },
+  "gallery": [
+   {
+    "file": "photos/landmarks/moat-bridges/moat-bridges-chiang-mai-thailand-loi-krohi-road-bridge-01.jpg",
+    "thumb": "photos/landmarks/moat-bridges/moat-bridges-chiang-mai-thailand-loi-krohi-road-bridge-01.thumb.jpg",
+    "author": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AChiang-Mai_Thailand_Loi-Krohi-Road-Bridge-01.jpg",
+    "alt": "Chiang Mai, Thailand: Bridge over the moat at Loi Kroh Road, decorated with two golden lions"
+   },
+   {
+    "file": "photos/landmarks/moat-bridges/moat-bridges-chiang-mai-thailand-rat-bridge-01.jpg",
+    "thumb": "photos/landmarks/moat-bridges/moat-bridges-chiang-mai-thailand-rat-bridge-01.thumb.jpg",
+    "author": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AChiang-Mai_Thailand_Rat-Bridge-01.jpg",
+    "alt": "Chiang Mai, Thailand: The \"Rat Bridge\" over a moat at Sridonchai Road"
+   },
+   {
+    "file": "photos/landmarks/moat-bridges/moat-bridges-chiang-mai-moat-and-road.jpg",
+    "thumb": "photos/landmarks/moat-bridges/moat-bridges-chiang-mai-moat-and-road.thumb.jpg",
+    "author": "Douglas Perkins",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3AChiang_Mai_Moat_and_Road.jpg",
+    "alt": "The moat of Chiang Mai during the day.  A road is on the left, and the moat is on the right.  This picture was taken on the north side of the city center.  Thailand."
+   }
+  ]
+ },
+ {
+  "id": "cm-curated-nawarat-bridge",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "bridge"
+  ],
+  "name": "สะพานนวรัฐ",
+  "nameTh": "สะพานนวรัฐ",
+  "nameEn": "Nawarat Bridge",
+  "lat": 18.7877,
+  "lng": 99.0033,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/bridges/nawarat-bridge/"
+  },
+  "featured": true,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/bridges/nawarat-bridge/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26",
+  "history": {
+   "en": "The bridge at the foot of Tha Phae Road, named for Chao Kaew Nawarat, the last ruler. A teak bridge about 1890; a steel one begun 1921 after the wooden one burned and opened 1923; the present reinforced-concrete bridge completed 1967 and opened 26 December that year. The Ping gauge P.1 is here, and it read 5.30 m at noon on 5 October 2024.",
+   "th": "ขัวตีนถนนท่าแพ ตั้งชื่อตามเจ้าแก้วนวรัฐ เจ้าหลวงองค์สุดท้าย ขัวไม้สักราว 2433 ขัวเหล็กเริ่ม 2464 หลังขัวไม้ไหม้ เปิด 2466 ขัวคอนกรีตเสริมเหล็กปัจจุบันเสร็จ 2510 เปิด 26 ธันวาคมปีนั้น สถานีวัดน้ำ P.1 อยู่ตรงนี้ และอ่านได้ 5.30 เมตรตอนเที่ยง 5 ตุลาคม 2567"
+  },
+  "gallery": [
+   {
+    "file": "photos/landmarks/nawarat-bridge/nawarat-bridge-nawarat-bridge-1.jpg",
+    "thumb": "photos/landmarks/nawarat-bridge/nawarat-bridge-nawarat-bridge-1.thumb.jpg",
+    "author": "Rinto Jiang",
+    "license": "Public domain",
+    "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+    "source": "https://commons.wikimedia.org/wiki/File%3ANawarat_Bridge_1.jpg",
+    "alt": "Nawarat Bridge in the night"
+   },
+   {
+    "file": "photos/landmarks/nawarat-bridge/nawarat-bridge-.jpg",
+    "thumb": "photos/landmarks/nawarat-bridge/nawarat-bridge-.thumb.jpg",
+    "author": "กสิณธร ราชโอรส",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "https://commons.wikimedia.org/wiki/File%3A%E0%B8%AA%E0%B8%B0%E0%B8%9E%E0%B8%B2%E0%B8%99%E0%B8%99%E0%B8%A7%E0%B8%A3%E0%B8%B1%E0%B8%90_%E0%B8%AD.%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87_%E0%B8%88.%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88.jpg",
+    "alt": "สะพานนวรัฐ อ.เมือง จ.เชียงใหม่.jpg"
+   },
+   {
+    "file": "photos/landmarks/nawarat-bridge/nawarat-bridge-navarat-bridge-chiangmai-1954.jpg",
+    "thumb": "photos/landmarks/nawarat-bridge/nawarat-bridge-navarat-bridge-chiangmai-1954.thumb.jpg",
+    "author": "Photography Section, Public Relations Department / Thailand Illustrated",
+    "license": "Public domain",
+    "licenseUrl": "https://en.wikipedia.org/wiki/Public_domain",
+    "source": "https://commons.wikimedia.org/wiki/File%3A%E0%B8%AA%E0%B8%B0%E0%B8%9E%E0%B8%B2%E0%B8%99%E0%B8%99%E0%B8%A7%E0%B8%A3%E0%B8%B1%E0%B8%95%E0%B8%99%E0%B9%8C_%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88_Navarat_Bridge_Chiangmai_1954.jpg",
+    "alt": "Navarat Bridge in 1954"
+   }
+  ]
+ },
+ {
+  "id": "cm-curated-airport-junction",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "junction"
+  ],
+  "name": "แยกสนามบิน",
+  "nameTh": "แยกสนามบิน",
+  "nameEn": "Airport junction",
+  "lat": 18.7735,
+  "lng": 98.9705,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/junctions/airport-junction/"
+  },
+  "featured": false,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/junctions/airport-junction/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26"
+ },
+ {
+  "id": "cm-curated-fa-ham-underpass",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "junction"
+  ],
+  "name": "ทางลอดฟ้าฮ่าม",
+  "nameTh": "ทางลอดฟ้าฮ่าม",
+  "nameEn": "Fa Ham underpass",
+  "lat": 18.808,
+  "lng": 99.01,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/junctions/fa-ham-underpass/"
+  },
+  "featured": false,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/junctions/fa-ham-underpass/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26"
+ },
+ {
+  "id": "cm-curated-khuang-sing-underpass",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "junction"
+  ],
+  "name": "ทางลอดข่วงสิงห์",
+  "nameTh": "ทางลอดข่วงสิงห์",
+  "nameEn": "Khuang Sing underpass",
+  "lat": 18.8135,
+  "lng": 98.982,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/junctions/khuang-sing-underpass/"
+  },
+  "featured": false,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/junctions/khuang-sing-underpass/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26"
+ },
+ {
+  "id": "cm-curated-nong-hoi-junction",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "junction"
+  ],
+  "name": "แยกหนองหอย",
+  "nameTh": "แยกหนองหอย",
+  "nameEn": "Nong Hoi junction",
+  "lat": 18.7735,
+  "lng": 99.011,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/junctions/nong-hoi-junction/"
+  },
+  "featured": false,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/junctions/nong-hoi-junction/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26"
+ },
+ {
+  "id": "cm-curated-rincome-junction",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "junction"
+  ],
+  "name": "แยกรินคำ",
+  "nameTh": "แยกรินคำ",
+  "nameEn": "Rincome junction",
+  "lat": 18.8003,
+  "lng": 98.9672,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/junctions/rincome-junction/"
+  },
+  "featured": false,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/junctions/rincome-junction/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26"
+ },
+ {
+  "id": "cm-curated-ring-2-underpasses",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "junction"
+  ],
+  "name": "ทางลอดเจ็ดแห่งของวงแหวนรอบกลาง",
+  "nameTh": "ทางลอดเจ็ดแห่งของวงแหวนรอบกลาง",
+  "nameEn": "The seven underpasses of the middle ring",
+  "lat": 18.7883,
+  "lng": 98.9855,
+  "geoPrecision": "approx",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/junctions/ring-2-underpasses/"
+  },
+  "featured": false,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/junctions/ring-2-underpasses/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26"
+ },
+ {
+  "id": "cm-curated-san-dek-underpass",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "junction"
+  ],
+  "name": "ทางลอดสันเด็ก",
+  "nameTh": "ทางลอดสันเด็ก",
+  "nameEn": "San Dek underpass",
+  "lat": 18.8005,
+  "lng": 99.018,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/junctions/san-dek-underpass/"
+  },
+  "featured": false,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/junctions/san-dek-underpass/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26"
+ },
+ {
+  "id": "cm-curated-san-klang-interchange",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "junction"
+  ],
+  "name": "ทางแยกต่างระดับสันกลาง",
+  "nameTh": "ทางแยกต่างระดับสันกลาง",
+  "nameEn": "San Klang interchange",
+  "lat": 18.776,
+  "lng": 99.07,
+  "geoPrecision": "exact",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/junctions/san-klang-interchange/"
+  },
+  "featured": false,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/junctions/san-klang-interchange/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26"
+ },
+ {
+  "id": "cm-curated-san-pa-tong-underpass",
+  "province": "cm",
+  "cat": [
+   "sights"
+  ],
+  "sub": [
+   "junction"
+  ],
+  "name": "อุโมงค์เลี่ยงเมืองสันป่าตอง–หางดง",
+  "nameTh": "อุโมงค์เลี่ยงเมืองสันป่าตอง–หางดง",
+  "nameEn": "San Pa Tong–Hang Dong bypass underpass",
+  "lat": 18.7,
+  "lng": 98.92,
+  "geoPrecision": "approx",
+  "address": null,
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "roadsUrl": "/roads/junctions/san-pa-tong-underpass/"
+  },
+  "featured": false,
+  "landmark": true,
+  "sources": [
+   {
+    "type": "curated",
+    "ref": "/roads/junctions/san-pa-tong-underpass/",
+    "credit": "Roads of Chiang Mai",
+    "fetched": "2026-09-21"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-09-26"
+ }
+]

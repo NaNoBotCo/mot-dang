@@ -5,7 +5,7 @@
   "title": ["ฟอกไต เชียงใหม่", "Dialysis, Chiang Mai"],
   "h1": ["ฟอกไต — เก้าอี้ เวลา และสิทธิ ในเชียงใหม่", "Dialysis — chairs, hours and entitlement in Chiang Mai"],
   "desc": ["หน่วยไตเทียมของโรงพยาบาลและคลินิกฟอกไตในเชียงใหม่ — ชั้นที่ห้องอยู่ เวลาที่เปิดจริง และสองวิธีที่คนละเรื่องกัน: ฟอกเลือดกับล้างช่องท้อง", "Hospital dialysis units and dialysis clinics in Chiang Mai — the floor the room is on, the hours they actually open, and the two methods that are not the same thing: haemodialysis and peritoneal dialysis."],
-  "intro": ["ฟอกไตมีสองวิธี: ฟอกเลือดด้วยเครื่องไตเทียม (ไปหน่วยฟอก สัปดาห์ละ 2–3 ครั้ง ครั้งละราว 4 ชั่วโมง) กับล้างไตทางช่องท้อง (ทำเองที่บ้านทุกวัน) หน่วยฟอกในเมืองนี้เปิดเช้ามาก เพราะเก้าอี้หนึ่งตัวรับคนได้หลายรอบต่อวัน หน้านี้อ่านจากหน้าของแต่ละที่เอง ทุกแถวมีเกรดบอกว่าใครพูด ไม่ใช่คำแนะนำทางการแพทย์ เรื่องสิทธิให้ถามหน่วยบริการและสายด่วน สปสช. 1330 เพราะเกณฑ์เปลี่ยนล่าสุดเมื่อ 1 เม.ย. 2568", "Dialysis comes two ways: haemodialysis on a machine (two or three visits a week, about four hours each) and peritoneal dialysis (done at home, daily). Units in this city open very early, because one chair takes several people a day. Read from each place's own site; every row carries a grade. Not medical advice. On entitlement, ask the unit and the NHSO line 1330 — the rules last changed on 1 April 2025."],
+  "intro": ["ฟอกไตมีสองวิธี: ฟอกเลือดด้วยเครื่องไตเทียม (ไปหน่วยฟอก สัปดาห์ละ 2–3 ครั้ง ครั้งละราว 4 ชั่วโมง) กับล้างไตทางช่องท้อง (ทำเองที่บ้านทุกวัน) หน่วยฟอกในเมืองนี้เปิดเช้ามาก เพราะเก้าอี้หนึ่งตัวรับคนได้หลายรอบต่อวัน หน้านี้อ่านจากหน้าของแต่ละที่เอง ทุกแถวมีเกรดบอกว่าใครพูด เรื่องสิทธิ: สายด่วน สปสช. 1330 เกณฑ์เปลี่ยนล่าสุดเมื่อ 1 เม.ย. 2568", "Dialysis comes two ways: haemodialysis on a machine (two or three visits a week, about four hours each) and peritoneal dialysis (done at home, daily). Units in this city open very early, because one chair takes several people a day. Read from each place's own site; every row carries a grade. On entitlement: the NHSO line is 1330, and the rules last changed on 1 April 2025."],
   "sections": [["hospital", "หน่วยไตเทียมในโรงพยาบาล", "Hospital dialysis units"], ["clinic", "คลินิกฟอกไต", "Dialysis clinics"]],
   "for": {"hd": ["ฟอกเลือด (เครื่องไตเทียม)", "haemodialysis"], "pd": ["ล้างช่องท้อง", "peritoneal dialysis"]},
   "census": [["ไตเทียม/ฟอกไต (ชื่อ)", "dialysis names", "ไตเทียม|ฟอกไต|ฟอกเลือด|dialysis"], ["โรคไต", "kidney names", "โรคไต|ไตวาย|nephro"]],
@@ -44,8 +44,8 @@
     {"key": "pd-project", "section": "clinic", "for": ["pd"], "grade": "listed",
      "name_th": "โครงการรักษาผู้ป่วยไตวายเรื้อรัง ด้วยการล้างช่องท้อง", "name_en": "Chronic kidney failure — peritoneal dialysis programme",
      "placeIds": ["cm-curated-dialysis-14509"], "site": "", "phone": "", "hours": "",
-     "note_th": "แถวเดียวในสารบัญที่พูดถึงการล้างช่องท้อง (แก้ไข 2021-06-04 — เก่า) ล้างช่องท้องคือวิธีที่ทำเองที่บ้านทุกวัน ไม่ต้องมาที่หน่วยฟอก และเป็นทางเลือกแรกที่ สปสช. ผลักดันตั้งแต่ 1 เม.ย. 2568 — ตรวจกับหน่วยบริการก่อน แถวนี้เก่าแล้ว",
-     "note_en": "The one directory row that names peritoneal dialysis (modified 2021-06-04 — old). PD is done at home daily rather than at a unit, and is the first option the NHSO has pushed since 1 April 2025. Check with a unit; this row is stale.",
+     "note_th": "แถวเดียวในสารบัญที่พูดถึงการล้างช่องท้อง (แก้ไข 2021-06-04 — เก่า) ล้างช่องท้องคือวิธีที่ทำเองที่บ้านทุกวัน ไม่ต้องมาที่หน่วยฟอก และเป็นทางเลือกแรกที่ สปสช. ผลักดันตั้งแต่ 1 เม.ย. 2568 — แถวนี้เก่าแล้ว",
+     "note_en": "The one directory row that names peritoneal dialysis (modified 2021-06-04 — old). PD is done at home daily rather than at a unit, and is the first option the NHSO has pushed since 1 April 2025. This row is stale.",
      "evidence": "#ไตวายเรื้อรัง #ล้างช่องท้อง #ฟอกไต", "src": "https://www.cmhy.city/place/14509", "fetched": "2026-09-04"}
   ],
   "registers": [

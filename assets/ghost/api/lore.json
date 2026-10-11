@@ -1,0 +1,184 @@
+{
+ "intro": [
+  "The stops on this route each have something attached to them. These do not. They are the rest of the northern dead — the ones a Chiang Mai household deals with at home, in the fields, at the edge of the forest, and at a funeral, with no address you can walk to.",
+  "The north sorts them into two piles before it says anything else about them. ผีดี are the ones you feed. ผีร้าย are the ones you keep off. Almost everything else in the system follows from which pile a dead person landed in, and that is usually decided by how they died and whether anyone was left to do the rites."
+ ],
+ "groups": [
+  {
+   "id": "good",
+   "name": "The ones you feed",
+   "th": "ผีดี",
+   "lede": "Ancestors and guardians. They are not frightening and they are not optional: they hold a house, a field, a stream, a wat or a city together, and they go off if they are neglected.",
+   "entries": [
+    {
+     "th": "ผีปู่ย่า",
+     "rtgs": "phi pu ya",
+     "name": "The grandparents",
+     "text": "The household's own dead, in a small house on a post in the compound. A northern family feeds them, tells them about a marriage or a move, and apologises to them. The national museum in Chiang Mai keeps this as the base of the whole system: before any of the rest of it, a house has its own dead in the yard.",
+     "sources": [
+      "finearts-phi-puya",
+      "lanner-phi-lanna"
+     ]
+    },
+    {
+     "th": "ผีมด",
+     "rtgs": "phi mot",
+     "name": "The ant spirits",
+     "text": "The dead of ordinary Lawa people — the ones who were in this valley before the Thai arrived. They are danced to by the families descended from them.",
+     "sources": [
+      "sac-fon-phi"
+     ]
+    },
+    {
+     "th": "ผีเม็ง",
+     "rtgs": "phi meng",
+     "name": "The Mon spirits",
+     "text": "The dead of Mon commanders, by the same account that gives ผีมด to the Lawa commoners. A Chiang Mai lineage knows which of the two it dances, and the distinction is a claim about where the family came from.",
+     "sources": [
+      "sac-fon-phi",
+      "th-wiki-fon-phi"
+     ]
+    },
+    {
+     "th": "ผีเจ้านาย",
+     "rtgs": "phi chao nai",
+     "name": "The lords",
+     "text": "Dead rulers and nobles, who keep their rank. Three stops on this route are these: the founder on Ratchadamnoen, the dynasty at Lok Molee, the royal field at Suan Dok.",
+     "sources": [
+      "lanner-phi-lanna",
+      "veridian-phi-north"
+     ]
+    },
+    {
+     "th": "ผีเสื้อบ้าน · ผีเสื้อวัด · ผีเสื้อเมือง",
+     "rtgs": "phi suea ban, suea wat, suea mueang",
+     "name": "The guardians of a house, a wat, a city",
+     "text": "เสื้อ here is not the shirt; it is the one that covers a place. The account collected in the north is that these are the spirits of whoever ruled or founded the ground, housed in a shrine so they can go on looking after it. A wat keeps its guardian when the monks leave, which is why an abandoned wat in Chiang Mai is not treated as an empty building.",
+     "sources": [
+      "lanner-phi-lanna",
+      "veridian-phi-north"
+     ]
+    },
+    {
+     "th": "ผีขุนน้ำ · ผีนา",
+     "rtgs": "phi khun nam, phi na",
+     "name": "The water source and the field",
+     "text": "The spirit at the head of a stream and the spirit in a rice field. The muang fai irrigation that made this valley farmable was run by villages who made offerings at the intake, and the offering and the water schedule were the same institution.",
+     "sources": [
+      "lanner-phi-lanna"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bad",
+   "name": "The ones you keep off",
+   "th": "ผีร้าย",
+   "lede": "Dead who did not settle, and living people who became something else. The classification turns on how a person died and on whether anyone performed the rites afterwards.",
+   "entries": [
+    {
+     "th": "ผีตายโหง",
+     "rtgs": "phi tai hong",
+     "name": "Died wrong",
+     "text": "Killed, or dead suddenly, or dead away from home, and without the rites. The defining property is that they stay. Two stops on this route are made of them: the gate the executions and the corpses went through, and the house in the north-west quarter.",
+     "sources": [
+      "lanner-phi-lanna",
+      "veridian-phi-north"
+     ]
+    },
+    {
+     "th": "ผีพราย",
+     "rtgs": "phi phrai",
+     "name": "The drowned",
+     "text": "Held in the water and, in the telling, able to get out only by putting somebody else in. It is the reason a northern grandmother will not let a child swim at dusk.",
+     "sources": [
+      "lanner-phi-lanna",
+      "veridian-phi-north"
+     ]
+    },
+    {
+     "th": "ผีกะ",
+     "rtgs": "phi ka",
+     "name": "The one a family inherits",
+     "text": "The northern one that has done the most social damage. It lives with a household rather than in a place, and it passes down the mother's line — accounts differ on whether to the eldest daughter or the youngest, and say it depends on the family. It has to be fed. Fed, it leaves the household alone and goes out at night into other people's; neglected, it turns on the house that holds it.\nThe part that is not folklore is what a village does with the accusation. A house said to carry ผีกะ is a house nobody marries into, and the accusation lands on women.",
+     "sources": [
+      "silpamag-phi-ka",
+      "lanner-phi-lanna"
+     ]
+    },
+    {
+     "th": "ผีโพง",
+     "rtgs": "phi phong",
+     "name": "The one with the light in its nose",
+     "text": "A living person who took up magic and lost hold of it, or who grew the wan called ว่านผีโพง — white, hot and sharp — which in the telling draws mercury into itself as it ages and starts to glow. They go out over the paddy at night after the slime off frogs, with a white-green light coming out of the nose to find it by. What the story describes, at the flat end of it, is marsh gas over a rice field at night.",
+     "sources": [
+      "th-wiki-phi-phong",
+      "matichon-phi-phong"
+     ]
+    },
+    {
+     "th": "ผีปกกะโหล้ง",
+     "rtgs": "phi pok ka long",
+     "name": "The one in the deep forest",
+     "text": "Lives in thick forest and arrives as a storm, or as an animal, or as a frightening old man whose beard has animals living in it. It is named for the noise it makes, which is the noise it is called.",
+     "sources": [
+      "bangkokbiznews-30-phi",
+      "lanner-phi-lanna"
+     ]
+    },
+    {
+     "th": "ผีกองกอย",
+     "rtgs": "phi kong koi",
+     "name": "The one-legged one",
+     "text": "A single leg, and it hops. Beyond that the accounts thin out fast, which is worth saying rather than filling in.",
+     "sources": [
+      "bangkokbiznews-30-phi"
+     ]
+    },
+    {
+     "th": "ผีนางไม้ · ผีป่า",
+     "rtgs": "phi nang mai, phi pa",
+     "name": "The tree and the forest",
+     "text": "A spirit resident in a particular tree, and the general run of forest spirits. This is why a big tree in Chiang Mai has cloth round it and why a contractor will pay a monk before taking one down.",
+     "sources": [
+      "lanner-phi-lanna",
+      "veridian-phi-north"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "rite",
+   "name": "What is done about them",
+   "th": "ฟ้อนผี · ขึด",
+   "lede": "Two institutions, one for feeding the dead you claim and one for not stepping on anything.",
+   "entries": [
+    {
+     "th": "ฟ้อนผีมดผีเม็ง",
+     "rtgs": "fon phi mot phi meng",
+     "name": "The dance",
+     "text": "A lineage holds it — everyone descended from the same ancestors — once a year, or every two or three years, usually in May or June. A shelter goes up, the offerings are laid, music calls the ancestors, and the ancestors come into their own descendants, who then dance. It runs two or three days.\nIt is not a performance and it is not advertised. If you are in Chiang Mai in May and hear a long-drum ensemble going in a compound off a soi for a second day running, that is what it is.",
+     "sources": [
+      "sac-fon-phi",
+      "th-wiki-fon-phi",
+      "openbase-fon-phi"
+     ]
+    },
+    {
+     "th": "ขึด",
+     "rtgs": "khuet",
+     "name": "The things that must not be done",
+     "text": "Not a ghost. ขึด is the northern category for an act that brings the bad down on you — ill-omened, polluting, not to be done — and the list is long and specific: things about wats, about a town's sacred objects, about public property, markets, farmland, particular trees, particular animals. Do one anyway and you are said to ตกขึด, to have fallen into it, and then there is a rite to get out.\nThe lists were written down in the palm-leaf manuscripts and have been collected and printed. It is the frame the rest of this page sits inside: the north's dead are not mainly a source of fright, they are a set of rules about how to behave on ground that belongs to somebody else.",
+     "sources": [
+      "khuet-book",
+      "cmu-khuet",
+      "nonilo-khuet"
+     ]
+    }
+   ]
+  }
+ ],
+ "close": [
+  "None of this is on the walking route because none of it has an address. It is what the stops are made of."
+ ]
+}

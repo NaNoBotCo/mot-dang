@@ -1,0 +1,36 @@
+A VIDEO ON THE PLACE PAGE — what the film@ door needs from Mot Dang
+===================================================================
+2026-09-22 · proposal, not built · from the capture project
+
+WHAT ARRIVES
+Shop owners mail a clip of their own shop to film@motdang.net. The ear stores
+it; `capture contrib` files it under raw/<session>/broll/ with the sender's
+consent lines and their PromptPay id, and writes raw/<session>/contrib/<id>.json
+carrying `motdang_place_id` when the shop is one Mot Dang already lists.
+
+WHAT THE OFFER SAYS
+"We put it on your shop's page on Mot Dang for free." That page does not take
+a video today.
+
+THE BLOCK
+One optional block on a place page: a <video> with poster, muted, plays on
+tap, under the photos. Source of truth: a small file the capture pipeline
+writes, data/place_videos.json — {place_id: {mp4, poster, credit, consent}} —
+read at build time like citylife_links.json is. Consent gate on the build:
+only rows whose consent has tier2_editorial true are rendered; a face-visible
+false row uses the blurred render. The build refuses a row with no consent
+field at all.
+
+HOSTING
+room.mp4 renders are 1080p H.264; a 30-second clip is 8–15 MB. R2 bucket
+`fleet-video`, public read via the existing motdang Worker, path
+/v/<place_id>/<clip>.mp4. Poster is a JPEG frame the pipeline writes.
+
+COST TO BUILD
+Half a day: the JSON reader in build.py, the block in the place template, the
+R2 upload step in the capture pipeline's export, and one test that a row with
+no consent never renders.
+
+NOT DECIDED
+The share paid when a clip earns (hers). Whether the block also runs on the
+front page's SOON list when a clip is new.

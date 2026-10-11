@@ -1,0 +1,1675 @@
+{
+ "_readme": [
+  "The compound lexicon (Nan, 2026-10-04: be ready when someone searches a drug or compound).",
+  "One row per active substance: class, a plain clause of what it is in each language, and every name a reader types.",
+  "importers/fda_register.py looks each row up on the Thai FDA drug register (pertento.fda.moph.go.th);",
+  "importers/answers_compounds.py builds the answer cards. Add a row by hand, or from notes/compound-gaps.txt."
+ ],
+ "compounds": [
+  {
+   "id": "semaglutide",
+   "class": "glp1",
+   "what_en": "a GLP-1 injection or tablet for diabetes and weight",
+   "what_th": "ยาฉีดหรือยาเม็ดกลุ่ม GLP-1 รักษาเบาหวานและลดน้ำหนัก",
+   "aliases": [
+    "ozempic",
+    "wegovy",
+    "rybelsus",
+    "sema"
+   ]
+  },
+  {
+   "id": "tirzepatide",
+   "class": "glp1",
+   "what_en": "a GIP and GLP-1 weekly injection for diabetes and weight",
+   "what_th": "ยาฉีดสัปดาห์ละครั้งกลุ่ม GIP และ GLP-1",
+   "aliases": [
+    "mounjaro",
+    "zepbound",
+    "tirz"
+   ]
+  },
+  {
+   "id": "retatrutide",
+   "class": "glp1",
+   "what_en": "Eli Lilly's GIP, GLP-1 and glucagon triple agonist, still in trials",
+   "what_th": "ยากระตุ้นสามตัวรับของ Eli Lilly ยังอยู่ในงานวิจัย",
+   "aliases": [
+    "reta",
+    "ly3437943",
+    "retatrutid",
+    "retatrutyde"
+   ]
+  },
+  {
+   "id": "liraglutide",
+   "class": "glp1",
+   "what_en": "a daily GLP-1 injection",
+   "what_th": "ยาฉีด GLP-1 วันละครั้ง",
+   "aliases": [
+    "saxenda",
+    "victoza"
+   ]
+  },
+  {
+   "id": "dulaglutide",
+   "class": "glp1",
+   "what_en": "a weekly GLP-1 injection for diabetes",
+   "what_th": "ยาฉีด GLP-1 สัปดาห์ละครั้งรักษาเบาหวาน",
+   "aliases": [
+    "trulicity"
+   ]
+  },
+  {
+   "id": "cagrilintide",
+   "class": "glp1",
+   "what_en": "an amylin analogue in trials, paired with semaglutide as CagriSema",
+   "what_th": "ยากลุ่มอะไมลินที่ยังอยู่ในงานวิจัย",
+   "aliases": [
+    "cagrisema",
+    "cagri"
+   ]
+  },
+  {
+   "id": "orforglipron",
+   "class": "glp1",
+   "what_en": "Eli Lilly's once-daily GLP-1 pill",
+   "what_th": "ยาเม็ด GLP-1 ของ Eli Lilly",
+   "aliases": []
+  },
+  {
+   "id": "survodutide",
+   "class": "glp1",
+   "what_en": "a GLP-1 and glucagon agonist in trials",
+   "what_th": "ยากระตุ้น GLP-1 และกลูคากอน ยังอยู่ในงานวิจัย",
+   "aliases": []
+  },
+  {
+   "id": "mazdutide",
+   "class": "glp1",
+   "what_en": "a GLP-1 and glucagon agonist from Innovent, China",
+   "what_th": "ยากระตุ้น GLP-1 และกลูคากอน",
+   "aliases": []
+  },
+  {
+   "id": "bpc-157",
+   "class": "peptide",
+   "what_en": "a gastric-derived research peptide used for tendon and gut recovery",
+   "what_th": "เปปไทด์วิจัยที่นิยมใช้ฟื้นฟูเส้นเอ็นและลำไส้",
+   "aliases": [
+    "bpc157",
+    "bpc 157",
+    "body protection compound"
+   ]
+  },
+  {
+   "id": "tb-500",
+   "class": "peptide",
+   "what_en": "a thymosin beta-4 fragment used for recovery",
+   "what_th": "ชิ้นส่วนไทโมซินเบตา-4 ใช้ฟื้นฟูร่างกาย",
+   "aliases": [
+    "tb500",
+    "thymosin beta 4",
+    "thymosin beta-4"
+   ]
+  },
+  {
+   "id": "ghk-cu",
+   "class": "peptide",
+   "what_en": "a copper peptide for skin and hair",
+   "what_th": "เปปไทด์ทองแดงสำหรับผิวและผม",
+   "aliases": [
+    "ghkcu",
+    "copper peptide"
+   ]
+  },
+  {
+   "id": "ipamorelin",
+   "class": "peptide",
+   "what_en": "a growth-hormone secretagogue peptide",
+   "what_th": "เปปไทด์กระตุ้นการหลั่งโกรทฮอร์โมน",
+   "aliases": []
+  },
+  {
+   "id": "cjc-1295",
+   "class": "peptide",
+   "what_en": "a GHRH analogue peptide, often stacked with ipamorelin",
+   "what_th": "เปปไทด์อนุพันธ์ GHRH มักใช้คู่กับ ipamorelin",
+   "aliases": [
+    "cjc1295",
+    "mod grf",
+    "mod grf 1-29"
+   ]
+  },
+  {
+   "id": "sermorelin",
+   "class": "peptide",
+   "what_en": "a GHRH analogue peptide",
+   "what_th": "เปปไทด์อนุพันธ์ GHRH",
+   "aliases": []
+  },
+  {
+   "id": "tesamorelin",
+   "class": "peptide",
+   "what_en": "a GHRH analogue approved in the US for HIV-related belly fat",
+   "what_th": "อนุพันธ์ GHRH ที่สหรัฐฯ รับรองสำหรับไขมันหน้าท้องในผู้ติดเชื้อเอชไอวี",
+   "aliases": [
+    "egrifta"
+   ]
+  },
+  {
+   "id": "mots-c",
+   "class": "peptide",
+   "what_en": "a mitochondrial research peptide",
+   "what_th": "เปปไทด์วิจัยจากไมโทคอนเดรีย",
+   "aliases": [
+    "motsc",
+    "mots c"
+   ]
+  },
+  {
+   "id": "epitalon",
+   "class": "peptide",
+   "what_en": "a research peptide studied for telomeres and sleep",
+   "what_th": "เปปไทด์วิจัยเรื่องเทโลเมียร์และการนอน",
+   "aliases": [
+    "epithalon",
+    "epithalamin"
+   ]
+  },
+  {
+   "id": "thymosin alpha-1",
+   "class": "peptide",
+   "what_en": "an immune peptide registered as a drug in some countries",
+   "what_th": "เปปไทด์ภูมิคุ้มกัน",
+   "aliases": [
+    "thymalfasin",
+    "zadaxin",
+    "ta1",
+    "thymosin alpha 1"
+   ]
+  },
+  {
+   "id": "pt-141",
+   "class": "peptide",
+   "what_en": "bremelanotide, a melanocortin peptide for libido",
+   "what_th": "เบรเมลาโนไทด์ เปปไทด์เพิ่มความต้องการทางเพศ",
+   "aliases": [
+    "bremelanotide",
+    "vyleesi",
+    "pt141"
+   ]
+  },
+  {
+   "id": "melanotan ii",
+   "class": "peptide",
+   "what_en": "a tanning and libido research peptide",
+   "what_th": "เปปไทด์วิจัยทำผิวคล้ำและเพิ่มความต้องการทางเพศ",
+   "aliases": [
+    "melanotan 2",
+    "melanotan",
+    "mt2",
+    "mt-2"
+   ]
+  },
+  {
+   "id": "aod-9604",
+   "class": "peptide",
+   "what_en": "a growth-hormone fragment sold for fat loss",
+   "what_th": "ชิ้นส่วนโกรทฮอร์โมนที่ขายเพื่อลดไขมัน",
+   "aliases": [
+    "aod9604"
+   ]
+  },
+  {
+   "id": "kisspeptin",
+   "class": "peptide",
+   "what_en": "a reproductive-hormone research peptide",
+   "what_th": "เปปไทด์วิจัยฮอร์โมนสืบพันธุ์",
+   "aliases": [
+    "kisspeptin-10"
+   ]
+  },
+  {
+   "id": "selank",
+   "class": "peptide",
+   "what_en": "an anxiety research peptide, registered in Russia",
+   "what_th": "เปปไทด์วิจัยคลายกังวล",
+   "aliases": []
+  },
+  {
+   "id": "semax",
+   "class": "peptide",
+   "what_en": "a nootropic peptide, registered in Russia",
+   "what_th": "เปปไทด์บำรุงสมอง",
+   "aliases": []
+  },
+  {
+   "id": "ss-31",
+   "class": "peptide",
+   "what_en": "elamipretide, a mitochondrial peptide",
+   "what_th": "เอลามิพรีไทด์ เปปไทด์ไมโทคอนเดรีย",
+   "aliases": [
+    "elamipretide",
+    "ss31"
+   ]
+  },
+  {
+   "id": "dihexa",
+   "class": "peptide",
+   "what_en": "a nootropic research compound",
+   "what_th": "สารวิจัยบำรุงสมอง",
+   "aliases": []
+  },
+  {
+   "id": "5-amino-1mq",
+   "class": "peptide",
+   "what_en": "an NNMT-inhibitor research compound sold for fat loss",
+   "what_th": "สารวิจัยยับยั้ง NNMT ขายเพื่อลดไขมัน",
+   "aliases": [
+    "5 amino 1mq",
+    "5-amino"
+   ]
+  },
+  {
+   "id": "ll-37",
+   "class": "peptide",
+   "what_en": "an antimicrobial research peptide",
+   "what_th": "เปปไทด์วิจัยต้านจุลชีพ",
+   "aliases": [
+    "ll37"
+   ]
+  },
+  {
+   "id": "kpv",
+   "class": "peptide",
+   "what_en": "an anti-inflammatory research peptide",
+   "what_th": "เปปไทด์วิจัยต้านการอักเสบ",
+   "aliases": []
+  },
+  {
+   "id": "pinealon",
+   "class": "peptide",
+   "what_en": "a short bioregulator research peptide",
+   "what_th": "เปปไทด์วิจัยชนิดสั้น",
+   "aliases": []
+  },
+  {
+   "id": "follistatin",
+   "class": "peptide",
+   "what_en": "a muscle-growth research protein",
+   "what_th": "โปรตีนวิจัยเพิ่มกล้ามเนื้อ",
+   "aliases": [
+    "follistatin 344"
+   ]
+  },
+  {
+   "id": "igf-1 lr3",
+   "class": "peptide",
+   "what_en": "a long-acting IGF-1 research analogue",
+   "what_th": "อนุพันธ์ IGF-1 ออกฤทธิ์ยาว ใช้ในงานวิจัย",
+   "aliases": [
+    "igf1",
+    "igf-1",
+    "igf lr3"
+   ]
+  },
+  {
+   "id": "somatropin",
+   "class": "gh",
+   "what_en": "growth hormone",
+   "what_th": "โกรทฮอร์โมน",
+   "aliases": [
+    "hgh",
+    "growth hormone",
+    "genotropin",
+    "norditropin",
+    "omnitrope",
+    "humatrope",
+    "saizen"
+   ]
+  },
+  {
+   "id": "mk-677",
+   "class": "sarm",
+   "what_en": "ibutamoren, an oral growth-hormone secretagogue",
+   "what_th": "ไอบูทาโมเรน ยากินกระตุ้นโกรทฮอร์โมน",
+   "aliases": [
+    "ibutamoren",
+    "mk677",
+    "nutrobal"
+   ]
+  },
+  {
+   "id": "ostarine",
+   "class": "sarm",
+   "what_en": "enobosarm, a SARM (selective androgen receptor modulator)",
+   "what_th": "เอโนโบซาร์ม สาร SARM",
+   "aliases": [
+    "mk-2866",
+    "mk2866",
+    "enobosarm"
+   ]
+  },
+  {
+   "id": "rad-140",
+   "class": "sarm",
+   "what_en": "testolone, a SARM",
+   "what_th": "เทสโทโลน สาร SARM",
+   "aliases": [
+    "rad140",
+    "testolone"
+   ]
+  },
+  {
+   "id": "lgd-4033",
+   "class": "sarm",
+   "what_en": "ligandrol, a SARM",
+   "what_th": "ลิแกนดรอล สาร SARM",
+   "aliases": [
+    "lgd4033",
+    "ligandrol"
+   ]
+  },
+  {
+   "id": "cardarine",
+   "class": "sarm",
+   "what_en": "GW-501516, a PPAR-delta research compound dropped after cancer findings in animals",
+   "what_th": "GW-501516 สารวิจัยที่ถูกหยุดพัฒนาหลังพบมะเร็งในสัตว์ทดลอง",
+   "aliases": [
+    "gw-501516",
+    "gw501516",
+    "gw"
+   ]
+  },
+  {
+   "id": "yk-11",
+   "class": "sarm",
+   "what_en": "a steroidal research compound sold as a SARM",
+   "what_th": "สารวิจัยโครงสร้างสเตียรอยด์ที่ขายเป็น SARM",
+   "aliases": [
+    "yk11"
+   ]
+  },
+  {
+   "id": "s-23",
+   "class": "sarm",
+   "what_en": "a SARM",
+   "what_th": "สาร SARM",
+   "aliases": [
+    "s23"
+   ]
+  },
+  {
+   "id": "sr9009",
+   "class": "sarm",
+   "what_en": "stenabolic, a research compound with poor oral uptake",
+   "what_th": "สเตนาโบลิก สารวิจัย",
+   "aliases": [
+    "stenabolic",
+    "sr-9009"
+   ]
+  },
+  {
+   "id": "testosterone",
+   "class": "aas",
+   "what_en": "the male hormone, as injection, gel or tablets",
+   "what_th": "ฮอร์โมนเพศชาย มีทั้งฉีด เจล และเม็ด",
+   "aliases": [
+    "testosterone enanthate",
+    "testosterone cypionate",
+    "testosterone undecanoate",
+    "sustanon",
+    "nebido",
+    "androgel",
+    "test e",
+    "test c",
+    "testo",
+    "trt"
+   ]
+  },
+  {
+   "id": "nandrolone",
+   "class": "aas",
+   "what_en": "an anabolic steroid",
+   "what_th": "สเตียรอยด์สร้างกล้ามเนื้อ",
+   "aliases": [
+    "deca",
+    "deca durabolin",
+    "nandrolone decanoate",
+    "npp"
+   ]
+  },
+  {
+   "id": "trenbolone",
+   "class": "aas",
+   "what_en": "a veterinary anabolic steroid",
+   "what_th": "สเตียรอยด์สร้างกล้ามเนื้อสำหรับสัตว์",
+   "aliases": [
+    "tren",
+    "tren ace",
+    "trenbolone acetate",
+    "parabolan"
+   ]
+  },
+  {
+   "id": "oxandrolone",
+   "class": "aas",
+   "what_en": "an oral anabolic steroid",
+   "what_th": "สเตียรอยด์สร้างกล้ามเนื้อชนิดกิน",
+   "aliases": [
+    "anavar",
+    "oxandrin",
+    "var"
+   ]
+  },
+  {
+   "id": "stanozolol",
+   "class": "aas",
+   "what_en": "an anabolic steroid, oral or injected",
+   "what_th": "สเตียรอยด์สร้างกล้ามเนื้อ ชนิดกินหรือฉีด",
+   "aliases": [
+    "winstrol",
+    "winny"
+   ]
+  },
+  {
+   "id": "methandrostenolone",
+   "class": "aas",
+   "what_en": "an oral anabolic steroid",
+   "what_th": "สเตียรอยด์สร้างกล้ามเนื้อชนิดกิน",
+   "aliases": [
+    "dianabol",
+    "dbol",
+    "metandienone"
+   ]
+  },
+  {
+   "id": "boldenone",
+   "class": "aas",
+   "what_en": "a veterinary anabolic steroid",
+   "what_th": "สเตียรอยด์สร้างกล้ามเนื้อสำหรับสัตว์",
+   "aliases": [
+    "equipoise",
+    "eq"
+   ]
+  },
+  {
+   "id": "drostanolone",
+   "class": "aas",
+   "what_en": "an anabolic steroid",
+   "what_th": "สเตียรอยด์สร้างกล้ามเนื้อ",
+   "aliases": [
+    "masteron",
+    "mast"
+   ]
+  },
+  {
+   "id": "methenolone",
+   "class": "aas",
+   "what_en": "an anabolic steroid",
+   "what_th": "สเตียรอยด์สร้างกล้ามเนื้อ",
+   "aliases": [
+    "primobolan",
+    "primo"
+   ]
+  },
+  {
+   "id": "oxymetholone",
+   "class": "aas",
+   "what_en": "an oral anabolic steroid",
+   "what_th": "สเตียรอยด์สร้างกล้ามเนื้อชนิดกิน",
+   "aliases": [
+    "anadrol",
+    "anapolon"
+   ]
+  },
+  {
+   "id": "mesterolone",
+   "class": "aas",
+   "what_en": "an oral androgen",
+   "what_th": "ฮอร์โมนเพศชายชนิดกิน",
+   "aliases": [
+    "proviron"
+   ]
+  },
+  {
+   "id": "turinabol",
+   "class": "aas",
+   "what_en": "an oral anabolic steroid",
+   "what_th": "สเตียรอยด์สร้างกล้ามเนื้อชนิดกิน",
+   "aliases": [
+    "tbol",
+    "chlorodehydromethyltestosterone"
+   ]
+  },
+  {
+   "id": "dhea",
+   "class": "aas",
+   "what_en": "a precursor hormone sold as a supplement abroad",
+   "what_th": "ฮอร์โมนตั้งต้น",
+   "aliases": [
+    "prasterone"
+   ]
+  },
+  {
+   "id": "anastrozole",
+   "class": "ancillary",
+   "what_en": "an aromatase inhibitor",
+   "what_th": "ยายับยั้งเอนไซม์อะโรมาเทส",
+   "aliases": [
+    "arimidex",
+    "adex"
+   ]
+  },
+  {
+   "id": "letrozole",
+   "class": "ancillary",
+   "what_en": "an aromatase inhibitor, also used in fertility",
+   "what_th": "ยายับยั้งอะโรมาเทส ใช้ในการรักษาภาวะมีบุตรยากด้วย",
+   "aliases": [
+    "femara"
+   ]
+  },
+  {
+   "id": "exemestane",
+   "class": "ancillary",
+   "what_en": "an aromatase inhibitor",
+   "what_th": "ยายับยั้งอะโรมาเทส",
+   "aliases": [
+    "aromasin"
+   ]
+  },
+  {
+   "id": "tamoxifen",
+   "class": "ancillary",
+   "what_en": "a SERM used for breast cancer and by men on cycle",
+   "what_th": "ยากลุ่ม SERM รักษามะเร็งเต้านม",
+   "aliases": [
+    "nolvadex",
+    "nolva"
+   ]
+  },
+  {
+   "id": "clomiphene",
+   "class": "ancillary",
+   "what_en": "a SERM for ovulation and male testosterone",
+   "what_th": "ยากลุ่ม SERM กระตุ้นการตกไข่",
+   "aliases": [
+    "clomid",
+    "clomifene",
+    "enclomiphene"
+   ]
+  },
+  {
+   "id": "hcg",
+   "class": "ancillary",
+   "what_en": "human chorionic gonadotropin, an injection",
+   "what_th": "ฮอร์โมน hCG ชนิดฉีด",
+   "aliases": [
+    "pregnyl",
+    "ovidrel",
+    "human chorionic gonadotropin"
+   ]
+  },
+  {
+   "id": "cabergoline",
+   "class": "ancillary",
+   "what_en": "a dopamine agonist for prolactin",
+   "what_th": "ยาลดโปรแลกติน",
+   "aliases": [
+    "dostinex",
+    "caber"
+   ]
+  },
+  {
+   "id": "bromocriptine",
+   "class": "ancillary",
+   "what_en": "a dopamine agonist for prolactin",
+   "what_th": "ยาลดโปรแลกติน",
+   "aliases": [
+    "parlodel"
+   ]
+  },
+  {
+   "id": "estradiol",
+   "class": "hrt",
+   "what_en": "the main estrogen, as gel, tablets, patches or injection",
+   "what_th": "เอสโตรเจนหลัก มีเจล เม็ด แผ่นแปะ และฉีด",
+   "aliases": [
+    "oestrogel",
+    "estrogel",
+    "progynova",
+    "estrace",
+    "divigel",
+    "climara",
+    "estradiol valerate",
+    "estradiol cream",
+    "estradiol patch"
+   ]
+  },
+  {
+   "id": "estriol",
+   "class": "hrt",
+   "what_en": "a gentler estrogen, the Thai vaginal cream standard",
+   "what_th": "เอสโตรเจนอ่อน ครีมช่องคลอดมาตรฐานในไทย",
+   "aliases": [
+    "ovestin"
+   ]
+  },
+  {
+   "id": "progesterone",
+   "class": "hrt",
+   "what_en": "micronized progesterone capsules",
+   "what_th": "โปรเจสเตอโรนชนิดไมโครไนซ์",
+   "aliases": [
+    "utrogestan",
+    "prometrium",
+    "cyclogest"
+   ]
+  },
+  {
+   "id": "dydrogesterone",
+   "class": "hrt",
+   "what_en": "a progestin tablet",
+   "what_th": "โปรเจสตินชนิดเม็ด",
+   "aliases": [
+    "duphaston"
+   ]
+  },
+  {
+   "id": "drospirenone",
+   "class": "hrt",
+   "what_en": "a progestin, alone or in the pill",
+   "what_th": "โปรเจสติน ใช้เดี่ยวหรือในยาคุม",
+   "aliases": [
+    "slinda",
+    "yasmin",
+    "yaz"
+   ]
+  },
+  {
+   "id": "tibolone",
+   "class": "hrt",
+   "what_en": "a menopause hormone tablet",
+   "what_th": "ยาเม็ดฮอร์โมนวัยทอง",
+   "aliases": [
+    "livial"
+   ]
+  },
+  {
+   "id": "conjugated estrogens",
+   "class": "hrt",
+   "what_en": "estrogen from mares' urine",
+   "what_th": "เอสโตรเจนรวม",
+   "aliases": [
+    "premarin"
+   ]
+  },
+  {
+   "id": "levonorgestrel",
+   "class": "hrt",
+   "what_en": "a progestin in the morning-after pill, the pill and the IUD",
+   "what_th": "โปรเจสตินในยาคุมฉุกเฉิน ยาคุม และห่วงอนามัย",
+   "aliases": [
+    "postinor",
+    "mirena",
+    "plan b"
+   ]
+  },
+  {
+   "id": "lynestrenol",
+   "class": "hrt",
+   "what_en": "a progestin-only pill",
+   "what_th": "ยาคุมชนิดโปรเจสตินอย่างเดียว",
+   "aliases": [
+    "exluton"
+   ]
+  },
+  {
+   "id": "desogestrel",
+   "class": "hrt",
+   "what_en": "a progestin-only pill",
+   "what_th": "ยาคุมชนิดโปรเจสตินอย่างเดียว",
+   "aliases": [
+    "cerazette"
+   ]
+  },
+  {
+   "id": "medroxyprogesterone",
+   "class": "hrt",
+   "what_en": "a progestin tablet or the three-monthly injection",
+   "what_th": "โปรเจสตินชนิดเม็ดหรือยาฉีดคุมกำเนิดสามเดือน",
+   "aliases": [
+    "depo-provera",
+    "provera",
+    "depo"
+   ]
+  },
+  {
+   "id": "spironolactone",
+   "class": "trans",
+   "what_en": "a diuretic used as an anti-androgen",
+   "what_th": "ยาขับปัสสาวะที่ใช้ต้านฮอร์โมนเพศชาย",
+   "aliases": [
+    "aldactone",
+    "spiro"
+   ]
+  },
+  {
+   "id": "cyproterone",
+   "class": "trans",
+   "what_en": "an anti-androgen",
+   "what_th": "ยาต้านฮอร์โมนเพศชาย",
+   "aliases": [
+    "androcur",
+    "cyproterone acetate",
+    "diane-35",
+    "diane"
+   ]
+  },
+  {
+   "id": "bicalutamide",
+   "class": "trans",
+   "what_en": "an anti-androgen",
+   "what_th": "ยาต้านฮอร์โมนเพศชาย",
+   "aliases": [
+    "casodex"
+   ]
+  },
+  {
+   "id": "sildenafil",
+   "class": "ed",
+   "what_en": "an ED and pulmonary-hypertension tablet",
+   "what_th": "ยารักษาภาวะเสื่อมสมรรถภาพทางเพศ",
+   "aliases": [
+    "viagra",
+    "kamagra"
+   ]
+  },
+  {
+   "id": "tadalafil",
+   "class": "ed",
+   "what_en": "a long-acting ED tablet, also for the prostate",
+   "what_th": "ยารักษาภาวะเสื่อมสมรรถภาพออกฤทธิ์ยาว",
+   "aliases": [
+    "cialis"
+   ]
+  },
+  {
+   "id": "vardenafil",
+   "class": "ed",
+   "what_en": "an ED tablet",
+   "what_th": "ยารักษาภาวะเสื่อมสมรรถภาพ",
+   "aliases": [
+    "levitra"
+   ]
+  },
+  {
+   "id": "finasteride",
+   "class": "hair",
+   "what_en": "a DHT blocker for hair loss and the prostate",
+   "what_th": "ยาลด DHT รักษาผมร่วงและต่อมลูกหมาก",
+   "aliases": [
+    "propecia",
+    "proscar",
+    "fin"
+   ]
+  },
+  {
+   "id": "dutasteride",
+   "class": "hair",
+   "what_en": "a stronger DHT blocker",
+   "what_th": "ยาลด DHT ฤทธิ์แรงกว่า",
+   "aliases": [
+    "avodart"
+   ]
+  },
+  {
+   "id": "minoxidil",
+   "class": "hair",
+   "what_en": "a hair-regrowth lotion, or low-dose tablets",
+   "what_th": "ยาปลูกผมชนิดทาหรือเม็ดขนาดต่ำ",
+   "aliases": [
+    "rogaine",
+    "regaine",
+    "oral minoxidil",
+    "loniten"
+   ]
+  },
+  {
+   "id": "metformin",
+   "class": "longevity",
+   "what_en": "a diabetes tablet the longevity crowd takes off-label",
+   "what_th": "ยาเบาหวานที่กลุ่มชะลอวัยใช้นอกข้อบ่งใช้",
+   "aliases": [
+    "glucophage"
+   ]
+  },
+  {
+   "id": "rapamycin",
+   "class": "longevity",
+   "what_en": "sirolimus, an immune drug taken weekly off-label for longevity",
+   "what_th": "ไซโรลิมัส ยากดภูมิที่ใช้นอกข้อบ่งใช้เพื่อชะลอวัย",
+   "aliases": [
+    "sirolimus",
+    "rapamune"
+   ]
+  },
+  {
+   "id": "acarbose",
+   "class": "longevity",
+   "what_en": "a diabetes tablet that slows starch uptake",
+   "what_th": "ยาเบาหวานลดการดูดซึมแป้ง",
+   "aliases": [
+    "glucobay"
+   ]
+  },
+  {
+   "id": "nmn",
+   "class": "longevity",
+   "what_en": "nicotinamide mononucleotide, an NAD+ precursor supplement",
+   "what_th": "สารตั้งต้น NAD+ ชนิดเสริมอาหาร",
+   "aliases": [
+    "nicotinamide mononucleotide"
+   ]
+  },
+  {
+   "id": "nicotinamide riboside",
+   "class": "longevity",
+   "what_en": "an NAD+ precursor supplement",
+   "what_th": "สารตั้งต้น NAD+",
+   "aliases": [
+    "nr",
+    "tru niagen"
+   ]
+  },
+  {
+   "id": "nad+",
+   "class": "longevity",
+   "what_en": "a coenzyme given as IV drips or injections",
+   "what_th": "โคเอนไซม์ที่ให้ทางดริปหรือฉีด",
+   "aliases": [
+    "nad",
+    "nad injection"
+   ]
+  },
+  {
+   "id": "spermidine",
+   "class": "longevity",
+   "what_en": "a polyamine supplement",
+   "what_th": "สารเสริมกลุ่มโพลีเอมีน",
+   "aliases": []
+  },
+  {
+   "id": "fisetin",
+   "class": "longevity",
+   "what_en": "a senolytic flavonoid supplement",
+   "what_th": "ฟลาโวนอยด์กำจัดเซลล์แก่",
+   "aliases": []
+  },
+  {
+   "id": "dasatinib",
+   "class": "longevity",
+   "what_en": "a leukaemia drug tested with quercetin as a senolytic",
+   "what_th": "ยามะเร็งเม็ดเลือดขาวที่ทดลองใช้กำจัดเซลล์แก่",
+   "aliases": [
+    "sprycel"
+   ]
+  },
+  {
+   "id": "coenzyme q10",
+   "class": "longevity",
+   "what_en": "an antioxidant supplement",
+   "what_th": "สารต้านอนุมูลอิสระ",
+   "aliases": [
+    "coq10",
+    "ubiquinol",
+    "ubiquinone"
+   ]
+  },
+  {
+   "id": "glutathione",
+   "class": "derm",
+   "what_en": "an antioxidant given as drips for skin whitening",
+   "what_th": "สารต้านอนุมูลอิสระ ให้ทางดริปเพื่อผิวขาว",
+   "aliases": [
+    "gluta",
+    "glutathione drip"
+   ]
+  },
+  {
+   "id": "methylene blue",
+   "class": "longevity",
+   "what_en": "a dye and drug used off-label as a nootropic",
+   "what_th": "สีย้อมและยาที่ใช้นอกข้อบ่งใช้บำรุงสมอง",
+   "aliases": []
+  },
+  {
+   "id": "low-dose naltrexone",
+   "class": "longevity",
+   "what_en": "naltrexone at a small dose, used off-label",
+   "what_th": "นัลเทรโซนขนาดต่ำที่ใช้นอกข้อบ่งใช้",
+   "aliases": [
+    "ldn",
+    "naltrexone"
+   ]
+  },
+  {
+   "id": "ivermectin",
+   "class": "common",
+   "what_en": "an antiparasitic tablet",
+   "what_th": "ยาฆ่าพยาธิ",
+   "aliases": [
+    "stromectol"
+   ]
+  },
+  {
+   "id": "modafinil",
+   "class": "nootropic",
+   "what_en": "a wakefulness drug",
+   "what_th": "ยาช่วยให้ตื่นตัว",
+   "aliases": [
+    "provigil",
+    "modvigil",
+    "modalert"
+   ]
+  },
+  {
+   "id": "armodafinil",
+   "class": "nootropic",
+   "what_en": "the longer-acting half of modafinil",
+   "what_th": "ยาช่วยให้ตื่นตัวออกฤทธิ์ยาว",
+   "aliases": [
+    "nuvigil",
+    "waklert"
+   ]
+  },
+  {
+   "id": "piracetam",
+   "class": "nootropic",
+   "what_en": "a racetam nootropic",
+   "what_th": "ยาบำรุงสมองกลุ่มราซีแทม",
+   "aliases": [
+    "nootropil"
+   ]
+  },
+  {
+   "id": "phenibut",
+   "class": "nootropic",
+   "what_en": "a GABA analogue sold as a supplement abroad",
+   "what_th": "อนุพันธ์ GABA",
+   "aliases": []
+  },
+  {
+   "id": "amphetamine",
+   "class": "stimulant",
+   "what_en": "a stimulant for ADHD",
+   "what_th": "ยากระตุ้นสำหรับสมาธิสั้น",
+   "aliases": [
+    "adderall",
+    "dexedrine",
+    "dexamfetamine",
+    "dextroamphetamine"
+   ]
+  },
+  {
+   "id": "lisdexamfetamine",
+   "class": "stimulant",
+   "what_en": "a long-acting amphetamine for ADHD",
+   "what_th": "แอมเฟตามีนออกฤทธิ์ยาวสำหรับสมาธิสั้น",
+   "aliases": [
+    "vyvanse",
+    "elvanse"
+   ]
+  },
+  {
+   "id": "methylphenidate",
+   "class": "stimulant",
+   "what_en": "a stimulant for ADHD",
+   "what_th": "ยากระตุ้นสำหรับสมาธิสั้น",
+   "aliases": [
+    "ritalin",
+    "concerta",
+    "medikinet"
+   ]
+  },
+  {
+   "id": "atomoxetine",
+   "class": "stimulant",
+   "what_en": "a non-stimulant ADHD drug",
+   "what_th": "ยาสมาธิสั้นที่ไม่ใช่ยากระตุ้น",
+   "aliases": [
+    "strattera"
+   ]
+  },
+  {
+   "id": "zolpidem",
+   "class": "sleep",
+   "what_en": "a sleeping pill",
+   "what_th": "ยานอนหลับ",
+   "aliases": [
+    "ambien",
+    "stilnox"
+   ]
+  },
+  {
+   "id": "alprazolam",
+   "class": "sleep",
+   "what_en": "a benzodiazepine for anxiety",
+   "what_th": "ยากลุ่มเบนโซไดอะซีปีนคลายกังวล",
+   "aliases": [
+    "xanax"
+   ]
+  },
+  {
+   "id": "clonazepam",
+   "class": "sleep",
+   "what_en": "a benzodiazepine",
+   "what_th": "ยากลุ่มเบนโซไดอะซีปีน",
+   "aliases": [
+    "klonopin",
+    "rivotril"
+   ]
+  },
+  {
+   "id": "diazepam",
+   "class": "sleep",
+   "what_en": "a benzodiazepine",
+   "what_th": "ยากลุ่มเบนโซไดอะซีปีน",
+   "aliases": [
+    "valium"
+   ]
+  },
+  {
+   "id": "lorazepam",
+   "class": "sleep",
+   "what_en": "a benzodiazepine",
+   "what_th": "ยากลุ่มเบนโซไดอะซีปีน",
+   "aliases": [
+    "ativan"
+   ]
+  },
+  {
+   "id": "melatonin",
+   "class": "sleep",
+   "what_en": "a sleep hormone, sold over the counter abroad",
+   "what_th": "ฮอร์โมนช่วยนอนหลับ",
+   "aliases": []
+  },
+  {
+   "id": "tramadol",
+   "class": "sleep",
+   "what_en": "an opioid painkiller",
+   "what_th": "ยาแก้ปวดกลุ่มโอปิออยด์",
+   "aliases": [
+    "ultram",
+    "tramal"
+   ]
+  },
+  {
+   "id": "ketamine",
+   "class": "sleep",
+   "what_en": "an anaesthetic used for depression in clinics",
+   "what_th": "ยาสลบที่ใช้รักษาซึมเศร้าในคลินิก",
+   "aliases": [
+    "esketamine",
+    "spravato"
+   ]
+  },
+  {
+   "id": "kratom",
+   "class": "herb",
+   "what_en": "a Thai leaf, Mitragyna speciosa, chewed or brewed",
+   "what_th": "ใบกระท่อม",
+   "aliases": [
+    "กระท่อม",
+    "mitragyna",
+    "ใบกระท่อม"
+   ]
+  },
+  {
+   "id": "adalimumab",
+   "class": "biologic",
+   "what_en": "a TNF biologic for arthritis, psoriasis and IBD",
+   "what_th": "ยาชีววัตถุยับยั้ง TNF",
+   "aliases": [
+    "humira",
+    "hadlima",
+    "amgevita"
+   ]
+  },
+  {
+   "id": "secukinumab",
+   "class": "biologic",
+   "what_en": "an IL-17 biologic for psoriasis",
+   "what_th": "ยาชีววัตถุยับยั้ง IL-17",
+   "aliases": [
+    "cosentyx"
+   ]
+  },
+  {
+   "id": "ixekizumab",
+   "class": "biologic",
+   "what_en": "an IL-17 biologic for psoriasis",
+   "what_th": "ยาชีววัตถุยับยั้ง IL-17",
+   "aliases": [
+    "taltz"
+   ]
+  },
+  {
+   "id": "tildrakizumab",
+   "class": "biologic",
+   "what_en": "an IL-23 biologic for psoriasis",
+   "what_th": "ยาชีววัตถุยับยั้ง IL-23",
+   "aliases": [
+    "ilumya"
+   ]
+  },
+  {
+   "id": "risankizumab",
+   "class": "biologic",
+   "what_en": "an IL-23 biologic for psoriasis and Crohn's",
+   "what_th": "ยาชีววัตถุยับยั้ง IL-23",
+   "aliases": [
+    "skyrizi"
+   ]
+  },
+  {
+   "id": "ustekinumab",
+   "class": "biologic",
+   "what_en": "an IL-12/23 biologic",
+   "what_th": "ยาชีววัตถุยับยั้ง IL-12/23",
+   "aliases": [
+    "stelara"
+   ]
+  },
+  {
+   "id": "dupilumab",
+   "class": "biologic",
+   "what_en": "an IL-4/13 biologic for eczema and asthma",
+   "what_th": "ยาชีววัตถุรักษาผื่นแพ้และหอบหืด",
+   "aliases": [
+    "dupixent"
+   ]
+  },
+  {
+   "id": "guselkumab",
+   "class": "biologic",
+   "what_en": "an IL-23 biologic for psoriasis",
+   "what_th": "ยาชีววัตถุยับยั้ง IL-23",
+   "aliases": [
+    "tremfya"
+   ]
+  },
+  {
+   "id": "botulinum toxin",
+   "class": "derm",
+   "what_en": "Botox and its rivals, injected for lines or sweating",
+   "what_th": "โบท็อกซ์และยี่ห้ออื่น ฉีดลดริ้วรอยหรือเหงื่อ",
+   "aliases": [
+    "botox",
+    "dysport",
+    "xeomin",
+    "nabota",
+    "neuronox",
+    "botulax"
+   ]
+  },
+  {
+   "id": "isotretinoin",
+   "class": "derm",
+   "what_en": "an acne tablet",
+   "what_th": "ยารักษาสิวชนิดกิน",
+   "aliases": [
+    "accutane",
+    "roaccutane",
+    "isotane",
+    "acnotin"
+   ]
+  },
+  {
+   "id": "tretinoin",
+   "class": "derm",
+   "what_en": "a retinoid cream for acne and ageing",
+   "what_th": "ครีมกรดวิตามินเอ",
+   "aliases": [
+    "retin-a",
+    "retin a"
+   ]
+  },
+  {
+   "id": "hydroquinone",
+   "class": "derm",
+   "what_en": "a skin-lightening cream",
+   "what_th": "ครีมลดฝ้า",
+   "aliases": []
+  },
+  {
+   "id": "tranexamic acid",
+   "class": "derm",
+   "what_en": "a tablet for bleeding, used off-label for melasma",
+   "what_th": "ยาห้ามเลือดที่ใช้นอกข้อบ่งใช้รักษาฝ้า",
+   "aliases": [
+    "transamin",
+    "txa"
+   ]
+  },
+  {
+   "id": "atorvastatin",
+   "class": "common",
+   "what_en": "a cholesterol statin",
+   "what_th": "ยาลดไขมันกลุ่มสแตติน",
+   "aliases": [
+    "lipitor"
+   ]
+  },
+  {
+   "id": "rosuvastatin",
+   "class": "common",
+   "what_en": "a cholesterol statin",
+   "what_th": "ยาลดไขมันกลุ่มสแตติน",
+   "aliases": [
+    "crestor"
+   ]
+  },
+  {
+   "id": "levothyroxine",
+   "class": "common",
+   "what_en": "thyroid hormone",
+   "what_th": "ฮอร์โมนไทรอยด์",
+   "aliases": [
+    "synthroid",
+    "euthyrox",
+    "eltroxin"
+   ]
+  },
+  {
+   "id": "liothyronine",
+   "class": "common",
+   "what_en": "T3 thyroid hormone",
+   "what_th": "ฮอร์โมนไทรอยด์ T3",
+   "aliases": [
+    "cytomel",
+    "t3"
+   ]
+  },
+  {
+   "id": "omeprazole",
+   "class": "common",
+   "what_en": "a stomach-acid tablet",
+   "what_th": "ยาลดกรด",
+   "aliases": [
+    "prilosec",
+    "losec"
+   ]
+  },
+  {
+   "id": "amlodipine",
+   "class": "common",
+   "what_en": "a blood-pressure tablet",
+   "what_th": "ยาลดความดัน",
+   "aliases": [
+    "norvasc"
+   ]
+  },
+  {
+   "id": "losartan",
+   "class": "common",
+   "what_en": "a blood-pressure tablet",
+   "what_th": "ยาลดความดัน",
+   "aliases": [
+    "cozaar"
+   ]
+  },
+  {
+   "id": "telmisartan",
+   "class": "common",
+   "what_en": "a blood-pressure tablet",
+   "what_th": "ยาลดความดัน",
+   "aliases": [
+    "micardis"
+   ]
+  },
+  {
+   "id": "propranolol",
+   "class": "common",
+   "what_en": "a beta-blocker for heart rate, tremor or nerves",
+   "what_th": "ยากลุ่มเบตาบล็อกเกอร์",
+   "aliases": [
+    "inderal"
+   ]
+  },
+  {
+   "id": "ivabradine",
+   "class": "common",
+   "what_en": "a heart-rate drug used off-label for POTS",
+   "what_th": "ยาลดอัตราการเต้นหัวใจ ใช้กับ POTS นอกข้อบ่งใช้",
+   "aliases": [
+    "corlanor",
+    "procoralan"
+   ]
+  },
+  {
+   "id": "fludrocortisone",
+   "class": "common",
+   "what_en": "a steroid that holds salt, used for POTS and low blood pressure",
+   "what_th": "สเตียรอยด์เก็บเกลือ ใช้กับ POTS และความดันต่ำ",
+   "aliases": [
+    "florinef"
+   ]
+  },
+  {
+   "id": "midodrine",
+   "class": "common",
+   "what_en": "a tablet that raises blood pressure",
+   "what_th": "ยาเพิ่มความดัน",
+   "aliases": [
+    "gutron",
+    "proamatine"
+   ]
+  },
+  {
+   "id": "sertraline",
+   "class": "common",
+   "what_en": "an SSRI antidepressant",
+   "what_th": "ยาต้านซึมเศร้ากลุ่ม SSRI",
+   "aliases": [
+    "zoloft"
+   ]
+  },
+  {
+   "id": "escitalopram",
+   "class": "common",
+   "what_en": "an SSRI antidepressant",
+   "what_th": "ยาต้านซึมเศร้ากลุ่ม SSRI",
+   "aliases": [
+    "lexapro",
+    "cipralex"
+   ]
+  },
+  {
+   "id": "fluoxetine",
+   "class": "common",
+   "what_en": "an SSRI antidepressant",
+   "what_th": "ยาต้านซึมเศร้ากลุ่ม SSRI",
+   "aliases": [
+    "prozac"
+   ]
+  },
+  {
+   "id": "bupropion",
+   "class": "common",
+   "what_en": "an antidepressant also used to quit smoking",
+   "what_th": "ยาต้านซึมเศร้าที่ใช้เลิกบุหรี่ด้วย",
+   "aliases": [
+    "wellbutrin",
+    "zyban"
+   ]
+  },
+  {
+   "id": "venlafaxine",
+   "class": "common",
+   "what_en": "an SNRI antidepressant",
+   "what_th": "ยาต้านซึมเศร้ากลุ่ม SNRI",
+   "aliases": [
+    "effexor"
+   ]
+  },
+  {
+   "id": "mirtazapine",
+   "class": "common",
+   "what_en": "an antidepressant that helps sleep",
+   "what_th": "ยาต้านซึมเศร้าช่วยนอนหลับ",
+   "aliases": [
+    "remeron"
+   ]
+  },
+  {
+   "id": "gabapentin",
+   "class": "common",
+   "what_en": "a nerve-pain drug",
+   "what_th": "ยาแก้ปวดเส้นประสาท",
+   "aliases": [
+    "neurontin"
+   ]
+  },
+  {
+   "id": "pregabalin",
+   "class": "common",
+   "what_en": "a nerve-pain drug",
+   "what_th": "ยาแก้ปวดเส้นประสาท",
+   "aliases": [
+    "lyrica"
+   ]
+  },
+  {
+   "id": "doxycycline",
+   "class": "common",
+   "what_en": "an antibiotic, also for malaria prevention",
+   "what_th": "ยาปฏิชีวนะ ใช้ป้องกันมาลาเรียด้วย",
+   "aliases": [
+    "vibramycin"
+   ]
+  },
+  {
+   "id": "amoxicillin",
+   "class": "common",
+   "what_en": "an antibiotic",
+   "what_th": "ยาปฏิชีวนะ",
+   "aliases": [
+    "augmentin",
+    "amoxil",
+    "co-amoxiclav"
+   ]
+  },
+  {
+   "id": "azithromycin",
+   "class": "common",
+   "what_en": "an antibiotic",
+   "what_th": "ยาปฏิชีวนะ",
+   "aliases": [
+    "zithromax",
+    "z-pack"
+   ]
+  },
+  {
+   "id": "ciprofloxacin",
+   "class": "common",
+   "what_en": "an antibiotic",
+   "what_th": "ยาปฏิชีวนะ",
+   "aliases": [
+    "cipro",
+    "ciprobay"
+   ]
+  },
+  {
+   "id": "prednisolone",
+   "class": "common",
+   "what_en": "a steroid tablet",
+   "what_th": "ยาสเตียรอยด์ชนิดเม็ด",
+   "aliases": [
+    "prednisone"
+   ]
+  },
+  {
+   "id": "salbutamol",
+   "class": "common",
+   "what_en": "an asthma inhaler",
+   "what_th": "ยาพ่นขยายหลอดลม",
+   "aliases": [
+    "ventolin",
+    "albuterol"
+   ]
+  },
+  {
+   "id": "montelukast",
+   "class": "common",
+   "what_en": "an asthma and allergy tablet",
+   "what_th": "ยาหอบหืดและภูมิแพ้",
+   "aliases": [
+    "singulair"
+   ]
+  },
+  {
+   "id": "cetirizine",
+   "class": "common",
+   "what_en": "an antihistamine",
+   "what_th": "ยาแก้แพ้",
+   "aliases": [
+    "zyrtec"
+   ]
+  },
+  {
+   "id": "loratadine",
+   "class": "common",
+   "what_en": "an antihistamine",
+   "what_th": "ยาแก้แพ้",
+   "aliases": [
+    "claritin",
+    "clarityne"
+   ]
+  },
+  {
+   "id": "pseudoephedrine",
+   "class": "common",
+   "what_en": "a decongestant",
+   "what_th": "ยาลดน้ำมูก",
+   "aliases": [
+    "sudafed"
+   ]
+  },
+  {
+   "id": "oseltamivir",
+   "class": "common",
+   "what_en": "a flu antiviral",
+   "what_th": "ยาต้านไวรัสไข้หวัดใหญ่",
+   "aliases": [
+    "tamiflu"
+   ]
+  },
+  {
+   "id": "emtricitabine/tenofovir",
+   "class": "common",
+   "what_en": "the PrEP pill against HIV",
+   "what_th": "ยาเพร็พป้องกันเอชไอวี",
+   "aliases": [
+    "prep",
+    "truvada",
+    "descovy",
+    "tenofovir"
+   ]
+  },
+  {
+   "id": "ondansetron",
+   "class": "common",
+   "what_en": "an anti-nausea drug",
+   "what_th": "ยาแก้คลื่นไส้",
+   "aliases": [
+    "zofran"
+   ]
+  },
+  {
+   "id": "domperidone",
+   "class": "common",
+   "what_en": "an anti-nausea drug",
+   "what_th": "ยาแก้คลื่นไส้",
+   "aliases": [
+    "motilium"
+   ]
+  },
+  {
+   "id": "memantine",
+   "class": "common",
+   "what_en": "a dementia drug",
+   "what_th": "ยารักษาสมองเสื่อม",
+   "aliases": [
+    "ebixa",
+    "namenda"
+   ]
+  },
+  {
+   "id": "donepezil",
+   "class": "common",
+   "what_en": "a dementia drug",
+   "what_th": "ยารักษาสมองเสื่อม",
+   "aliases": [
+    "aricept"
+   ]
+  },
+  {
+   "id": "colchicine",
+   "class": "common",
+   "what_en": "a gout drug",
+   "what_th": "ยารักษาโรคเกาต์",
+   "aliases": []
+  },
+  {
+   "id": "allopurinol",
+   "class": "common",
+   "what_en": "a gout-prevention drug",
+   "what_th": "ยาป้องกันโรคเกาต์",
+   "aliases": [
+    "zyloprim"
+   ]
+  },
+  {
+   "id": "apixaban",
+   "class": "common",
+   "what_en": "a blood thinner",
+   "what_th": "ยาต้านการแข็งตัวของเลือด",
+   "aliases": [
+    "eliquis"
+   ]
+  },
+  {
+   "id": "warfarin",
+   "class": "common",
+   "what_en": "a blood thinner",
+   "what_th": "ยาต้านการแข็งตัวของเลือด",
+   "aliases": [
+    "coumadin",
+    "orfarin"
+   ]
+  },
+  {
+   "id": "insulin glargine",
+   "class": "common",
+   "what_en": "a long-acting insulin",
+   "what_th": "อินซูลินออกฤทธิ์ยาว",
+   "aliases": [
+    "lantus",
+    "toujeo",
+    "basaglar"
+   ]
+  },
+  {
+   "id": "empagliflozin",
+   "class": "common",
+   "what_en": "an SGLT2 diabetes and heart tablet",
+   "what_th": "ยาเบาหวานกลุ่ม SGLT2",
+   "aliases": [
+    "jardiance"
+   ]
+  },
+  {
+   "id": "dapagliflozin",
+   "class": "common",
+   "what_en": "an SGLT2 diabetes and kidney tablet",
+   "what_th": "ยาเบาหวานกลุ่ม SGLT2",
+   "aliases": [
+    "forxiga",
+    "farxiga"
+   ]
+  },
+  {
+   "id": "misoprostol",
+   "class": "common",
+   "what_en": "a stomach drug also used in abortion care",
+   "what_th": "ยาโรคกระเพาะที่ใช้ในการยุติการตั้งครรภ์",
+   "aliases": [
+    "cytotec"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,24 @@
+{
+ "_note": "Nan 2026-09-29: coverage is all of northern Thailand; we crawl CM and CR only, and accept everything that arrives on its own from anywhere in the north. 'crawl' is what the harvesters ask for; 'accept' is what the intake doors (worker, suggestions, claims, readers' pins, curated additions, geocoder) let in. The first two digits of a Thai postcode name the province. The 17 are the four-region ภาคเหนือ (9 upper north + 8 lower north).",
+ "crawl": ["cm", "cr"],
+ "bbox": {"south": 14.8, "north": 20.5, "west": 97.3, "east": 101.8},
+ "provinces": [
+  {"key": "cm",  "iso": "TH-50", "post": "50", "th": "เชียงใหม่",    "en": "Chiang Mai"},
+  {"key": "lpn", "iso": "TH-51", "post": "51", "th": "ลำพูน",       "en": "Lamphun"},
+  {"key": "lpg", "iso": "TH-52", "post": "52", "th": "ลำปาง",       "en": "Lampang"},
+  {"key": "utt", "iso": "TH-53", "post": "53", "th": "อุตรดิตถ์",     "en": "Uttaradit"},
+  {"key": "pre", "iso": "TH-54", "post": "54", "th": "แพร่",        "en": "Phrae"},
+  {"key": "nan", "iso": "TH-55", "post": "55", "th": "น่าน",        "en": "Nan"},
+  {"key": "pyo", "iso": "TH-56", "post": "56", "th": "พะเยา",       "en": "Phayao"},
+  {"key": "cr",  "iso": "TH-57", "post": "57", "th": "เชียงราย",     "en": "Chiang Rai"},
+  {"key": "mhs", "iso": "TH-58", "post": "58", "th": "แม่ฮ่องสอน",   "en": "Mae Hong Son"},
+  {"key": "nsn", "iso": "TH-60", "post": "60", "th": "นครสวรรค์",    "en": "Nakhon Sawan"},
+  {"key": "uti", "iso": "TH-61", "post": "61", "th": "อุทัยธานี",     "en": "Uthai Thani"},
+  {"key": "kpt", "iso": "TH-62", "post": "62", "th": "กำแพงเพชร",   "en": "Kamphaeng Phet"},
+  {"key": "tak", "iso": "TH-63", "post": "63", "th": "ตาก",         "en": "Tak"},
+  {"key": "sti", "iso": "TH-64", "post": "64", "th": "สุโขทัย",       "en": "Sukhothai"},
+  {"key": "plk", "iso": "TH-65", "post": "65", "th": "พิษณุโลก",     "en": "Phitsanulok"},
+  {"key": "pct", "iso": "TH-66", "post": "66", "th": "พิจิตร",        "en": "Phichit"},
+  {"key": "pnb", "iso": "TH-67", "post": "67", "th": "เพชรบูรณ์",     "en": "Phetchabun"}
+ ]
+}

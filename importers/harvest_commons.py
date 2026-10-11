@@ -20,6 +20,7 @@ Two passes:
     python3 importers/harvest_commons.py                # both provinces
     python3 importers/harvest_commons.py --radius 120   # tighter matching
     python3 importers/harvest_commons.py --max 400      # stop early
+    python3 importers/harvest_commons.py --ids ids.txt  # only these records
 
 Writes data/commons_images.json — never downloads. build.py links the thumbnail
 URL, so nothing is republished without its licence travelling alongside it.
@@ -44,7 +45,7 @@ UA = ("mot-dang-directory/1.0 (+https://motdang.net; matching free images to a "
       "local directory; contact 530kings@proton.me)")
 PAUSE = 0.6          # Commons is generous, but there is no reason to be rude
 
-# Licences we will actually publish. Anything else is recorded but not used, so
+# Licences this publishes. Anything else is recorded but not used, so
 # a licence change upstream cannot quietly turn a usable image into a liability.
 OK_LICENCE = re.compile(
     r"^(cc[ -]?(by|zero|0)|public domain|pd|cc[ -]?by[ -]?sa)", re.I)
@@ -96,6 +97,31 @@ GENERIC = {"chiang", "mai", "rai", "thailand", "district", "mueang", "wat", "tem
 def name_tokens(s):
     s = re.sub(r"[^\w\u0E00-\u0E7F\s]", " ", (s or "").lower())
     return {t for t in s.split() if t not in GENERIC and len(t) > 2}
+
+
+# A Thai name and an English file title share no words, so the token test below
+# could never match วัดพระสิงห์ to "Wat Phra Singh, Chiang Mai.jpg": 126 files
+# sat within 220 m of the 28 wats that had no picture and every one was refused.
+# `translit.reading` gives the Thai name a Latin reading, and both sides fold to
+# a consonant skeleton, which is what lets Jed Yod and เจ็ดยอด agree. A reading
+# is not a name and is not published as one — it is only used here to decide
+# whether a file is of this place, and the distance test still has to pass too.
+def _read_skeleton(name):
+    from build_wats import skeleton
+    return skeleton(name)
+
+
+def names_agree(place_names, title, description):
+    """The file's title carries this place's name, read in either script."""
+    hay = _read_skeleton(re.sub(r"^File:|\.\w+$", "", title).replace("_", " ")
+                         + " " + (description or "")[:120])
+    if len(hay) < 4:
+        return None
+    for nm in place_names:
+        key = _read_skeleton(nm)
+        if len(key) >= 6 and key in hay:
+            return "name read as %s" % key
+    return None
 
 
 def identifies(place_names, title, description):
@@ -162,6 +188,18 @@ def main():
     if "--cat" in sys.argv:
         want = set(sys.argv[sys.argv.index("--cat") + 1].split(","))
         recs = [r for r in recs if want & set(r.get("cat") or [])]
+    # --ids narrows it to a named list, as a comma list or a file of one id per
+    # line. A shelf that already knows which records it is short of asks for
+    # those and nothing else: /wats needed 29 photographs and a --cat wat run
+    # would have geosearched 1,900 records to find them.
+    if "--ids" in sys.argv:
+        arg = sys.argv[sys.argv.index("--ids") + 1]
+        if os.path.exists(arg):
+            with open(arg) as fh:
+                ids = {ln.strip() for ln in fh if ln.strip()}
+        else:
+            ids = set(arg.split(","))
+        recs = [r for r in recs if r["id"] in ids]
     # Skip anything that already has a downloaded photo.
     photos = os.path.join(ROOT, "assets", "photos")
     if os.path.isdir(photos):
@@ -203,6 +241,9 @@ def main():
                 "distance_m": round(dist),
             }
             ok_id, why = identifies(place_names, cand["title"], cand["description"])
+            if not ok_id:
+                why = names_agree(place_names, cand["title"], cand["description"])
+                ok_id = why is not None
             if not ok_id:
                 unnamed += 1
                 continue

@@ -12,6 +12,10 @@ cached under cache/linkhealth/, so a rerun only touches what is missing or stale
     python3 importers/check_links.py            # check what isn't cached yet
     python3 importers/check_links.py --recheck  # ignore cache, check everything
     python3 importers/check_links.py --max 50   # stop after 50 live checks
+    python3 importers/check_links.py --wayback-max 150  # and 150 archive lookups
+
+Both bounds leave the rest for the next run: a verdict or an archive lookup,
+once made, is cached and never asked again.
 """
 
 import concurrent.futures
@@ -21,6 +25,7 @@ import os
 import re
 import socket
 import ssl
+import subprocess
 import sys
 import time
 import urllib.error
@@ -32,12 +37,15 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CACHE = os.path.join(ROOT, "cache", "linkhealth")
 OUT = os.path.join(ROOT, "data", "linkhealth.json")
 UA = "MotDangLinkCheck/1.0 (+https://motdang.net/reach.html; link health for a local directory)"
-TIMEOUT = 15
+# 30, not 15: fortmengraihospital.com answers in 25 s, and a 15-second
+# limit recorded it dead on 2026-09-11 while an 8-21 check of the same
+# site had read it fine. A slow server is not a dead site.
+TIMEOUT = 30
 WORKERS = 6
 STALE_DAYS = 30
 
 # Hosts that are walled gardens, not websites. A bot cannot tell a live page from
-# a dead one behind a login wall, so we never guess — we classify and move on.
+# a dead one behind a login wall, so this does not guess — it classifies and moves on.
 SOCIAL = {
     "facebook.com": "facebook", "m.facebook.com": "facebook", "web.facebook.com": "facebook",
     "fb.com": "facebook", "fb.me": "facebook", "instagram.com": "instagram",
@@ -139,6 +147,24 @@ def fetch_chain(url, verify=True, max_hops=6):
     return current, 310, b"", hops
 
 
+def curl_chain(url):
+    """The same fetch through the system curl, for a TLS this Python cannot speak.
+    2026-10-10: this Mac's Python 3.9 is built on LibreSSL 2.8.3, which has no TLS 1.3;
+    onenimman.com and shutupwrite.com answered `tlsv1 alert protocol version` here and
+    200 to curl and to every browser. Returns (final_url, code, body) or None."""
+    try:
+        r = subprocess.run(["curl", "-sL", "--max-redirs", "6", "--max-time", str(TIMEOUT), "-A", UA,
+                            "-o", "-", "-w", "\n%{http_code} %{url_effective}", url],
+                           capture_output=True, timeout=TIMEOUT + 5)
+    except (OSError, subprocess.TimeoutExpired):
+        return None
+    body, _, tail = r.stdout.rpartition(b"\n")
+    code, _, final = tail.decode("utf-8", "ignore").partition(" ")
+    if r.returncode != 0 or not code.isdigit() or code == "000":
+        return None
+    return final or url, int(code), body[:120_000]
+
+
 def sniff(body):
     try:
         text = body.decode("utf-8", "ignore").lower()
@@ -162,26 +188,60 @@ def check(url):
     try:
         final, code, body, hops = fetch_chain(url)
     except urllib.error.URLError as e:
-        reason = e.reason
+        reason, answered = e.reason, False     # answered: a second try (or curl) got a reply to read below
         if isinstance(reason, ssl.SSLCertVerificationError) or isinstance(reason, ssl.SSLError):
             detail = str(getattr(reason, "verify_message", "") or reason)
-            # Is anything alive behind the bad certificate?
-            alive = False
-            try:
-                final, code, body, hops = fetch_chain(url, verify=False)
-                alive = 200 <= code < 400
-            except Exception:
-                pass
-            v.update(status="tls", detail=detail[:200], aliveBehindCert=alive)
+            # A HANDSHAKE THAT WAS DROPPED IS NOT A CERTIFICATE THAT IS WRONG.
+            # 2026-09-18: thaiakhakitchen.com recorded `tls`, "EOF occurred in
+            # violation of protocol" — and answered 200 to a browser in the
+            # same minute. Its edge shuts the door on this checker's UA; it
+            # usually says 403, which this file already reads as `walled`
+            # ("shut to THIS checker, not the same as a dead site"), and
+            # sometimes it drops the connection before any code exists to
+            # read. Same door, two ways of closing it, and only one of them
+            # was being recorded as what it is. So a dropped handshake — no
+            # certificate complaint in it — is tried once more before it is
+            # written down, and a 403 on that second try lands on `walled`
+            # where it belongs. A real certificate fault (expired, wrong
+            # host, self-signed) carries its own message and is untouched:
+            # it goes straight to `tls`, as it always did.
+            certish = isinstance(reason, ssl.SSLCertVerificationError) or \
+                bool(getattr(reason, "verify_message", "")) or \
+                "certificate" in detail.lower()
+            again = None
+            if not certish:
+                try:
+                    again = fetch_chain(url)
+                except Exception:
+                    again = None
+            if again is None and not certish:
+                cc = curl_chain(url)                  # a TLS this Python lacks, not a fault of the site
+                if cc:
+                    again = (cc[0], cc[1], cc[2], [])
+                    v["via"] = "curl"
+            if again is None:
+                # Is anything alive behind the bad certificate?
+                alive = False
+                try:
+                    final, code, body, hops = fetch_chain(url, verify=False)
+                    alive = 200 <= code < 400
+                except Exception:
+                    pass
+                v.update(status="tls", detail=detail[:200], aliveBehindCert=alive)
+                return v
+            # The second try answered. Fall through to the ordinary reading of
+            # what it said, which is where 403 becomes `walled`.
+            final, code, body, hops = again
+            answered = True
+        if not answered:
+            if isinstance(reason, socket.gaierror):
+                v.update(status="dns", detail=str(reason)[:200])
+                return v
+            if isinstance(reason, socket.timeout):
+                v.update(status="timeout", detail="no response in %ds" % TIMEOUT)
+                return v
+            v.update(status="down", detail=str(reason)[:200])
             return v
-        if isinstance(reason, socket.gaierror):
-            v.update(status="dns", detail=str(reason)[:200])
-            return v
-        if isinstance(reason, socket.timeout):
-            v.update(status="timeout", detail="no response in %ds" % TIMEOUT)
-            return v
-        v.update(status="down", detail=str(reason)[:200])
-        return v
     except socket.timeout:
         v.update(status="timeout", detail="no response in %ds" % TIMEOUT)
         return v
@@ -197,6 +257,13 @@ def check(url):
         v["hops"] = len(hops)
     if code >= 500:
         v.update(status="server-error")
+        return v
+    if code in (401, 403, 406, 429):
+        # A door shut to THIS checker, which is not the same as a dead site:
+        # thaiakhakitchen.com answers 403 here and 200 in a browser, and was
+        # unlinked on cooking.html for it. Same reasoning as "social" —
+        # unverifiable, so say so instead of calling it dead.
+        v.update(status="walled")
         return v
     if code >= 400:
         v.update(status="gone" if code in (404, 410) else "http-error")
@@ -281,11 +348,21 @@ def collect_urls():
 
 
 def main():
+    # Under launchd stdout is a file, so Python buffers it in blocks: on
+    # 2026-09-11 the log sat on "…11850/13170" for two hours while the run
+    # was halfway through its archive lookups, and it read as a hang.
+    try:
+        sys.stdout.reconfigure(line_buffering=True)
+    except (AttributeError, ValueError):
+        pass
     args = sys.argv[1:]
     recheck = "--recheck" in args
     limit = None
     if "--max" in args:
         limit = int(args[args.index("--max") + 1])
+    wayback_limit = None
+    if "--wayback-max" in args:
+        wayback_limit = int(args[args.index("--wayback-max") + 1])
 
     by_url = collect_urls()
     urls = sorted(by_url)
@@ -324,6 +401,12 @@ def main():
               if v.get("status") in ("tls", "dns", "down", "timeout", "gone", "http-error",
                                      "server-error", "parked", "empty")
               and "wayback" not in v]
+    # Each lookup is about four seconds and they run one at a time, so an
+    # unbounded pass over a large backlog holds whatever is waiting on this
+    # run for hours. The ones past the bound wait for the next run.
+    if wayback_limit is not None and len(broken) > wayback_limit:
+        print(f"   {len(broken) - wayback_limit} archive lookups left for the next run")
+        broken = broken[:wayback_limit]
     print(f"🕰  looking up {len(broken)} Wayback snapshots (gently)")
     for i, u in enumerate(broken, 1):
         verdicts[u]["wayback"] = wayback(u) or {}
