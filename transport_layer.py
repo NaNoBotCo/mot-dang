@@ -33,12 +33,15 @@ BUS = ROOT / "data" / "bus_routes.json"
 
 SUB_TH = {"train": "สถานีรถไฟ", "bus": "สถานีขนส่ง-ท่ารถ", "songthaew": "รถแดง-สองแถว",
           "taxi": "แท็กซี่-คิวรถ", "funicular": "รถรางขึ้นดอย", "pier": "ท่าเรือ",
-          "airport": "สนามบิน", "rental": "เช่ารถ-มอเตอร์ไซค์"}
+          "airport": "สนามบิน", "motorbike-rental": "เช่ามอเตอร์ไซค์",
+          "car-rental": "รถเช่า"}
 SUB_EN = {"train": "Train stations", "bus": "Bus terminals", "songthaew": "Rot daeng & songthaew",
           "taxi": "Taxi ranks", "funicular": "The Doi Suthep funicular", "pier": "Piers",
-          "airport": "Airports", "rental": "Car & bike rental"}
+          "airport": "Airports", "motorbike-rental": "Motorbike rental",
+          "car-rental": "Car rental"}
 GLYPH = {"train": "🚉", "bus": "🚌", "songthaew": "🚐", "taxi": "🚕",
-         "funicular": "🚡", "pier": "⛴", "airport": "✈️", "rental": "🛵"}
+         "funicular": "🚡", "pier": "⛴", "airport": "✈️", "motorbike-rental": "🛵",
+         "car-rental": "🚗"}
 # A songthaew stop's whole content is its name: mappers wrote the destination
 # there because OSM has no field for it. This pulls the destination out for
 # the board, and prints the name as written when it cannot.
@@ -143,11 +146,11 @@ def emit(g, data):
     lede_en = ("What this city actually moves on — red trucks, buses, the train, taxis, "
                "boats and flights — everything the catalogue holds, on one page.")
     body.append(f'<p>{bi(lede_th, lede_en)}</p>')
-    # The honest frame, first and unmissable.
-    warn_th = ("มดแดงไม่มีตารางเวลาและไม่มีค่าโดยสาร และจะไม่เดาให้ — ทะเบียนของทางราชการ "
+    # The plain frame, first and unmissable.
+    warn_th = ("มดแดงไม่มีตารางเวลาและไม่มีค่าโดยสาร — ทะเบียนของทางราชการ "
                "บอกว่ารถสายไหนวิ่งไปไหน ไม่ได้บอกว่าออกกี่โมง คนที่รู้เวลาจริงคือผู้ประกอบการ "
                "ที่ท่ารถ ลิงก์อยู่ข้างล่างนี้")
-    warn_en = ("This page has no timetables and no fares, and will not invent them. The "
+    warn_en = ("This page has no timetables and no fares. The "
                "government register says which routes run where, not when they leave — the "
                "people who know that are at the terminal, linked below.")
     body.append(f'<p class="myhint">⚠️ {bi(warn_th, warn_en)}</p>')

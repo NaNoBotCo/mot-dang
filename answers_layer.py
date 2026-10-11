@@ -81,6 +81,26 @@ table.hours td.hh{text-align:left;white-space:nowrap}
 table.hours .hnow{background:#b3540f22;outline:2px solid #b3540f}
 .opennote{border-left:3px solid #b3540f;padding:.3rem .7rem;
   background:#b3540f0d;border-radius:0 8px 8px 0;margin:1rem 0}
+.lead{font-size:1.05em}
+.prov{color:#00000099}
+ul.lean{list-style:none;padding:0;margin:.6rem 0;display:grid;gap:.35rem}
+ul.lean li{display:flex;gap:.5rem;align-items:baseline;flex-wrap:wrap}
+.lx{font-variant-numeric:tabular-nums;font-weight:700;color:#b3540f}
+table.cmp{border-collapse:collapse;width:100%;margin:1rem 0;
+  font-variant-numeric:tabular-nums}
+table.cmp th,table.cmp td{border-bottom:1px solid #0002;
+  padding:.4rem .6rem;text-align:right}
+table.cmp th:first-child,table.cmp td.ct{text-align:left}
+.stance{font-size:1.2em;font-weight:600;margin:.3rem 0 .6rem}
+.src{font-size:.82em;color:#00000088;font-weight:400}
+.wv{border:1px solid #0002;border-radius:10px;padding:.55rem .7rem;
+  margin:.55rem 0;background:#fff}
+.wvh{display:flex;gap:.5rem;align-items:baseline;flex-wrap:wrap}
+.wvname{font-weight:600}
+.wvnote{margin:.35rem 0 .2rem}
+.out{margin:.25rem 0 0;font-size:.93em;color:#000000cc}
+.outlab{font-size:.72em;text-transform:uppercase;letter-spacing:.04em;
+  color:#00000077;margin-right:.15rem}
 """
 
 
@@ -488,7 +508,7 @@ def list_page(g, data, L):
     candor = bi(
         f"ตัวเลข {n:,} คือ “เท่าที่เราถือข้อมูล” ไม่ใช่คำประกาศว่าทั้งจังหวัดมีเท่านี้ — "
         f"ถ้า{L['noun_th']}ไหนหายไป ช่วยบอกมดที่หน้าเพิ่มข้อมูลได้เลย เพิ่มแล้วรายชื่อนี้จะครบขึ้นทุกรอบ",
-        f"That {n:,} means “what we hold”, not a claim that the province stops "
+        f"That {n:,} means “the count this catalogue holds”, not a claim that the province stops "
         f"there — if a {L['noun_en']} is missing, tell the ants on the add-a-place "
         "page and this list gets more complete every rebuild.")
     ld = {"@context": "https://schema.org", "@type": "ItemList",
@@ -537,6 +557,8 @@ def lists_hub(g, data):
         f'<h1>📜 {bi("รายชื่อครบทั้งหมวด", "The complete lists")}</h1>'
         f'<p>{bi("บางคำถามไม่ได้อยากได้ “10 อันดับ” แต่อยากได้ทั้งหมด — หมวดไหนสำคัญพอ มดแดงทำเป็นรายชื่อครบหน้าเดียว นับจำนวนตรงหัวเรื่อง เรียง ก→ฮ ทุกชื่อกดเข้าไปดูหน้าของที่นั่นได้", "Some questions do not want a top ten — they want everything. These pages are the complete list for one category on one page: the count in the heading, ก→ฮ, every name a link to that place page.")}</p>'
         f'<ul class="dir">{"".join(rows)}</ul>'
+        f'<p class="also"><a href="../compare-cm-cr.html">{bi("เชียงใหม่กับเชียงรายต่างกันยังไง — เทียบจากจำนวนจริง", "How Chiang Mai and Chiang Rai differ — counted from the directory")}</a></p>'
+        f'<p class="also"><a href="../cost-of-living-and-safety.html">{bi("ค่าครองชีพแพงไหม ปลอดภัยไหม — คำตอบพร้อมที่มา", "Is it cheap? Is it safe? — answers, each one sourced")}</a></p>'
         f'<p class="tinynote">{bi("อยากได้หมวดไหนเพิ่ม บอกมดได้ที่", "Want another category listed? Tell the ants at")} '
         f'<a href="../crawl-request.html">{bi("ส่งมดไปสำรวจ", "request a crawl")}</a></p>'
         + g["share_block"](g["BASE"] + "lists/index.html",
@@ -549,6 +571,225 @@ def lists_hub(g, data):
                      extra_head='<link rel="stylesheet" href="../answers.css">',
                      crumbs='<a href="../index.html">มดแดง</a> › '
                             + g["bi"]("รายชื่อครบ", "Complete lists"))
+
+
+# --------------------------------------------- compare: what each city leans to
+# Nan chose Option A (WO-102, 2026-09-26): a data-backed answer to the orientation
+# questions the CM/CR keyword survey named — "what is chiang rai known for",
+# "difference between chiang mai and chiang rai". Every number is counted from the
+# directory on this build. The page names nothing the data cannot count, and says
+# so where the data is silent: it holds no prices and makes no safety judgement.
+COMPARE_MIN_CR = 40      # a lean is only worth naming above a floor of records
+COMPARE_MIN_CM = 80
+COMPARE_RATIO = 1.15
+
+
+def _cat_counts(rows):
+    c = {}
+    for r in rows:
+        for cat in (r.get("cat") or []):
+            c[cat] = c.get(cat, 0) + 1
+    return c
+
+
+def _leans(primary, pn, other, on, floor):
+    """Categories the primary province holds a bigger PROPORTION of than the
+    other — the signal, from counts alone, of what a city is known for."""
+    out = []
+    for c, n in primary.items():
+        if n < floor:
+            continue
+        ratio = (n / pn) / ((other.get(c, 0) / on) or 1e-9)
+        if ratio >= COMPARE_RATIO:
+            out.append((c, ratio, n, other.get(c, 0)))
+    out.sort(key=lambda x: -x[1])
+    return out[:8]
+
+
+def compare_page(g, data):
+    bi, esc = g["bi"], g["esc"]
+    cm, cr = data.get("cm", []), data.get("cr", [])
+    if not cm or not cr:
+        return None
+    NCM, NCR = len(cm), len(cr)
+    ccm, ccr = _cat_counts(cm), _cat_counts(cr)
+    labels = g.get("_CATPAIR", {})
+
+    def lab(c):
+        p = labels.get(c)
+        return (p[0], p[1]) if p else (c, c)
+
+    def catlink(c, inner):
+        return f'<a href="search.html?cat={esc(c)}">{inner}</a>'
+
+    def lean_rows(leans_):
+        lis = []
+        for c, ratio, a, b in leans_:
+            th, en = lab(c)
+            lis.append(f'<li>{catlink(c, bi(esc(th), esc(en)))} '
+                       f'<span class="lx">{ratio:.1f}×</span> '
+                       f'<span class="count">({a:,} / {b:,})</span></li>')
+        return "".join(lis)
+
+    cr_leans = _leans(ccr, NCR, ccm, NCM, COMPARE_MIN_CR)
+    cm_leans = _leans(ccm, NCM, ccr, NCR, COMPARE_MIN_CM)
+
+    # side-by-side table: the union of each province's top categories, by total
+    top, seen = [], set()
+    for c, _ in (sorted(ccm.items(), key=lambda x: -x[1])[:14]
+                 + sorted(ccr.items(), key=lambda x: -x[1])[:14]):
+        if c not in seen:
+            seen.add(c)
+            top.append(c)
+    top.sort(key=lambda c: -(ccm.get(c, 0) + ccr.get(c, 0)))
+    trows = "".join(
+        f'<tr><td class="ct">{catlink(c, bi(esc(lab(c)[0]), esc(lab(c)[1])))}</td>'
+        f'<td>{ccm.get(c, 0):,}</td><td>{ccr.get(c, 0):,}</td></tr>'
+        for c in top)
+
+    body = (
+        f'<h1>{bi("เชียงใหม่ กับ เชียงราย ต่างกันยังไง", "Chiang Mai and Chiang Rai, by the directory")}</h1>'
+        f'<p class="lead">{bi("ไม่ใช่ความเห็น เป็นการนับ. หน้านี้อ่านจากทุกที่ที่มดแดงถือข้อมูลในสองจังหวัด แล้วดูว่าแต่ละเมืองมีอะไร<b>มากเป็นสัดส่วน</b>กว่าอีกเมือง — นั่นคือสิ่งที่เมืองนั้นเด่น.", "Not an opinion — a count. This reads every place the directory holds in the two provinces and asks what each has <b>proportionally more</b> of than the other. That lean is what a city is known for.")}</p>'
+        f'<p class="prov">{bi("นับจากงานสร้างครั้งนี้", "Counted on this build")}: '
+        f'<b>{NCM:,}</b> {bi("แห่งในเชียงใหม่", "places in Chiang Mai")} · '
+        f'<b>{NCR:,}</b> {bi("แห่งในเชียงราย", "in Chiang Rai")}.</p>'
+        f'<h2>{bi("เชียงรายเด่นเรื่อง", "Chiang Rai leans toward")}</h2>'
+        f'<p class="tinynote">{bi("สัดส่วนเทียบเชียงใหม่ (จำนวน: เชียงราย / เชียงใหม่)", "share relative to Chiang Mai (count: Chiang Rai / Chiang Mai)")}</p>'
+        f'<ul class="lean">{lean_rows(cr_leans)}</ul>'
+        f'<h2>{bi("เชียงใหม่เด่นเรื่อง", "Chiang Mai leans toward")}</h2>'
+        f'<ul class="lean">{lean_rows(cm_leans)}</ul>'
+        f'<h2>{bi("จำนวนเต็ม เทียบกันตรง ๆ", "The raw counts, side by side")}</h2>'
+        f'<div class="hourwrap"><table class="cmp"><thead><tr>'
+        f'<th>{bi("หมวด", "Category")}</th><th>{bi("เชียงใหม่", "Chiang Mai")}</th><th>{bi("เชียงราย", "Chiang Rai")}</th>'
+        f'</tr></thead><tbody>{trows}</tbody></table></div>'
+        f'<p class="also"><a href="cost-of-living-and-safety.html">{bi("ค่าครองชีพแพงไหม ปลอดภัยไหม — คำตอบพร้อมที่มา", "Is it cheap? Is it safe? — answers, each one sourced")}</a></p>'
+        f'<p class="opennote">{bi("สิ่งที่หน้านี้<b>ไม่</b>ตอบ: มดแดงไม่ได้เก็บราคาค่าครองชีพ และไม่ตัดสินว่าเมืองไหน “ปลอดภัยกว่า” — ไม่นับ จึงไม่พูด.", "What this page does <b>not</b> answer: the directory holds no cost-of-living prices and makes no judgement about which city is safer — it does not count those, so it does not say.")}</p>'
+        + g["share_block"](g["BASE"] + "compare-cm-cr.html",
+                           "เชียงใหม่ กับ เชียงราย ต่างกันยังไง — มดแดง"))
+    og = ("og/compare-cm-cr.png"
+          if (ROOT / "assets" / "og" / "compare-cm-cr.png").exists() else None)
+    return g["page"](
+        "เชียงใหม่ กับ เชียงราย ต่างกันยังไง เด่นเรื่องอะไร — เทียบจากจำนวนจริง",
+        body, depth=0, path="compare-cm-cr.html", og=og,
+        desc="เชียงใหม่กับเชียงรายต่างกันยังไง แต่ละเมืองเด่นเรื่องอะไร — นับจากทุกที่ที่มดแดงถือข้อมูลจริง ไม่ใช่ความเห็น · "
+             "How Chiang Mai and Chiang Rai differ, counted from the directory",
+        extra_head='<link rel="stylesheet" href="answers.css">',
+        crumbs='<a href="index.html">มดแดง</a> › '
+               + g["bi"]("เชียงใหม่ · เชียงราย", "CM · CR"))
+
+
+# ------------------------------------- orientation: cost of living & safety
+# WO-102 Option A, phase two (Nan, 2026-09-26: "add a data source for important
+# questions like cost of living and safety"). The directory holds no prices and
+# measures no safety, so these answers come from data/curated/orientation.json —
+# every line is either a cited source or Nan's own framing, and the page renders
+# the provenance beside each one. Nothing here is asserted from nowhere.
+def orientation_page(g):
+    bi, esc = g["bi"], g["esc"]
+    src = ROOT / "data" / "curated" / "orientation.json"
+    if not src.exists():
+        return None
+    doc = json.loads(src.read_text())
+    topics = doc.get("topics", [])
+    if not topics:
+        return None
+
+    def prov(it):
+        parts = []
+        for k in ("source", "source2"):
+            s = it.get(k)
+            if s and s.get("url"):
+                parts.append(f'<a href="{esc(s["url"])}" rel="noopener">{esc(s.get("name", s["url"]))}</a>')
+        if it.get("by"):
+            parts.append(bi("นัน", "Nan"))
+        return (' <span class="src">— ' + ' · '.join(parts) + '</span>') if parts else ''
+
+    def item_li(it):
+        return f'<li>{bi(esc(it.get("th", "")), esc(it.get("en", "")))}{prov(it)}</li>'
+
+    def cite(it):
+        parts = []
+        for k in ("source", "source2"):
+            s = it.get(k)
+            if s and s.get("url"):
+                parts.append(f'<a href="{esc(s["url"])}" rel="noopener">{esc(s.get("name", s["url"]))}</a>')
+        return (' <span class="src">— ' + ' · '.join(parts) + '</span>') if parts else ''
+
+    verdict_class = {"worth": "announced", "depends": "lunar", "skip": "waiting"}
+
+    secs = []
+    for t in topics:
+        head = f'<section><h2>{bi(esc(t["q_th"]), esc(t["q_en"]))}</h2>'
+        if t.get("items"):
+            # a per-item verdict topic: Nan's call as a chip, the outside view beside it
+            intro = (f'<p class="lead">{bi(esc(t.get("intro_th", "")), esc(t.get("intro_en", "")))}</p>'
+                     if t.get("intro_en") or t.get("intro_th") else "")
+            cards = []
+            for it in t["items"]:
+                cls = verdict_class.get(it.get("verdict"), "waiting")
+                note = (f'<p class="wvnote">{bi(esc(it.get("note_th", "")), esc(it.get("note_en", "")))}</p>'
+                        if it.get("note_en") or it.get("note_th") else "")
+                cards.append(
+                    f'<div class="wv"><div class="wvh">'
+                    f'<span class="wvname">{bi(esc(it["name_th"]), esc(it["name_en"]))}</span>'
+                    f'<span class="voice {cls}">{bi(esc(it["verdict_th"]), esc(it["verdict_en"]))}</span>'
+                    f'<span class="src">— {bi("นัน", "Nan")}</span></div>'
+                    f'{note}'
+                    f'<p class="out"><span class="outlab">{bi("เสียงข้างนอก", "outside")}</span> '
+                    f'{bi(esc(it.get("outside_th", "")), esc(it.get("outside_en", "")))}{cite(it)}</p>'
+                    f'</div>')
+            secs.append(head + intro + "".join(cards) + "</section>")
+        else:
+            ev = "".join(item_li(e) for e in t.get("evidence", []))
+            exc = ""
+            if t.get("exceptions"):
+                exc = (f'<p class="tinynote">{bi("ยกเว้น", "Except")}:</p>'
+                       f'<ul class="lean">{"".join(item_li(e) for e in t["exceptions"])}</ul>')
+            secs.append(
+                head
+                + f'<p class="stance">{bi(esc(t["stance_th"]), esc(t["stance_en"]))}{prov(t)}</p>'
+                + f'<ul class="lean">{ev}</ul>{exc}</section>')
+
+    # ASKING RENTS FROM THE LISTING SHEET (glean.py → data/gleaned/prices.json):
+    # aggregates by tambon, kind and bedrooms, n ≥ 3 per cell; glean withholds
+    # thinner cells. No file or no rent cells: no section.
+    rent_sec = ""
+    try:
+        _pc = json.loads((ROOT / "data" / "gleaned" / "prices.json").read_text(encoding="utf-8"))
+        rent_cells = [c for c in (_pc.get("cells") or []) if c.get("offer") == "rent"]
+    except (OSError, ValueError):
+        rent_cells = []
+    if rent_cells:
+        rent_cells.sort(key=lambda c: (-c.get("n", 0), c.get("tambon") or ""))
+        rows = "".join(
+            f'<li>{esc(c.get("tambon") or "")} · {esc(c.get("kind") or "")} · '
+            f'{esc(str(c.get("bedrooms") or ""))} {bi("ห้องนอน", "bed")} — '
+            f'<b>฿{int(c["median"]):,}</b>/{bi("เดือน", "month")} '
+            f'<span class="src">(n={c.get("n")}, ฿{int(c["p25"]):,}–{int(c["p75"]):,}, '
+            f'{esc(str(c.get("from") or ""))}–{esc(str(c.get("to") or ""))})</span></li>'
+            for c in rent_cells[:20])
+        rent_sec = (f'<section><h2>{bi("ค่าเช่าที่ประกาศ ตามตำบล", "Asking rents by tambon")}</h2>'
+                    f'<p class="stance">{bi("มัธยฐานค่าเช่าที่ประกาศบนกระดานประกาศ ไม่ใช่ราคาที่ตกลงกันจริง", "The median asking rent on the Listing Sheet, not the rent agreed")} '
+                    f'<span class="src">— <a href="listings/">{bi("กระดานประกาศ", "the Listing Sheet")}</a></span></p>'
+                    f'<ul class="lean">{rows}</ul></section>')
+
+    body = (
+        f'<h1>{bi("ค่าครองชีพ กับ ความปลอดภัย เชียงใหม่-เชียงราย", "Cost of living & safety — Chiang Mai and Chiang Rai")}</h1>'
+        f'<p class="lead">{bi("คำถามที่คนถามบ่อยที่สุด. มดแดงไม่ได้เก็บราคาหรือวัดความปลอดภัยเอง — ทุกบรรทัดข้างล่างจึงมีที่มา: ถ้าไม่ใช่แหล่งอ้างอิง ก็เป็นความเห็นของนันเอง และหน้านี้บอกไว้ตรง ๆ ว่าอันไหนเป็นอันไหน.", "The questions people ask most. The directory does not hold prices or measure safety — so every line below names where it comes from: a cited source, or how Nan reads the place herself. The page says which is which.")}</p>'
+        + "".join(secs) + rent_sec
+        + f'<p class="also"><a href="compare-cm-cr.html">{bi("แล้วสองเมืองต่างกันยังไง — เทียบจากจำนวนจริง", "And how the two cities differ — counted from the directory")}</a></p>'
+        + g["share_block"](g["BASE"] + "cost-of-living-and-safety.html",
+                           "ค่าครองชีพ กับ ความปลอดภัย เชียงใหม่-เชียงราย — มดแดง"))
+    og = ("og/orientation.png"
+          if (ROOT / "assets" / "og" / "orientation.png").exists() else None)
+    return g["page"](
+        "ค่าครองชีพเชียงใหม่แพงไหม เชียงรายปลอดภัยไหม ที่ไหนน่าไป — คำตอบพร้อมที่มา",
+        body, depth=0, path="cost-of-living-and-safety.html", og=og,
+        desc="เชียงใหม่-เชียงรายค่าครองชีพแพงไหม ปลอดภัยไหม ที่ไหนน่าไปจริง — คำตอบที่มีที่มาทุกบรรทัด · "
+             "Cost of living, safety, and what is actually worth visiting in Chiang Mai and Chiang Rai — every line sourced",
+        extra_head='<link rel="stylesheet" href="answers.css">',
+        crumbs='<a href="index.html">มดแดง</a> › '
+               + g["bi"]("ค่าครองชีพ · ความปลอดภัย", "Cost & safety"))
 
 
 # ------------------------------------------------------------------- driver
@@ -568,6 +809,20 @@ def emit(g, data):
     else:
         (DOCS / "open-now.html").write_text(on)
         out["open-now"] = 1
+
+    cp = compare_page(g, data)
+    if cp is None:
+        out["compare-cm-cr"] = "SKIPPED — no cm/cr rows"
+    else:
+        (DOCS / "compare-cm-cr.html").write_text(cp)
+        out["compare-cm-cr"] = 1
+
+    op = orientation_page(g)
+    if op is None:
+        out["cost-of-living-and-safety"] = "SKIPPED — no data/curated/orientation.json"
+    else:
+        (DOCS / "cost-of-living-and-safety.html").write_text(op)
+        out["cost-of-living-and-safety"] = 1
 
     ldir = DOCS / "lists"
     ldir.mkdir(exist_ok=True)

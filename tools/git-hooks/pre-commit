@@ -1,0 +1,8 @@
+#!/bin/sh
+# Refuses a commit whose staged .py does not compile or staged data/*.json does
+# not parse (tools/codecheck.py). The server builds committed code.
+out=$(python3 tools/codecheck.py index) && exit 0
+echo "commit refused — these do not compile or parse as staged:" >&2
+echo "$out" >&2
+echo "(git add the whole fix, or git diff --cached to see what is staged)" >&2
+exit 1

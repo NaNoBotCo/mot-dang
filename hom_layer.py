@@ -28,8 +28,8 @@ them is a list of addresses:
   4. WHERE THE POT IS. Phrae. Said plainly, with the road, instead of
      pretending the walk ends in Nimman.
 
-DRAWN, NOT DESCRIBED. Four instruments, all inline SVG, no basemap and no
-script: the migration route from Xieng Khouang; the chemistry as a loop whose
+DRAWN, NOT DESCRIBED. Four instruments, all inline SVG and no script: the
+migration from Xieng Khouang, on regional_ground's provinces and rivers; the chemistry as a loop whose
 nodes are painted the colour the liquor actually is at that step; the pot's
 four states as a dial; and the timeline from 1834 to the GI. The colours in
 the cycle are the page's one piece of real teaching — the liquor is YELLOW-GREEN
@@ -54,6 +54,8 @@ import json
 import math
 import re
 from pathlib import Path
+
+import regional_ground as rg
 
 ROOT = Path(__file__).resolve().parent
 
@@ -227,7 +229,12 @@ CSS = """
 .hm-figcap{font-size:.86rem;color:var(--mute);margin:.55rem .3rem 0;line-height:1.5}
 .hm-maplabel{font-size:12.5px;fill:var(--ink);font-weight:600}
 .hm-mapnote{font-size:11px;fill:var(--mute)}
-.hm-route{fill:none;stroke:#26418f;stroke-width:2.4;stroke-dasharray:7 5;opacity:.75}
+.hm-road{fill:none;stroke:#26418f;stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round;opacity:.85}
+.hm-roadlabel{font-size:11px;fill:#26418f;font-weight:600}
+.hm-fig .hm-maplabel,.hm-fig .hm-mapnote,.hm-roadlabel{paint-order:stroke;stroke:#f7f1e3;
+  stroke-width:3px;stroke-linejoin:round}
+.hm-stepdot{fill:#fffdf7;stroke:#26418f;stroke-width:1.6}
+.hm-stepnum{font-size:11px;font-weight:700;fill:#26418f}
 .hm-pin{fill:#26418f;stroke:var(--card);stroke-width:2}
 .hm-pin-pot{fill:#14275a;stroke:#e8c766;stroke-width:2.6}
 .hm-pin-creek{fill:none;stroke:#5f7f4a;stroke-width:2}
@@ -274,13 +281,15 @@ CSS = """
 # ─────────────────────────────────────────────────────────── the drawn things
 
 def _map_svg(reg, creeks, esc, bi_text):
-    """The migration, and the plant in the map. One dashed line for the road the
-    Tai Phuan were moved along, one gold pin for the pot, and hollow rings for
-    every watercourse in the directory whose own name carries the plant.
+    """The migration, and the plant in the map, on the ground they cross.
 
-    No province polygons: the directory holds none, and drawing a boundary it
-    cannot cite is the mistake the hot-spring map refused. Labels are the
-    cluster's, never a claim about where a line falls.
+    The ground is regional_ground: provinces, the Lao border, the Nan and the
+    Mekong, main roads (Natural Earth + OSM). The 1834 march is drawn as its
+    three places, numbered in order, and NOT as a line: no source on this site
+    records the path they walked, and a line across the hills would read as a
+    road. The one line drawn is a road a reader can ride — Chiang Mai to Ban
+    Thung Hong, OSRM's car route, with its length. Hollow rings are every
+    watercourse in the directory whose own name carries the plant.
     """
     pts = [dict(p) for p in reg["route"]]
     for c in creeks:
@@ -300,14 +309,42 @@ def _map_svg(reg, creeks, esc, bi_text):
         scale *= 560 / H
         H = 560
 
+    def ll(lat, lng):
+        return (PAD + (lng - min(lngs)) * kx * scale,
+                PAD + (max(lats) - lat) * ky * scale)
+
     def xy(p):
-        return (PAD + (p["lng"] - min(lngs)) * kx * scale,
-                PAD + (max(lats) - p["lat"]) * ky * scale)
+        return ll(p["lat"], p["lng"])
+
+    # What this map labels itself: every pin, and the two-line label beside
+    # each named one. The ground's own names keep off them.
+    avoid = []
+    for p in pts:
+        x, y = xy(p)
+        avoid.append((x, y, 10))
+        if p["kind"] != "creek":
+            right = x < W - 210
+            avoid.append((x + (80 if right else -80), y + 10, 80))
+    g = rg.load()
+    road_d, road = rg.route_d(g, "cm-thunghong", ll, W, H)
+    road_lab = None
+    if road_d:
+        # Beside the road where it leaves Chiang Mai: west of the line, a third
+        # of the way along, clear of the pot's label at the far end.
+        q = road["line"][len(road["line"]) // 3]
+        rx, ry = ll(q[0], q[1])
+        road_lab = (rx - 8, ry + 4)
+        avoid.append((rx - 60, ry, 60))
+    out = [f'<rect width="{W}" height="{H}" fill="#f4efe4"/>',
+           rg.svg(g, ll, W, H, river_names=("Nan", "Mekong"), avoid=avoid)]
+    if road_d:
+        out.append(f'<path class="hm-road" d="{road_d}"><title>'
+                   f'{esc(bi_text("ถนน เชียงใหม่ → ทุ่งโฮ้ง %d กม." % road["km"], "Road, Chiang Mai → Thung Hong, %d km" % road["km"]))}'
+                   f'</title></path>')
+        out.append(f'<text class="hm-roadlabel" x="{road_lab[0]:.1f}" y="{road_lab[1]:.1f}" '
+                   f'text-anchor="end">{esc("ถนน %d กม. · by road" % road["km"])}</text>')
 
     order = ["xiengkhouang", "nan", "thunghong"]
-    line = " ".join("%.1f,%.1f" % xy(next(p for p in pts if p["key"] == k)) for k in order)
-    out = [f'<polyline class="hm-route" points="{line}"/>']
-
     for p in pts:
         x, y = xy(p)
         if p["kind"] == "creek":
@@ -316,6 +353,11 @@ def _map_svg(reg, creeks, esc, bi_text):
             out.append(f'<circle class="hm-pin-pot" cx="{x:.1f}" cy="{y:.1f}" r="8"/>')
         else:
             out.append(f'<circle class="hm-pin" cx="{x:.1f}" cy="{y:.1f}" r="5.6"/>')
+        if p.get("key") in order:
+            n = order.index(p["key"]) + 1
+            out.append(f'<g><circle class="hm-stepdot" cx="{x - 13:.1f}" cy="{y - 13:.1f}" r="8.5"/>'
+                       f'<text class="hm-stepnum" x="{x - 13:.1f}" y="{y - 9.3:.1f}" '
+                       f'text-anchor="middle">{n}</text></g>')
     for p in pts:
         if p["kind"] == "creek":
             continue
@@ -337,10 +379,13 @@ def _map_svg(reg, creeks, esc, bi_text):
                f'stroke="#7d6a52" stroke-width="2"/>'
                f'<text class="hm-mapnote" x="{PAD}" y="{H - 26}">100 km</text></g>')
     label = bi_text(
-        "แผนที่ทางเดินของหม้อห้อม — จากเชียงขวางลงน่าน ถึงทุ่งโฮ้ง แพร่ "
+        "แผนที่ที่มาของหม้อห้อม — ๑ เชียงขวาง ๒ น่าน ๓ ทุ่งโฮ้ง แพร่ ตามลำดับ "
+        "ไม่มีเส้นทางเดินเพราะไม่มีบันทึกว่าเดินทางไหน เส้นสีน้ำเงินคือถนนจากเชียงใหม่ถึงทุ่งโฮ้ง "
         "และวงกลมโปร่งคือชื่อบ้านนามเมืองในเชียงใหม่-เชียงรายที่มีคำว่าห้อม",
-        "The road the indigo came down: Xieng Khouang to Nan to Ban Thung Hong in Phrae. "
-        "Hollow rings are places in Chiang Mai and Chiang Rai whose own names carry the plant.")
+        "Where the indigo came from: 1 Xieng Khouang, 2 Nan, 3 Ban Thung Hong in Phrae, "
+        "in order, with no line between them because the path is not recorded. The blue "
+        "line is the road from Chiang Mai to Thung Hong. Hollow rings are places in Chiang "
+        "Mai and Chiang Rai whose own names carry the plant.")
     return (f'<svg role="img" aria-label="{esc(label)}" viewBox="0 0 {W} {H}" '
             f'xmlns="http://www.w3.org/2000/svg">' + "".join(out) + "</svg>")
 
@@ -722,12 +767,15 @@ def emit(g, data):
                                   "Where the blue came from") + "</h2>")
     B.append('<div class="hm-fig">' + _map_svg(reg, creeks, esc, bi_text) + "</div>")
     B.append('<p class="hm-figcap">' + bi(
-        "เส้นประคือทางที่ชาวไทพวนถูกโยกย้ายลงมา — เชียงขวาง (ลาว) → น่าน พ.ศ. 2377 → "
-        "ทุ่งโฮ้ง แพร่ · หมุดทองคือหม้อ · วงกลมโปร่งคือลำห้วยที่ชื่อว่าห้อม",
-        "The dashed line is the march: Xieng Khouang in Laos, into Nan in 1834, then Phrae. "
-        "The gold pin is the pot. The hollow rings are watercourses in this directory whose "
-        "names carry the plant — read as the plant, on the northern ห้วย + plant pattern, "
-        "and not proved.") + "</p>")
+        "๑ ๒ ๓ คือลำดับที่ชาวไทพวนถูกโยกย้ายลงมา — เชียงขวาง (ลาว) → น่าน พ.ศ. 2377 → "
+        "ทุ่งโฮ้ง แพร่ ไม่ได้ลากเส้นเพราะไม่มีบันทึกว่าเดินทางไหน · เส้นสีน้ำเงินคือถนนจากเชียงใหม่ "
+        "(เส้นทางรถยนต์ OSRM) · หมุดทองคือหม้อ · วงกลมโปร่งคือลำห้วยที่ชื่อว่าห้อม",
+        "1, 2, 3 is the order of the march: Xieng Khouang in Laos, into Nan in 1834, then "
+        "Phrae. No line joins them: no record of the path they walked is held here. The "
+        "blue line is today's road from Chiang Mai (OSRM car route). The gold pin is the "
+        "pot. The hollow rings are watercourses in this directory whose names carry the "
+        "plant — read as the plant, on the northern ห้วย + plant pattern, and not proved. "
+        "Ground: Natural Earth; rivers and road © OpenStreetMap contributors.") + "</p>")
 
     pot = next(p for p in reg["route"] if p["key"] == "thunghong")
     B.append("<p>" + bi(pot["note_th"], pot["note_en"]) + cite("sac") + "</p>")
@@ -883,7 +931,7 @@ def emit(g, data):
     B.append("<p>" + bi(
         "ถามว่าครามกันอะไร จะได้คำตอบสามชุดที่ไม่ตรงกัน — และชุดที่สามค้านสองชุดแรก "
         "หน้านี้จึงแยกไว้คนละกล่อง ไม่รวบเป็นเรื่องเดียว",
-        "Ask what indigo wards off and the answer comes in three registers that do not "
+        "What indigo wards off has an answer in three registers that do not "
         "agree with each other. The third contradicts the first two, so they are kept "
         "apart here rather than folded into one story.") + "</p>")
     B.append('<div class="hm-grid">')
@@ -937,7 +985,7 @@ def emit(g, data):
                          card=(shelf_og("hom") if shelf_og else None)))
     B.append("</div>")
 
-    (DOCS / "hom.css").write_text(CSS)
+    (DOCS / "hom.css").write_text(CSS + rg.CSS)
     (DOCS / "hom.html").write_text(page(
         "หม้อห้อม · Mo hom — indigo",
         "".join(B), 0,

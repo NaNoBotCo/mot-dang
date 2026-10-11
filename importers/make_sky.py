@@ -26,6 +26,9 @@ import os
 import sys
 from datetime import date, datetime, timedelta, timezone
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from thai_lunar import lunar_day  # noqa: E402
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "data", "sky.json")
 JOVILABE = os.path.abspath(os.path.join(ROOT, "..", "jovilabe"))
@@ -59,20 +62,16 @@ def moon_for(dt):
         th, en = "ข้างขึ้น", "Waxing"
     else:
         th, en = "ข้างแรม", "Waning"
-    # Thai lunar reckoning: ขึ้น ๑–๑๕ ค่ำ waxing, then แรม ๑–๑๕ ค่ำ waning.
-    # Proportional within each half rather than counting whole days, so the
-    # full moon lands on ขึ้น ๑๕ instead of drifting a day.
-    half = SYNODIC / 2
-    waxing = frac < 0.5
-    within = age if waxing else age - half
-    thai_day = max(1, min(15, int(within / half * 15) + 1))
-    # วันพระ — the Buddhist observance days, 8th and 15th of each half.
-    wan_phra = thai_day in (8, 15)
+    # ขึ้น/แรม ค่ำ and วันพระ follow the Thai lunar calendar (thai_lunar.py),
+    # which runs up to a day off the phase above; waxing stays the phase.
+    lun = lunar_day(dt.date())
     return {"age": round(age, 3), "frac": round(frac, 5),
             "illum": round(illum, 4), "phase_th": th, "phase_en": en,
-            "waxing": waxing, "thai_day": thai_day, "wan_phra": wan_phra,
-            "thai_label_th": f'{"ขึ้น" if waxing else "แรม"} {thai_day} ค่ำ',
-            "thai_label_en": f'{"waxing" if waxing else "waning"} day {thai_day}'}
+            "waxing": frac < 0.5, "thai_waxing": lun["waxing"],
+            "thai_month": lun["month"], "thai_day": lun["day"],
+            "wan_phra": lun["wan_phra"],
+            "thai_label_th": f'{"ขึ้น" if lun["waxing"] else "แรม"} {lun["day"]} ค่ำ',
+            "thai_label_en": f'{"waxing" if lun["waxing"] else "waning"} day {lun["day"]}'}
 
 
 def jupiter_for(dt):

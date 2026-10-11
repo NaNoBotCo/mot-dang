@@ -1,0 +1,63 @@
+==============================================================================
+MINISITES ON MOT DANG — WHERE THEY GO
+==============================================================================
+2026-09-26 · for NaN · proposal, nothing below is built except the address
+
+
+THE ADDRESS
+------------------------------------------------------------------------------
+
+  One flat folder: motdang.net/sites/<name>/
+  First one: motdang.net/sites/garden-loikroh/  (live)
+
+  The address never says food, Chiang Mai or client. Those change;
+  the address stays. All sorting happens in one data file, so we can
+  re-sort a hundred sites without breaking a link anyone has shared.
+
+
+THE ONE FILE
+------------------------------------------------------------------------------
+
+  data/curated/sites.json — one row per minisite:
+
+      name, address, Thai + English title, picture
+      which Mot Dang listings it belongs to (Garden → its listing)
+      what it is: a business's own site · a place guide · a topic
+      whose it is: client · friend · Mot Dang's own
+      languages, live or draft, featured from/to dates
+
+  Category, subcategory, province, kind and tags come FROM the listing,
+  so a site sorts exactly where its place sorts. Garden lands under
+  food › Thai, hotel › guesthouse, Chiang Mai, commerce.
+
+
+WHAT THE FILE DRIVES
+------------------------------------------------------------------------------
+
+  1. The listing page gets a line: เว็บของร้าน · Its own site →
+  2. The category shelves show the site beside its place
+  3. motdang.net/sites/ — a directory page: Term (count), by
+     category and province
+  4. Home tiles and the pinned cards, only while "featured" is on
+  5. The sponsor box row points at the site, not Google Maps
+  6. llms.txt and the fleet roster list them
+
+  Today these are six hand-kept lists. After, adding a site is one row.
+
+
+YOURS TO DECIDE
+------------------------------------------------------------------------------
+
+  1. The file above as the way minisites join Mot Dang: yes / no.
+
+  2. A mark on Mot Dang's side for client sites:
+     (a) เว็บของร้าน · the place's own page, for all of them
+     (b) (a), plus ผู้สนับสนุน · sponsor when paid
+     (c) no mark
+
+  3. Chiang Rai, Slowly: stays at /chiang-rai (links already shared),
+     joins the file as a place guide. Or it moves under /sites/ with the
+     old address forwarding.
+
+  Until you answer, Garden is live and reachable by its address only.
+  It is not on the home page, its listing, or any shelf.

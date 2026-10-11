@@ -149,7 +149,7 @@ an edit of their own.
 `tests/test_tap.py` runs tap.js under a DOM stub — 26 checks, all green, and
 they assert your six answers so a later session cannot quietly undo them.
 
-STILL TO DO, and honestly not done:
+STILL TO DO, and not done:
   * marks on the 9 event maps and the merit round (the same one-line helper);
   * tag ints on place-map neighbours and on the /map.html and /here.html layers,
     so the chips appear there too — today they appear on the results map;

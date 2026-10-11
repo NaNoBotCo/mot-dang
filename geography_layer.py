@@ -618,7 +618,7 @@ def emit(g, data):
         + '<p class="doi-note">'
         + bi("ทะเบียนดิบ", "Raw readings") + ': <a href="data/terrain_meta.json">data/terrain_meta.json</a> · '
         + '<a href="data/terrain_profile.json">data/terrain_profile.json</a> · '
-        + bi("เห็นเลขที่ควรอ่านใหม่ — ", "a reading that needs re-reading — ")
+        + bi("เห็นเลขที่ต้องอ่านใหม่ — ", "a reading that needs re-reading — ")
         + '<a href="suggest.html">' + bi("บอกมด", "tell the ants") + "</a></p>"
         + share_block(BASE + "doi.html",
                       "ดอย — แผ่นดินเชียงใหม่·เชียงราย · มดแดง", card=og))
@@ -631,8 +631,8 @@ def emit(g, data):
              "The terrain of Chiang Mai and Chiang Rai: real relief shading, an opt-in 3D mode, "
              "a cross-section of the basin, the model's highest cell, and the landscape words "
              "inside northern place-names — every number dated and sourced.",
-        extra_head='<link rel="stylesheet" href="doi.css?v=%s">' % v
-                   + '<script src="doi.js?v=%s" defer></script>' % v
+        extra_head='<link rel="stylesheet" href="doi.css">'
+                   + '<script src="doi.js" defer></script>'
                    + '<script type="application/ld+json">'
                    + json.dumps(ld, ensure_ascii=False) + "</script>",
         og=og,

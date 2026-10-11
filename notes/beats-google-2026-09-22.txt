@@ -1,0 +1,51 @@
+MOT DANG vs GOOGLE — benchmarks it wins today
+2026-09-22 · for you, not the site · measured from this machine unless a line says otherwise
+
+MEASURED, both sides
+------------------------------------------------------------------------------
+Results page weight    motdang.net/find "กระท่อม"  3.5 KB gz · 13 KB raw · 1 script (inline) · fetches from 1 host
+                       google.com/search "kratom chiang mai", no-JS mobile page  46 KB gz · 92 KB raw · 5 scripts · 2 hosts
+                       (13× lighter; the scripted Google page a phone loads is heavier still)
+Results page speed     /find  0.12–0.18 s whole page, 5 runs from Chiang Mai · Google 0.20 s
+                       first cold Thai query 0.96 s (dictionary load) — the one number Google wins
+Page ends after the answer   /find 6–15 KB, no stylesheet fetch, no footer grid
+                       (search-is-the-wrong-tool note, 9/7: the old page was 98% furniture; this one is not)
+Works with JS off      home, /find, every shelf page: 0 external <script src>; place page: 8 scripts, all self-hosted
+                       Google's search page without JS is a fallback page
+Lucky                  /find?q=rajavej&lucky=1 → one 302 to defiant.to/hospitals/rajavej-hospital
+                       Google's I'm Feeling Lucky is gone from mobile
+
+MEASURED HERE, no Google number to set beside it
+------------------------------------------------------------------------------
+Thai as Thai writes it   the dictionary splits กระท่อม, ร้านกาแฟ, ก๋วยเตี๋ยว on both sides of the index;
+                       a bare ก no longer matches inside ก๋วยเตี๋ยว (FTS5 categories tokenizer, verified on D1)
+Distance on every page   76,847 of 105,813 pages carry their own coordinate; a shop page prints
+                       "~17 km เหนือ · N" under its <h1>, written at the edge, no script, no app
+                       the guess names itself (edge = Chiang Mai, 6.4 km off); a tap gives the reader's own fix
+Sort and filter        newest · oldest · A–Z · nearest, by site, by date, words-in-title; every facet link carries
+                       its count and an option that narrows nothing is not offered. Google web search has no sort.
+Boolean, Thai          AND OR NOT NEAR ( ), FTS5 precedence, on a Thai phrase; ?fmt=json on every query
+One box, twenty sites  105,077 pages across the roster answer from one box; site: narrows inside the match
+A receipt per field    365,944 stated + 174,258 derived fields carry provenance in the published dataset;
+                       stated / derived / inferred are three grades and only stated is ever given onward
+                       a place page names its sources (OSM, Overture, register) with a licence link
+Unknown stays unknown  hours held for 4,003 of 62,895 CM records (6.4%); "open now" speaks for those
+                       and draws the rest as unknown, not closed. The count is on the record, not a claim.
+The word is calibrated by the shelf   kratom: OSM name-match gives 37 hits, 35 are huts;
+                       the shelf reads the word only where every row arrived from a cannabis directory → 14 in CM
+Data goes back out     /api (22,348 places) · llms.txt (46 KB) · events.ics (51 KB) · 5 Hugging Face repos CC BY 4.0
+                       (trade words 1,782 · RTGS lexicon 694 · romanisation benchmark 153,948 words · places v2)
+                       Google hands back none of its index
+Machine-readable       JSON-LD on every place page; the description line in llms.txt answers "what is this" in both scripts
+The miss is a work item   26 asked.json questions, a zero-shelf test, an answer-shaped test
+                       ("toksen in the old city, open past 21:00" → Lila Thai Massage), fail the build when a shelf goes empty
+
+NOT A WIN — do not say it
+------------------------------------------------------------------------------
+Google index           4 of 98,153 pages (site: 2026-09-20); shards fixed live 9/21, not yet re-read
+Traffic                97,247 pageviews / 8,415 IPs on 9/20, bots included
+Nearest sort           pins loaded for 3,705 of 76,847 pages until the reload finishes (see gaps)
+Place page weight      10–12 KB gz, 13 scripts, MapLibre vendored — heavier than the results page
+
+Sources: curl with an iPhone UA 2026-09-22 (scratch: measure.sh, m2–m5.sh) · fleetsearch README · notes/search-is-the-wrong-tool-2026-09-07.txt ·
+notes/kratom-2026-09-21.txt · notes/hf-published-2026-09-08.txt · notes/provenance-schema-2026-09-05.txt · STATE.txt 9/21

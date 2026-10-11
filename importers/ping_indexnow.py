@@ -25,8 +25,19 @@ KEY = re.search(r'INDEXNOW_KEY = "([0-9a-f]+)"',
 
 
 def urls_from_sitemap():
-    sm = (ROOT / "docs" / "sitemap.xml").read_text()
-    return re.findall(r"<loc>(.*?)</loc>", sm)
+    """Every page URL the build published.
+
+    sitemap.xml is an INDEX since 2026-09-20 — the page URLs live in the
+    sitemap-N.xml shards it names, because one file past 50,000 URLs is
+    rejected whole by every consumer that enforces the protocol. Read the
+    shards directly; the index itself holds only their addresses.
+    """
+    shards = sorted((ROOT / "docs").glob("sitemap-*.xml"),
+                    key=lambda f: int(f.stem.split("-")[1]))
+    if not shards:                       # a build from before the shards
+        shards = [ROOT / "docs" / "sitemap.xml"]
+    return [u for f in shards
+            for u in re.findall(r"<loc>(.*?)</loc>", f.read_text())]
 
 
 def ping(urls):

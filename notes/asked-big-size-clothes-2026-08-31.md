@@ -144,7 +144,7 @@ search of the Facebook trade surfaces the same business as ร้านปุ้
 **What one-in-583 means, said carefully:** not that Chiang Mai has one big-size
 shop — the evening trade at กาดหน้ามอ is real and this is not it — but that
 **the trade does not write the fact anywhere a directory can read it.** Which is
-why this order builds an honest `clothes` shelf and does not invent a big-size
+why this order builds a plain `clothes` shelf and does not invent a big-size
 one: a size claim we made on a shop's behalf would be the one thing on the page
 nobody could check.
 

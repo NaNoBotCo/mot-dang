@@ -1,0 +1,20 @@
+{
+  "_readme": "Props drawn over place portraits (assets/front/doodler-props.js), from the place's tags (data/tags.json slugs). doodles_layer.place_facts puts a prop on a page when the place carries one of its tags, the prop has a 'drawn' date, and the page's scene is not in 'not_scenes'. Rows with drawn null are mapped but not yet drawn. tools/portrait_props.py ranks them by photo-less pages reached. Nan 2026-10-03: three a night, tags only first.",
+  "props": {
+    "lights":   {"tags": ["open-late", "open-24h"], "th": "ไฟระย้าเปิดดึก", "en": "string of bulbs, open late", "drawn": "2026-10-03"},
+    "parking":  {"tags": ["parking", "car-park", "surface-parking"], "not_scenes": ["parking"], "th": "ที่จอดรถ", "en": "parking sign and scooters", "drawn": "2026-10-03"},
+    "rooster":  {"tags": ["open-early"], "th": "ไก่ขัน เปิดเช้า", "en": "rooster, opens early", "drawn": "2026-10-03"},
+    "aircon":   {"tags": ["air-con"], "th": "แอร์", "en": "air-con outdoor unit", "drawn": "2026-10-03"},
+    "pool":     {"tags": ["resort"], "th": "สระว่ายน้ำ", "en": "pool and parasol", "drawn": "2026-10-06"},
+    "wifi":     {"tags": ["wifi", "free-wifi"], "th": "ไวไฟ", "en": "wi-fi", "drawn": "2026-10-06"},
+    "farm":     {"tags": ["farm", "agriculture"], "th": "ไร่นา", "en": "farm", "drawn": "2026-10-06"},
+    "water":    {"tags": ["coin-water-dispenser", "coin-water-dispenser-2", "drinking-water"], "not_scenes": ["gov", "utilities"], "th": "ตู้น้ำหยอดเหรียญ", "en": "coin water kiosk", "drawn": "2026-10-07"},
+    "tables":   {"tags": ["outdoor-seating"], "not_scenes": ["cafe", "restaurant", "streetfood", "food", "bar", "feast"], "th": "โต๊ะนอกร้าน", "en": "tables outside", "drawn": "2026-10-07"},
+    "atm":      {"tags": ["atm-on-site"], "not_scenes": ["bank", "convenience"], "th": "ตู้เอทีเอ็ม", "en": "ATM", "drawn": null},
+    "camp":     {"tags": ["campsite"], "th": "ลานกางเต็นท์", "en": "tents", "drawn": "2026-10-08"},
+    "carwash":  {"tags": ["car-wash"], "not_scenes": ["garage"], "th": "ล้างรถ", "en": "car wash", "drawn": null},
+    "takeaway": {"tags": ["takeaway"], "th": "ซื้อกลับบ้าน", "en": "takeaway bags", "drawn": "2026-10-08"},
+    "bubbletea":{"tags": ["bubble-tea"], "th": "ชานมไข่มุก", "en": "bubble tea", "drawn": "2026-10-07"},
+    "noodles":  {"tags": ["noodles"], "not_scenes": ["restaurant", "streetfood", "food", "cafe", "feast"], "th": "ก๋วยเตี๋ยว", "en": "noodle bowl", "drawn": "2026-10-08"}
+  }
+}

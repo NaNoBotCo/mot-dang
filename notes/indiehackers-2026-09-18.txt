@@ -1,0 +1,121 @@
+MOT DANG — INDIE HACKERS, READY TO PASTE
+2026-09-18. Nothing went out. The clicks are yours.
+
+====================================================================
+NEWSBREAK — NOTHING TO PASTE
+====================================================================
+Their monetization policy: "You must be located in the U.S." The app routes
+stories to U.S. zip codes, so a Chiang Mai directory has no audience there
+even if the account existed.
+  https://creators.newsbreak.com/monetization-policy
+
+The DA 77 in that email is newsbreak.com's own, not what a page of yours
+would carry. Same for indiehackers.com at 61 — which is why the one below
+is worth doing for readers and not for the link.
+
+====================================================================
+INDIE HACKERS — two things, both free, both live today
+====================================================================
+  product listing   https://www.indiehackers.com/products/new
+  a post            https://www.indiehackers.com/new-post
+
+Under your own name, the way you stand in groups. No Mot Dang account
+anywhere, so the NOT_OUR_CHANNELS line on the site stays accurate. Your
+name already sits on /who.html, so this puts nothing new about you outward.
+
+The room: one post per product, framed for feedback rather than notice.
+Revenue claims want proof — yours is zero, so there is nothing to prove.
+
+AGENTS.md says Mot Dang "is not a startup, a marketplace, a platform, or an
+MVP on the way to something," and Indie Hackers is a founder forum. The
+draft below keeps to the repo's own description. The raise-facing version is
+a different paper for a different room — say the word and I write it.
+
+--------------------------------------------------------------------
+1. THE LISTING — field by field
+--------------------------------------------------------------------
+NAME
+Mot Dang (มดแดง)
+
+URL
+https://motdang.net
+
+TAGLINE
+A city directory for Chiang Mai and Chiang Rai, Thai and English on every page.
+
+REVENUE
+0
+
+DESCRIPTION
+88,228 places across Chiang Mai and Chiang Rai — wats, shops, doctors,
+markets, and the good things down every soi — sorted the old way, in Thai
+and English. Static HTML on R2 behind a Cloudflare Worker, built with
+stdlib Python by one person. Each fact carries where it came from and when
+it was read; a mark that cannot name its edition year does not print. The
+catalogue is published as open data:
+https://huggingface.co/datasets/NaNoBotCo/mot-dang-chiang-mai-chiang-rai
+
+--------------------------------------------------------------------
+2. THE POST — title, then body
+--------------------------------------------------------------------
+TITLE
+88,000 places mapped, opening hours on 17% of them — where would you spend next?
+
+BODY
+I keep a city directory for Chiang Mai and Chiang Rai on my own — 88,228
+places, Thai and English side by side, static HTML on R2 behind a Cloudflare
+Worker, stdlib Python end to end. https://motdang.net
+
+What I got wrong for most of a year: I built retrieval before I had fields
+worth retrieving. The repo holds three engines — a structured/geo API over a
+baked index at 120 ms, semantic search on Vectorize with bge-m3, and a
+browser-side lexical index — and until this month the search box called the
+weakest of the three. Wiring up the good one moved less than I expected,
+because of this (measured 7 September, on the 25,914 canonical records):
+
+  pin           97.7%
+  address       42%
+  English name  37%
+  phone         20%
+  hours         17%
+  website       8.9%
+
+Nothing ranks a fact that was never collected. The engine was not the ceiling.
+
+Two findings that might carry to anyone working outside Latin script:
+
+bge-m3 reads Thai, which matters more than it sounds. Thai is written
+without spaces between words, so a lexical index over it is guessing at word
+boundaries, and name search fails in ways an English test suite will never
+show you.
+
+OpenStreetMap is a weak first source here. Of the 24,059 records I had at
+the time of that count, 63% came from OSM, 10% carried a website of any
+kind, and 1% carried a Facebook page — while in this city a shop's Facebook
+page is usually the only place it speaks for itself. OSM answers "what did a
+mapper walk past," which is a different question from "who is open and
+selling this."
+
+Revenue is zero.
+
+Where I would like the critique:
+
+1. I am about to log queries for three weeks and then spend on fields rather
+   than infrastructure. If you have run a directory: did the logs tell you
+   what to collect, or did you end up collecting whatever was cheapest?
+
+2. Hours and phone are the two fields readers want and the two hardest to
+   get — owner-submitted, walked, or bought, each has a failure mode. What
+   worked for you at a few thousand records?
+
+3. The site shows its own gaps: a rank per listing counting what is missing,
+   dead official links named and dated. My read is that this earns more
+   trust than hiding them costs. I would like that argued against.
+
+--------------------------------------------------------------------
+THE TWO NUMBERS, IN CASE SOMEONE ASKS
+--------------------------------------------------------------------
+88,228 is what the API serves today (canonical plus the imported rows).
+25,914 is the canonical set the coverage percentages were measured on, on
+7 September. The post says which is which; if you would rather run one
+number only, tell me and I will rewrite both to the canonical set.

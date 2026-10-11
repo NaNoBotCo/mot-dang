@@ -2,7 +2,7 @@
 """Photograph today's sky off Nan's own working instruments, once a day.
 
 Mot Dang had three different home-made drawings of the moon and none of them
-was the real thing. The worst of it was stated on the page in the site's own
+was the shipped page. The worst of it was stated on the page in the site's own
 words — "มุมโดยประมาณ ไม่ใช้เอฟีเมอริส · angle approximated, no ephemeris here".
 Meanwhile three finished instruments already exist and are right:
 

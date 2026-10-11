@@ -30,6 +30,12 @@
    "source": "https://cbtthailand.dasta.or.th/webapp/relattraction/content/3613/",
    "via": "dasta CBT page title for the Mae Suai shrine; record already carried the Thai string in `name` but nameTh sat empty",
    "note": "OSM way 315250004 gives only name (Thai) and name:en."
+  },
+  "cr-ovt-a3aa6a63-f435-4652-a7f6-7b69a94021fe": {
+   "nameEn": "Baan Kan Chiang Rai",
+   "source": "the hotel's own sign (บ้านกาญจน์ / Baan kan), NaN's photograph 2026-02-19, and its own booking page book-directonline.com/properties/baankanchiangraidirect",
+   "via": "NaN, 2026-09-28",
+   "note": "Overture carries the Thai name only; the page was reading it as 'Ban Kancha'."
   }
  },
  "unverified": {
@@ -78,6 +84,12 @@
     "nameTh": "วิหารหลวงพ่อทันใจ พระครูบาเจ้าเทือง นาถสีโล",
     "route": "9, stop 4"
    }
+  },
+  "cm-ovt-ba97a41c-00ac-491a-9db7-972424377f2f": {
+   "nameTh": "ภัตตาคารยูนนาน",
+   "source": "https://motdang.net/pictures.html",
+   "via": "shopfront sign in NaN Peacock's photograph, 26 Sep 2026",
+   "note": "A paper lantern hides the letters between ยู and าน; ยูนนาน fits the gap, ยูนาน is the other spelling in use. Waits for a clear read of the sign."
   }
  }
 }

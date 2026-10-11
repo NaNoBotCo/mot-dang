@@ -1,0 +1,71 @@
+OPS SITREP — Sunday 27 September 2026, 15:00 desk
+(No sitrep ran 24–26 Sept. The hourly desk routed those days; this covers 23 Sept 13:45 to today.)
+
+PIPE
+  Health          ok, build 2026-09-07-neighbours
+  Rows waiting    0
+  Newest message  today 12:32, Nan. Alive.
+
+THE ROOM
+  114 messages, 23 Sept 13:45 – 27 Sept 12:32. Busiest: 25 Sept, 83.
+  Palida, Nan, Michael. Today: 10, Palida and Nan.
+
+FOR NAN
+  1. Tuesday 29 Sept is full:
+       13:00  Zia meeting at "Algonquin" (Palida booked it, Michael confirmed, in the calendar)
+       18:00  Rotary pizza night (Michael); you said you go straight from Algonquin
+       Palida hands over the PO box key: PO Box 115, Chiang Mai Post Office 50000
+  2. Peptide price list. The buyer asked 26 Sept 07:59; Palida chased at 09:39 today.
+     Your draft (11 pages, "don't send yet") is at
+     _incoming/line/photos/2026-09-27/_unfiled/633597814739829010.pdf
+     Checked against his request, line by line:
+       Missing   SLU-PP-332 5mg; L-Carnitine 1200mg on its own (only blends list it)
+       Typos     AOD9604 10 reads "10ml"; "Samaglutide" ×10 (Semaglutide);
+                 TR5 "Tirzapetide"; column header "Spacifications" ×2
+       Unanswered  his two questions: batch test reports, and minimum order
+                   (the room agreed multiples of 10)
+     Every other item and strength he asked for is on it.
+  3. Palida, 25 Sept 21:36: "Can you please add me in WhatsApp / So i can share you
+     contacts" — for the buyer. No answer in the room.
+  4. Your base-map bug, 11:45 today. The bot gave it no number, so nobody has one.
+     Cause: every thumbnail beside a search result on motdang.net/find is a 404.
+     14,900 of them (68 MB) were drawn on 23 Sept into cache/fleetsearch/thumbs/; none are on
+     the live site. Maps and photos both. The main map file answers.
+     Fix, one command, adds files only:
+       python3 fleetsearch/thumbs.py --upload
+     Not run: this desk does not publish.
+
+WORKED
+  Base-map bug diagnosed (above). Sample of 7 tiles from a live /find page: 7 × 404.
+  Price list checked against the buyer's list (above).
+  Skin-tag clinics (your ask to Palida, 23 Sept): call list written.
+    Query ตัดติ่งเนื้อ: 2 pages name the service — Times Clinic, OPD Sriphat Center.
+    Query คลินิกผิวหนัง: 69 results, 13 are skin clinics; 6 have a phone.
+    The data does not say which remove skin tags. Palida has to ask.
+    notes/skin-tag-clinics-2026-09-27.txt
+    Shelf gap: 2 results for skin-tag removal, a common service. asked.json candidate.
+  Algonquin: not in the catalogue in English or Thai. Palida's two picks resolved:
+    SATO (Prapokklao Rd) and Kati Breakfast and Brunch (Rachadamnoen Rd).
+
+ROUTED
+  Today's 10 messages  → _incoming/line/ops/2026-09-27.txt
+  Base-map bug         → mot-dang fleetsearch/thumbs.py (upload step)
+  Meme one-shot        → ASK-NAN.txt (brief unclear)
+  Price-list PDF       → held unfiled; internal
+  RTP / Zia list       → nanobotco.github.io/rtp (built 25 Sept; Palida sent the note)
+  Pipe fault           → the pull pasted the 12:32 meme caption onto the 11:45 screenshot
+
+BLOCKED
+  Base-map thumbnails: your yes to run the upload.
+  The meme: what the one-shot should make.
+  Algonquin: a street or map link, if it should become a place.
+  Drive queue: 19 files waiting, day 20. It now includes the internal price-list PDF.
+    If a Drive remote is ever connected, that file goes up with the rest. Say whether it
+    should come out of the queue.
+  ASK-NAN.txt: 306 lines (262 on 23 Sept). Unfiled: 19 files across 8 days.
+    Both still rising.
+
+2026-09-28 09:52  Base-map thumbnails UPLOADED (Nan's word 9/28, "still having a pervasive
+  problem with basemaps"). thumbs.py --upload-only: 14,904 files, 40 MB → R2 tiles/find/, exit 0.
+  21 of 21 thumbnails sampled across 5 live searches answer 200 image/webp.
+  Not in any deploy step: cells drawn by a later thumbs.py run stay off the site until --upload.

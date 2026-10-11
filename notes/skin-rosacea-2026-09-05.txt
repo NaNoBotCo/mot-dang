@@ -55,7 +55,7 @@ WHAT WAS BUILT
       "rosacea" directly (the register's words ride on their index rows).
   8 thesaurus groups (rosacea, dermatologist, psoriasis, eczema, urticaria,
       vitiligo, melasma, phototherapy) rolled through search-core; parity OK.
-  Place sidecars now carry EVERY register a place is in ("lenses"). Before,
+  Place sidecars now carry every register a place is in ("lenses"). Before,
       a place in two registers kept only the last one — Suan Dok was the
       yellow-fever centre and lost its dermatology words.
   AI index text now carries "Treats: …" from the speciality field and the

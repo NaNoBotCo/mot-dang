@@ -97,7 +97,7 @@ TAMBON_RE = re.compile(r"ต(?:ำบล|\.)\s*([ก-๙]+)")
 
 
 def district_hints(r: dict) -> tuple[set[str], set[str]]:
-    """(amphoe, tambon) match keys this record actually states. Never inferred
+    """(amphoe, tambon) match keys this record actually states. Not inferred
     from the pin — only read from a field or from prose the source wrote."""
     a = r.get("attrs") or {}
     amphoe = {a["district"]} if a.get("district") else set()

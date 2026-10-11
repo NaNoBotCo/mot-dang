@@ -1,5 +1,5 @@
 {
- "_comment": "The category tree IS data. Order = display order. Categories/children with 0 records show as wireframe shelves (muted, unlinked, ant-on-the-way) — the build never fabricates content for them. Children match records via: {attr,value} on attrs, {lens} on attrs.lens, or {sub} on record.sub.",
+ "_comment": "The category tree IS data. Order = display order. Categories/children with 0 records show as wireframe shelves (muted, unlinked, ant-on-the-way) — the build never fabricates content for them. Children match records via: {attr,value} on attrs, {lens} on attrs.lens, or {sub} on record.sub. A child's teaser_th / teaser_en is never printed; search-core/mine.py reads it as the words a reader types for that shelf (data/search_shelves.json).",
  "categories": [
   {
    "key": "wat",
@@ -55,6 +55,22 @@
      "en": "Khao Soi & Noodles",
      "match": {
       "sub": "noodle"
+     }
+    },
+    {
+     "key": "lanna",
+     "th": "อาหารเหนือ-ขันโตก",
+     "en": "Northern Thai & Khantoke",
+     "match": {
+      "sub": "northern"
+     }
+    },
+    {
+     "key": "japanese",
+     "th": "อาหารญี่ปุ่น",
+     "en": "Japanese",
+     "match": {
+      "sub": "japanese"
      }
     },
     {
@@ -331,7 +347,7 @@
     },
     {
      "key": "laboratory",
-     "th": "แล็บ-ตรวจเลือด",
+     "th": "แล็บ-ตรวจวิเคราะห์",
      "en": "Labs & testing",
      "match": {
       "attr": "facilityType",
@@ -765,12 +781,18 @@
     {
      "key": "walking-street",
      "th": "ถนนคนเดิน",
-     "en": "Walking Streets"
+     "en": "Walking Streets",
+     "match": {
+      "sub": "walking-street"
+     }
     },
     {
      "key": "flea",
      "th": "ตลาดนัด",
-     "en": "Flea Markets"
+     "en": "Flea Markets",
+     "match": {
+      "sub": "flea"
+     }
     }
    ]
   },
@@ -835,6 +857,14 @@
      "en": "Sports & Outdoor Shops",
      "match": {
       "sub": "sports-shop"
+     }
+    },
+    {
+     "key": "dresshire",
+     "th": "ร้านเช่าชุด",
+     "en": "Dress & Costume Hire",
+     "match": {
+      "sub": "dresshire"
      }
     },
     {
@@ -932,21 +962,67 @@
    "key": "transport",
    "th": "รถ-เดินทาง",
    "en": "Getting Around",
-   "teaser_th": "เช่ามอไซค์ รถแดง สถานีขนส่ง...",
-   "teaser_en": "Bike rental, rot daeng, stations...",
+   "teaser_th": "ที่จอดรถ ที่จอดมอเตอร์ไซค์ เช่ามอไซค์ รถเช่า รถแดง สถานีขนส่ง...",
+   "teaser_en": "Parking, motorcycle parking, scooter & car rental, rot daeng, stations...",
    "children": [
     {
-     "key": "rental",
-     "th": "เช่ารถ-มอเตอร์ไซค์",
-     "en": "Car & Bike Rental",
+     "key": "parking",
+     "th": "ที่จอดรถ",
+     "en": "Parking",
      "match": {
-      "sub": "rental"
+      "sub": "parking"
+     }
+    },
+    {
+     "key": "motorcycle-parking",
+     "th": "ที่จอดมอเตอร์ไซค์",
+     "en": "Motorcycle Parking",
+     "match": {
+      "sub": "motorcycle-parking"
+     }
+    },
+    {
+     "key": "bicycle-parking",
+     "th": "ที่จอดจักรยาน",
+     "en": "Bicycle Parking",
+     "match": {
+      "sub": "bicycle-parking"
+     }
+    },
+    {
+     "key": "parking-entrance",
+     "th": "ทางเข้าอาคารจอดรถ",
+     "en": "Parking Entrances",
+     "match": {
+      "sub": "parking-entrance"
+     }
+    },
+    {
+     "key": "motorbike-rental",
+     "th": "เช่ามอเตอร์ไซค์",
+     "en": "Motorbike Rental",
+     "teaser_th": "เช่ามอไซค์ มอไซค์ มอเตอร์ไซค์ มอเตอร์ไซค์ให้เช่า เช่ารถมอเตอร์ไซค์ สกู๊ตเตอร์ จักรยานยนต์",
+     "teaser_en": "scooters, scooter, motorbikes, motorbike, motorcycles, motorcycle, bikes, bike, rental",
+     "match": {
+      "sub": "motorbike-rental"
+     }
+    },
+    {
+     "key": "car-rental",
+     "th": "รถเช่า",
+     "en": "Car Rental",
+     "teaser_th": "เช่ารถ เช่ารถยนต์ รถยนต์ให้เช่า รถตู้เช่า คาร์เร้นท์",
+     "teaser_en": "cars, car, car hire, vans, rental",
+     "match": {
+      "sub": "car-rental"
      }
     },
     {
      "key": "bicycle",
      "th": "จักรยาน-เช่า-ซ่อม",
      "en": "Bicycles — Shops, Rental & Repair",
+     "teaser_th": "จักรยาน เช่าจักรยาน ร้านจักรยาน ซ่อมจักรยาน รถถีบ",
+     "teaser_en": "bicycles, bicycle, cycling, pedal",
      "match": {
       "sub": "bicycle"
      }
@@ -1176,8 +1252,8 @@
    "key": "pets",
    "th": "สัตว์เลี้ยง",
    "en": "Pets",
-   "teaser_th": "หมอสัตว์ อาบน้ำตัดขน...",
-   "teaser_en": "Vets, grooming...",
+   "teaser_th": "หมอสัตว์ อาบน้ำตัดขน ร้านอาหารสัตว์...",
+   "teaser_en": "Vets, grooming, pet shops and feed...",
    "children": [
     {
      "key": "vet",
@@ -1193,6 +1269,14 @@
      "en": "Grooming",
      "match": {
       "sub": "grooming"
+     }
+    },
+    {
+     "key": "pet-shop",
+     "th": "ร้านสัตว์เลี้ยง-อาหารสัตว์",
+     "en": "Pet Shops & Feed",
+     "match": {
+      "sub": "pet-shop"
      }
     }
    ]
@@ -1371,12 +1455,18 @@
     {
      "key": "housekeeper",
      "th": "แม่บ้าน",
-     "en": "Housekeepers"
+     "en": "Housekeepers",
+     "match": {
+      "sub": "housekeeper"
+     }
     },
     {
      "key": "handyman",
      "th": "ช่างซ่อมบ้าน",
-     "en": "Handymen"
+     "en": "Handymen",
+     "match": {
+      "sub": "handyman"
+     }
     },
     {
      "key": "landscaper",
@@ -1426,6 +1516,14 @@
      "match": {
       "sub": "volunteer"
      }
+    },
+    {
+     "key": "cremation",
+     "th": "สุสาน-ฌาปนสถานประจำหมู่บ้าน",
+     "en": "Village Cremation Grounds",
+     "match": {
+      "sub": "cremation"
+     }
     }
    ]
   },
@@ -1455,7 +1553,10 @@
     {
      "key": "online-selling",
      "th": "ขายออนไลน์-ดรอปชิป",
-     "en": "Online Selling & Dropshipping"
+     "en": "Online Selling & Dropshipping",
+     "match": {
+      "sub": "online-selling"
+     }
     },
     {
      "key": "professional",
@@ -1521,6 +1622,14 @@
      "en": "Art Galleries",
      "match": {
       "sub": "gallery"
+     }
+    },
+    {
+     "key": "gallery-commercial",
+     "th": "แกลเลอรี-ห้องศิลป์ที่ขายงาน",
+     "en": "Galleries that sell",
+     "match": {
+      "sub": "gallery-commercial"
      }
     }
    ]
@@ -1630,6 +1739,14 @@
      }
     },
     {
+     "key": "cave",
+     "th": "ถ้ำ",
+     "en": "Caves",
+     "match": {
+      "sub": "cave"
+     }
+    },
+    {
      "key": "hot-spring",
      "th": "น้ำพุร้อน",
      "en": "Hot Springs",
@@ -1638,9 +1755,28 @@
      }
     },
     {
+     "key": "community",
+     "th": "ชุมชนท่องเที่ยว",
+     "en": "Community Tourism",
+     "match": {
+      "sub": "community-tourism"
+     }
+    },
+    {
+     "key": "culture",
+     "th": "แหล่งเรียนรู้-ศิลปวัฒนธรรม",
+     "en": "Culture & Learning",
+     "match": {
+      "sub": "culture-site"
+     }
+    },
+    {
      "key": "outing",
      "th": "ทริปวันเดียว",
-     "en": "Outings & Day Trips"
+     "en": "Outings & Day Trips",
+     "match": {
+      "sub": "outing"
+     }
     }
    ]
   }

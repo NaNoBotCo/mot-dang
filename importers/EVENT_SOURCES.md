@@ -1,4 +1,4 @@
-# Event + contact sources — the map, 2026-07-29
+# Event + contact sources — the map, 2026-07-29 · re-read 2026-08-31
 
 Machine-readable version: `data/sources.json` (20 sources). That file is the
 one the importer reads; this is the reasoning behind it.
@@ -21,6 +21,14 @@ Run: `python3 importers/harvest_events.py` (`--list` to see the registry,
 `--refetch` to ignore the cache). Snapshot-first into `cache/events/`, same
 shape as `check_links.py`, so `build.py` never makes a network call.
 
+**The newsletter is now parsed, not just read.** `importers/read_newsletter.py`
+turns one issue into events and contact leads; `harvest_events.py` calls it as
+a local source, so it passes through the same validate / atomic / never-
+destructive write discipline as every fetched feed. It arrives as email, so
+there is nothing to fetch: drop the issue's text into
+`_incoming/newsletter/YYYY-MM-DD.txt` (that folder is gitignored — per-machine
+material, like `cache/`) and run the harvest.
+
 ## About the newsletter
 
 The body text is venue-supplied press-release copy the compiler pastes in —
@@ -31,7 +39,72 @@ as a discovery feed for new sources to add to the registry.
 
 Worth copying outright: his four-part split sorts by **decay rate** —
 dated events / recurring weekly / notices / promotions. Those want different
-refresh cadences, which is why `cadence` is a field in the registry.
+refresh cadences, which is why `cadence` is a field in the registry, and it is
+now also why the parser reads the sections apart: notices are standing offers,
+not happenings, so they yield contacts only and never an event.
+
+## What the 2026-08-31 issue was worth — measured
+
+39 pages: **67 dated listings, 122 weekly fixtures under weekday headers, 21
+notices → 319 events and 132 contact leads.** Against that, every crawled
+source combined gave 82 events and 4 leads. The numbers that matter:
+
+| | before | after |
+|---|---|---|
+| events.json | 82 | 401 |
+| contact_leads.json | 4 venues | 94 venues |
+| leads with a phone / Facebook / LINE | 0 / 0 / 0 | 49 / 36 / 18 |
+| place pages with a "what's on here" band | 0 | 89 |
+| catalogue records | 14,493 | 14,558 |
+
+**62 venues the issue named did not exist in the catalogue in any spelling** —
+including Chiang Mai Marriott, Cross Chiang Mai Riverside, Anantara Chiang Mai
+Resort, the Gymkhana Club (a club founded in 1898), Seven Fountains, Sand Creek
+Golf Course, Old Chiangmai Cultural Center and Chiang Mai Hall inside Central
+Airport Plaza. They are records now, each with the newsletter dated as its
+source. Venue→place matching, listed as "not built yet" on 2026-07-29, is
+built: **all 90 venues resolve, and 100% of newsletter events carrying a venue
+string land on a place record.**
+
+**The pins came from the venues themselves.** 19 listings carried a Google Maps
+link the venue had published; following the redirect names the place and, for
+11 of them, gives its coordinates — those are `geoPrecision: exact` with the
+link recorded as a source. The rest went through `importers/geocode_local.py`
+on the stated address, whose tier sets the precision to match: landmark →
+`approx`, street → `block`, anything coarser is not a pin at all and the record
+says `needs-pin` and keeps the address. **Addresses that were our inference
+rather than the issue's statement were removed rather than pinned**, and one
+gazetteer answer was refused outright: Kad Kriangkrai's address resolves to
+Chotana Road 12 km south of the Mae Rim market Google's own link names.
+
+Two defects the newsletter's data exposed in code that predates it:
+
+- `event_when()` in build.py printed `%H:%M` unconditionally, so a listing that
+  stated a day and no hour rendered as *"Every Monday at 00:00"*. The iCal and
+  tribe feeds always carry a real time, so nothing had ever shown it. It now
+  honours `all_day` and prints no clock when nobody stated one.
+- `dedupe_leads()` copied five fields and dropped Facebook, LINE, Instagram,
+  WhatsApp and the maps pin on the floor — while LINE ranks second only to the
+  phone in `channels()`. A field that function does not copy is a field the
+  catalogue never sees.
+
+### Sources this issue turned up
+
+- **runlah.com — verified, and the best find.** Its event pages are server-
+  rendered and carry a complete schema.org `SportsEvent` block: name, startDate
+  with the +07:00 offset, and a nested Place naming the province. No key, no JS.
+  Its *index*, though, is client-rendered — 213 words — so slugs still have to
+  come from somewhere, which for now is this newsletter.
+- **sansatan.com — verified.** Race pages server-render 1,399 words with dates,
+  distances and fees. No JSON-LD, so it needs a parser rather than a reader.
+- **thailandexhibition.com — unverified.** HTTP 200 but 294 words; no working
+  index path found.
+- **ticketmelon.com — blocked.** The fetch raises URLError from this machine,
+  so nothing about its content has been measured. Recorded as blocked, not
+  empty — the distinction the 2026-07-29 citylife correction was about.
+- **shutupwrite.com — client-rendered.** Its JSON-LD is Organization boilerplate
+  with no event data, so the schema.org route that works on runlah does not
+  work here.
 
 ## Verified working (7)
 
@@ -113,7 +186,7 @@ harvested from one issue — @kantarychiangmai, @interconchiangmai,
 Thai-facing channel, and feeds `channels()` where LINE already ranks second
 after phone.
 
-## Design consequence
+## Design consequence — BUILT 2026-08-31
 
 Most recurring events happen at venues **already in the catalogue** — Moment's
 Notice, Paapu House, The Moat House, Archers, Game Tree, Free Bird, Rare Finds,
@@ -124,6 +197,17 @@ listings silo. That gives a venue owner a concrete reason to claim their page �
 to keep their own weekly night correct — which is the missing pull identified
 in the 2026-07-29 gemba walk.
 
-Venue→place matching is **not built yet**. It is the next step, and the real
-blocker is that Meetup venue strings are prose ("CMU", "Spice Garden,
-Chiang Mai") that will need fuzzy matching against 10,281 records.
+Venue→place matching is **built**, and it is not fuzzy. Fuzzy was tried and
+produced Araksa Tea Garden → "Garden Restaurant"; what shipped instead is
+`match_venue()`'s three strict tiers (hand-curated alias, exact name, full
+distinctive-token subset landing on exactly one record) plus a much larger
+`data/curated/venue_aliases.json` — 4 alias keys on 2026-07-29, 148 now. The
+newsletter's own naming is folded first, in `read_newsletter.CANON`: a venue
+writes itself "The Mellowship 20:30" one week and "The Mellowship Jazz Club"
+the next, and each spelling would otherwise become its own unmatched venue.
+
+**One trap, and it cost 6 of 90 matches before it was found.** Alias KEYS are
+looked up as `_vnorm(venue_string)` — lower-cased, every non-alphanumeric
+character collapsed to a space. A key written `UN Irish Pub & Restaurant` or
+`The Duke's` can therefore never be hit. Keys go in normalised, and `_vnorm`
+keeps the acute in `café`, so that spelling needs its own key alongside `cafe`.

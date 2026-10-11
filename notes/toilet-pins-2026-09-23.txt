@@ -1,0 +1,129 @@
+TOILET LIST — PINS AND KINDS
+measured 2026-09-23
+
+motdang.net/toilets.html sorts by straight-line distance from the reader.
+Counts below are today's data, run through the same selection
+toilets_layer.bake() makes. Nothing was changed.
+
+
+COUNTS
+
+Walk-in rows   9,159   exact 7,393 · approx 1,409 · block 357
+Customer rows 19,443   approx 45 · block 1
+
+Approx walk-in rows, by how the pin was placed:
+  postcode centre           1,069   geocoder's own test: median 2,367 m off
+  tambon / amphoe centre      122   tambon median 1,817 m
+  landmark named in address   211   median 234 m
+  street, gate sign, other      7
+1,380 of the 1,409 are wats from the ONAB register. They sit on 92
+points. One point in Chiang Rai (19.5795, 99.7700) holds 90.
+
+Block: 357 wats that OSM maps as areas, not points (from mueang-map).
+8 of the 20 rows nearest Tha Phae Gate are block wats.
+
+Fleet search (fleetsearch/crawl.py) measures only FROM exact pins, but its
+list of toilets takes every strong walk-in row at any precision. 648 search
+rows name an approx wat as their nearest toilet; 364 of those wats sit at a
+postcode, tambon or amphoe centre.
+
+
+OVERTURE PINS
+
+Near Tha Phae Gate there is no shared default point. The four rows in the
+report sit 60–150 m apart and three carry a street address matching the
+pin. All four are Facebook pages (Overture's Meta rows), with two faults:
+
+  A page named after a destination, pinned where the page was made:
+    น้ำตกแม่ยะ (OSM has the waterfall at 18.44, 98.59)
+    อุทยานแห่งชาติออบหลวง (the park is 79 km away)
+    Chiang Rai White Temple
+  Five more within 3 km of the gate:
+    ดอยอินทนนท์ · Doi Sethup National Park
+    น้ำตกวชิรธาร อุทยานแห่งชาติดอยอินทนนท์
+    อุทยานแห่งชาติแม่วางอ่างเก็บน้ำโป่งจ้อ · วัดป่าสวนธรรมรส อ.ดอยหล่อ
+  Found by eye. Name matching failed as a test: wat and school names
+  repeat across districts, and Overture files ก๋วยเตี๋ยวน้ำตก noodle
+  shops as waterfalls.
+
+  A right pin with the wrong kind:
+    Jay's Custom Tailor, 402 Tha Phae Road — Overture says amusement_park,
+    and our category map sends that to parks.
+
+Default points exist elsewhere. 118 coordinates each hold 10+ Overture rows
+(2,119 rows). At 24 points holding 5+, two or more rows give an address in
+a different อำเภอ from the pin's: 557 rows. Largest: 18.79030, 98.98170,
+76 rows, addresses naming 10 อำเภอ (สันทราย, สารภี, แม่แตง, จอมทอง,
+แม่ริม…), pin in เมืองเชียงใหม่.
+
+derive.py already marks 749 Overture rows amphoeDisputed (the address's
+อำเภอ is not the pin's): 1.2% of Overture rows, 0.2% of other exact rows,
+5.0% on points shared by 10+.
+
+Stacks plus disputed: 1,200 rows, all graded exact.
+  toilet list        98 walk-in · 229 customer
+  fleet search       941 nearest-toilet lines measured from these pins;
+                     824 lines name one of them as the toilet
+  place pages        mapped at the 520 m exact span on the stack; rows on
+                     one stack list each other as nearest
+  not touched        /wats (stops come from OSM); the geocoder's landmark
+                     index (0 of 310 landmark pins rest on these)
+
+
+FROM THA PHAE GATE (the default origin), the 20 nearest walk-in rows:
+  0 approx · 8 block wats
+  7 Overture rows with a wrong name or kind: the 3 destination pages;
+    Jay's Custom Tailor and Thailand Mountain Trail as parks;
+    GreenLand Cannabis420 and สวนส้มม่อนเงาะ as malls
+  วัดพันอ้น twice (203 m and 242 m)
+A precision fix leaves the top of this list as it is. The kinds change it.
+
+Kinds at scale, walk-in rows:
+  mall        1,359 are Overture's catch-all "shopping". Rule 81 in
+              data/curated/overture_categories.json maps it to sub mall;
+              mall is a strong tier, so the fleet search counts them too.
+  park        16 amusement_park · 66 nursery_and_gardening ·
+              8 gardener / home_and_garden
+  university  92 campus_building
+  market      911 grocery_store · 82 butcher_shop
+
+
+FORKS
+
+1 · Pins at a centre — 1,191 walk-in, 35 customer rows
+  (a) leave. No work. Worst case: a reader in a tambon walks to a wat the
+      list puts at 120 m and finds it 2 km off.
+  (b) off the toilet list: bake() skips rows pinned at a postcode, tambon
+      or amphoe centre. Landmark- and street-placed rows and the 357 block
+      wats stay. The fleet search reads the baked file, so its 364 lines
+      follow. One condition in toilets_layer.py; 1,191 wats leave the list
+      and keep their pages.
+  (c) keep, labelled ≈ with the method's typical error ("within about
+      2 km"). Distance-only sort stays, so the row still sorts at a
+      distance it does not have. A label in both languages and one column.
+  (d) drop every non-exact row. Also loses the 357 block wats, 8 of them
+      in the 20 nearest Tha Phae Gate.
+
+2 · Overture stacks and disputed pins — 1,200 rows graded exact
+  (a) leave.
+  (b) re-grade to approx in import_overture.py: every row on a stack where
+      2+ addresses name another อำเภอ, and every amphoeDisputed row. Maps
+      widen to 1,200 m with "(approximate)"; the rows leave fleet-search
+      lines both ways; fork 1 decides the toilet list. The thresholds
+      (5 rows, 2 addresses) are mine and not yet tuned against a truth
+      set. Worst case: a shop pinned right beside a stack reads approximate.
+  (c) (b), plus the 8 destination pages in a curated list as needs-pin
+      (no map, off the toilet list). A hand list; the next Overture
+      release brings new ones.
+
+3 · Kinds that make a toilet claim
+  (a) leave.
+  (b) the toilet tiers skip Overture's catch-all "shopping",
+      amusement_park, nursery / gardener / home_and_garden,
+      campus_building, grocery_store and butcher_shop. Shelves unchanged.
+      toilets_layer.py only; about 2,530 walk-in rows leave the list.
+  (c) change the map at import: rule 81 sends "shopping" to the shopping
+      shelf with no sub. At least 1,359 rows leave the mall shelf
+      site-wide. data/curated is field truth, so this is a data call.
+
+If silent: (a) on all three, nothing changes · 2026-10-07

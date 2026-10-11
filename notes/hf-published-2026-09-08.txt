@@ -1,0 +1,125 @@
+HUGGING FACE — FIVE REPOS PUBLISHED
+2026-09-08
+
+
+Nan: "I'd like to share some of the products of motdang.net to hugging face."
+Then: "do all of them."
+
+Everything below is live and public under the account NaNoBotCo.
+
+
+-------------------------------------------------------------------
+WHAT WENT OUT
+-------------------------------------------------------------------
+
+1. THE TRADE WORDS — 1,782 terms + 403 administrative names
+   huggingface.co/datasets/NaNoBotCo/thai-trade-words-chiang-mai
+   built by publish/make_hf_trade_words.py from data/trade_lexicon.json
+
+   The vocabulary the city names its own trades in, each with an RTGS
+   reading and an English gloss. 100% glossed, 100% read. No business is
+   named in it. CC BY 4.0.
+
+   This is the one nothing else on Hugging Face has. General Thai-English
+   dictionaries do not carry signage compounds — ตู้น้ำดื่มหยอดเหรียญ,
+   ฌาปนกิจสถาน, ปะยางมอเตอร์ไซค์ are not headwords anywhere.
+
+2. THE RTGS EXCEPTION LEXICON — 694 entries
+   huggingface.co/datasets/NaNoBotCo/thai-rtgs-romanisation-lexicon
+   built by publish/make_hf_rtgs_lexicon.py
+
+   irregular 102 · loanword 492 · place 77 · brand 23. Rule engines are
+   common; the exception table is the work. CC BY 4.0.
+
+3. THE BENCHMARK — 153,948 Thai words, scored
+   huggingface.co/datasets/NaNoBotCo/thai-place-name-romanisation-benchmark
+   built by publish/make_hf_romanisation_bench.py
+
+   Every distinct pure-Thai word in pythainlp/thai-romanization-dataset,
+   romanised by translit.py twice — with the exception lexicon and with the
+   rules alone. CC BY-SA 3.0, inherited from the reference readings.
+
+       slice              words     lexicon   rules only
+       all              153,948      79.62%       77.51%
+       in place names    21,425      84.22%       83.45%
+       ร์ + consonant     2,917      46.59%       50.70%
+
+   THESE ARE NOT THE NUMBERS IN go/hf, AND THE OLD ONES SHOULD NOT BE
+   REQUOTED. That note reports 80.86% / 88.34% on 147,229 / 31,385 words.
+   Neither slice definition was written down, and neither reproduces: my
+   pure-Thai filter gives 153,948 distinct words, not 147,229, and no
+   definition of "place-name-shaped" I tried gives 31,385 (segdict
+   membership gives 11,642; substring-of-a-place-name gives 21,425). The
+   dataset card states its definitions in full so the next person is not in
+   this position.
+
+   The third row is the interesting one: the lexicon SCORES WORSE there, on
+   purpose. สคูล reads School and นอร์ทเทิร์น reads Northern — the word on
+   the sign — while the reference wants the phonetic sakhun, nothoen.
+   That row measures the metric, not the engine.
+
+4. THE ROMANISER, RUNNING — a Space
+   huggingface.co/spaces/NaNoBotCo/thai-rtgs-romaniser
+
+   GRADIO SPACES NOW COST MONEY. Free cpu-basic for a Gradio or Docker
+   Space requires a PRO subscription (402 on create). Static Spaces are
+   still free, so this is a static page that runs translit.py in the
+   browser under Pyodide — unmodified, no server, nothing to keep alive.
+   Verified working on all six examples.
+
+5. THE PLACES, v2 — per-field provenance
+   huggingface.co/datasets/NaNoBotCo/mot-dang-chiang-mai-chiang-rai
+   publish/make_hf_dataset.py gained three columns
+
+   provenance (JSON per field), fields_stated, fields_derived. 75,318 of
+   88,161 rows carry a table; 365,944 stated fields, 174,258 derived.
+   The card says plainly that a field absent from the table is UNKNOWN and
+   is not to be read as ours.
+
+
+-------------------------------------------------------------------
+NOT PUBLISHED, AND WHY — data/search_segdict.txt
+-------------------------------------------------------------------
+
+The 40,408-word segmentation dictionary was on the list and did not go.
+I cannot name its source.
+
+Its own header says "words present in the corpus". Its contents disagree:
+it holds ก กา (a grammar term), ก.พ. and two dozen other abbreviations,
+and whole sentences — ค่ายมวยและสนามมวยมีชั้นมวยไทยของตัวเองแล้ว,
+(มีชั้นเรียนทำอาหารไทยของตัวเองแล้ว). Those are not corpus words.
+
+Nothing in the repo generates it. It arrived in commit 5447a3397e, whose
+subject is "WO-27 door 6b: fold the Treasury condominium register as
+records" — a commit about condominiums. A file with no generator, no
+stated source and a header contradicted by its contents cannot be given a
+licence, so it stays home until you say otherwise.
+
+THE FORK, yours:
+  a. leave it — nothing breaks; the site keeps using it locally.
+  b. replace it. pythainlp/thai-romanization-dataset yields a 150,475-word
+     Thai list under CC BY-SA 3.0, which you have already closed on. The
+     Space now ships exactly that and reads all six examples correctly, so
+     the replacement is measured rather than hoped for.
+  c. publish it anyway with the provenance stated as unknown. Cheapest,
+     and the one I would not choose.
+No expiry on this; nothing waits on it.
+
+
+-------------------------------------------------------------------
+TWO THINGS FOUND ON THE WAY
+-------------------------------------------------------------------
+
+A TRADE COMPOUND MUST NEVER ENTER THE SEGMENTER. The first Space build fed
+the 1,782 trade terms to translit's word list, and ตู้น้ำดื่มหยอดเหรียญ came
+out "tunamduemyotrian" — one unbroken run. A maximal-matching segmenter
+that knows the whole compound will never break it into the four words a
+reader says. The lexicon is for reading, not for cutting. Nothing on the
+site does this today; it is a trap for whoever wires the two together next.
+
+OVERTURE IS CLASSED "forbidden" BY provenance.py. source_class() returns
+FORBIDDEN for any source whose type is "directory", and Overture's type is
+directory — so all 473,447 Overture field stamps, which is nearly the whole
+provenance table, are marked never-exportable. Overture is CDLA-Permissive
+2.0. If that classification is wrong the OSM give-back gate (go/osm-gate)
+is holding back far more than the 3,303 it thinks it is. Not touched.

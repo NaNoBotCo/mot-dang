@@ -1,173 +1,962 @@
 {
- "_readme": "Duplicate records folded together: {keep_id: [drop_ids]}. The keeper takes the union of shelves, keeps its own field values, fills gaps from the dropped record, and inherits its sources. Merging is a curated decision, never automatic — importers/audit_shelves.py prints same-name-nearby CANDIDATES (221 pairs as of 2026-08-07), but a restaurant inside its hotel or two branches of one chain on one soi are honest separate records. Only pairs a person has looked at belong here.",
+ "_readme": "Duplicate records folded together: {keep_id: [drop_ids]}. The keeper takes the union of shelves, keeps its own field values, fills gaps from the dropped record, and inherits its sources. Merging is a curated decision, never automatic — importers/audit_shelves.py prints same-name-nearby CANDIDATES (221 pairs as of 2026-08-07), but a restaurant inside its hotel or two branches of one chain on one soi are separate records. Only pairs a person has looked at belong here.  2026-09-05: 233 register/crawl pairs were folded in one pass under a written rule rather than one at a time — the two records carry the SAME name character for character, NO third record in the province answers to that name, and they stand within 300 m of each other. The rule is the whole argument: where any one of the three held, the pair was left out and written to cache/dupes_needs_eyes.txt instead. 112 pairs are there now, 70 because the names differ by an abbreviation or a space and 42 because a third record shares the name — both are the case a loose join gets wrong, and neither is settled from a desk.",
  "merges": {
-  "cm-osm-way-361121944": [
-   "cm-osm-node-11065396205"
+  "cm-ovt-c86f0456-7daa-4dbe-a1ff-f84fcb1c507c": [
+   "cm-curated-elder-7945"
   ],
-  "cm-osm-node-5703615419": [
-   "cm-osm-node-6215394985"
+  "cm-curated-chiang-dao-elephant-training-centre": [
+   "cm-osm-way-348496839"
   ],
-  "cm-osm-way-961802207": [
-   "cm-osm-node-3087773650"
-  ],
-  "cm-osm-node-6303089086": [
-   "cm-osm-node-3416932288"
-  ],
-  "cm-curated-maesa-elephant-camp": [
-   "cm-osm-node-1013055448"
+  "cm-curated-elephant-jungle-sanctuary": [
+   "cm-osm-node-13352536389"
   ],
   "cm-curated-elephant-nature-park": [
    "cm-osm-way-1322052747",
    "cm-osm-way-1322052748"
   ],
+  "cm-curated-happy-elephant-home": [
+   "cm-osm-node-4339643289"
+  ],
+  "cm-curated-maesa-elephant-camp": [
+   "cm-osm-node-1013055448"
+  ],
   "cm-curated-patara-elephant-farm": [
-   "cm-osm-node-2588753265",
-   "cm-osm-node-13301666393"
+   "cm-osm-node-13301666393",
+   "cm-osm-node-2588753265"
   ],
   "cm-curated-thai-elephant-home": [
    "cm-osm-way-375640514"
   ],
-  "cm-curated-happy-elephant-home": [
-   "cm-osm-node-4339643289"
-  ],
-  "cm-curated-elephant-jungle-sanctuary": [
-   "cm-osm-node-13352536389"
-  ],
-  "cm-curated-chiang-dao-elephant-training-centre": [
-   "cm-osm-way-348496839"
-  ],
-  "cm-osm-node-5794209153": [
-   "cm-osm-node-5794234254"
-  ],
-  "cm-osm-way-95223020": [
-   "cm-osm-node-1290216088"
-  ],
-  "cm-osm-node-5327124402": [
-   "cm-osm-node-2674836217"
-  ],
-  "cr-osm-node-2121910374": [
-   "cr-osm-node-6369388397",
-   "cr-dgth-eco-2900847136",
-   "cr-dgth-religious-3762813316"
-  ],
-  "cr-dgth-eco-0910080694": [
-   "cr-dgth-religious-0250909676"
-  ],
-  "cm-osm-node-1290217002": [
-   "cm-osm-node-3216657253"
-  ],
-  "cm-osm-way-294031574": [
-   "cm-osm-node-11270924469"
-  ],
-  "cm-osm-relation-9189199": [
-   "cm-osm-way-344196857",
-   "cm-osm-way-660847073",
-   "cm-moph-8899210200029"
-  ],
-  "cm-osm-node-1287571763": [
-   "cm-moph-8899210200023"
-  ],
-  "cm-osm-way-1115985031": [
-   "cm-moph-8899210200028"
-  ],
-  "cm-osm-way-529099381": [
-   "cm-osm-way-1017825075",
-   "cm-osm-way-282620306"
-  ],
-  "cr-osm-way-483841193": [
-   "cr-moph-8899210200005"
-  ],
-  "cr-osm-way-549948901": [
-   "cr-osm-node-7856667792",
-   "cr-moph-8899210200016"
-  ],
-  "cr-osm-node-2423444737": [
-   "cr-moph-8899210200012"
-  ],
-  "cr-osm-node-7856667790": [
-   "cr-moph-8899210200015"
-  ],
-  "cm-osm-way-239970155": [
-   "cm-moph-8899210200027"
-  ],
-  "cm-osm-node-2178385466": [
-   "cm-moph-8899210200030"
-  ],
-  "cr-osm-way-1356386079": [
-   "cr-moph-8899210200009"
-  ],
-  "cm-osm-way-242009865": [
-   "cm-moph-8899210200038"
-  ],
-  "cr-osm-way-548552723": [
-   "cr-moph-8899210200014"
-  ],
-  "cr-osm-way-283761802": [
-   "cr-osm-way-283761810",
-   "cr-moph-8899210200011"
-  ],
-  "cm-osm-way-658048981": [
-   "cm-moph-8899210200032"
-  ],
-  "cm-osm-way-319556306": [
-   "cm-moph-8899210200042"
-  ],
-  "cm-osm-way-431830403": [
-   "cm-moph-8899210200045"
-  ],
-  "cr-osm-way-371233866": [
-   "cr-moph-8899210200007"
-  ],
-  "cr-osm-way-760183807": [
-   "cr-moph-8899210200008"
-  ],
-  "cr-osm-way-527539157": [
-   "cr-moph-8899210200013"
-  ],
-  "cr-osm-way-1013293666": [
-   "cr-moph-8899210200010"
-  ],
-  "cm-osm-way-761165593": [
-   "cm-moph-8899210200031"
-  ],
-  "cm-osm-node-2685457463": [
-   "cm-moph-8899210200041"
+  "cm-moph-8899210200033": [
+   "cm-osm-way-969653472"
   ],
   "cm-moph-8899210200039": [
    "cm-osm-way-475225586"
   ],
-  "cm-moph-8899210200033": [
-   "cm-osm-way-969653472"
+  "cm-osm-node-1287571763": [
+   "cm-moph-8899210200023"
   ],
-  "cr-osm-way-555852772": [
-   "cr-moph-8899210200019"
+  "cm-osm-node-1290217002": [
+   "cm-osm-node-3216657253"
   ],
-  "cm-osm-way-1234258607": [
-   "cm-osm-way-383587809"
+  "cm-osm-node-13797756646": [
+   "cm-obec-1050130995"
+  ],
+  "cm-osm-node-13808285971": [
+   "cm-obec-1050130997"
+  ],
+  "cm-osm-node-1483765459": [
+   "cm-obec-1050130452"
+  ],
+  "cm-osm-node-1492467146": [
+   "cm-obec-1050130011"
+  ],
+  "cm-osm-node-1582161142": [
+   "cm-obec-1050130644"
+  ],
+  "cm-osm-node-1583703054": [
+   "cm-obec-1050130747"
+  ],
+  "cm-osm-node-1583795844": [
+   "cm-obec-1050130732"
+  ],
+  "cm-osm-node-1618888365": [
+   "cm-obec-1050130031"
+  ],
+  "cm-osm-node-2007478368": [
+   "cm-obec-1050130695"
+  ],
+  "cm-osm-node-2178385466": [
+   "cm-moph-8899210200030"
+  ],
+  "cm-osm-node-2549262152": [
+   "cm-obec-1050130746"
+  ],
+  "cm-osm-node-2556134228": [
+   "cm-obec-1050130421"
+  ],
+  "cm-osm-node-2587311541": [
+   "cm-obec-1050130623"
+  ],
+  "cm-osm-node-2595784902": [
+   "cm-obec-1050130173"
+  ],
+  "cm-osm-node-2611259562": [
+   "cm-obec-1050130443"
+  ],
+  "cm-osm-node-2611266589": [
+   "cm-obec-1050130442"
+  ],
+  "cm-osm-node-2611334292": [
+   "cm-obec-1050130398"
+  ],
+  "cm-osm-node-2614059159": [
+   "cm-obec-1050130999"
+  ],
+  "cm-osm-node-2614063794": [
+   "cm-obec-1050130374"
+  ],
+  "cm-osm-node-2614077031": [
+   "cm-obec-1050130611"
+  ],
+  "cm-osm-node-2615665796": [
+   "cm-obec-1050130622"
+  ],
+  "cm-osm-node-2627028042": [
+   "cm-obec-1050130283"
+  ],
+  "cm-osm-node-2634287828": [
+   "cm-obec-1050130556"
+  ],
+  "cm-osm-node-2638649027": [
+   "cm-obec-1050130008"
+  ],
+  "cm-osm-node-2650737863": [
+   "cm-obec-1050130007"
+  ],
+  "cm-osm-node-2660469645": [
+   "cm-obec-1050130020"
+  ],
+  "cm-osm-node-2684281633": [
+   "cm-obec-1050130966"
+  ],
+  "cm-osm-node-2684763781": [
+   "cm-obec-1050130977"
+  ],
+  "cm-osm-node-2684763786": [
+   "cm-obec-1050130971"
+  ],
+  "cm-osm-node-2684804884": [
+   "cm-obec-1050130978"
+  ],
+  "cm-osm-node-2685123872": [
+   "cm-obec-1050130038"
+  ],
+  "cm-osm-node-2685180111": [
+   "cm-obec-1050130974"
+  ],
+  "cm-osm-node-2685181695": [
+   "cm-obec-1050130973"
+  ],
+  "cm-osm-node-2685457463": [
+   "cm-moph-8899210200041"
+  ],
+  "cm-osm-node-2685562362": [
+   "cm-moph-8899210200043"
+  ],
+  "cm-osm-node-3094089033": [
+   "cm-obec-1050130387"
+  ],
+  "cm-osm-node-3322301016": [
+   "cm-obec-1050131024"
+  ],
+  "cm-osm-node-3322326721": [
+   "cm-obec-1050130919"
+  ],
+  "cm-osm-node-3382939552": [
+   "cm-obec-1050130908"
+  ],
+  "cm-osm-node-3383942520": [
+   "cm-obec-1050130649"
+  ],
+  "cm-osm-node-3410041473": [
+   "cm-obec-1050130535"
+  ],
+  "cm-osm-node-3883159056": [
+   "cm-obec-1050130811"
+  ],
+  "cm-osm-node-4439073187": [
+   "cm-obec-1050130357"
+  ],
+  "cm-osm-node-4439459202": [
+   "cm-obec-1050130356"
+  ],
+  "cm-osm-node-4495350453": [
+   "cm-obec-1050130168"
+  ],
+  "cm-osm-node-4591411937": [
+   "cm-obec-1050130594"
+  ],
+  "cm-osm-node-4606449665": [
+   "cm-obec-1050130247"
+  ],
+  "cm-osm-node-4633498146": [
+   "cm-obec-1050130158"
+  ],
+  "cm-osm-node-5124390243": [
+   "cm-obec-1050130400"
+  ],
+  "cm-osm-node-5327124402": [
+   "cm-osm-node-2674836217"
+  ],
+  "cm-osm-node-5703615419": [
+   "cm-osm-node-6215394985"
+  ],
+  "cm-osm-node-5794209153": [
+   "cm-osm-node-5794234254"
+  ],
+  "cm-osm-node-6303089086": [
+   "cm-osm-node-3416932288"
+  ],
+  "cm-osm-node-6474175190": [
+   "cm-obec-1050130460"
+  ],
+  "cm-osm-node-6522598187": [
+   "cm-obec-1050130118"
+  ],
+  "cm-osm-node-6531198785": [
+   "cm-obec-1050130892"
+  ],
+  "cm-osm-node-6533501991": [
+   "cm-obec-1050130510"
+  ],
+  "cm-osm-node-6861872316": [
+   "cm-obec-1050130095"
   ],
   "cm-osm-node-7053637677": [
    "cm-osm-node-7053774548"
   ],
-  "cm-osm-way-1212478397": [
-   "cm-moph-0114210800027"
+  "cm-osm-node-7856667791": [
+   "cm-moph-8899210200035"
+  ],
+  "cm-osm-relation-15665411": [
+   "cm-obec-1050130077"
   ],
   "cm-osm-relation-19169911": [
    "cm-condoreg-บ้านหอคำ"
   ],
-  "cm-osm-way-322209656": [
-   "cm-condoreg-ปันสุข-ดิ-เออร์เบิน-คอนโด"
+  "cm-osm-relation-6637661": [
+   "cm-obec-1050131025"
+  ],
+  "cm-osm-relation-9189199": [
+   "cm-moph-8899210200029",
+   "cm-osm-way-344196857",
+   "cm-osm-way-660847073"
+  ],
+  "cm-osm-way-106049227": [
+   "cm-obec-1050130574"
+  ],
+  "cm-osm-way-106353152": [
+   "cm-obec-1050130693"
+  ],
+  "cm-osm-way-1115985031": [
+   "cm-moph-8899210200028"
+  ],
+  "cm-osm-way-1138194523": [
+   "cm-obec-1050130190"
   ],
   "cm-osm-way-1155949045": [
    "cm-condoreg-ปาล์ม-สปริงส์-นิมมาน-แอริค่า"
   ],
-  "cm-osm-way-563173353": [
-   "cm-condoreg-เดอะ-สตาร์ฮิลล์"
+  "cm-osm-way-1212478397": [
+   "cm-moph-0114210800027"
+  ],
+  "cm-osm-way-1217979238": [
+   "cm-obec-1050130587"
+  ],
+  "cm-osm-way-1234258607": [
+   "cm-osm-way-383587809"
+  ],
+  "cm-osm-way-130845503": [
+   "cm-obec-1050130986"
+  ],
+  "cm-osm-way-1371049880": [
+   "cm-obec-1050130030"
+  ],
+  "cm-osm-way-1372241478": [
+   "cm-obec-1050130548"
+  ],
+  "cm-osm-way-145080931": [
+   "cm-obec-1050130029"
+  ],
+  "cm-osm-way-145082494": [
+   "cm-obec-1050130757"
+  ],
+  "cm-osm-way-145401056": [
+   "cm-obec-1050130759"
+  ],
+  "cm-osm-way-1456802864": [
+   "cm-obec-1050130447"
+  ],
+  "cm-osm-way-1509395381": [
+   "cm-obec-1050130879"
+  ],
+  "cm-osm-way-1509395386": [
+   "cm-obec-1050130129"
+  ],
+  "cm-osm-way-1509395388": [
+   "cm-obec-1050130128"
+  ],
+  "cm-osm-way-1539327195": [
+   "cm-obec-1050130004"
+  ],
+  "cm-osm-way-185567000": [
+   "cm-obec-1050130164"
+  ],
+  "cm-osm-way-186773862": [
+   "cm-obec-1050131002"
+  ],
+  "cm-osm-way-199769535": [
+   "cm-obec-1050130589"
+  ],
+  "cm-osm-way-208943750": [
+   "cm-obec-1050130627"
   ],
   "cm-osm-way-233732489": [
    "cm-condoreg-เมาท์เท่น-ฟรอนท์-คอนโดมิเนียม"
   ],
   "cm-osm-way-233732507": [
    "cm-condoreg-เมาท์เท่นวิว-คอนโดมิเนียม"
+  ],
+  "cm-osm-way-238829916": [
+   "cm-obec-1050130989"
+  ],
+  "cm-osm-way-238833967": [
+   "cm-obec-1050130985"
+  ],
+  "cm-osm-way-239970155": [
+   "cm-moph-8899210200027"
+  ],
+  "cm-osm-way-242009865": [
+   "cm-moph-8899210200038"
+  ],
+  "cm-osm-way-242068155": [
+   "cm-obec-1050130520"
+  ],
+  "cm-osm-way-252408871": [
+   "cm-obec-1050130167"
+  ],
+  "cm-osm-way-253312895": [
+   "cm-obec-1050130661"
+  ],
+  "cm-osm-way-253414897": [
+   "cm-obec-1050130921"
+  ],
+  "cm-osm-way-256047499": [
+   "cm-obec-1050130500"
+  ],
+  "cm-osm-way-256142710": [
+   "cm-obec-1050131016"
+  ],
+  "cm-osm-way-257210331": [
+   "cm-obec-1050130772"
+  ],
+  "cm-osm-way-257714491": [
+   "cm-obec-1050130687"
+  ],
+  "cm-osm-way-272979974": [
+   "cm-obec-1050130984"
+  ],
+  "cm-osm-way-282659844": [
+   "cm-obec-1050130987"
+  ],
+  "cm-osm-way-294031574": [
+   "cm-osm-node-11270924469"
+  ],
+  "cm-osm-way-297686513": [
+   "cm-obec-1050130012"
+  ],
+  "cm-osm-way-309023290": [
+   "cm-obec-1050130035"
+  ],
+  "cm-osm-way-309201413": [
+   "cm-obec-1050131001"
+  ],
+  "cm-osm-way-317965535": [
+   "cm-obec-1050130955"
+  ],
+  "cm-osm-way-319556306": [
+   "cm-moph-8899210200042"
+  ],
+  "cm-osm-way-322209656": [
+   "cm-condoreg-ปันสุข-ดิ-เออร์เบิน-คอนโด"
+  ],
+  "cm-osm-way-332698942": [
+   "cm-obec-1050130745"
+  ],
+  "cm-osm-way-361121944": [
+   "cm-osm-node-11065396205"
+  ],
+  "cm-osm-way-367916271": [
+   "cm-obec-1050130380"
+  ],
+  "cm-osm-way-371465160": [
+   "cm-obec-1050130555"
+  ],
+  "cm-osm-way-386601966": [
+   "cm-obec-1050130765"
+  ],
+  "cm-osm-way-407705760": [
+   "cm-obec-1050130099"
+  ],
+  "cm-osm-way-421103608": [
+   "cm-obec-1050130019"
+  ],
+  "cm-osm-way-430293696": [
+   "cm-obec-1050130227"
+  ],
+  "cm-osm-way-431830403": [
+   "cm-moph-8899210200045"
+  ],
+  "cm-osm-way-431830406": [
+   "cm-obec-1050130822"
+  ],
+  "cm-osm-way-454895998": [
+   "cm-obec-1050130800"
+  ],
+  "cm-osm-way-483244210": [
+   "cm-obec-1050130378"
+  ],
+  "cm-osm-way-503373319": [
+   "cm-obec-1050130729"
+  ],
+  "cm-osm-way-528426376": [
+   "cm-obec-1050130022"
+  ],
+  "cm-osm-way-529099381": [
+   "cm-osm-way-1017825075",
+   "cm-osm-way-282620306"
+  ],
+  "cm-osm-way-531917257": [
+   "cm-obec-1050130719"
+  ],
+  "cm-osm-way-549447550": [
+   "cm-obec-1050130563"
+  ],
+  "cm-osm-way-562969397": [
+   "cm-obec-1050130701"
+  ],
+  "cm-osm-way-563173353": [
+   "cm-condoreg-เดอะ-สตาร์ฮิลล์"
+  ],
+  "cm-osm-way-577423778": [
+   "cm-obec-1050130739"
+  ],
+  "cm-osm-way-640245204": [
+   "cm-obec-1050130678"
+  ],
+  "cm-osm-way-658048981": [
+   "cm-moph-8899210200032"
+  ],
+  "cm-osm-way-674384214": [
+   "cm-obec-1050131008"
+  ],
+  "cm-osm-way-678812058": [
+   "cm-moph-8899210200037"
+  ],
+  "cm-osm-way-693588919": [
+   "cm-obec-1050130760"
+  ],
+  "cm-osm-way-70379217": [
+   "cm-obec-1050130151"
+  ],
+  "cm-osm-way-707430977": [
+   "cm-obec-1050130098"
+  ],
+  "cm-osm-way-72011882": [
+   "cm-obec-1050130161"
+  ],
+  "cm-osm-way-742775735": [
+   "cm-obec-1050130979"
+  ],
+  "cm-osm-way-746282578": [
+   "cm-obec-1050130139"
+  ],
+  "cm-osm-way-746946025": [
+   "cm-obec-1050130451"
+  ],
+  "cm-osm-way-761142333": [
+   "cm-obec-1050130637"
+  ],
+  "cm-osm-way-761165593": [
+   "cm-moph-8899210200031"
+  ],
+  "cm-osm-way-762148643": [
+   "cm-obec-1050130703"
+  ],
+  "cm-osm-way-764322512": [
+   "cm-obec-1050130752"
+  ],
+  "cm-osm-way-766790345": [
+   "cm-obec-1050130086"
+  ],
+  "cm-osm-way-802060977": [
+   "cm-obec-1050131004"
+  ],
+  "cm-osm-way-854514944": [
+   "cm-obec-1050130009"
+  ],
+  "cm-osm-way-886816100": [
+   "cm-obec-1050130112"
+  ],
+  "cm-osm-way-893867015": [
+   "cm-obec-1050130016"
+  ],
+  "cm-osm-way-907605357": [
+   "cm-obec-1050130512"
+  ],
+  "cm-osm-way-95223020": [
+   "cm-osm-node-1290216088"
+  ],
+  "cm-osm-way-95480140": [
+   "cm-obec-1050130550"
+  ],
+  "cm-osm-way-961802207": [
+   "cm-osm-node-3087773650"
+  ],
+  "cm-osm-way-97997451": [
+   "cm-obec-1050130002"
+  ],
+  "cr-dgth-eco-0910080694": [
+   "cr-dgth-religious-0250909676"
+  ],
+  "cr-osm-node-11432336437": [
+   "cr-obec-1057120410"
+  ],
+  "cr-osm-node-12917404701": [
+   "cr-obec-1057120593"
+  ],
+  "cr-osm-node-13264044801": [
+   "cr-obec-1057120710"
+  ],
+  "cr-osm-node-13264219501": [
+   "cr-obec-1057120711"
+  ],
+  "cr-osm-node-13264268601": [
+   "cr-obec-1057120247"
+  ],
+  "cr-osm-node-13269612201": [
+   "cr-obec-1057120070"
+  ],
+  "cr-osm-node-13290066801": [
+   "cr-obec-1057120114"
+  ],
+  "cr-osm-node-13320406702": [
+   "cr-obec-1057120126"
+  ],
+  "cr-osm-node-13323496101": [
+   "cr-obec-1057120135"
+  ],
+  "cr-osm-node-2121910374": [
+   "cr-dgth-eco-2900847136",
+   "cr-dgth-religious-3762813316",
+   "cr-osm-node-6369388397"
+  ],
+  "cr-osm-node-2126898513": [
+   "cr-obec-1057120498"
+  ],
+  "cr-osm-node-2128208859": [
+   "cr-obec-1057120488"
+  ],
+  "cr-osm-node-2135817264": [
+   "cr-obec-1057120718"
+  ],
+  "cr-osm-node-2136711247": [
+   "cr-obec-1057120473"
+  ],
+  "cr-osm-node-2136784816": [
+   "cr-obec-1057120409"
+  ],
+  "cr-osm-node-2138168360": [
+   "cr-obec-1057120399"
+  ],
+  "cr-osm-node-2138298558": [
+   "cr-obec-1057120400"
+  ],
+  "cr-osm-node-2138326064": [
+   "cr-obec-1057120397"
+  ],
+  "cr-osm-node-2138372001": [
+   "cr-obec-1057120637"
+  ],
+  "cr-osm-node-2138383233": [
+   "cr-obec-1057120641"
+  ],
+  "cr-osm-node-2138390507": [
+   "cr-obec-1057120651"
+  ],
+  "cr-osm-node-2138391905": [
+   "cr-obec-1057120650"
+  ],
+  "cr-osm-node-2139569189": [
+   "cr-obec-1057120054"
+  ],
+  "cr-osm-node-2140496174": [
+   "cr-obec-1057120003"
+  ],
+  "cr-osm-node-2146681192": [
+   "cr-obec-1057120716"
+  ],
+  "cr-osm-node-2148615755": [
+   "cr-obec-1057120328"
+  ],
+  "cr-osm-node-2148624727": [
+   "cr-obec-1057120329"
+  ],
+  "cr-osm-node-2153721835": [
+   "cr-obec-1057120029"
+  ],
+  "cr-osm-node-2153795652": [
+   "cr-obec-1057120032"
+  ],
+  "cr-osm-node-2172228215": [
+   "cr-obec-1057120336"
+  ],
+  "cr-osm-node-2172498516": [
+   "cr-obec-1057120348"
+  ],
+  "cr-osm-node-2193414929": [
+   "cr-obec-1057120444"
+  ],
+  "cr-osm-node-2207472330": [
+   "cr-obec-1057120454"
+  ],
+  "cr-osm-node-2212090162": [
+   "cr-obec-1057120155"
+  ],
+  "cr-osm-node-2318190257": [
+   "cr-obec-1057120545"
+  ],
+  "cr-osm-node-2423373431": [
+   "cr-obec-1057120165"
+  ],
+  "cr-osm-node-2423438620": [
+   "cr-obec-1057120731"
+  ],
+  "cr-osm-node-2423444737": [
+   "cr-moph-8899210200012"
+  ],
+  "cr-osm-node-2423448690": [
+   "cr-obec-1057120631"
+  ],
+  "cr-osm-node-2423453130": [
+   "cr-obec-1057120113"
+  ],
+  "cr-osm-node-2423455183": [
+   "cr-obec-1057120706"
+  ],
+  "cr-osm-node-2423467475": [
+   "cr-obec-1057120118"
+  ],
+  "cr-osm-node-2423480368": [
+   "cr-obec-1057120115"
+  ],
+  "cr-osm-node-2828560708": [
+   "cr-obec-1057120549"
+  ],
+  "cr-osm-node-2831546101": [
+   "cr-obec-1057120732"
+  ],
+  "cr-osm-node-3997535492": [
+   "cr-obec-1057120037"
+  ],
+  "cr-osm-node-4524206389": [
+   "cr-obec-1057120065"
+  ],
+  "cr-osm-node-6406114885": [
+   "cr-obec-1057120097"
+  ],
+  "cr-osm-node-6410755585": [
+   "cr-obec-1057120105"
+  ],
+  "cr-osm-node-6410917386": [
+   "cr-obec-1057120106"
+  ],
+  "cr-osm-node-6411088986": [
+   "cr-obec-1057120110"
+  ],
+  "cr-osm-node-6418673787": [
+   "cr-obec-1057120580"
+  ],
+  "cr-osm-node-6424442787": [
+   "cr-obec-1057120708"
+  ],
+  "cr-osm-node-6536248985": [
+   "cr-obec-1057120331"
+  ],
+  "cr-osm-node-6631514660": [
+   "cr-obec-1057120645"
+  ],
+  "cr-osm-node-6947452788": [
+   "cr-obec-1057120632"
+  ],
+  "cr-osm-node-7461717085": [
+   "cr-obec-1057120034"
+  ],
+  "cr-osm-node-7473428386": [
+   "cr-obec-1057120039"
+  ],
+  "cr-osm-node-7547790385": [
+   "cr-obec-1057120375"
+  ],
+  "cr-osm-node-7550117387": [
+   "cr-obec-1057120723"
+  ],
+  "cr-osm-node-7856667790": [
+   "cr-moph-8899210200015"
+  ],
+  "cr-osm-way-1013293666": [
+   "cr-moph-8899210200010"
+  ],
+  "cr-osm-way-1013618591": [
+   "cr-obec-1057120406"
+  ],
+  "cr-osm-way-1037162287": [
+   "cr-obec-1057120020"
+  ],
+  "cr-osm-way-1037164475": [
+   "cr-obec-1057120019"
+  ],
+  "cr-osm-way-1043699974": [
+   "cr-obec-1057120695"
+  ],
+  "cr-osm-way-1103996779": [
+   "cr-obec-1057120698"
+  ],
+  "cr-osm-way-1108105254": [
+   "cr-obec-1057120068"
+  ],
+  "cr-osm-way-1230420622": [
+   "cr-obec-1057120647"
+  ],
+  "cr-osm-way-1232826837": [
+   "cr-obec-1057120676"
+  ],
+  "cr-osm-way-1232977050": [
+   "cr-obec-1057120048"
+  ],
+  "cr-osm-way-1233190515": [
+   "cr-obec-1057120526"
+  ],
+  "cr-osm-way-1233206060": [
+   "cr-obec-1057120145"
+  ],
+  "cr-osm-way-1356386079": [
+   "cr-moph-8899210200009"
+  ],
+  "cr-osm-way-1461887865": [
+   "cr-moph-8899210200017"
+  ],
+  "cr-osm-way-251477356": [
+   "cr-obec-1057120503"
+  ],
+  "cr-osm-way-276223523": [
+   "cr-obec-1057120104"
+  ],
+  "cr-osm-way-283761802": [
+   "cr-moph-8899210200011",
+   "cr-osm-way-283761810"
+  ],
+  "cr-osm-way-297707197": [
+   "cr-moph-8899210209097"
+  ],
+  "cr-osm-way-297707198": [
+   "cr-obec-1057120568"
+  ],
+  "cr-osm-way-297707202": [
+   "cr-obec-1057120570"
+  ],
+  "cr-osm-way-297707203": [
+   "cr-obec-1057120730"
+  ],
+  "cr-osm-way-310438684": [
+   "cr-obec-1057120703"
+  ],
+  "cr-osm-way-321823854": [
+   "cr-obec-1057120507"
+  ],
+  "cr-osm-way-371215803": [
+   "cr-obec-1057120721"
+  ],
+  "cr-osm-way-371233866": [
+   "cr-moph-8899210200007"
+  ],
+  "cr-osm-way-371233879": [
+   "cr-obec-1057120432"
+  ],
+  "cr-osm-way-373173963": [
+   "cr-obec-1057120467"
+  ],
+  "cr-osm-way-373241355": [
+   "cr-obec-1057120466"
+  ],
+  "cr-osm-way-373412095": [
+   "cr-obec-1057120342"
+  ],
+  "cr-osm-way-373429873": [
+   "cr-obec-1057120030"
+  ],
+  "cr-osm-way-383267459": [
+   "cr-obec-1057120033"
+  ],
+  "cr-osm-way-395972246": [
+   "cr-obec-1057120453"
+  ],
+  "cr-osm-way-447735125": [
+   "cr-moph-8899210200006"
+  ],
+  "cr-osm-way-483841193": [
+   "cr-moph-8899210200005"
+  ],
+  "cr-osm-way-500412805": [
+   "cr-obec-1057120514"
+  ],
+  "cr-osm-way-501089462": [
+   "cr-moph-8899210208986"
+  ],
+  "cr-osm-way-501089490": [
+   "cr-obec-1057120515"
+  ],
+  "cr-osm-way-511764298": [
+   "cr-obec-1057120117"
+  ],
+  "cr-osm-way-527539157": [
+   "cr-moph-8899210200013"
+  ],
+  "cr-osm-way-544166623": [
+   "cr-obec-1057120452"
+  ],
+  "cr-osm-way-548552723": [
+   "cr-moph-8899210200014"
+  ],
+  "cr-osm-way-548642794": [
+   "cr-obec-1057120183"
+  ],
+  "cr-osm-way-549948901": [
+   "cr-moph-8899210200016",
+   "cr-osm-node-7856667792"
+  ],
+  "cr-osm-way-551176159": [
+   "cr-obec-1057120500"
+  ],
+  "cr-osm-way-551524403": [
+   "cr-obec-1057120001"
+  ],
+  "cr-osm-way-555852772": [
+   "cr-moph-8899210200019"
+  ],
+  "cr-osm-way-623837097": [
+   "cr-obec-1057120694"
+  ],
+  "cr-osm-way-641234924": [
+   "cr-obec-1057120024"
+  ],
+  "cr-osm-way-643045525": [
+   "cr-obec-1057120053"
+  ],
+  "cr-osm-way-643046395": [
+   "cr-moph-8899210200018"
+  ],
+  "cr-osm-way-736401209": [
+   "cr-obec-1057120108"
+  ],
+  "cr-osm-way-760080773": [
+   "cr-obec-1057120300"
+  ],
+  "cr-osm-way-760183807": [
+   "cr-moph-8899210200008"
+  ],
+  "cr-osm-way-760188669": [
+   "cr-obec-1057120164"
+  ],
+  "cr-osm-way-760190397": [
+   "cr-obec-1057120199"
+  ],
+  "cr-osm-way-863313491": [
+   "cr-obec-1057120713"
+  ],
+  "cr-osm-way-967034890": [
+   "cr-obec-1057120002"
+  ],
+  "cr-osm-way-971313087": [
+   "cr-obec-1057120014"
+  ],
+  "cr-curated-little-one-hostel": [
+   "cr-osm-node-10245740614"
+  ],
+  "cm-osm-way-582885180": [
+   "cm-ovt-3937e8c6-1f2c-4f69-9f58-4665ce43c343"
+  ],
+  "cm-ovt-28b604a8-7234-4683-99fc-3b57cf7cc69b": [
+   "cm-newsletter-gymkhana-club-cm"
+  ],
+  "cm-ovt-8694a6f1-7ca2-46da-b969-318274145bb7": [
+   "cm-newsletter-red-room-199"
+  ],
+  "cm-ovt-ccf4b31f-9b87-4f6b-8b1c-3da5ef1f3420": [
+   "cm-newsletter-sip-at-ping"
+  ],
+  "cm-ovt-f231a66c-156a-4259-a90f-afd2832b9bd9": [
+   "cm-newsletter-skugga-vineyard"
+  ],
+  "cm-ovt-5be03e5e-ebb6-49a9-8cd3-76e06ba59749": [
+   "cm-newsletter-gaj-kitchen-bar"
+  ],
+  "cm-ovt-393f6da4-e5db-4f2a-b5bd-bc5393754613": [
+   "cm-newsletter-cross-cm-riverside"
+  ],
+  "cm-ovt-6d7e8de2-c469-4466-8dcb-6ef073733cdd": [
+   "cm-newsletter-chiang-mai-marriott"
+  ],
+  "cm-ovt-6593c790-1a69-4870-a5a2-de2454897760": [
+   "cm-newsletter-alt-pingriver"
+  ],
+  "cm-ovt-a6aa378c-63cf-4e2f-8759-cf93cf1b2389": [
+   "cm-newsletter-anantara-cm-resort"
+  ],
+  "cm-ovt-edcf45e8-6a55-4a00-8076-8600f559d245": [
+   "cm-newsletter-cmu-auditorium"
+  ],
+  "cm-ovt-f51d84a6-25b4-4c23-90e0-8342ab09a415": [
+   "cm-newsletter-dojo-yoga-pilates"
+  ],
+  "cm-ovt-aa6f888a-7de0-44d1-b144-193df602aff5": [
+   "cm-newsletter-eat-at-rincome"
+  ],
+  "cm-ovt-da16aa2c-2753-427a-ae9d-a13902d04906": [
+   "cm-newsletter-game-tree-cafe"
+  ],
+  "cm-ovt-fc1e4943-1dcc-499b-8496-75f87e33647b": [
+   "cm-newsletter-goomans-cnx"
+  ],
+  "cm-ovt-65454c68-23a6-4837-822c-8439a4ea9460": [
+   "cm-newsletter-kindred-studio"
+  ],
+  "cm-ovt-f507bd3b-cebc-471e-8a62-53c55fecfc36": [
+   "cm-newsletter-la-friandise"
+  ],
+  "cm-ovt-6e228c19-ca1c-468b-ae17-c6f18d4de76e": [
+   "cm-newsletter-maa-yoga-studio"
+  ],
+  "cm-ovt-ebf9b777-67ac-45c9-a3e8-9133f6747824": [
+   "cm-newsletter-mitt-studio"
+  ],
+  "cm-ovt-f70debbf-37a7-4c74-bdb4-08cc35b99576": [
+   "cm-newsletter-puravida-one-nimman"
+  ],
+  "cm-ovt-a8e92d65-298a-4431-ab65-e3d365b2027e": [
+   "cm-newsletter-realspace-cnx"
+  ],
+  "cm-ovt-63a79649-b054-4ff2-8d6d-152e2702132f": [
+   "cm-newsletter-rong-sa-dang"
+  ],
+  "cm-newsletter-sacred-grounds-cnx": [
+   "cm-ovt-5670c87d-f46c-4e60-8015-4108fe450871"
+  ],
+  "cm-ovt-cc00dd7f-e55b-4c2f-a9af-10f3077208c5": [
+   "cm-newsletter-the-old-city-spa"
+  ],
+  "cm-newsletter-keo-park-hangdong": [
+   "cm-ovt-0e129684-edf8-456f-a770-bf2f237dca15"
+  ],
+  "cm-newsletter-cowboy-army-riding-club": [
+   "cm-ovt-33ebf4ab-89be-46ba-b328-9794f8d6ec8c"
+  ],
+  "cm-ovt-fa79653a-30de-4d67-90dd-1d0f6efd0393": [
+   "cm-newsletter-old-cm-cultural-center"
   ]
+ },
+ "_why": {
+  "2026-10-04 event venues": "25 newsletter venue records folded into the record the catalogue already held for the same place. Each pair checked by name, written address and pin. The newsletter record had been created when the strict venue match missed the existing one, so the place's events sat on a pinless copy. Also Old Chiang Mai Cultural Center into its Overture row at 185/3 Wualai Rd. Keo Park and Cowboy Army keep the newsletter record, which now carries a sourced pin. Not folded, and why: Wat Aranyawas Ban Pong (the near match is pinned in the old city under a highway-108 address), Anantara's Nimman Overture row (wrong pin)."
  }
 }

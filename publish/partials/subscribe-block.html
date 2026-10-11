@@ -1,0 +1,22 @@
+<!-- subscribe-block.html — the reusable mailing-list sign-up block.
+     Bilingual, no pre-checked consent, one field plus the box. It POSTs to
+     /subscribe, which the Worker (publish/subscribe.js) handles.
+
+     The Worker renders the same block on /subscribe via subscribe.js
+     signupBlock(); this static copy is for a build.py-generated page to
+     include. Keep the two in step — the consent sentence is a DRAFT pending
+     Nan (see _incoming/mailing-list-consent-DRAFT.txt). Set the source hidden
+     field to the surface that carries the block. -->
+<form class="md-sub" action="/subscribe" method="post">
+  <input type="hidden" name="source" value="block">
+  <input type="hidden" name="lang" value="both">
+  <label>อีเมล · Email
+    <input type="email" name="email" required autocomplete="email" inputmode="email" placeholder="you@example.com">
+  </label>
+  <label class="consent">
+    <input type="checkbox" name="consent" value="yes" required>
+    <span>ส่งอีเมลถึงฉันเมื่อมีของใหม่บนมดแดง — ยกเลิกได้จากทุกอีเมล<br>
+      Email me when there is something new on Mot Dang — unsubscribe from any message</span>
+  </label>
+  <button type="submit">สมัคร · Subscribe</button>
+</form>

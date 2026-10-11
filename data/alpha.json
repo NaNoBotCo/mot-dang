@@ -1,0 +1,7 @@
+{
+ "on": true,
+ "until": "2026-12-31",
+ "audience": "testers",
+ "endpoint": "https://mot-dang-claims.nanobotco.workers.dev/alpha",
+ "note": "Alpha feedback thumb. Set on:false, or delete this file, and nothing renders."
+}

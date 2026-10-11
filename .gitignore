@@ -24,6 +24,8 @@ app/www/data/
 # that command if it is ever lost.
 assets/tiles/*.pmtiles
 docs/tiles/
+docs.next/
+docs.prev/
 
 # Publishing state and local tool caches. The tooling in publish/ is tracked;
 # what it leaves behind is not. .wrangler/ in particular caches a Cloudflare
@@ -31,6 +33,7 @@ docs/tiles/
 # ran a deploy — a public repo is the wrong home for the deployer's front door.
 # .uploaded.json is a per-machine checksum ledger of the last sync.
 publish/.wrangler/
+worker/.wrangler/
 publish/.uploaded.json
 
 # The Hugging Face dataset repo: a build artifact of the canonical data, the
@@ -42,3 +45,80 @@ cache/scripture/
 # run like cache/last-published.json. A fresh clone with no meta is a
 # supported state (ingest.read_meta returns {}).
 data/*.meta.json
+
+# /loop — the Mae Hong Son loop site. 78 MB of built pages and terrain rasters,
+# produced by the mhs-loop repo, not authored here. Rebuild with:
+#   cd ../mhs-loop && SITE_URL=https://motdang.net/loop python3 tools/build.py \
+#     && SITE_URL=https://motdang.net/loop python3 tools/site.py \
+#     && python3 tools/terrain.py --width 1400 \
+#     && python3 tools/terrain.py --width 1400 --dark --out build/site/terrain-dark.png \
+#     && python3 tools/cards.py \
+#     && rm -rf ../mot-dang/assets/loop && mkdir -p ../mot-dang/assets/loop \
+#     && cp -R build/site/ ../mot-dang/assets/loop/
+# and the copy build.py installs from it, the same 91 MB again
+docs/loop/
+assets/loop/
+# and the copy build.py installs from it, the same 91 MB again
+docs/loop/
+
+# /muay-thai — the muay thai site. 51 MB of built pages and share cards, produced by the
+# muay-thai repo, not authored here. Rebuild with:
+#   cd ../muay-thai && SITE_URL=https://motdang.net/muay-thai python3 tools/build.py \
+#     && python3 tools/worldmap.py \
+#     && SITE_URL=https://motdang.net/muay-thai python3 tools/site.py \
+#     && python3 tools/cards.py \
+#     && rm -rf ../mot-dang/assets/muay-thai && mkdir -p ../mot-dang/assets/muay-thai \
+#     && cp -R build/site/ ../mot-dang/assets/muay-thai/
+assets/muay-thai/
+# and the copy build.py installs from it, the same 51 MB again
+docs/muay-thai/
+
+# the ghost tour is built in ghost-chiang-mai and mirrored here so a prune sees it
+docs/ghost/
+
+# /roads — Roads of Chiang Mai. Built pages, maps and share cards produced by the
+# chiang-mai-roads repo, not authored here. Rebuild with:
+#   cd ../chiang-mai-roads && SITE_URL=https://motdang.net/roads ./publish.sh \
+#     && rm -rf ../mot-dang/assets/roads && mkdir -p ../mot-dang/assets/roads \
+#     && cp -R docs/ ../mot-dang/assets/roads/
+assets/roads/
+docs/roads/
+
+# /field — ภาคสนาม · Field, street-level capture. Built by the field repo, not authored here.
+# Rebuild with:
+#   cd ../field && SITE_URL=https://motdang.net/field python3 tools/site.py \
+#     && rm -rf ../mot-dang/assets/field && mkdir -p ../mot-dang/assets/field \
+#     && cp -R build/site/ ../mot-dang/assets/field/
+assets/field/
+docs/field/
+
+# /chiang-rai — Chiang Rai, Slowly, built by the laila-chiang-rai repo. Rebuild with:
+#   cd ../laila-chiang-rai && SITE_URL=https://motdang.net/chiang-rai OUT=../mot-dang/assets/chiang-rai python3 tools/build.py
+#   (after copying docs/img docs/v docs/card.jpg into assets/chiang-rai/)
+assets/chiang-rai/
+docs/chiang-rai/
+
+# /sites/<slug>/ — businesses' own minisites, each built by its own repo. Rebuild one with:
+#   cd ../<repo> && SITE_URL=https://motdang.net/sites/<slug> OUT=../mot-dang/assets/sites/<slug> python3 tools/build.py
+#   (garden-loikroh: the repo of the same name)
+assets/sites/
+docs/sites/
+# /markets/ — every market and mall, and each market's own site, built by the markets repo:
+#   cd ../markets && python3 tools/gather.py && MOTDANG=1 python3 tools/build.py
+assets/markets/
+docs/markets/
+# /the-plan — the pitch deck, built by the the-plan repo. Rebuild with:
+#   cd ../the-plan && SITE_URL=https://motdang.net/the-plan OUT=../mot-dang/assets/the-plan python3 tools/build.py
+assets/the-plan/
+docs/the-plan/
+
+# The canonical catalogue: cm.json is 140 MB, cr.json 55 MB, over GitHub's 100 MB
+# per-file limit. Both are rebuilt by importers/import_all.py from cache/ and
+# data/curated/, and the server receives them with the rest of the tree on each
+# hand-off (importers/server_link.sh). lpn.json is small and stays tracked.
+data/canonical/cm.json
+data/canonical/cr.json
+
+# Build output. The server builds it and R2 serves it; GitHub Pages had stopped
+# serving it by 2026-10-11. Untracked that day.
+/docs/

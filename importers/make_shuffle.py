@@ -344,7 +344,7 @@ def sky_kham(d):
     m = (_SKY.get(d.isoformat()) or {}).get("moon")
     if not m or "thai_day" not in m:
         return None
-    return {"day": int(m["thai_day"]), "waning": not m.get("waxing", True),
+    return {"day": int(m["thai_day"]), "waning": not m.get("thai_waxing", m.get("waxing", True)),
             "wan_phra": bool(m.get("wan_phra"))}
 
 

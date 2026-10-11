@@ -1,0 +1,174 @@
+FOURSQUARE — BUILT 2026-09-08, STAGED, NOT FOLDED IN
+=====================================================
+
+Nan, 2026-09-08: "YES we DO want to add 'a quarter million facebookish
+records'. -- get on it!"
+
+Built: importers/harvest_foursquare.py · importers/import_foursquare.py ·
+data/curated/foursquare_categories.json. Harvest has RUN; 252,621 rows are
+in cache/foursquare/. The importer has only been DRY-RUN. Nothing has
+touched data/canonical, because another session held cache/build.lock all
+day (pid 85886, from 08:37).
+
+
+-------------------------------------------------------------------
+FIRST, THE NUMBER — IT IS NOT A QUARTER MILLION, AND THAT IS MY FAULT
+-------------------------------------------------------------------
+I quoted 241,563 this morning. That was a RECTANGLE, not two provinces.
+The pmtiles fence (17.0-20.5 N, 97.3-100.6 E) also covers Lamphun,
+Lampang, Phayao and part of Mae Hong Son.
+
+Restricted to a Chiang Mai (50xxx) or Chiang Rai (57xxx) postcode:
+
+    rows in the fence                        252,621
+    with a CM or CR postcode                  42,380
+    no postcode at all (province unknown)    210,241
+    marked closed                              6,798
+
+Of the 42,380 postcode-confirmed rows, measured against the live catalogue:
+
+    already ours (name + <=300 m)              5,389
+    marked closed                              1,573
+    category maps to no shelf                  7,330
+    stands within 30 m of a same-shelf record 16,468
+    ------------------------------------------------
+    NEW RECORDS THE IMPORTER OFFERS            11,536
+
+So: ~11,500, not 250,000. The gap is almost entirely the last line.
+
+
+-------------------------------------------------------------------
+THE NEIGHBOUR TEST — THE MOST INTERESTING NUMBER IN THIS FILE
+-------------------------------------------------------------------
+A Foursquare row standing within REVIEW_M of a record we ALREADY HOLD ON
+THE SAME SHELF is treated as that record under a different name, and
+refused. The rule, and its 60 m default, came from the Overture importer.
+
+But Overture ran against a 25,914-record catalogue. It now runs against
+88,161. The city is blanketed: on a Nimman block there is a cafe of ours
+within 60 m of almost any point, so the test that protected us from
+duplicates in August is now refusing genuinely different shops in
+September. A RULE THAT WAS RIGHT AT ONE CORPUS SIZE IS WRONG AT ANOTHER,
+and nothing was watching for that.
+
+They are not discarded. Every one is named, with the record it stands
+beside and the distance, in:
+    cache/foursquare_review_cm.txt
+    cache/foursquare_review_cr.txt
+
+THE RADIUS IS DOING MOST OF THE WORK, measured:
+
+    REVIEW_M = 60 m    7,399 new records     refused 20,627
+    REVIEW_M = 30 m   11,536 new records     refused 16,468
+    REVIEW_M = 15 m   18,060 new records      refused 9,909
+
+THE CURVE NEVER FLATTENS. Every halving of the circle finds thousands
+more shops, so there is no radius where the count settles and says "this
+is the right one". That is the finding, and it is bigger than Foursquare:
+DISTANCE ALONE CANNOT TELL TWO SHOPS APART IN A DENSE CITY. The 60 m
+default was not a boundary effect, it was the single biggest filter in
+the pipeline, inherited from a corpus a third this size without anyone
+re-deriving it.
+
+LEFT AT 30 m — the radius import_fixtures.py measured its ATM joins at,
+and a defensible middle, but still a guess. The real fix is a
+name-similarity test INSIDE the circle: two coffee shops 20 m apart with
+unrelated names are two coffee shops, and one shop under two spellings is
+one shop. PyThaiNLP's cross-script soundex (go/tools 2.6) is the
+blocking key that would do it. NOT BUILT — written down so it stays a
+defect with a number rather than a setting nobody questions.
+
+
+-------------------------------------------------------------------
+THE 210,241 WITH NO POSTCODE
+-------------------------------------------------------------------
+Not imported, and not thrown away — they are in the cache. A row with no
+postcode cannot be put in a province without guessing, and guessing is
+what put a school 139 km out in the geocoder audit on 9/5.
+
+The pass that claims them is the tambon POLYGONS from the tools survey
+(go/tools item 3.2): point-in-polygon every row, and the province stops
+being a guess. That is the same work that fixes 2,116 unpinned records.
+One change, two payoffs.
+
+
+-------------------------------------------------------------------
+WHAT THE IMPORTER DELIBERATELY DOES NOT DO
+-------------------------------------------------------------------
+IT DOES NOT ENRICH. Measured: against records we already hold Foursquare
+would add 307 phone numbers. Overture added 3,631. Foursquare carries a
+phone on 7.5% of its own northern rows; Overture on 82%, because Overture
+is Facebook business pages and Facebook is where a Thai shop writes its
+number. So `apply()` returns enriched=0 always and never touches a field
+on a record we hold. A side benefit: no existing record's give-back status
+can be changed by this importer at all.
+
+IT DOES NOT MAP EVERY CATEGORY. 7,330 rows reach no shelf. Every unmapped
+category is counted and named in cache/foursquare_unmapped_{cm,cr}.txt, so
+a shelf that should exist and does not is VISIBLE rather than silent —
+the lesson from the KNOWN_EMPTY beauty shelves. Seven categories are
+refused on purpose with a reason each, written into
+data/curated/foursquare_categories.json: residential buildings, offices,
+housing developments, structures, roads, municipalities, government
+buildings. An office is not a trade; a block of flats is not a lookup.
+
+
+-------------------------------------------------------------------
+ON FORBIDDEN_VIA, BECAUSE NAN ASKED WHETHER I INVENTED IT
+-------------------------------------------------------------------
+Her question, 2026-09-08: "What is a forbidden give back list? I thought
+we decided everything was permitted? Did you sneak in a new rule?"
+
+No. And the two things are opposite directions.
+
+WHAT MAY COME IN is wide open, and she widened it again the same day:
+"we should be aggressively using share-alike." Nothing blocks ingestion.
+Foursquare came in today under Apache-2.0.
+
+FORBIDDEN_VIA governs only what may be UPLOADED TO OPENSTREETMAP. OSM's
+own licence requires contributed data be free of third-party rights, so
+pushing a commercial directory's rows into OSM is barred by OSM, not by
+us. The list (weed.th, yellowpages, cmhy, google, tripadvisor, wongnai,
+gowabi, agoda, booking.com, foursquare) is that constraint written down.
+
+Provenance check, per the standing rule: `provenance.py` is UNTRACKED in
+git, so `git log -S` cannot be run on it. What it serves is
+notes/osm-giveback-licence-gate-2026-09-05.txt, whose first lines record
+HER decision that day: "BROAD — contribute everything licence-clean."
+The list exists to execute that decision, not to narrow it.
+
+ONE LINE IN IT IS NOT HERS AND SHOULD BE FLAGGED: the comment says "Add
+to it freely; removing from it needs a reason in writing." Nobody asked
+her for that asymmetry. It is a past session's caution wearing a rule's
+clothes. Treat the list as editable in both directions.
+
+Cost of today's ingest against give-back: zero. These records were never
+giveable, and because provenance is per-field they cannot make an
+existing record less giveable.
+
+
+-------------------------------------------------------------------
+THE FRESH RELEASE IS ONE CLICK AWAY
+-------------------------------------------------------------------
+Everything above is the UNGATED 2024 MIRROR (do-me/foursquare_places_100M,
+Apache-2.0). The real repo, foursquare/fsq-os-places, refreshes monthly
+and is at dt=2026-08-11 — twenty months newer. It returns 403 on both
+accounts until someone presses "Agree and access repository" on the
+dataset page. That is a licence acceptance, which is hers.
+
+    python3 importers/harvest_foursquare.py --gated
+
+is the whole switch. Same columns, same output, same importer.
+
+
+-------------------------------------------------------------------
+TO ACTUALLY FOLD IT IN
+-------------------------------------------------------------------
+1. Wait for cache/build.lock to clear.
+2. Add three lines to importers/import_all.py beside the import_overture
+   block (~line 738) — NOT DONE, deliberately, because import_all rewrites
+   data/canonical and a build was reading it all day.
+3. python3 importers/import_all.py && python3 build.py
+4. Read cache/foursquare_review_*.txt before believing the count.
+
+Files: go/fsq (this) · go/hf (the measurements) · go/tools (the survey)

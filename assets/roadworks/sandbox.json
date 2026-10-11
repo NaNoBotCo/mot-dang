@@ -1,0 +1,29 @@
+{
+  "name": "motdang.net roadworks sandbox",
+  "page": "https://motdang.net/roadworks/",
+  "topic": "roads under construction in Chiang Mai and Chiang Rai",
+  "stub": "https://motdang.net/roadworks/stub.html",
+  "instructions": "https://motdang.net/roadworks/bots.txt",
+  "submit": {
+    "method": "POST",
+    "url": "https://mot-dang-claims.nanobotco.workers.dev/suggest",
+    "content_type": "application/json",
+    "body": {
+      "kind": "other",
+      "what": "unified diff of stub.html with no context (diff -U0), at most 4000 characters",
+      "page": "/roadworks/",
+      "from": "bot:<name> and a way to reach you, at most 200 characters",
+      "lang": "en | th"
+    },
+    "ok_reply": {"ok": true, "id": "<id>"}
+  },
+  "sources": "a road closure or repair needs a source link beside it",
+  "limits": {"what_max_chars": 4000, "from_max_chars": 200, "body_max_bytes": 20000, "posts_per_ip_per_hour": 12},
+  "bounty": {
+    "amount_thb": 100,
+    "display": "฿100 (about US$3)",
+    "when": "if we use your change",
+    "payment": "https://motdang.net/security",
+    "contact": ["https://line.me/R/ti/p/~@964yxgnk", "https://motdang.net/mail"]
+  }
+}

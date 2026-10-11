@@ -10,7 +10,7 @@ TOP 4 FIXES, in order
 1. SEARCH LOADS 9 MB BEFORE THE FIRST RESULT.
    index.json 7.7 MB + fortune.json 1.3 MB on search.html. On a phone in Mae Rim that
    is a minute of nothing. Shard the index by shelf, or answer server-side.
-2. fortune.json (1.3 MB) LOADS ON EVERY PAGE — place, shelf, map, search.
+2. fortune.json (1.3 MB) loads on every page — place, shelf, map, search.
    A 46 KB place page costs 2.9 MB (fortune 1.3 MB + maplibre 1.0 MB). Load it only
    when the horoscope widget is on screen or tapped.
 3. THE NAV WALL. 28 nav links plus 5 rows of tags sit above every page.

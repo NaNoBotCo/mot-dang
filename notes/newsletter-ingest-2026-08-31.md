@@ -77,7 +77,7 @@ the redirect names the place and, for 11 of them, gives coordinates. Those are
 a pin without a citation is an assertion.
 
 The rest went through `importers/geocode_local.py` on the stated address, whose
-tier sets the precision honestly: landmark → `approx`, street → `block`,
+tier sets the precision to match: landmark → `approx`, street → `block`,
 anything coarser is not a pin and the record says `needs-pin` and keeps the
 address. Final spread over the 62: **11 exact, 12 block, 6 approx, 33
 needs-pin.** No geocoding service was called; the note in that file's

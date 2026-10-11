@@ -1,0 +1,129 @@
+SOFT EYES — what the corpus already knows and never says
+================================================================================
+Measured 2026-09-08 against the folded catalogue, 88,161 records. Nothing below
+needs a crawl, a source, a licence call or a bot. Every number is a count of
+records where a field could be written from a string already on disk.
+
+WHAT IS ALREADY DOING THIS, so nobody builds it twice
+  tags_mine.py (WO-76, 9/7) mints a tag per VALUE of a categorical field —
+  overtureCategory, cuisine, brand. That axis is done. The four axes below are
+  the ones it cannot reach: free text, cross-record structure, disagreement
+  between two fields, and the FORMAT of a value.
+
+--------------------------------------------------------------------------------
+1  THE ADDRESS STRING — the biggest single gap
+--------------------------------------------------------------------------------
+  49,046 records carry an address. Inside those strings:
+
+     ตำบล / ต.        22,108 records   19,405 of them have NO attrs.tambon
+     อำเภอ / อ.       17,295 records   14,362 of them have NO attrs.amphoe
+     หมู่ / ม.        16,259 records
+     ถนน / ถ.         14,752 records
+     5-digit postcode 10,773 records    7,506 of them have NO attrs.postcode
+     ซอย / ซ.          5,431 records
+
+  ~41,000 field-writes sitting in strings the site already ships. attrs.amphoe
+  is on 3,267 records (3.7%) and is only ever READ — it arrives from registers
+  that came with it; nothing in the repo derives it from an address.
+
+  A tighter version of the same count: 14,013 records have an address with no
+  attrs.amphoe that contains one of the 59 area names already in
+  data/trade_lexicon.json — a match against a known list, not a guess.
+
+  Worth having because the อำเภอ is how a resident says where something is, and
+  because it feeds bearings, the gazetteer and every "near me" question.
+
+--------------------------------------------------------------------------------
+2  THE NAME — 88,161 of them, and nothing parses one
+--------------------------------------------------------------------------------
+  data/trade_lexicon.json holds 1,782 Thai trade words with a reading and a
+  gloss, mined from attrs.tradeTags on 2,564 records. Applied to NAMES instead:
+
+     9,284 records (10.5%) have a lexicon trade word inside their own name
+
+  Commonest: คาเฟ่ 934 · รีสอร์ท 554 · เสริมสวย 303 · มอเตอร์ 261 · แอร์ 223 ·
+  กาแฟสด 209 · สุสาน 191 · มอเตอร์ไซค์ 171 · เฟอร์นิเจอร์ 160.
+
+  Other shapes in the name, none of them read today:
+     ร้าน…             6,525   says it is a shop
+     แม่/ป้า/ลุง/พี่/น้า  6,281   a person's kitchen — a real axis, and a warm one
+     วัด/สำนักสงฆ์      3,339
+     โรงเรียน/รร.       2,734
+     สาขา…             2,289   a branch, AND the name of what it is a branch of
+     หจก./บจก./บริษัท     935   a company form
+     คลินิก               969 · อู่ 591 · ตลาด 533 · ร้านขายยา 697
+
+  ⚠ A LANDMINE IN THE SHIPPED FILE. Only 11 of the 1,782 lexicon words carry a
+  `shelves` value, and ten of the eleven rest on n=1 or n=3 — a shelf inferred
+  from a single record. One of them is wrong in a way that would be visible:
+
+      "คาเฟ่" (café) -> shelves ["cannabis"],  n = 1
+
+  934 records have คาเฟ่ in their name. Anything that applies lexicon shelves to
+  names would put 934 cafés on the cannabis shelf. The readings and glosses are
+  sound; the `shelves` field is not, and should be rebuilt with a floor (n ≥ some
+  count) or dropped before anything reads it.
+
+--------------------------------------------------------------------------------
+3  THE SCRIPT OF THE NAME — who the sign is for
+--------------------------------------------------------------------------------
+     Thai only    46,115  52.3%
+     Latin only   25,743  29.2%
+     both         16,143  18.3%
+
+  Free, one line of code, and it is the axis the search-disease note keeps
+  circling: a shelf that is 97% Latin-named is a shelf built out of a map, not
+  out of the city. It also tells a reader something true before they walk in.
+
+--------------------------------------------------------------------------------
+4  THE FORMAT OF A VALUE
+--------------------------------------------------------------------------------
+  Phone prefix, 61,065 phones:
+     mobile (06/08/09)        49,379   56.0%
+     landline 053 (CM/CR)     10,117   11.5%
+     landline, other province    962 · Bangkok 02: 258
+
+  A 053 landline is a business with a fixed address that has had it a while; a
+  Bangkok 02 number on a Chiang Mai record is a head office, which is a
+  different fact than a local shop and currently indistinguishable from one.
+
+  Front door:
+     facebook page only       52,709   59.8%
+     own website              17,452   19.8%
+     no link at all           17,431   19.8%
+     a rented page (wix/shopee/linktree)  569
+     email at a free mailbox 22,850 · at its own domain 2,487
+
+--------------------------------------------------------------------------------
+5  CROSS-RECORD STRUCTURE — the graph already computed and never asked
+--------------------------------------------------------------------------------
+  A SHARED PIN IS A VENUE, NOT A DUPLICATE.
+     926 pins hold 3 or more records, covering 8,545 records.
+     150 of those pins have a market, mall, hospital or campus IN the group.
+     -> "inside Central Festival" is derivable for the members, and the host
+        gets a tenant list — a page type the site does not have.
+
+  A REPEATED NAME IS A CHAIN.
+     748 names appear 3+ times across different pins, covering 5,217 records.
+     attrs.brand is set on 2,385. The gap is 2,832 records in a chain that the
+     catalogue does not know is a chain. Chain-vs-independent is a facet a
+     reader actually wants and nobody can ask for.
+
+  THE REAL DUPLICATE RATE, which the DO-NOT-DEPLOY note asks for by name:
+     354 records (0.4%) share both a normalised name and a pin within ~11 m.
+     10,553 (12.0%) share an exact pin with something else — those are venues,
+     not duplicates, and reading them as duplicates would delete a mall's shops.
+
+--------------------------------------------------------------------------------
+6  TWO FIELDS THAT DISAGREE
+--------------------------------------------------------------------------------
+  44,440 records carry BOTH our sub-shelf and Overture's own category word.
+  They agree on 8,166 and disagree on 36,274. A disagreement is not an error —
+  it is the cheapest quality signal in the corpus, it is unread, and it ranks
+  every record by how much the two sources trust each other.
+
+--------------------------------------------------------------------------------
+WHAT IS NOT DERIVABLE, so it does not get promised
+--------------------------------------------------------------------------------
+  Hours (5.0% have any), prices, whether a place is still open, and anything
+  about quality. Those need a reader at the page or a person at the door.

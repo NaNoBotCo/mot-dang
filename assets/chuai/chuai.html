@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="th"><head><meta charset="utf-8"><style>
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 210mm; }
+body {
+  font-family: "Noto Sans Thai", "IBM Plex Sans Thai", "Sarabun", "Thonburi",
+    "Arial Unicode MS", Arial, sans-serif;
+  color: #000; background: #fff; font-size: 11pt; line-height: 1.4;
+}
+.page { width: 210mm; height: 297mm; padding: 11mm 13mm 9mm;
+  position: relative; page-break-after: always;
+  display: flex; flex-direction: column; }
+.page:last-child { page-break-after: auto; }
+.rule { border-top: 3px solid #000; border-bottom: 3px solid #000;
+  height: 3px; padding-top: 3px; }
+.brandrow { display: flex; justify-content: space-between; align-items: baseline;
+  margin-top: 2.2mm; font-size: 10pt; letter-spacing: .04em; }
+.brandrow b { font-size: 14pt; }
+h1 { font-size: 23pt; line-height: 1.1; margin-top: 3mm; }
+h1 .en { display: block; font-size: 13pt; font-weight: 400; margin-top: 1mm; }
+
+/* ---- the numbers. This is the whole reason the sheet exists, so it gets
+   the whole top of the front and the biggest type on either side. ---- */
+.num { display: flex; align-items: baseline; gap: 5mm;
+  border: 2.5px solid #000; border-radius: 3mm; padding: 2.4mm 4mm;
+  margin-top: 2.8mm; page-break-inside: avoid; }
+.num .tel { flex: 0 0 38mm; font-size: 34pt; font-weight: 700;
+  letter-spacing: .01em; line-height: 1; }
+.num .what { flex: 1; }
+.num .what b { display: block; font-size: 13.5pt; line-height: 1.25; }
+.num .what .en { display: block; font-size: 10.5pt; font-weight: 400; }
+.num .what .note { display: block; font-size: 9pt; margin-top: .8mm; }
+.issuers { margin-top: 3mm; font-size: 8.6pt; line-height: 1.35; }
+
+.qrwrap { display: flex; gap: 6mm; align-items: center; margin-top: 4mm;
+  border: 2px solid #000; padding: 3mm 4mm; }
+.qrwrap img { width: 32mm; height: 32mm; }
+.qrwrap .say b { font-size: 12.5pt; display: block; }
+.qrwrap .say .en { display: block; font-size: 9.6pt; margin-top: 1mm; }
+.qrwrap .say .url { display: block; font-size: 11pt; font-weight: 700;
+  margin-top: 1.4mm; letter-spacing: .02em; }
+
+h2 { font-size: 13pt; border-top: 2.5px solid #000;
+  border-bottom: 1px solid #000; padding: 1.3mm 0; margin-top: 4mm; }
+h2 .en { font-weight: 400; font-size: 9.8pt; }
+
+table.bands { width: 100%; border-collapse: collapse; margin-top: 1.5mm; }
+table.bands td { border-bottom: 1px dotted #000; padding: 1.5mm 0;
+  vertical-align: baseline; font-size: 10.5pt; }
+/* The swatch carries the band TWICE: the colour, for a colour printer and
+   for matching the app and the roadside sign, and a stepped black bar inside
+   it, because this sheet's whole promise is that it survives a photocopier —
+   and five colour fills go to five indistinguishable greys the moment it
+   does. Width is the one signal a bad copy cannot flatten. */
+table.bands td.sw { width: 18mm; }
+table.bands td.sw span { display: block; height: 5.2mm; border: 1.5px solid #000;
+  position: relative; }
+table.bands td.sw span i { position: absolute; left: 0; top: 0; bottom: 0;
+  background: #000; }
+table.bands td.rng { width: 30mm; font-weight: 700;
+  font-variant-numeric: tabular-nums; }
+table.bands td.nm b { font-size: 11pt; }
+table.bands td.nm span { font-size: 9pt; }
+
+/* Four columns, not three: forty-five names have to share what is left of
+   the back after the band table, and the names are the one thing here that
+   may be set small — a number may not. */
+.hosp { columns: 4; column-gap: 5mm; margin-top: 1.5mm; font-size: 8.1pt;
+  line-height: 1.3; }
+.hosp .p { break-inside: avoid; margin-bottom: 1.6mm; }
+.hosp .p b { display: block; font-size: 9pt; border-bottom: 1px solid #000;
+  margin-bottom: .8mm; }
+.hosp div.h { break-inside: avoid; }
+
+.mine { margin-top: 3mm; border: 2px solid #000; padding: 2.6mm 3.4mm; }
+.mine b { font-size: 11.5pt; }
+.mine .en { font-size: 9.4pt; font-weight: 400; }
+.mine .lines { margin-top: 2mm; }
+.mine .lines div { border-bottom: 1px solid #000; height: 8mm; }
+
+.note { margin-top: 2.6mm; font-size: 8.6pt; line-height: 1.35; }
+.spacer { flex: 1 1 auto; }
+.foot { display: flex; justify-content: space-between; font-size: 9pt;
+  border-top: 2px solid #000; padding-top: 1.6mm; }
+.cut { margin-top: 1.6mm; font-size: 8pt; text-align: center;
+  border-top: 1px dashed #000; padding-top: 1.2mm; }
+</style></head><body><div class="page"><div class="rule"></div><div class="brandrow"><b>🐜 มดแดง Mot Dang</b><span>motdang.net</span></div>
+<h1>เบอร์ที่ควรติดไว้<span class="en">The numbers worth keeping on the wall</span></h1>
+<div class="num"><div class="tel">1669</div><div class="what"><b>เจ็บป่วยฉุกเฉิน · รถพยาบาล</b><span class="en">Medical emergency · ambulance</span><span class="note">โทรฟรีทุกเครือข่าย ตลอด 24 ชั่วโมง · Free from any network, 24 hours</span></div></div><div class="num"><div class="tel">191</div><div class="what"><b>ตำรวจ</b><span class="en">Police</span><span class="note">เหตุด่วนเหตุร้าย · General emergencies</span></div></div><div class="num"><div class="tel">199</div><div class="what"><b>ดับเพลิง · กู้ภัย</b><span class="en">Fire · rescue</span></div></div><div class="num"><div class="tel">1784</div><div class="what"><b>สายด่วนสาธารณภัย · น้ำท่วม ไฟป่า แผ่นดินไหว</b><span class="en">Disaster hotline · flood, wildfire, earthquake</span><span class="note">ตลอด 24 ชั่วโมง แจ้งเหตุและขอความช่วยเหลือสาธารณภัย · 24 hours, for reporting and asking help in a disaster</span></div></div><div class="num"><div class="tel">1155</div><div class="what"><b>ตำรวจท่องเที่ยว</b><span class="en">Tourist police</span><span class="note">มีเจ้าหน้าที่พูดภาษาอังกฤษ · English-speaking officers</span></div></div>
+<div class="issuers">เบอร์ออกโดย · Numbers issued by กรมป้องกันและบรรเทาสาธารณภัย · กองบัญชาการตำรวจท่องเที่ยว · สถาบันการแพทย์ฉุกเฉินแห่งชาติ (สพฉ.) · สำนักงานตำรวจแห่งชาติ</div>
+<div class="qrwrap"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU0AAAFNAQAAAACsiwBpAAACHklEQVR42u2bsXXDMAxEoahw6RE8ikaTRtMoHsGlCj8jBA6k6KRJCqJIjhWfw4pH4uOOiuhPxyFcyqV/dukuGGuZXJ6TluntcdGX6FYm8cebHh/y48Glv1hqEtxcjSJB3flFy6T9YmOnBGMlKEd9epPgXq4DDv/DJyslyJEgipP9evXZRgmyJSiHHxJg500FSpDMgoJnAQtkDhyTBRkStI7IDn+FQp2wI0qQoI39RIBfB5Gl71+5WQMlqB2RXA+ZThxjwQw6UIKREtyvh1V+NRyHNatQMEC/iOMUHL9Q8PXZ7XxTxysSJRh7C0r9edPigcPvEKAEGSyIOKIgoBQi4NhLk9NBBL9ws0Zas0u/8+7RHNASYRF9wXgWHHN3C9CLhi+IyIKFaLA1CzuwRHcKCdwXRF7Hjmi8BHH43QtHOmelabmTBWnWrJ8grJ6UGVFmRlRZgO60tKkI7ppZIwtGd0QmQTxTov5ITUoBBbJgvAQY0AKOrHZEZEEWjr9BYdbTL5MFWbdgibxua69me9jkjSzIYwFCOcNxBKTKpDTFHXcb7l44mtL6oEYWDPcF9dWsqz/t+YwdUZIvsGGN0HFWpPYpBX1BTiGCEXME4PCft2Diw2VKRzT17nhv9cdW1Bybm5UhgbSMKHwBLAMLUZoEYRBWjYBU6/d1Kz9iSWKBfsmo/fOhOR6RKUFSR9QiC3D5fM2hBBm+gP8Pw6X/c+kno/fWdd8kQlsAAAAASUVORK5CYII=" alt="QR code for https://motdang.net/chuai.html"><div class="say">
+<b>เปิดครั้งเดียว แล้วใช้ได้ตอนไม่มีสัญญาณ</b>
+<span class="en">Open this page once on your phone and it keeps working with no
+signal: the numbers, and the nearest hospital, health station, pharmacy, fuel
+and drinking water — searched on your own device.</span>
+<span class="url">motdang.net/chuai.html</span></div></div>
+<div class="spacer"></div>
+<div class="foot"><span>🐜 เบอร์ที่ควรติดไว้</span>
+<span class="site">motdang.net/chuai.html</span></div>
+</div><div class="page"><div class="rule"></div><div class="brandrow"><b>🐜 มดแดง Mot Dang</b><span>motdang.net</span></div>
+<h2>ค่าฝุ่น PM2.5 อ่านยังไง <span class="en">Reading the PM2.5 number — Thailand PCD bands, µg/m³</span></h2>
+<table class="bands"><tr><td class="sw"><span style="background:#3bb2d0"><i style="width:20%"></i></span></td><td class="rng">0–15</td><td class="nm"><b>ดีมาก</b> <span>Very good</span></td></tr><tr><td class="sw"><span style="background:#4caf50"><i style="width:40%"></i></span></td><td class="rng">15–25</td><td class="nm"><b>ดี</b> <span>Good</span></td></tr><tr><td class="sw"><span style="background:#f6c445"><i style="width:60%"></i></span></td><td class="rng">25–37.5</td><td class="nm"><b>ปานกลาง</b> <span>Moderate</span></td></tr><tr><td class="sw"><span style="background:#f08a3c"><i style="width:80%"></i></span></td><td class="rng">37.5–75</td><td class="nm"><b>เริ่มมีผลต่อสุขภาพ</b> <span>Starting to affect health</span></td></tr><tr><td class="sw"><span style="background:#d1495b"><i style="width:100%"></i></span></td><td class="rng">75+</td><td class="nm"><b>มีผลต่อสุขภาพ</b> <span>Affects health</span></td></tr></table>
+<div class="note">ค่าที่ประกาศเป็นค่าเฉลี่ย 24 ชั่วโมง แถบสีนี้เป็นเกณฑ์ของกรมควบคุมมลพิษ ·
+Bands are the Thai Pollution Control Department's own, on the 24-hour average.
+แผ่นนี้บอกว่าตัวเลขแปลว่าอะไร ไม่ได้บอกว่าวันนี้เท่าไร — ค่าปัจจุบันอยู่ที่ motdang.net/chuai.html ·
+This sheet says what the number means, never what today's number is.</div>
+<h2>โรงพยาบาลรัฐ <span class="en">State hospitals — the name carries the amphoe</span></h2>
+<div class="hosp"><div class="p"><b>เชียงใหม่ · Chiang Mai (26)</b><div class="h">กรมการแพทย์ โรงพยาบาลประสาทจังหวัดเชียงใหม่</div><div class="h">โรงพยาบาล สันป่าตอง</div><div class="h">โรงพยาบาล แม่แตง</div><div class="h">โรงพยาบาลจอมทอง</div><div class="h">โรงพยาบาลดอยสะเก็ด</div><div class="h">โรงพยาบาลดอยหล่อ</div><div class="h">โรงพยาบาลดอยเต่า</div><div class="h">โรงพยาบาลนครพิงค์</div><div class="h">โรงพยาบาลฝาง</div><div class="h">โรงพยาบาลพร้าว</div><div class="h">โรงพยาบาลวัดจันทร์เฉลิมพระเกียรติ ๘๐ พรรษา</div><div class="h">โรงพยาบาลสวนปรุง</div><div class="h">โรงพยาบาลสะเมิง</div><div class="h">โรงพยาบาลสันกำแพง</div><div class="h">โรงพยาบาลสันทราย</div><div class="h">โรงพยาบาลสารภี</div><div class="h">โรงพยาบาลหางดง</div><div class="h">โรงพยาบาลอมก๋อย</div><div class="h">โรงพยาบาลฮอด</div><div class="h">โรงพยาบาลเชียงดาว</div><div class="h">โรงพยาบาลเทพรัตนเวชชานุกูลเฉลิมพระเกียรติ ๖๐ พรรษา</div><div class="h">โรงพยาบาลเวียงแหง</div><div class="h">โรงพยาบาลแม่วาง</div><div class="h">โรงพยาบาลแม่ออน</div><div class="h">โรงพยาบาลแม่อาย</div><div class="h">โรงพยาบาลไชยปราการ</div></div><div class="p"><b>เชียงราย · Chiang Rai (19)</b><div class="h">โรงพยาบาล สมเด็จพระยุพราชเชียงของ</div><div class="h">โรงพยาบาล เชียงรายประชานุเคราะห์</div><div class="h">โรงพยาบาลขุนตาล</div><div class="h">โรงพยาบาลดอยหลวง</div><div class="h">โรงพยาบาลป่าแดด</div><div class="h">โรงพยาบาลพญาเม็งราย</div><div class="h">โรงพยาบาลพาน</div><div class="h">โรงพยาบาลสมเด็จพระญาณสังวร</div><div class="h">โรงพยาบาลส่งเสริมสุขาพตำบลบ้านฮ่องแฮ่</div><div class="h">โรงพยาบาลเชียงแสน</div><div class="h">โรงพยาบาลเทิง</div><div class="h">โรงพยาบาลเวียงป่าเป้า</div><div class="h">โรงพยาบาลเวียงเชียงรุ้ง</div><div class="h">โรงพยาบาลเวียงแก่น</div><div class="h">โรงพยาบาลแม่จัน</div><div class="h">โรงพยาบาลแม่ฟ้าหลวง</div><div class="h">โรงพยาบาลแม่ลาว</div><div class="h">โรงพยาบาลแม่สรวย</div><div class="h">โรงพยาบาลแม่สาย</div></div></div>
+<div class="mine"><b>เบอร์ของเราเอง <span class="en">— our own numbers</span></b>
+<div class="lines"><div></div><div></div><div></div></div></div>
+<div class="note">เขียนเบอร์ที่ไม่มีในสารบัญไหนลงตรงนี้ — เพื่อนบ้าน เจ้าของบ้าน รพ.สต. ใกล้บ้าน ·
+The numbers no directory can hold: the neighbour, the landlord, your own
+health station.</div>
+<div class="spacer"></div>
+<div class="foot"><span>🐜 มดแดง · motdang.net</span>
+<span>ถ่ายเอกสารแจกได้ · copy this and give it away</span></div>
+<div class="cut">แผ่นนี้ไม่ใช่คำแนะนำทางการแพทย์ เป็นเบอร์และชื่อเท่านั้น ·
+This sheet is numbers and names, never medical advice.</div>
+</div></body></html>

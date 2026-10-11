@@ -1,0 +1,4 @@
+COMPOUND GAPS — searches shaped like a drug or compound with no ready answer, last 60 days
+Each real one becomes a row in data/curated/compounds.json; then fda_register.py <id> and answers_compounds.py.
+
+(none)

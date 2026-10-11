@@ -234,8 +234,8 @@
    "class_th": "ยังอยู่บัญชีไซเตส 2 แต่ของเพาะเลี้ยงมีเส้นทางเอกสาร: ใบรับรองสุขอนามัยพืชจากกรมวิชาการเกษตร และใบอนุญาตไซเตสตามชนิด",
    "class_en": "Still Appendix II — but propagated plants have a paper path: a phytosanitary certificate from the Department of Agriculture, plus a CITES export permit where the species needs one. Established farms arrange both routinely.",
    "carry": "papers",
-   "carry_th": "ถามที่สวนก่อนจ่าย: “ส่งออกได้ไหม เอกสารสวนจัดให้หรือเปล่า” — สวนที่ส่งออกประจำตอบได้ทันที และปลายทางของคุณมีด่านพืชของตัวเองด้วย",
-   "carry_en": "Ask the farm before paying: can this travel, and do you arrange the papers? An exporting farm answers at once. Your destination has a plant desk of its own — name your country when you ask.",
+   "carry_th": "สวนที่ส่งออกประจำตอบได้ทันทีว่าต้นไหนส่งออกได้ และสวนจัดเอกสารให้หรือไม่ ปลายทางแต่ละประเทศมีด่านพืชของตัวเองด้วย",
+   "carry_en": "An exporting farm says at once whether a plant can travel and whether it arranges the papers. Each destination country has a plant desk of its own.",
    "check": "https://checklist.cites.org/#/en/search?fullText=orchidaceae",
    "sources": [
     {
@@ -276,8 +276,8 @@
    "class_th": "ไม้พะยูงและสกุล Dalbergia ทั้งสกุลอยู่บัญชีไซเตส 2 · ไม้กฤษณา (สกุล Aquilaria) อยู่บัญชี 2 — ของสวนปลูกส่งออกได้ตามใบอนุญาต",
    "class_en": "Siamese rosewood — and the whole Dalbergia genus — is CITES Appendix II, as is agarwood (Aquilaria). Plantation agarwood exports travel on permits; wild rosewood is the region's most trafficked timber.",
    "carry": "ask",
-   "carry_th": "ถามชนิดไม้ก่อนซื้อและขอใบเสร็จที่ระบุชนิด — ไม้สักและไม้ทั่วไปแกะสลักไปได้ ไม้พะยูงต้องมีเอกสาร ของไม่มีที่มาคือความเสี่ยงของคุณที่ด่าน",
-   "carry_en": "Ask which wood it is and get the species on the receipt. Teak and common woods travel; rosewood needs papers; a piece with no stated origin is your risk at the desk, both ends.",
+   "carry_th": "ไม้สักและไม้ทั่วไปแกะสลักไปได้ ไม้พะยูงต้องมีเอกสาร ของที่ไม่ระบุที่มาไม่มีอะไรให้ด่านดู ทั้งขาออกและขาเข้า",
+   "carry_en": "Teak and common woods travel; rosewood needs papers; a piece with no stated origin has nothing to show at the desk, at either end.",
    "check": "https://checklist.cites.org/#/en/search?fullText=dalbergia",
    "sources": [
     {
@@ -298,8 +298,8 @@
    "class_th": "ผีเสื้อถุงทองทั้งสกุลอยู่บัญชีไซเตส 2 และผีเสื้อกับด้วงหลายชนิดเป็นสัตว์ป่าคุ้มครองตามกฎกระทรวง",
    "class_en": "The birdwing genera are CITES Appendix II, and a number of Thai butterflies and beetles sit on the protected list by ministerial regulation.",
    "carry": "ask",
-   "carry_th": "ชนิดคือทุกอย่าง — ถามชื่อชนิดและแหล่งเพาะเลี้ยง ของไม่มีป้ายชนิดอย่าพาไปเจอด่าน",
-   "carry_en": "Species is everything. Ask for the species name and whether it was farm-reared; an unlabelled frame is not worth meeting a customs desk with.",
+   "carry_th": "ชนิดคือทุกอย่าง — ชื่อชนิดและแหล่งเพาะเลี้ยงคือสิ่งที่ตัดสินว่าพาไปได้หรือไม่",
+   "carry_en": "Species is everything: the species name and whether it was farm-reared decide whether a frame travels.",
    "check": "https://checklist.cites.org/#/en/search?fullText=troides",
    "sources": [
     {

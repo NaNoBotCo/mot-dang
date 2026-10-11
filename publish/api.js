@@ -29,7 +29,7 @@
 export const SCHEMA_VERSION = 1;
 
 /* Limits, stated once. A reader that asks for more gets the cap, never an
- * error — a 400 for wanting too much is a rude answer to an honest question. */
+ * error — a 400 for wanting too much is a rude answer to a fair question. */
 export const LIMIT_DEFAULT = 20;
 export const LIMIT_MAX = 200;
 export const RADIUS_DEFAULT = 2000;
@@ -130,7 +130,7 @@ export function parseOpenAt(s) {
 /* null — not false — when the schedule is unknown. The whole open-now feature
  * rests on this distinction: build_open_lamps.py parses 4,343 of 4,375 hours
  * strings and refuses to guess at the other 32, and the API must not undo that
- * honesty by rendering "we don't know" as "closed". */
+ * accuracy by rendering "we don't know" as "closed". */
 export function isOpenAt(schedules, sched, minute) {
   if (sched == null || sched < 0 || minute == null) return null;
   const iv = schedules[sched];
@@ -144,8 +144,24 @@ export function isOpenAt(schedules, sched, minute) {
 /* Read the accepted params off a URLSearchParams, clamping rather than
  * refusing. Returns the parsed query AND the echo that goes back in the
  * envelope, so a reader can always see what we thought they asked. */
+/* A CITY NAME IN q IS THE PROVINCE FILTER (Nan, 2026-09-10: "Adding a city
+ * name shouldn't fuck things up for users"). Every row now carries its
+ * province words, so the tokens would land anyway; lifting them also narrows
+ * to the province and stops "chiang" and "rai" counting as two more words a
+ * name has to contain. A query naming both cities lifts neither. */
+const PROVINCE_IN_Q = [["cr", ["เชียงราย", "chiang rai", "chiangrai"]],
+                       ["cm", ["เชียงใหม่", "chiang mai", "chiangmai"]]];
+export function liftProvince(q) {
+  const hits = PROVINCE_IN_Q.filter(([, als]) => als.some((a) => q.includes(a)));
+  if (hits.length !== 1) return { q, province: null };
+  let rest = q;
+  for (const a of hits[0][1]) rest = rest.split(a).join(" ");
+  return { q: rest.replace(/\s+/g, " ").trim(), province: hits[0][0] };
+}
+
 export function parseQuery(sp) {
-  const q = norm(sp.get("q") || "");
+  const lifted = liftProvince(norm(sp.get("q") || ""));
+  const q = lifted.q;
   const near = (sp.get("near") || "").split(",").map((x) => parseFloat(x));
   const hasNear = near.length === 2 && near.every((n) => Number.isFinite(n));
   const int = (name, dflt, min, max) => {
@@ -154,10 +170,17 @@ export function parseQuery(sp) {
     return Math.min(max, Math.max(min, v));
   };
   const openAt = sp.get("open_at") ? parseOpenAt(sp.get("open_at")) : null;
+  /* bbox=west,south,east,north — the viewport as a question (WO-74 L1, wired
+   * for WO-77). Clamped to sane degrees; anything else is ignored and said. */
+  const bb = (sp.get("bbox") || "").split(",").map((x) => parseFloat(x));
+  const bbox = bb.length === 4 && bb.every(Number.isFinite)
+    && bb[0] < bb[2] && bb[1] < bb[3]
+    && bb[0] >= -180 && bb[2] <= 180 && bb[1] >= -90 && bb[3] <= 90
+    ? { w: bb[0], s: bb[1], e: bb[2], n: bb[3] } : null;
   const parsed = {
     q,
     tokens: q ? q.split(" ").filter(Boolean) : [],
-    province: (sp.get("province") || "").toLowerCase().trim() || null,
+    province: (sp.get("province") || "").toLowerCase().trim() || lifted.province,
     cat: list(sp.get("cat")),
     sub: list(sp.get("sub")),
     tag: list(sp.get("tag")),
@@ -166,6 +189,7 @@ export function parseQuery(sp) {
     has: list(sp.get("has")),
     minAnts: int("min_ants", 0, 0, 9),
     near: hasNear ? { lat: near[0], lng: near[1] } : null,
+    bbox,
     radius: int("radius", RADIUS_DEFAULT, 1, RADIUS_MAX),
     openNow: ["1", "true", "yes"].includes((sp.get("open_now") || "").toLowerCase()),
     openAt,
@@ -186,7 +210,7 @@ export function parseQuery(sp) {
 export function echoQuery(sp, p) {
   const out = {};
   for (const k of ["q", "province", "cat", "sub", "tag", "lens", "facet",
-                   "has", "min_ants", "near", "radius", "open_now", "open_at",
+                   "has", "min_ants", "near", "radius", "bbox", "open_now", "open_at",
                    "sort", "limit", "offset"]) {
     if (sp.has(k)) out[k] = sp.get(k);
   }
@@ -195,13 +219,14 @@ export function echoQuery(sp, p) {
   out.offset = p.offset;
   if (sp.has("open_at") && p.openAt == null) out.open_at_ignored = "want e.g. 'Sa 18:30'";
   if (sp.has("near") && !p.near) out.near_ignored = "want 'lat,lng'";
+  if (sp.has("bbox") && !p.bbox) out.bbox_ignored = "want 'west,south,east,north'";
   return out;
 }
 
 /* One index row → the public result shape. The index row's keys are short
  * because it travels 13,000 times; the public row's are long because a person
  * reads them. The mapping lives here alone so the two cannot drift. */
-function present(row, base, p, schedules, minute) {
+export function present(row, base, p, schedules, minute) {
   const out = {
     id: row.id,
     url: base + `${row.province}/p/${row.slug}.html`,
@@ -234,6 +259,56 @@ function present(row, base, p, schedules, minute) {
   return out;
 }
 
+/* ONE PREDICATE, TWO CALLERS. /api/v1/places walks the whole index through
+ * this; /api/v1/search walks the words' own hits through it, so a filter means
+ * the same thing whichever endpoint a reader reached (WO-87). Two copies of
+ * this loop is how a `tag=` that narrows on one endpoint comes to widen on the
+ * other, and nobody would see it until a chip on the results page and the same
+ * chip on the API disagreed about a count.
+ *
+ * Returns `false` for a row that is out, and otherwise the distance in metres
+ * when `near` was given or `null` when it was not — so the caller keeps the
+ * one number it would have had to compute again to sort by.
+ *
+ * `opts.words` is the token scan, which the search endpoint does NOT want: the
+ * words there have already been answered by searchcore, tiers and all, and
+ * re-running a substring pass over them would throw away everything that
+ * ranking knows.
+ */
+export function rowMatches(row, p, schedules, minute, opts = {}) {
+  if (p.province && row.province !== p.province) return false;
+  if (p.cat.length && !anyOf(row.cat, p.cat)) return false;
+  if (p.sub.length && !anyOf(row.sub, p.sub)) return false;
+  if (p.tag.length && !anyOf(row.tags, p.tag)) return false;
+  if (p.lens.length && !anyOf(row.lenses, p.lens)) return false;
+  /* facet and has are ANDs, not ORs: each one is a requirement a reader is
+   * standing on ("it must have a phone AND be wheelchair-accessible"),
+   * whereas a list of categories is a set of acceptable answers. */
+  if (p.facet.length && !allOf(row.facets, p.facet)) return false;
+  if (p.has.length && !allOf(row.has, p.has)) return false;
+  if (p.minAnts && row.antRank < p.minAnts) return false;
+
+  if (opts.words && p.tokens.length && !p.tokens.every((t) => row.q.includes(t))) return false;
+
+  /* A box is a question about where things ARE; a row with no pin cannot
+   * answer it and leaves the set, exactly as it does for near=. */
+  if (p.bbox) {
+    if (row.lat == null) return false;
+    if (row.lng < p.bbox.w || row.lng > p.bbox.e || row.lat < p.bbox.s || row.lat > p.bbox.n) return false;
+  }
+  let d = null;
+  if (p.near) {
+    if (row.lat == null) return false;   // unpinned: cannot answer, does not pretend to
+    d = distanceM(p.near.lat, p.near.lng, row.lat, row.lng);
+    if (d > p.radius) return false;
+  }
+  /* Asking "open now" of a place whose hours nobody holds has no true
+   * answer, so it is not offered one — it leaves the result set rather than
+   * being reported shut. The count in `total` says how many DID answer. */
+  if (minute != null && isOpenAt(schedules, row.sched, minute) !== true) return false;
+  return d;
+}
+
 /* The whole filter/sort/page path. `index` is the parsed docs/api/v1/index.json. */
 export function queryPlaces(index, sp, now = new Date()) {
   const p = parseQuery(sp);
@@ -245,33 +320,8 @@ export function queryPlaces(index, sp, now = new Date()) {
 
   const hits = [];
   for (const row of index.places) {
-    if (p.province && row.province !== p.province) continue;
-    if (p.cat.length && !anyOf(row.cat, p.cat)) continue;
-    if (p.sub.length && !anyOf(row.sub, p.sub)) continue;
-    if (p.tag.length && !anyOf(row.tags, p.tag)) continue;
-    if (p.lens.length && !anyOf(row.lenses, p.lens)) continue;
-    /* facet and has are ANDs, not ORs: each one is a requirement a reader is
-     * standing on ("it must have a phone AND be wheelchair-accessible"),
-     * whereas a list of categories is a set of acceptable answers. */
-    if (p.facet.length && !allOf(row.facets, p.facet)) continue;
-    if (p.has.length && !allOf(row.has, p.has)) continue;
-    if (p.minAnts && row.antRank < p.minAnts) continue;
-
-    if (p.tokens.length && !p.tokens.every((t) => row.q.includes(t))) continue;
-
-    let d = null;
-    if (p.near) {
-      if (row.lat == null) continue;   // unpinned: cannot answer, does not pretend to
-      d = distanceM(p.near.lat, p.near.lng, row.lat, row.lng);
-      if (d > p.radius) continue;
-    }
-    /* Asking "open now" of a place whose hours nobody holds has no true
-     * answer, so it is not offered one — it leaves the result set rather than
-     * being reported shut. The count in `total` says how many DID answer. */
-    if (minute != null) {
-      const open = isOpenAt(schedules, row.sched, minute);
-      if (open !== true) continue;
-    }
+    const d = rowMatches(row, p, schedules, minute, { words: true });
+    if (d === false) continue;
     hits.push([row, d]);
   }
 

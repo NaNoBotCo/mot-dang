@@ -10,7 +10,7 @@ Everything below was run today; scripts + extract sit in cache/overture/.
 1. OVERTURE MAPS PLACES — the one that changes the numbers
 -----------------------------------------------------------------
 Repo: OvertureMaps/data (1,162 stars, MIT docs). Data: CDLA-Permissive 2.0
-(attribution, no share-alike). Release 2026-08-19.0, public S3, no account.
+(attribution, no share-alike). Release 2026-08-19.0, public S3, open without a sign-in.
 
 It was parked on 2026-08-19 (notes/aggregators-and-tags-proposal) as
 "GB-scale parquet, not stdlib — its own decision". That reason is gone:

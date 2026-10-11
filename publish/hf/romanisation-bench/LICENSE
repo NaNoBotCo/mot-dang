@@ -1,0 +1,11 @@
+Thai place-name romanisation benchmark
+
+The Thai words and the `reference` readings are taken from
+pythainlp/thai-romanization-dataset and carry its licence:
+
+    Creative Commons Attribution-ShareAlike 3.0 (CC BY-SA 3.0)
+    https://creativecommons.org/licenses/by-sa/3.0/
+
+This dataset is therefore CC BY-SA 3.0 as a whole. The `motdang` and
+`motdang_rules_only` columns, the slice definitions and the scoring are from
+motdang.net and are contributed under the same terms.

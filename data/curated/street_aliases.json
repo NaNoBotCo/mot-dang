@@ -1,0 +1,160 @@
+{
+ "_note": "Street spellings the rules in geocode_local._sign() cannot reach — a vowel written two ways, a name shortened on the sign, the Thai short form. Keyed by the road's slug in data/streets.json; every alias indexes exactly like the road's own name. Hand-written 2026-09-07 (WO-73) from the addresses --validate could not place. Add a row when an address misses; never a fuzzy matcher.",
+ "nimmanhaeminda-road-b0e892": [
+  "Nimmanhaemin Road",
+  "Nimmanhemin Road",
+  "Nimmanhaemin",
+  "Nimmanhemin",
+  "Nimman Road",
+  "Nimman",
+  "นิมมาน",
+  "นิมมานเหมินทร์",
+  "Nimmanahaeminda"
+ ],
+ "huaykaew-road-980c84": [
+  "Huay Kaew Road",
+  "Huai Kaeo Road",
+  "Huaykaew",
+  "Huay Kaew",
+  "Huai Kaew",
+  "ห้วยแก้ว"
+ ],
+ "thapae-road-f974cb": [
+  "Tha Phae Road",
+  "Thaphae Road",
+  "Tha Pae Road",
+  "Tapae Road",
+  "Taphae Road",
+  "ท่าแพ"
+ ],
+ "wua-lai-road-6f6430": [
+  "Wualai Road",
+  "Wua Lai",
+  "Wualai",
+  "วัวลาย"
+ ],
+ "changklan-road-7ea359": [
+  "Chang Klan Road",
+  "Chang Khlan Road",
+  "Changklan",
+  "ช้างคลาน"
+ ],
+ "changpuak-road-db5a6a": [
+  "Chang Phueak Road",
+  "Chang Puak Road",
+  "Changphuak Road",
+  "Changpuak",
+  "ช้างเผือก"
+ ],
+ "charoenprated-road-293c9f": [
+  "Charoen Prathet Road",
+  "Charoenprathet Road",
+  "Charoen Prated Road",
+  "เจริญประเทศ"
+ ],
+ "charoenrat-road-ccf2eb": [
+  "Charoen Rat Road",
+  "Charoenrat",
+  "เจริญราษฎร์"
+ ],
+ "charoen-muang-road-c8861d": [
+  "Charoen Mueang Road",
+  "Charoenmuang Road",
+  "Charoenmueang Road",
+  "เจริญเมือง"
+ ],
+ "kaewnawarat-road-19c747": [
+  "Kaeo Nawarat Road",
+  "Kaew Nawarat Road",
+  "Kaewnawarat",
+  "แก้วนวรัฐ"
+ ],
+ "moon-muang-road-99d29e": [
+  "Mun Mueang Road",
+  "Moonmuang Road",
+  "Munmueang Road",
+  "Moon Muang",
+  "มูลเมือง"
+ ],
+ "kotchasarn-road-e85165": [
+  "Kotchasan Road",
+  "Kotchasarn",
+  "คชสาร"
+ ],
+ "sirimangkalajarn-road-85305c": [
+  "Sirimangkhalachan Road",
+  "Sirimangkalajarn",
+  "Siri Mangkalajarn Road",
+  "ศิริมังคลาจารย์"
+ ],
+ "khlong-chonlaprathan-road-c0f127": [
+  "Canal Road",
+  "Khlong Chon Prathan Road",
+  "Chonlaprathan Road",
+  "เลียบคลองชลประทาน",
+  "คลองชลประทาน"
+ ],
+ "super-highway-36532a": [
+  "Superhighway",
+  "Super Highway Road",
+  "Superhighway Road",
+  "ซุปเปอร์ไฮเวย์",
+  "ซูเปอร์ไฮเวย์"
+ ],
+ "kampaengdin-road-5d996c": [
+  "Kamphaeng Din Road",
+  "Kampaeng Din Road",
+  "Kamphaengdin",
+  "กำแพงดิน"
+ ],
+ "ratchaphakhinai-road-ae5c39": [
+  "Ratchapakinai Road",
+  "Rachapakinai Road",
+  "Ratchaphakhinai",
+  "ราชภาคินัย"
+ ],
+ "chiangmai-lamphun-road-b3bf5b": [
+  "Chiang Mai-Lamphun Road",
+  "Chiang Mai Lamphun Road",
+  "Chiangmai Lamphun Road",
+  "เชียงใหม่-ลำพูน",
+  "เชียงใหม่ลำพูน"
+ ],
+ "bumrung-rat-road-89d504": [
+  "Bumrungrat Road",
+  "Bamrungrat Road",
+  "Bamrung Rat Road",
+  "บำรุงราษฎร์"
+ ],
+ "bumrung-buri-road-d75d5f": [
+  "Bumrungburi Road",
+  "Bamrung Buri Road",
+  "บำรุงบุรี"
+ ],
+ "wichayanon-road-a52d3c": [
+  "Wichayanon",
+  "Vichayanon Road",
+  "วิชยานนท์"
+ ],
+ "loi-kroh-road-b70540": [
+  "Loikroh Road",
+  "Loi Khro Road",
+  "Loikhro Road",
+  "ลอยเคราะห์"
+ ],
+ "singharat-road-d956d6": [
+  "Singharaj Road",
+  "Singharat",
+  "สิงห์ราช",
+  "สิงหราช"
+ ],
+ "arak-road-f6389e": [
+  "Arrak Road",
+  "Arak",
+  "อารักษ์"
+ ],
+ "suthep-road-953174": [
+  "Su Thep Road",
+  "สุเทพ"
+ ]
+}

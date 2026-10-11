@@ -1,0 +1,263 @@
+{
+ "_comment": "Places and kinds of place Nan has said outright are air-conditioned, 2026-09-28: \"7-11s 100% all have ac. So do all central malls, all Big C stores, all Makro, all rimping, and so forth. It's not an assumption, it's a holy law.\" Then: \"Also all hotels 3* and above.\" Her word, not a habit of a class, so the page names no source for it (her rule for the toilet facts, 2026-09-23). importers/aircon_stated.py reads this at import and sets attrs.facets.aircon = \"said\"; the air-con tag, its page and the search filter read that. Lotus's, Tops, Robinson, MAYA and Promenada are the 'and so forth' as Claude read it on 2026-09-28 (who: claude); strike any she disowns. Match keys are the ones data/toilets.json `stated` uses, plus `brand_prefix` (attrs.brand/brandEn/brandTh starts with), `sub_any` (record.sub meets the list; a record with no sub does not match) and `stars_min`.",
+ "kinds": [
+  {
+   "key": "seven-eleven",
+   "who": "nan",
+   "match": {
+    "brand_prefix": [
+     "7-eleven",
+     "7-11",
+     "เซเว่นอีเลฟเว่น",
+     "เซเว่น อีเลฟเว่น"
+    ],
+    "name_prefix": [
+     "7-eleven",
+     "7-11",
+     "7 eleven",
+     "เซเว่น"
+    ],
+    "not_name": [
+     "property",
+     "สตาร์",
+     "laundry"
+    ],
+    "not_sub": [
+     "condo",
+     "hotel-full",
+     "guesthouse",
+     "hostel",
+     "clothes",
+     "hair",
+     "professional"
+    ]
+   }
+  },
+  {
+   "key": "central",
+   "who": "nan",
+   "match": {
+    "brand_prefix": [
+     "central department store",
+     "central group",
+     "central festival",
+     "central plaza"
+    ],
+    "name_prefix": [
+     "central festival",
+     "central plaza",
+     "central chiangmai",
+     "central chiang mai",
+     "central chiangrai",
+     "central chiang rai",
+     "central department",
+     "central kad suan",
+     "central airport",
+     "เซ็นทรัล เฟสติวัล",
+     "เซ็นทรัลเฟสติวัล",
+     "เซ็นทรัลพลาซ่า",
+     "เซ็นทรัล พลาซ่า",
+     "เซ็นทรัลพล่าซ่า",
+     "เซ็นทรัล แอร์",
+     "เซ็นทรัลแอร์",
+     "เซ็นทรัล เชียงราย",
+     "เซ็นทรัล กาดสวนแก้ว"
+    ],
+    "sub_any": [
+     "mall",
+     "fresh",
+     "post"
+    ]
+   }
+  },
+  {
+   "key": "big-c",
+   "who": "nan",
+   "match": {
+    "brand_prefix": [
+     "big c",
+     "mini big c",
+     "มินิบิ๊กซี",
+     "บิ๊กซี"
+    ],
+    "name_prefix": [
+     "big c",
+     "bigc",
+     "บิ๊กซี",
+     "mini big c",
+     "มินิบิ๊กซี"
+    ],
+    "not_name": [
+     "cleaning",
+     "coffee",
+     "camera",
+     "minimarket",
+     "jewel"
+    ],
+    "sub_any": [
+     "convenience",
+     "mall",
+     "fresh"
+    ]
+   }
+  },
+  {
+   "key": "makro",
+   "who": "nan",
+   "match": {
+    "brand_prefix": [
+     "makro",
+     "แม็คโคร",
+     "แมคโคร"
+    ],
+    "name_prefix": [
+     "makro",
+     "แม็คโคร",
+     "แมคโคร"
+    ],
+    "not_name": [
+     "คอนเน็คชั่น",
+     "ดีไซน์",
+     "ตรงข้าม",
+     "ข้าง"
+    ],
+    "sub_any": [
+     "wholesale",
+     "mall",
+     "fresh"
+    ]
+   }
+  },
+  {
+   "key": "rimping",
+   "who": "nan",
+   "match": {
+    "brand_prefix": [
+     "rimping"
+    ],
+    "name_prefix": [
+     "rimping supermarket",
+     "rimping grocery",
+     "ริมปิง ซุปเปอร์",
+     "ริมปิง ซูเปอร์",
+     "ริมปิงซุปเปอร์",
+     "ริมปิงซูเปอร์",
+     "ริมปิง"
+    ],
+    "sub_any": [
+     "fresh",
+     "mall",
+     "convenience"
+    ]
+   }
+  },
+  {
+   "key": "hotel-3star",
+   "who": "nan",
+   "match": {
+    "sub": [
+     "hotel-full",
+     "guesthouse",
+     "hostel"
+    ],
+    "stars_min": 3
+   }
+  },
+  {
+   "key": "lotus",
+   "who": "claude",
+   "match": {
+    "brand_prefix": [
+     "lotus's",
+     "lotus’s",
+     "tesco lotus",
+     "lotus express",
+     "เทสโก้ โลตัส",
+     "โลตัส"
+    ],
+    "name_prefix": [
+     "lotus's",
+     "lotus’s",
+     "lotus express",
+     "tesco lotus",
+     "โลตัส",
+     "เทสโก้ โลตัส"
+    ],
+    "sub_any": [
+     "convenience",
+     "mall",
+     "fresh"
+    ]
+   }
+  },
+  {
+   "key": "tops",
+   "who": "claude",
+   "match": {
+    "brand_prefix": [
+     "tops"
+    ],
+    "name_prefix": [
+     "tops market",
+     "tops daily",
+     "tops super",
+     "tops food",
+     "tops central",
+     "ท็อปส์"
+    ],
+    "sub_any": [
+     "convenience",
+     "mall",
+     "fresh"
+    ]
+   }
+  },
+  {
+   "key": "robinson",
+   "who": "claude",
+   "match": {
+    "name_prefix": [
+     "robinson",
+     "โรบินสัน"
+    ],
+    "sub_any": [
+     "mall"
+    ]
+   }
+  },
+  {
+   "key": "maya",
+   "who": "claude",
+   "match": {
+    "name_prefix": [
+     "เมญ่า",
+     "maya lifestyle"
+    ],
+    "sub_any": [
+     "mall"
+    ]
+   }
+  },
+  {
+   "key": "promenada",
+   "who": "claude",
+   "match": {
+    "name_prefix": [
+     "promenada",
+     "พรอมานาดา"
+    ],
+    "sub_any": [
+     "mall"
+    ]
+   }
+  }
+ ],
+ "places": [
+  {
+   "id": "cr-ovt-a3aa6a63-f435-4652-a7f6-7b69a94021fe",
+   "said": "ban kaan in chiang rai has ac (it's hotel)",
+   "name": "บ้านกาญจน์ เชียงราย · Baan Kan, 254/13 Moo 21 Kaoloi Rd",
+   "when": "2026-09-28"
+  }
+ ]
+}

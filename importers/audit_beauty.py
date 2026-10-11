@@ -35,7 +35,7 @@ real and separate trade here, usually sharing a room with nails — but ZERO sho
 names in either province say it, and OSM carries `beauty=eyelash` on exactly one
 element (inside `hair;eyelash;nails`). A shelf for that is a shelf for nobody,
 and this repo forbids one. It stays a door question until somebody has stood at
-enough doors to fill a shelf honestly.
+enough doors to fill a shelf.
   PERM        ดัดดิจิตอล, ยืดผม, รีบอนดิ้ง. Expected ZERO — see below.
   TEXTURED    ผมหยิก, แอฟโฟร, curly, afro. Expected ZERO — see below.
   MOBILE      ช่างไปหาถึงที่, home service, นอกสถานที่. Expected ZERO — see below.

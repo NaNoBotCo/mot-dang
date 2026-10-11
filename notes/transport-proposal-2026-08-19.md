@@ -6,7 +6,7 @@ widget yet? bus widget? Train widget?" This note is the measurement, the rule
 the layer should run on, and what a WO-13 would build — in the shape of
 `muay-thai-proposal-2026-08-19.md`, because the starting picture is the same
 one: a shelf of mapper-tagged scraps and nothing a reader can plan a journey
-from. Nothing here is built. Read with `MARCHING-ORDERS.md` WO-13 (PROPOSED).*
+from. Read with `MARCHING-ORDERS.md` WO-13 (PROPOSED).*
 
 ## The three answers first
 
@@ -95,7 +95,7 @@ Consequences, in the data shape:
   in the marketplace before a single link is written*), the link is an ordinary
   `<a>` and the page says what it is. If not, the link goes to the operator's
   own booking page, plain.
-- **No tourist sorting.** No "locals take the red truck", no "avoid the taxi
+- **No sorting by who the reader is taken to be.** No "locals take the red truck", no "avoid the taxi
   mafia", no scam paragraph. `feedback_no_tourist_framing`. What the page
   answers is *which vehicle, from where, to where, how often, for how much, by
   whose word, seen on what date*.
@@ -183,7 +183,7 @@ Three data files, one renderer pattern, copied from `flights_layer.py`:
   ticket window hours · card payment · wheelchair (OSM already carries
   `wheelchair: limited` on the railway node — it renders today nowhere) ·
   night departures · helmet included (rental) · passport held (rental — asked,
-  never inferred) · delivers to hotel (rental). Nothing ticked; `_transport_note`
+  not inferred) · delivers to hotel (rental). Nothing ticked; `_transport_note`
   says why. `songthaew` and `pier` either match or go on KNOWN_EMPTY with
   their reason — never a wireframe with no reason again.
 - **Search:** teasers carry the vocabulary (สถานีขนส่ง อาเขต ช้างเผือก สถานีรถไฟ

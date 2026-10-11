@@ -63,7 +63,7 @@ FIELDS PER ENTRY
   n   Thai name (shown)
   e   English name (shown)
   a   alt names, old names, CJK names, and the RTGS reading of a
-      Thai-only name — matched, NEVER shown
+      Thai-only name — matched, not shown
   c / su   category and sub-shelf codes (words looked up client-side)
   k   everything else: kind attributes, cuisine, brand, operator,
       offers, specialty, register words (trans health, ADHD, OT, the
@@ -280,7 +280,7 @@ HOMEPAGE   175,719 B · header 8.5 KB · main 165.6 KB · 3,303 visible
 WHAT EXISTS: translit.py — RTGS 1999, stdlib, word boundaries from the
 site's own segmentation dictionary, gloss() for the head words วัด /
 โรงเรียน / โรงพยาบาล / ร้าน. It renders as an italic `.roman` mark,
-labelled as a reading, never stored as a name. Its own docstring
+labelled as a reading, not stored as a name. Its own docstring
 already retires the old "no machine transliteration" ban.
 
 WHERE IT RENDERS: name_bi() only — a Thai-only name with no Latin at
@@ -298,7 +298,7 @@ WHERE IT DOES NOT
                lexicon confirms it (น้ำแพร่ came out "Namphaen"). The
                lexicon file exists: data/curated/rtgs_lexicon.json.
   addresses    10,839 records; 1,346 contain any Latin.
-  search rows  the reading is in field `a` and matched — never shown.
+  search rows  the reading is in field `a` and matched — not shown.
   homepage / shelf pages   0 `.roman` marks on index.html or
                cm/index.html.
   English blurbs   81 unglossed Thai runs, mostly street names.

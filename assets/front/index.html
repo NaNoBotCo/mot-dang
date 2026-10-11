@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="th" translate="no" class="notranslate lang-both">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="google" content="notranslate">
+{{LANG_HEAD}}
+<script>/* the A/B (Nan 2026-10-02): calendar first or map first, drawn once per browser; ?home=cal|map shows one without counting */
+(function(){var h=document.documentElement,f=/[?&]home=(cal|map)\b/.exec(location.search),a;
+try{a=f?f[1]:localStorage.getItem('md-home-ab');if(a!=='cal'&&a!=='map'){a=Math.random()<.5?'cal':'map';localStorage.setItem('md-home-ab',a)}}catch(e){a=a||(Math.random()<.5?'cal':'map')}
+h.setAttribute('data-stage',a);h.setAttribute('data-arm',a);if(f)h.setAttribute('data-ab-forced','')})();</script>
+<title>มดแดง Mot Dang — เชียงใหม่ · เชียงราย ตอนนี้ · Chiang Mai & Chiang Rai, now</title>
+<meta name="description" content="เชียงใหม่และเชียงรายตอนนี้: ร้านที่เปิดอยู่ ฝน ควัน ของใกล้ตัว งานเร็วๆ นี้ · Chiang Mai and Chiang Rai right now: what is open, rain, smoke, what is near you, what is on soon.">
+<link rel="canonical" href="https://motdang.net/">
+<meta name="md-where" content="">
+<link rel="icon" href="/logo/motdang-favicon.svg" type="image/svg+xml">
+<meta property="og:site_name" content="มดแดง Mot Dang">
+<meta property="og:title" content="มดแดง Mot Dang — เชียงใหม่ · เชียงราย ตอนนี้">
+<meta property="og:description" content="เชียงใหม่และเชียงรายตอนนี้ · Chiang Mai and Chiang Rai right now.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://motdang.net/">
+<meta property="og:image" content="https://motdang.net/sites/city-live/card.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#07090d">
+{{HOME_LD}}
+<style>
+:root{--ink:#f7f3ea;--mute:#d3d9e0;--dim:#aab4be;--hot:#ffc266;--link:#ffd48a;--line:rgba(255,255,255,.22);--bg:#07090d;--card:#141922;--scrim:rgba(7,9,13,.78);
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;--sans:"Sarabun","Noto Sans Thai","Thonburi","Leelawadee UI",system-ui,sans-serif}
+html{font-size:112.5%;scroll-behavior:smooth;overflow-x:hidden}
+html[data-size="2"]{font-size:128%}
+html[data-size="3"]{font-size:150%}
+html[data-contrast="more"]{--ink:#fff;--mute:#fff;--dim:#e8e8e8;--hot:#ffd000;--link:#ffe266;--line:#fff;--bg:#000;--card:#000;--scrim:rgba(0,0,0,.93)}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:1rem/1.6 var(--sans);-webkit-text-size-adjust:100%}
+a{color:var(--link);text-underline-offset:.18em}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--hot);outline-offset:2px;border-radius:4px}
+.en{color:var(--mute)}
+html.lang-both .bi>.en::before{content:" · "}
+html.lang-both .bi.stack>.en{display:block}
+html.lang-both .bi.stack>.en::before{content:none}
+html.lang-both .bi>.th{font-weight:500}
+html.lang-both .bi>.en,.en-sub{display:inline-block;font-size:.85em;opacity:.72;letter-spacing:.015em;font-weight:400;margin-left:.35rem}
+html.lang-both .bi.stack,.bilingual-stack{display:flex;flex-direction:column}
+html.lang-both .bi.stack>.en,.bilingual-stack .en-sub{margin-left:0;font-size:.78em;line-height:1.2}
+.badge-count{display:inline-flex;align-items:center;justify-content:center;margin-left:.25rem;padding:0 .4rem;font-size:.75rem;border-radius:9999px;background:color-mix(in srgb,currentColor 15%,transparent)}
+.skip{position:absolute;left:-999px;top:0;background:var(--hot);color:#000;padding:.6rem 1rem;z-index:100}
+.skip:focus{left:8px;top:8px}
+h2{margin:0;font-weight:800;font-size:clamp(2rem,7vw,3.4rem);line-height:1.1;letter-spacing:-.01em}
+h2 .en{display:block;font-size:.45em;font-weight:600;letter-spacing:.02em;margin-top:.3rem}
+html.lang-both h2 .en::before{content:none!important}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* the bar: brand and language */
+header.bar{position:sticky;top:0;z-index:60;background:rgba(7,9,13,.94);border-bottom:1px solid var(--line);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+header.bar .in{display:flex;align-items:center;gap:10px;justify-content:space-between;max-width:1180px;margin:0 auto;padding:.45rem 14px}
+.brand{font-weight:800;font-size:1.15rem;color:var(--ink);text-decoration:none;white-space:nowrap}
+.tools{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.langsw{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.langsw button{background:none;border:0;padding:.3rem .65rem;font-size:.85rem;cursor:pointer;min-height:2.2rem}
+.langsw button[aria-pressed=true]{background:var(--hot);color:#000;font-weight:700}
+/* the seek row: menu and search, top of the page at every width (Nan, 2026-09-30:
+   "move search and menu to top on phones"). The bar folds by the fleet's rule:
+   past 60 px the brand row folds away and the seek row stays; 14 px down hides
+   the bar, 90 px up or the top brings it back; the dropped rows become margin
+   under the bar, so the page keeps its height and scroll anchoring cannot
+   throw the reader back (homebits.HEADER_JS, 2026-09-28). */
+header.bar{transition:transform .22s ease}
+body.nav-tight header.bar>.in{display:none}
+body.nav-away header.bar{transform:translateY(-105%)}
+.seekrow{display:flex;gap:8px;align-items:stretch;max-width:1180px;margin:0 auto;padding:0 14px .55rem}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ico{width:24px;height:24px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.menubtn{display:flex;align-items:center;gap:.4rem;min-height:48px;min-width:48px;padding:0 .8rem;background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:12px;cursor:pointer;font-weight:800;font-size:1rem;line-height:1.3}
+.askbtn{text-decoration:none;color:inherit;justify-content:center;padding:0;gap:2px}
+.askbtn .aitag{font-size:.8rem;font-weight:900;letter-spacing:.02em}
+.menubtn[aria-expanded=true]{background:var(--hot);color:#000}
+.menubtn .en{color:inherit}
+form.seek{flex:1;display:flex;min-height:48px;border:2px solid var(--hot);border-radius:12px;overflow:hidden;background:#10141a}
+form.seek input{flex:1;background:transparent;border:0;padding:0 .75rem;color:#fff;font:inherit;font-size:1.05rem;min-height:44px;-webkit-appearance:none;appearance:none}
+form.seek input::placeholder{color:var(--dim);opacity:1}
+form.seek input:focus{outline:none}
+form.seek:focus-within{outline:3px solid var(--hot);outline-offset:2px}
+form.seek .go .en,#menuX .en{color:inherit}
+form.seek .go{flex:none;display:flex;align-items:center;gap:.35rem;background:var(--hot);color:#000;border:0;padding:0 .9rem;min-width:48px;cursor:pointer;font-weight:800}
+html[data-contrast="more"] form.seek input::placeholder{color:#fff}
+.menubtn .bi.stack>.en{font-size:.78rem;font-weight:700}
+@media (max-width:560px){.menubtn{padding:0 .5rem;gap:.25rem}.seek .go .bi{display:none}.seekrow{padding:0 10px .5rem;gap:6px}}
+@media (max-width:360px){form.seek input{font-size:1rem;padding:0 .5rem}}
+
+/* the menu: the drawer's contents as a sheet from the top */
+dialog#menu{padding:0;border:0;margin:0 auto;top:0;bottom:auto;width:100%;max-width:760px;max-height:94vh;max-height:94dvh;overflow:auto;overscroll-behavior:contain;background:var(--card);color:var(--ink);border-radius:0 0 20px 20px;box-shadow:0 20px 60px rgba(0,0,0,.7)}
+dialog#menu:not([open]){display:none}
+dialog#menu::backdrop{background:rgba(0,0,0,.66)}
+html.menu-open{overflow:hidden}
+#menu .sheet{padding:.4rem 16px 1.4rem}
+#menu .sh{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--card);padding:.5rem 0;border-bottom:1px solid var(--line);margin-bottom:.8rem}
+#menu .sh h2{font-size:1.4rem}
+#menu .sh h2 .en{display:inline;font-size:.8em;margin:0}
+html.lang-both #menu .sh h2 .en::before{content:" · "!important}
+#menuX{display:flex;align-items:center;gap:.35rem;min-height:48px;min-width:48px;padding:0 .9rem;background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:12px;cursor:pointer;font-weight:800}
+#menu form.seek{margin:0 0 1rem}
+#menu h3{margin:1rem 0 .3rem;font-size:1.05rem}
+#menu .shelves a{min-height:44px;display:inline-flex;align-items:center;font-size:1rem;padding:.35rem .9rem}
+@media (max-width:560px){.langsw button{padding:.25rem .5rem;font-size:.8rem}}
+
+/* TODAY, drawn: the day's pick, the city's sights, a small paper clock (front.js doodle(), skyline.js) */
+#doodle{position:relative;height:clamp(400px,54svh,500px);overflow:hidden;background:#0b0d14}
+#doodc{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:pointer}
+#doodle .dd{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:space-between;padding-top:.7rem;padding-bottom:.8rem;pointer-events:none}
+#doodle .dd>*{pointer-events:auto;max-width:min(24rem,28%)}
+#doodle .dd>.ddtop{max-width:min(38rem,54%);align-self:flex-start;background:rgba(7,9,13,.8);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:.55rem .75rem;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.ddw{font:800 .9rem var(--mono);color:#fff;text-shadow:0 1px 8px #000,0 0 2px #000}
+.ddnow{font-size:.92rem;margin-top:.2rem;line-height:1.45;color:#fff;text-shadow:0 1px 8px #000,0 0 2px #000}
+.ddnow i{font-style:normal;color:var(--hot)}
+.ddnow a.nr{color:inherit;opacity:.72;font-size:.85em;text-decoration:underline dotted;text-underline-offset:3px;white-space:nowrap}.ddnow a.nr:hover{opacity:1}
+.ddnow .bi .en::before,.ddw .bi .en::before{content:none}
+html.lang-both .ddnow .en,html.lang-both .ddw .en{display:none}
+.ddair{font-size:.88rem;margin-top:.15rem;line-height:1.45;color:#fff;text-shadow:0 1px 8px #000,0 0 2px #000}
+.ddair a{color:var(--hot);font-weight:700;white-space:nowrap}
+.ddair .bi .en::before{content:none}
+html.lang-both .ddair .en{display:none}
+.ddev{background:rgba(7,9,13,.78);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:.6rem .75rem;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.ddwhen{font:800 .9rem var(--mono);color:var(--hot)}
+.ddt{display:block;color:#fff;text-decoration:none;font-weight:800;font-size:clamp(1.15rem,2.4vw,1.6rem);line-height:1.15}
+.ddt .en{display:block;font-size:.62em;font-weight:600;color:var(--ink)}
+html.lang-both .ddt .en::before{content:none}
+.ddv{font-size:.92rem;margin-top:.2rem}
+.ddacts{display:flex;flex-wrap:wrap;gap:6px;margin-top:.5rem}
+.ddacts a{background:var(--hot);color:#000;font-weight:800;border-radius:10px;padding:.35rem .8rem;text-decoration:none;min-height:2.5rem;display:inline-flex;align-items:center}
+.ddacts a.q{background:rgba(7,9,13,.7);color:var(--ink);border:1px solid var(--line);font-weight:700}
+.ddacts a .en{color:inherit}
+.ddacts .bi .en::before{content:none}
+#doodle::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(7,9,13,.55) 0%,rgba(7,9,13,.12) 26%,rgba(7,9,13,0) 34%)}
+#ddpop{position:absolute;z-index:3;width:min(18rem,calc(100% - 16px));background:#f2e6c9;color:#2a1a0a;border-radius:6px;padding:.7rem .8rem .8rem;box-shadow:3px 5px 0 rgba(0,0,0,.35),0 10px 24px rgba(0,0,0,.45);transform:rotate(-.6deg)}
+#ddpop b{display:block;font-size:1.1rem;line-height:1.2;padding-right:1.6rem}
+#ddpop b .en{font-size:.8em;font-weight:600;color:#6a4a20}
+#ddpop p{margin:.35rem 0 0;font-size:.95rem;line-height:1.4}
+#ddpop .ddacts a.q{background:#2a1a0a;color:#fff;border-color:#2a1a0a}
+#ddpop .x{position:absolute;right:.35rem;top:.25rem;background:none;border:0;font-size:1.5rem;line-height:1;color:#2a1a0a;cursor:pointer;min-width:2.2rem;min-height:2.2rem}
+html.lang-both #ddpop .en::before{content:none}
+html.lang-both #ddpop p .en{display:block;margin-top:.2rem;color:#6a4a20}
+@media (max-width:639px){#doodle{height:auto}#doodc{position:absolute;top:0;height:390px}#doodle .dd{padding-top:398px;justify-content:flex-start;gap:.6rem}#doodle .dd>*,#doodle .dd>.ddtop{max-width:none}#doodle .dd>.ddtop{background:none;border:0;padding:0;-webkit-backdrop-filter:none;backdrop-filter:none}
+ #doodle::after{display:none}.ddw,.ddnow,.ddair{text-shadow:none}.ddt{font-size:1.25rem}.ddacts{flex-wrap:nowrap}.ddacts a{padding:.3rem .6rem;font-size:.9rem;white-space:nowrap}}
+#jump{display:flex;gap:6px;overflow-x:auto;padding:.6rem 18px;background:var(--bg);border-bottom:1px solid var(--line);scrollbar-width:none}
+#jump::-webkit-scrollbar{display:none}
+#jump a{flex:none;white-space:nowrap;text-decoration:none;color:var(--ink)}
+#jump a.chip{display:inline-flex;align-items:center}
+#jump a.cal{background:var(--hot);color:#000;border-color:var(--hot);font-weight:800}
+#jump a.cal .en{color:#000}
+.dayh,details.ev{scroll-margin-top:calc(var(--barh,3.1rem) + 3.4rem)}
+details.ev.flash{animation:flash 2.4s ease-out 1}
+@keyframes flash{0%,30%{box-shadow:0 0 0 3px var(--hot)}100%{box-shadow:0 0 0 0 transparent}}
+
+/* NOW */
+#now{position:relative;height:84svh;min-height:500px;overflow:hidden;background:#0a0f16}
+#now iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+#now .mapcity{position:absolute;bottom:68px;left:50%;transform:translateX(-50%);z-index:2;white-space:nowrap;display:flex;gap:4px;padding:3px;border-radius:99px;background:rgba(255,250,236,.92);border:2px solid #2b2118;box-shadow:2px 2px 0 rgba(43,33,24,.25)}
+#now .mapcity button{font:inherit;font-size:.85rem;font-weight:700;padding:4px 12px;border:0;border-radius:99px;background:transparent;color:#2b2118;cursor:pointer}
+#now .mapcity button[aria-pressed=true]{background:#2b2118;color:#f5ecd7}
+#now.tool iframe{position:fixed;inset:0;width:100vw;height:100vh;height:100dvh;z-index:2147483000}
+html.maptool,html.maptool body{overflow:hidden;overscroll-behavior:none}
+#now .cue{position:absolute;left:0;right:0;bottom:0;padding:2.4rem 18px 1rem;pointer-events:none;background:linear-gradient(transparent,rgba(7,9,13,.92))}
+#now .cue p{margin:0;font-size:1.05rem;max-width:40rem;text-shadow:0 1px 8px #000}
+
+/* STAGE: calendar or map first, one per browser (the A/B, Nan 2026-10-02) */
+#flip{display:flex;gap:8px;padding-top:.7rem;padding-bottom:.7rem}
+#flip button{flex:1 1 0;max-width:13rem;display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:2.9rem;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:800 1.02rem var(--sans);cursor:pointer}
+#flip button .ico{width:1.2rem;height:1.2rem}
+#flip button[aria-selected=true]{background:var(--hot);border-color:var(--hot);color:#000}
+#flip button[aria-selected=true] .en{color:#000}
+#month{display:none;padding:0 0 1.6rem}
+html[data-stage=cal] #month{display:block}
+html[data-stage=cal] #now{display:none}
+#ahead{margin-top:1.1rem}
+#ahead .ahh{display:flex;align-items:baseline;gap:.7rem;margin-bottom:.4rem}
+#ahead .ahh h3{margin:0;font-size:1.25rem}
+#ahead .ahh small{color:var(--dim)}
+#ahcards{display:flex;align-items:flex-start;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:.7rem 0 .3rem;scrollbar-width:thin}
+.ahc{flex:0 0 min(78vw,17.5rem);scroll-snap-align:start;border-radius:16px;border:1px solid var(--line);background:var(--card);overflow:hidden;display:flex;flex-direction:column}
+.ahc.flash{animation:flash 2.4s ease-out 1}
+.ahc .ahv{display:block;width:100%;height:92px}
+.ahc .ahb{padding:.6rem .8rem .8rem;display:flex;flex-direction:column;gap:.2rem;flex:1}
+.ahc .ahn{font:700 .95rem var(--sans);color:var(--hot)}
+.ahc .ahn b{font:800 1.6rem/1 var(--mono)}
+.ahc .aht{font-size:1.12rem;font-weight:800;line-height:1.3}
+.ahc .ahd{font-size:.92rem;color:var(--mute)}
+.ahc p{margin:.2rem 0 .4rem;font-size:.95rem}
+.ahc .aha{display:flex;flex-wrap:wrap;gap:6px}
+.ahc .aha .chip{display:inline-flex;align-items:center;text-decoration:none;color:var(--ink);font-size:.88rem}
+.ahc[data-k=smoke]{border-color:rgba(196,160,120,.6)}
+@media (min-width:760px){.ahc .ahv{height:110px}}
+#mday{margin-top:1rem}
+/* THE FORTNIGHT ON PAPER (Nan, 2026-10-10: the calendar and the map "should be equal"): the hand-drawn
+   map's paper, ink, Mali lettering, wobbled corners and offset shadows (sites/doodle-map), so both tabs
+   are one hand. The tokens are redefined on #month, so the day's list and the ahead cards follow. */
+@font-face{font-family:'Mali';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/mali-600-thai.woff2) format('woff2');unicode-range:U+02D7,U+0303,U+0331,U+0E01-0E5B,U+200C-200D,U+25CC}
+@font-face{font-family:'Mali';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/mali-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Mali';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/mali-700-thai.woff2) format('woff2');unicode-range:U+02D7,U+0303,U+0331,U+0E01-0E5B,U+200C-200D,U+25CC}
+@font-face{font-family:'Mali';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/mali-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+#month{--ink:#2b2118;--mute:#5c4d3c;--dim:#6d5d4b;--line:rgba(43,33,24,.3);--card:#fffaf0;--bg:#f5ecd7;--link:#8a3b2a;--hot:#b0442e;--hand:Mali,var(--sans);--pen:rgba(43,33,24,.2);
+  color:var(--ink);background:radial-gradient(rgba(43,33,24,.07) 1px,transparent 1.4px) 0 0/9px 9px,#f5ecd7;border-top:2px dashed #b0442e;border-bottom:2px dashed #b0442e;padding:1rem 0 2rem}
+#mgrid .mtopbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem .8rem;margin-bottom:.2rem}
+#mgrid .mcity{display:flex;gap:4px;padding:3px;margin-bottom:.6rem;border-radius:99px;background:rgba(255,250,236,.92);border:2px solid var(--ink);box-shadow:2px 2px 0 var(--pen)}
+#mgrid .mcity button{font:700 .9rem var(--hand);padding:.25rem .8rem;min-height:2.4rem;border:0;border-radius:99px;background:transparent;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:.3rem}
+#mgrid .mcity button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+#mgrid .mcity button[aria-pressed=true] .en{color:var(--bg)}
+html.lang-both #mgrid .mcity .en{display:none}
+#month .mbar{margin:0 -.3rem;padding:.1rem .3rem .8rem}
+#month .mq{background:var(--card);border:1.5px solid var(--ink);border-radius:12px 8px 12px 9px;color:var(--ink);font:600 .9rem var(--hand);box-shadow:2px 2px 0 var(--pen)}
+#month .mq:nth-child(even){border-radius:9px 12px 8px 12px}
+#month .mq[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+#month .mq[aria-pressed=true] .en,#month .mq[aria-pressed=true] b{color:var(--bg)}
+#month .mq s{border:1px solid rgba(43,33,24,.45)}
+#month .mq b{color:#c2185b}
+#month .msep{background:var(--line)}
+#month details.ev{background:var(--card);border:2px solid var(--ink);border-radius:8px 16px 10px 14px;box-shadow:3px 3px 0 var(--pen)}
+#month details.ev:nth-of-type(even){border-radius:14px 9px 15px 8px}
+#month details.ev[open]>summary{border-bottom:1.5px dashed var(--line)}
+#month details.ev.at{box-shadow:inset 5px 0 0 #d9473b,0 0 0 2px #d9473b}
+#month .ev .tt{font-family:var(--hand);font-weight:700}
+#month .ev .art{background:#efe4c9}
+#month .why>span{border-color:var(--line)}
+#month .acts a,#month .acts button{background:#fff;border:1.5px solid var(--ink);border-radius:10px 7px 11px 8px;color:var(--ink)}
+#month .acts .on{background:var(--ink);color:var(--bg)}
+#month .acts .on .en{color:var(--bg)}
+#month details.dmore>summary{border:1.5px dashed rgba(43,33,24,.45);font-family:var(--hand)}
+#month .cd.on{color:#1d6b12}
+#month #ahead{margin-top:1.6rem}
+#month #ahead .ahh h3{font-family:var(--hand)}
+#month .ahc{background:var(--card);border:2px solid var(--ink);border-radius:8px 16px 10px 14px;box-shadow:3px 3px 0 var(--pen);margin:0 3px 4px 0}
+#month .ahc:nth-child(even){border-radius:14px 9px 15px 8px}
+#month .ahc .ahv{border-bottom:2px solid var(--ink)}
+#month .ahc .ahn{color:#b0442e}
+#month .ahc .aht{font-family:var(--hand)}
+#month .ahc .aha .chip{background:#fff;border:1.5px solid var(--ink);color:var(--ink)}
+@media (max-width:560px){#month .ev .tt{font-size:1.02rem;font-weight:600}}
+html[data-contrast="more"] #month{--ink:#000;--mute:#000;--dim:#000;--line:#000;--card:#fff;--bg:#fff;--link:#000;--hot:#a00000;--pen:transparent;background:#fff}
+
+.more{display:inline-block;margin-top:.5rem;font-weight:700;font-size:.95rem;color:var(--link)}
+
+/* the forecast, in plain view */
+/* TILES: flights, roads, films, lottery (tiles.js; Nan 2026-10-03) */
+#tiles{padding:.6rem 0 1.2rem}
+#tiles .tgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:820px){#tiles .tgrid{grid-template-columns:1fr}}
+.tile canvas{display:block;width:100%;height:240px;border-radius:12px;cursor:pointer}
+.tile canvas.tall{height:min(420px,92vw)}
+.tcap{font-size:1rem;line-height:1.45;color:var(--ink)}
+.tcap p{margin:.55rem 0 0}
+.tcap .tline{font-weight:700}
+.tcap .tsrc{font-size:.9rem;color:var(--mute)}
+.tcap a{color:var(--link);font-weight:700}
+html.lang-both .tcap .bi .en::before{content:" · "}
+.tchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:.55rem;align-items:center}
+.tchip{display:inline-flex;align-items:center;gap:.35rem;min-height:2.4rem;padding:.2rem .7rem;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--ink);font:600 .9rem var(--sans);cursor:pointer}
+.tchip i{width:.8rem;height:.8rem;border-radius:50%;display:inline-block}
+.tchip small{color:var(--mute);font-size:.8rem}
+.tchip[aria-pressed=true]{background:var(--hot);border-color:var(--hot);color:#000}
+.tchip[aria-pressed=true] .en,.tchip[aria-pressed=true] small{color:#000}
+html.lang-both .tchip .en{display:none}
+.tmore summary{cursor:pointer;margin-top:.45rem;font-weight:700;color:var(--link);min-height:2.4rem;display:flex;align-items:center}
+.fboard{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:.5rem}
+@media (max-width:520px){.fboard{grid-template-columns:1fr}}
+.fboard h4{margin:0 0 .25rem;font-size:1rem}
+.fboard ul{list-style:none;margin:0;padding:0}
+.fboard li{padding:.3rem 0;border-top:1px solid var(--line);font-size:.98rem;line-height:1.35}
+.fboard li b{font:800 1.05rem var(--mono);color:#fff}
+.fboard li s{color:var(--mute)}
+.fboard li.late .st{color:#ffb38a;font-weight:800}
+.fboard li.bad .st{color:#ff9aa8;font-weight:800}
+.fboard li.ok .st{color:#9be08f}
+html.lang-both .fboard .bi .en::before{content:" · "}
+.tlegend{font:700 .95rem var(--mono);color:var(--ink);margin-left:.4rem}
+.tlegend i{display:inline-block;width:.75rem;height:.75rem;border-radius:2px;margin:0 .15rem 0 .45rem;vertical-align:-1px}
+.rstat i{display:inline-block;width:.75rem;height:.75rem;border-radius:50%;margin-right:.4rem;vertical-align:-1px;box-shadow:0 0 0 3px rgba(255,255,255,.08)}
+.rlater{margin:.35rem 0 0;font-size:.95rem;color:var(--mute)}
+.rlater.on{color:var(--ink);font-weight:700;background:rgba(255,255,255,.06);border-radius:8px;padding:.3rem .5rem}
+.rnlist{margin-top:.6rem}
+.rnh{margin:0 0 .25rem;font-size:.85rem;color:var(--mute)}
+.rnrow{display:grid;grid-template-columns:minmax(0,1fr) 5.5rem 3.6rem;align-items:center;gap:.5rem;width:100%;background:none;border:0;border-top:1px solid var(--line);padding:.35rem .2rem;color:var(--ink);font:600 .9rem var(--sans);text-align:left;cursor:pointer;min-height:2.5rem}
+.rnrow .rnn{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rnrow .rnb{height:.55rem;border-radius:999px;background:rgba(255,255,255,.1);overflow:hidden}
+.rnrow .rnb i{display:block;height:100%;border-radius:999px}
+.rnrow b{font:700 .9rem var(--mono);text-align:right}
+.rnrow b small{color:var(--mute);font-weight:500}
+.rnrow[aria-pressed=true]{background:rgba(255,194,102,.14);box-shadow:inset 3px 0 0 var(--hot);border-radius:6px}
+.rnrow:focus-visible{outline:3px dashed var(--hot);outline-offset:2px}
+html.lang-both .rnrow .bi>.en{display:none}
+#fc{padding:1.4rem 0 .6rem;background:linear-gradient(#0b1018,var(--bg))}
+#fc .grid{display:grid;grid-template-columns:2fr 1fr;gap:14px}
+@media (max-width:820px){#fc .grid{grid-template-columns:1fr}}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1rem 1.1rem}
+.panel h3{margin:0 0 .4rem;font-size:1.05rem;font-weight:800}
+.panel p.sum{margin:.1rem 0 .6rem;font-size:1rem}
+#hours svg{display:block;width:100%;height:auto}
+#days{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.day{background:rgba(255,255,255,.05);border-radius:12px;padding:.6rem .5rem;text-align:center}
+.day b{display:block;font-size:1rem;line-height:1.25}
+.day .t{font:800 1.3rem/1.1 var(--mono)}
+.day .t small{font-size:.75em;color:var(--mute);font-weight:600}
+.day .w{font-size:.85rem;line-height:1.3;margin-top:.2rem}
+#airp .now{font-size:1.25rem;font-weight:800}
+#airp .bars{display:flex;align-items:flex-end;gap:4px;height:56px;margin:.5rem 0 .2rem}
+#airp .bars i{flex:1;border-radius:3px 3px 0 0;min-height:4px}
+#airp .lab{display:flex;justify-content:space-between;font-size:.8rem;color:var(--mute)}
+
+/* NEAR */
+#nearHero{position:relative;height:80svh;min-height:460px;overflow:hidden;background:#111}
+#nearHero img{position:absolute;inset:-4%;width:108%;height:108%;object-fit:cover;opacity:0;transition:opacity 1.6s ease}
+#nearHero img.on{opacity:1;animation:burns 22s ease-in-out infinite alternate}
+@keyframes burns{from{transform:scale(1)}to{transform:scale(1.08) translate(-1.5%,-1%)}}
+#nearHero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,13,.8) 0%,rgba(7,9,13,0) 32%,rgba(7,9,13,0) 50%,rgba(7,9,13,.95) 100%)}
+#nearHead{position:absolute;left:0;right:0;top:0;z-index:2;padding:1.6rem 0}
+#nearCap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 0 1.6rem}
+#nearCap .d{font:700 .95rem var(--mono);color:var(--hot)}
+#nearCap .t{display:block;font-size:clamp(1.4rem,5vw,2.2rem);font-weight:800;line-height:1.2;color:#fff;text-decoration:none;max-width:44rem}
+#nearCap .t .en{display:block;font-size:.6em;font-weight:600}
+html.lang-both #nearCap .t .en::before{content:none}
+#nearFrom{font-size:1rem;margin-top:.3rem}
+#looNear{font-size:1.05rem;margin:.5rem 0 0;color:#fff;max-width:44rem;text-shadow:0 1px 3px rgba(0,0,0,.7)}
+#looNear a{color:#fff}
+#looNear b{color:var(--hot)}
+.strip{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:14px 18px 22px;scrollbar-width:none}
+.strip::-webkit-scrollbar{display:none}
+.ph{flex:0 0 auto;width:min(64vw,300px);scroll-snap-align:start;position:relative;border-radius:14px;overflow:hidden;background:#14181f;color:#fff;text-decoration:none}
+.ph img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.ph .c{position:absolute;left:0;right:0;bottom:0;padding:2.4rem .7rem .6rem;background:linear-gradient(transparent,rgba(0,0,0,.92));font-size:.95rem;line-height:1.3}
+.ph .c b{display:block;font:700 .8rem var(--mono);color:var(--hot)}
+
+/* SOON — the calendar */
+#soon{padding:10svh 0 4svh;position:relative;overflow:hidden}
+#lanterns{position:absolute;left:0;right:0;top:0;height:70svh;width:100%;pointer-events:none;opacity:.8}
+#soon .wrap{position:relative}
+#big{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:1rem 0 1.4rem}
+.bigd{border-radius:16px;padding:.9rem 1rem;background:linear-gradient(160deg,rgba(255,194,102,.18),rgba(255,255,255,.04));border:1px solid var(--line);position:relative}
+.bigd .n{font:800 clamp(1.8rem,7vw,3rem)/1 var(--mono)}
+.bigd .n small{font-size:.35em;color:var(--mute);margin-left:.3rem}
+.bigd .l{font-size:1.05rem;font-weight:800;margin-top:.3rem;line-height:1.25}
+.bigd .s{font-size:.85rem;color:var(--mute)}
+.bigd canvas{position:absolute;right:10px;top:10px;width:44px;height:44px}
+@media (max-width:560px){.bigd{padding:.7rem}.bigd .n small{display:block;margin:0}.bigd .s{display:none}.bigd canvas{width:28px;height:28px}}
+#calbar{display:flex;gap:6px;overflow-x:auto;margin:.2rem -18px 1rem;padding:0 18px .4rem;scrollbar-width:thin}
+#calbar .chip{flex:none;white-space:nowrap}
+.chip{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:.35rem .8rem;cursor:pointer;font-size:.92rem;min-height:2.4rem}
+.chip[aria-pressed=true]{background:var(--hot);color:#000;border-color:var(--hot);font-weight:700}
+.chip[aria-pressed=true] .en{color:#000}
+.chip i{font-style:normal;opacity:.75;margin-left:.3rem}
+.dayh{position:sticky;top:var(--barh,3.1rem);transition:top .22s ease;z-index:5;background:var(--bg);padding:.6rem 0 .4rem;margin-top:1.2rem;font-size:1.3rem;font-weight:800;border-bottom:2px solid var(--line)}
+.dayh small{font-weight:500;color:var(--mute);font-size:.8em;margin-left:.4rem}
+details.ev{margin:.6rem 0;border-radius:16px;background:var(--card);border:1px solid var(--line);overflow:hidden}
+details.ev>summary{list-style:none;cursor:pointer;display:grid;gap:.2rem .9rem;padding:.8rem .9rem}
+details.ev>summary::-webkit-details-marker{display:none}
+details.ev[open]>summary{border-bottom:1px solid var(--line)}
+.ev.feature>summary{grid-template-columns:1fr}
+.ev.card>summary{grid-template-columns:96px 1fr}
+.ev.row>summary{grid-template-columns:4.2rem 1fr;align-items:baseline}
+.ev .art{display:block;width:100%;border-radius:12px;background:#1a1f28;object-fit:cover}
+.ev.feature .art{aspect-ratio:auto;height:auto;max-height:80vh;object-fit:contain}
+.ev.card .art{aspect-ratio:1;height:96px}
+.ev .tm{font:800 1.05rem var(--mono);color:var(--hot)}
+.ev.row .tm{font-size:1rem}
+.ev .tt{font-size:1.15rem;font-weight:800;line-height:1.3;color:var(--ink)}
+.ev.feature .tt{font-size:clamp(1.3rem,4vw,1.8rem)}
+.ev .meta{font-size:.95rem;color:var(--mute)}
+.ev .ds{font-size:1rem;margin-top:.2rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.ev.card .ds{-webkit-line-clamp:2}
+.crumbs{font-size:.85rem;color:var(--mute);display:flex;flex-wrap:wrap;gap:.1rem .35rem;align-items:center}
+.crumbs button{background:none;border:0;padding:0;color:var(--link);text-decoration:underline;text-underline-offset:.15em;cursor:pointer;font-size:inherit}
+.why{display:flex;flex-wrap:wrap;gap:4px;margin-top:.3rem}
+.why>span{font-size:.8rem;border:1px solid var(--line);border-radius:999px;padding:.05rem .55rem;color:var(--ink)}
+.why>span.hot{border-color:var(--hot);color:var(--hot)}
+html.lang-both .num>.en,html.lang-both .crumbs .bi>.en{display:none}
+@media (max-width:560px){.ev.card>summary{grid-template-columns:72px 1fr}.ev.card .art{height:72px}}
+.meter{display:inline-flex;gap:2px;vertical-align:middle;margin-left:.3rem}
+.meter i{width:7px;height:7px;border-radius:2px;background:rgba(255,255,255,.2)}
+.meter i.on{background:var(--hot)}
+.evd{padding:.8rem 1rem 1rem}
+.evd p{margin:.2rem 0 .6rem;font-size:1.02rem}
+.evvenue{margin:.45rem 0 0}.evvenue img{display:block;width:100%;max-width:22rem;aspect-ratio:3/2;object-fit:cover;border-radius:.5rem}
+.evvenue figcaption{font-size:.72rem;opacity:.75;margin-top:.15rem}.evvenue figcaption a{color:inherit}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:.25rem .9rem;margin:.4rem 0 .8rem;font-size:1rem}
+.facts dt{color:var(--mute);font-weight:700}
+.facts dd{margin:0}
+.acts{display:flex;flex-wrap:wrap;gap:6px}
+.acts a,.acts button{background:rgba(255,255,255,.07);border:1px solid var(--line);border-radius:10px;padding:.45rem .8rem;font-size:.95rem;color:var(--ink);text-decoration:none;cursor:pointer;min-height:2.5rem}
+.acts .on{background:var(--hot);color:#000;border-color:var(--hot)}
+details.dmore>summary{cursor:pointer;padding:.7rem .9rem;border:1px dashed var(--line);border-radius:12px;margin:.6rem 0;font-weight:700;list-style:none}
+details.dmore>summary::-webkit-details-marker{display:none}
+#calmore{margin:1rem 0;text-align:center}
+#calmore button{background:none;border:1px solid var(--line);border-radius:999px;padding:.6rem 1.2rem;cursor:pointer;font-size:1rem}
+#calnote{font-size:.85rem;color:var(--mute);margin-top:1rem}
+
+/* MINISITES */
+#sites{padding:8svh 0 6svh}
+#feed{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:1.2rem}
+.post{grid-column:span 4;position:relative;border-radius:18px;overflow:hidden;background:var(--card);display:block;color:var(--ink);text-decoration:none;border:1px solid var(--line)}
+.post.f{grid-column:span 12}
+.post.w{grid-column:span 6}
+.post img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
+.post.f img{aspect-ratio:21/9}
+.post .c{padding:.7rem .9rem 1rem}
+.post.f:not(.card) .c{position:absolute;left:0;right:0;bottom:0;padding:3.5rem 1.2rem 1.2rem;background:linear-gradient(transparent,rgba(0,0,0,.92))}
+.post .dt{font:700 .8rem var(--mono);color:var(--hot)}
+.post .tt{font-size:1.25rem;font-weight:800;line-height:1.25}
+.post.f .tt{font-size:clamp(1.6rem,5vw,2.6rem)}
+.post .tt .en{display:block;font-size:.72em;font-weight:600}
+html.lang-both .post .tt .en::before{content:none}
+.post .ln{font-size:.98rem;color:var(--mute);margin-top:.3rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.post.card img{aspect-ratio:1200/630}
+.post .by{font-size:.7rem;color:var(--mute);margin-top:.35rem}
+.post.f:not(.card) .by{color:rgba(255,255,255,.7)}
+@media (max-width:760px){.post,.post.w{grid-column:span 12}.post.f:not(.card) img{aspect-ratio:4/3}}
+
+/* THE DRAWER */
+#drawer{margin:3svh auto 0;max-width:1180px;padding:0 18px 3rem}
+#drawer summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:1.1rem 0;border-top:1px solid var(--line);font-size:1.1rem;font-weight:700}
+#drawer summary::-webkit-details-marker{display:none}
+#drawer summary i{display:inline-block;width:34px;height:22px;border:2px solid var(--mute);border-radius:4px;position:relative;flex:none}
+#drawer summary i::after{content:"";position:absolute;left:10px;right:10px;top:8px;height:2px;background:var(--mute)}
+#drawer form{display:flex;gap:8px;margin:.4rem 0 1.2rem}
+#drawer input{flex:1;background:#10141a;border:1px solid var(--line);border-radius:10px;padding:.7rem .8rem;color:#fff;font:inherit}
+#drawer form button{background:var(--hot);color:#000;border:0;border-radius:10px;padding:0 1.1rem;font-weight:800}
+.shelves{display:flex;flex-wrap:wrap;gap:6px;margin:.3rem 0 1.2rem}
+.shelves a{padding:.35rem .8rem;border:1px solid var(--line);border-radius:999px;font-size:.95rem;color:var(--ink);text-decoration:none}
+#drawer h3{margin:.8rem 0 .2rem;font-size:1rem}
+#foot{padding:1.6rem 18px 3rem;text-align:center;font-size:.9rem;color:var(--mute);border-top:1px solid var(--line)}
+#veil{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
+@media (prefers-reduced-motion:reduce){#nearHero img.on{animation:none}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+html[data-contrast="more"] .reveal{opacity:1;transform:none}
+html[data-contrast="more"] #veil{display:none}
+{{LANG_CSS}}
+</style>
+<link rel="manifest" href="/app.webmanifest">
+<script src="/loo-front.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#soon">ข้ามไปงานเร็วๆ นี้ · Skip to what's on</a>
+<header class="bar"><div class="in">
+  <a class="brand bi" href="/"><span class="th" lang="th">มดแดง</span><span class="en" lang="en">Mot Dang</span></a>
+  <div class="tools">
+    {{LANG_SWITCH}}
+  </div>
+</div>
+<div class="seekrow">
+  <button type="button" class="menubtn" id="menuBtn" aria-label="เมนู · Menu" aria-expanded="false" aria-controls="menu" aria-haspopup="dialog"><svg class="ico" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="/icons.svg#i-menu"></use></svg></button>
+  <form class="seek" action="/find" method="get" role="search">
+    <label class="vh" for="q">ค้นหาทุกเว็บของมดแดง · Search Mot Dang and its sites</label>
+    <input id="q" name="q" type="search" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="ค้นหา · Search">
+    <button type="submit" class="go" aria-label="ค้นหา · Search"><svg class="ico" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="/icons.svg#i-search"></use></svg><span class="bi"><span class="th" lang="th">ค้นหา</span><span class="en" lang="en">Search</span></span></button>
+  </form>
+  <a class="menubtn askbtn" href="https://ask.motdang.net/" data-mdask-bar rel="noopener" aria-label="คุยกับมด · Ask AI" title="คุยกับมด · Ask AI"><svg class="ico" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="/icons.svg#i-chat"></use></svg><span class="aitag" aria-hidden="true">AI</span></a>
+<script>(function(){var a=document.querySelector("[data-mdask-bar]");if(!a)return;a.addEventListener("click",function(e){e.preventDefault();var q=(document.getElementById("q")||{}).value||"";if(window.MDASK)return MDASK.open(q);if(a.dataset.loading)return;a.dataset.loading="1";var s=document.createElement("script");s.src="https://ask.motdang.net/widget.js";s.dataset.open="1";if(q)s.dataset.q=q;document.head.appendChild(s)})})();</script>
+</div></header>
+
+<dialog id="menu" aria-labelledby="menuh">
+<div class="sheet">
+  <div class="sh"><h2 id="menuh" class="bi"><span class="th" lang="th">เมนู</span><span class="en" lang="en">Menu</span></h2>
+    <button type="button" id="menuX" aria-label="ปิดเมนู · Close menu"><svg class="ico" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="/icons.svg#i-x"></use></svg><span class="bi"><span class="th" lang="th">ปิด</span><span class="en" lang="en">Close</span></span></button></div>
+  <form class="seek" action="/find" method="get" role="search">
+    <label class="vh" for="q2">ค้นหาทุกเว็บของมดแดง · Search Mot Dang and its sites</label>
+    <input id="q2" name="q" type="search" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="ค้นหา · Search">
+    <button type="submit" class="go" aria-label="ค้นหา · Search"><svg class="ico" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="/icons.svg#i-search"></use></svg><span class="bi"><span class="th" lang="th">ค้นหา</span><span class="en" lang="en">Search</span></span></button>
+  </form>
+  <h3 class="bi"><span class="th" lang="th">เชียงใหม่</span><span class="en" lang="en">Chiang Mai</span></h3><div class="shelves" data-p="cm"></div>
+  <h3 class="bi"><span class="th" lang="th">เชียงราย</span><span class="en" lang="en">Chiang Rai</span></h3><div class="shelves" data-p="cr"></div>
+  <h3 class="bi"><span class="th" lang="th">อื่น ๆ</span><span class="en" lang="en">The rest</span></h3><div class="shelves" data-p="rest"></div>
+</div>
+</dialog>
+
+<main>
+<h1 class="vh"><span lang="th">มดแดง · เชียงใหม่ เชียงราย ตอนนี้</span> · <span lang="en">Mot Dang · Chiang Mai &amp; Chiang Rai, now</span></h1>
+<section id="stage" aria-label="ปฏิทินและแผนที่ · calendar and map">
+<div id="flip" class="wrap" role="tablist" aria-label="ปฏิทินหรือแผนที่ · calendar or map">
+  <button type="button" role="tab" id="tab-cal" aria-controls="month" data-stage="cal"><svg class="ico" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="/icons.svg#i-cal"></use></svg><span class="bi"><span class="th" lang="th">ปฏิทิน</span><span class="en" lang="en">Calendar</span></span></button>
+  <button type="button" role="tab" id="tab-map" aria-controls="now" data-stage="map"><svg class="ico" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="/icons.svg#i-map"></use></svg><span class="bi"><span class="th" lang="th">แผนที่</span><span class="en" lang="en">Map</span></span></button>
+</div>
+<div id="month" role="tabpanel" aria-labelledby="tab-cal"><div class="wrap"><div id="mgrid"></div><div id="mday" aria-live="polite"></div><div id="ahead"></div></div></div>
+<div id="now" role="tabpanel" aria-labelledby="tab-map">
+  <iframe data-src="/sites/doodle-map/?embed=1" allow="geolocation" title="แผนที่วาดมือ · a hand-drawn map"></iframe>
+  <div class="mapcity" role="group" aria-label="เมือง · city"><button type="button" data-city="cm"><span class="bi"><span class="th" lang="th">เชียงใหม่</span><span class="en" lang="en">Chiang Mai</span></span></button><button type="button" data-city="cr"><span class="bi"><span class="th" lang="th">เชียงราย</span><span class="en" lang="en">Chiang Rai</span></span></button></div>
+  <script>/* Nan, 2026-10-03: Chiang Rai's map "if the user is in chiang rai, or asks to see it". Asked = the switch
+     (kept for the visit) or ?map=chiang-rai; in Chiang Rai = a fix from "find myself" (md-here) or the
+     network's guess (md-where), whichever is nearer Chiang Rai's centre than Chiang Mai's. */
+  (function(){var f=document.currentScript.parentNode.querySelector('iframe'),B={cm:'/sites/doodle-map/?embed=1',cr:'/sites/doodle-chiang-rai/?embed=1'};
+  function pick(){var q=new URLSearchParams(location.search).get('map');if(q)return /rai|^cr$/i.test(q)?'cr':'cm';
+    try{var s=sessionStorage.getItem('md-map-city');if(s==='cr'||s==='cm')return s}catch(e){}
+    var ll=null;try{var h=JSON.parse(sessionStorage.getItem('md-here'));if(h&&Date.now()-h.t<12e5)ll=[h.lat,h.lng]}catch(e){}
+    if(!ll){var m=document.querySelector('meta[name=md-where]'),v=m&&m.content.split('|');if(v&&v.length>=3)ll=[+v[1],+v[2]]}
+    if(ll&&ll[0]>17.3&&ll[0]<20.7&&ll[1]>97.2&&ll[1]<100.7&&Math.hypot(ll[0]-19.91,ll[1]-99.84)<Math.hypot(ll[0]-18.79,ll[1]-98.98))return'cr';
+    return'cm'}
+  function show(c,load){f.setAttribute('data-src',B[c]);document.querySelectorAll('#now .mapcity button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.city===c))});
+    if(load||f.getAttribute('src'))f.src=B[c]}
+  show(pick(),document.documentElement.getAttribute('data-stage')!=='cal');
+  document.querySelector('#now .mapcity').addEventListener('click',function(e){var b=e.target.closest('button[data-city]');if(!b)return;
+    try{sessionStorage.setItem('md-map-city',b.dataset.city)}catch(x){}show(b.dataset.city,true)})})()</script>
+  <noscript><iframe src="/sites/doodle-map/?embed=1" title="เชียงใหม่ วาดเล่น · Chiang Mai, Doodled"></iframe></noscript>
+</div>
+</section>
+<section id="doodle" aria-label="ตอนนี้ วันนี้ · now, today">
+  <canvas id="doodc" role="img" aria-label="ภาพวาดของวันนี้ · today's drawing"></canvas>
+  <div class="dd wrap" id="ddtext"></div>
+  <div id="ddpop" role="dialog" aria-live="polite" hidden></div>
+</section>
+<nav id="jump" aria-label="ปฏิทิน · calendar"></nav>
+
+<section id="fc" aria-label="พยากรณ์ · forecast"><div class="wrap"><div class="grid">
+  <div class="panel" id="hours"></div>
+  <div class="panel" id="days3"></div>
+</div><div class="panel" id="airp"></div></div></section>
+
+<section id="tiles" aria-label="เมืองตอนนี้ · the city now"><div class="wrap"><div class="tgrid">
+  <article class="panel tile" id="t-flights"><h3><span class="bi"><span class="th" lang="th">เครื่องบิน</span><span class="en" lang="en">Flights</span></span></h3><canvas class="tall" role="img" aria-label="เส้นทางบินตรงจากเชียงใหม่และเชียงราย · nonstop routes from Chiang Mai and Chiang Rai"></canvas><div class="tcap" aria-live="polite"></div></article>
+  <article class="panel tile" id="t-roads"><h3><span class="bi"><span class="th" lang="th">ถนน</span><span class="en" lang="en">Roads</span></span></h3><canvas class="tall" role="img" aria-label="ปริมาณรถบนทางหลวงรอบเชียงใหม่ · traffic counts on the highways around Chiang Mai"></canvas><div class="tcap" aria-live="polite"></div></article>
+  <article class="panel tile" id="t-films"><h3><span class="bi"><span class="th" lang="th">หนัง</span><span class="en" lang="en">Films</span></span></h3><canvas role="img" aria-label="รอบหนังวันนี้ · today's film showtimes"></canvas><div class="tcap" aria-live="polite"></div></article>
+  <article class="panel tile" id="t-lotto"><h3><span class="bi"><span class="th" lang="th">สลาก</span><span class="en" lang="en">Lottery</span></span></h3><canvas role="img" aria-label="ผลสลากกินแบ่งรัฐบาล · Thai government lottery results"></canvas><div class="tcap" aria-live="polite"></div></article>
+</div></div></section>
+
+<section id="near" aria-label="ใกล้ๆ · near">
+  <div id="nearHero">
+    <div id="nearHead" class="wrap"><h2><span class="th" lang="th">ใกล้ๆ</span><span class="en" lang="en">Near</span></h2><div id="nearFrom"></div><p id="looNear" hidden></p></div>
+    <div id="nearCap" class="wrap"></div>
+  </div>
+  <div class="strip" id="nearStrip"></div>
+</section>
+
+<section id="sites" aria-label="เว็บเล็ก · minisites">
+  <div class="wrap"><h2 class="reveal"><span class="th" lang="th">เว็บเล็ก</span><span class="en" lang="en">Minisites</span></h2><div id="feed"></div></div>
+</section>
+
+<details id="drawer">
+  <summary><i aria-hidden="true"></i><span class="bi"><span class="th" lang="th">ลิ้นชัก: ค้นหา ชั้นวาง แผนที่ และที่เหลือ</span><span class="en" lang="en">The drawer: search, shelves, maps and the rest</span></span></summary>
+  <form action="/find" method="get" role="search"><input name="q" placeholder="ค้นหา 88,943 ที่ · search 88,943 places" aria-label="ค้นหา · search"><button>ค้น</button></form>
+  <h3 class="bi"><span class="th" lang="th">เชียงใหม่</span><span class="en" lang="en">Chiang Mai</span></h3><div class="shelves" id="shelvesCM" data-p="cm"></div>
+  <h3 class="bi"><span class="th" lang="th">เชียงราย</span><span class="en" lang="en">Chiang Rai</span></h3><div class="shelves" id="shelvesCR" data-p="cr"></div>
+  <h3 class="bi"><span class="th" lang="th">อื่น ๆ</span><span class="en" lang="en">The rest</span></h3><div class="shelves" id="rest" data-p="rest"></div>
+</details>
+</main>
+
+<footer id="foot"><p class="bi"><span class="th" lang="th">มดแดง เชียงใหม่ เชียงราย โดย NaN · ข้อความและข้อมูล CC BY 4.0 · หมุดและข้อมูลพื้นดิน © OpenStreetMap (ODbL) · ภาพใกล้ๆ NaN Peacock CC BY 4.0 · ฝน อากาศ Open-Meteo (CAMS)</span><span class="en" lang="en">Mot Dang, Chiang Mai and Chiang Rai, by NaN · text and data CC BY 4.0 · pins and much ground truth © OpenStreetMap contributors (ODbL) · near photos NaN Peacock, CC BY 4.0 · rain, air Open-Meteo (CAMS)</span></p>
+<p><a href="/sites/city-live/#engine">&gt;_ engine</a> · <a href="/api/">API</a> · <a href="/privacy.html">ความเป็นส่วนตัว · privacy</a> · <a href="/home-classic.html">หน้าแรกแบบเดิม · the old front page</a> · {{BUILT}}</p></footer>
+
+<canvas id="veil" aria-hidden="true"></canvas>
+{{LANG_JS}}
+<script src="/front/skyline.js" defer></script>
+<script src="/front/doodler.js" defer></script>
+<script src="/front/doodles.js" defer></script>
+<script src="/front/when.js" defer></script>
+<script src="/front/tiles.js" defer></script>
+<script src="/front/wx.js" defer></script>
+<script src="/feedback.js" defer></script>
+<script src="/front/front.js" defer></script>
+<script src="/locshare.js" defer></script>
+</body>
+</html>

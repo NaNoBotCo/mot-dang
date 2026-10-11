@@ -1,0 +1,184 @@
+HUGGING FACE — WHAT THE LOGIN ACTUALLY BOUGHT, measured 2026-09-08
+===================================================================
+
+Nan: "I'm currently logged into hugging face. Let's start there."
+Also, same day: "yes we should be aggressively using share-alike."
+
+So share-alike is closed and I stopped asking. Everything below was
+measured today against data/canonical (88,161 records, Overture folded).
+No build was run — another session held the lock the whole time. The
+romaniser fixes in section 3 therefore reach the site on the next build.
+
+
+-------------------------------------------------------------------
+1. THE TOKEN — read-only, and the org does not exist
+-------------------------------------------------------------------
+~/.cache/huggingface/token is a fine-grained READ token for account
+"Skunkhaus", created Sept 2025. No CLI is installed (no `hf`, no
+huggingface_hub); everything below was done with curl and duckdb.
+
+RESOLVED THE SAME DAY. Nan sent a write token and it belongs to a
+SECOND account, NaNoBotCo — a user, not an organisation — so the repo id
+in publish/make_hf_dataset.py was right all along. The dataset is now
+live and public at
+huggingface.co/datasets/NaNoBotCo/mot-dang-chiang-mai-chiang-rai,
+88,161 rows. The copy on disk was stale (24,059 rows, pre-Overture) and
+was rebuilt before it went out.
+
+Also, for anything future: this Mac has duckdb 1.4.5 but NO numpy and
+NO pandas. That rules out Splink, Crowd-Kit and bm25s as written.
+
+
+-------------------------------------------------------------------
+2. FOURSQUARE — MEASURED, AND THE ANSWER IS "NOT WORTH MUCH"
+-------------------------------------------------------------------
+The gated repo (foursquare/fsq-os-places) returned 403: GatedRepo, "you
+are not in the authorized list". Accepting the licence is Nan's click,
+not mine. So I measured the ungated 2024 mirror instead
+(do-me/foursquare_places_100M, Apache-2.0, same schema) to find out
+whether the click is worth making.
+
+EXTRACT — the CM+CR bbox (17.0-20.5 N, 97.3-100.6 E, the pmtiles fence),
+44 seconds over the network:
+
+   rows in bbox                252,621
+   still open (no date_closed) 245,823
+   postcode 50xxx (Chiang Mai)  32,806
+   postcode 57xxx (Chiang Rai)   9,574
+   Thai script in the name     177,554  (70%)
+   has address                  65,435  (26%)
+   has tel                      18,853  (7.5%)
+   has website                   4,729  (1.9%)
+   has facebook_id               1,641  (0.6%)
+   has instagram                   460
+   has email                       369
+
+MATCHED AGAINST OUR 87,573 PINNED RECORDS (same rule as the Overture
+measurement: normalised name equal, within 300 m):
+
+   matched                      10,455
+   unmatched                   241,563   (234,944 not marked closed)
+
+   FIELDS IT WOULD ADD TO RECORDS WE ALREADY HOLD
+     address                     1,953
+     phone                         307
+     facebook_id                   264
+     date_closed (ours may be dead)  160
+     instagram                     100
+     website                        97
+     email                          64
+
+THE VERDICT. Foursquare as an ENRICHER is dead. 307 phones, against the
+3,631 Overture gave us. The reason is structural, not a stale-snapshot
+artefact: Overture is 99% Facebook business pages and it already took our
+phone coverage from 20.4% to 70%. Foursquare is thin on exactly the
+fields Overture already filled — 7.5% phone in its own rows.
+
+What survives is the RECORDS question: 241,563 unmatched rows. But the
+bbox is a rectangle that also covers Lamphun, Lampang, Mae Hong Son and
+Phayao, and the match rule was crude, so that is a ceiling and not a
+count. It is also the same question Overture posed, and it imports the
+same Facebook noise.
+
+Caveat stated honestly: this is the 2024 mirror. The gated release is
+2026-08-11, twenty months newer, and its numbers will be better. The
+structural reason for the low yield does not change with the date.
+
+So: the click is worth making eventually, and it is NOT blocking
+anything. I have demoted it in go/clicks. Current corpus coverage for
+comparison — phone 70%, website 23%, hours 5%.
+
+
+-------------------------------------------------------------------
+3. THE ROMANISATION CORPUS — did not beat translit.py, but FOUND BUGS
+-------------------------------------------------------------------
+pythainlp/thai-romanization-dataset, CC-BY-SA-3.0, 498,966 Thai->roman
+word pairs, 27 MB. Downloaded and measured three ways.
+
+FIRST, AS A REPLACEMENT — it loses, same as royin lost on 9/7.
+On 1,500 records that carry both a Thai and an English name:
+
+   translit.py                          243 / 1500   16.2%
+   whole-name lookup in the corpus       37 / 1500    2.5%
+   segment, then look up each word      192 / 1500   12.8%
+   either translit or segment+lookup    249 / 1500   16.6%
+
+The corpus adds SIX records per 1,500. Keep translit.py. (The 16.2%
+here is not comparable to the 23% measured on 9/7 — the pool changed
+when Overture folded in, and only 4,555 records now carry both names.)
+
+SECOND, AS A YARDSTICK — this is the number nobody had:
+
+   all pure-Thai words        147,229 compared, translit agrees 79.9%
+   PLACE-NAME-shaped words     31,385 compared, translit agrees 86.5%
+   words with ร์ + consonant    2,674 compared, translit agrees 46.8%
+
+86.5% on the vocabulary our corpus is actually made of. The 46.8% class
+is loanwords — Ford, mart, chart, Charles — which barely occur here.
+So the general 79.9% understates it and should not be quoted.
+
+THIRD, AS A BUG-FINDER — this is where the value was. FIXED SAME DAY.
+
+MY FIRST DIAGNOSIS WAS WRONG and is corrected here. I wrote that the
+misses were "ONE rule family: a cluster whose second member is ร or ล is
+split". They were not. นคร, บพิตร, จันทร์, ศาสตร์ and อมร all read
+correctly, so the cluster rules work. Two different things were broken.
+
+1. A REAL RULE BUG — fixed in translit.py, `_wo_is_vowel`.
+   กว/ขว/คว followed by ย is not a cluster: `-วย` is the rime /uai/.
+   ก๋วยเตี๋ยว read "kwo tiao". 1,528 records carry ก๋วย. It is the same
+   confusion that put แก้ว in the lexicon as Kaeo, one lookahead apart.
+   Pinned against collateral damage: กวาง, ควาย, ขวา, ความ, กล้วย, ห้วย
+   all still read correctly and the test says so.
+
+2. SANSKRIT LOANS whose written vowel is not said where it is written.
+   เกษตร is kṣetra, ka-set, not ke-set. No rule derives these from the
+   letters, and data/curated/rtgs_lexicon.json is what this repo already
+   has for exactly that. Ten entries added: เกษตร, เกษตรกร, การเกษตร,
+   เกษม, เพชร, เพชรบุรี, เพชรเกษม, ถาวร, จอดรถ, ที่จอดรถ.
+   739 records carried one. เพชรเกษม — a national highway — read
+   "phetraketma" and now reads "Phetkasem".
+
+A THIRD FIX WAS TRIED AND THROWN AWAY, which is the point of having a
+corpus. Making loan clusters (ดร, บร, บล, ฟร, ฟล) form only at a word
+start, to stop จอดรถ reading "chodrot". It did not fix จอดรถ — it moved
+the error to "chodarot" — and it measured WORSE, -187 words across the
+corpus. Reverted; จอดรถ went to the lexicon instead. A plausible rule
+that measures worse is worth more written down than one never measured.
+
+THE RESULT, same corpus, before and after:
+
+    all pure-Thai words     79.90%  ->  80.86%   (+1,417 of 147,229)
+    place-name-shaped       86.50%  ->  88.34%   (of 31,292)
+
+TWO ARE DELIBERATELY NOT FIXED, with reasons in the test:
+  พลวง  _rom_word gets it right; _segment splits พล|วง before the reader
+        sees it, because พลวง is not in search_segdict.txt. A lexicon
+        entry cannot reach it — segmentation runs first. 0 records.
+  แหน   the corpus says "haen", we say "nae", and neither is simply
+        right: แหน is two words, /nae/ with a silent leading ห (จอกแหน)
+        and /haen/ where ห is the initial (หวงแหน). 44 records. Changing
+        it trades one wrong answer for another.
+
+NO URL MOVED. `place_slug` -> `_slug_stem` -> `name_of`, and name_of is
+`name or nameEn or id` — it never calls translit. The romaniser feeds
+readings on the page, not filenames, so there is no 404 risk in this
+change. Checked before the edit, not assumed.
+
+Tests: tests/test_translit_clusters.py (26 checks, rewritten to pin the
+fixes AND the collateral), tests/test_translit.py and tests/test_terms.py
+all pass. A build was running in another session throughout; build.py was
+not run, so these readings reach the site on the next build.
+
+-------------------------------------------------------------------
+4. WHAT I DID NOT DO, AND WHY
+-------------------------------------------------------------------
+- Did not accept the Foursquare licence. Terms acceptance is hers.
+- Did not push the dataset. The token cannot, and the target org does
+  not exist.
+- Did not edit translit.py. See above.
+- Did not run build.py. Another session held cache/build.lock (pid
+  85886) from 08:37 through the whole session.
+
+Files: go/hf (this) · go/clicks (her two clicks) · go/tools (the survey
+this came from) · tests/test_translit_clusters.py

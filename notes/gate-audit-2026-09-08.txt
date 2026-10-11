@@ -1,0 +1,145 @@
+EVERY NUMBER THE TESTS ENFORCE, AND WHO PUT IT THERE
+2026-09-08
+
+
+WHY THIS EXISTS
+
+Nan, 2026-09-08, on finding a 10,000,000-byte ceiling in a test:
+
+  "What's a 10 mb budget? Did I ask for that? Why is it there?"
+  ...
+  "Remember, 99% of the rules found on motdang were put there by bots who
+   simply imagined them and didn't ask for my consent. Don't continue that
+   mistake."
+
+She had not asked for it. A session wrote it on 2026-09-07 at 13:28; the file
+was never committed to git; and its own docstring said the number was "what
+index.json weighed that afternoon, plus that day's change, rounded up." That
+one is nuked. This is the sweep of the rest.
+
+
+WHAT I FOUND, IN ONE LINE
+
+Three test files carry numbers that can fail a build. All three are UNTRACKED
+— none has ever been committed. NINE numbers remained after the 10 MB went
+(one of them, a cap of 30, was not even a named constant — it sat inline in an
+assertion, which is why the first count in this note said eight). Not one of
+them was put to you.
+
+They are not all the same kind of thing, and saying so matters more than the
+count:
+
+
+§1  NUMBERS ENFORCING SOMETHING YOU DID SAY
+
+tests/test_page_weight.py — born 2026-09-02, out of WO-52.
+
+The gate exists because of a real measurement: 33 repeated blocks were
+5,547,155 of the site's 7,752,480 prose word-instances; 85% of the words on a
+place page were blocks repeated site-wide; the median place page ran 350 words
+of prose of which 51 were about the place. And "reduce the words, everywhere,
+always" is yours, said many times, and Michael's "if you need to explain
+something using words, you're fucking up" is the same instruction from the
+other side.
+
+So the DIRECTION is yours. Every number in it is a session's:
+
+    (inline)                 =  30     prose repeated on 500+ pages   GONE
+    MAX_MEDIAN_RECORD_WORDS  =  60     prose words on a place page    GONE
+    MAX_MEDIAN_TOTAL_WORDS   = 180     everything visible             GONE
+    MAX_LEAD_IN_WORDS        =  25     between the <h1> and the first fact
+    MAX_HEADER_OPEN_LINKS    =   6     links in the masthead
+    MAX_HOME_OPEN_LINKS      =  36     links on the front page
+
+The file says outright where they came from: "Each is set well clear of where
+WO-52 landed the site (median 101 words, 10 words of lead-in)." That is the
+same recipe as the 10 MB — measure where we happen to stand, draw the line
+above it, and every later session inherits a number nobody chose.
+
+The nav pair (6 and 36) encode WO-65, where the instruction WAS yours —
+"Remove all other forms of navigation, other than what I'm describing" — but
+six and thirty-six are still inventions.
+
+AND ONE OF THEM HAS ALREADY MISFIRED. Check 2 used to cap all visible words at
+140 as a stand-in for "boilerplate prose". A bearings line plus five nearest
+places is about 40 words that DIFFER on every one of 25,800 pages — the
+opposite of the disease the gate was built for — and the proxy read 159 and
+failed the build. The proxy was fixed; the episode is the argument.
+
+
+§2  A NUMBER ENFORCING NOTHING YOU SAID — REMOVED 2026-09-08
+
+tests/test_kinds.py
+
+    RESIDUE_MAX = 40    records the kind rules cannot place        GONE
+
+Its own comment: "A judgement call, written down: how much unplaced residue is
+honest. 16 today." Honest about being a judgement, and it was a session's
+judgement, not yours — 40 was chosen because 16 was the number that day. You
+said remove it, and it is removed; the count is reported instead.
+
+
+§3  TWO NUMBERS THAT ARE METHOD, NOT RULE
+
+    REPEAT_THRESHOLD = 500    a block on this many pages counts as furniture
+    SAMPLE           = 400    pages sampled per run
+
+These do not cap anything; they define what is being measured and how much of
+it. They still encode a judgement — 500 is somebody's idea of where a repeated
+block stops being writing and starts being wallpaper — but a reader is never
+told about them and no work is blocked by them directly.
+
+
+§4  WHAT I HAVE AND HAVE NOT DONE
+
+DONE, because you said so: the 10 MB and the search-tables ceiling beside it
+are gone. test_index_weight.py now REPORTS the index's weight, raw and
+gzipped, and fails only on things that are correctness rather than taste — a
+relation int pointing outside its table (a chip that draws as nothing or as
+the wrong place's name, which no reader could ever catch), the unread `h`
+string creeping back, a pinned row with no shelf.
+
+DONE, G1, because you said so — "report the medians, don't cap them": the
+three medians in check 2 no longer fail anything. They are printed, each
+beside what it was when last measured, so the direction of travel is visible
+in the log without a line nobody agreed to. Run this morning:
+
+      MEDIAN PLACE PAGE, over 400 sampled — reported, not capped
+                   now 2026-09-07
+      repeated      16       21     -5   repeated on 500+ pages
+      prose         38       37     +1   all prose, name to footer
+      total        141      159    -18   everything visible
+
+      ^ up since 2026-09-07: prose.
+
+Which is the gate earning its keep on the first run: two of the three down,
+one up by one word, and nothing blocked.
+
+NOT DONE, and still yours: MAX_LEAD_IN_WORDS (25) is a per-page threshold and
+not a median, so I left it; the two nav counts (6 and 36) are counts, not
+medians, so I left those too. You named the medians and I have not read past
+what you said. RESIDUE_MAX in §2 is untouched.
+
+
+§5  THE FORK
+
+  G1  ANSWERED 2026-09-08 — "report the medians, don't cap them". Done; §4.
+        · MAX_LEAD_IN_WORDS = 25 — ANSWERED, "max lead in words ok". It is
+          yours now, it still fails a build, and the line above it in the file
+          says so, so nobody re-opens this from a file birth time.
+        · STILL OPEN: MAX_HEADER_OPEN_LINKS = 6 and MAX_HOME_OPEN_LINKS = 36,
+          which encode the WO-65 nav cut. The cut was yours; the two numbers
+          are not. You have not named them either way.
+
+  G2  ANSWERED 2026-09-08 — "remove residue max". Gone. The count is printed
+      instead, with what it is made of, since "16 unplaced" is a number and
+      "16 unplaced, all of them sights" is something a person can act on:
+
+          ..    unclassified residue: 16 — 16 sights
+
+  G3  REPEAT_THRESHOLD and SAMPLE in §3 — leave as method, or surface them.
+
+  G4  All three files are untracked and always have been, which is why none of
+      this shows in git history and why `git log -S` found nothing. Worth
+      committing so the next question like yours can be answered from the
+      record instead of from file birth times.

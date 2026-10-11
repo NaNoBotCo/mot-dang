@@ -1,0 +1,21 @@
+{
+ "built": "2026-09-25",
+ "counts": {
+  "stops": 24,
+  "routes": 5,
+  "acts": 12,
+  "sources": 53,
+  "pics": 50,
+  "ghosts": 24,
+  "lore": 15,
+  "cited": 6,
+  "nopics": 2
+ },
+ "km_by_street": {
+  "walk": 8.727,
+  "ride": 29.628,
+  "scoot": 67.797,
+  "drive": 58.325,
+  "drive-north": 73.536
+ }
+}

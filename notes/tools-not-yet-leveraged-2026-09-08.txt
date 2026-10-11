@@ -1,0 +1,554 @@
+TOOLS NOT YET LEVERAGED — GitHub + Hugging Face survey 2026-09-08
+==================================================================
+
+Question: is there anything on GitHub or Hugging Face that would make
+Mot Dang more delightful — usability, mapping, discovery, records,
+ground-truthing, human experience?
+
+Method: five parallel research passes (mapping, search, records,
+ground-truthing, human experience), every repo or model fetched and its
+licence and last activity read today; then each candidate checked
+against the repo so nothing below is something the site already runs.
+Builds on yesterday's survey (go/github-resources), which covered
+Overture (now folded), PyThaiNLP's romaniser (tested, ours is better),
+the tambon CSVs and opening_hours.js.
+
+Nothing was installed, nothing was built, nothing was deployed.
+A build was running in another session the whole time; this note is the
+only file written.
+
+------------------------------------------------------------------
+0. TWO CORRECTIONS TO YESTERDAY'S NOTE
+------------------------------------------------------------------
+- Pagefind DOES segment Thai. Yesterday's note said "no Thai
+  segmentation" from its docs; the changelog says v1.4.0 (1 Sept 2025)
+  "Added Thai segmenter support when indexing", plus Thai UI strings.
+  It is back on the table (section 2).
+- The Hugging Face dataset was never pushed. publish/make_hf_dataset.py
+  writes publish/hf-dataset/ (places.jsonl, 28.7 MB, built Sept 5) and
+  its README says pushing is a human step. huggingface.co answers 401
+  for NaNoBotCo/mot-dang-chiang-mai-chiang-rai — the repo does not
+  exist. The dataset is built and sitting on disk. Fork H, below.
+
+------------------------------------------------------------------
+1. ALREADY HELD — not recommended again
+------------------------------------------------------------------
+Open-Meteo weather + air (importers/make_weather.py, make_air.py) ·
+PMTiles on R2 (assets/tiles/cm-cr.pmtiles + terrain) · Workers
+Analytics Engine wired for page traffic (publish/worker.js writes host,
+agent class, path with the query string deliberately dropped) ·
+wan phra in build.py (moon block, merit shelf) · gdcatalog provincial
+portals, MOTS tourism directory, Q Restaurant and Thai SELECT lists
+(importers/harvest_datagoth.py + cache/source_scout/) · DBD, HSS
+registers (source-scout 9/6) · Wikidata via enrich_wikipedia.py ·
+contrast + alt-text tests (tests/test_contrast.py, test_alt_text.py) ·
+a service worker registered on every page.
+
+------------------------------------------------------------------
+2. SEARCH + DISCOVERY
+------------------------------------------------------------------
+2.1  Inverse document frequency in searchcore.js — no library
+     assets/searchcore.js has no IDF term at all (grep: zero hits).
+     That is the guitar bug: "buy" (261 records) weighed the same as
+     "martin" (4). Fix = one dict of document frequencies shipped in
+     the index and one line in the scorer. Measure first with
+     xhluca/bm25s (MIT, numpy) offline against the 52 scored questions.
+     Effort: hours. Risk: none. The single largest search win.
+
+2.2  Intl.Segmenter('th') — built into every browser, 0 bytes
+     Baseline since April 2024 (Chrome, Safari, Firefox 125). Gives the
+     search box a Thai word cutter for free at query time; the DP
+     segmenter from thapsap stays on the build side. Index both the
+     segmenter's words and character 3-grams so the two cutters'
+     disagreements do not cause misses. Effort: a day.
+
+2.3  Pagefind v1.5.2 — https://github.com/Pagefind/pagefind — MIT, 5.4k★
+     Now segments Thai (2.0 above). Replaces the 9.5 MB up-front index
+     with per-query fragments of tens of kB, served as static files
+     from R2 — the low-bandwidth design point. Node API addCustomRecord
+     takes JSON records, so no HTML parsing; filters give the
+     Term (count) browse for free. Cost: a Rust binary in the build (one
+     command, not stdlib); its ranking is its own, not ours; no
+     geosearch. Best if bandwidth outranks ranking control. Fork A.
+
+2.4  MiniSearch — https://github.com/lucaong/minisearch — MIT, 6.1k★
+     ~8 kB gz. Pluggable tokenizer (drop Intl.Segmenter in), IDF, field
+     boosts, fuzzy + prefix, AND/OR/NOT, serialised index. The
+     drop-in replacement for searchcore.js if we keep one index file.
+     Fork A.
+
+2.5  Orama — https://github.com/oramasearch/orama — Apache-2.0, 10.5k★
+     The one browser engine with GEOSEARCH (radius + polygon on a
+     geopoint field) in the same index as the text — the where-question
+     (kind + place + radius) answered natively. No Thai stemmer;
+     tokenizer is pluggable. Bigger migration; VC-backed and pushes a
+     cloud product, JS core still Apache. Prototype one shelf first.
+     Fork A.
+
+2.6  PyThaiNLP, the parts NOT tested yesterday — Apache-2.0, 1.2k★
+     https://github.com/PyThaiNLP/pythainlp — run as a one-shot script
+     that writes JSON the stdlib build reads, never imported by build.py.
+     - soundex(engine='prayut_and_somchaip'): Thai–English CROSS-SCRIPT
+       soundex, built for exactly the transliterated-name case. Index
+       the code; a query in either script hits. Also the blocking key
+       for conflating a Thai sign against a Latin Overture/Foursquare
+       name.
+     - util.eng_to_thai / thai_to_eng: wrong-keyboard-layout rescue
+       (Thai typed with the layout stuck on English). Two 100-line
+       dicts, portable to JS.
+     - spell: build a SymSpell deletes table from OUR 88k names + trade
+       terms instead of the Thai National Corpus. ~200 lines of JS.
+     - transliterate.romanize(engine='royin') as a SECOND indexed field
+       beside translit.py's output, not a replacement: yesterday
+       measured ours 2.3x closer to the signs, but indexing both
+       catches the Wualai / Wua Lai class either way.
+
+2.7  Thai NER — pythainlp/thainer-corpus-v2-base-model (HF, CC-BY-4.0)
+     WangchanBERTa base, F1 0.85, tags PERSON / LOCATION / ORG. Run
+     once offline over the 88k names: "ร้านนวดตอกเส้นป้าแดง" → ORG
+     "ป้าแดง", residual "นวดตอกเส้น" becomes the offers field. That is
+     the structural cure for "indexes what a place is called, never
+     what it offers". Caveat on the model card: pre-tokenise with
+     word_tokenize or the tags are wrong. CPU, ~an hour for 88k.
+
+2.8  bge-m3 SPARSE head — we already run the dense head on Workers AI
+     MIRACL Thai nDCG@10: dense 81.8, dense+sparse 83.3. The sparse
+     output is a learned lexical weighting — the rare-word signal we
+     lack. Whether @cf/baai/bge-m3 exposes sparse output is NOT
+     verified (docs do not print the schema; a community request
+     suggests dense-only). If not, FlagEmbedding (MIT) offline once,
+     store each record's top-k sparse terms as an indexed field.
+
+2.9  Reranker — BAAI/bge-reranker-v2-m3 (Apache-2.0, Thai ~81.7).
+     The smaller bge-reranker-base is already on Workers AI. Rerank the
+     top 30 only for multi-word queries. Jina's reranker is
+     CC-BY-NC — skip.
+
+2.10 ItemsJS — https://github.com/itemsapi/itemsjs — Apache-2.0, 408★
+     Facets with AND/OR per facet, counts, zero-bucket hiding, similar
+     items by field, "up to 100k items". Our Term (count) browse and
+     the boolean-refine drawers are its facet model; would replace
+     bespoke count code. Loads everything in memory — same as today.
+
+2.11 "Similar places" needs no library: top-10 nearest by bge-m3 cosine
+     within the same kind (one Vectorize query per record, offline),
+     a tag co-occurrence PMI table (stdlib), a seeded per-day random
+     walk. Static JSON, no tracking, works offline.
+
+Browser-side embeddings: NOT NOW. multilingual-e5-small int8 is 113 MB,
+potion-multilingual 128 MB; multilingual vocabularies make every
+"small" model large. Embeddings stay at the edge.
+
+------------------------------------------------------------------
+3. MAPPING
+------------------------------------------------------------------
+3.1  MapLibre GL JS v6.7.0 / v6.8.0 — we vendor v5.24.0
+     https://github.com/maplibre/maplibre-gl-js — BSD-3
+     v6.7.0 (released 2 Sept 2026, six days ago): "Wrap Thai, Khmer,
+     Burmese, Lao labels at word boundaries" via Intl.Segmenter with a
+     grapheme guard so a tone mark never starts a line; and font-faces:
+     a style can name the self-hosted Noto Sans Thai as a CSS
+     @font-face, so text shapes in the browser and the PBF glyph-range
+     fetches go away (bandwidth win). v6.8.0 (7 Sept) builds the
+     segmenter lazily. Cost: a version bump + a test page of tambon
+     labels; the PR itself says combining-mark positioning is still
+     incomplete. Test before deploying.
+
+3.2  Tambon POLYGONS — the largest geocoder gain available
+     https://github.com/DevelopedbyWill/thailand-canonical-admin-names
+     CC-BY-4.0 (data), 7,436 tambon polygons in a 7.1 MB GeoJSON, from
+     OCHA COD-AB (Royal Thai Survey Dept). Same polygons:
+     prasertcbs/thailand_gis (113★, no licence stated) and HDX
+     cod-ab-tha. We hold tambon CENTROIDS built from our own pins
+     (geocode_local.py) and distrust thin ones. With polygons: cut the
+     43 CM+CR amphoe at build time; point-in-polygon every pin to get
+     a verified tambon on every record; reject any parsed address whose
+     tambon polygon does not contain the candidate pin (kills most
+     ±3 km misses); reverse-geocode the 2,116 unpinned to a tambon.
+     No village (moo) polygons exist open anywhere.
+
+3.3  kdbush + geokdbush + flatbush — https://github.com/mourner/kdbush
+     ISC. A static spatial index as ONE ArrayBuffer; KDBush.from(buffer)
+     loads without rebuilding; geokdbush.around(lon, lat, n, maxKm).
+     build.py writes the buffer (documented flat layout: ids + coords;
+     ~1.4 MB for 88k, gzips well) to R2; the browser answers "coffee
+     within 800 m of Chang Phueak Gate" in microseconds with no
+     server. This is the where-question tool the parking bug asked for.
+     Cost: a day matching kdbush's header layout from Python.
+
+3.4  geojson-path-finder — https://github.com/perliedman/geojson-path-finder
+     ISC, 332★, deps @turf/distance + tinyqueue. Dijkstra/A* over a
+     GeoJSON line network in the browser. The 9,767-node road graph is
+     already the right input; ride-planning point-to-point is a direct
+     fit. Isochrones (the breathing map) need one-to-many, which the
+     public API lacks — the graph object is exposed, ~40 lines of
+     Dijkstra-to-all + a concave hull gives the polygon. City scale,
+     not province.
+
+3.5  maplibre-contour — https://github.com/onthegomap/maplibre-contour
+     BSD-3, 286★. Contours + hillshade for Doi Suthep from one
+     self-hosted DEM tileset (Copernicus 30 m → rio-rgbify → PMTiles),
+     computed in the browser. DEM tiles are heavy: behind a toggle,
+     capped zoom.
+
+3.6  maplibre-offline-pmtiles — https://github.com/makinacorpus/maplibre-offline-pmtiles
+     MIT, 9★, tiny. downloadMap / loadMap into OPFS; 10–100 MB packs.
+     A "take Chiang Rai offline" button. Small enough to vendor if it
+     goes stale. Glyphs need the service worker (fonts are already
+     self-hosted).
+
+3.7  overture-geocoder — https://github.com/brad-richardson/overture-geocoder
+     MIT, active this month. A PATTERN, not a dependency: Rust Worker
+     + SQLite/FTS5 shards in R2 read by range. Same stack as ours.
+     SQLite FTS5's trigram tokenizer indexes Thai with NO segmentation
+     at all. Shard CM/CR records + tambon + sois and answer gazetteer
+     queries from the Worker in tens of ms. Complements Vectorize.
+
+3.8  thaiaddress — https://github.com/425degree-developers/thaiaddress
+     Apache-2.0, 66★, ML parser: name / tambon / amphoe / postcode /
+     phone out of a raw address string, reported F1 0.94 on limited
+     data. A pre-pass before geocode_local; accuracy on sois
+     unverified.
+
+3.9  Romanisation lookup: pythainlp/thai-romanization-dataset (HF,
+     647k word→roman pairs, rich in ตำบล/บ้าน names) as an
+     exact-match layer BEFORE translit.py's rules. CC-BY-SA-3.0: a
+     shipped table derived from it is share-alike. Fork B.
+     wannaphong/thai-english-transliteration-dictionary (3,868 pairs,
+     CC-BY-4.0) has no share-alike.
+
+Set aside: libpostal (1.8 GB model, no Thai parsing) · Photon / Pelias
+/ Nominatim (Java/Elastic servers) · Valhalla (a server; right only if
+browser routing runs out of road) · h3-js / supercluster (kdbush covers
+radius; MapLibre already embeds supercluster) · Overture addresses
+(Thailand not covered).
+
+------------------------------------------------------------------
+4. RECORDS + FIELDS
+------------------------------------------------------------------
+4.1  Foursquare OS Places — https://huggingface.co/datasets/foursquare/fsq-os-places
+     Apache-2.0, gated (name + intended use, free), monthly, latest
+     2026-08-11. 26 fields: tel, website, email, instagram,
+     facebook_id, address, postcode, date_closed, date_refreshed. NO
+     hours. Yesterday: "worth one login to measure; not measured".
+     Still not measured. The ungated mirror do-me/foursquare_places_100M
+     (2024 snapshot, country column) gives a Thailand count without
+     the gate. Overture already folds 855 Foursquare rows north; this
+     is the full set. Risk: Latin-script addresses, stale venues (use
+     date_closed). Fork C.
+
+4.2  data.go.th FDA drug-sale licensees — updated 2026-05-28, Open Data
+     Common. Traditional-medicine (ขยบ), veterinary (ขย3) and wholesale
+     (ขย4) files are national; the modern-drug retail file (ขย1) is
+     Bangkok only — the pharmacies people want are NOT in the open
+     file. Small add, honest limit.
+
+4.3  Wikidata full dump on HF (philippesaade/wikidata, CC0, 2026-05,
+     Parquet with coordinates) — 959 GB; a SPARQL query for two
+     provinces is cheaper. Low hundreds of QIDs. Not a priority.
+
+4.4  Entity resolution: Splink — https://github.com/moj-analytical-services/splink
+     MIT, DuckDB backend (already on this Mac), block_on(tambon,
+     soundex key), per-pair probabilities to store as provenance
+     confidence. Replaces "same name within 300 m" with a measured
+     match for the Foursquare and Overture folds. Zingg is AGPL,
+     skip.
+
+4.5  Street imagery for later verification: Mapillary (CC-BY-SA) has
+     Chiang Mai coverage, mostly old; KartaView getting Grab uploads,
+     gappy; Panoramax has no Thai instance. Share-alike bites any field
+     transcribed from an image. A verification photo per record via
+     Mapillary API v4 bbox is possible; the licence line is not.
+
+Dead ends checked: OpenAddresses (no Thailand) · Who's On First TH
+venues (SimpleGeo-era, no count) · Longdo (terms forbid derivatives)
+· TAT Data API (no licence text found; blocked until read) · Wongnai
+reviews on HF (no restaurant name field, LGPL) · GTFS for Chiang Mai
+(16 routes, 2017–2018 service dates, stale) · Commons categories (no
+by-name shop categories; 140 "unidentified Chiang Mai" files).
+
+------------------------------------------------------------------
+5. GROUND-TRUTHING
+------------------------------------------------------------------
+5.1  osm-opening-hours — https://github.com/westnordost/osm-opening-hours
+     MIT, StreetComplete's author, Kotlin Multiplatform with a JS
+     target; parses 99.1% of in-the-wild OSM hours strings and
+     round-trips. The extractable piece of StreetComplete's hours
+     quest. Build the JS bundle once (Maven only, no npm). Python
+     side: remi-dupre/opening-hours-rs (Apache/MIT, pip) at build time
+     → a 7×48 bitmap (42 bytes) per record; "open now" in the browser
+     becomes a bit test, no JS library shipped.
+
+5.2  LINE LIFF v2 starter + hono-linebot-middleware
+     https://github.com/line/line-liff-v2-starter (Apache-2.0, 377★)
+     + @nakanoaas/hono-linebot-middleware on JSR (zero-dep HMAC check
+     on Web Crypto, runs on Workers). The one-tap micro-check is a
+     LIFF page opened from a LINE message; liff.getProfile() gives a
+     stable pseudonymous id for consensus without an account;
+     liff.scanCodeV2() for QR check-in (examples: tanimon/liff-qr-code-scan).
+     The check-then-discard proximity rule is our code, not LINE's.
+     A weekend on the Worker we already run.
+
+5.3  Panoramax API + sgblur — https://gitlab.com/panoramax/server/api
+     MIT; Python/Flask + PostGIS, STAC, Docker, CLI uploader; sgblur
+     = YOLOv11 face/plate detection + lossless JPEG blur. A
+     self-hosted, blurred, geo-indexed store for Beer's ride-cam
+     photos; each record links its nearest shopfront photo. Needs a
+     server (Postgres; GPU optional). Highest ceiling on this list.
+     Fork D.
+
+5.4  mapillary_tools — https://github.com/mapillary/mapillary_tools
+     BSD-2. Reads GoPro/Insta360/BlackVue telemetry, samples one frame
+     per N metres, geotags from a GPX, runs fully OFFLINE without
+     uploading. The ride-cam → geotagged frames step; hand frames to
+     5.3, not to Mapillary (Meta).
+
+5.5  Thai sign OCR — gate on a benchmark before any goes in:
+     - PaddlePaddle/th_PP-OCRv5_mobile_rec (HF, Apache-2.0): tens of
+       MB, CPU, 82.7% exact-line on Paddle's Thai set; document-tuned.
+     - typhoon-ai/typhoon-ocr1.5-2b (HF, Apache-2.0, Jan 2026, GGUF +
+       Ollama): strongest open Thai reader that fits a laptop; ask for
+       name / phone / hours as JSON. Document-tuned; sign accuracy
+       unproven.
+     - typhoon-ai/ThaiOCRBench (HF, CC-BY-SA-4.0, 2,808 samples incl.
+       signage) and openthaigpt/thai-ocr-evaluation (104 images, signs
+       and storefronts): the eval sets. No Thai storefront training
+       set exists anywhere — 200 of Beer's photos labelled is a
+       dataset worth more than any of these.
+     - Qwen3-VL-2B is Apache-2.0 (Qwen2.5-VL-3B is non-commercial
+       research licence — avoid).
+     Then python-phonenumbers (Apache-2.0) pulls and validates Thai
+     numbers out of the OCR text, and normalises the phones we hold.
+
+5.6  Crowd-Kit — https://github.com/Toloka/crowd-kit — Apache-2.0
+     Dawid-Skene / GLAD / MACE over (task, worker, label) rows: the
+     peer-consensus promotion rule for "still open? sign says X?",
+     worker quality from agreement, no leaderboard needed. Nightly
+     batch over Worker-collected votes; pandas dependency.
+
+5.7  imagededup — https://github.com/idealo/imagededup — Apache-2.0,
+     5.7k★. PHash to reject re-submitted or scraped photos and cluster
+     Beer's frames per shopfront. A few lines.
+
+5.8  Anti-fraud shapes: OSMCha (GPLv3) — copy the RULE SHAPES (burst
+     volume, novice weight, word lists) into the Worker gate, not the
+     code. Valhalla trace_attributes for "could a motorbike have been
+     here since the last accepted check" — one-shot at submission,
+     then discard, consistent with no-history.
+
+5.9  Every Door — https://github.com/Zverik/every_door — GPL-3, 551★,
+     NLnet-funded 2025. Built for walking a street confirming POIs
+     fast. As-is it writes to OSM (each confirm sets check_date), not
+     to us; a motdang backend means a fork under GPL. ODK Collect
+     (Apache-2, offline, GeoPoint + photo) is the zero-build option for
+     Beer's forms; wrong for the LINE public.
+
+Set aside: MapRoulette (JVM + PostGIS for one surveyor; Four Doors
+already covers the loop) · EgoBlur (fallback anonymiser if no
+Panoramax; CPU "very slow") · StreetComplete itself (hours widget is
+embedded in the app; 5.1 is the reusable piece) · Surya (GPL with
+revenue cap) · EasyOCR Thai (weakest) · TrOCR Thai (handwriting).
+
+------------------------------------------------------------------
+6. HUMAN EXPERIENCE
+------------------------------------------------------------------
+6.1  BudouX Thai at BUILD time — https://github.com/google/budoux
+     Apache-2.0, 1.8k★, ~15 kB model, pip budoux
+     load_default_thai_parser(). build.py inserts zero-width spaces
+     into place names and one-liners (grep: build.py emits none
+     today). Every Thai line on 25k pages breaks at phrase edges, on
+     file:// too, zero client JS. Low-vision win: no mid-word wraps at
+     large zoom. One pass. Google-authored but runs offline in Python;
+     no call home.
+
+6.2  Search-query log — no new tool
+     The Worker already writes to Analytics Engine and trims the query
+     string on purpose. The decided F3 log is the search Worker writing
+     {q, hits, ts} to a second dataset. 90-day retention; archive to
+     R2. web-vitals (Apache-2.0, 3 kB) beacons to the same endpoint if
+     RUM is wanted; Counterscale (MIT, 2.1k★, one Worker + AE) if a
+     dashboard is wanted. Neither is required for F3.
+
+6.3  quicklink — https://github.com/GoogleChromeLabs/quicklink
+     Apache-2.0, <2 kB. Prefetches in-viewport links; goes QUIET on
+     saveData or slow effectiveType. Drop-in on shelf pages.
+
+6.4  vacanza/holidays — Thai public holidays with Thai names, and
+     buddhist_sabbath_dates() valid 1914–2157. We compute wan phra
+     already; this is the holiday-closure table for the lamps and a
+     cross-check. Emit one JSON per year; vendor one module.
+
+6.5  Accessibility audit in CI: pa11y-ci (LGPL, axe-core 4.11,
+     --sitemap, concurrency) on a stratified sample (one page per
+     template + 200 random) nightly, full 25k monthly; IBM
+     equal-access achecker (Apache-2.0, v4.0.33 released 5 days ago)
+     scans the docs/ directory directly with no browser. Two rulesets;
+     disagreement = look. Extends test_contrast / test_alt_text to
+     focus order, labels, reflow.
+
+6.6  Read-aloud — Piper Thai voice th_TH/tsync2 (MIT, 63 MB, added to
+     rhasspy/piper-voices THIS WEEK) via k2-fsa/sherpa-onnx
+     (Apache-2.0, Android TTS-engine APK, WASM). Home = the Android
+     APK, bundled once, offline. In-browser WASM is 60 MB — opt-in
+     download only. The zero-byte alternative is the OS speechSynthesis
+     Thai voice: on Android that voice is Google's engine. Fork E.
+     facebook/mms-tts-tha is CC-BY-NC — licence risk with an affiliate
+     rail; F5-TTS-THAI needs a CUDA GPU.
+
+6.7  Voice search — cheapest path: mic → Worker →
+     @cf/openai/whisper-large-v3-turbo (already on Workers AI, Thai
+     baseline) → search box. typhoon-ai/typhoon-whisper-turbo (MIT,
+     0.8B, 11k h Thai) and typhoon-asr-realtime (CC-BY-4.0, 114M, CPU)
+     beat it on Thai but need a host we do not run. Chrome's built-in
+     SpeechRecognition sends audio to Google — avoid.
+
+6.8  Thai font subsetting — pyftsubset (fonttools) with
+     --unicodes="U+0E00-0E7F,U+0020-007E" --layout-features='*' so
+     mark/mkmk stacking survives; two weights, font-display swap.
+     Test sara am rendering after.
+
+6.9  Reader-assistant: typhoon-ai/typhoon2.5-qwen3-4b (Apache-2.0, 4B,
+     function calling with OpenAI-style tool schema, 5 GGUF quants) is
+     the Thai model that demos exactly "open now near me" as a tool
+     call against /api/v1 — but it is not on Workers AI; needs a host.
+     Workers AI's Thai-listed option is gemma-sea-lion-v4-27b-it
+     (per-token). dtinth/thaiexamjs has provider adapters worth
+     borrowing for A/B on our own 52 questions; tests/eval.py is
+     already the right shape.
+
+Needs no library: Buddhist-era dates via
+Intl.DateTimeFormat('th-TH-u-ca-buddhist'); compass via
+DeviceOrientationEvent (iOS needs a gesture-gated permission call);
+share-to-LINE via https://line.me/R/share?text=.
+
+------------------------------------------------------------------
+7. TOP PICKS, across all five areas, by delight per hour
+------------------------------------------------------------------
+1. IDF in searchcore.js (2.1) — hours; ends the guitar bug.
+2. BudouX zero-width spaces at build (6.1) — one pass; every Thai
+   line on every page.
+3. Tambon polygons into geocode_local (3.2) — the biggest pin gain.
+4. MapLibre 5.24 → 6.8 (3.1) — Thai label wrapping + local fonts;
+   test first.
+5. kdbush buffer from build.py (3.3) — the where-question in the
+   browser, no server.
+6. Intl.Segmenter + PyThaiNLP cross-script soundex (2.2, 2.6) — Thai
+   and English queries meet.
+7. Thai NER → offers field (2.7) — the structural cure for
+   name-vs-offer, offline.
+8. osm-opening-hours / opening-hours-rs bitmap (5.1) — open-now as a
+   bit test.
+9. LIFF one-tap check on the existing Worker (5.2) — Ground Truth's
+   first door.
+10. Foursquare OS Places, measured (4.1) — one login; the only
+    unmeasured big source left.
+
+------------------------------------------------------------------
+8. FORKS — yours
+------------------------------------------------------------------
+A. Browser search engine. (i) Keep searchcore.js, add IDF + Intl.
+   Segmenter — hours, no new dependency, index stays 9.5 MB. (ii)
+   MiniSearch — a day, 8 kB, same one-file index, gets fuzzy/prefix.
+   (iii) Pagefind — a Rust binary in the build, fragments the index so
+   a query costs tens of kB, its ranking not ours. (iv) Orama —
+   biggest migration, the only one with geosearch in-index. Worst
+   case for (iii)/(iv): a ranking we cannot tune when the next guitar
+   bug arrives. (i) is safe to do regardless; (ii)–(iv) are the fork.
+   No expiry. Retriever-first (your 9/7 decision) makes the browser
+   engine the offline + instant-name path, which argues for (i).
+
+B. Share-alike data. The 647k-pair romanisation dataset is CC-BY-SA;
+   a lookup table built from it must ship share-alike. Use it (better
+   romanisation, licence line on the table) or use only the 3,868
+   CC-BY pairs. No expiry.
+
+C. Foursquare gate. One login with name + intended use, Apache-2.0
+   data, then measure Thailand. Or measure on the ungated 2024 mirror
+   first and decide after. Worst case: an hour spent on a source that
+   duplicates Overture's 855 rows. No expiry; monthly releases.
+
+D. Panoramax server. The first item on this list that needs a server
+   (Postgres, optional GPU). You struck "purely static" on 9/7, so it
+   is presentable: a self-hosted, blurred, geo-indexed photo layer
+   under every record. Cost: a VPS ~$10/mo + a weekend. Or skip the
+   server: mapillary_tools + imagededup + a folder on R2 gets 80% of
+   the pipeline with no photo browser. No expiry.
+
+E. Read-aloud voice. (i) OS speechSynthesis — 0 bytes, works today,
+   on Android the voice is Google's. (ii) Piper th_TH in the APK via
+   sherpa-onnx — 63 MB once, MIT, offline, ours. (iii) both, OS voice
+   as fallback. Worst case for (i): a reader who chose the site for
+   no-Google gets Google's voice. No expiry.
+
+F. OCR route. Gate PaddleOCR-Thai and Typhoon OCR on ThaiOCRBench +
+   200 of Beer's own sign photos before either enters the pipeline;
+   or skip OCR and have Beer type the sign. Worst case without the
+   gate: fluent wrong phone numbers on real shops. Expiry: the day
+   Beer's first ride-cam batch lands.
+
+G. Accessibility CI. pa11y-ci sample nightly + achecker on docs/ —
+   a Node runner (GitHub Action or this Mac). Or extend the two
+   stdlib tests by hand. No expiry.
+
+H. Push the Hugging Face dataset. It is built (28.7 MB, Sept 5,
+   places.jsonl, dataset card written) and never pushed. One
+   `huggingface-cli upload`. It publishes the same rows llms-full.txt
+   already publishes. Or leave it. Worst case: a stale copy people
+   cite — re-run make_hf_dataset.py in the publish walk. No expiry.
+
+------------------------------------------------------------------
+Sources, all fetched 2026-09-08
+------------------------------------------------------------------
+https://github.com/Pagefind/pagefind/blob/main/CHANGELOG.md
+https://github.com/maplibre/maplibre-gl-js/releases
+https://github.com/maplibre/maplibre-gl-js/pull/8237
+https://github.com/lucaong/minisearch
+https://github.com/oramasearch/orama
+https://github.com/xhluca/bm25s
+https://github.com/PyThaiNLP/pythainlp
+https://huggingface.co/pythainlp/thainer-corpus-v2-base-model
+https://huggingface.co/BAAI/bge-reranker-v2-m3
+https://arxiv.org/html/2402.03216v3
+https://github.com/itemsapi/itemsjs
+https://github.com/DevelopedbyWill/thailand-canonical-admin-names
+https://github.com/prasertcbs/thailand_gis
+https://github.com/mourner/kdbush
+https://github.com/mourner/geokdbush
+https://github.com/perliedman/geojson-path-finder
+https://github.com/onthegomap/maplibre-contour
+https://github.com/makinacorpus/maplibre-offline-pmtiles
+https://github.com/brad-richardson/overture-geocoder
+https://github.com/425degree-developers/thaiaddress
+https://huggingface.co/datasets/pythainlp/thai-romanization-dataset
+https://huggingface.co/datasets/foursquare/fsq-os-places
+https://docs.foursquare.com/data-products/docs/places-os-data-schema
+https://data.go.th/dataset/drug-sale-licensee
+https://github.com/moj-analytical-services/splink
+https://github.com/westnordost/osm-opening-hours
+https://github.com/remi-dupre/opening-hours-rs
+https://github.com/line/line-liff-v2-starter
+https://jsr.io/@nakanoaas/hono-linebot-middleware
+https://gitlab.com/panoramax/server/api
+https://github.com/cquest/sgblur
+https://github.com/mapillary/mapillary_tools
+https://huggingface.co/PaddlePaddle/th_PP-OCRv5_mobile_rec
+https://huggingface.co/typhoon-ai/typhoon-ocr1.5-2b
+https://huggingface.co/datasets/typhoon-ai/ThaiOCRBench
+https://huggingface.co/datasets/openthaigpt/thai-ocr-evaluation
+https://github.com/Toloka/crowd-kit
+https://github.com/idealo/imagededup
+https://github.com/daviddrysdale/python-phonenumbers
+https://github.com/Zverik/every_door
+https://github.com/google/budoux
+https://github.com/GoogleChromeLabs/quicklink
+https://github.com/vacanza/holidays/blob/main/holidays/calendars/thai.py
+https://github.com/pa11y/pa11y-ci
+https://github.com/IBMa/equal-access/releases
+https://huggingface.co/rhasspy/piper-voices/tree/main/th/th_TH
+https://github.com/k2-fsa/sherpa-onnx
+https://huggingface.co/typhoon-ai/typhoon-whisper-turbo
+https://huggingface.co/typhoon-ai/typhoon-asr-realtime
+https://huggingface.co/typhoon-ai/typhoon2.5-qwen3-4b
+https://github.com/dtinth/thaiexamjs
+https://github.com/benvinegar/counterscale
+https://github.com/GoogleChrome/web-vitals

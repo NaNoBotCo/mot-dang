@@ -91,6 +91,13 @@ TIME_RE = re.compile(r'data-showtime="(\d+)"[^>]*>\s*((?:[01]?\d|2[0-3]):[0-5]\d
 BLOCK_RE = re.compile(r'bscbbm-cover-title">')
 DUR_RE = re.compile(r'bscbbm-cover-time">.*?([\d]{2,3})\s*นาที', re.S)
 CATE_RE = re.compile(r'bscbbm-cover-cate">.*?</img>?\s*([^<]{2,80})', re.S)
+CATE_DIV_RE = re.compile(r'bscbbm-cover-cate">(.*?)</div>', re.S)
+SLUG_RE = re.compile(r'href="/movie/([a-z0-9-]+)"')
+SCREEN_SPLIT = 'bscbbm-theatre-list-name'
+SCREEN_RE = re.compile(r'<li>\s*([^<]{1,40}?)\s*</li>')
+SOUND_RE = re.compile(r'icon-sound">\s*([A-Z]{2}/(?:[A-Z]{2}|--))\s*<')
+RATE_RE = re.compile(r'/rating/rating_(\d+)\.png')
+FMT_RE = re.compile(r'/booking/assets/images/([A-Za-z0-9-]+)\.png')
 
 
 def fetch(c, cinema_id, day):
@@ -134,14 +141,46 @@ def parse(markup):
         if not times:
             continue
         dur = DUR_RE.search(seg)
-        cate = CATE_RE.search(seg)
+        cdiv = CATE_DIV_RE.search(seg)
+        genres = []
+        if cdiv:
+            text = html.unescape(re.sub(r"<[^>]+>", " ", cdiv.group(1)))
+            genres = [g.strip() for g in text.split("/") if g.strip()]
+        slug = SLUG_RE.search(seg)
         out.append({
             "title": html.unescape(re.sub(r"<[^>]+>", "", title)).strip(),
             "minutes": int(dur.group(1)) if dur else None,
-            "category": html.unescape(cate.group(1)).strip().rstrip("/ ") if cate else None,
+            "category": "/".join(genres) or None,
             "times": times,
+            # Same response, kept since 2026-10-03 for /films.html: the
+            # chain's own Latin slug for the film, its genre words, and one
+            # row per screening with the hall, the sound/subtitle pair
+            # ("TH/EN" = Thai sound, English subtitles) and the format icon's
+            # file stem. rate is the number in the rating icon's file name;
+            # the response carries no text for it.
+            "slug": slug.group(1) if slug else None,
+            "genres": genres,
+            "shows": screenings(seg),
         })
     return out
+
+
+def screenings(seg):
+    """One film's segment -> [{t, screen, sound, fmt, rate}], sorted by time."""
+    rows = []
+    for part in seg.split(SCREEN_SPLIT)[1:]:
+        scr = SCREEN_RE.search(part)
+        snd = SOUND_RE.search(part)
+        rate = RATE_RE.search(part)
+        fmt = FMT_RE.search(part)
+        for _sid, t in TIME_RE.findall(part):
+            rows.append({"t": t,
+                         "screen": scr.group(1).strip() if scr else None,
+                         "sound": snd.group(1) if snd else None,
+                         "fmt": fmt.group(1) if fmt else None,
+                         "rate": int(rate.group(1)) if rate else None})
+    rows.sort(key=lambda r: (r["t"], r["screen"] or ""))
+    return rows
 
 
 def main():

@@ -72,7 +72,7 @@ outbound map link   maps.google.com/?q=<lat>,<lng> — drops a pin on empty
 ────────────────────────────────────────────────────────────────────────────
 USER STORIES — DOES IT WORK TODAY?
 ────────────────────────────────────────────────────────────────────────────
-S1  A tourist in a Grab types "tok sen chiang mai" into Google.
+S1  A visitor in a Grab types "tok sen chiang mai" into Google.
     Wants: a place, tonight, open late, walkable.
     Lands: nowhere.  We hold 30 tok-sen records and Lila answers the exact
     query in test_answer_shaped.py — and there is no /asked/tok-sen.html for

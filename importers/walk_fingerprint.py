@@ -41,11 +41,12 @@ import json
 import sys
 from pathlib import Path
 
-# Directories that are never inputs to a build: build output, scratch, the
+# Directories that are never inputs to a build: build output (docs, and
+# docs.next while a build fills it before the rename), scratch, the
 # suggestion inbox (which carries senders' emails and reaches nothing on its
 # own), and the basemap archive — 116 MB that changes only when it is
 # re-extracted by hand and never rides in docs/ anyway.
-SKIP_DIRS = {".git", "docs", "cache", "_incoming", "node_modules",
+SKIP_DIRS = {".git", "docs", "docs.next", "cache", "_incoming", "node_modules",
              ".venv", "__pycache__", "tiles"}
 
 # Top-level JSON keys that record WHEN we looked, not WHAT we found.
@@ -95,11 +96,21 @@ def digest(path):
 def manifest(root="."):
     out = {}
     root = Path(root)
+    # Built from a commit (importers/build_code.py), the code is HEAD's: an edit
+    # not yet committed is not news, and a commit is.
+    from_commit = (root / "cache" / "build-from-commit").exists()
+    if from_commit:
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import build_code
+        for rel, blob in build_code.committed("HEAD", root).items():
+            out[rel] = "git:" + blob
     for p in sorted(root.rglob("*")):
         if not p.is_file():
             continue
         rel = p.relative_to(root)
         if any(part in SKIP_DIRS or part.startswith(".") for part in rel.parts):
+            continue
+        if from_commit and build_code.is_code(rel.as_posix()):
             continue
         try:
             out[str(rel)] = digest(p)

@@ -1,0 +1,102 @@
+CHIANG RAI — WHAT IS ACTUALLY MISSING, AND THE SOURCE THAT FILLS IT
+2026-09-18
+
+Nan: "I kind of resent that Chiang Rai is deficient in any of this."
+She is right to, and the first finding is that most of it is not deficient.
+
+
+================================================================================
+1. THE TWO PROVINCES, COUNTED
+================================================================================
+
+                              Chiang Mai      Chiang Rai
+    records                       62,848          25,398
+    a map pin                      99.3%           99.6%   CR ahead
+    Thai in the name               66.8%           78.1%   CR ahead
+    a Facebook page                79.0%           79.0%   level
+    a phone number                 70.1%           67.2%   3 points
+    an address                     57.3%           51.7%   6 points
+    opening hours                   6.4%            1.6%   the gap
+
+  Source mix is proportional — directory 0.39 of Chiang Mai's, OSM 0.37,
+  register 0.55, opendata 1.00. Chiang Rai is not under-sourced. It is a
+  smaller province carried by the same pipeline.
+
+  The README called it "a wireframe that grows". That was written in August at
+  3,208 records and has been propagating ever since. Corrected at source today.
+
+
+================================================================================
+2. THE HOURS GAP IS ONE HARVEST, NOT A PROVINCE
+================================================================================
+
+  Hours by source combination, records carrying hours:
+
+                              Chiang Mai              Chiang Rai
+    directory only       1,808 of 47,474  3.8%      0 of 18,890  0.0%
+    OSM only             1,196 of  7,997 15.0%    246 of  3,278  7.5%
+    directory + OSM        884 of  3,683 24.0%    138 of    930 14.8%
+
+  Zero. Not few. Every directory-sourced record in Chiang Rai lacks hours while
+  one in twenty-six of Chiang Mai's carries them.
+
+  Reading the receipts on those 1,808: they came from cmhy.city, harvested
+  2026-09-04. A Chiang Mai directory. There is no Chiang Rai edition of it, and
+  no Chiang Rai equivalent was ever pointed at.
+
+  Ruled out the same day: Overture publishes no hours at all. Its places schema
+  was read at the source parquet (release 2026-08-19.0) — id, categories,
+  confidence, websites, emails, socials, phones, brand, addresses, names,
+  sources, operating_status, taxonomy, bbox. No hours column exists, so
+  "hours": None in import_overture.py is correct and not a bug.
+
+  So: Chiang Mai got a local Thai directory read. Chiang Rai did not. That is
+  the whole of the difference.
+
+
+================================================================================
+3. THE SOURCE THAT FILLS IT — MEASURED, THEN BUILT
+================================================================================
+
+  thdata.co carries both provinces, in Thai, with a JSON-LD block per place and
+  the hours and phone in its FAQ block — and it says "ยังไม่มีข้อมูล" when it
+  holds neither, which is a stated absence rather than a blank to guess at.
+
+  importers/harvest_thdata.py — written today. Snapshot-first into
+  cache/thdata/, one page at a time, 2.5 s between fetches, an identified
+  User-Agent, stdlib only, `?page=N` pagination, stops when a page repeats.
+  Writes _incoming/thdata-<prov>.json and does NOT touch data/canonical.
+
+  First run, four Chiang Rai trades:
+
+      226 places
+      hours       196   87%
+      phone       209   92%
+      exact pin   226  100%
+
+  Chiang Rai holds 400 records with hours in total today. One run across four
+  trades found 196 more.
+
+      barber ร้านตัดผมชาย 19 · massage-spa นวดและสปา 72 ·
+      beauty-salon ร้านเสริมสวย 135 · laundry ร้านซักรีด 0 (the slug is wrong;
+      find what the site calls it)
+
+
+================================================================================
+4. WHAT HAPPENS NEXT, AND WHAT IT NEEDS
+================================================================================
+
+  Behind the build lock, in this order:
+
+  1  Match and fill. The WO-54 rule applies — a directory row within RADIUS
+     metres of a canonical record on the SAME category is that record; distance,
+     not name, because a shop's Thai directory name and its OSM English name
+     rarely share a character. Fill hours and phone only where the record has
+     none. Stamp each filled field STATED with the thdata url and its
+     dateModified.
+  2  Then the rest of the categories, and the same run for Chiang Mai, where
+     47,474 directory records also have no hours.
+  3  Then the shelves the read turns up that Chiang Rai has no rule for yet.
+
+  A build has held cache/build.lock since 18:53, so nothing above was applied.
+  The harvest is safe to run while it holds; the fill is not.

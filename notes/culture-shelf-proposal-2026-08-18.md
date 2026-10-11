@@ -101,7 +101,7 @@ Genuinely significant — วัวลายศิลป์ (Wualai silver), ห
 Kilns, celadon), Sop Moei Arts (Karen textile, fair trade), Thai Tribal Crafts,
 Vila Cini (Lanna silk), Weave Artisan Society, Kang Wat.
 
-Also on the same shelf — S.N. Latex and Karaked Latex (tourist mattress
+Also on the same shelf — S.N. Latex and Karaked Latex (visitor mattress
 showrooms), 053 Chemical Brothers Tattoo & Barber, Elephant parade guesthouse,
 Anusarn Market, Dogs siam, Herb Basics (a cosmetics chain), Сувениры и открытки.
 
@@ -145,8 +145,8 @@ Four, and they are not the massage shelf's four:
    or, the other way round, never learns that the workshop behind the shop lets
    you watch the work, which is the entire reason to go.
 
-Note what is *not* on that list: nothing about authenticity. Per the standing
-rule, this shelf will not sort places into real-craft and tourist-craft. A
+Note what is *not* on that list: nothing about which is taken to be the true one. Per the standing
+rule, this shelf will not sort places by who the craft is taken to be for. A
 showroom that buys in stock and a workshop that carves on site are **different
 in a way you can see from the pavement** — *is anyone making anything here,
 today* — and that is the distinction to record. Not which one deserves respect.
@@ -333,7 +333,7 @@ from one person's afternoon is testimony it cannot support.
 is listed with a reason. Expect `library-childrens`, `bookshop-dhamma`,
 `museum-house`, `tung`, `lacquer` and several craft keys to land there on day
 one — and the reason for `lacquer` is worth writing out in full, because a
-shelf that reads "the ants are still collecting" is the honest statement for a
+shelf that reads "the ants are still collecting" is the plain statement for a
 craft that certainly exists in this city and that OSM has never tagged.
 
 ### F. The join nobody else can make  *(the reason to do this at all)*

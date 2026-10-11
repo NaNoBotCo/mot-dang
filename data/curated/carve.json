@@ -207,7 +207,7 @@
    "th": "ทำเก่า · แอนติค",
    "rtgs": "tham kao",
    "en": "ageing and antiquing",
-   "note_th": "ทำของใหม่ให้อ่านเป็นของเก่า เป็นงานที่บ้านถวายขึ้นชื่อ และเป็นเหตุผลที่ต้องถามตรง ๆ ว่าเก่าจริงหรือทำเก่า — คำถาม ไม่ใช่ข้อกล่าวหา",
+   "note_th": "ทำของใหม่ให้อ่านเป็นของเก่า เป็นงานที่บ้านถวายขึ้นชื่อ ฝีมือถึงขั้นที่คนซื้อถามกันตรง ๆ ว่าเก่าจริงหรือทำเก่า — ที่นี่การถามเป็นเรื่องปกติของการซื้อขาย ไม่ใช่ข้อกล่าวหา",
    "note_en": "Making new work read as old. Ban Tawai is known for it — reproductions good enough that the question has to be asked out loud rather than guessed at. Asking is not an accusation here; it is the normal transaction.",
    "src": "sawa"
   },
@@ -278,7 +278,7 @@
    "en": "Siamese rosewood and its genus",
    "latin": "Dalbergia cochinchinensis Pierre — สกุล Dalbergia ทั้งสกุล",
    "use_th": "ไม้เนื้อแข็งสีเข้ม พระไม้ ของแกะชิ้นเล็ก — ถามชนิดไม้และขอให้ระบุในใบเสร็จ",
-   "use_en": "Dark hardwood, small carvings and Buddha figures. Ask which wood, and ask for the species on the receipt.",
+   "use_en": "Dark hardwood, small carvings and Buddha figures.",
    "carry": "ask",
    "src": "cites"
   },
@@ -294,7 +294,7 @@
   }
  ],
  "carry_note": {
-  "th": "หน้านี้ไม่ทำธงพาขึ้นเครื่องซ้ำกับหน้า “ของฝากที่เดินทางได้” — ธงสี่แบบ กฎ และแหล่งอ้างอิงอยู่ที่นั่น ที่นี่มีแค่ชนิดไม้ที่ใช้จริงในหมู่บ้าน และคำถามที่ควรถามที่หน้าร้าน",
+  "th": "หน้านี้ไม่ทำธงพาขึ้นเครื่องซ้ำกับหน้า “ของฝากที่เดินทางได้” — ธงสี่แบบ กฎ และแหล่งอ้างอิงอยู่ที่นั่น ที่นี่มีแค่ชนิดไม้ที่ใช้จริงในหมู่บ้าน และคำถามที่ใช้กันที่หน้าร้าน",
   "en": "The four carry-flags, the law behind them and the sources live on the souvenir page and are not restated here. What this page adds is which woods are actually worked in this village, and the question to ask at the till.",
   "href": "souvenir.html"
  },
@@ -385,8 +385,8 @@
     "src": "prd35"
    }
   ],
-  "drift_th": "อย่าจดวันไว้ล่วงหน้าจากปีก่อน — งานเดินตามปีงบประมาณ เคยจัด 29 ม.ค.–4 ก.พ. ติดกันสิบห้าปี แล้วถูกย้ายไปสิ้นเดือนธันวาคมในปี 2548 และปี 2568 ก็มีสองครั้งในปีปฏิทินเดียว",
-  "drift_en": "Do not carry last year's dates forward. The fair runs on the fiscal year: it sat on 29 Jan–4 Feb for fifteen years, was moved to the turn of the year in 2005, and in 2025 it happened twice inside one calendar year.",
+  "drift_th": "วันของปีก่อนใช้กับปีนี้ไม่ได้ — งานเดินตามปีงบประมาณ เคยจัด 29 ม.ค.–4 ก.พ. ติดกันสิบห้าปี แล้วถูกย้ายไปสิ้นเดือนธันวาคมในปี 2548 และปี 2568 ก็มีสองครั้งในปีปฏิทินเดียว",
+  "drift_en": "Last year's dates do not carry forward. The fair runs on the fiscal year: it sat on 29 Jan–4 Feb for fifteen years, was moved to the turn of the year in 2005, and in 2025 it happened twice inside one calendar year.",
   "src": "mgr-capital"
  },
  "road": [
@@ -616,7 +616,7 @@
   ],
   "ask_th": "คำถามที่หน้าร้านจึงไม่ใช่ “ส่งได้ไหม” แต่เป็น “ร้านทำเรื่อง ศก.6 ให้ไหม หรือให้ผมทำเอง” — ร้านที่ส่งออกประจำมักตอบได้ทันที",
   "ask_en": "So the question at the till is not “can this be shipped” but “do you file the ศก.6, or do I?” A shop that exports regularly answers that one without hesitating.",
-  "caveat_th": "เอกสารชุดนี้ปรับปรุงกันยายน 2560 ค่าธรรมเนียมและที่อยู่เปลี่ยนได้ ให้ถือว่าหน้านี้บอกว่า “มีขั้นตอนอยู่และมีหน่วยงานเจ้าของเรื่อง” ส่วนตัวเลขวันนี้ต้องถามที่โต๊ะนั้น",
+  "caveat_th": "เอกสารชุดนี้ปรับปรุงกันยายน 2560 ค่าธรรมเนียมและที่อยู่เปลี่ยนได้ ให้ถือว่าหน้านี้บอกว่า “มีขั้นตอนอยู่และมีหน่วยงานเจ้าของเรื่อง” ส่วนตัวเลขของวันนี้อยู่ที่โต๊ะนั้น",
   "caveat_en": "That sheet was last updated in September 2017. Fees and addresses move. Read this page as saying there IS a procedure and there IS an office that owns it; today's numbers belong to that desk.",
   "src": "ditp-export"
  },

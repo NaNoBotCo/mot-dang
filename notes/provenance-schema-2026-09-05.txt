@@ -64,7 +64,7 @@ and `tests/test_provenance.py` fails if somebody adds GOV to it.  A promise a
 test can enforce is worth more than a promise in a note.
 
 ────────────────────────────────────────────────────────────────────────────
-WHAT THE BACKFILL CAN HONESTLY DO — AND WHAT IT REFUSES
+WHAT THE BACKFILL CAN DEFENSIBLY DO — AND WHAT IT REFUSES
 ────────────────────────────────────────────────────────────────────────────
 94% of the corpus carries EXACTLY ONE SOURCE — 22,652 of 24,059 records.  For
 those, provenance is not a guess: there was nowhere else a field could have

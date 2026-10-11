@@ -40,6 +40,7 @@ from __future__ import annotations
 import json
 import math
 import urllib.parse
+from bisect import bisect_left, bisect_right
 from collections import Counter, defaultdict
 
 CSS = """.threads{margin:1.2rem 0;padding:.8rem 1rem;background:#fff;
@@ -51,6 +52,7 @@ border:1px solid var(--soft);border-radius:.8rem}
 
 NEAR_M = 400          # a neighbour you can see from the doorway
 NEAR_K = 6            # how many of them are worth carrying
+_NEAR_DLAT = math.degrees(NEAR_M / 6371000.0) * 1.000001   # haversine's radius, a hair of slack
 MIN_CUISINE = 5       # a cuisine node needs a shelf behind it
 MIN_BRAND = 3         # two shops of a name is a coincidence; three is a chain
 
@@ -137,6 +139,11 @@ def build_graph(g, data):
         if (r.get("geoPrecision") or "exact") == "needs-pin":
             continue
         grid[(round(r["lat"], 2), round(r["lng"], 2))].append(r)
+    # Each cell sorted north to south, so a place reads only the band of its
+    # neighbours' cells within NEAR_M of its own latitude (bisect below).
+    for cell in grid.values():
+        cell.sort(key=lambda o: o["lat"])
+    lats = {k: [o["lat"] for o in cell] for k, cell in grid.items()}
     for r in records:
         if r.get("lat") is None or r.get("lng") is None:
             continue
@@ -144,9 +151,19 @@ def build_graph(g, data):
             continue
         cand = []
         gla, gln = round(r["lat"], 2), round(r["lng"], 2)
+        rla = r["lat"]
         for dla in (-0.01, 0.0, 0.01):
             for dln in (-0.01, 0.0, 0.01):
-                for o in grid.get((round(gla + dla, 2), round(gln + dln, 2)), ()):
+                key = (round(gla + dla, 2), round(gln + dln, 2))
+                cell = grid.get(key)
+                if not cell:
+                    continue
+                # Two points further apart north-south than NEAR_M are further
+                # apart than NEAR_M; the haversine over every pair in nine cells
+                # was 3.5 min of the build on motdang-build, 2026-10-10.
+                la = lats[key]
+                lo, hi = bisect_left(la, rla - _NEAR_DLAT), bisect_right(la, rla + _NEAR_DLAT)
+                for o in cell[lo:hi]:
                     if o["id"] == r["id"]:
                         continue
                     m = _haversine(r["lat"], r["lng"], o["lat"], o["lng"])
@@ -204,17 +221,42 @@ def build_graph(g, data):
             edge(f"place:{pid}", bid, "branch_of", "computed", len(ids),
                  f"{len(ids)} branches on the map")
 
-    # -------------------------------------------------- the register's geography
+    # ------------------------------------------------------------- the geography
+    # THE RECEIPT HAS TO SAY WHICH. Until 2026-09-08 both of these read "the
+    # temple register files it here", which was true of all 3,267 records that
+    # had an amphoe — every one arrived from a register that shipped the field.
+    # derive.py now reads the same field out of the record's own address string
+    # for ~14,000 more, and a receipt that named the register for those would be
+    # a false one on the majority of the edges. provenance already knows the
+    # difference, so the edge asks it rather than guessing.
+    _SAID = {"derived:address-parse": ("its own address says so",
+                                       "its own address says so")}
     for r in records:
         a = r.get("attrs") or {}
-        if a.get("amphoe"):
-            aid = node(f'amphoe:{a["amphoe"]}', "amphoe", a["amphoe"])
-            edge(f'place:{r["id"]}', aid, "in_amphoe", "computed", 1,
-                 "the temple register files it here")
-        if a.get("tambon"):
-            tid = node(f'tambon:{a["tambon"]}', "tambon", a["tambon"])
-            edge(f'place:{r["id"]}', tid, "in_tambon", "computed", 1,
-                 "the temple register files it here")
+        prov_of = r.get("provenance") or {}
+        for field, kind, rel in (("amphoe", "amphoe", "in_amphoe"),
+                                 ("tambon", "tambon", "in_tambon")):
+            if not a.get(field):
+                continue
+            src = (prov_of.get(field) or {}).get("source") or ""
+            why = _SAID.get(src, ("a register files it here",))[0]
+            nid = node(f'{kind}:{a[field]}', kind, a[field])
+            edge(f'place:{r["id"]}', nid, rel, "computed", 1, why)
+
+    # ------------------------------------------------------------- inside what
+    # derive.py's insideOf: a shop and the market, hospital or campus standing
+    # at the same exact coordinate. A real containment, and the only relation
+    # here whose receipt is a refusal count as much as a match — the pass
+    # writes nothing where two candidate hosts share a pin.
+    _inside = {}
+    for r in records:
+        host = (r.get("attrs") or {}).get("insideOfId")
+        if host:
+            _inside.setdefault(host, []).append(r["id"])
+    for host, members in _inside.items():
+        for pid in members:
+            edge(f"place:{pid}", f"place:{host}", "inside_of", "computed",
+                 len(members), f"{len(members)} at this exact pin")
 
     # ------------------------------------------------------- the other property
     # 523 temples matched to wichaa.net by a written rule — exact Thai name AND

@@ -67,6 +67,11 @@ TAG_RULES = [
     ("seating", "outdoor_seating", lambda v: v == "yes"),
     ("seating", "indoor_seating", lambda v: v == "yes"),
     ("delivery", "delivery", lambda v: v in ("yes", "only")),
+    # Ordered to go. The tag was already carried onto the record as
+    # attrs.takeaway (200 of them) and had no facet rule, so nothing could
+    # filter on it. "only" is a takeaway-only kitchen and still answers the
+    # question a reader is asking.
+    ("takeaway", "takeaway", lambda v: v in ("yes", "only")),
     # Cards. Any one of these saying yes answers the question; none of them
     # saying anything leaves it unanswered, which is not the same as cash-only.
     ("card", "payment:cards", lambda v: v == "yes"),
@@ -92,7 +97,7 @@ TAG_RULES = [
     #
     # Only `yes` counts. male=no is a real and different statement — a shop
     # declaring it does NOT cut men's hair — and this facet layer has no way
-    # to render an absence, so recording it as a blank is the honest handling.
+    # to render an absence, so recording it as a blank is the fitting handling.
     # The women-only salon is not thereby called a men's shop; it is left
     # silent, and the door survey is what fills it in.
     ("mencut", "male", lambda v: v == "yes"),

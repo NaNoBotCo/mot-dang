@@ -115,6 +115,10 @@ def main():
             "id": pid, "th": th, "en": en, "lat": lat, "lng": lng,
             "pm25": pm25, "pm10": cur.get("pm10"), "usAqi": cur.get("us_aqi"),
             "band": band(pm25), "observed": cur.get("time"), "days": days,
+            # [local hour, PM2.5] from midnight today to the end of the forecast — the front
+            # page's air chart (2026-10-10); a past hour is the model's, like the rest
+            "hours": [[t, None if v is None else round(v, 1)] for t, v in zip(times, vals)
+                      if t[:10] >= (cur.get("time") or "")[:10]],
         })
 
     # WO-41 Phase 2. Counted on places that actually carry a reading: the

@@ -1,0 +1,117 @@
+แผนที่ · ปฏิทิน — TWO DOORS ON A SEARCH RESULT
+WO-77. 2026-09-08. Built and tested. Two lines still to apply in build.py.
+
+    You: "open in map and open in calendar should be a clear link for boolean
+    search results, and they should behave in a way that makes sense to
+    humans." Then: "too many words already in preview. Don't we have bespoke
+    SVGs on file for icons? Why are we using system emojis still?"
+
+
+1. WHAT WAS THERE
+
+Two bare emoji in the results heading — 🗺 and 📍 — with no word beside
+either, hidden until they were not, and labelled only in an aria-label that
+none but a screen reader ever read. No calendar door at all. The events
+standing at a place were already fetched and painted into an opened row as
+🎪 lines, and there was no way to take them.
+
+
+2. WHAT IS THERE NOW
+
+Under the count, one wrapping line:
+
+    [map]  แผนที่ · map (80 / 1,796)      [cal]  ปฏิทิน · calendar (3)
+
+Both are links, underlined, 36 px tall, in the link colour. The icons are
+#i-map and #i-cal out of the sprite already on every page — drawn, taking
+the link's own colour, the same two marks the rest of the site uses.
+
+MAP draws THESE results on the map already sitting above them, then reads
+ซ่อนแผนที่ · hide map until it is tapped again. Not the city map with its
+shelves switched on: that is a different question wearing the same word, and
+handing it over is the parking bug in another coat.
+
+80 / 1,796 is the honest pair. 80 is what the map will draw; 1,796 is the
+answer. The difference is rows with no pin and rows past the two hundred the
+map is handed — unmeasured, not absent. Two numbers and a slash rather than
+"80 จาก 1,796 · 80 of 1,796", which is what a bilingual join costs when both
+halves are the same two numbers.
+
+CALENDAR hands over the events standing at these places as one .ics file,
+named after the search. Every VEVENT it writes was checked against the
+events.ics build.py shipped: 201 of 201 match to the byte. Two of those 201
+were found by that check and fixed — a blank line folded differently, and a
+description cut at 400 code UNITS where Python cuts at 400 characters, which
+put five events' descriptions two emoji short.
+
+NEITHER DOOR IS DRAWN AT ZERO. No pin in the answer, no map door. Nothing on
+at any of these places, no calendar door. An offer that goes nowhere is the
+one thing a reader cannot test before tapping.
+
+WHAT IT COSTS A READER: nothing until they tap. The calendar count comes off
+a 2 kB table baked into search.html; the 260 kB of event records is fetched
+by the reader who taps and by nobody else.
+
+
+3. THE NUMBER YOU SHOULD KNOW BEFORE YOU LIKE THIS
+
+75 places in 88,161 carry an event. So the calendar door will not appear on
+most searches — it appears when the answer contains one of those 75. That is
+the corpus, not the door: 201 events, 139 of them tied to a place. If the
+door should appear more often, the work is in the event harvest, not here.
+
+
+4. THE EMOJI, SINCE YOU ASKED
+
+The sprite has 42 drawn icons. The Python still writes 744 emoji into
+reader-facing markup across 31 files — 341 of them in build.py. The
+commonest are 🐜×80, 📍×39, ☎×29, 🏷×20, 🌐×19. At least 📍 has a drawn
+twin sitting unused in the sprite (#i-pin), and #i-cal was there before
+tonight and had never been used at all. This is a job, not a line: I have
+not touched any of it outside these two doors.
+
+
+5. TWO LINES FOR WHOEVER GETS build.py NEXT
+
+build.py was edited at 09:59 with a build running since 09:49 and two more
+processes on it since, so nothing here touched it.
+
+  (a) THE MAP DOOR NEEDS NOTHING. It arrives through the panel_mount() call
+      build.py already makes, and refine.js and style.css are already
+      composed from this module. Next build and it is there.
+
+  (b) THE CALENDAR DOOR needs its table. In the search.html block, beside
+      the maphead line:
+
+        f'<script type="application/json" id="evplaces">'
+        f'{refine_layer.event_places_json(EVENTS)}</script>'
+
+      Without it the door is not drawn and nothing is fetched.
+
+  (c) THE OLD BUTTON, in the same <h1>. This is now the same door twice:
+
+        <button type="button" id="resmapbtn" aria-label="แผนที่ · map" hidden>🗺</button>
+
+      Keep the button — the door drives it — but drop it out of sight with
+      `class="vh"` rather than deleting it. The 📍 beside it (#resnear) is a
+      different control and is left alone; it wants #i-pin and a word, which
+      is item 4's job.
+
+  Then: python3 tests/test_refine.py — 71 cases, no build needed.
+
+
+6. FORKS — yours
+
+  D1  THE WORDS. "แผนที่ · map" and "ปฏิทิน · calendar" are as short as a
+      noun gets. The verb versions ("ดูบนแผนที่", "ใส่ปฏิทิน") say what will
+      happen and cost two more words each. I took the nouns on tonight's
+      instruction; say the word and they go back.
+
+  D2  WHERE THE ROW SITS. Under the count, above the search tools. It could
+      sit under the tools instead, which puts the answer's count and the
+      first row closer together and the doors further from the eye.
+
+  D3  THE MAP OPENS IN PLACE. Tapping does not leave the page. If you want
+      "open in map" to mean the city map at map.html, that map does not
+      carry the index and would have to load 51 MB to draw an arbitrary
+      answer. It is a real piece of work, not a link change.

@@ -1,0 +1,3559 @@
+{
+ "_note": "Nets: places one history ties together. Every member page shows the whole net (net_layer.py). Filled by hand; a lede sentence carries a source in `sources`. A jewel's line says why the place is in the net, from its own record or a named source.",
+ "nets": {
+  "yunnan": {
+   "th": "ตาข่ายยูนนาน — คนจีนยูนนานในเชียงใหม่และเชียงราย",
+   "en": "The Yunnan net — Yunnanese Chiang Mai and Chiang Rai",
+   "roman": "ta-khai Yunnan",
+   "lede_th": "คนจีนจากมณฑลยูนนานค้าขายลงมาทางเหนือด้วยกองคาราวานม้าและล่อ ที่บ้านฮ่อข้างไนท์บาซาร์ คนยูนนานมุสลิมสร้างมัสยิดราว พ.ศ. 2458–2460 และทุกเช้าวันศุกร์มีตลาดหน้ามัสยิด ตั้งแต่ตีห้าถึงเที่ยง หลังปี 2492 ทหารจีนคณะชาติ (ก๊กมินตั๋ง กองพล 93) ตั้งหมู่บ้านบนดอย เช่น แม่สลอง (สันติคีรี) บ้านยาง และบ้านอรุโณทัย แต่ละที่ข้างล่างนี้ เปิดหน้าไหน ก็เห็นที่อื่นทั้งหมด",
+   "lede_en": "Traders from Yunnan, in south-west China, came south with horse and mule caravans. In Ban Haw, by the Night Bazaar, Yunnanese Muslims built a mosque around 1915–1917, and a market sets up outside it every Friday from about 5 a.m. to noon. After 1949, soldiers of China's Nationalist army (the Kuomintang's 93rd Division) built villages in the hills: Mae Salong (Santikhiri), Ban Yang, Ban Arunothai. Open any page below and it shows all the others.",
+   "sources": [
+    {
+     "url": "https://wikicommunity.sac.or.th/community/1080",
+     "label": "ศูนย์มานุษยวิทยาสิรินธร: ชุมชนบ้านฮ่อ"
+    },
+    {
+     "url": "https://th.wikipedia.org/wiki/มัสยิดบ้านฮ่อ",
+     "label": "วิกิพีเดีย: มัสยิดบ้านฮ่อ"
+    },
+    {
+     "url": "https://kyoto-seas.org/pdf/44/3/440304.pdf",
+     "label": "Wang Liulan, Southeast Asian Studies 44(3)"
+    },
+    {
+     "url": "https://onceinlife.co/baan-ho/",
+     "label": "Once in Life: กาดบ้านฮ่อ"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Chin_Haw",
+     "label": "Wikipedia: Chin Haw"
+    },
+    {
+     "url": "https://wikicommunity.sac.or.th/community/2439",
+     "label": "ศูนย์มานุษยวิทยาสิรินธร: บ้านสันติคีรี"
+    },
+    {
+     "url": "https://www.maengon.go.th/catalog/travels/196",
+     "label": "อบต.แม่งอน: บ้านยาง"
+    },
+    {
+     "url": "https://thaitourstudy.com/routechiangdao/index.php?modules=tourist-detail&id=15",
+     "label": "บ้านอรุโณทัย",
+     "_": "stylecheck: allow (the source page's own address)"
+    },
+    {
+     "url": "https://th.wikipedia.org/wiki/ข้าวแรมฟืน",
+     "label": "วิกิพีเดีย: ข้าวแรมฟืน"
+    },
+    {
+     "url": "https://zh.wikipedia.org/zh-hans/饵块",
+     "label": "维基百科: 饵块"
+    }
+   ],
+   "strands": [
+    {
+     "key": "quarter",
+     "th": "ย่านบ้านฮ่อ ข้างไนท์บาซาร์",
+     "en": "The Ban Haw quarter, by the Night Bazaar",
+     "roman": "yan Ban Ho",
+     "jewels": [
+      {
+       "id": "cm-curated-ban-haw-mosque",
+       "th": "มัสยิดที่คนยูนนานมุสลิมสร้าง ราว พ.ศ. 2458–2460",
+       "en": "The mosque Yunnanese Muslims built around 1915–1917"
+      },
+      {
+       "id": "cm-ovt-ba97a41c-00ac-491a-9db7-972424377f2f",
+       "th": "อาหารเช้ายูนนาน ชามละ 50 บาท: ก๋วยเตี๋ยวหมู 云南饵丝 (เส้นทำจากข้าวสุกตำ) ข้าวแรมฟืนอุ่น 稀豆粉 และก๋วยเตี๋ยวเนื้อ 牛肉麵 — ป้ายเมนูหน้าร้าน ก.ย. 2569",
+       "en": "Yunnan breakfast, 50 baht a bowl: pork with 云南饵丝 er si (noodles of cooked, pounded rice), warm khao raem fuen 稀豆粉 xi dou fen, and beef noodles 牛肉麵 — menu board, Sep 2026"
+      },
+      {
+       "id": "cm-ovt-e6164e47-88a0-4910-bb95-158fd78dd4e6",
+       "th": "กาดบ้านฮ่อ ถนนเจริญประเทศ ซอย 1 — เช้าวันศุกร์ ตีห้าถึงเที่ยง",
+       "en": "Ban Haw market, Charoen Prathet Soi 1 — Friday, about 5 a.m. to noon"
+      },
+      {
+       "id": "cm-ovt-c9c138a9-6345-4fc3-9489-f8c14f0fcd30",
+       "th": "ตลาดยูนนานเช้าวันศุกร์ ท่าแพ ซอย 1",
+       "en": "The Friday-morning Yunnan market, Tha Phae Soi 1"
+      },
+      {
+       "id": "cm-ovt-79c669ab-5b69-4fc2-9bfd-e83b94e8ec33",
+       "th": "กาดนัดจีนยูนนาน ถนนช้างคลาน — เบอร์โทรเดียวกับตลาดเช้าวันศุกร์",
+       "en": "Yunnanese Chinese market, Chang Khlan Road — same phone number as the Friday market"
+      },
+      {
+       "id": "cm-osm-node-6130471685",
+       "th": "ถนนอาหารฮาลาล (กลางวัน)",
+       "en": "Halal Food Street (daytime)"
+      },
+      {
+       "id": "cm-ovt-cc55658b-0c2e-43ae-9767-d4975df117f2",
+       "th": "ข้าวฟืน หน้ามัสยิดบ้านฮ่อ",
+       "en": "Khao fuen in front of the Ban Haw mosque"
+      },
+      {
+       "id": "cm-ovt-387c1a7a-dda9-44c5-acc3-f4a9250ee110",
+       "th": "เป็ดย่าง ป้ายจีนเขียน 滇南美食 = อาหารยูนนานใต้",
+       "en": "Roast duck; the Chinese sign reads 滇南美食, food of southern Yunnan"
+      },
+      {
+       "id": "cm-osm-node-3417272207",
+       "th": "ข้าวซอยอิสลาม ถนนเจริญประเทศ",
+       "en": "Khao Soi Islam, Charoen Prathet Road"
+      },
+      {
+       "id": "cm-ovt-3e2cca2f-e031-4853-a572-2b31bae9166d",
+       "th": "ร้านหนังสืออิสลามในย่านเดียวกัน",
+       "en": "Islamic bookshop in the same few lanes"
+      },
+      {
+       "id": "cm-ovt-33f733a7-32e0-4075-abad-e275b990c667",
+       "th": "สุสานมุสลิมบ้านฮ่อ แสงตะวัน",
+       "en": "The Ban Haw Muslim cemetery, Saeng Tawan"
+      },
+      {
+       "id": "cm-osm-way-22981272",
+       "th": "ไนท์บาซาร์ ถนนช้างคลาน",
+       "en": "The Night Bazaar, Chang Khlan Road"
+      }
+     ]
+    },
+    {
+     "key": "bowls",
+     "th": "ชามยูนนานในเมือง",
+     "en": "Yunnan bowls across the city",
+     "roman": "cham Yunnan",
+     "jewels": [
+      {
+       "id": "cm-ovt-116a0b15-d748-40b0-95af-4a0012c68b94",
+       "th": "ร้านอาหารยูนนาน 云南栈 ถนนช้างเผือก",
+       "en": "Yunnan kitchen 云南栈, Chang Phueak Road"
+      },
+      {
+       "id": "cm-ovt-5ad20658-65f1-4d8b-97fb-33e16c4cc9fd",
+       "th": "อาหารยูนนาน 拾玖小馆",
+       "en": "Yunnan food, 拾玖小馆"
+      },
+      {
+       "id": "cm-ovt-4434ea6b-093a-4755-8546-ce52dbd838ac",
+       "th": "บะหมี่สดสูตรยูนนาน ในขนส่งช้างเผือก",
+       "en": "Fresh Yunnan-style noodles, inside Chang Phueak bus station"
+      },
+      {
+       "id": "cm-ovt-b2bb8947-04d3-4f82-bd2d-872ea2a883cf",
+       "th": "สุกี้ยูนนาน 云南火锅 ถนนช้างหล่อ",
+       "en": "Yunnan hot pot 云南火锅, Chang Lor Road"
+      },
+      {
+       "id": "cm-osm-way-333203045",
+       "th": "ร้านอาหารยูนนานอีกร้าน ชื่อเดียวกัน คนละที่",
+       "en": "Another Yunnan Restaurant — same name, different place"
+      },
+      {
+       "id": "cm-ovt-cf8ecf2a-5207-4668-b970-c6c7751a2cdf",
+       "th": "อาตี๋ อาหารจีนยูนนาน",
+       "en": "A-Ti, Yunnanese Chinese food"
+      },
+      {
+       "id": "cm-ovt-e4db682a-4d98-4e5b-8101-73cfb8190a45",
+       "th": "ร้านอาหารยูนาน เหมยโกย",
+       "en": "Mei Koi Yunnan restaurant"
+      },
+      {
+       "id": "cm-ovt-dba516bf-148b-4288-927d-ddd3dd2bcb4c",
+       "th": "ป้ายจีน 雲南擺夷料理 = อาหารคนไตในยูนนาน",
+       "en": "The Chinese sign 雲南擺夷料理 means cooking of the Tai people of Yunnan"
+      },
+      {
+       "id": "cm-ovt-140e405d-e0fa-46e1-96a0-6d0923cf63be",
+       "th": "ข้าวซอย น้ำเงี้ยว เส้นยูนนานทำสด ขายส่งเส้นด้วย",
+       "en": "Khao soi and nam ngiao on fresh Yunnan noodles, sold wholesale too"
+      },
+      {
+       "id": "cm-ovt-57b120c3-62ae-4c37-8032-b91f9dce9a37",
+       "th": "ข้าวแรมฟืน สิบสองปันนา (เมืองในยูนนาน)",
+       "en": "Khao raem fuen, Sipsong Panna (a Yunnan prefecture)"
+      },
+      {
+       "id": "cm-osm-node-12778850501",
+       "th": "ข้าวแรมฟืน ป้ายอด",
+       "en": "Pa Yot's khao raem fuen"
+      },
+      {
+       "id": "cm-ovt-5428c8b2-510e-486a-9589-6eef04060f8d",
+       "th": "ข้าวแรมฟืนยำเส้น ถนนกำแพงดิน",
+       "en": "Khao raem fuen with noodles, Kamphaeng Din Road"
+      },
+      {
+       "id": "cm-ovt-f140ec12-601b-4d41-83dd-08d4f3f01d36",
+       "th": "แม่สลอง วิลล่า — ครัวที่ตั้งชื่อตามดอยแม่สลอง",
+       "en": "Mae Salong Villa — a kitchen named for Doi Mae Salong"
+      }
+     ]
+    },
+    {
+     "key": "hills",
+     "th": "บนดอย",
+     "en": "Up in the hills",
+     "roman": "bon doi",
+     "jewels": [
+      {
+       "id": "cm-ovt-e732d993-74ae-4fa8-9080-83fdfb82c9a4",
+       "th": "บะหมี่เกี๊ยวยูนนาน บ้านอรุโณทัย อ.เชียงดาว — หมู่บ้านทหารจีนคณะชาติ",
+       "en": "Yunnan wonton noodles, Ban Arunothai, Chiang Dao — a Nationalist Chinese soldiers' village"
+      },
+      {
+       "id": "cm-ovt-a8eab09b-8474-406b-b3bb-3c9e2b025bf4",
+       "th": "华人街 ตลาดใหม่ บ้านอรุโณทัย",
+       "en": "华人街 (Chinese street) new market, Ban Arunothai"
+      },
+      {
+       "id": "cm-ovt-b0032aa7-b26f-400c-8977-42817612689d",
+       "th": "บ้านยาง อ.ฝาง — ทหารจีนกองพล 93 ย้ายมาอยู่ พ.ศ. 2497",
+       "en": "Ban Yang, Fang — 93rd Division soldiers moved here in 1954"
+      },
+      {
+       "id": "cm-osm-way-1230631039",
+       "th": "โรงเรียนจีนจงเจิน บ้านยาง",
+       "en": "Zhongzhen Chinese school, Ban Yang"
+      },
+      {
+       "id": "cm-ovt-645d38f0-4911-4aca-9932-b1faf7bdd60d",
+       "th": "สุกี้ยูนนานและกาแฟ 格格 บ้านยาง",
+       "en": "Yunnan hot pot and coffee 格格, Ban Yang"
+      },
+      {
+       "id": "cm-ovt-377a2ec7-15f2-4525-8ca3-24c637d56aef",
+       "th": "อาหารจีนยูนนาน ตามา ตาเต ดอยอ่างขาง ติดชายแดน",
+       "en": "Yunnanese kitchen Ta Ma Ta Te, Doi Ang Khang at the border"
+      },
+      {
+       "id": "cm-ovt-ea8a1172-e4fd-4326-a1f7-f10d6a263eb7",
+       "th": "ยูนนาน โฮมสเตย์ อ่างขาง",
+       "en": "Yunnan Homestay, Ang Khang"
+      },
+      {
+       "id": "cm-ovt-53843b09-a1d7-4c49-b7e3-9a8f7e1236ba",
+       "th": "สุกี้ยูนนาน เวียงแหง",
+       "en": "Yunnan hot pot, Wiang Haeng"
+      },
+      {
+       "id": "cr-osm-way-274903287",
+       "th": "พิพิธภัณฑ์วีรชนจีน 泰北義民文史館 ดอยแม่สลอง",
+       "en": "Chinese Martyrs' Memorial Museum 泰北義民文史館, Doi Mae Salong"
+      },
+      {
+       "id": "cr-osm-node-361377560",
+       "th": "ตลาดเช้าดอยแม่สลอง",
+       "en": "Doi Mae Salong morning market"
+      },
+      {
+       "id": "cr-ovt-34386dc1-18be-410d-bcc0-6e3f216e6a60",
+       "th": "ถนนวัฒนธรรม ดอยแม่สลอง — บ้านสันติคีรี ตั้งโดยทหารกองพล 93 ตั้งแต่ พ.ศ. 2504",
+       "en": "Culture Street, Doi Mae Salong — Santikhiri, settled by the 93rd Division from 1961"
+      },
+      {
+       "id": "cr-osm-node-361378509",
+       "th": "ร้านบะหมี่ยูนนาน ดอยแม่สลอง",
+       "en": "Yunnan noodle shop, Doi Mae Salong"
+      },
+      {
+       "id": "cr-ovt-8fff8b81-b51b-40e1-ab53-97cac051b0e0",
+       "th": "ซาลาเปายูนนาน แม่สลองใน",
+       "en": "Yunnan steamed buns, Mae Salong Nai"
+      },
+      {
+       "id": "cr-ovt-dbf5da96-9d1e-4032-a616-964c2aa47413",
+       "th": "ศูนย์เรียนรู้ชาและชาติพันธุ์ โรงเรียนสันติคีรีวิทยาคม",
+       "en": "Tea and ethnic-history learning centre, Santikhiri Witthayakhom school"
+      }
+     ]
+    },
+    {
+     "key": "chiangrai",
+     "th": "เชียงรายและแม่สาย",
+     "en": "Chiang Rai and Mae Sai",
+     "roman": "Chiang Rai lae Mae Sai",
+     "jewels": [
+      {
+       "id": "cr-osm-way-1127661771",
+       "th": "ภัตตาคารยูนนาน ถนนแควหวาย เชียงราย",
+       "en": "Yunnan restaurant, Khwae Wai Road, Chiang Rai"
+      },
+      {
+       "id": "cr-ovt-00278158-db64-4cbd-a5e6-7f182ed4d027",
+       "th": "ข้าวซอยอิสลาม ถนนงำเมือง เชียงราย",
+       "en": "Khao Soi Islam, Ngam Mueang Road, Chiang Rai"
+      },
+      {
+       "id": "cr-ovt-6c0c4267-f8e0-434d-a43b-472a05654d15",
+       "th": "มัสยิดดารุลอามาน ถนนอิสรภาพ เชียงราย",
+       "en": "Darul Aman mosque, Itsaraphap Road, Chiang Rai"
+      },
+      {
+       "id": "cr-ovt-93f20e85-e296-4dcd-82b5-8d4c4abcc4e5",
+       "th": "ร้านอาหารยูนนาน 情和園 แม่สาย",
+       "en": "Yunnan restaurant 情和園, Mae Sai"
+      },
+      {
+       "id": "cr-ovt-b09c946c-471f-4cec-b93b-d801ac085742",
+       "th": "ข้าวแรมฟืน ป้าแปง แม่สาย",
+       "en": "Pa Paeng's khao raem fuen, Mae Sai"
+      }
+     ]
+    }
+   ]
+  },
+  "visa": {
+   "th": "ตาข่ายวีซ่า — ที่ที่วีซ่าพาไปในเชียงใหม่และเชียงราย",
+   "en": "The visa net — where a Thai visa takes you in Chiang Mai and Chiang Rai",
+   "roman": "ta-khai wi-sa",
+   "lede_th": "คนต่างชาติที่อยู่ยาวในภาคเหนือต้องไปหลายที่ ตรวจคนเข้าเมืองรับต่อวีซ่า ขอ re-entry และแจ้งที่พัก ตม.30 ส่วนรายงานตัว 90 วัน (ตม.47) ทำออนไลน์ได้ด้วย ใบอนุญาตทำงานเป็นงานของกรมการจัดหางาน วีซ่า DTV (Destination Thailand Visa) รับคนทำงานทางไกล คนมาเรียนมวยไทย เรียนทำอาหารไทย และคนมารักษาตัว วีซ่า ED คือวีซ่าเพื่อการเรียน คนที่ทำมดแดงเปิด Chiang Mai Visa Desk ด้วย เป็นธุรกิจพี่น้องของเว็บนี้ ไม่ใช่คำแนะนำจากคนกลาง เปิดหน้าไหนข้างล่างนี้ ก็เห็นที่อื่นทั้งหมด",
+   "lede_en": "Living long in the north means many counters. Immigration handles extensions, re-entry permits and the TM30 address notice; the 90-day report (TM47) can also be filed online. Work permits run through the Department of Employment. The DTV (Destination Thailand Visa) covers remote workers, people training in muay thai or Thai cooking, and people here for medical treatment. The ED visa is the study visa. The people who publish Mot Dang also run Chiang Mai Visa Desk — a sibling business, not an independent recommendation. Open any page below and it shows all the others.",
+   "sources": [
+    {
+     "url": "https://chiangmai.immigration.go.th/en/front-page-english/",
+     "label": "ตรวจคนเข้าเมืองจังหวัดเชียงใหม่"
+    },
+    {
+     "url": "https://tm47.immigration.go.th/",
+     "label": "ตม.47 ออนไลน์ · TM47 online"
+    },
+    {
+     "url": "https://chiangrai.immigration.go.th/ตม-จว-เชียงราย-ย้ายที่ทำ/",
+     "label": "ตรวจคนเข้าเมืองจังหวัดเชียงราย: ย้ายที่ทำการ"
+    },
+    {
+     "url": "https://image.mfa.go.th/mfa/0/n3gTFT2TOE/Visa_Requirements/Checklist_DTV.pdf",
+     "label": "กระทรวงการต่างประเทศ: Checklist DTV"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Visa_policy_of_Thailand",
+     "label": "Wikipedia: Visa policy of Thailand"
+    },
+    {
+     "url": "https://chiangmaivisadesk.com/llms.txt",
+     "label": "Chiang Mai Visa Desk: llms.txt"
+    },
+    {
+     "url": "https://motdang.net/muay-thai/gym/ed-visa/",
+     "label": "มวยไทยกับวีซ่านักเรียน · Training on a study visa"
+    }
+   ],
+   "strands": [
+    {
+     "key": "desk",
+     "th": "โต๊ะวีซ่า",
+     "en": "The desk",
+     "roman": "to wi-sa",
+     "jewels": [
+      {
+       "id": "cm-curated-chiangmaivisadesk",
+       "th": "ใบอนุญาตทำงาน จดบริษัท วีซ่าเกษียณ ต่อวีซ่า รายงาน 90 วัน ตม.30 re-entry วิ่งชายแดน และวีซ่าอเมริกาสำหรับคนไทย รับถึงหน้าบ้าน",
+       "en": "Work permits, company setup, retirement, extensions, 90-day reports, TM30, re-entry permits, border runs, and US visas for Thai passport holders; pickup at your door"
+      }
+     ]
+    },
+    {
+     "key": "immigration",
+     "th": "ตรวจคนเข้าเมือง",
+     "en": "Immigration",
+     "roman": "truat khon khao mueang",
+     "jewels": [
+      {
+       "id": "cm-osm-way-822791365",
+       "th": "สำนักงาน 71 ม.3 ถนนสนามบิน",
+       "en": "The office at 71 Moo 3, Airport Road"
+      },
+      {
+       "id": "cm-osm-node-12619518873",
+       "th": "สาขาชั้น 2 เซ็นทรัลเฟสติวัล เปิดปี 2565 ต่อวีซ่าระยะสั้น รายงาน 90 วัน ตม.30 re-entry",
+       "en": "The branch on the 2nd floor of Central Festival, opened 2022: short extensions, 90-day reports, TM30, re-entry permits"
+      },
+      {
+       "id": "cm-curated-chiang-mai-airport",
+       "th": "ขอ re-entry permit ที่เคาน์เตอร์สนามบินก่อนบินออกได้",
+       "en": "Re-entry permits at the airport desk, before you fly out"
+      },
+      {
+       "id": "cr-curated-immigration-central-chiangrai",
+       "th": "ย้ายมาชั้น G เซ็นทรัล เชียงราย เมื่อ ก.ย. 2566 ต่อวีซ่า re-entry ตม.30 รายงาน 90 วัน",
+       "en": "Moved to the G floor of Central Chiang Rai in September 2023: extensions, re-entry, TM30, 90-day reports"
+      }
+     ]
+    },
+    {
+     "key": "work",
+     "th": "งานและบริษัท",
+     "en": "Work and a company",
+     "roman": "ngan lae bo-ri-sat",
+     "jewels": [
+      {
+       "id": "cm-ovt-4ea63d01-81d3-4655-847c-134aa48b249b",
+       "th": "สำนักงานจัดหางานจังหวัด ใบอนุญาตทำงานของคนต่างชาติเป็นงานของกรมการจัดหางาน",
+       "en": "The provincial employment office; foreigners' work permits run through the Department of Employment"
+      },
+      {
+       "id": "cm-osm-way-695924112",
+       "th": "สรรพากร เลขผู้เสียภาษีที่ใบอนุญาตทำงานและบริษัทต้องใช้",
+       "en": "The Revenue Department, for the tax ID a work permit and a company both need"
+      }
+     ]
+    },
+    {
+     "key": "papers",
+     "th": "เอกสาร",
+     "en": "Papers",
+     "roman": "ek-ka-san",
+     "jewels": [
+      {
+       "id": "cm-curated-chiangmai-translation-service",
+       "th": "ร้านแปลเอกสาร",
+       "en": "A translation counter"
+      },
+      {
+       "id": "cm-curated-modus-language-services",
+       "th": "ร้านแปลเอกสาร",
+       "en": "A translation counter"
+      },
+      {
+       "id": "cm-curated-us-consulate-chiangmai",
+       "th": "รับรองเอกสาร (notarial) ให้คนอเมริกัน ต้องนัดก่อน",
+       "en": "Notarials for US citizens, by appointment"
+      },
+      {
+       "id": "cr-curated-hongdam",
+       "th": "สตูดิโอที่ทำเว็บ chiangmaivisadesk.com และรับแปลเอกสาร",
+       "en": "The studio that built chiangmaivisadesk.com, and translates"
+      }
+     ]
+    },
+    {
+     "key": "border",
+     "th": "ชายแดน",
+     "en": "The border",
+     "roman": "chai daen",
+     "jewels": [
+      {
+       "id": "cr-osm-way-223086360",
+       "th": "แม่สายข้ามไปท่าขี้เหล็ก ฝั่งพม่า",
+       "en": "Mae Sai, across to Tachileik in Myanmar"
+      },
+      {
+       "id": "cr-osm-node-2193469948",
+       "th": "ตรวจคนเข้าเมืองแม่สาย",
+       "en": "Mae Sai immigration"
+      },
+      {
+       "id": "cr-osm-node-11652971569",
+       "th": "สะพานมิตรภาพแห่งที่ 4 เชียงของข้ามไปห้วยทราย ฝั่งลาว",
+       "en": "Friendship Bridge 4, Chiang Khong across to Huay Xai in Laos"
+      },
+      {
+       "id": "cr-curated-lailas-visa",
+       "th": "สำนักงานวีซ่าในเชียงราย ซอยไทยวิวัฒน์",
+       "en": "A visa office in Chiang Rai, Thai Viwat Alley"
+      }
+     ]
+    },
+    {
+     "key": "dtv-work",
+     "th": "DTV ทำงานทางไกล",
+     "en": "DTV: working remotely",
+     "roman": "tham ngan thang klai",
+     "jewels": [
+      {
+       "id": "cm-curated-yellow",
+       "th": "โคเวิร์กกิ้ง DTV สาย workcation รับคนทำงานทางไกลและฟรีแลนซ์",
+       "en": "Coworking; the DTV's workcation route covers remote workers and freelancers"
+      },
+      {
+       "id": "cm-osm-node-2505598103",
+       "th": "โคเวิร์กกิ้ง",
+       "en": "Coworking"
+      },
+      {
+       "id": "cm-curated-starwork",
+       "th": "โคเวิร์กกิ้ง",
+       "en": "Coworking"
+      },
+      {
+       "id": "cm-osm-way-1208209252",
+       "th": "โคเวิร์กกิ้ง",
+       "en": "Coworking"
+      },
+      {
+       "id": "cm-osm-node-2692460179",
+       "th": "โคเวิร์กกิ้ง",
+       "en": "Coworking"
+      }
+     ]
+    },
+    {
+     "key": "dtv-softpower",
+     "th": "DTV มวยไทย อาหารไทย การรักษา",
+     "en": "DTV: muay thai, Thai cooking, treatment",
+     "roman": "muai thai, a-han thai",
+     "jewels": [
+      {
+       "id": "cm-osm-way-452420473",
+       "th": "ค่ายมวย DTV รับคนมาเรียนมวยไทย ใช้หนังสือตอบรับจากค่าย",
+       "en": "A muay thai camp; the DTV takes trainees with a letter of acceptance from the camp"
+      },
+      {
+       "id": "cm-osm-node-11936184293",
+       "th": "ค่ายมวย",
+       "en": "A muay thai camp"
+      },
+      {
+       "id": "cm-osm-node-10128035418",
+       "th": "ค่ายมวย",
+       "en": "A muay thai camp"
+      },
+      {
+       "id": "cm-osm-way-846138300",
+       "th": "ค่ายมวย",
+       "en": "A muay thai camp"
+      },
+      {
+       "id": "cm-curated-grandmas-home-cooking-school",
+       "th": "โรงเรียนสอนทำอาหารไทย DTV รับคนมาเรียนทำอาหารไทยด้วย",
+       "en": "A Thai cooking school; Thai cooking is on the DTV list too"
+      },
+      {
+       "id": "cm-curated-mama-noi-cooking-school",
+       "th": "โรงเรียนสอนทำอาหารไทย",
+       "en": "A Thai cooking school"
+      },
+      {
+       "id": "cm-osm-node-3864197357",
+       "th": "โรงเรียนสอนทำอาหารไทย",
+       "en": "A Thai cooking school"
+      },
+      {
+       "id": "cm-osm-way-623146079",
+       "th": "โรงเรียนสอนทำอาหารไทย",
+       "en": "A Thai cooking school"
+      },
+      {
+       "id": "cm-osm-way-257214959",
+       "th": "โรงพยาบาล DTV รับคนมารักษาตัว ใช้หนังสือนัดจากโรงพยาบาล",
+       "en": "A hospital; the DTV covers medical treatment, with a letter of appointment from the hospital"
+      },
+      {
+       "id": "cm-osm-way-529099381",
+       "th": "โรงพยาบาล",
+       "en": "A hospital"
+      }
+     ]
+    },
+    {
+     "key": "study",
+     "th": "ED มาเรียน",
+     "en": "ED: here to study",
+     "roman": "ma rian",
+     "jewels": [
+      {
+       "id": "cm-ovt-832d4ff1-977e-4ae7-bb12-35ba038186f8",
+       "th": "โรงเรียนสอนภาษาไทย วีซ่า ED คือวีซ่าเพื่อการเรียน ถามโรงเรียนก่อนว่าออกเอกสารให้ได้ไหม",
+       "en": "A Thai language school; the ED is the study visa, so ask the school first whether it sponsors one"
+      },
+      {
+       "id": "cm-ovt-b19409a0-423d-418f-b563-a6e588a61bde",
+       "th": "โรงเรียนสอนภาษาไทย",
+       "en": "A Thai language school"
+      },
+      {
+       "id": "cm-ovt-ddac5d58-798d-4584-b9c0-f9cc916c1e3a",
+       "th": "โรงเรียนสอนภาษาไทย",
+       "en": "A Thai language school"
+      },
+      {
+       "id": "cm-osm-node-2559604997",
+       "th": "โรงเรียนสอนภาษา",
+       "en": "A language school"
+      }
+     ]
+    }
+   ]
+  },
+  "ship": {
+   "th": "ตาข่ายย้ายบ้าน — ขนของจากอเมริกามาถึงเชียงใหม่",
+   "en": "The moving net — shipping a house from the US to Chiang Mai",
+   "roman": "ta-khai yai ban",
+   "lede_th": "ย้ายบ้านจากอเมริกามาเชียงใหม่ ต้องผ่านหลายที่ สำนักงานขนส่งสินค้าระหว่างประเทศ คาร์โก้ที่สนามบิน ศุลกากร รถขนของในภาคเหนือ แล้วก็ที่เก็บของและร้านเฟอร์นิเจอร์เมื่อของมาถึง มินิไซต์ ย้ายบ้านข้ามทะเล มีราคาส่งของใช้ส่วนตัวแบบรวมตู้ของ Send2Thai คนที่ทำมดแดงเปิด Chiang Mai Visa Desk ด้วย เป็นธุรกิจพี่น้องของเว็บนี้ ไม่ใช่คำแนะนำจากคนกลาง เปิดหน้าไหนข้างล่างนี้ ก็เห็นที่อื่นทั้งหมด",
+   "lede_en": "Moving a house from the US to Chiang Mai passes through many doors: international freight offices, cargo desks at the airport, customs, trucks in the north, and storage and furniture once it lands. The minisite The Whole House, by Sea has Send2Thai's prices for shipping personal effects in a shared container. The people who publish Mot Dang also run Chiang Mai Visa Desk — a sibling business, not an independent recommendation. Open any page below and it shows all the others.",
+   "sources": [
+    {
+     "url": "https://motdang.net/sites/ship-to-thailand/",
+     "label": "The Whole House, by Sea"
+    },
+    {
+     "url": "https://motdang.net/sites/ship-to-thailand/th/",
+     "label": "ย้ายบ้านข้ามทะเล"
+    },
+    {
+     "url": "https://send2thai.com/service-personal.aspx",
+     "label": "Send2Thai: ส่งของใช้ส่วนตัวกลับไทย"
+    },
+    {
+     "url": "http://bureau3.customs.go.th/",
+     "label": "สำนักงานศุลกากรภาคที่ 3"
+    }
+   ],
+   "strands": [
+    {
+     "key": "sea",
+     "th": "ขนของข้ามทะเล",
+     "en": "Freight by sea",
+     "roman": "khon khong kham thale",
+     "jewels": [
+      {
+       "id": "cm-ovt-3be536fc-6177-4988-801b-acd8be74d54f",
+       "th": "ชื่อร้านบอกเองว่าส่งออกทางเรือไปอเมริกา · goterrestrial.com",
+       "en": "Its own name says sea export to America · goterrestrial.com"
+      },
+      {
+       "id": "cm-ovt-5a5c7578-8c51-48fd-a900-cbca51de0038",
+       "th": "สำนักงานขนส่งสินค้า หนองแก๋ว หางดง · etscnx.com",
+       "en": "Freight office, Nong Khwai, Hang Dong · etscnx.com"
+      },
+      {
+       "id": "cm-ovt-cebc1129-b2fa-40b7-9e95-e2c3089825f4",
+       "th": "ขนส่งสินค้า ขุนคง หางดง · vanatshipping.com",
+       "en": "Freight, Khun Khong, Hang Dong · vanatshipping.com"
+      },
+      {
+       "id": "cm-ovt-0d32d807-227f-465b-8d83-17bd039ade57",
+       "th": "ขนส่งสินค้า สารภี · smlogistics.com",
+       "en": "Freight, Saraphi · smlogistics.com"
+      },
+      {
+       "id": "cm-ovt-86894ab9-6e42-4101-b5ef-2179f7851241",
+       "th": "ขนส่งสินค้า หนองแก๋ว หางดง · sirilogistics.com",
+       "en": "Freight, Nong Khwai, Hang Dong · sirilogistics.com"
+      },
+      {
+       "id": "cm-ovt-32408128-3cd5-4991-aaf2-9a89335fe2dc",
+       "th": "ตัวแทนคาร์โก้ ถนนหอด (สุเทพ) · pioneercargo.co.th",
+       "en": "Cargo agent, Hord Road (Suthep) · pioneercargo.co.th"
+      },
+      {
+       "id": "cm-osm-way-275286703",
+       "th": "คาร์โก้ ช้างเผือก · siamfirst.co.th",
+       "en": "Cargo, Chang Phueak · siamfirst.co.th"
+      },
+      {
+       "id": "cm-osm-node-4732114730",
+       "th": "ในพาวิลเลียน ไนท์บาซาร์ ถนนลอยเคราะห์",
+       "en": "Inside Pavilion Night Bazaar, Loi Kroh Road"
+      },
+      {
+       "id": "cm-ovt-e5cf49a6-f377-44fd-9766-21daa5928629",
+       "th": "สำนักงานขนส่งระหว่างประเทศ แม่เหียะ ถนนวงแหวนรอบ 2",
+       "en": "International freight office, Mae Hia, 2nd Ring Road"
+      },
+      {
+       "id": "cm-curated-ceva",
+       "th": "ป้าย CEVA Logistics อ่านจากถนน ในรอบขี่ GoPro ของแนน 24 ก.ย. 2569",
+       "en": "CEVA Logistics sign, read from the road on NaN's GoPro ride, 24 Sep 2026"
+      },
+      {
+       "id": "cm-curated-k-line-logistics",
+       "th": "ป้ายอ่านจากถนน ในรอบขี่ GoPro ของแนน 23 ก.ย. 2569",
+       "en": "Sign read from the road on NaN's GoPro ride, 23 Sep 2026"
+      },
+      {
+       "id": "cm-ovt-f757e8ef-66e8-4267-93d8-83c12c2fcb03",
+       "th": "ขนส่งสินค้า หนองจ๊อม สันทราย · iel.co.th",
+       "en": "Freight, Nong Chom, San Sai · iel.co.th"
+      },
+      {
+       "id": "cm-ovt-fafc7f19-77c9-4b29-ba1f-3226cfdfe06c",
+       "th": "ศูนย์ขนส่ง ซุปเปอร์ไฮเวย์เชียงใหม่–ลำปาง สารภี",
+       "en": "Transport hub on the Chiang Mai–Lampang Superhighway, Saraphi"
+      }
+     ]
+    },
+    {
+     "key": "air",
+     "th": "ทางอากาศ",
+     "en": "By air",
+     "roman": "thang akat",
+     "jewels": [
+      {
+       "id": "cm-ovt-240949c1-52cd-4ed6-92f3-d25a16bfa456",
+       "th": "คาร์โก้ที่ท่าอากาศยานเชียงใหม่ · thaicargo.com",
+       "en": "Cargo at Chiang Mai Airport · thaicargo.com"
+      },
+      {
+       "id": "cm-ovt-b92f54af-17cd-43a0-9926-b4faacdc32ae",
+       "th": "คาร์โก้ระหว่างประเทศ ที่ท่าอากาศยานเชียงใหม่",
+       "en": "International cargo at Chiang Mai Airport"
+      },
+      {
+       "id": "cm-ovt-700b6842-9dba-4fcf-af2a-3b663a7243bb",
+       "th": "จุดส่งพัสดุ FedEx หนองป่าครั่ง",
+       "en": "FedEx drop-off, Nong Pa Khrang"
+      }
+     ]
+    },
+    {
+     "key": "customs",
+     "th": "ศุลกากร",
+     "en": "Customs",
+     "roman": "sunlakakon",
+     "jewels": [
+      {
+       "id": "cm-ovt-b217836b-a791-4088-b58e-8a158604907b",
+       "th": "สำนักงานศุลกากรภาคที่ 3 · bureau3.customs.go.th",
+       "en": "The Customs Department's regional office for the north · bureau3.customs.go.th"
+      },
+      {
+       "id": "cm-ovt-f724ce69-3d08-4d99-ad40-8e5f05ac3416",
+       "th": "ด่านศุลกากรท่าอากาศยานเชียงใหม่",
+       "en": "The customs house at Chiang Mai Airport"
+      }
+     ]
+    },
+    {
+     "key": "road",
+     "th": "รถขนของในภาคเหนือ",
+     "en": "Trucks in the north",
+     "roman": "rot khon khong",
+     "jewels": [
+      {
+       "id": "cm-ovt-4001e0c6-2ab3-4350-82e8-cdee2604521a",
+       "th": "ขนส่งทางรถ สันกำแพง · nimtransport.com",
+       "en": "Trucking, San Kamphaeng · nimtransport.com"
+      },
+      {
+       "id": "cm-ovt-4ab05a01-ba1b-453c-91b1-a1e6b3751f07",
+       "th": "ขนส่ง ซอยโชตนา 22 ป่าตัน",
+       "en": "Transport, Chotana Soi 22, Pa Tan"
+      },
+      {
+       "id": "cm-ovt-a94b7250-e3d3-4b9b-ab57-fa420112a647",
+       "th": "นัทขนส่ง ขุนคง หางดง",
+       "en": "Transport, Khun Khong, Hang Dong"
+      },
+      {
+       "id": "cm-ovt-9d60fec9-061f-4119-a4ed-68bb07b4768b",
+       "th": "ขนส่ง เจริญเมือง ซอย 4 วัดเกต",
+       "en": "Transport, Charoen Mueang Soi 4, Wat Ket"
+      },
+      {
+       "id": "cm-ovt-acfe3312-9910-44b7-9078-30ecd75b7e48",
+       "th": "ขนส่งสินค้า บ้านแหวน หางดง",
+       "en": "Freight, Ban Waen, Hang Dong"
+      }
+     ]
+    },
+    {
+     "key": "land",
+     "th": "เมื่อของมาถึง",
+     "en": "When it lands",
+     "roman": "muea khong ma thueng",
+     "jewels": [
+      {
+       "id": "cm-ovt-4179b999-a80d-4bf8-8e08-b38cc8673c4b",
+       "th": "โกดังให้เช่า ป่าบง สารภี",
+       "en": "Warehouse for rent, Pa Bong, Saraphi"
+      },
+      {
+       "id": "cm-ovt-9c4f89a0-b576-4fb0-8ce2-928580acd660",
+       "th": "สำนักงานและโกดังให้เช่า ท่าศาลา",
+       "en": "Offices and warehouse space for rent, Tha Sala"
+      },
+      {
+       "id": "cm-osm-node-13852246901",
+       "th": "ของมือสองจากญี่ปุ่น สันผีเสื้อ — ของที่ไม่ได้ขนมา หาได้ที่นี่ · fkimport.com",
+       "en": "Japanese second-hand goods, San Phi Suea, for what you left behind · fkimport.com"
+      },
+      {
+       "id": "cm-ovt-297164da-91d2-4096-aaa7-81912f3042a8",
+       "th": "โกดังเฟอร์นิเจอร์ ช้างเผือก",
+       "en": "Furniture warehouse, Chang Phueak"
+      },
+      {
+       "id": "cm-ovt-5905b564-11b1-46ac-9ad3-23a1bd184a7c",
+       "th": "โกดังของเก่าและเฟอร์นิเจอร์ ขุนคง หางดง · srnshop.com",
+       "en": "Antiques and furniture, Khun Khong, Hang Dong · srnshop.com"
+      },
+      {
+       "id": "cm-curated-chiangmaivisadesk",
+       "th": "วีซ่าสำหรับคนที่ย้ายมาอยู่ — ธุรกิจพี่น้องของมดแดง",
+       "en": "Visas for people moving here, a sibling business of Mot Dang"
+      }
+     ]
+    }
+   ]
+  },
+  "roofs": {
+   "th": "ตาข่ายหลังคา — ตัวแทน หมู่บ้านจัดสรร และสำนักงานที่ดิน",
+   "en": "The roofs net — agents, housing estates and land offices",
+   "roman": "ta-khai lang kha",
+   "lede_th": "ตัวแทนอสังหาริมทรัพย์ หมู่บ้านจัดสรร และสำนักงานที่ดินในเชียงใหม่และเชียงราย ร้อยเข้าด้วยกัน มินิไซต์ หลังคาเมืองเหนือ มีทะเบียนตึก ราคาประเมินต่อตารางเมตร และประกาศขายเช่า เปิดหน้าไหนข้างล่างนี้ ก็เห็นที่อื่นทั้งหมด",
+   "lede_en": "Property agents, housing estates and land offices in Chiang Mai and Chiang Rai, strung together. The minisite Roofs of the North has the register of buildings, Treasury prices by the square metre, and the listings. Open any page below and it shows all the others.",
+   "sources": [
+    {
+     "url": "https://motdang.net/sites/roofs-of-the-north/",
+     "label": "Roofs of the North"
+    },
+    {
+     "url": "https://motdang.net/sites/roofs-of-the-north/th/",
+     "label": "หลังคาเมืองเหนือ"
+    },
+    {
+     "url": "https://motdang.net/listings/",
+     "label": "มดแดง — กระดานประกาศ · The Listing Sheet"
+    }
+   ],
+   "strands": [
+    {
+     "key": "agents",
+     "th": "ตัวแทนอสังหาฯ",
+     "en": "Agents",
+     "roman": "tua thaen asangha",
+     "jewels": [
+      {
+       "id": "cm-curated-bachok-chiang-mai-khawoliti-phroopphoe-ti",
+       "th": "ตัวแทนอสังหาริมทรัพย์ · ต.ศรีภูมิ อ.เมืองเชียงใหม่",
+       "en": "Property agent · Si Phum, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-curated-fb-chiangmaiestateagents",
+       "th": "ตัวแทนอสังหาริมทรัพย์ · เชียงใหม่",
+       "en": "Property agent · Chiang Mai"
+      },
+      {
+       "id": "cm-curated-fb-chiangmaihome",
+       "th": "ตัวแทนอสังหาริมทรัพย์ · เชียงใหม่",
+       "en": "Property agent · Chiang Mai"
+      },
+      {
+       "id": "cm-curated-kumuang-properties",
+       "th": "ตัวแทนอสังหาริมทรัพย์ · ต.ศรีภูมิ อ.เมืองเชียงใหม่",
+       "en": "Property agent · Si Phum, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-curated-top-property",
+       "th": "ตัวแทนอสังหาริมทรัพย์ · อ.เมืองเชียงใหม่",
+       "en": "Property agent · Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-osm-node-10583292106",
+       "th": "ตัวแทนอสังหาริมทรัพย์ · ต.สันทรายน้อย อ.สันทราย",
+       "en": "Property agent · San Sai Noi, San Sai"
+      },
+      {
+       "id": "cm-osm-node-13715227296",
+       "th": "ตัวแทนอสังหาริมทรัพย์ · ต.แม่แฝกใหม่ อ.สันทราย",
+       "en": "Property agent · Mae Faekmai, San Sai"
+      },
+      {
+       "id": "cm-osm-node-3870411584",
+       "th": "ตัวแทนอสังหาริมทรัพย์ · ต.หนองผึ้ง อ.สารภี",
+       "en": "Property agent · Nong Phueng, Saraphi"
+      },
+      {
+       "id": "cm-osm-node-4876347021",
+       "th": "ตัวแทนอสังหาริมทรัพย์ · ต.ช้างคลาน อ.เมืองเชียงใหม่",
+       "en": "Property agent · Chang Khlan, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-osm-node-6992284986",
+       "th": "ตัวแทนอสังหาริมทรัพย์ · ต.หายยา อ.เมืองเชียงใหม่",
+       "en": "Property agent · Haiya, Mueang Chiang Mai"
+      },
+      {
+       "id": "cr-curated-fb-chiangrai-life-real-estate",
+       "th": "ตัวแทนอสังหาริมทรัพย์ · เชียงราย",
+       "en": "Property agent · Chiang Rai"
+      }
+     ]
+    },
+    {
+     "key": "moobaan",
+     "th": "หมู่บ้านจัดสรร",
+     "en": "Housing estates",
+     "roman": "mu ban chat san",
+     "jewels": [
+      {
+       "id": "cm-curated-habitat-mahidol",
+       "th": "หมู่บ้านจัดสรร · ต.ช้างคลาน อ.เมืองเชียงใหม่",
+       "en": "Housing estate · Chang Khlan, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-curated-latdanma-elegance",
+       "th": "หมู่บ้านจัดสรร · ต.ท่าศาลา อ.เมืองเชียงใหม่",
+       "en": "Housing estate · Tha Sala, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-osm-way-1100634180",
+       "th": "หมู่บ้านจัดสรร · ต.สันผีเสื้อ อ.เมืองเชียงใหม่",
+       "en": "Housing estate · San Phisuea, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-osm-way-1115118258",
+       "th": "หมู่บ้านจัดสรร · ต.สันผีเสื้อ อ.เมืองเชียงใหม่",
+       "en": "Housing estate · San Phisuea, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-osm-way-1184337044",
+       "th": "หมู่บ้านจัดสรร · ต.ท่าศาลา อ.เมืองเชียงใหม่",
+       "en": "Housing estate · Tha Sala, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-osm-way-1327768728",
+       "th": "หมู่บ้านจัดสรร · ต.แม่สา อ.แม่ริม",
+       "en": "Housing estate · Mae Sa, Mae Rim"
+      },
+      {
+       "id": "cm-osm-way-1327768729",
+       "th": "หมู่บ้านจัดสรร · ต.แม่สา อ.แม่ริม",
+       "en": "Housing estate · Mae Sa, Mae Rim"
+      },
+      {
+       "id": "cm-osm-way-1372335054",
+       "th": "หมู่บ้านจัดสรร · ต.ต้นเปา อ.สันกำแพง",
+       "en": "Housing estate · Ton Pao, San Kamphaeng"
+      },
+      {
+       "id": "cm-osm-way-1416645314",
+       "th": "หมู่บ้านจัดสรร · ต.ช้างเผือก อ.เมืองเชียงใหม่",
+       "en": "Housing estate · Chang Phueak, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-osm-way-1418217745",
+       "th": "หมู่บ้านจัดสรร · ต.หนองควาย อ.หางดง",
+       "en": "Housing estate · Nong Khwai, Hang Dong"
+      },
+      {
+       "id": "cm-osm-way-1453536851",
+       "th": "หมู่บ้านจัดสรร · ต.ป่าแดด อ.เมืองเชียงใหม่",
+       "en": "Housing estate · Pa Daet, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-osm-way-1453805231",
+       "th": "หมู่บ้านจัดสรร · ต.แม่เหียะ อ.เมืองเชียงใหม่",
+       "en": "Housing estate · Mae Hia, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-osm-way-1453860449",
+       "th": "หมู่บ้านจัดสรร · ต.หนองจ๊อม อ.สันทราย",
+       "en": "Housing estate · Nongchom, San Sai"
+      },
+      {
+       "id": "cm-osm-way-1455385507",
+       "th": "หมู่บ้านจัดสรร · ต.ดอนแก้ว อ.แม่ริม",
+       "en": "Housing estate · Donkwae, Mae Rim"
+      },
+      {
+       "id": "cm-osm-way-340233924",
+       "th": "หมู่บ้านจัดสรร · ต.แม่เหียะ อ.เมืองเชียงใหม่",
+       "en": "Housing estate · Mae Hia, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-osm-way-528432959",
+       "th": "หมู่บ้านจัดสรร · ต.สันผีเสื้อ อ.เมืองเชียงใหม่",
+       "en": "Housing estate · San Phisuea, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-osm-way-671275358",
+       "th": "หมู่บ้านจัดสรร · ต.หนองควาย อ.หางดง",
+       "en": "Housing estate · Nong Khwai, Hang Dong"
+      },
+      {
+       "id": "cm-osm-way-682012454",
+       "th": "หมู่บ้านจัดสรร · ต.ไชยสถาน อ.สารภี",
+       "en": "Housing estate · Chaisathan, Saraphi"
+      },
+      {
+       "id": "cm-osm-way-96906221",
+       "th": "หมู่บ้านจัดสรร · ต.สันกลาง อ.สันกำแพง",
+       "en": "Housing estate · San Klang, San Kamphaeng"
+      },
+      {
+       "id": "cr-osm-way-1047190780",
+       "th": "หมู่บ้านจัดสรร · ต.สันทราย อ.เมืองเชียงราย",
+       "en": "Housing estate · San Sai, Mueang Chiang Rai"
+      },
+      {
+       "id": "cr-osm-way-1352012396",
+       "th": "หมู่บ้านจัดสรร · ต.บ้านดู่ อ.เมืองเชียงราย",
+       "en": "Housing estate · Ban Du, Mueang Chiang Rai"
+      },
+      {
+       "id": "cr-osm-way-1455958814",
+       "th": "หมู่บ้านจัดสรร · ต.ท่าสาย อ.เมืองเชียงราย",
+       "en": "Housing estate · Tha Sai, Mueang Chiang Rai"
+      },
+      {
+       "id": "cr-osm-way-1455961732",
+       "th": "หมู่บ้านจัดสรร · ต.สันทราย อ.เมืองเชียงราย",
+       "en": "Housing estate · San Sai, Mueang Chiang Rai"
+      },
+      {
+       "id": "cr-osm-way-1456852609",
+       "th": "หมู่บ้านจัดสรร · ต.นางแล อ.เมืองเชียงราย",
+       "en": "Housing estate · Nanglae, Mueang Chiang Rai"
+      }
+     ]
+    },
+    {
+     "key": "land",
+     "th": "สำนักงานที่ดิน",
+     "en": "Land offices",
+     "roman": "samnakngan thi din",
+     "jewels": [
+      {
+       "id": "cm-osm-node-2601921622",
+       "th": "ที่จดทะเบียนซื้อขายที่ดิน · ต.หนองจ๊อม อ.สันทราย",
+       "en": "Where land sales are registered · Nongchom, San Sai"
+      },
+      {
+       "id": "cm-osm-way-558476525",
+       "th": "ที่จดทะเบียนซื้อขายที่ดิน · ต.เชียงดาว อ.เชียงดาว",
+       "en": "Where land sales are registered · Chiang Dao, Chiang Dao"
+      },
+      {
+       "id": "cm-ovt-0a0a5700-0108-4810-9497-d7021220e701",
+       "th": "ที่จดทะเบียนซื้อขายที่ดิน · ต.ช่างเคิ่ง อ.แม่แจ่ม",
+       "en": "Where land sales are registered · Changkhoeng, Mae Chaem"
+      },
+      {
+       "id": "cm-ovt-38a28bf6-498c-485f-8517-d661b2b9048c",
+       "th": "ที่จดทะเบียนซื้อขายที่ดิน · ต.หางดง อ.ฮอด",
+       "en": "Where land sales are registered · Hang Dong, Hot"
+      },
+      {
+       "id": "cm-ovt-3fca201b-bc92-47e8-8ae5-0c342dffd66e",
+       "th": "ที่จดทะเบียนซื้อขายที่ดิน · ต.หนองผึ้ง อ.สารภี",
+       "en": "Where land sales are registered · Nong Phueng, Saraphi"
+      },
+      {
+       "id": "cm-ovt-6f545cc6-821f-4b92-9278-60ebca668a0f",
+       "th": "ที่จดทะเบียนซื้อขายที่ดิน · ต.แม่อาย อ.แม่อาย",
+       "en": "Where land sales are registered · Mae Ai, Mae Ai"
+      },
+      {
+       "id": "cm-ovt-7bf73d10-380f-4564-8f85-5e8da7a83a8c",
+       "th": "ที่จดทะเบียนซื้อขายที่ดิน · ต.สะเมิงใต้ อ.สะเมิง",
+       "en": "Where land sales are registered · Samoeng Tai, Samoeng"
+      },
+      {
+       "id": "cm-ovt-7c679aa0-fbdc-426a-be36-d0dbb8f73be7",
+       "th": "ที่จดทะเบียนซื้อขายที่ดิน · ต.เขื่อนผาก อ.พร้าว",
+       "en": "Where land sales are registered · Khueanphak, Phrao"
+      },
+      {
+       "id": "cm-ovt-86dadea3-ac9a-4da8-8445-2386ac9c5b6f",
+       "th": "ที่จดทะเบียนซื้อขายที่ดิน · ต.บ้านหลวง อ.จอมทอง",
+       "en": "Where land sales are registered · Ban Luang, Chom Thong"
+      },
+      {
+       "id": "cm-ovt-a7764488-705d-4ea6-a489-276b9fb33093",
+       "th": "ที่จดทะเบียนซื้อขายที่ดิน · ต.เชิงดอย อ.ดอยสะเก็ด",
+       "en": "Where land sales are registered · Choengdoi, Doi Saket"
+      },
+      {
+       "id": "cm-ovt-a7ee6f79-5c8d-4e55-b890-ac9771dfebae",
+       "th": "ที่จดทะเบียนซื้อขายที่ดิน · ต.ร้องวัวแดง อ.สันกำแพง",
+       "en": "Where land sales are registered · Rongwuadaeng, San Kamphaeng"
+      },
+      {
+       "id": "cm-ovt-bba362cb-32a2-4e2a-b0fe-6a8bbcaa4414",
+       "th": "ที่จดทะเบียนซื้อขายที่ดิน · ต.สะเมิงใต้ อ.สะเมิง",
+       "en": "Where land sales are registered · Samoeng Tai, Samoeng"
+      },
+      {
+       "id": "cm-ovt-e51b28fb-bdf8-49ea-8d5f-0a8b2f9c205e",
+       "th": "ที่จดทะเบียนซื้อขายที่ดิน · ต.บ้านกลาง อ.สันป่าตอง",
+       "en": "Where land sales are registered · Ban Klang, San Pa Tong"
+      },
+      {
+       "id": "cm-ovt-fd5f2a83-f5e4-4935-91b8-fe967c87f447",
+       "th": "ที่จดทะเบียนซื้อขายที่ดิน · ต.สันมหาพน อ.แม่แตง",
+       "en": "Where land sales are registered · San Mahapna, Mae Taeng"
+      },
+      {
+       "id": "cr-osm-way-1023905222",
+       "th": "ที่จดทะเบียนซื้อขายที่ดิน · ต.ริมกก อ.เมืองเชียงราย",
+       "en": "Where land sales are registered · Rimkok, Mueang Chiang Rai"
+      },
+      {
+       "id": "cr-ovt-0df2a400-4b7f-43af-add4-d722654c4c11",
+       "th": "ที่จดทะเบียนซื้อขายที่ดิน · ต.เวียง อ.เชียงแสน",
+       "en": "Where land sales are registered · Wiang, Chiang Saen"
+      },
+      {
+       "id": "cr-ovt-2180bd75-8ea2-4a19-86e6-80319677d0a2",
+       "th": "ที่จดทะเบียนซื้อขายที่ดิน · ต.เวียง อ.เมืองเชียงราย",
+       "en": "Where land sales are registered · Wiang, Mueang Chiang Rai"
+      },
+      {
+       "id": "cr-ovt-2daaae27-ce63-444f-9330-ce6e2cf005b4",
+       "th": "ที่จดทะเบียนซื้อขายที่ดิน · ต.แม่สรวย อ.แม่สรวย",
+       "en": "Where land sales are registered · Mae Suai, Mae Suai"
+      },
+      {
+       "id": "cr-ovt-53b969c9-9ad0-4e86-8a54-3ae2093149ae",
+       "th": "ที่จดทะเบียนซื้อขายที่ดิน · ต.ป่าแดด อ.ป่าแดด",
+       "en": "Where land sales are registered · Pa Daet, Pa Daet"
+      },
+      {
+       "id": "cr-ovt-8b1ca5d2-443e-4d88-9359-03b2051651c0",
+       "th": "ที่จดทะเบียนซื้อขายที่ดิน · ต.เวียงพางคำ อ.แม่สาย",
+       "en": "Where land sales are registered · Wiangphangkham, Mae Sai"
+      },
+      {
+       "id": "cr-ovt-fc30aa83-6292-4335-b394-93721f1c1fdb",
+       "th": "ที่จดทะเบียนซื้อขายที่ดิน · ต.เวียง อ.เทิง",
+       "en": "Where land sales are registered · Wiang, Thoeng"
+      }
+     ]
+    }
+   ]
+  },
+  "hands": {
+   "th": "ตาข่ายหลายมือ — ซักรีด สวน ช่าง วัสดุ และกำจัดปลวก",
+   "en": "The many-hands net — laundries, gardens, handymen, supplies and pest control",
+   "roman": "ta-khai lai mue",
+   "lede_th": "ร้านซักรีด ร้านต้นไม้และจัดสวน ช่างซ่อมบ้าน ร้านวัสดุ และบริษัทกำจัดปลวก ร้อยเข้าด้วยกัน มินิไซต์ หลายมือ พาไปกระดานที่แม่บ้าน คนสวน ร้านซักรีดรับส่ง และช่าง ลงชื่อเอง เปิดหน้าไหนข้างล่างนี้ ก็เห็นที่อื่นทั้งหมด",
+   "lede_en": "Laundries, garden and plant shops, handymen, building supplies and pest control, strung together. The minisite Many Hands leads to the board where housekeepers, gardeners, laundries and handymen list themselves. Open any page below and it shows all the others.",
+   "sources": [
+    {
+     "url": "https://motdang.net/sites/many-hands/",
+     "label": "Many Hands"
+    },
+    {
+     "url": "https://motdang.net/sites/many-hands/th/",
+     "label": "หลายมือ"
+    },
+    {
+     "url": "https://motdang.net/home-help/",
+     "label": "มดแดง — คนช่วยงานบ้าน · home help"
+    }
+   ],
+   "strands": [
+    {
+     "key": "laundry",
+     "th": "ซักรีด รับส่ง",
+     "en": "Laundry, pickup and delivery",
+     "roman": "sak rit rap song",
+     "jewels": [
+      {
+       "id": "cm-curated-laundry-17711",
+       "th": "ร้านซักรีด · ต.หนองป่าครั่ง อ.เมืองเชียงใหม่",
+       "en": "Laundry · Nong Pa Khrang, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-curated-laundry-17712",
+       "th": "ร้านซักรีด · ต.ท่าศาลา อ.สารภี",
+       "en": "Laundry · Tha Sala, Saraphi"
+      },
+      {
+       "id": "cm-ovt-3fa44eea-366b-484e-9847-a69cd2551620",
+       "th": "ร้านซักรีด · ต.ป่าแดด อ.เมืองเชียงใหม่",
+       "en": "Laundry · Pa Daet, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-curated-fb-launderyth",
+       "th": "ร้านซักรีด · เชียงใหม่",
+       "en": "Laundry · Chiang Mai"
+      },
+      {
+       "id": "cm-curated-fb-fluffylaundrycnx",
+       "th": "ร้านซักรีด · เชียงใหม่",
+       "en": "Laundry · Chiang Mai"
+      },
+      {
+       "id": "cm-osm-node-4886910421",
+       "th": "ร้านซักรีด · ต.พระสิงห์ อ.เมืองเชียงใหม่",
+       "en": "Laundry · Phra Sing, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-ovt-c247442f-4e44-463c-b6f7-71524d7bc2bc",
+       "th": "ร้านซักรีด · ต.ช้างม่อย อ.เมืองเชียงใหม่",
+       "en": "Laundry · Changmoi, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-ovt-ffe5f1dc-ab64-41d3-a97d-f2871e1d2dfc",
+       "th": "ร้านซักรีด · อ.เมืองเชียงใหม่",
+       "en": "Laundry · Mueang Chiang Mai"
+      },
+      {
+       "id": "cr-curated-fb-laundryhousepj",
+       "th": "ร้านซักรีด · เชียงราย",
+       "en": "Laundry · Chiang Rai"
+      }
+     ]
+    },
+    {
+     "key": "garden",
+     "th": "สวน ต้นไม้ กระถาง",
+     "en": "Gardens, plants, pots",
+     "roman": "suan ton mai krathang",
+     "jewels": [
+      {
+       "id": "cm-ovt-1671e0a7-bf62-4c67-90ca-d12db76c09f5",
+       "th": "จัดสวน ต้นไม้ · ต.ป่าตัน อ.เมืองเชียงใหม่",
+       "en": "Garden and plants · Pa Tan, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-curated-cha-charoen-garden-center",
+       "th": "จัดสวน ต้นไม้ · ต.พระสิงห์ อ.เมืองเชียงใหม่",
+       "en": "Garden and plants · Phra Sing, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-ovt-b32f2657-1594-4c09-a523-3b6111196f66",
+       "th": "จัดสวน ต้นไม้ · ต.สันผีเสื้อ อ.เมืองเชียงใหม่",
+       "en": "Garden and plants · San Phisuea, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-ovt-9ef06fb5-1708-4562-a410-8a9dfca370e8",
+       "th": "จัดสวน ต้นไม้ · ต.แม่เหียะ อ.เมืองเชียงใหม่",
+       "en": "Garden and plants · Mae Hia, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-osm-node-13599916890",
+       "th": "จัดสวน ต้นไม้ · ต.ป่าตัน อ.เมืองเชียงใหม่",
+       "en": "Garden and plants · Pa Tan, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-ovt-6dd5919f-0108-4f3b-b30b-a3e2c9ed0ec5",
+       "th": "จัดสวน ต้นไม้ · ต.ป่าตัน อ.เมืองเชียงใหม่",
+       "en": "Garden and plants · Pa Tan, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-ovt-fb7184ef-95ce-43b3-a684-d490600c60d6",
+       "th": "จัดสวน ต้นไม้ · ต.ป่าตัน อ.เมืองเชียงใหม่",
+       "en": "Garden and plants · Pa Tan, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-ovt-4f983e61-ede7-477a-ae88-cb91143a686b",
+       "th": "จัดสวน ต้นไม้ · ต.บ้านกลาง อ.สันป่าตอง",
+       "en": "Garden and plants · Ban Klang, San Pa Tong"
+      },
+      {
+       "id": "cr-osm-way-1232062459",
+       "th": "จัดสวน ต้นไม้ · ต.ริมกก อ.เมืองเชียงราย",
+       "en": "Garden and plants · Rimkok, Mueang Chiang Rai"
+      },
+      {
+       "id": "cr-osm-way-1232062464",
+       "th": "จัดสวน ต้นไม้ · ต.ริมกก อ.เมืองเชียงราย",
+       "en": "Garden and plants · Rimkok, Mueang Chiang Rai"
+      },
+      {
+       "id": "cr-ovt-54cbcc7a-2566-4f07-b389-0f300c978400",
+       "th": "จัดสวน ต้นไม้ · ต.รอบเวียง อ.เมืองเชียงราย",
+       "en": "Garden and plants · Ropwiang, Mueang Chiang Rai"
+      },
+      {
+       "id": "cr-ovt-606fd381-31a0-4cba-b6d3-a263837ada62",
+       "th": "จัดสวน ต้นไม้ · ต.ริมกก อ.เมืองเชียงราย",
+       "en": "Garden and plants · Rimkok, Mueang Chiang Rai"
+      },
+      {
+       "id": "cr-osm-node-13684580801",
+       "th": "จัดสวน ต้นไม้ · ต.ริมกก อ.เมืองเชียงราย",
+       "en": "Garden and plants · Rimkok, Mueang Chiang Rai"
+      }
+     ]
+    },
+    {
+     "key": "handy",
+     "th": "ช่างซ่อมบ้าน",
+     "en": "Handymen and repairs",
+     "roman": "chang som ban",
+     "jewels": [
+      {
+       "id": "cm-curated-fb-fthandymanchiangmai",
+       "th": "ช่าง · เชียงใหม่",
+       "en": "Repairs · Chiang Mai"
+      },
+      {
+       "id": "cm-curated-home-17081",
+       "th": "ช่าง · ต.ศรีภูมิ อ.เมืองเชียงใหม่",
+       "en": "Repairs · Si Phum, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-curated-home-17679",
+       "th": "ช่าง · ต.สุเทพ อ.เมืองเชียงใหม่",
+       "en": "Repairs · Suthep, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-curated-home-27166",
+       "th": "ช่าง · ต.ศรีภูมิ อ.เมืองเชียงใหม่",
+       "en": "Repairs · Si Phum, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-curated-home-14802",
+       "th": "ช่าง · ต.ท่าศาลา อ.เมืองเชียงใหม่",
+       "en": "Repairs · Tha Sala, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-curated-home-26937",
+       "th": "ช่าง · ต.ท่าศาลา อ.เมืองเชียงใหม่",
+       "en": "Repairs · Tha Sala, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-ovt-e844c19c-6565-4765-abd6-e955cecdda15",
+       "th": "ช่าง · ต.ท่าศาลา อ.เมืองเชียงใหม่",
+       "en": "Repairs · Tha Sala, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-curated-home-8563",
+       "th": "ช่าง · ต.หนองป่าครั่ง อ.เมืองเชียงใหม่",
+       "en": "Repairs · Nong Pa Khrang, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-curated-home-4967",
+       "th": "ช่าง · ต.หนองหอย อ.เมืองเชียงใหม่",
+       "en": "Repairs · Nong Hoi, Mueang Chiang Mai"
+      }
+     ]
+    },
+    {
+     "key": "supply",
+     "th": "วัสดุ เครื่องมือ",
+     "en": "Materials and tools",
+     "roman": "watsadu khrueang mue",
+     "jewels": [
+      {
+       "id": "cm-ovt-eba05eec-8d4e-437b-9663-d64848d235cd",
+       "th": "วัสดุก่อสร้าง อุปกรณ์ · ต.ท่าศาลา อ.เมืองเชียงใหม่",
+       "en": "Building materials and supplies · Tha Sala, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-ovt-546325de-6f69-4eff-a65a-0598cdcaad76",
+       "th": "วัสดุก่อสร้าง อุปกรณ์ · ต.ป่าตัน อ.เมืองเชียงใหม่",
+       "en": "Building materials and supplies · Pa Tan, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-ovt-3ea33a0c-ec5e-43af-a7cd-c3627a4e1fcb",
+       "th": "วัสดุก่อสร้าง อุปกรณ์ · ต.ศรีภูมิ อ.เมืองเชียงใหม่",
+       "en": "Building materials and supplies · Si Phum, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-curated-chiang-mai-laminet",
+       "th": "วัสดุก่อสร้าง อุปกรณ์ · ต.ท่าศาลา อ.เมืองเชียงใหม่",
+       "en": "Building materials and supplies · Tha Sala, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-ovt-afe510d4-f3c3-4d14-9b57-02b9e731ca0f",
+       "th": "วัสดุก่อสร้าง อุปกรณ์ · ต.ช้างคลาน อ.เมืองเชียงใหม่",
+       "en": "Building materials and supplies · Chang Khlan, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-ovt-67cab22e-5f24-4373-8bce-1d5af06552bc",
+       "th": "วัสดุก่อสร้าง อุปกรณ์ · ต.ศรีภูมิ อ.เมืองเชียงใหม่",
+       "en": "Building materials and supplies · Si Phum, Mueang Chiang Mai"
+      }
+     ]
+    },
+    {
+     "key": "pest",
+     "th": "กำจัดปลวก แมลง",
+     "en": "Termites and pests",
+     "roman": "kamchat pluak malaeng",
+     "jewels": [
+      {
+       "id": "cm-curated-happy-house-pest",
+       "th": "กำจัดปลวกและแมลง · ต.สันกลาง อ.สันกำแพง",
+       "en": "Termite and pest control · San Klang, San Kamphaeng"
+      },
+      {
+       "id": "cm-curated-ikari-chiangmai",
+       "th": "กำจัดปลวกและแมลง · ต.หนองหอย อ.เมืองเชียงใหม่",
+       "en": "Termite and pest control · Nong Hoi, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-curated-rentokil-chiangmai",
+       "th": "กำจัดปลวกและแมลง · ต.ช้างคลาน อ.เมืองเชียงใหม่",
+       "en": "Termite and pest control · Chang Khlan, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-curated-unipest",
+       "th": "กำจัดปลวกและแมลง · ต.ช้างเผือก อ.เมืองเชียงใหม่",
+       "en": "Termite and pest control · Chang Phueak, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-ovt-0ed05b30-2cf0-4e85-a30d-855865461cbe",
+       "th": "กำจัดปลวกและแมลง · ต.แม่เหียะ อ.เมืองเชียงใหม่",
+       "en": "Termite and pest control · Mae Hia, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-ovt-1373cd0a-4702-49c6-9d3a-237470cf8e93",
+       "th": "กำจัดปลวกและแมลง · ต.แม่เหียะ อ.เมืองเชียงใหม่",
+       "en": "Termite and pest control · Mae Hia, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-ovt-354ee937-efb4-4690-ab13-4c6850bc452d",
+       "th": "กำจัดปลวกและแมลง · ต.หนองหอย อ.เมืองเชียงใหม่",
+       "en": "Termite and pest control · Nong Hoi, Mueang Chiang Mai"
+      },
+      {
+       "id": "cm-ovt-678399b3-a859-4579-be88-e773e99e4cee",
+       "th": "กำจัดปลวกและแมลง · ต.สันกำแพง อ.สันกำแพง",
+       "en": "Termite and pest control · San Kamphaeng, San Kamphaeng"
+      }
+     ]
+    }
+   ]
+  },
+  "amulets": {
+   "th": "ตาข่ายพระเครื่อง — ตลาดพระ ศูนย์พระ และช่างกรอบพระ เชียงใหม่ เชียงราย",
+   "en": "The amulet net — amulet markets, centres and frame makers, Chiang Mai and Chiang Rai",
+   "roman": "ta-khai phra khrueang",
+   "lede_th": "แผงในหอตลาดพระคำเที่ยง ตลาดข้าง ๆ ศูนย์พระที่อื่นในเชียงใหม่ ช่างกรอบพระ และศูนย์พระในเชียงราย ร้อยเข้าด้วยกัน เว็บ ตลาดพระ คำเที่ยง พาไปดูแผง ทางไป และคำศัพท์ เปิดหน้าไหนข้างล่างนี้ ก็เห็นที่อื่นทั้งหมด",
+   "lede_en": "The stalls of the Kamthieng amulet hall, its neighbours, other amulet centres in Chiang Mai, frame makers, and the amulet centres of Chiang Rai, strung together. The site Kamthieng Amulet Market has the stalls, the way there and the words. Open any page below and it shows all the others.",
+   "sources": [
+    {
+     "url": "https://motdang.net/markets/cm/kamthieng/amulets/",
+     "label": "ตลาดพระ คำเที่ยง · Kamthieng Amulet Market"
+    },
+    {
+     "url": "https://motdang.net/field/sessions/2026-09-24/",
+     "label": "Field, 24 Sep 2026: the amulet market walk"
+    }
+   ],
+   "strands": [
+    {
+     "key": "hall",
+     "th": "ในหอพระ คำเที่ยง",
+     "en": "Inside the Kamthieng amulet hall",
+     "roman": "nai ho phra kham thiang",
+     "jewels": [
+      {
+       "id": "cm-curated-phra-khrueang-puk",
+       "th": "ร้านพระเครื่อง · โซน A3",
+       "en": "amulet shop (shutter down) · zone A3"
+      },
+      {
+       "id": "cm-curated-u-na-lom-amu-let",
+       "th": "แผงพระเครื่อง ร้านอุณาโลม อมูเลท · โซน A3",
+       "en": "amulet stall and shop (Zone A3) · zone A3"
+      },
+      {
+       "id": "cm-curated-yai-san-kamphaeng",
+       "th": "ร้านพระเครื่อง รับเช่าพระ · โซน A3",
+       "en": "amulet shop that buys and rents amulets (Zone A3 053-054) · zone A3"
+      },
+      {
+       "id": "cm-curated-wilai-phra-khrueang",
+       "th": "แผงพระบูชาและพระเครื่อง (พระบูชาสำริด ลูกประคำ ไม้เท้า) · โซน B1",
+       "en": "Buddha image and amulet stall (bronze images, beads, carved staffs) · zone B1"
+      },
+      {
+       "id": "cm-curated-tk-amulet-65",
+       "th": "ร้านให้เช่าพระเครื่อง เงินโบราณ แบงก์เก่า ออกแบบเบอร์มงคล รับซื้อสลากถูกรางวัล",
+       "en": "amulet dealer, old coins and banknotes, auspicious phone-number design, buys winning lottery tickets"
+      },
+      {
+       "id": "cm-curated-khwan-kamon",
+       "th": "ร้านให้เช่าพระเครื่อง พระบูชา ของเก่า",
+       "en": "amulet shop: rents out amulets, Buddha images for worship, antiques"
+      },
+      {
+       "id": "cm-curated-khwan-kalae",
+       "th": "ร้านพระเครื่อง พระบูชา",
+       "en": "amulet and Buddha image shop"
+      },
+      {
+       "id": "cm-curated-mahaheng",
+       "th": "ร้านพระเครื่อง (ห้องว่างขณะถ่าย)",
+       "en": "amulet shop unit (empty at the time)"
+      },
+      {
+       "id": "cm-curated-sun-ruam-phra-khrueang-phra-bucha-khrueangrang",
+       "th": "ศูนย์รวมพระเครื่อง พระบูชา เครื่องราง",
+       "en": "amulets, Buddha images for worship and charms"
+      },
+      {
+       "id": "cm-curated-e-mae-taeng",
+       "th": "ร้านพระเครื่อง รับเช่าพระ",
+       "en": "amulet shop that buys amulets"
+      },
+      {
+       "id": "cm-curated-fok-phra-khrueang",
+       "th": "ร้านพระเครื่อง",
+       "en": "amulet dealer (glass counter)"
+      },
+      {
+       "id": "cm-curated-chatu-kham-30",
+       "th": "ร้านตลับพระ สร้อยเงิน อุปกรณ์พระเครื่อง รับทำลูกกุญแจ · โซน A3",
+       "en": "amulet case, silver chain and amulet-accessory stall; key cutting · zone A3"
+      },
+      {
+       "id": "cm-curated-amulet-frame",
+       "th": "ร้านรับทำกรอบพระ · โซน B1",
+       "en": "amulet-frame maker · zone B1"
+      },
+      {
+       "id": "cm-curated-pa-nopkao-silver",
+       "th": "ร้านรับเลี่ยมพระ กรอบพระพลาสติกกันน้ำ และเครื่องประดับเงิน · โซน B1",
+       "en": "amulet casing and silver jewellery shop · zone B1"
+      },
+      {
+       "id": "cm-curated-puk",
+       "th": "ตลับเงิน สร้อยเงิน ตลับสแตนเลส สร้อยสแตนเลส ปลีก-ส่ง",
+       "en": "silver and stainless-steel amulet cases and chains, retail and wholesale"
+      },
+      {
+       "id": "cm-curated-rapliamphra-kan-nam-mu",
+       "th": "ร้านรับเลี่ยมพระกันน้ำ",
+       "en": "waterproof amulet casing"
+      },
+      {
+       "id": "cm-curated-ran-maha-mongkhon",
+       "th": "ร้านมหามงคล ตลับพระ สแตนเลส ไมครอน ตลับเงินแท้ สร้อยเงินแท้ อุปกรณ์พระเครื่อง ราคาส่ง",
+       "en": "amulet cases and accessories: stainless, micron, 92.5% silver cases and chains; wholesale"
+      },
+      {
+       "id": "cm-curated-waterproof-amulet",
+       "th": "ร้านกรอบพระกันน้ำ รับเช่าพระเครื่อง",
+       "en": "waterproof amulet frame maker"
+      },
+      {
+       "id": "cm-curated-liam-phra-kan-nam",
+       "th": "ร้านเลี่ยมพระกันน้ำ",
+       "en": "amulet casing (waterproof frames)"
+      },
+      {
+       "id": "cm-curated-tengnueng-waenta-faechan",
+       "th": "ร้านแว่นตาแฟชั่น (ปิด)",
+       "en": "fashion eyeglasses shop (shutter closed)"
+      }
+     ]
+    },
+    {
+     "key": "next",
+     "th": "ข้าง ๆ กัน",
+     "en": "Next door",
+     "roman": "khang khang kan",
+     "jewels": [
+      {
+       "id": "cm-osm-way-423030639",
+       "th": "ตลาดต้นไม้ ดอกไม้ คำเที่ยง",
+       "en": "Kamthieng plant and flower market"
+      },
+      {
+       "id": "cm-osm-way-232645469",
+       "th": "ตลาดจริงใจ ติดกัน",
+       "en": "Jing Jai Market, next door"
+      },
+      {
+       "id": "cm-ovt-f2982dc0-35ce-4dba-822c-295cbf4e4c70",
+       "th": "โลตัส คำเที่ยง ติดกับหอพระ",
+       "en": "Lotus's Kamthieng, beside the hall"
+      },
+      {
+       "id": "cm-ovt-36e2aa22-2ac6-4c40-8809-9119186a29ce",
+       "th": "ตลาดนัดของมือสอง ที่โลตัส",
+       "en": "Second-hand market at Lotus's"
+      },
+      {
+       "id": "cm-osm-way-423030640",
+       "th": "ที่จอดรถ ตลาดคำเที่ยง",
+       "en": "Kamthieng market car park"
+      }
+     ]
+    },
+    {
+     "key": "cm",
+     "th": "ตลาดพระและศูนย์พระ ที่อื่นในเชียงใหม่",
+     "en": "Other amulet markets and centres in Chiang Mai",
+     "roman": "talat phra lae sun phra",
+     "jewels": [
+      {
+       "id": "cm-ovt-11fc739b-8276-4618-ae59-7c099835c05c",
+       "th": "ศูนย์พระ ในตลาดทิพย์เนตร ต.หายยา",
+       "en": "Amulet centre in Thiphanet market, Hai Ya"
+      },
+      {
+       "id": "cm-ovt-c368941a-99c6-4e52-990e-74f2b8bfb89c",
+       "th": "มุมพระเครื่อง ตลาดทิพย์เนตร",
+       "en": "Amulet corner, Thiphanet market"
+      },
+      {
+       "id": "cm-ovt-d7110be4-702c-4341-8db2-38891c190aae",
+       "th": "ร้านทำกรอบพระ ตลาดทิพย์เนตร",
+       "en": "Frame maker, Thiphanet market"
+      },
+      {
+       "id": "cm-ovt-0a999883-da70-4054-9174-fe49457b99cd",
+       "th": "ศูนย์พระเครื่อง อ.สันกำแพง",
+       "en": "Amulet centre, San Kamphaeng"
+      },
+      {
+       "id": "cm-ovt-5fde47ea-2096-4837-bd6d-1b6bfab78810",
+       "th": "สมาคมพระเครื่อง เมืองเชียงใหม่ อ.แม่ริม",
+       "en": "Chiang Mai amulet association, Mae Rim"
+      },
+      {
+       "id": "cm-ovt-bbfbe0b7-6c69-44e3-92b6-94d54884391d",
+       "th": "ชมรมคนรักพระ หน้าวัดบ้านหม้อ",
+       "en": "Amulet club in front of Wat Ban Mo"
+      },
+      {
+       "id": "cm-ovt-7472dc15-ff70-4062-b5a6-9ed818e84e18",
+       "th": "ร้านพระและกาแฟ ในเมือง",
+       "en": "Amulets and coffee, in town"
+      },
+      {
+       "id": "cm-ovt-d9106223-5c7b-4250-8c8a-ecdbef607fe2",
+       "th": "ร้านพระ สวนกล้วย แม่ริม",
+       "en": "Amulet shop, Suan Kluai, Mae Rim"
+      },
+      {
+       "id": "cm-ovt-7ef6d88a-3f09-4f58-9291-7818b8c6b336",
+       "th": "ร้านพระ สันป่าตอง",
+       "en": "Amulet shop, San Pa Tong"
+      }
+     ]
+    },
+    {
+     "key": "frames",
+     "th": "ช่างกรอบพระ ทั่วเชียงใหม่",
+     "en": "Frame makers around Chiang Mai",
+     "roman": "chang krop phra",
+     "jewels": [
+      {
+       "id": "cm-ovt-1521b72b-ab74-4088-9a8e-e2329e4ba19e",
+       "th": "เลี่ยมพระพลาสติกกันน้ำ ใกล้ทิพย์เนตร",
+       "en": "Waterproof plastic casing, near Thiphanet"
+      },
+      {
+       "id": "cm-ovt-3ba6b129-4e3e-47df-9e48-90dfcb3bf5c0",
+       "th": "เลี่ยมพระกันน้ำ ช่างหนานอิน",
+       "en": "Waterproof casing, Chang Nan In"
+      },
+      {
+       "id": "cm-ovt-857be940-0390-4d8c-9468-00a39fd8bf7b",
+       "th": "เลี่ยมพระกันน้ำ สันกำแพง",
+       "en": "Waterproof casing, San Kamphaeng"
+      },
+      {
+       "id": "cm-ovt-9d34f6db-15e0-4e16-9102-674c8849dc7d",
+       "th": "ร้านเลี่ยมพระ ช่างหนึ่งปฐพี",
+       "en": "Casing shop, Chang Nueng Pathaphi"
+      },
+      {
+       "id": "cm-ovt-2a472b84-f444-45e7-9bbd-658d282a7117",
+       "th": "กรอบพระ แม่แตง",
+       "en": "Frames, Mae Taeng"
+      },
+      {
+       "id": "cm-ovt-063b3598-07a9-4350-88dc-214b09c584d0",
+       "th": "กรอบพระ และเทียนบูชาล้านนา",
+       "en": "Frames and Lanna offering candles"
+      },
+      {
+       "id": "cm-ovt-69cb04d7-580b-4156-8a57-e25326941302",
+       "th": "กรอบทอง ตลับทอง ใกล้ทิพย์เนตร",
+       "en": "Gold frames and cases, near Thiphanet"
+      }
+     ]
+    },
+    {
+     "key": "cr",
+     "th": "ศูนย์พระ ในเชียงราย",
+     "en": "Amulet centres in Chiang Rai",
+     "roman": "sun phra chiang rai",
+     "jewels": [
+      {
+       "id": "cr-ovt-ef99ca11-6f0a-4837-bfa8-f454150d2deb",
+       "th": "ศูนย์พระ เซ็นทรัลพลาซ่า เชียงราย ชั้น G",
+       "en": "Amulet centre, Central Plaza Chiang Rai, floor G"
+      },
+      {
+       "id": "cr-ovt-94b355da-eff8-4281-96f6-f2ab13e8748f",
+       "th": "ศูนย์พระเครื่อง เชียงแสน",
+       "en": "Amulet centre, Chiang Saen"
+      },
+      {
+       "id": "cr-ovt-93da51d7-8f2f-4d2e-a9b6-42460963b3dd",
+       "th": "ศูนย์พระเครื่อง เสน่ห์ล้านนา",
+       "en": "Saneh Lanna amulet centre"
+      },
+      {
+       "id": "cr-ovt-aaf0ed43-81a4-45ca-8ab1-b7d1784e9ef8",
+       "th": "ชมรมพระเครื่อง ขุนตาล",
+       "en": "Khun Tan amulet club"
+      },
+      {
+       "id": "cr-ovt-5a4cf276-af83-4028-a82d-c7c34b538220",
+       "th": "บ้านพระเครื่อง ครูบอย",
+       "en": "Khru Boy's amulet house"
+      },
+      {
+       "id": "cr-osm-node-11002473946",
+       "th": "บ้านเลี่ยมพระ อ.พาน",
+       "en": "Casing house, Phan"
+      },
+      {
+       "id": "cr-ovt-da2f20ae-8318-47c4-846f-2e5ba1c69c5c",
+       "th": "ศูนย์รับเช่าพระ เลี่ยมพระ อ.พาน",
+       "en": "Amulet buying and casing, Phan"
+      },
+      {
+       "id": "cr-ovt-2c6cb889-354a-4644-92db-c07d48426a82",
+       "th": "รับเลี่ยมพระ ในเมืองเชียงราย",
+       "en": "Casing, Chiang Rai town"
+      }
+     ]
+    }
+   ]
+  },
+  "chamcha": {
+   "th": "ตาข่ายกาดฉำฉา — ร้านในกาด ซอยโหล่งฮิมคาว งานฝีมือสันกำแพง และกาดสุดสัปดาห์",
+   "en": "The Chamcha net — the market's makers, the Loang Him Kao lanes, San Kamphaeng crafts and weekend markets",
+   "roman": "ta-khai kat chamcha",
+   "lede_th": "ร้านในกาดฉำฉา ร้านกินดื่ม ซอยโหล่งฮิมคาวข้าง ๆ งานฝีมือสันกำแพงและบ่อสร้าง และกาดสุดสัปดาห์ที่อื่นในเชียงใหม่ ร้อยเข้าด้วยกัน เว็บ กาดฉำฉา มีร้าน ทางไป และคำศัพท์ เปิดหน้าไหนข้างล่างนี้ ก็เห็นที่อื่นทั้งหมด",
+   "lede_en": "The makers and food stalls of Chamcha Market, the Loang Him Kao lanes next door, San Kamphaeng and Bo Sang crafts, and other weekend markets in Chiang Mai, strung together. The site Chamcha Market has the stalls, the way there and the words. Open any page below and it shows all the others.",
+   "sources": [
+    {
+     "url": "https://motdang.net/markets/cm/chamcha/",
+     "label": "กาดฉำฉา · Chamcha Market"
+    },
+    {
+     "url": "https://motdang.net/field/sessions/2026-09-27/",
+     "label": "Field, 27 Sep 2026: the Chamcha Market walk"
+    }
+   ],
+   "strands": [
+    {
+     "key": "makers",
+     "th": "ร้านในกาดฉำฉา",
+     "en": "Makers at Chamcha",
+     "roman": "kat chamcha",
+     "jewels": [
+      {
+       "id": "cm-curated-art-workshops",
+       "th": "สตูดิโอศิลปะและเวิร์กช็อป สีน้ำ วาดภาพ เซรามิก",
+       "en": "art studio and workshops: watercolour, illustration, ceramics"
+      },
+      {
+       "id": "cm-curated-awila-handicraft",
+       "th": "ถาดและตุ๊กตาไม้ระบายสี เวิร์กช็อประบายสีไม้",
+       "en": "painted wooden trays and figures; wood-painting workshop"
+      },
+      {
+       "id": "cm-curated-bangkok-baskets",
+       "th": "ตะกร้าและเครื่องจักสาน",
+       "en": "baskets"
+      },
+      {
+       "id": "cm-curated-booncraft-studio",
+       "th": "งานคราฟต์ทำมือ",
+       "en": "handmade craft goods"
+      },
+      {
+       "id": "cm-curated-chatchanop",
+       "th": "หิน คริสตัล เครื่องประดับเงิน",
+       "en": "stones, crystals and silver jewellery"
+      },
+      {
+       "id": "cm-curated-dress-me-up",
+       "th": "สร้อยลูกปัดและเครื่องประดับทำมือ เวิร์กช็อป",
+       "en": "beaded necklaces and handmade jewellery; workshops"
+      },
+      {
+       "id": "cm-curated-gaanth",
+       "th": "เซรามิก กระดิ่ง ถ้วย ตุ๊กตา จี้",
+       "en": "ceramics: bells, bowls, figurines and pendants"
+      },
+      {
+       "id": "cm-curated-hearts-and-hands",
+       "th": "ของใช้ในครัวไม้สัก ตุ๊กตาเซรามิก งานคราฟต์",
+       "en": "teak kitchenware, ceramic figures and crafts"
+      },
+      {
+       "id": "cm-curated-holy-kids-studio",
+       "th": "สตูดิโอศิลปะเด็ก ระบายตุ๊กตาตัวละครเอง",
+       "en": "kids' art studio: customise your own character figure"
+      },
+      {
+       "id": "cm-curated-hong-tao-handicrafts",
+       "th": "เสื้อผ้าทำมือ หมวก กระเป๋า ของไม้",
+       "en": "handmade clothing, bucket hats, bags and small wooden goods"
+      },
+      {
+       "id": "cm-curated-huen-wanida",
+       "th": "โมบายผ้าทำมือ ตุ๊กตาผ้า เสื้อผ้า",
+       "en": "handmade fabric mobiles, soft toys and clothing"
+      },
+      {
+       "id": "cm-curated-kajao",
+       "th": "ร้านพร้อมพื้นที่เวิร์กช็อป",
+       "en": "shop with a workshop space"
+      },
+      {
+       "id": "cm-curated-miss-polly",
+       "th": "เครื่องประดับเงินทำมือ",
+       "en": "handmade silver jewellery"
+      },
+      {
+       "id": "cm-curated-spooncraft",
+       "th": "แหวนทำจากช้อนเก่า",
+       "en": "rings made from old spoons"
+      },
+      {
+       "id": "cm-curated-ssym-handmade",
+       "th": "ผ้าทำมือ กระเป๋าสาน เสื้อผ้า",
+       "en": "handmade textiles, woven bags and clothing"
+      },
+      {
+       "id": "cm-curated-the-idea",
+       "th": "กระเป๋าผ้าพิมพ์ลาย ถุงใส่แก้ว ของใช้ผ้า",
+       "en": "printed-fabric tote bags, tumbler bags and small fabric goods"
+      },
+      {
+       "id": "cm-curated-wieng-papao-homemade",
+       "th": "แยม ผลไม้ดอง ชาอบแห้ง ทำเอง",
+       "en": "homemade jams, preserves and dried tea"
+      },
+      {
+       "id": "cm-curated-koon",
+       "th": "ผ้าเพ้นท์ลายแมว ผ้าห่มปะติด",
+       "en": "hand-painted cat textile art and quilts"
+      },
+      {
+       "id": "cm-curated-tungjaitum-craft",
+       "th": "กระเป๋าเหรียญปักและปะติด",
+       "en": "embroidered and appliqué coin purses and pouches"
+      },
+      {
+       "id": "cm-curated-pen-dee-hug",
+       "th": "กระเป๋าปัก ทอ ถัก และผ้าห่มโครเชต์",
+       "en": "embroidered, woven and crochet bags and crocheted blankets"
+      },
+      {
+       "id": "cm-curated-khunkawee",
+       "th": "สบู่ธรรมชาติทำมือ บาธบอมบ์",
+       "en": "natural handmade soap, bath bombs and bubble bars"
+      },
+      {
+       "id": "cm-curated-mae-jo-phap-yon",
+       "th": "สตูดิโอถ่ายรูปวินเทจในรถตู้ VW เก่า",
+       "en": "vintage photo studio in an old VW van"
+      },
+      {
+       "id": "cm-curated-boon",
+       "th": "เสื้อผ้าฝ้าย",
+       "en": "cotton clothing"
+      },
+      {
+       "id": "cm-curated-cotton-cotton-chiangmai",
+       "th": "เสื้อและกางเกงผ้าฝ้ายเพ้นท์มือ แจ็กเก็ตยีนส์ปัก",
+       "en": "hand-painted cotton tops and shorts, embroidered denim jackets"
+      },
+      {
+       "id": "cm-curated-embroidery-girl",
+       "th": "เสื้อผ้าฝ้ายปัก กางเกงลายแมว กระเป๋าผ้า ตุ๊กตาแมวสักหลาด",
+       "en": "embroidered cotton shirts, cat-print trousers, totes and felt cats"
+      },
+      {
+       "id": "cm-curated-gabela-handmade",
+       "th": "เสื้อพิมพ์ลาย กระเป๋า เครื่องประดับ",
+       "en": "printed shirts, bags and jewellery"
+      },
+      {
+       "id": "cm-curated-handy-baggie",
+       "th": "กระเป๋าผ้าทำมือ เสื้อยืดพิมพ์ลาย",
+       "en": "handmade fabric bags, printed T-shirts and cotton clothing"
+      },
+      {
+       "id": "cm-curated-lanna-pastel",
+       "th": "เสื้อผ้าและผ้าพันคอย้อมสีธรรมชาติ พิมพ์ใบไม้",
+       "en": "natural-dye and leaf-printed clothing and scarves"
+      },
+      {
+       "id": "cm-curated-lantong",
+       "th": "ผ้าฝ้ายปักและทอมือ กระเป๋าถัก",
+       "en": "embroidered and handwoven cotton, crochet bags"
+      },
+      {
+       "id": "cm-curated-morrakot",
+       "th": "เสื้อและชุดผ้าฝ้ายขาว ลูกไม้",
+       "en": "white cotton and lace blouses and dresses"
+      },
+      {
+       "id": "cm-curated-mugunghwa",
+       "th": "ชุดและเสื้อผ้าฝ้ายขาว",
+       "en": "white cotton dresses and blouses"
+      },
+      {
+       "id": "cm-curated-jira",
+       "th": "เสื้อผ้าฝ้ายและกัญชงทอมือ พิมพ์ภาพบุคคล เสื้อหม้อห้อม",
+       "en": "handwoven cotton and hemp clothing, portrait prints, indigo jackets"
+      },
+      {
+       "id": "cm-curated-baan-u-sa",
+       "th": "กระเป๋าถักโครเชต์ เสื้อผ้าทำมือ หมวก",
+       "en": "crochet bags, handmade clothing and hats"
+      },
+      {
+       "id": "cm-curated-ran-dekdoi",
+       "th": "กระเป๋าปักและเสื้อผ้าแบบชาวเขา",
+       "en": "embroidered bags and hill-tribe style clothing"
+      },
+      {
+       "id": "cm-curated-wiang-usa",
+       "th": "เสื้อคลุมหม้อห้อมและปัก ชุด หมวก",
+       "en": "indigo and embroidered jackets, dresses and hats"
+      },
+      {
+       "id": "cm-curated-destinies",
+       "th": "ของใช้สัตว์เลี้ยง ผ้าพันคอและปลอกคอสุนัข",
+       "en": "pet accessories: cloth dog bandanas and collars"
+      },
+      {
+       "id": "cm-curated-lucky-henna",
+       "th": "เพ้นท์เฮนน่า",
+       "en": "henna art"
+      },
+      {
+       "id": "cm-curated-malie",
+       "th": "น้ำหอมธรรมชาติทำมือ",
+       "en": "natural handmade perfume"
+      }
+     ]
+    },
+    {
+     "key": "food",
+     "th": "กินดื่มในกาด",
+     "en": "Food and drink at the market",
+     "roman": "kin duem nai kat",
+     "jewels": [
+      {
+       "id": "cm-curated-coffee-craft-space",
+       "th": "กาแฟและพื้นที่งานคราฟต์ มีรถตู้ VW เก่า",
+       "en": "coffee and craft space in a covered yard with a vintage VW van"
+      },
+      {
+       "id": "cm-curated-mama-tasty",
+       "th": "เบเกอรี่โฮมเมดและกาแฟดริป",
+       "en": "homemade bakery and drip coffee"
+      },
+      {
+       "id": "cm-curated-soft-on-wheels",
+       "th": "ไอศกรีมซอฟต์เสิร์ฟและป๊อปคอร์นจากรถ",
+       "en": "soft-serve ice cream and popcorn from a truck"
+      },
+      {
+       "id": "cm-curated-stanichoc",
+       "th": "คราฟต์ช็อกโกแลตจากแม่วาง เชียงใหม่",
+       "en": "craft chocolate from Mae Wang, Chiang Mai"
+      },
+      {
+       "id": "cm-curated-toh-toh",
+       "th": "เบอร์เกอร์ มีที่นั่งชั้นบน",
+       "en": "burgers, with seating upstairs"
+      },
+      {
+       "id": "cm-curated-yong-le-tea-house",
+       "th": "โรงน้ำชาจีน ชา ผู่เอ๋อร์ มัทฉะ ขนมไหว้พระจันทร์",
+       "en": "Chinese tea house: tea, Pu'er, matcha, mooncakes"
+      },
+      {
+       "id": "cm-curated-coffee-phi-ba",
+       "th": "กาแฟจากรถมอเตอร์ไซค์ Royal Enfield ขายเมล็ดกาแฟเป็นถุง",
+       "en": "coffee from a Royal Enfield motorbike stall; beans by the bag"
+      },
+      {
+       "id": "cm-curated-chiang-mai-signature-chocolate",
+       "th": "เครื่องดื่มช็อกโกแลต เย็นและร้อน",
+       "en": "chocolate drinks, iced and hot"
+      },
+      {
+       "id": "cm-curated-chong-buakwae",
+       "th": "ร้านก๋วยเตี๋ยวและข้าวในโรงอาหาร",
+       "en": "noodle and rice stall in the covered food court"
+      },
+      {
+       "id": "cm-curated-mae-kham-sai",
+       "th": "เต้าหู้สด เต้าหู้ทอด อาหารเหนือ",
+       "en": "fresh tofu, fried tofu and northern Thai dishes"
+      },
+      {
+       "id": "cm-curated-saiua-pa-kaeo",
+       "th": "ไส้อั่วและก๋วยเตี๋ยว",
+       "en": "northern Thai sausage and noodles"
+      }
+     ]
+    },
+    {
+     "key": "lanes",
+     "th": "ซอยข้าง ๆ โหล่งฮิมคาว",
+     "en": "Next door: Loang Him Kao",
+     "roman": "long him khao",
+     "jewels": [
+      {
+       "id": "cm-curated-loang-him-kao",
+       "th": "โหล่งฮิมคาว ชุมชนงานคราฟต์รอบกาด",
+       "en": "Loang Him Kao, the craft lanes around the market"
+      },
+      {
+       "id": "cm-osm-node-1691878426",
+       "th": "วัดสีมาราม ติดกับกาด",
+       "en": "Wat Sima Ram, beside the market"
+      },
+      {
+       "id": "cm-ovt-6bdccf9e-fdec-481a-a21c-96b1d37260a5",
+       "th": "NAJAI Studio ในซอยเดียวกัน",
+       "en": "NAJAI Studio, same lanes"
+      },
+      {
+       "id": "cm-osm-node-5203436917",
+       "th": "เปิงใจ๋ บ้านไม้ ในซอยเดียวกัน",
+       "en": "Peng Jai, a wooden house shop in the lanes"
+      },
+      {
+       "id": "cm-ovt-2ae8f854-0cf2-4a4c-bba0-17cc5f9cf1da",
+       "th": "ร้านกาแฟ ใกล้กาด",
+       "en": "Weekends coffeehouse, near the market"
+      },
+      {
+       "id": "cm-curated-deep-red",
+       "th": "ร้านคราฟต์ ข้างกาด",
+       "en": "DEEP RED, craft shop beside the market"
+      },
+      {
+       "id": "cm-curated-72-home-cafe",
+       "th": "คาเฟ่ ใกล้กาด",
+       "en": "72 home Cafe, near the market"
+      }
+     ]
+    },
+    {
+     "key": "sankamphaeng",
+     "th": "งานฝีมือ สันกำแพง บ่อสร้าง",
+     "en": "San Kamphaeng and Bo Sang crafts",
+     "roman": "san kamphaeng",
+     "jewels": [
+      {
+       "id": "cm-osm-node-633404706",
+       "th": "ศูนย์ทำร่ม บ่อสร้าง",
+       "en": "Bo Sang umbrella-making centre"
+      },
+      {
+       "id": "cm-osm-way-128293590",
+       "th": "ร้านหัตถกรรมร่ม บ่อสร้าง",
+       "en": "Bo Sang handicrafts centre"
+      },
+      {
+       "id": "cm-osm-node-4365697492",
+       "th": "ศูนย์หัตถกรรมกระดาษสาและร่ม",
+       "en": "Sa paper and umbrella centre"
+      },
+      {
+       "id": "cm-osm-node-3376408640",
+       "th": "บ้านเซลาดอน เครื่องปั้นดินเผา",
+       "en": "Baan Celadon, glazed pottery"
+      },
+      {
+       "id": "cm-osm-node-8619103749",
+       "th": "กระเบื้องไม้งาม",
+       "en": "Maingam Tiles"
+      },
+      {
+       "id": "cm-osm-node-13299514831",
+       "th": "ถนนคนเดินวันเสาร์ สันกำแพง",
+       "en": "San Kamphaeng Saturday walking street"
+      }
+     ]
+    },
+    {
+     "key": "weekend",
+     "th": "กาดสุดสัปดาห์ที่อื่นในเชียงใหม่",
+     "en": "Other weekend markets in Chiang Mai",
+     "roman": "kat sut sapda",
+     "jewels": [
+      {
+       "id": "cm-osm-node-11538579352",
+       "th": "ถนนคนเดินวันอาทิตย์ ในเมือง",
+       "en": "Sunday Walking Street, the old city"
+      },
+      {
+       "id": "cm-osm-node-9775461917",
+       "th": "ถนนคนเดินวันเสาร์ วัวลาย",
+       "en": "Saturday Walking Street, Wua Lai"
+      },
+      {
+       "id": "cm-ovt-3e175236-ff76-4f19-bf6f-89a4de48c46a",
+       "th": "ตลาดจริงใจ ตลาดเกษตรกร",
+       "en": "Jing Jai farmers' market"
+      },
+      {
+       "id": "cm-ovt-cab35492-4412-49f8-aa00-2f3f3e0fdea3",
+       "th": "ศูนย์หัตถกรรมบ้านถวาย หางดง",
+       "en": "Baan Tawai handicraft centre, Hang Dong"
+      },
+      {
+       "id": "cm-osm-node-6351675891",
+       "th": "ตลาดพระ คำเที่ยง เช้าวันพฤหัส",
+       "en": "Kamthieng amulet market, Thursday mornings"
+      }
+     ]
+    }
+   ]
+  },
+  "lanterns": {
+   "th": "ตาข่ายโคม — คืนยี่เป็งและลอยกระทง 2569",
+   "en": "The lantern net — Yi Peng and Loy Krathong nights, 2026",
+   "roman": "ta-khai khom",
+   "lede_th": "ยี่เป็งกับลอยกระทงตรงกับคืนเพ็ญเดือนยี่ของล้านนา ปีนี้คือ 24 และ 25 พฤศจิกายน 2569 งานปล่อยโคมหมู่จัดนอกเมือง เป็นงานขายบัตร ที่ดอยสะเก็ด แม่ออน สันป่าตอง และบ้านธิ ส่วนในเมือง คนลอยกระทงที่แม่น้ำปิง ข้างล่างนี้คือที่ในมดแดงที่มีงานคืนนั้นปีนี้ เปิดหน้าไหนก็เห็นที่อื่นทั้งหมด",
+   "lede_en": "Yi Peng and Loy Krathong fall on the full moon of the Lanna second month: 24 and 25 November in 2026. The mass lantern releases are ticketed and held outside the city, at Doi Saket, Mae On, San Pa Tong and Ban Thi; in town, krathong go onto the Ping. These are the places on Mot Dang with something on those nights this year. Open any page below and it shows all the others.",
+   "sources": [
+    {
+     "url": "https://tiny.cc/stevesemail",
+     "label": "จดหมายข่าวงานในเชียงใหม่ ฉบับ 28 ก.ย. 2569 · Chiang Mai events newsletter, 28 Sep 2026"
+    },
+    {
+     "url": "https://megatix.com.au/events/MVPLoykrathong",
+     "label": "Mövenpick Suriwongse: Loy Krathong buffet"
+    },
+    {
+     "url": "https://www.chiangmaicitylife.com/citynow/social-life/live-events/moonlight-sky-lantern-2026-press-conference/",
+     "label": "Citylife: Moonlight Sky Lantern 2026"
+    }
+   ],
+   "strands": [
+    {
+     "key": "meet",
+     "th": "จุดนัดขึ้นรถ",
+     "en": "Where the shuttle leaves",
+     "roman": "chut nat khuen rot",
+     "jewels": [
+      {
+       "id": "cm-osm-way-93414647",
+       "th": "งาน Lanna Lantern Festival ที่ดอยสะเก็ด นัดที่ประตูหน้าวัด เช็กอิน 16:00–16:30 วันที่ 24 และ 25 พ.ย. แล้วขึ้นรถไปงาน",
+       "en": "The Lanna Lantern Festival at Doi Saket meets at the main gate: check-in 16:00–16:30 on 24 and 25 Nov, then the shuttle out."
+      }
+     ]
+    },
+    {
+     "key": "river",
+     "th": "ริมแม่น้ำปิง",
+     "en": "On the Ping",
+     "roman": "rim mae nam ping",
+     "jewels": [
+      {
+       "id": "cm-osm-node-11328679116",
+       "th": "บุฟเฟต์ ปิ้งย่าง ระบำโขน ฟ้อนล้านนา ตีกลองสะบัดชัย ดอกไม้ไฟ จองก่อนได้กระทงคนละใบ 24–25 พ.ย.",
+       "en": "Buffet and grill, khon and Lanna dance, sabat chai drums, fireworks; a krathong each for advance bookings. 24–25 Nov."
+      },
+      {
+       "id": "cm-ovt-d16fb5d8-5803-4af3-8090-4e0bc6fc41c2",
+       "th": "ตลาดอาหารเหนือ บุฟเฟต์ไทย ฟ้อนล้านนาหกชุด และกระทงของตัวเองลอยที่ปิง 24 พ.ย. รับ 80 คน",
+       "en": "A northern food market, Thai buffet, six Lanna dances and a krathong each to float on the Ping. 24 Nov, 80 guests."
+      },
+      {
+       "id": "cm-osm-node-2648578461",
+       "th": "ชุดอาหารค่ำสำหรับสองคนริมน้ำ ที่ห้องอาหาร TARA 24–25 พ.ย.",
+       "en": "A set dinner for two by the river at TARA restaurant. 24–25 Nov."
+      }
+     ]
+    },
+    {
+     "key": "town",
+     "th": "ในเมือง",
+     "en": "In town",
+     "roman": "nai mueang",
+     "jewels": [
+      {
+       "id": "cm-osm-way-99685196",
+       "th": "โรงแรมนี้ตอนนี้ชื่อ Mövenpick Suriwongse บุฟเฟต์อาหารเหนือที่ห้องฟื้นฟ้า 24–25 พ.ย. 18:00–22:00",
+       "en": "Now the Mövenpick Suriwongse: a Thai Lanna buffet at Fueng Fah restaurant, 24–25 Nov, 18:00–22:00."
+      }
+     ]
+    },
+    {
+     "key": "sky",
+     "th": "ใต้ฟ้าที่ปล่อยโคม",
+     "en": "Under the release",
+     "roman": "tai fa thi ploi khom",
+     "jewels": [
+      {
+       "id": "cm-ovt-56860244-7c22-4683-b915-62a5d064394f",
+       "th": "ไร่องุ่นอยู่ในเขตที่ปล่อยโคม คืน 25 พ.ย. มีโคมคนละสองลูก บุฟเฟต์ ดนตรีสด ดอกไม้ไฟ",
+       "en": "The vineyard sits inside the release area. On 25 Nov: two lanterns each, a buffet, a live band, fireworks."
+      }
+     ]
+    }
+   ]
+  },
+  "strings": {
+   "th": "ตาข่ายเครื่องสาย — เวทีดนตรีคลาสสิกของเชียงใหม่",
+   "en": "The strings net — Chiang Mai's classical and string stages",
+   "roman": "ta-khai khrueang sai",
+   "lede_th": "ดนตรีคลาสสิกในเชียงใหม่เล่นกันในโรงเรียนเก่าแก่ มหาวิทยาลัย และห้องจัดเลี้ยงของโรงแรม คนเล่นส่วนมากเป็นนักเรียนและครูของเมืองนี้เอง ข้างล่างนี้คือที่ที่มีคอนเสิร์ตในเดือนตุลาคม 2569 เปิดหน้าไหนก็เห็นที่อื่นทั้งหมด",
+   "lede_en": "Classical music in Chiang Mai is played in old schools, a university and hotel ballrooms, mostly by the city's own students and teachers. These are the places with a concert in October 2026. Open any page below and it shows all the others.",
+   "sources": [
+    {
+     "url": "https://tiny.cc/stevesemail",
+     "label": "จดหมายข่าวงานในเชียงใหม่ ฉบับ 28 ก.ย. 2569 · Chiang Mai events newsletter, 28 Sep 2026"
+    },
+    {
+     "url": "https://www.facebook.com/cnxsso",
+     "label": "Chiangmai Serenade String Orchestra"
+    },
+    {
+     "url": "https://www.icmcompetition.com",
+     "label": "CNX Young Musicians Festival"
+    }
+   ],
+   "strands": [
+    {
+     "key": "schools",
+     "th": "โรงเรียนและมหาวิทยาลัย",
+     "en": "Schools and a university",
+     "roman": "rong rian",
+     "jewels": [
+      {
+       "id": "cm-osm-way-189054411",
+       "th": "Trio Plus คอนเสิร์ตฟลูต ที่อาคาร 100 ปี Harris Institute 10 ต.ค. 18:30",
+       "en": "Trio Plus, a flute concert, in the Harris Institute 100th Anniversary Building. 10 Oct, 18:30."
+      },
+      {
+       "id": "cm-osm-way-854880239",
+       "th": "วง Moonlight String Ensemble เล่นเพลงจากหนัง ที่หอประชุมดาราวิทยาลัย 14 ต.ค. 18:00 เข้าฟรี",
+       "en": "The Moonlight String Ensemble plays film soundtracks in Dara Academy Hall. 14 Oct, 18:00, free."
+      },
+      {
+       "id": "cm-osm-way-122522956",
+       "th": "CNX Young Musicians Festival อายุ 4–25 ปี กรรมการจากอังกฤษ 23–26 ต.ค.",
+       "en": "CNX Young Musicians Festival, ages 4–25, judged by a UK panel. 23–26 Oct."
+      },
+      {
+       "id": "cm-ovt-c0330bd5-a8b3-42fd-b017-0ec66a1d0ff5",
+       "th": "วิทยาเขตเดียวกับโรงเรียนนานาชาติเปรม นักดนตรีรุ่นเยาว์ของเปรมไปเล่นที่ 1921 House",
+       "en": "The Prem International School campus; Prem's young musicians play the 1921 House recitals."
+      }
+     ]
+    },
+    {
+     "key": "hotels",
+     "th": "โรงแรม",
+     "en": "Hotels",
+     "roman": "rong raem",
+     "jewels": [
+      {
+       "id": "cm-osm-way-440038015",
+       "th": "วงเครื่องสาย Chiang Mai Serenade กว่า 20 คน กับนักเปียโนเดี่ยว บาค โมซาร์ท 24 ต.ค. 19:00",
+       "en": "The Chiang Mai Serenade String Orchestra, 20-plus players with two piano soloists: Bach, Mozart. 24 Oct, 19:00."
+      },
+      {
+       "id": "cm-ovt-a6aa378c-63cf-4e2f-8759-cf93cf1b2389",
+       "th": "นักดนตรีรุ่นเยาว์จากโรงเรียนเปรม ที่ระเบียงบ้าน 1921 พร้อมน้ำชายามบ่าย 3 ต.ค. 15:00",
+       "en": "Young musicians from Prem on the verandah of the 1921 House, with afternoon tea. 3 Oct, 15:00."
+      }
+     ]
+    }
+   ]
+  },
+  "races": {
+   "th": "ตาข่ายสนามวิ่ง — ที่ที่เชียงใหม่วิ่งแข่ง",
+   "en": "The race net — where Chiang Mai runs its races",
+   "roman": "ta-khai sanam wing",
+   "lede_th": "หน้าหนาวคือฤดูวิ่งของเชียงใหม่ งานวิ่งเริ่มก่อนฟ้าสาง ที่อ่างเก็บน้ำ สวน และมหาวิทยาลัย ข้างล่างนี้คือที่ที่มีงานวิ่งในเดือนพฤศจิกายน 2569 กับที่นัดวิ่งทุกเสาร์ เปิดหน้าไหนก็เห็นที่อื่นทั้งหมด",
+   "lede_en": "The cool season is Chiang Mai's running season. Races start before dawn, at a reservoir, parks and a university. These are the places with a race in November 2026, plus a Saturday social run. Open any page below and it shows all the others.",
+   "sources": [
+    {
+     "url": "https://tiny.cc/stevesemail",
+     "label": "จดหมายข่าวงานในเชียงใหม่ ฉบับ 28 ก.ย. 2569 · Chiang Mai events newsletter, 28 Sep 2026"
+    },
+    {
+     "url": "https://race.thai.run/crosscountryrun2026",
+     "label": "Chiang Mai Cross Country Run 2026"
+    },
+    {
+     "url": "https://jogandjoy.run/project/detail/168",
+     "label": "Run for Freedom Bitcoin Half Marathon"
+    }
+   ],
+   "strands": [
+    {
+     "key": "races",
+     "th": "งานวิ่ง",
+     "en": "Race days",
+     "roman": "ngan wing",
+     "jewels": [
+      {
+       "id": "cm-ovt-216843e2-7c06-4136-a3e9-4d5e03c2d99a",
+       "th": "Scenic Marathon 1 พ.ย. ระยะ 3 ถึง 21.1 กม.",
+       "en": "Scenic Marathon, 1 Nov: 3 km to 21.1 km."
+      },
+      {
+       "id": "cm-curated-chiang-mai-university",
+       "th": "CMU Chiang Mai Marathon 8 พ.ย. ฟูลมาราธอนออกตัวตีสาม ประกาศไม่ได้บอกจุดสตาร์ท",
+       "en": "CMU Chiang Mai Marathon, 8 Nov; the full marathon starts at 03:00. The listing does not name the start line."
+      },
+      {
+       "id": "cm-osm-relation-9227296",
+       "th": "PEA Mini Marathon 8 พ.ย. และ Chiang Mai Cross Country Run 22 พ.ย. วิ่งรอบอ่าง",
+       "en": "The PEA Mini Marathon on 8 Nov and the Chiang Mai Cross Country Run on 22 Nov, both around the reservoir."
+      },
+      {
+       "id": "cm-osm-way-249673656",
+       "th": "Run for Freedom Bitcoin Half Marathon 22 พ.ย. ฮาล์ฟ 10 กม. 5 กม. สมัครถึง 20 ต.ค.",
+       "en": "Run for Freedom Bitcoin Half Marathon, 22 Nov: half, 10K, 5K. Registration to 20 Oct."
+      }
+     ]
+    },
+    {
+     "key": "weekly",
+     "th": "วิ่งทุกสัปดาห์",
+     "en": "Every Saturday",
+     "roman": "wing thuk sao",
+     "jewels": [
+      {
+       "id": "cm-osm-way-311212963",
+       "th": "Slowcial วิ่งช้าๆ 20–25 นาที ออกตรงข้ามร้านทุกเสาร์ 7:30 แล้วกินกาแฟด้วยกัน",
+       "en": "Slowcial: a slow 20–25 minute jog from across the road, Saturdays 07:30, then coffee together."
+      }
+     ]
+    }
+   ]
+  },
+  "silk": {
+   "th": "ตาข่ายผ้าไหมและผ้าทอ — ไหม ตีนจก กลุ่มทอ ร้านผ้า เชียงใหม่ เชียงราย",
+   "en": "The silk net — silk, teen jok, weaving groups and cloth shops, Chiang Mai and Chiang Rai",
+   "roman": "ta-khai pha mai",
+   "lede_th": "คนเลี้ยงไหม ร้านผ้าไหม ช่างตีนจกแม่แจ่ม ที่หัดทอ กลุ่มทอผ้า ร้านผ้าย่านกาดหลวง ผ้าชาวเขา และผ้าทอไทลื้อเชียงราย ร้อยเข้าด้วยกัน เว็บ เส้นยืน เส้นพุ่ง วาดกี่ มัดหมี่ รังไหม และผ้าทอไทยกับเขมรด้วยเลขคณิต เปิดหน้าไหนข้างล่างนี้ ก็เห็นที่อื่นทั้งหมด",
+   "lede_en": "Silkworm rearers, silk shops, the teen jok weavers of Mae Chaem, places to learn, weaving groups, the cloth sellers around Warorot, hill-country cloth and the Tai Lue weavers of Chiang Rai, strung together. The site Warp and Weft draws the loom, ikat, the cocoon and Thai and Khmer weaving by arithmetic. Open any page below and it shows all the others.",
+   "sources": [
+    {
+     "url": "https://nanobotco.github.io/warp-and-weft/",
+     "label": "เส้นยืน เส้นพุ่ง · Warp and Weft"
+    },
+    {
+     "url": "https://nanobotco.github.io/warp-and-weft/#thailand",
+     "label": "Warp and Weft: Thailand — mudmee, khit, jok, prae wa, peacock marks"
+    }
+   ],
+   "strands": [
+    {
+     "key": "silk",
+     "th": "ผ้าไหม เชียงใหม่",
+     "en": "Silk in Chiang Mai",
+     "roman": "pha mai",
+     "jewels": [
+      {
+       "id": "cm-ovt-fb2770f1-918e-4aed-8528-e84c76f32c06",
+       "th": "กลุ่มเลี้ยงไหม บ้านร่มเกล้า แม่แวน",
+       "en": "silkworm-rearing group, Ban Rom Klao, Mae Waen"
+      },
+      {
+       "id": "cm-osm-node-1683152705",
+       "th": "บริษัทผ้าไหม ถนนเชียงใหม่–สันกำแพง",
+       "en": "silk company on the Chiang Mai–San Kamphaeng road"
+      },
+      {
+       "id": "cm-ovt-85d612d5-93b1-4cec-8946-9f4423acec42",
+       "th": "ร้านไหมและฝ้าย ถนนเชียงใหม่–สันกำแพง",
+       "en": "silk and cotton shop on the Chiang Mai–San Kamphaeng road"
+      },
+      {
+       "id": "cm-osm-node-2655223742",
+       "th": "ร้านผ้าไหมไทย ถนนท่าแพ",
+       "en": "Thai silk shop on Tha Phae Road"
+      },
+      {
+       "id": "cm-osm-node-2661538519",
+       "th": "ร้านผ้าไหมไทย",
+       "en": "Thai silk shop"
+      },
+      {
+       "id": "cm-ovt-d10bc953-98de-4e83-9411-f0a5d31e0e32",
+       "th": "ร้านผ้าไหมไทย ถนนห้วยแก้ว",
+       "en": "Thai silk shop on Huay Kaew Road"
+      },
+      {
+       "id": "cm-curated-mudmee-thai-silk",
+       "th": "ร้านตัดชุดผ้าไหม ถนนสนามกีฬา",
+       "en": "silk tailor off Sanam Kila Road"
+      },
+      {
+       "id": "cm-ovt-d15e0e14-f665-47b9-a67f-9c6ed225fc39",
+       "th": "รับผลิตเสื้อผ้าไหมและผ้าไทย ถนนวัวลาย",
+       "en": "makes clothes of silk and Thai cloth, Wua Lai Road"
+      },
+      {
+       "id": "cm-curated-fb-sayatailor",
+       "th": "ห้องเสื้อ ชุดไทเขิน ซิ่นล้านนา ผ้าไหมไทย ถนนพระปกเกล้า",
+       "en": "dressmaker for Tai Khoen dress, Lanna sin and Thai silk, Phra Pokklao Road"
+      },
+      {
+       "id": "cm-ovt-fbac0d44-8850-4830-8d1b-8a0750d050f8",
+       "th": "ร้านไหมไทย ท่าวังตาล",
+       "en": "Thai silk shop, Tha Wang Tan"
+      },
+      {
+       "id": "cm-ovt-a2dbd474-899d-4afa-a72c-29e052f93423",
+       "th": "ขายส่งผ้าพันคอผ้าไหม หนองผึ้ง",
+       "en": "silk scarves, wholesale, Nong Phueng"
+      },
+      {
+       "id": "cm-ovt-1056d448-1210-42ba-8dc7-6569612e1663",
+       "th": "ร้านผ้าไหม",
+       "en": "silk shop"
+      },
+      {
+       "id": "cm-ovt-b6bc7f6e-90a4-489a-81b4-44adee201123",
+       "th": "ผ้าไหมล้านนาของชุมชน ข่วงเปา",
+       "en": "community Lanna silk, Khuang Pao"
+      }
+     ]
+    },
+    {
+     "key": "jok",
+     "th": "ตีนจก แม่แจ่ม",
+     "en": "Teen jok, Mae Chaem",
+     "roman": "tin chok mae chaem",
+     "jewels": [
+      {
+       "id": "cm-osm-node-4987789666",
+       "th": "ศูนย์หัตถกรรมตีนจก แม่แจ่ม",
+       "en": "Mae Chaem teen jok handicraft centre"
+      },
+      {
+       "id": "cm-ovt-2b9e660d-e049-46d9-97b5-b98f827ee47b",
+       "th": "ผ้าซิ่นตีนจก ช่างเคิ่ง",
+       "en": "teen jok tube skirts, Chang Khoeng"
+      },
+      {
+       "id": "cm-ovt-2e44e531-00d8-4b5d-96cf-e46750c474bc",
+       "th": "ผ้าตีนจก ขายปลีกและส่ง",
+       "en": "teen jok cloth, retail and wholesale"
+      },
+      {
+       "id": "cm-ovt-440a9a90-2edc-47d9-b5b2-829a7fbf57ee",
+       "th": "ผ้าซิ่นตีนจก ผ้าทอมือ บ้านผานัง ท่าผา",
+       "en": "teen jok skirts and handwoven cloth, Ban Pha Nang, Tha Pha"
+      },
+      {
+       "id": "cm-ovt-da893247-6d53-4cdd-94e0-9f2325f7ad62",
+       "th": "ผ้าตีนจก ช่างเคิ่ง",
+       "en": "teen jok cloth, Chang Khoeng"
+      },
+      {
+       "id": "cm-ovt-76d7428c-5773-4542-8550-7666d7c779e5",
+       "th": "ผ้าทอและผ้าฝ้าย เมืองแจ่ม",
+       "en": "handwoven cloth and cotton, Mueang Chaem"
+      },
+      {
+       "id": "cm-ovt-c31b4601-8b83-4b2f-b95f-bd7467b7b828",
+       "th": "ร้านผ้าทอ ช่างเคิ่ง",
+       "en": "handwoven cloth shop, Chang Khoeng"
+      },
+      {
+       "id": "cm-ovt-70665aa4-09f2-4bc1-9e62-daab19e157e4",
+       "th": "ร้านผ้าทอ",
+       "en": "handwoven cloth shop"
+      },
+      {
+       "id": "cm-ovt-ab967a61-6018-400e-bf7a-e17b8b37815d",
+       "th": "ร้านผ้าฝ้าย ช่างเคิ่ง",
+       "en": "cotton cloth shop, Chang Khoeng"
+      }
+     ]
+    },
+    {
+     "key": "learn",
+     "th": "หัดทอ",
+     "en": "Learning to weave",
+     "roman": "hat tho",
+     "jewels": [
+      {
+       "id": "cm-ovt-fdb95fd2-a947-424a-8abc-b7cfce7f6dd9",
+       "th": "โรงเรียนสอนทอผ้า สันผักหวาน",
+       "en": "weaving school, San Phak Wan"
+      },
+      {
+       "id": "cm-osm-node-7501166579",
+       "th": "ห้องแสดงงานทอ ถนนเวียงแก้ว",
+       "en": "weaving gallery on Wiang Kaew Road"
+      },
+      {
+       "id": "cm-ovt-810236fa-0ce1-4735-a0bf-3a8a3dd4d446",
+       "th": "สอนทอผ้าแบบชาวเขา ถนนบำรุงราษฎร์",
+       "en": "hill-country weaving class, Bamrung Rat Road"
+      },
+      {
+       "id": "cm-ovt-95d69c81-bc7a-4265-85c1-4664ffafbba5",
+       "th": "ผ้าทอซาโอริ หน้าวัดเกตุ",
+       "en": "saori weaving by Wat Ket"
+      },
+      {
+       "id": "cm-ovt-c7e67f9a-126d-4ad0-8d52-c2325e753b58",
+       "th": "ศูนย์เรียนรู้วัฒนธรรมผ้าทอกะเหรี่ยง บงตัน",
+       "en": "Karen weaving culture learning centre, Bong Tan"
+      },
+      {
+       "id": "cm-ovt-f07f5bbe-61ea-4c63-9efe-1eae5ae0edfa",
+       "th": "สาขาออกแบบแฟชั่นและสิ่งทอ ถนนช้างเผือก",
+       "en": "fashion design and textiles course, Chang Phueak Road"
+      }
+     ]
+    },
+    {
+     "key": "groups",
+     "th": "กลุ่มทอผ้าและผ้าทอมือ เชียงใหม่",
+     "en": "Weaving groups and handwoven cloth, Chiang Mai",
+     "roman": "klum tho pha",
+     "jewels": [
+      {
+       "id": "cm-ovt-db7348b2-e43e-414a-9e01-17d1b50866e5",
+       "th": "กลุ่มทอผ้า บ้านสันป่าค่า ต้นเปา",
+       "en": "weaving group, Ban San Pa Kha, Ton Pao"
+      },
+      {
+       "id": "cm-osm-way-930124314",
+       "th": "ร้านผ้าฝ้าย สันกำแพง",
+       "en": "cotton cloth shop, San Kamphaeng"
+      },
+      {
+       "id": "cm-ovt-47f9cdd8-7a40-4464-b5ed-5e6c552370c8",
+       "th": "ร้านผ้าฝ้าย บวกค้าง",
+       "en": "cotton cloth shop, Buak Khang"
+      },
+      {
+       "id": "cm-ovt-5438e293-9a55-4aa7-a9b8-876c7cd33035",
+       "th": "ร้านผ้าทอ",
+       "en": "handwoven cloth shop"
+      },
+      {
+       "id": "cm-ovt-b15af12c-311c-4192-937d-62821afa3b97",
+       "th": "กลุ่มทอผ้า บ้านหล่ายแก้ว",
+       "en": "weaving group, Ban Lai Kaeo"
+      },
+      {
+       "id": "cm-osm-node-4315418290",
+       "th": "ชุมชนขายผ้าทอมือกะเหรี่ยง (ปกาเกอะญอ)",
+       "en": "community selling Karen (Pgaz K'Nyau) handwoven cloth"
+      },
+      {
+       "id": "cm-ovt-77af9cee-c019-4642-b762-2368bcbe05a4",
+       "th": "ร้านผ้าทอ",
+       "en": "handwoven cloth shop"
+      },
+      {
+       "id": "cm-ovt-c84c3572-9fe4-43cb-9cf3-0370519c64fb",
+       "th": "ผ้าทอไท ถนนเจริญเมือง",
+       "en": "Tai handwoven cloth, Charoen Muang Road"
+      },
+      {
+       "id": "cm-ovt-917f6929-5d5e-4546-955c-d3e9ab540143",
+       "th": "ของฝากจากผ้าทอพื้นเมือง แม่เหียะ",
+       "en": "gifts made from local handwoven cloth, Mae Hia"
+      },
+      {
+       "id": "cm-ovt-cf4484a0-cbee-4fda-9d7d-3b85e64f7f8d",
+       "th": "ร้านแฟร์เทรด WEAVE ถนนศิริมังคลาจารย์",
+       "en": "WEAVE fair-trade shop, Sirimangkalajarn Road"
+      },
+      {
+       "id": "cm-ovt-d6fee024-37a3-4cf9-a035-6c5bea0c866a",
+       "th": "ผ้าทอมือ ย้อมสีธรรมชาติ ถนนช้างม่อยเก่า",
+       "en": "handwoven cloth in natural dyes, Chang Moi Kao Road"
+      },
+      {
+       "id": "cm-ovt-efb584f3-ae17-4167-8b6a-2b2dafc4c730",
+       "th": "ผ้ามัดย้อมคราม บ้านมอญ",
+       "en": "indigo tie-dye, Ban Mon"
+      }
+     ]
+    },
+    {
+     "key": "warorot",
+     "th": "ร้านผ้า ย่านกาดหลวง",
+     "en": "Cloth by the metre around Warorot",
+     "roman": "ran pha kat luang",
+     "jewels": [
+      {
+       "id": "cm-curated-chiangmai-jaidee-fabric",
+       "th": "ผ้านานาชนิด ในตลาดวโรรส",
+       "en": "cloth of every kind, in Warorot Market"
+      },
+      {
+       "id": "cm-ovt-900cb507-6622-4317-8ad7-d876db92993a",
+       "th": "ผ้าเมือง ถนนช้างม่อยเก่า",
+       "en": "pha mueang, northern cloth, Chang Moi Kao Road"
+      },
+      {
+       "id": "cm-ovt-5240bd67-0331-4c7e-87b6-ae5d69a1d814",
+       "th": "ร้านผ้า ถนนข่วงเมรุ",
+       "en": "cloth shop on Khuang Men Road"
+      },
+      {
+       "id": "cm-ovt-9ea6af73-d482-4e1e-a139-e088e8cbe9b6",
+       "th": "ร้านผ้า ถนนข่วงเมรุ",
+       "en": "cloth shop on Khuang Men Road"
+      },
+      {
+       "id": "cm-ovt-f066694d-fb4a-4a61-87c3-fa40e1eca994",
+       "th": "ร้านผ้า ถนนข่วงเมรุ",
+       "en": "cloth shop on Khuang Men Road"
+      },
+      {
+       "id": "cm-ovt-86924013-5343-4125-9bbc-e67f32cd4b01",
+       "th": "ร้านผ้า ถนนวิชยานนท์",
+       "en": "cloth shop on Wichayanon Road"
+      }
+     ]
+    },
+    {
+     "key": "hills",
+     "th": "ผ้าชาวเขาและงานปัก เชียงใหม่",
+     "en": "Hill-country cloth and embroidery, Chiang Mai",
+     "roman": "pha chao khao",
+     "jewels": [
+      {
+       "id": "cm-ovt-42b9a466-e1b5-4f84-95db-1c83e1798196",
+       "th": "ชุดม้งและผ้าปักม้ง",
+       "en": "Hmong dress and Hmong embroidery"
+      },
+      {
+       "id": "cm-ovt-5430fdf5-9c12-42f3-a06b-d22b2ee92c26",
+       "th": "ผ้าม้ง ดอนแก้ว",
+       "en": "Hmong cloth, Don Kaeo"
+      },
+      {
+       "id": "cm-ovt-0984817c-ffce-4901-9485-11bc5e1ee4f0",
+       "th": "เสื้อผ้าลีซูและสินค้าชาวเขา",
+       "en": "Lisu clothing and hill-country goods"
+      },
+      {
+       "id": "cm-ovt-dbd819b3-6fa7-4cb4-81f6-4bead58aaa27",
+       "th": "ผ้าชาวเขา ถนนสามล้าน",
+       "en": "hill-country cloth, Samlan Road"
+      },
+      {
+       "id": "cm-ovt-f51965e3-dc44-484e-95bd-14cd2cedf827",
+       "th": "งานปักชาวเขา",
+       "en": "hill-country embroidery"
+      }
+     ]
+    },
+    {
+     "key": "cr-looms",
+     "th": "เชียงราย: ผ้าทอไทลื้อและกลุ่มทอ",
+     "en": "Chiang Rai: Tai Lue cloth and weaving groups",
+     "roman": "pha tho tai lue",
+     "jewels": [
+      {
+       "id": "cr-osm-way-1112434190",
+       "th": "พิพิธภัณฑ์ผ้า",
+       "en": "textile museum"
+      },
+      {
+       "id": "cr-ovt-0ee9372b-b773-4f89-b79c-7fed421cfe50",
+       "th": "ผ้าทอไทลื้อ",
+       "en": "Tai Lue handwoven cloth"
+      },
+      {
+       "id": "cr-ovt-1ff865ca-577a-4d53-9bb6-b45a55178516",
+       "th": "ผ้าทอไทลื้อ",
+       "en": "Tai Lue handwoven cloth"
+      },
+      {
+       "id": "cr-ovt-cd79c4cf-fa5c-4e89-9f18-f3c41937c25a",
+       "th": "ผ้าทอไทลื้อ บ้านหาดบ้าย ริมโขง",
+       "en": "Tai Lue handwoven cloth, Ban Hat Bai on the Mekong"
+      },
+      {
+       "id": "cr-ovt-a7a0a0f5-eac1-44a9-9010-89f1e50544c0",
+       "th": "ผ้าทอลื้อ ศรีดอนชัย",
+       "en": "Lue handwoven cloth, Si Don Chai"
+      },
+      {
+       "id": "cr-ovt-dfc4cd55-c735-49cb-b8bd-6004dd3158ba",
+       "th": "กลุ่มสตรีทอผ้า ศรีดอนชัย",
+       "en": "women's weaving group, Si Don Chai"
+      },
+      {
+       "id": "cr-ovt-10436ce5-13a1-495b-9183-da343f6c339a",
+       "th": "การแสดงและโรงทอผ้าล้านนา",
+       "en": "performance house and Lanna weaving shed"
+      },
+      {
+       "id": "cr-ovt-1d8f326d-f3ed-4c0d-8c40-bc00ef321f38",
+       "th": "กลุ่มทอผ้า บ้านสันทรายน้อย",
+       "en": "weaving group, Ban San Sai Noi"
+      },
+      {
+       "id": "cr-osm-node-2147432644",
+       "th": "กลุ่มทอผ้า ตำบลป่าตึง",
+       "en": "weaving group, Pa Tueng"
+      },
+      {
+       "id": "cr-ovt-b07a5ea9-1bba-477a-aa49-c10de438dc2c",
+       "th": "ผ้าทอ จอมสวรรค์",
+       "en": "handwoven cloth, Chom Sawan"
+      }
+     ]
+    },
+    {
+     "key": "cr-silk",
+     "th": "เชียงราย: ไหม ผ้าอาข่า ผ้าชาวเขา",
+     "en": "Chiang Rai: silk, Akha and hill-country cloth",
+     "roman": "mai lae pha akha",
+     "jewels": [
+      {
+       "id": "cr-ovt-1073ddd2-f968-4ad6-85a0-40b03e9a9936",
+       "th": "ร้านไหมไทย ถนนพหลโยธิน",
+       "en": "Thai silk shop, Phahonyothin Road"
+      },
+      {
+       "id": "cr-ovt-40a810af-96c6-431e-828a-263e66a069da",
+       "th": "ร้านไหมไทย",
+       "en": "Thai silk shop"
+      },
+      {
+       "id": "cr-ovt-44edf8a7-334f-4d43-9b0b-79c5f888b336",
+       "th": "ห้องเสื้ออาข่า ริมกก",
+       "en": "Akha dressmaker, Rim Kok"
+      },
+      {
+       "id": "cr-ovt-6db8cb6c-2fee-4629-9403-d37bb88988cb",
+       "th": "ร้านเสื้อผ้าอาข่า",
+       "en": "Akha clothing shop"
+      },
+      {
+       "id": "cr-ovt-c5009064-5b33-46d3-bf00-5bbc20ca1cd0",
+       "th": "ผ้าชาวเขาเก่า",
+       "en": "vintage hill-country cloth"
+      }
+     ]
+    }
+   ]
+  },
+  "thaiviwat": {
+   "th": "ตาข่ายซอยไทยวิวัฒน์ — ที่นอนข้างไนท์บาซาร์เชียงราย",
+   "en": "The Thai Viwat net — beds by the Chiang Rai Night Bazaar",
+   "roman": "ta-khai soi Thai Wiwat",
+   "lede_th": "ซอยไทยวิวัฒน์อยู่ระหว่างสถานีขนส่งแห่งที่ 1 กับไนท์บาซาร์ เดินถึงหอนาฬิกาได้ ในรัศมีสองร้อยเมตรมีโฮสเทลและเกสต์เฮาส์สิบกว่าแห่ง ลิตเติ้ลวันโฮสเทลในซอยนี้ประกาศเซ้งกิจการ ค่าเซ้ง 150,000 บาท ค่าเช่า 25,000 บาทต่อเดือน คนทำมดแดงเป็นคนลงประกาศนี้ เปิดหน้าไหนข้างล่างนี้ ก็เห็นที่อื่นทั้งหมด",
+   "lede_en": "Thai Viwat Alley runs between Bus Terminal 1 and the Night Bazaar, a walk from the clock tower. More than ten hostels and guesthouses stand within two hundred metres. Little One Hostel, on the lane, is offered as a takeover: ฿150,000 for the business, then ฿25,000 a month rent. The people who publish Mot Dang list that offer. Open any page below and it shows all the others.",
+   "sources": [
+    {
+     "url": "https://motdang.net/listings/",
+     "label": "Mot Dang Listing Sheet: Little One Hostel"
+    },
+    {
+     "url": "https://www.google.com/maps/place/Little+One+hostel/@19.9060305,99.8326165,17z",
+     "label": "Google Maps: Little One hostel"
+    }
+   ],
+   "strands": [
+    {
+     "key": "offer",
+     "th": "เซ้งกิจการ",
+     "en": "The takeover",
+     "roman": "seng kitchakan",
+     "jewels": [
+      {
+       "id": "cr-curated-little-one-hostel",
+       "th": "ลิตเติ้ลวันโฮสเทล เซ้ง 150,000 บาท เช่า 25,000 บาทต่อเดือน · ห้องครอบครัว 800 ห้องคู่ 600 เตียงแคปซูล 280 บาทต่อคืน",
+       "en": "Little One Hostel: ฿150,000 takeover, ฿25,000 a month rent · family room ฿800, double ฿600, capsule bed ฿280 a night"
+      }
+     ]
+    },
+    {
+     "key": "beds",
+     "th": "ที่นอนในซอยเดียวกัน",
+     "en": "Beds on the same lanes",
+     "roman": "thi non nai soi diaokan",
+     "jewels": [
+      {
+       "id": "cr-osm-node-10245740613",
+       "th": "โฮสเทล · ห่าง 10 ม.",
+       "en": "Hostel · 10 m away"
+      },
+      {
+       "id": "cr-osm-node-6496889986",
+       "th": "โฮสเทล · ห่าง 20 ม.",
+       "en": "Hostel · 20 m away"
+      },
+      {
+       "id": "cr-osm-node-6976725085",
+       "th": "พอชเทล ห้องพักกับจักรยาน · ห่าง 30 ม.",
+       "en": "Poshtel, beds and bikes · 30 m away"
+      },
+      {
+       "id": "cr-osm-node-2908413736",
+       "th": "โฮมสเตย์ · ห่าง 50 ม.",
+       "en": "Homestay · 50 m away"
+      },
+      {
+       "id": "cr-ovt-94a0fade-7a67-4a3d-8590-c894ae550c58",
+       "th": "ร้านสะดวกซื้อกับโฮสเทลในที่เดียว · ห่าง 50 ม.",
+       "en": "Shop and hostel in one · 50 m away"
+      },
+      {
+       "id": "cr-osm-node-6119141486",
+       "th": "โฮสเทล · ห่าง 80 ม.",
+       "en": "Hostel · 80 m away"
+      },
+      {
+       "id": "cr-osm-way-484142603",
+       "th": "เกสต์เฮาส์ · ห่าง 80 ม.",
+       "en": "Guesthouse · 80 m away"
+      },
+      {
+       "id": "cr-osm-node-6976569285",
+       "th": "คาเฟ่กับโฮสเทล · ห่าง 100 ม.",
+       "en": "Cafe and hostel · 100 m away"
+      },
+      {
+       "id": "cr-osm-node-4825505122",
+       "th": "โฮสเทล · ห่าง 110 ม.",
+       "en": "Hostel · 110 m away"
+      },
+      {
+       "id": "cr-osm-way-487636026",
+       "th": "เกสต์เฮาส์ · ห่าง 110 ม.",
+       "en": "Guesthouse · 110 m away"
+      },
+      {
+       "id": "cr-osm-node-4787402026",
+       "th": "เกสต์เฮาส์กับคาเฟ่ · ห่าง 130 ม.",
+       "en": "Guesthouse and cafe · 130 m away"
+      },
+      {
+       "id": "cr-osm-way-387050247",
+       "th": "เกสต์เฮาส์ · ห่าง 150 ม.",
+       "en": "Guesthouse · 150 m away"
+      },
+      {
+       "id": "cr-osm-node-4561324789",
+       "th": "โฮสเทล · ห่าง 170 ม.",
+       "en": "Hostel · 170 m away"
+      }
+     ]
+    },
+    {
+     "key": "walk",
+     "th": "แขกเดินไปไหน",
+     "en": "Where guests walk",
+     "roman": "khaek doen pai nai",
+     "jewels": [
+      {
+       "id": "cr-osm-way-105137199",
+       "th": "สถานีขนส่งแห่งที่ 1 รถเมล์ไปแม่สาย เชียงแสน เชียงใหม่ · ห่าง 250 ม.",
+       "en": "Bus Terminal 1: buses to Mae Sai, Chiang Saen, Chiang Mai · 250 m away"
+      },
+      {
+       "id": "cr-curated-clock-tower",
+       "th": "หอนาฬิกา กลางเมือง · ห่าง 240 ม.",
+       "en": "The clock tower, the middle of town · 240 m away"
+      },
+      {
+       "id": "cr-osm-way-384838098",
+       "th": "ร้านอาหารในไนท์บาซาร์ · ห่าง 140 ม.",
+       "en": "Restaurant in the Night Bazaar · 140 m away"
+      },
+      {
+       "id": "cr-osm-node-4559979989",
+       "th": "บาร์ หน้าซอย · ห่าง 10 ม.",
+       "en": "Bar at the mouth of the lane · 10 m away"
+      },
+      {
+       "id": "cr-osm-node-10253210609",
+       "th": "ร้านก๋วยเตี๋ยว · ห่าง 30 ม.",
+       "en": "Noodles · 30 m away"
+      }
+     ]
+    },
+    {
+     "key": "run",
+     "th": "ที่ร้านใช้ ในซอย",
+     "en": "What the business uses, close by",
+     "roman": "thi ran chai nai soi",
+     "jewels": [
+      {
+       "id": "cr-osm-node-6322776876",
+       "th": "ร้านซักผ้า สำหรับผ้าปูและผ้าเช็ดตัว · ห่าง 70 ม.",
+       "en": "Laundry, for sheets and towels · 70 m away"
+      },
+      {
+       "id": "cr-osm-way-963169284",
+       "th": "เซเว่น · ห่าง 110 ม.",
+       "en": "7-Eleven · 110 m away"
+      },
+      {
+       "id": "cr-osm-way-487637530",
+       "th": "ธนาคารกสิกรไทย · ห่าง 140 ม.",
+       "en": "Kasikorn Bank · 140 m away"
+      },
+      {
+       "id": "cr-ovt-a6e662de-2829-4572-9d8f-f3adf3508ec0",
+       "th": "แลกเงิน สำหรับแขก · ห่าง 90 ม.",
+       "en": "Money exchange, for guests · 90 m away"
+      },
+      {
+       "id": "cr-ovt-b77ab1a6-41b4-4cc2-b081-05e0b9053528",
+       "th": "ทัวร์และตั๋ว · ห่าง 20 ม.",
+       "en": "Tours and tickets · 20 m away"
+      },
+      {
+       "id": "cr-ovt-146ca811-c8ec-4794-9fbd-ed6d980cba94",
+       "th": "ตั๋วรถออนไลน์ · ห่าง 150 ม.",
+       "en": "Bus e-tickets · 150 m away"
+      },
+      {
+       "id": "cr-ovt-20a302d7-b04e-4764-a756-e998fb834e08",
+       "th": "รถเช่าและมอเตอร์ไซค์เช่า · ห่าง 60 ม.",
+       "en": "Car and motorbike hire · 60 m away"
+      },
+      {
+       "id": "cr-ovt-d9e2e30e-880c-4e4e-818d-e00e392b36fc",
+       "th": "มอเตอร์ไซค์และรถเช่า · ห่าง 110 ม.",
+       "en": "Motorbike and car hire · 110 m away"
+      }
+     ]
+    }
+   ]
+  },
+  "care": {
+   "hold": true,
+   "_hold": "Staged 2026-10-04 for Nan's word; net_layer skips a net with hold. Remove hold to publish.",
+   "th": "ตาข่ายดูแลสุขภาพ — หาหมอ ฮอร์โมน ชะลอวัย และการดูแลระยะยาวในภาคเหนือ",
+   "en": "The care net — doctors, hormones, longevity and long-term care in the north",
+   "roman": "ta-khai du-lae sukkhaphap",
+   "lede_th": "คนต่างชาติที่มารักษาตัวหรืออยู่ยาวในภาคเหนือต้องไปหลายที่ โรงพยาบาลเอกชนมีเคาน์เตอร์ภาษาอังกฤษและติดราคาไว้ชัด หมอเฉพาะทางเปิดคลินิกเย็นหลังเวลาโรงพยาบาล ร้านขายยาจ่ายยาหลายตัวที่อเมริกาต้องมีใบสั่ง เปปไทด์และยาชะลอวัยหาไม่ยาก รีวิวในไทยมักห้าดาว ใบอนุญาตหมอดูได้ในทะเบียนแพทยสภา คนที่ทำมดแดงเปิด Defiant ด้วย เป็นธุรกิจพี่น้องของเว็บนี้ ไม่ใช่คำแนะนำจากคนกลาง เปิดหน้าไหนข้างล่างนี้ ก็เห็นที่อื่นทั้งหมด",
+   "lede_en": "Coming north for care, or staying long, means many doors. Private hospitals run English desks and post their prices; specialists see patients at evening clinics after hospital hours; pharmacists dispense much of what the US keeps behind a prescription. Peptides and longevity treatments are easy to find. Thai reviews run five-star; a doctor's licence shows on the Medical Council's register. The people who publish Mot Dang also run Defiant — a sibling business, not an independent recommendation. Open any page below and it shows all the others.",
+   "sources": [
+    {
+     "url": "https://checkmd.tmc.or.th",
+     "label": "แพทยสภา: ตรวจสอบรายชื่อแพทย์ · Medical Council doctor check"
+    },
+    {
+     "url": "https://defiant.to/recourse/",
+     "label": "Defiant: reviews, recourse and Thai defamation law"
+    },
+    {
+     "url": "https://defiant.to/procedures/",
+     "label": "Defiant: US vs Thailand price index"
+    },
+    {
+     "url": "https://www.nhso.go.th/th/communicate-th/thnewsforperson/2025-07-07-08-08-06",
+     "label": "สปสช.: สิทธิฮอร์โมนยืนยันเพศ · NHSO hormone benefit"
+    },
+    {
+     "url": "https://www.va.gov/health-care/foreign-medical-program/",
+     "label": "VA Foreign Medical Program"
+    },
+    {
+     "url": "https://permitfortraveler.fda.moph.go.th/nct_permit_main/",
+     "label": "อย.: ใบอนุญาตพกยา · Thai FDA traveller permits"
+    }
+   ],
+   "strands": [
+    {
+     "key": "hospitals",
+     "th": "โรงพยาบาลที่มีเคาน์เตอร์ภาษาอังกฤษ",
+     "en": "Hospitals with English desks",
+     "roman": "rong-phayaban",
+     "jewels": [
+      {
+       "id": "cm-osm-way-97675282",
+       "th": "เคาน์เตอร์ TRICARE และ FMP ของตัวเอง คลินิกหัวใจและต่อมไร้ท่อตอนเย็น",
+       "en": "Its own TRICARE and FMP desk; evening heart and endocrine clinics"
+      },
+      {
+       "id": "cm-osm-way-294031574",
+       "th": "ศูนย์ตรวจสุขภาพแพ็กเกจใหญ่ คลินิกผิวและความงาม และ TMS",
+       "en": "A large checkup menu, a skin and aesthetic clinic, and TMS"
+      },
+      {
+       "id": "cm-osm-way-257214959",
+       "th": "แพ็กเกจตรวจสุขภาพมากที่สุดแห่งหนึ่ง ศูนย์ผิวและความงาม",
+       "en": "One of the biggest checkup menus; a skin and aesthetic centre"
+      },
+      {
+       "id": "cm-osm-way-1103996217",
+       "th": "ศูนย์การแพทย์ของคณะแพทย์ มช. อาจารย์แพทย์อ่านผลตรวจ มีคลินิกเพื่อผู้มีความหลากหลายทางเพศ",
+       "en": "Chiang Mai University's medical centre: faculty read the checkup, and a clinic for gender-diverse people"
+      },
+      {
+       "id": "cm-osm-way-189618479",
+       "th": "โรงพยาบาลมหาวิทยาลัย หมอเฉพาะทางครบที่สุดในภาคเหนือ คลินิกจิตเวชและผิวหนัง",
+       "en": "The university hospital, the deepest specialist bench in the north; psychiatry and dermatology"
+      },
+      {
+       "id": "cm-osm-way-102807715",
+       "th": "ราคาแพ็กเกจตรวจสุขภาพเบาที่สุดในกลุ่มเอกชน",
+       "en": "The gentlest checkup prices among the private hospitals"
+      },
+      {
+       "id": "cm-osm-way-103561795",
+       "th": "คลินิกพิเศษนอกเวลา และโปรแกรมคัดกรองสมองเสื่อม",
+       "en": "After-hours special clinics and a dementia screening programme"
+      },
+      {
+       "id": "cr-osm-relation-7165835",
+       "th": "เชียงราย: ศูนย์ผิว เลเซอร์ และความงาม",
+       "en": "Chiang Rai: a skin, laser and aesthetic centre"
+      },
+      {
+       "id": "cr-osm-way-483841193",
+       "th": "เชียงราย: คลินิกพิเศษนอกเวลา 16:00–20:00",
+       "en": "Chiang Rai: after-hours special clinics, 16:00–20:00"
+      }
+     ]
+    },
+    {
+     "key": "gender",
+     "th": "สุขภาพคนข้ามเพศ",
+     "en": "Gender care",
+     "roman": "sukkhaphap khon kham phet",
+     "jewels": [
+      {
+       "id": "cm-curated-mplus-chiangmai",
+       "th": "ตรวจระดับฮอร์โมนให้หญิงข้ามเพศและชายข้ามเพศ เพร็พและเป๊ป",
+       "en": "Hormone-level tests for trans women and men; PrEP and PEP"
+      },
+      {
+       "id": "cr-curated-mplus-chiangrai",
+       "th": "สาขาเชียงรายของเอ็มพลัส บริการแนวเดียวกัน",
+       "en": "Mplus in Chiang Rai, the same services"
+      },
+      {
+       "id": "cm-osm-node-13717806001",
+       "th": "ตรวจเอชไอวีและเพร็พ ปรึกษาออนไลน์ได้",
+       "en": "HIV testing and PrEP, with online counselling"
+      },
+      {
+       "id": "cm-curated-prep-by-cwc",
+       "th": "คลินิกสุขภาพทางเพศ เพร็พและเป๊ป รวมชนิดฉีด",
+       "en": "A sexual-health clinic: PrEP and PEP, injectable included"
+      },
+      {
+       "id": "cm-curated-drwimon-clinic",
+       "th": "เว็บของคลินิกเองมีหมวดผ่าตัดแปลงเพศชายเป็นหญิง",
+       "en": "Its own site carries a male-to-female surgery section"
+      },
+      {
+       "id": "cm-curated-hugsa-klang-wiang",
+       "th": "อยู่ในรายชื่อของชุมชนคนข้ามเพศ ตรวจสุขภาพและตรวจเลือด",
+       "en": "On the trans community's own list: checkups and blood tests"
+      },
+      {
+       "id": "cm-curated-piman-clinic",
+       "th": "คลินิกของสถาบันวิจัยวิทยาศาสตร์สุขภาพ มช. อยู่ในรายชื่อของชุมชน",
+       "en": "Chiang Mai University's research-institute clinic, on the community's list"
+      }
+     ]
+    },
+    {
+     "key": "skin",
+     "th": "ผิวและความงาม",
+     "en": "Skin and aesthetics",
+     "roman": "phiu lae khwam-ngam",
+     "jewels": [
+      {
+       "id": "cm-curated-times-clinic",
+       "th": "คลินิกที่ระบุบริการผิวหนังบนเว็บของตัวเอง",
+       "en": "States its skin services on its own site"
+      },
+      {
+       "id": "cm-osm-way-668012404",
+       "th": "อยู่ในทะเบียนคลินิกผิวของมดแดง",
+       "en": "On Mot Dang's skin register"
+      },
+      {
+       "id": "cm-osm-way-411355067",
+       "th": "อยู่ในทะเบียนคลินิกผิว มีสาขาในเมืองและหางดง",
+       "en": "On the skin register, in town and Hang Dong"
+      },
+      {
+       "id": "cm-osm-way-1279060998",
+       "th": "อยู่ในทะเบียนคลินิกผิว สาขาเชียงใหม่",
+       "en": "On the skin register, Chiang Mai branch"
+      },
+      {
+       "id": "cr-osm-way-959733163",
+       "th": "เชียงราย: อยู่ในทะเบียนคลินิกผิว",
+       "en": "Chiang Rai: on the skin register"
+      }
+     ]
+    },
+    {
+     "key": "mind",
+     "th": "จิตใจ",
+     "en": "Mind",
+     "roman": "chit-chai",
+     "jewels": [
+      {
+       "id": "cm-osm-way-1212478397",
+       "th": "โรงพยาบาลจิตเวชของกรมสุขภาพจิต คลินิกเด็กและวัยรุ่น",
+       "en": "The Department of Mental Health's hospital; a child and adolescent clinic"
+      },
+      {
+       "id": "cm-curated-counselling-thailand",
+       "th": "ปรึกษาเป็นภาษาไทยและอังกฤษ",
+       "en": "Counselling in Thai and English"
+      },
+      {
+       "id": "cm-curated-chiangmai-counseling",
+       "th": "ปรึกษาเป็นภาษาไทยและอังกฤษ",
+       "en": "Counselling in Thai and English"
+      },
+      {
+       "id": "cm-curated-mindspace",
+       "th": "ศูนย์จิตวิทยาในทะเบียนปรึกษาจิตใจ",
+       "en": "A psychology centre on the counselling register"
+      },
+      {
+       "id": "cm-osm-way-1115112650",
+       "th": "ทำคู่มือสมาธิสั้นของตัวเอง",
+       "en": "Publishes its own ADHD handbook"
+      }
+     ]
+    },
+    {
+     "key": "longcare",
+     "th": "ดูแลระยะยาวและบำบัด",
+     "en": "Long-term care and recovery",
+     "roman": "du-lae raya yao",
+     "jewels": [
+      {
+       "id": "cm-osm-node-725689588",
+       "th": "คลินิกความจำ วันพฤหัสบดี และคลินิกผู้สูงอายุ",
+       "en": "A memory clinic on Thursdays and a geriatric clinic"
+      },
+      {
+       "id": "cm-curated-elder-935",
+       "th": "ระบุบริการดูแลสมองเสื่อม",
+       "en": "States a dementia-care service"
+      },
+      {
+       "id": "cm-curated-vivobene",
+       "th": "ดอยสะเก็ด ระบุการดูแลความจำและการแพทย์",
+       "en": "Doi Saket: states memory and medical care"
+      },
+      {
+       "id": "cm-curated-care-resort",
+       "th": "แม่ริม ระบุบริการดูแลความจำ",
+       "en": "Mae Rim: states memory care"
+      },
+      {
+       "id": "cm-curated-elder-20784",
+       "th": "บ้านพักคนชราสามสาขา",
+       "en": "A nursing home on three sites"
+      },
+      {
+       "id": "cm-osm-node-3136767740",
+       "th": "โรงพยาบาลธัญญารักษ์ของรัฐ บำบัดการติด",
+       "en": "The state Thanyarak hospital for addiction treatment"
+      },
+      {
+       "id": "cm-osm-way-542929587",
+       "th": "ศูนย์บำบัดแบบพักค้าง",
+       "en": "A residential recovery programme"
+      }
+     ]
+    },
+    {
+     "key": "travel",
+     "th": "เดินทางมารักษา",
+     "en": "Coming for treatment",
+     "roman": "doen-thang ma raksa",
+     "jewels": [
+      {
+       "id": "cm-curated-chiang-mai-airport",
+       "th": "ยาที่ต้องมีใบอนุญาตผ่านศุลกากรที่นี่ (แบบ IC-2 ของ อย.)",
+       "en": "Permit medicines clear customs here (Thai FDA Form IC-2)"
+      },
+      {
+       "id": "cm-osm-way-822791365",
+       "th": "อยู่รักษาตัวยาวด้วย DTV ต่ออายุที่นี่",
+       "en": "Long medical stays on the DTV are extended here"
+      }
+     ]
+    }
+   ]
+  },
+  "jay": {
+   "th": "ตาข่ายเจ — เทศกาลกินเจ 2569 ในเชียงใหม่และเชียงราย",
+   "en": "The jay net — the Vegetarian Festival 2026 in Chiang Mai and Chiang Rai",
+   "roman": "ta-khai je",
+   "lede_th": "เทศกาลกินเจปี 2569 ตรงกับ 10–18 ตุลาคม คือขึ้น 1–9 ค่ำ เดือน 9 จีน ร้านที่แขวนธงเหลืองตัว 齋 ขายอาหารที่ไม่มีของจากสัตว์และไม่มีผักฉุน ข้างล่างนี้คือศาลเจ้า โรงเจ และร้านเจในเชียงใหม่และเชียงราย มินิไซต์ กินเจ มีเมนู ข้อห้าม และตำนาน เปิดหน้าไหนข้างล่างนี้ ก็เห็นที่อื่นทั้งหมด",
+   "lede_en": "The Vegetarian Festival runs 10–18 October 2026, the 1st to 9th of the ninth Chinese month. A shop that hangs the yellow 齋 flag sells food with nothing from an animal in it and none of the pungent plants. These are the shrines, jay halls and jay kitchens of Chiang Mai and Chiang Rai; the minisite Kin Jay has the menu, the rules and the legends. Open any page below and it shows all the others.",
+   "sources": [
+    {
+     "url": "https://www.thansettakij.com/lifestyle/travel-shopping/670317",
+     "label": "ฐานเศรษฐกิจ: กินเจ 2569 · Thansettakij: Kin Jay 2026"
+    },
+    {
+     "url": "https://www.thaipbs.or.th/now/content/426",
+     "label": "ไทยพีบีเอส: ธงเจ ผักฉุน · Thai PBS: the jay flag, the pungent plants"
+    },
+    {
+     "url": "https://so05.tci-thaijo.org/index.php/panidhana/article/view/265529",
+     "label": "วารสารปณิธาน 19(2): ศาลเจ้าและโรงเจในเมืองเชียงใหม่ · Panidhana 19(2): Chinese shrines of Mueang Chiang Mai"
+    },
+    {
+     "url": "https://motdang.net/sites/kin-jay/",
+     "label": "กินเจ · Kin Jay"
+    }
+   ],
+   "strands": [
+    {
+     "key": "cm-halls",
+     "th": "เชียงใหม่: ศาลเจ้าและโรงเจ",
+     "en": "Chiang Mai: shrines and jay halls",
+     "roman": "san chao lae rong je",
+     "jewels": [
+      {
+       "id": "cm-ovt-e8a26868-615d-4c5a-8bb8-fafeb7352c5f",
+       "th": "โรงเจมหายาน ถนนเมืองสมุทร ประกาศงานถือศีลกินเจ 9–18 ต.ค. 2569 พระสงฆ์จีนจากวัดหมื่นพุทธเมตตาคุณาราม เชียงราย นำสวด ขอให้ใส่ชุดขาวเข้าพิธี โทร 053-235-968 (เชียงใหม่นิวส์ 25 ก.ย. 2569)",
+       "en": "The Mahayana jay hall on Mueang Samut Road. Festival 9–18 Oct 2026; Chinese monks from Wat Muen Puttha Mettakhunaram, Chiang Rai, lead the chanting; white clothes for the rites. 053-235-968 (Chiang Mai News, 25 Sep 2026)"
+      },
+      {
+       "id": "cm-osm-way-255987533",
+       "th": "ศาลเจ้าจีนเก่าแก่ที่สุดของเชียงใหม่ ริมน้ำปิงย่านกาดหลวง ปี 2568 แจกอาหารเจฟรีครบเก้าวัน 11.00–12.00 และ 16.00–17.00 น. ปี 2569 ยังไม่เห็นประกาศ",
+       "en": "Chiang Mai's oldest Chinese shrine, on the Ping by Warorot. In 2025 it gave free jay meals all nine days, 11:00–12:00 and 16:00–17:00; no 2026 notice seen yet"
+      },
+      {
+       "id": "cm-ovt-d7623bbd-fb9e-4af9-a349-76fb98d37da4",
+       "th": "สมาคมพุทธภาวนาบุญสถาน ถนนเมืองสมุทร หนึ่งในโรงเจสี่แห่งของอำเภอเมืองเชียงใหม่ที่นับไว้ในงานวิจัยปี 2566",
+       "en": "Phutthaphawana Bunsathan Association, Mueang Samut Road; one of four jay halls in Mueang Chiang Mai counted by a 2023 survey"
+      },
+      {
+       "id": "cm-curated-funeral-2013",
+       "th": "ตั้งปี 2500 ถนนลอยเคราะห์ ช้างคลาน มูลนิธิบริจาคโลงศพ",
+       "en": "Founded 1957, Loi Kroh Road, Chang Khlan; the foundation gives coffins"
+      },
+      {
+       "id": "cm-osm-way-444895675",
+       "th": "ศาลเจ้าแม่ทับทิม ช้างคลาน ริมน้ำปิง",
+       "en": "The Shui Wei Sheng Niang shrine, Chang Khlan, by the Ping"
+      },
+      {
+       "id": "cm-osm-way-38487629",
+       "th": "ศาลพระแม่กวนอิม ใต้เมืองเก่า",
+       "en": "A Guanyin shrine south of the old city"
+      },
+      {
+       "id": "cm-ovt-2604bdeb-dbb3-47bf-a3fa-aaa551da7076",
+       "th": "โรงเจและศาลเจ้าแม่กวนอิม อำเภอหางดง",
+       "en": "A jay hall and Guanyin shrine in Hang Dong"
+      },
+      {
+       "id": "cm-osm-way-647614963",
+       "th": "ศาลเจ้าแม่ทับทิม หนองหาร สันทราย",
+       "en": "A Mae Thap Thim shrine at Nong Han, San Sai"
+      },
+      {
+       "id": "cm-ovt-bad790cd-980b-40d8-8629-f297b3496d01",
+       "th": "สถานธรรม บ้านห้วยเหยิน อำเภอฝาง",
+       "en": "A dharma hall at Huai Yoen, Fang"
+      },
+      {
+       "id": "cm-ovt-c2b82d8e-fcd9-4165-b9ee-025e833f58df",
+       "th": "ศาลเจ้าแม่กวนอิม อำเภอฝาง",
+       "en": "A Guanyin shrine in Fang"
+      },
+      {
+       "id": "cm-ovt-6d4db27c-8cdd-4db4-ba14-3efffd9f924f",
+       "th": "สถานธรรมพระโพธิสัตว์เจ้าแม่กวนอิม บ้านปง อำเภอไชยปราการ",
+       "en": "A Guanyin dharma hall at Ban Pong, Chai Prakan"
+      }
+     ]
+    },
+    {
+     "key": "cm-kitchens",
+     "th": "เชียงใหม่: ร้านเจ",
+     "en": "Chiang Mai: jay kitchens",
+     "roman": "ran je",
+     "jewels": [
+      {
+       "id": "cm-ovt-9a2ad576-a994-4580-ad3b-a640596b2478",
+       "th": "ร้านเจในตลาดวโรรส (กาดหลวง) ถนนข่วงเมรุ",
+       "en": "A jay shop inside Warorot market (Kad Luang), Khuang Men Road"
+      },
+      {
+       "id": "cm-osm-node-3312188606",
+       "th": "ร้านอาหารเจ เปิดทุกวัน 05.00–14.00 น. ตาม OpenStreetMap",
+       "en": "Jay restaurant, daily 05:00–14:00 per OpenStreetMap"
+      },
+      {
+       "id": "cm-osm-node-4182515040",
+       "th": "ถนนมหิดล เปิดวันจันทร์–ศุกร์ ช่วงเช้าถึงบ่ายสอง ช่วงเทศกาลเลี้ยงฟรีรับบริจาค (Wongnai)",
+       "en": "Mahidol Road, Mon–Fri mornings to 14:00; free meals with donations in festival periods (Wongnai)"
+      },
+      {
+       "id": "cm-ovt-4fa29f30-a39c-4a65-b52b-92ab3ab6232d",
+       "th": "ร้านอาหารมังสวิรัติและเจ 77 ถนนมหิดล",
+       "en": "Vegetarian and jay food, 77 Mahidol Road"
+      },
+      {
+       "id": "cm-osm-node-6200926187",
+       "th": "อาหารจีนเจ ถนนศรีดอนไชย ช้างคลาน",
+       "en": "Chinese vegetarian, Si Donchai Road, Chang Khlan"
+      },
+      {
+       "id": "cm-osm-node-3283614977",
+       "th": "อาหารเจ ก๋วยเตี๋ยว ข้าวราดแกง ถนนหัสดิเสวี",
+       "en": "Jay noodles and curry over rice, Hussadisawee Road"
+      },
+      {
+       "id": "cm-osm-way-442372056",
+       "th": "อาหารเจแบบจีนและไทย ถนนโทรคมนาคม ย่านเจ็ดยอด",
+       "en": "Chinese-style vegetarian and Thai, Thorakhamanakhom Road, Chet Yot"
+      },
+      {
+       "id": "cm-osm-node-9872196817",
+       "th": "ข้าวซอยเจ ก๋วยเตี๋ยว ถนนสุเทพ (เชียงใหม่นิวส์ 2567)",
+       "en": "Jay khao soi and noodles, Suthep Road (Chiang Mai News, 2024)"
+      },
+      {
+       "id": "cm-osm-node-4430745091",
+       "th": "อาหารเหนือวีแกน 10.00–21.00 น.",
+       "en": "Northern vegan food, 10:00–21:00"
+      },
+      {
+       "id": "cm-osm-node-6249725792",
+       "th": "ถนนนันทาราม หายยา ข้าวราดแกง ก๋วยเตี๋ยว ข้าวมันไก่เจ",
+       "en": "Nantaram Road, Hai Ya: curry over rice, noodles, mock-chicken rice"
+      },
+      {
+       "id": "cm-osm-node-11161006605",
+       "th": "170 ถนนเชียงใหม่–ลำพูน เปิด 08.00–17.00 น.",
+       "en": "170 Chiang Mai–Lamphun Road, 08:00–17:00"
+      },
+      {
+       "id": "cm-osm-node-5027579121",
+       "th": "ร้านเจ ถนนมณีนพรัตน์",
+       "en": "Jay restaurant, Manee Nopparat Road"
+      },
+      {
+       "id": "cm-osm-node-8448483117",
+       "th": "อาหารเจจีนและศาล ซอย 3 ถนนแก้วนวรัฐ จันทร์–เสาร์ 09.00–18.00 น.",
+       "en": "Chinese vegetarian food and a shrine, Kaew Nawarat Soi 3, Mon–Sat 09:00–18:00"
+      },
+      {
+       "id": "cm-osm-node-5201209728",
+       "th": "ร้านเจ ซอย 3 ถนนเกาะกลาง หนองหอย",
+       "en": "Jay shop, Ko Klang Soi 3, Nong Hoi"
+      },
+      {
+       "id": "cm-osm-node-6849028485",
+       "th": "วีแกน ซอยวัดอุโมงค์ 08.30–18.00 น. ปิดวันพุธ",
+       "en": "Vegan, Soi Wat Umong, 08:30–18:00, closed Wednesday"
+      },
+      {
+       "id": "cm-osm-way-623140246",
+       "th": "มังสวิรัติและวีแกน ถนนสิงหราช ซอย 3",
+       "en": "Vegetarian and vegan, Singharat Soi 3"
+      },
+      {
+       "id": "cm-osm-way-492846789",
+       "th": "พิซซ่าและพาสต้าวีแกน",
+       "en": "Vegan pizza and pasta"
+      },
+      {
+       "id": "cm-osm-node-4529653891",
+       "th": "ร้านอาหารวีแกนและโรงเรียนสอนทำอาหารวีแกน",
+       "en": "Vegan restaurant and vegan cooking school"
+      },
+      {
+       "id": "cm-ovt-1e1e6a9c-f447-47f8-9deb-bf4473863494",
+       "th": "ร้านอาหารเจ ย่านฟ้าฮ่าม",
+       "en": "Jay restaurant, Fa Ham"
+      },
+      {
+       "id": "cm-ovt-0f4b1a77-cb8f-4084-9127-c2f538a66aca",
+       "th": "อาหารเจ ตำบลต้นเปา สันกำแพง",
+       "en": "Jay food, Ton Pao, San Kamphaeng"
+      },
+      {
+       "id": "cm-ovt-520cace1-becc-478b-8ad8-86c9c66adaf5",
+       "th": "อาหารเจ หนองหาร สันทราย",
+       "en": "Jay food, Nong Han, San Sai"
+      },
+      {
+       "id": "cm-ovt-045dd3f6-3c08-43da-ac97-ecac78c0bea8",
+       "th": "ร้านเจ ช่อแล แม่แตง",
+       "en": "Jay shop, Cho Lae, Mae Taeng"
+      }
+     ]
+    },
+    {
+     "key": "cm-also",
+     "th": "เชียงใหม่: ตลาด ห้าง คุรุดวารา เทวสถาน",
+     "en": "Chiang Mai: market, malls, gurdwara, temples",
+     "roman": "talat, hang",
+     "jewels": [
+      {
+       "id": "cm-osm-way-89039067",
+       "th": "ตลาดวโรรส ปี 2568 ธงเหลืองขึ้นทั่วตลาด แผงเจทำกับข้าวราว 20 อย่างต่อวัน กล่องละ 35–40 บาท",
+       "en": "Warorot market. In 2025 yellow flags went up across it; one jay stall cooked about 20 dishes a day at 35–40 baht a box"
+      },
+      {
+       "id": "cm-osm-way-254011801",
+       "th": "เซ็นทรัล เชียงใหม่ ห้างที่มีชื่อในงาน Thailand J Food Festival 2026 วันที่ 9–18 ต.ค.",
+       "en": "Central Chiang Mai, one of the malls named for Thailand J Food Festival 2026, 9–18 Oct"
+      },
+      {
+       "id": "cm-osm-way-87710118",
+       "th": "เซ็นทรัล เชียงใหม่ แอร์พอร์ต ห้างที่มีชื่อในงาน Thailand J Food Festival 2026 วันที่ 9–18 ต.ค.",
+       "en": "Central Chiang Mai Airport, one of the malls named for Thailand J Food Festival 2026, 9–18 Oct"
+      },
+      {
+       "id": "cm-ovt-f6d1a99c-388f-4e0e-a298-a190a4317e6b",
+       "th": "คุรุดวาราของซิกข์นิกายนามธารี ถนนช้างม่อย",
+       "en": "The Namdhari Sikh gurdwara, Chang Moi Road"
+      },
+      {
+       "id": "cm-osm-way-793933943",
+       "th": "เทวสถานพระพิฆเนศ ถนนเจริญประเทศ",
+       "en": "The Ganesha Hindu temple, Charoen Prathet Road"
+      },
+      {
+       "id": "cm-ovt-881f03aa-e925-4c2b-b4e0-868a931ff4ac",
+       "th": "เทวสถานฮินดู ถนนรัตนโกสินทร์",
+       "en": "Hindu temple, Rattanakosin Road"
+      }
+     ]
+    },
+    {
+     "key": "cr-halls",
+     "th": "เชียงราย: ศาลเจ้าและโรงเจ",
+     "en": "Chiang Rai: shrines and jay halls",
+     "roman": "san chao lae rong je",
+     "jewels": [
+      {
+       "id": "cr-ovt-788cbc26-7fe3-461e-8304-55580f90af97",
+       "th": "ศาลเจ้าจีนในเมืองเก่าเชียงราย สร้างเสร็จปี 2504 ปี 2567 รับบริจาคของเจให้คนที่ร่วมเทศกาล",
+       "en": "The Chinese shrine of Chiang Rai's old town, finished 1961; in 2024 it took in jay food donated for festival-goers"
+      },
+      {
+       "id": "cr-ovt-79c3b47a-1587-402c-bd00-424409b42912",
+       "th": "วัดพุทธแบบจีน ท่าข้าวเปลือก แม่จัน พระสงฆ์จีนของวัดนำสวดงานกินเจ 2569 ที่มูลนิธิกวนอิมธรรมทาน เชียงใหม่",
+       "en": "A Chinese Buddhist temple at Tha Khao Plueak, Mae Chan; its Chinese monks lead the 2026 jay rites at the Guan Im foundation in Chiang Mai"
+      },
+      {
+       "id": "cr-ovt-8a7f4831-7f77-4846-aace-46de14294dda",
+       "th": "ศาลเจ้าสัว 天隆庙 แม่สาย",
+       "en": "Chao Sua shrine, 天隆庙, Mae Sai"
+      },
+      {
+       "id": "cr-ovt-8d66c3a4-edd6-4c07-9e59-c3e078593993",
+       "th": "ศาลเจ้าแม่กวนอิม บ้านหนองแว่น แม่จัน",
+       "en": "A Guanyin shrine at Ban Nong Waen, Mae Chan"
+      },
+      {
+       "id": "cr-osm-node-2147540194",
+       "th": "โรงเจ อำเภอแม่จัน",
+       "en": "A jay hall in Mae Chan"
+      },
+      {
+       "id": "cr-dgth-religious-3800070060",
+       "th": "ศาลเจ้าจี้กง อำเภอพาน",
+       "en": "A Ji Gong shrine in Phan"
+      },
+      {
+       "id": "cr-osm-way-551266015",
+       "th": "ศาลเจ้าจีน บ้านถ้ำปลา แม่สาย",
+       "en": "A Chinese shrine at Ban Tham Pla, Mae Sai"
+      }
+     ]
+    },
+    {
+     "key": "cr-kitchens",
+     "th": "เชียงราย: ร้านเจ",
+     "en": "Chiang Rai: jay kitchens",
+     "roman": "ran je",
+     "jewels": [
+      {
+       "id": "cr-osm-node-4556487389",
+       "th": "ถนนสถานพยาบาล ใกล้โรงพยาบาลเชียงรายประชานุเคราะห์ แกง ผัด ก๋วยเตี๋ยว ข้าวราด ปิดวันเสาร์ (Wongnai)",
+       "en": "Sathan Phayaban Road by Chiang Rai Prachanukroh Hospital: curries, stir-fries, noodle soup, rice plates; closed Saturday (Wongnai)"
+      },
+      {
+       "id": "cr-osm-node-2301371485",
+       "th": "อาหารเจ เปิดทุกวัน 07.00–19.00 น.",
+       "en": "Jay restaurant, daily 07:00–19:00"
+      },
+      {
+       "id": "cr-osm-way-960771490",
+       "th": "เจและวีแกน เปิด 06.30–17.00 น.",
+       "en": "Jay and vegan, 06:30–17:00"
+      },
+      {
+       "id": "cr-osm-node-2316640505",
+       "th": "ก๋วยเตี๋ยวน้ำซุปเจ ในเมืองเชียงราย",
+       "en": "Jay noodle broth, Chiang Rai town"
+      },
+      {
+       "id": "cr-osm-way-960934970",
+       "th": "วีแกน ถนนไตรรัตน์",
+       "en": "Vegan, Trairat Road"
+      },
+      {
+       "id": "cr-ovt-c4567ecf-7fda-4ef8-a8c9-1b18494fa4b7",
+       "th": "อาหารเจและวีแกนแบบไทย ริมกก (Wongnai)",
+       "en": "Thai jay and vegan food, Rim Kok (Wongnai)"
+      },
+      {
+       "id": "cr-ovt-506a87f9-8545-414c-b0f6-2e5fc3263f62",
+       "th": "ก๋วยเตี๋ยวเจ สามแยกท่าข้าวเปลือก บ้านเด่น นางแล",
+       "en": "Jay noodle soups, Tha Khao Plueak junction, Ban Den, Nang Lae"
+      },
+      {
+       "id": "cr-ovt-d2fb1fc4-75e7-41bf-b1b4-3511f4fd9074",
+       "th": "อาหารเจ ถนนไตรรัตน์",
+       "en": "Jay food, Trairat Road"
+      },
+      {
+       "id": "cr-osm-node-2294308420",
+       "th": "ร้านริมน้ำกก เมนูมังสวิรัติและวีแกนมีเครื่องหมายไว้ เปิด 08.00–21.00 น.",
+       "en": "On the Kok river; vegetarian and vegan dishes marked on the menu; 08:00–21:00"
+      },
+      {
+       "id": "cr-osm-node-6290979685",
+       "th": "อาหารเจ แม่ฟ้าหลวง เปิด 08.00–20.00 น.",
+       "en": "Vegetarian food in Mae Fah Luang, 08:00–20:00"
+      },
+      {
+       "id": "cr-ovt-9b676b5b-379f-42a3-a2f0-c8cb6f42bc2f",
+       "th": "อาหารเจ บ้านเหมืองแดง แม่สาย",
+       "en": "Jay food at Ban Mueang Daeng, Mae Sai"
+      },
+      {
+       "id": "cr-ovt-e6525a3b-8597-4b5f-ba17-8794b3d208b4",
+       "th": "อาหารเจ ตำบลเวียง อำเภอเทิง",
+       "en": "Jay food, Wiang, Thoeng"
+      },
+      {
+       "id": "cr-osm-node-5782374054",
+       "th": "อาหารเจ เทศบาลซอย 3 อำเภอพาน 09.00–18.00 น.",
+       "en": "Jay food, Thetsaban Soi 3, Phan, 09:00–18:00"
+      }
+     ]
+    },
+    {
+     "key": "cr-also",
+     "th": "เชียงราย: คุรุดวารา",
+     "en": "Chiang Rai: gurdwara",
+     "roman": "khuruthawara",
+     "jewels": [
+      {
+       "id": "cr-ovt-26cadbf1-9303-4107-809e-6df814c0aef6",
+       "th": "คุรุดวาราของซิกข์ ในเมืองเชียงราย",
+       "en": "The Sikh gurdwara in Chiang Rai town"
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

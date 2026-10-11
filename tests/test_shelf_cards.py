@@ -46,8 +46,22 @@ def list_pages():
     checks what was actually built and cannot agree with a wrong build for
     the same wrong reason.
     """
+    # The crawled provinces, then the wireframe ones from data/coverage.json
+    # (build.py adds those once their canonical file holds a record): lpn's
+    # cards read as orphans while this list said only cm and cr (10/10).
+    provs = [p["key"] for p in json.loads(
+        (ROOT / "data" / "categories.json").read_text())["provinces"]]
+    provs += [p["key"] for p in json.loads(
+        (ROOT / "data" / "coverage.json").read_text())["provinces"]
+        if p["key"] not in provs]
+    # A shelf that became several leaves a noindex stub at its old path
+    # (data/curated/moved.json "split", build.write_split_stubs). The stub is
+    # a signpost, not a list page, and has no card of its own.
+    moved = ROOT / "data" / "curated" / "moved.json"
+    stubs = set((json.loads(moved.read_text()).get("split") or {})
+                if moved.exists() else ())
     out = {}
-    for prov in ("cm", "cr"):
+    for prov in provs:
         pdir = DOCS / prov
         if not pdir.is_dir():
             continue
@@ -57,7 +71,8 @@ def list_pages():
                 continue
             out[f"shelf-{prov}-{cat.name}"] = cat / "index.html"
             for sub in sorted(p for p in cat.iterdir() if p.is_dir()):
-                if (sub / "index.html").exists():
+                if ((sub / "index.html").exists() and
+                        f"{prov}/{cat.name}/{sub.name}/index.html" not in stubs):
                     out[f"shelf-{prov}-{cat.name}-{sub.name}"] = sub / "index.html"
     return out
 

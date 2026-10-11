@@ -30,7 +30,7 @@ spread exactly as the gate posts it, `_pricesVerified: false` until a person
 stands at one. What the water is said to be good for is the operator's or the
 tradition's claim and renders as a claim — this site gives no health advice.
 No spring is crowned; no line sorts them into natural and commercial, hidden
-and touristy. Sorts stay distance, province and alphabet.
+and heavily visited. Sorts stay distance, province and alphabet.
 
 ## The shape
 

@@ -39,7 +39,7 @@ the site-search population, not every record):
 Filters: q · province · cat · sub · tag · lens · facet · has · min_ants ·
 near + radius · open_now / open_at · sort · limit · offset.
 
-No key. No sign-up. No rate limit. Open to every origin.
+Open to every origin; it answers without a key or a sign-up.
 
 
 THE THREE RULES THAT MADE IT INTO THE JSON

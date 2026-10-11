@@ -1,0 +1,130 @@
+THE FRONT PAGE, 1996 — where it stands, 2026-09-08 11:xx
+Nan: "Navigation and discovery should be much more wordless. Unclutter the
+homepage. As visually simple as 1996 Google, without losing ANY value or
+discovery."
+
+Mock, on a phone frame with the real tokens and real numbers:
+    https://claude.ai/code/artifact/50469d65-8915-450b-a449-d1ece28280d2
+
+Lane: build.py PID 6242 has held cache/build.lock since 09:49; refine_layer.py
+was edited at 10:59 by the session wiring WO-75. Nothing here was edited,
+built or deployed. This note, the mock, and two verbatim hooks.
+
+
+1. THREE STATES, COUNTED (ไทย + EN mode, whole page, footer included)
+
+                                       words   links   folds   height @375
+  motdang.net LIVE (NOW·NEAR cut)      3,087     182       6   ~2,800 px
+  IN THE TREE — WO-75, next build        147      19       0   one screen
+  the mock                                91      19       0   one screen
+
+  The blank page you asked for on 9/7 ("start with a blank homepage") is
+  BUILT: docs/index.html written 10:21 by the running build. It is not on
+  motdang.net. DO-NOT-DEPLOY-2026-09-07.txt: your decision this morning was
+  that WO-76 ships with the Overture fold, so whoever clears the fold
+  carries this out too.
+
+  The 10:21 file still carries the newsletter box (31 words) below the box;
+  build.py was changed after the build loaded it (`subscribe_block() if hub
+  and path != ''`), so the NEXT build drops it. 147 is the next build's count.
+
+
+2. THE 147 WORDS, WHERE THEY ARE
+
+  header    33   skip link 5 (hidden) · logo 2 · ไทย/ไทย+EN/EN 4 · อ่านง่าย 2
+                 · search label 2 (hidden) · placeholder 6 · button 2 ·
+                 the line: ⛅ 24° · PM2.5 9 ดีมาก · Very good  8
+  body       0
+  footer   110   emergency row 19 (5 numbers + ช่วย) · six links 34 ·
+                 updated/© OSM 12 · THE LICENCE SENTENCE 45
+
+  The licence sentence is on all 25,889 pages: "Data on this page is CC BY
+  4.0 — reuse it, train on it, quote it. Map-derived fields remain © OSM
+  (ODbL). Attribution to motdang.net is all we ask." Both licences are
+  satisfied by naming them — CC BY 4.0 as a link, © OpenStreetMap
+  contributors (ODbL) as the link already in the line above it. That is the
+  cut in the mock: 45 → 6 words, every page.
+
+  google.com in 1998 was a logo, a box, two buttons and four links. The
+  masthead controls (language, easy read) and the emergency row are yours
+  and stay; with them the floor is about 90.
+
+
+3. DISCOVERY — what the blank page can still reach, and how
+
+  by typing            everything. After ANY query: the count, the Search
+                       tools drawer (6 dropdowns + open now + near me, each
+                       option with its count), Advanced search. WO-75.
+  ทุกชั้น · every shelf  footer link → all.html, 175 shelves, Term (count).
+  the map              NO DOOR. WO-75 kept "the map as a second workflow,
+                       peer to the box" and then drew no way to it from the
+                       front page. map.html is reachable by URL only.
+  📍 ตรงนี้             in the line only once location is already granted
+                       (your call 9/7: never a prompt, never a hop).
+  the 25,889 pages     sitemap.xml + the links inside each record. WO-75
+                       stated this cost; R5 (the footer link) is taken.
+  empty box + Enter    search.html with nothing on it. The empty-search
+                       pills were cut by WO-75.
+
+  Wordless discovery that exists today is the map. It is the one field held
+  on 97.7% of records (go/mapfirst), and it is the door a reader who cannot
+  name the thing can still walk through. So the mock adds ONE drawn map
+  icon beside the box — drawn, not emoji, per your 9/8 call — and nothing
+  else. Everything WO-74 proposes (viewport = where, ring = how far, chip
+  rail counted from the view) sits behind that one door when it is built.
+
+
+4. TWO HOOKS, VERBATIM — for whoever holds refine_layer.py next
+
+  a) bare_footer(), the licence line. Replace
+       <span class="licence">{bi(lic_th, lic_en)}</span>
+     with
+       <span class="licence"><a href="https://creativecommons.org/licenses/by/4.0/" rel="license noopener">CC BY 4.0</a> · © <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a> (ODbL)</span>
+     and drop the "© OpenStreetMap" tail from the updated line above it so
+     the attribution prints once. lic_th/lic_en keep their other reader
+     (source/, terms.html) — check with grep before deleting them.
+
+  b) header(), the map door. Wrap the form:
+       <div class="seekrow">
+       <form class="seek" …>…</form>
+       <a class="mapdoor" href="{r}map.html" aria-label="{att(bi_text("แผนที่", "the map"))}" title="{att(bi_text("แผนที่", "the map"))}">{svg_icon("i-map", 28, "rowicon")}</a>
+       </div>
+     CSS (refine_layer.CSS, bare shell block):
+       .seekrow{display:flex;gap:.5rem;align-items:stretch}
+       .seekrow form.seek{flex:1;margin:0}
+       .mapdoor{flex:0 0 60px;display:grid;place-items:center;border:2px solid var(--ink);border-radius:14px;background:var(--card);box-shadow:0 2px 0 var(--shadow);color:var(--ant-dark)}
+       .mapdoor:hover,.mapdoor:focus{color:var(--ant);border-color:var(--ant)}
+     Front page only, or every page: header() takes strip_html only on the
+     front page today; the door can follow the same switch. Your call (F2).
+
+  Gate: tests/test_page_weight.py already holds ≤6 open links in any
+  header; the door makes it 2 (logo, map). No new test needed.
+
+
+5. FORKS — yours, none taken
+
+  F1  THE LICENCE LINE. 45 → 6 words on every page (hook a). Cost: one
+      rebuild, ~25,889 files re-uploaded — which the fold's deploy does
+      anyway. Worst case: someone reads "all we ask" as the licence and
+      misses it; the link says it. Expires with the fold's deploy.
+
+  F2  THE MAP DOOR. One drawn icon beside the box (hook b). Front page
+      only, or every page. Cost: one icon, zero words. Worst case: a
+      reader taps it on a 2G connection and waits for MapLibre — map.html
+      already carries the no-basemap branch. Without it the map is a page
+      with no inbound link but the sitemap.
+
+  F3  GLYPH DOORS UNDER THE BOX — the eight paths (🛍 🩺 🍜 🏃 🔧 🚌 💊 💆)
+      as icons with no label. Wordless, but each is a kind the reader must
+      already recognise from a picture, and your 9/8 call was drawn icons
+      not emoji: eight to draw. Not in the mock. Recommend NO — the box and
+      the map are the two doors; a row of eight is the chipbar coming back
+      in pictures.
+
+  F4  DEPLOY ORDER. The blank page rides the Overture fold (your decision
+      this morning, DO-NOT-DEPLOY-2026-09-07.txt). Nothing in this note
+      changes that; F1 and F2 are two small edits that can go in the same
+      release or the next one.
+
+  WO-74 F1 — does motdang.net/ BECOME the map — stays open and is the
+  bigger question. This note does not answer it; it puts a door on it.

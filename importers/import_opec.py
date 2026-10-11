@@ -19,7 +19,7 @@ street — only name, อำเภอ, จังหวัด, the levels taught,
 licensed capacity and who holds the licence. So it is used the way the temple
 register is used: as a REGISTER that stamps records we already hold, and only
 where it names a school nobody has mapped does it become a record of its own,
-pinless and honest about it.
+pinless and says so.
 
 WHAT IT SETTLES that nothing else can. The official type of a private school —
 whether it is นานาชาติ, ordinary สามัญศึกษา, a temple charity school
@@ -235,7 +235,7 @@ def _record(row):
 
 
 def apply(records, prov):
-    """Stamp the register onto what we hold and return the schools it names
+    """Stamp the register onto the records held here and return the schools it names
     that we do not. `records` is the merged list for one province."""
     regs = [r for r in rows() if r["province"] == prov]
     if not regs:

@@ -63,6 +63,15 @@
 "สตรีทฟู้ด": [
 "food"
 ],
+"thai": [
+"food",
+"thai"
+],
+"international": [
+"food",
+"international",
+"school"
+],
 "noodles": [
 "food"
 ],
@@ -97,6 +106,18 @@
 ],
 "khao soi & noodles": [
 "northern"
+],
+"อาหารเหนือ-ขันโตก": [
+"lanna"
+],
+"northern thai & khantoke": [
+"lanna"
+],
+"อาหารญี่ปุ่น": [
+"japanese"
+],
+"japanese": [
+"japanese"
 ],
 "อาหารทะเล": [
 "seafood"
@@ -299,15 +320,6 @@
 "ap ob nuat": [
 "ap-ob-nuat"
 ],
-"โรงพยาบาล": [
-"hospital",
-"medical"
-],
-"คลินิก": [
-"cannabis",
-"clinic",
-"medical"
-],
 "หมอฟัน": [
 "dentist",
 "medical"
@@ -346,8 +358,14 @@
 "doctors & hospitals": [
 "medical"
 ],
+"โรงพยาบาล": [
+"hospital"
+],
 "hospitals": [
 "hospital"
+],
+"คลินิก": [
+"clinic"
 ],
 "clinics": [
 "clinic"
@@ -364,7 +382,7 @@
 "health stations (รพ.สต.)": [
 "health-station"
 ],
-"แล็บ-ตรวจเลือด": [
+"แล็บ-ตรวจวิเคราะห์": [
 "laboratory"
 ],
 "labs & testing": [
@@ -398,30 +416,17 @@
 "cannabis",
 "dispensary"
 ],
-"คาเฟ่": [
-"cannabis"
-],
 "ร้านน้ำใบกระท่อม": [
 "cannabis",
 "kratom"
-],
-"ฟาร์ม": [
-"cannabis"
 ],
 "dispensaries": [
 "cannabis",
 "dispensary"
 ],
-"caf": [
-"cannabis"
-],
 "kratom": [
 "cannabis",
 "kratom"
-],
-"farms": [
-"cannabis",
-"cooking"
 ],
 "กัญชา-กระท่อม": [
 "cannabis"
@@ -488,6 +493,12 @@
 "laundry": [
 "laundry"
 ],
+"น้ำดื่ม-แก๊สหุงต้ม": [
+"utilities"
+],
+"drinking water & cooking gas": [
+"utilities"
+],
 "ไปรษณีย์-ขนส่ง": [
 "post"
 ],
@@ -524,11 +535,23 @@
 "translation & document services": [
 "translation"
 ],
+"ร้านถ่ายรูป-รูปติดบัตร": [
+"photo"
+],
+"photo studios & id photos": [
+"photo"
+],
 "ร้านสะดวกซื้อ": [
 "convenience"
 ],
 "convenience stores": [
 "convenience"
+],
+"งานศพ-ฌาปนสถาน": [
+"funeral"
+],
+"funeral directors & crematoria": [
+"funeral"
 ],
 "โรงแรม": [
 "hotel",
@@ -598,38 +621,9 @@
 "university"
 ],
 "muay": [
-"school",
-"sport"
+"school"
 ],
 "language": [
-"school",
-"sport"
-],
-"cooking": [
-"cooking",
-"school"
-],
-"classes": [
-"cooking",
-"school"
-],
-"now": [
-"school",
-"sport"
-],
-"have": [
-"school",
-"sport"
-],
-"own": [
-"school",
-"sport"
-],
-"shelf": [
-"school",
-"sport"
-],
-"too": [
 "school"
 ],
 "โรงเรียน-สถานศึกษา": [
@@ -785,7 +779,6 @@
 "market"
 ],
 "fresh": [
-"cooking",
 "market"
 ],
 "walking": [
@@ -901,6 +894,12 @@
 "sports & outdoor shops": [
 "sports-shop"
 ],
+"ร้านเช่าชุด": [
+"dresshire"
+],
+"dress & costume hire": [
+"dresshire"
+],
 "ร้านตัดสูท-ตัดชุด": [
 "tailor"
 ],
@@ -998,7 +997,20 @@
 "agents & agencies": [
 "agent"
 ],
+"ที่จอดรถ": [
+"parking",
+"transport"
+],
+"ที่จอดมอเตอร์ไซค์": [
+"motorcycle-parking",
+"transport"
+],
 "เช่ามอไซค์": [
+"motorbike-rental",
+"transport"
+],
+"รถเช่า": [
+"car-rental",
 "transport"
 ],
 "รถแดง": [
@@ -1007,10 +1019,25 @@
 "สถานีขนส่ง": [
 "transport"
 ],
-"bike": [
+"parking": [
+"parking",
+"transport"
+],
+"motorcycle": [
+"motorbike-rental",
+"transport"
+],
+"scooter": [
+"motorbike-rental",
+"transport"
+],
+"car": [
+"car-rental",
 "transport"
 ],
 "rental": [
+"car-rental",
+"motorbike-rental",
 "transport"
 ],
 "rot": [
@@ -1028,11 +1055,128 @@
 "getting around": [
 "transport"
 ],
-"เช่ารถ-มอเตอร์ไซค์": [
-"rental"
+"motorcycle parking": [
+"motorcycle-parking"
 ],
-"car & bike rental": [
-"rental"
+"ที่จอดจักรยาน": [
+"bicycle-parking"
+],
+"bicycle parking": [
+"bicycle-parking"
+],
+"ทางเข้าอาคารจอดรถ": [
+"parking-entrance"
+],
+"parking entrances": [
+"parking-entrance"
+],
+"มอไซค์": [
+"motorbike-rental"
+],
+"มอเตอร์ไซค์": [
+"motorbike-rental"
+],
+"มอเตอร์ไซค์ให้เช่า": [
+"motorbike-rental"
+],
+"เช่ารถมอเตอร์ไซค์": [
+"motorbike-rental"
+],
+"สกู๊ตเตอร์": [
+"motorbike-rental"
+],
+"จักรยานยนต์": [
+"motorbike-rental"
+],
+"scooters": [
+"motorbike-rental"
+],
+"motorbikes": [
+"motorbike-rental"
+],
+"motorbike": [
+"motorbike-rental"
+],
+"motorcycles": [
+"motorbike-rental"
+],
+"bikes": [
+"motorbike-rental"
+],
+"bike": [
+"motorbike-rental"
+],
+"เช่ามอเตอร์ไซค์": [
+"motorbike-rental"
+],
+"motorbike rental": [
+"motorbike-rental"
+],
+"เช่ารถ": [
+"car-rental"
+],
+"เช่ารถยนต์": [
+"car-rental"
+],
+"รถยนต์ให้เช่า": [
+"car-rental"
+],
+"รถตู้เช่า": [
+"car-rental"
+],
+"คาร์เร้นท์": [
+"car-rental"
+],
+"cars": [
+"car-rental"
+],
+"hire": [
+"car-rental"
+],
+"vans": [
+"car-rental"
+],
+"car rental": [
+"car-rental"
+],
+"จักรยาน": [
+"bicycle"
+],
+"เช่าจักรยาน": [
+"bicycle"
+],
+"ร้านจักรยาน": [
+"bicycle"
+],
+"ซ่อมจักรยาน": [
+"bicycle"
+],
+"รถถีบ": [
+"bicycle"
+],
+"bicycles": [
+"bicycle"
+],
+"bicycle": [
+"bicycle"
+],
+"cycling": [
+"bicycle"
+],
+"pedal": [
+"bicycle"
+],
+"จักรยาน-เช่า-ซ่อม": [
+"bicycle"
+],
+"bicycles — shops, rental & repair": [
+"bicycle"
+],
+"ร้านมอเตอร์ไซค์-โชว์รูม": [
+"motorbike"
+],
+"motorbike dealers": [
+"motorbike"
 ],
 "สถานีรถไฟ": [
 "train"
@@ -1131,6 +1275,12 @@
 "phones & computers": [
 "tech"
 ],
+"ซ่อมรองเท้า-จักร-เครื่องใช้ไฟฟ้า": [
+"mend"
+],
+"cobblers, sewing-machine & appliance repair": [
+"mend"
+],
 "ร้านผม": [
 "beauty"
 ],
@@ -1210,15 +1360,6 @@
 "removal",
 "tattoo"
 ],
-"sak": [
-"tattoo"
-],
-"yant": [
-"tattoo"
-],
-"ajarn": [
-"tattoo"
-],
 "modern": [
 "tattoo"
 ],
@@ -1271,12 +1412,21 @@
 "อาบน้ำตัดขน": [
 "pets"
 ],
+"ร้านอาหารสัตว์": [
+"pets"
+],
 "vets": [
 "pets",
 "vet"
 ],
 "grooming": [
 "grooming",
+"pets"
+],
+"pet": [
+"pets"
+],
+"feed": [
 "pets"
 ],
 "สัตว์เลี้ยง": [
@@ -1287,6 +1437,12 @@
 ],
 "อาบน้ำ-ตัดขน": [
 "grooming"
+],
+"ร้านสัตว์เลี้ยง-อาหารสัตว์": [
+"pet-shop"
+],
+"pet shops & feed": [
+"pet-shop"
 ],
 "ยิม": [
 "sport"
@@ -1318,14 +1474,6 @@
 ],
 "yoga": [
 "sport"
-],
-"stadiums": [
-"muaythai",
-"sport"
-],
-"live": [
-"sport",
-"whats-on"
 ],
 "กีฬา-ฟิตเนส": [
 "sport"
@@ -1366,13 +1514,7 @@
 "ราคาตั๋ว": [
 "muaythai"
 ],
-"tonight": [
-"muaythai"
-],
-"fight": [
-"muaythai"
-],
-"nights": [
+"stadiums": [
 "muaythai"
 ],
 "training": [
@@ -1391,12 +1533,6 @@
 "muaythai"
 ],
 "mongkhon": [
-"muaythai"
-],
-"night": [
-"muaythai"
-],
-"costs": [
 "muaythai"
 ],
 "มวยไทย": [
@@ -1473,6 +1609,12 @@
 "ครก": [
 "cooking"
 ],
+"cooking": [
+"cooking"
+],
+"classes": [
+"cooking"
+],
 "half": [
 "cooking"
 ],
@@ -1487,12 +1629,6 @@
 "cooking"
 ],
 "organic": [
-"cooking"
-],
-"walk": [
-"cooking"
-],
-"through": [
 "cooking"
 ],
 "kitchens": [
@@ -1520,15 +1656,6 @@
 "cooking"
 ],
 "courses": [
-"cooking"
-],
-"curry": [
-"cooking"
-],
-"paste": [
-"cooking"
-],
-"mortar": [
 "cooking"
 ],
 "เรียนทำอาหารไทย": [
@@ -1633,34 +1760,10 @@
 "sanctuaries": [
 "chang"
 ],
-"states": [
-"chang"
-],
-"about": [
-"chang"
-],
-"riding": [
-"chang"
-],
 "bathing": [
 "chang"
 ],
 "shows": [
-"chang"
-],
-"mahouts": [
-"chang"
-],
-"white": [
-"chang"
-],
-"gate": [
-"chang"
-],
-"chedis": [
-"chang"
-],
-"carry": [
 "chang"
 ],
 "poo": [
@@ -1776,6 +1879,12 @@
 "community centres": [
 "centre"
 ],
+"สุสาน-ฌาปนสถานประจำหมู่บ้าน": [
+"cremation"
+],
+"village cremation grounds": [
+"cremation"
+],
 "ค้าส่ง": [
 "business"
 ],
@@ -1841,6 +1950,9 @@
 "whats-on"
 ],
 "cinemas": [
+"whats-on"
+],
+"live": [
 "whats-on"
 ],
 "music": [
@@ -1911,6 +2023,12 @@
 ],
 "art galleries": [
 "gallery"
+],
+"แกลเลอรี-ห้องศิลป์ที่ขายงาน": [
+"gallery-commercial"
+],
+"galleries that sell": [
+"gallery-commercial"
 ],
 "สวนสาธารณะ": [
 "park",
@@ -2013,11 +2131,29 @@
 "peaks & mountains": [
 "peak"
 ],
+"ถ้ำ": [
+"cave"
+],
+"caves": [
+"cave"
+],
 "น้ำพุร้อน": [
 "hot-spring"
 ],
 "hot springs": [
 "hot-spring"
+],
+"ชุมชนท่องเที่ยว": [
+"community"
+],
+"community tourism": [
+"community"
+],
+"แหล่งเรียนรู้-ศิลปวัฒนธรรม": [
+"culture"
+],
+"culture & learning": [
+"culture"
 ],
 "ทริปวันเดียว": [
 "outing"

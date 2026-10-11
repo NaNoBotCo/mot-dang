@@ -1,0 +1,351 @@
+MOT DANG — WHY A DEPLOY TAKES ALL DAY, AND WHAT SHORTENS IT
+Measured 2026-09-10 on tonight's build and publish. Nothing in the repo changed.
+
+WHERE THE FOUR HOURS WENT TONIGHT
+
+  build.py             16:44 → 19:34   170 min   one process; 8 cores idle
+    place pages, cm    16:46 → 17:45    59 min   62,767 pages + 62,747 json
+    place pages, cr    17:45 → 18:10    25 min
+    here cells, sois   18:10 → 18:15     5 min
+    tag pages          18:15 → 19:35    80 min   6,220 pages, 1.5 GB
+  deploy.py            19:45 → 20:49    64 min   ~96,300 pages up, ~6.8 GB
+                                                 (9/8: 73 min, 0 deletions)
+
+WHY EVERY PAGE UPLOADS EVERY DAY
+
+  deploy.py compares checksums, so an unchanged file costs nothing: the
+  62,747 .json siblings, which carry neither a date nor a hash, were skipped.
+  Every .html uploaded, because every .html changed. A place page diffed
+  against its live copy before the sync reached it: 42 changed lines, none
+  about the place —
+  1. the footer: "ปรับปรุง 2026-09-10 · updated 2026-09-10" is on 96,337 of
+     96,369 pages. A new day is a new byte in every page, 6.8 GB up.
+     standing_walk.sh rebuilds and republishes every 20 h for no reason but
+     to keep that date current (MAX_AGE_HOURS=20, "keep the date true"). The
+     line it keeps true, อัปเดตทุกวัน, arrived 8/1 in the commit "Port the
+     Claude Design look" and is no longer on the home page.
+  2. five ?v= hashes in every <head> (style.css, md.js, live.js, alpha.js,
+     refine.js). Any CSS or JS edit changes every page. Tonight: style.css.
+  3. favicon and logo lines: tonight only.
+
+WHY THE UPLOAD ITSELF IS SLOW
+
+  Uplink measured at 16 MB/s. The sync ran at ~1.9 MB/s, 27 files/s: one
+  round trip to the bucket is ~1 s from here, each file costs a PUT and a
+  verification HEAD, 32 run at once. The line was 12% busy. The bucket is
+  already in APAC.
+
+WHY THE BUILD IS SLOW
+
+  a. The two place-page loops (build.py:16856) render one record at a time,
+     pure per-record work, on one core of eight.
+  b. Tag pages: 80 min for 6,220 pages. A broad tag renders every member as
+     a full row: has-facebook.html is 68 MB and 48,988 rows, has-phone.html
+     61 MB; 25 pages over 5 MB. Shelves split past a row count (build.py:
+     "a shelf bigger than this cannot be one page"); tag pages never split.
+     The place page I checked links to no has-* page.
+  c. ~18 KB of inline icon sprite (<defs> i-ant… i-wat…) is byte-identical
+     in every page. 60% of a 60 KB place page is SVG; the text is 10 KB.
+     18 KB × 96k pages = 1.7 GB of the site, and of every full upload.
+
+WHAT SHORTENS IT, ranked by minutes per unit of work
+
+  ENGINEERING ONLY — no reader sees a difference
+  1. deploy.py: --transfers 96 --s3-no-head. One round trip per file
+     instead of two, three times as many in flight. A full re-upload in
+     10–20 min instead of 60 if R2 accepts the concurrency. Two lines.
+     Worst case: throttling; back off to 64. The next sync's checksum pass
+     verifies what the skipped HEAD would have.
+  2. build.py: fork the place-page loops across cores. ~70 min off.
+     Worst case: a worker dies and leaves a short tree; publish/safety.py
+     already refuses that tree.
+  3. Build into docs.next/ and swap at the end (the 9/8 outage's open root
+     fix). Saves no minutes alone; a build and a publish stop excluding each
+     other, and a killed build never leaves a half tree at the published
+     path. Needs ~8 GB free for the swap; 24 GB free tonight.
+
+  YOURS — changes what a reader sees or what the site says
+  4. The footer date. (a) drop it from place pages, keep it on the home
+     page, sitemap, RSS; (b) print the record's own last-changed date, which
+     moves only when the place moves; (c) keep it. With (a) or (b) a quiet
+     day publishes in minutes, the forced 20-hour rebuild goes, and a data
+     day uploads only the pages that changed. Worst case (a): a reader
+     cannot see how old a page is. (b): they can, per place.
+  5. The ?v= hashes. Serve css/js like html (max-age=0, must-revalidate, in
+     worker.js cacheFor) and drop the hash from pages. Cost to a reader:
+     five 304 round trips per visit, bodies cached, ~0.5 s on 3G. Gain: a
+     CSS edit stops being a 6.8 GB upload. Or keep the hashes and accept the
+     full upload on asset days.
+  6. The icon sprite as one file (icons.svg, <use href="…#i-wat">; every
+     current browser). Each place page −18 KB (−30%), the site −1.7 GB,
+     every full upload a third shorter, every reader a third less HTML.
+     Worst case: one more cached request on first visit.
+  7. Tag pages: split the broad ones the way shelves split, or stop
+     rendering has-* as pages (they are search filters). −0.4 GB and most
+     of the 80-minute tail. Worst case: a link on a tag index moves.
+
+  THE STRUCTURAL ONE — "20 minutes tops" even on a shell-change day
+  8. Bodies in the bucket, shell in the Worker. The build writes the ~25 KB
+     that is the place; worker.js wraps it in head, nav and footer at
+     request time, cached at the edge. A shell change becomes one Worker
+     deploy instead of 96k uploads; pages halve again. Cost: docs/ stops
+     holding whole pages, so the gate, the tests and the HF static export
+     must assemble first; the Worker gains a template. A week, not an
+     afternoon.
+
+WHAT ELSE I FOUND
+
+  - The automated publisher has not shipped since 9/9. Every walk since
+    fails tests/test_publish_gate.py on "links to broken URLs 14": 14 of
+    96,369 pages link a site data/linkhealth.json marked dead in July or
+    August (timeout, dns). That wording rode in 8/1 under "A privacy notice,
+    and the birth chart the engine was already computing". Every publish
+    since has been a session running deploy.py by hand; tonight's needed
+    --prune to retire 4,115 objects. Your fork: the gate reports instead of
+    blocking; or build.py stops emitting those 14 hrefs (its verdict()
+    lookup is meant to, and I did not trace which renderer bypasses it); or
+    as is.
+  - R2 bills each PUT as a class-A operation. 96k a day is ~2.9 million a
+    month. Items 4 and 5 remove nearly all of it.
+  - git is not in the publish path. 18,416 docs/ files are still tracked
+    from the Pages era, which is why git status is slow. Not a speed item.
+
+WHAT I DID NOT DO
+
+  No build, no publish, no edit to any tracked file. The sync that was
+  running finished at 20:49 and the smoke test passed. Numbers come from
+  file times in docs/, cache/deploy.log, rclone check against the bucket,
+  a diff of two live pages, and a 20 MB upload test.
+
+
+────────────────────────────────────────────────────────────────────────
+WHAT WAS DONE, 22:35 THAT NIGHT
+
+LIVE NOW — the Worker, deployed twice through the tower's own queue
+
+  css, js and svg serve as  max-age=0, stale-while-revalidate=604800
+  instead of a seven-day cache. That is what makes an un-fingerprinted URL
+  safe, so it had to go out BEFORE any page that drops its ?v=. It is out.
+  Brotli and everything else on the site are untouched; a place page, the
+  front page, /api/v1/places, a 404 and a tile range all still answer.
+
+MEASURED AND REJECTED — an edge cache for the big bodies
+
+  Built it, deployed it, measured it against the live site, took it out
+  again, and wrote the reason into worker.js so nobody builds it twice:
+  serving data/index.json and vendor/ out of the colo cache keyed by etag,
+  with a gzip twin baked beside each. It was SLOWER — 5.7-8.2 s where the
+  plain path had been 1.8-3.5 s — and most requests missed the cache
+  anyway. Cloudflare was already caching these AND compressing them with
+  brotli, which beats the gzip twin; on top of that, finding the etag cost
+  an extra R2 head() before every read, and filling the cache cost a
+  second full read of the same 9.4 MB. Taking a body away from the CDN to
+  hand-cache it is a losing trade. Site is back to its old numbers.
+
+STAGED, NOT SHIPPED — five build.py changes, no complete build yet
+
+  1. rclone --transfers 96 --checkers 32 --s3-no-head   (one round trip
+     per file instead of two, three times as many at once)
+  2. place pages dealt out to eight forked workers
+  3. build into docs.next/ and rename at the end, so a killed build never
+     leaves a half-written tree at the published path
+  5. no ?v= on any asset — 24 sites across ten files
+  6. the icon sprite moved out to /icons.svg
+  7. tag pages split at the shelves' own HUB_MAX_ROWS
+
+  PROVEN so far, from a scratch build: the forked workers wrote both
+  provinces' place pages correctly — 176,324 files — and the sprite move
+  makes a place page 30% smaller (57 KB → 40 KB; cm/p html 3.62 → 2.55 GB).
+  That scratch build then DIED in the tag phase at 22:10 with its stdout
+  still buffered, so the cause is not known and nothing else is proven.
+  The ?v= removal has unit tests only; no build has ever emitted it.
+
+  cache/walk-rest is set until 2026-09-11 12:00 with that written inside,
+  so the walk cannot build and publish them meanwhile. Remove it once a
+  build finishes clean.
+
+STILL YOURS, UNTOUCHED
+
+  4. The footer date — (a) drop it from place pages, (b) print the record's
+     own last-changed date, (c) keep it. This is the one that decides
+     whether a quiet day uploads 96,000 pages or none.
+  8. Shell in the Worker, bodies in the bucket — a week, not an afternoon.
+  The publish gate's 14 dead links, which have kept the automated walk from
+  shipping since 9 September: report instead of block, drop the 14 hrefs at
+  build time, or leave it.
+
+WHAT I COULD NOT DO — another bot has the road
+
+  A second session has held the build lock since 20:52 and was still
+  building at 22:35, so no verification build could run. The Worker deploys
+  queued behind a manuscript-wiki publish on the tower's cloudflare-deploy
+  lane and went out when it cleared. 5 GB of dead scratch tree from the
+  failed build was removed; the disk is at 26 GB free.
+
+
+────────────────────────────────────────────────────────────────────────
+QUEUED FOR THE WALK, 11 SEPTEMBER 12:30
+
+The staged changes ride the standing walk's next round. The walk is the
+site's publisher, and it already waits for quiet source files, respects the
+build lock, runs every gate, and deploys through the tower. Its next round
+comes once the gemba session's hold ends at 15:00; that session is editing
+build.py until then, which is why nothing was built this morning.
+
+What makes that round land it:
+
+  - The 14 dead links were a bug, not a fork. build.py looked up
+    "http://host" where the link checker had stored "http://host/", so
+    14 sites marked dead still got a live link. The gemba session fixed
+    it in the tree. The gate should pass on the next build.
+  - The walk now waits up to 45 minutes for the deploy lane. It used to
+    step back when the lane was busy, which threw away a finished build and
+    rebuilt the whole site 20 minutes later. The lane's usual holder, the
+    manuscript-wiki publish, has it about a quarter of each hour.
+  - A build that dies publishes nothing: the build writes into docs.next/
+    and swaps it in only on success.
+  - Publishing the current tree would delete 0 live objects, so the
+    2,000-deletion ceiling is not in the way.
+
+Why last night's scratch build died: most likely the session restart for
+the model switch. Its last file was written at 22:10:08 and the restarted
+session's first command ran at 22:12:39. No error, because none was ever
+written. A long build started as a session's background job dies with the
+session.
+
+Still yours: the footer date (item 4) and the Worker-shell rewrite (item 8).
+
+
+────────────────────────────────────────────────────────────────────────
+THE FOOTER DATE — YOUR CALL, 11 SEPTEMBER: (b)
+
+Before this, the build's date had already left every page's footer. The code
+comment credits that to you on 10 September; the home page, the sitemap and
+the RSS feed kept it. (b) puts a date back on place pages only, and it is the
+record's own, so an unchanged place's page is the same file every day.
+
+A place page's last footer line:
+
+  ปรับปรุง 2026-07-27 (พ.ศ. 2569) · updated 2026-07-27 (B.E. 2569) · CC BY 4.0 · © OpenStreetMap contributors (ODbL)
+
+Every other page: CC BY 4.0 · © OpenStreetMap contributors (ODbL)
+
+Which date: the record's updatedAt, or an owner's confirmation if later.
+What updatedAt holds depends on the importer that wrote it:
+
+  63,234 places   2026-09-07   the day the Overture data was folded in
+  16,501 places   2026-07-27   the first OpenStreetMap import
+   5,849 places   other 2026 days   register fetches, enrichment, claims
+   1,464 places   2024-01-01 or 2021-01-01   the open-data importer writes
+                  a register's year as 1 January (temples, police, camps)
+   1,180 places   before 2026  OpenStreetMap's own last-edit time, mostly
+
+Three importers stamp the day they run, so their records' dates move when
+those importers are re-run.
+
+Queued: cache/staged/record-date/queue.py waits for the walk round that began
+building at 19:41 to end, then applies the change and runs its test,
+restoring both files if the test fails. The round after that builds and
+publishes it. Log: cache/record-date-apply.log.
+
+Also seen: that round spent 85 minutes drawing 111 shelf cards before the
+build began. On a quiet day that step takes seconds.
+
+
+────────────────────────────────────────────────────────────────────────
+12 SEPTEMBER, MORNING — WHY NOTHING HAD PUBLISHED SINCE THE 10th
+
+The walk built all night and threw the build away at 07:24. Two separate
+things, both now fixed.
+
+THE BUILD TOOK 12 HOURS, AND MOSTLY NOT ITS OWN FAULT
+
+  Place pages       48 min   176,000 files across 8 forked workers
+                             (84 min serial before — the fork works)
+  Chiang Mai tags  10.8 h    5,537 pages
+  Chiang Rai tags    6 min   2,618 pages
+
+  The same code, 100x apart, because of what else was running: the lannawiki
+  publish held the machine 03:15–07:13 and the defiant wayback run 04:15–
+  07:07, and the Mac was swapping with under 1 GB free. Chiang Rai's tags
+  were drawn at 07:16, three minutes after both finished. The tower keeps
+  bots out of each other's LANES; it does not stop four heavy jobs sharing
+  eight cores.
+
+  Real work in the tag phase is 2–3 h, and profiling found more than half of
+  a tag page's time goes to romanising Thai names — the same names, over and
+  over, because a record sits on about ten tag pages. Those readings are now
+  cached (translit.py): five tag pages went from 10.8 s to 6.3 s.
+
+THE PUBLISH GATE, 4 LINKS — TWO REAL, TWO THE CHECKER'S FAULT
+
+  The gate refuses to publish a page that links a site the checker has
+  marked dead. It was 14 links; the slash fix took it to 4.
+
+  thaiakhakitchen.com     answers 403 to our checker and 200 in a browser.
+                          Now recorded "walled" — a door shut to us is not a
+                          dead site, the same reasoning the checker already
+                          used for Facebook pages.
+  fortmengraihospital.com its redirect is instant but the army hospital site
+                          behind it never answers. Genuinely unreachable; the
+                          15-second limit is now 30, which changed nothing
+                          here but will stop recording slow sites as dead.
+  pimanclinic.rihes.cmu.ac.th   the domain is gone. trans-health.html cited
+                          it as a source and linked it; it now links the
+                          archived copy the checker had already found.
+  a Google Drive "booking" link arrived with its middle elided —
+                          drive.google.com/.../view — and events.html linked
+                          it. An event whose link is dead now shows no link.
+
+  A sample of 20 of the 2,740 links marked dead by DNS: none resolve. Those
+  verdicts are sound.
+
+
+────────────────────────────────────────────────────────────────────────
+PUBLISHED 12 SEPTEMBER 10:23 — WHAT THE CYCLE COSTS NOW
+
+  08:05  the walk starts          weather, air, shelf cards, importers
+  08:13  build starts             place pages 51 min · tag pages 50 min
+  09:51  build done               98 min, 98,305 pages, 203,152 files
+  09:55  gates pass               the first green gate since 9 September
+  10:00  upload starts
+  10:23  published                192,366 files, 5.9 GB, 22 min
+
+  Before: a 2 h 50 build and a 64-minute upload, about four hours. Last
+  night, sharing the machine with two other fleet jobs, twelve hours.
+
+  The upload moved from 27 files a second to 143 — the two rclone flags.
+  This one re-sent nearly the whole site, because dropping the ?v= hashes
+  and moving the icons out changed every page. That was the one-time cost.
+
+  The tag phase is now 50 minutes, against 80 before the split and the
+  romanisation cache, and 10.8 hours last night under contention.
+
+  Verified live: a place page carries its record's date (7 September on the
+  one checked, matching the record), no ?v= anywhere, icons come from
+  /icons.svg served as image/svg+xml, and the page is 48 KB where it used to
+  be 57-73 KB. /api/v1/search answers 200 for the first time — the edge
+  search engine went live with this publish, so the search box no longer
+  waits on a 9 MB index for its first rows.
+
+WHAT A QUIET DAY COSTS, AND THE ONE THING LEFT
+
+  88,761 files carry today's build date. Only 310 of them are pages, and
+  those are records that genuinely changed today. 85,041 are the .json
+  sibling beside each place: the catalogue is re-derived at the start of
+  every round, and road, อำเภอ and ตำบล are each stamped with the day the
+  derivation ran rather than the day the data changed. That is about ten
+  minutes of every upload, for no new fact.
+
+  Your fork, the same shape as the footer date: stamp the data's own date
+  (or leave the date off a field derived at build time, which provenance
+  already supports) and a quiet day uploads ~3,500 files instead of 89,000.
+
+  The build's 98 minutes is now the bigger half of the cycle. Splitting it
+  further means the place and tag loops, which are already forked and
+  cached, or the structural change (item 8).
+
+  Also worth a decision: the lannawiki publish held the machine 03:15-07:13
+  and the wayback run 04:15-07:07 last night, on top of this build. The
+  tower keeps bots out of each other's lanes but lets four heavy jobs share
+  eight cores.

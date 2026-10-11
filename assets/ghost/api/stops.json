@@ -1,0 +1,1565 @@
+[
+ {
+  "id": "ho-phaya-mangrai",
+  "name": "Ho Phaya Mangrai",
+  "th": "หอพญามังราย",
+  "sub": "Where the lightning landed",
+  "kind": "shrine",
+  "modes": [
+   "walk",
+   "ride",
+   "drive"
+  ],
+  "lat": 18.7882811,
+  "lon": 98.9878774,
+  "coord_src": "cmhy-mangrai",
+  "where": "Ratchadamnoen Road, Si Phum, a short block east of the Three Kings square",
+  "open": "Open air, unstaffed, any hour",
+  "cost": "Free",
+  "dead": "Mangrai, founder of Chiang Mai, killed by a lightning strike in the market — B.E. 1854, 1311 CE, aged 72",
+  "story": [
+   "He had built the city fifteen years earlier and was walking through its market when the storm came in. The Thai chronicle entry is one sentence long: struck by lightning, dead in the middle of the town.",
+   "A Lanna-roofed shrine stands under a big bodhi tree on Ratchadamnoen with a cast figure of him inside, in the dress of an old northern king. The building is modern — CMHY dates it to 1975, put up when the earlier marker became awkward to reach.",
+   "Nobody walks past it. People stop, kneel on the concrete, and talk to him."
+  ],
+  "merit": [
+   "khan-tang",
+   "yat-nam"
+  ],
+  "merit_here": "A khan tang. He is not being asked for a favour so much as reported to — the city's founder, told how his city is doing. Flowers and candles in pairs, set down, then pour the water at the root of the bodhi tree.",
+  "doubt": "Three spots claim the strike. chiangmai1.com names the ruins of Wat Sadue Muang near the Tilokarat hall, a collapsed chedi behind a royal residence by a bodhi tree, and a later memorial at the Klang Wiang intersection. The shrine you are standing at is the one people use. It may not be the one it happened at.",
+  "sources": [
+   "th-wiki-mangrai",
+   "cmhy-mangrai",
+   "chiangmai1-mangrai",
+   "en-wiki-mangrai"
+  ],
+  "commons": null,
+  "commons_search": "King Mangrai shrine Chiang Mai",
+  "images": [
+   {
+    "file": "ho-phaya-mangrai/king-mangrai-shrine.jpg",
+    "title": "File:King Mangrai shrine.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3AKing_Mangrai_shrine.jpg",
+    "author": "Јован Вуковић",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "w": 2448,
+    "h": 3264,
+    "landscape": false,
+    "band": true
+   },
+   {
+    "file": "ho-phaya-mangrai/king-mangrai-shrine-teble.jpg",
+    "title": "File:King Mangrai shrine - teble.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3AKing_Mangrai_shrine_-_teble.jpg",
+    "author": "Јован Вуковић",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "w": 2448,
+    "h": 3264,
+    "landscape": false
+   }
+  ],
+  "ghost": {
+   "tier": "tradition",
+   "text": "He did not leave. In the northern reckoning a lord who dies in his own town becomes its เสื้อเมือง — the spirit of the place, wearing the office he held — and goes on running it from wherever he was put down. That is why the offerings at this shrine are not requests. People come and tell him things: what has been built, what has been sold off, who is in charge now. Seven hundred years of a city reporting to its founder on a street corner.",
+   "sources": [
+    "lanner-phi-lanna",
+    "veridian-phi-north",
+    "chiangmai1-mangrai"
+   ]
+  }
+ },
+ {
+  "id": "wat-inthakhin-sadue-muang",
+  "name": "Wat Inthakhin Sadue Muang",
+  "th": "วัดอินทขีลสะดือเมือง",
+  "sub": "The navel, and the pillar that was here",
+  "kind": "wat",
+  "modes": [
+   "walk",
+   "ride",
+   "drive"
+  ],
+  "geo_query": "Wat Inthakhin Sadue Muang, Chiang Mai",
+  "where": "Inthawarorot Road, behind the Three Kings square",
+  "open": "Daylight",
+  "cost": "Free",
+  "dead": "No one buried. What is kept here is the city's own life.",
+  "story": [
+   "Sadue means navel. The wat stands on the point the city was measured from, and it held the Inthakhin — the city pillar — until the pillar was moved out in the nineteenth century.",
+   "The Inthakhin came from Indra, in the telling, handed to the Lawa who were here before the city was, with two kumphan sent down to guard it. The terms were that the people would keep making the offering. They stopped; the guardians left; the pillar went with them, and what followed is what the chronicle spends the next chapter on.",
+   "It was a ruin for a long stretch and is a working wat again. The Fine Arts Department still carries it under its older name, Wat Sadue Muang. One of the three candidate spots for Mangrai's death is here, in the ruins near the Tilokarat hall."
+  ],
+  "merit": [
+   "sweep",
+   "khan-dok",
+   "yat-nam"
+  ],
+  "merit_here": "Sweep. The terrace takes leaf fall from the big trees and the brooms are against the wall. In late May, when the bowls are out across the city, flowers go in them here too — this is the ground the pillar came off.",
+  "doubt": "When the pillar moved, and whether it was ever on this exact footing, are both argued.",
+  "sources": [
+   "th-wiki-inthakhin",
+   "finearts-sadue",
+   "chiangmai1-mangrai"
+  ],
+  "commons": "Category:Wat Inthakhin Sadue Mueang",
+  "images": [
+   {
+    "file": "wat-inthakhin-sadue-muang/chiang-mai-wat-inthakin-sadue-muang-0001.jpg",
+    "title": "File:Chiang Mai - Wat Inthakin Sadue Muang - 0001.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3AChiang_Mai_-_Wat_Inthakin_Sadue_Muang_-_0001.jpg",
+    "author": "Stefan Fussan",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "w": 4949,
+    "h": 3556,
+    "landscape": true,
+    "band": true
+   },
+   {
+    "file": "wat-inthakhin-sadue-muang/wat-inthakhin-sadue-muang-6f60b294.jpg",
+    "title": "File:วัดอินทขีล.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3A%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AD%E0%B8%B4%E0%B8%99%E0%B8%97%E0%B8%82%E0%B8%B5%E0%B8%A5.jpg",
+    "author": "Panuwat Tansui",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "w": 6000,
+    "h": 4000,
+    "landscape": true
+   }
+  ],
+  "ghost": {
+   "tier": "tradition",
+   "text": "Indra sent the pillar down with two kumphan to guard it, on terms: keep up the offering and the guard stays. The Lawa kept it, then a generation did not, and the guardians walked off and took the pillar with them. What is told here is not a haunting but an eviction — the thing that watched the city left because it stopped being fed, and the eight days of flowers every May are the arrears.",
+   "sources": [
+    "lanner-phi-lanna",
+    "veridian-phi-north",
+    "th-wiki-inthakhin"
+   ]
+  }
+ },
+ {
+  "id": "wat-phan-tao",
+  "name": "Wat Phan Tao",
+  "th": "วัดพันเตา",
+  "sub": "A king's house turned into a hall",
+  "kind": "wat",
+  "modes": [
+   "walk",
+   "ride",
+   "drive"
+  ],
+  "geo_query": "Wat Phan Tao, Chiang Mai",
+  "where": "Next door to Wat Chedi Luang, north side",
+  "open": "Daylight",
+  "cost": "Free",
+  "dead": "Chao Mahotaraprathet, whose residence this was",
+  "story": [
+   "The viharn is teak panels standing on end — the dismantled residence of a nineteenth-century ruler of Chiang Mai, re-erected as a hall. The peacock over the door and the dog under it are his birth signs.",
+   "It is dark inside in the middle of the afternoon. The lamps at the back are lit most evenings."
+  ],
+  "merit": [
+   "pang-pratip",
+   "yat-nam"
+  ],
+  "merit_here": "Lamps. The pond at the back is where the wat floats them, and there are usually some for sale by the door.",
+  "sources": [
+   "citylife-haunted"
+  ],
+  "commons": "Category:Wat Phan Tao",
+  "images": [
+   {
+    "file": "wat-phan-tao/wat-phan-tao-5dd3705e.jpg",
+    "title": "File:วัดพันเตา1.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3A%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%B1%E0%B8%99%E0%B9%80%E0%B8%95%E0%B8%B21.jpg",
+    "author": "Yakuzakorat",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "w": 5472,
+    "h": 3648,
+    "landscape": true,
+    "band": true
+   },
+   {
+    "file": "wat-phan-tao/wat-phan-tao-1bb1032c.jpg",
+    "title": "File:วิหารวัดพันเตา.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3A%E0%B8%A7%E0%B8%B4%E0%B8%AB%E0%B8%B2%E0%B8%A3%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%B1%E0%B8%99%E0%B9%80%E0%B8%95%E0%B8%B2.jpg",
+    "author": "Vichitsilp",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "w": 4058,
+    "h": 2614,
+    "landscape": true
+   }
+  ],
+  "ghost": {
+   "tier": "tradition",
+   "text": "The teak panels are the walls of a dead man's house. Chao Mahotaraprathet lived inside them and they were taken down and put back up as a hall, which in the northern reading does not change whose they are — ผีเจ้านาย, the spirit of a lord, stays with what was his. The peacock over the door and the dog under it are his birth signs, which is to say the building is still signed.",
+   "sources": [
+    "lanner-phi-lanna",
+    "veridian-phi-north"
+   ]
+  }
+ },
+ {
+  "id": "wat-phra-singh",
+  "name": "Wat Phra Singh",
+  "th": "วัดพระสิงห์",
+  "sub": "A father's ashes",
+  "kind": "wat",
+  "modes": [
+   "walk",
+   "ride",
+   "drive"
+  ],
+  "geo_query": "Wat Phra Singh, Chiang Mai",
+  "where": "West end of Ratchadamnoen, inside the moat",
+  "open": "06:00–20:00 roughly",
+  "cost": "40 ฿ for non-Thais at the gate, as posted 2026",
+  "dead": "Kham Fu, fourth king of the Mangrai line — the chedi was raised for his ashes in 1345",
+  "story": [
+   "King Pha Yu built the chedi to hold his father's remains and the wat grew around it. The small Lai Kham hall to the side holds the Phra Singh image and a set of murals that are the best surviving record of what daily life in the north looked like.",
+   "The image itself has three cities claiming to hold the original. Chiang Mai's claim is one of them."
+  ],
+  "merit": [
+   "tan-khan-khao",
+   "yat-nam",
+   "bangsukun"
+  ],
+  "merit_here": "Morning. A tray at the hall behind the chedi, with a name on it. The wat is busy enough that there is always a monk free before eleven.",
+  "doubt": "Which Phra Singh is the Phra Singh. Chiang Mai, Nakhon Si Thammarat and Bangkok each hold an image under the name.",
+  "sources": [
+   "citylife-haunted"
+  ],
+  "commons": "Category:Wat Phra Sing, Chiang Mai",
+  "images": [
+   {
+    "file": "wat-phra-singh/chiang-mai-thailand-wat-phra-sing-01.jpg",
+    "title": "File:Chiang-Mai Thailand Wat-Phra-Sing-01.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3AChiang-Mai_Thailand_Wat-Phra-Sing-01.jpg",
+    "author": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "w": 6518,
+    "h": 4345,
+    "landscape": true,
+    "band": true
+   },
+   {
+    "file": "wat-phra-singh/0020.jpg",
+    "title": "File:0020-วัดพระสิงห์วรมหาวิหาร.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3A0020-%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%AA%E0%B8%B4%E0%B8%87%E0%B8%AB%E0%B9%8C%E0%B8%A7%E0%B8%A3%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%A7%E0%B8%B4%E0%B8%AB%E0%B8%B2%E0%B8%A3.jpg",
+    "author": "Nawit science",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "w": 4654,
+    "h": 3107,
+    "landscape": true
+   }
+  ],
+  "ghost": {
+   "tier": "tradition",
+   "text": "Two sets of remains, of different kinds. King Kham Fu's ashes are in the chedi, and his son built it to put them there. The Phra Singh image in the Lai Kham hall is the other kind: an image that old, moved that often and claimed by three cities at once is treated in the north as a resident rather than an object — something that consented to be where it is and could stop consenting.",
+   "sources": [
+    "lanner-phi-lanna",
+    "veridian-phi-north"
+   ]
+  }
+ },
+ {
+  "id": "wat-chiang-man",
+  "name": "Wat Chiang Man",
+  "th": "วัดเชียงมั่น",
+  "sub": "The first thing built",
+  "kind": "wat",
+  "modes": [
+   "walk",
+   "ride",
+   "drive"
+  ],
+  "geo_query": "Wat Chiang Man, Chiang Mai",
+  "where": "Ratchaphakhinai Road, north-east quarter",
+  "open": "Daylight",
+  "cost": "Free",
+  "dead": "None. This is where the living city started.",
+  "story": [
+   "Mangrai camped here while the city was going up in 1296 and the wat stands on the camp. The elephant chedi at the back is the oldest structure inside the walls.",
+   "Two small images are kept in the viharn — a crystal Buddha and a stone one, both older than the city, both brought here from somewhere else. They come out once a year at Songkran.",
+   "First stop on the route if you want the chronology; near-last if you want to end somewhere calm."
+  ],
+  "merit": [
+   "tan-khan-khao",
+   "sweep"
+  ],
+  "merit_here": "A tray, in the name of whoever in your family came first to a place and started something.",
+  "sources": [
+   "citylife-haunted"
+  ],
+  "commons": "Category:Wat Chiang Man, Chiang Mai",
+  "images": [
+   {
+    "file": "wat-chiang-man/chedi-chang-lom-wat-chiang-man.jpg",
+    "title": "File:Chedi Chang Lom, Wat Chiang Man.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3AChedi_Chang_Lom%2C_Wat_Chiang_Man.jpg",
+    "author": "Christophe95",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "w": 4782,
+    "h": 3508,
+    "landscape": true,
+    "band": true
+   },
+   {
+    "file": "wat-chiang-man/chiang-mai-wat-chiang-man-0002.jpg",
+    "title": "File:Chiang Mai - Wat Chiang Man - 0002.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3AChiang_Mai_-_Wat_Chiang_Man_-_0002.jpg",
+    "author": "Stefan Fussan",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "w": 4821,
+    "h": 3425,
+    "landscape": true
+   }
+  ],
+  "ghost": {
+   "tier": "tradition",
+   "text": "The crystal Buddha and the stone one in the viharn are older than the city and were carried here from somewhere else. They come out once a year, at Songkran, and go back in. The reasoning behind a locked image is not security. An image with that much handling behind it is held to be awake, and what is awake is let out on a schedule, not on demand.",
+   "sources": [
+    "lanner-phi-lanna",
+    "veridian-phi-north"
+   ]
+  }
+ },
+ {
+  "id": "wat-lok-molee",
+  "name": "Wat Lok Molee",
+  "th": "วัดโลกโมฬี",
+  "sub": "The dynasty's ashes",
+  "kind": "wat",
+  "modes": [
+   "walk",
+   "ride",
+   "drive"
+  ],
+  "geo_query": "Wat Lok Molee, Chiang Mai",
+  "where": "Manee Nopparat Road, outside the north moat, west of Chang Phueak Gate",
+  "open": "Daylight",
+  "cost": "Free",
+  "dead": "Members of the Mangrai line, in and around the brick chedi",
+  "story": [
+   "Outside the wall, which is where the dynasty put its dead. The chedi is sixteenth-century brick and the teak viharn beside it is recent, built in the old proportions.",
+   "Quieter than anything inside the moat at the same hour."
+  ],
+  "merit": [
+   "tan-tung",
+   "yat-nam"
+  ],
+  "merit_here": "A tung. The poles are along the wall and the wat sells the banners at the office.",
+  "commons": "Category:Wat Lok Moli",
+  "images": [
+   {
+    "file": "wat-lok-molee/dsc-0433.jpg",
+    "title": "File:วัดโลกโมฬีDSC 0433.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3A%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B9%82%E0%B8%A5%E0%B8%81%E0%B9%82%E0%B8%A1%E0%B8%AC%E0%B8%B5DSC_0433.jpg",
+    "author": "Cat2you",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "w": 3008,
+    "h": 2000,
+    "landscape": true,
+    "band": true
+   },
+   {
+    "file": "wat-lok-molee/wat-lok-molee-naga-sculptures.jpg",
+    "title": "File:Wat lok molee - naga sculptures.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3AWat_lok_molee_-_naga_sculptures.jpg",
+    "author": "Flying Pharmacist",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "w": 2048,
+    "h": 1365,
+    "landscape": true
+   },
+   {
+    "file": "wat-lok-molee/ride-20260924-aesthetic-aa3729-268.jpg",
+    "title": "NaN Peacock, from her GoPro ride, 24 Sep 2026",
+    "page": "",
+    "author": "NaN Peacock",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "w": 960,
+    "h": 1200,
+    "landscape": false
+   },
+   {
+    "file": "wat-lok-molee/ride-20260924-shrine-aa3729-271.jpg",
+    "title": "NaN Peacock, from her GoPro ride, 24 Sep 2026",
+    "page": "",
+    "author": "NaN Peacock",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "w": 900,
+    "h": 1125,
+    "landscape": false
+   }
+  ],
+  "ghost": {
+   "tier": "tradition",
+   "text": "The Mangrai line is in and around the brick, and the wall was the reason: royal ash went outside it. The dead were kept on the far side of the line the living lived inside, close enough to be fed and far enough not to be underfoot. Stand here at dusk and the geography is the whole belief, laid out flat.",
+   "sources": [
+    "lanner-phi-lanna",
+    "veridian-phi-north"
+   ]
+  }
+ },
+ {
+  "id": "pratu-suan-prung",
+  "name": "Suan Prung Gate",
+  "th": "ประตูสวนปรุง",
+  "sub": "The gate the dead went through",
+  "kind": "gate",
+  "modes": [
+   "walk",
+   "ride",
+   "drive"
+  ],
+  "where": "South-west corner of the moat",
+  "open": "A road junction. Any hour.",
+  "cost": "Free",
+  "dead": "Six centuries of them, all outbound",
+  "story": [
+   "Built in 1411 at the order of the wife of Prince Saen Muang Ma, later than the other four gates. For as long as the wall meant anything, this was the gate a corpse left by — carried out west and south to the burning ground — and the gate executions were done at.",
+   "It is a traffic junction now, with a rebuilt brick face and a crossing that takes a while.",
+   "Stand on the outside of it and look back in. That is the direction that mattered."
+  ],
+  "merit": [
+   "song-khro",
+   "pang-pratip"
+  ],
+  "merit_here": "Nothing here is set up to receive an offering, so leave no food or wax on the brick. Carry the act a few minutes south on Wualai to Wat Muen San and put it in the name of whoever went out through this gate unnamed.",
+  "doubt": "Citylife and Chang Puak both give 1411 and both give the two uses. The name's derivation — suan as garden, or as the thrust of a spear — is folk etymology either way.",
+  "sources": [
+   "changpuak-walls",
+   "citylife-haunted",
+   "commons-suanprung"
+  ],
+  "commons": "Category:Suan Prung Gate",
+  "lat": 18.7815,
+  "lon": 98.98182,
+  "coord_src": "triangulated from NaN's GoPro ride, 24 Sep 2026: due north of frame GSAA3729_134, where the gate's plaque stands beside the bike, and on the camera's 52° bearing from frame GSAA3729_136, which shows the gate square-on; within about 15 m",
+  "images": [
+   {
+    "file": "pratu-suan-prung/201703291244a-p-chiang-mai-city-wall-suan-prung-gate.jpg",
+    "title": "File:201703291244a P Chiang Mai, City Wall, Suan Prung Gate.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3A201703291244a_P_Chiang_Mai%2C_City_Wall%2C_Suan_Prung_Gate.jpg",
+    "author": "Hartmann Linge",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "w": 3463,
+    "h": 1878,
+    "landscape": true,
+    "band": true
+   },
+   {
+    "file": "pratu-suan-prung/pratu-suan-prung-d0b4510e.jpg",
+    "title": "File:ประตูแสนปุง อ.เมือง จ.เชียงใหม่ (1).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3A%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%81%E0%B8%AA%E0%B8%99%E0%B8%9B%E0%B8%B8%E0%B8%87_%E0%B8%AD.%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87_%E0%B8%88.%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88_%281%29.jpg",
+    "author": "กสิณธร ราชโอรส",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "w": 4592,
+    "h": 3448,
+    "landscape": false
+   },
+   {
+    "file": "pratu-suan-prung/ride-20260924-aesthetic-aa3729-136.jpg",
+    "title": "NaN Peacock, from her GoPro ride, 24 Sep 2026",
+    "page": "",
+    "author": "NaN Peacock",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "w": 900,
+    "h": 600,
+    "landscape": true
+   }
+  ],
+  "ghost": {
+   "tier": "cited",
+   "text": "Executions at the gate, by driving a sharpened stake into the stomach, and every corpse in the city carried out through the same arch for six hundred years. Both classes of ผีตายโหง in one doorway, in bulk. It is a traffic junction now with a rebuilt brick face, and the people who cross it on foot at two in the morning are not thinking about it, and the taxi drivers who will not stop there are.",
+   "sources": [
+    "citylife-haunted",
+    "changpuak-walls",
+    "lanner-phi-lanna",
+    "veridian-phi-north"
+   ]
+  }
+ },
+ {
+  "id": "pratu-chiang-mai",
+  "name": "Chiang Mai Gate",
+  "th": "ประตูเชียงใหม่",
+  "sub": "The south road out",
+  "kind": "gate",
+  "modes": [
+   "walk",
+   "ride",
+   "drive"
+  ],
+  "geo_query": "Chiang Mai Gate, Chiang Mai",
+  "where": "Middle of the south moat, at the head of Wualai",
+  "open": "Market from dusk; the gate itself any hour",
+  "cost": "Free",
+  "dead": "Not the corpse gate — that is two hundred metres west — but the road beyond it runs to Haiya and the burning grounds",
+  "story": [
+   "The south gate, the market at its foot, and the silversmiths' road running away from it. The Saturday walking street starts here.",
+   "Included on this route for the geography: the living city faced north and east; the dead went south and west, and everything on the far side of this line was once field, grave and cremation ground."
+  ],
+  "merit": [
+   "unclaimed"
+  ],
+  "merit_here": "The rescue-foundation station on this side of town keeps a box. Ask for ศพไร้ญาติ.",
+  "commons": "Category:Chiang Mai Gate",
+  "images": [
+   {
+    "file": "pratu-chiang-mai/201703291043c-chiang-mai-city-wall-chiang-mai-gate.jpg",
+    "title": "File:201703291043c Chiang Mai, City Wall, Chiang Mai Gate.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3A201703291043c_Chiang_Mai%2C_City_Wall%2C_Chiang_Mai_Gate.jpg",
+    "author": "Hartmann Linge",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "w": 3132,
+    "h": 1878,
+    "landscape": true,
+    "band": true
+   },
+   {
+    "file": "pratu-chiang-mai/201703291042d-chiang-mai-city-wall-chiang-mai-gate.jpg",
+    "title": "File:201703291042d Chiang Mai, City Wall, Chiang Mai Gate.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3A201703291042d_Chiang_Mai%2C_City_Wall%2C_Chiang_Mai_Gate.jpg",
+    "author": "Hartmann Linge",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "w": 3264,
+    "h": 1692,
+    "landscape": true
+   },
+   {
+    "file": "pratu-chiang-mai/ride-20260924-aesthetic-aa3729-084.jpg",
+    "title": "NaN Peacock, from her GoPro ride, 24 Sep 2026",
+    "page": "",
+    "author": "NaN Peacock",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "w": 1173,
+    "h": 782,
+    "landscape": true
+   },
+   {
+    "file": "pratu-chiang-mai/ride-20260924-aesthetic-ae5727-268.jpg",
+    "title": "NaN Peacock, from her GoPro ride, 24 Sep 2026",
+    "page": "",
+    "author": "NaN Peacock",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "w": 960,
+    "h": 1200,
+    "landscape": false
+   }
+  ],
+  "ghost": {
+   "tier": "tradition",
+   "text": "Not the corpse gate — that is two hundred metres west — but the road that runs out of it goes to Haiya and the burning grounds, and it did that job for centuries. A crossing where the dead went out is where misfortune is still set down and left: a tray at the kerb, a raft, a little figure standing in for somebody. Outward, always. Look down when you cross.",
+   "sources": [
+    "lanner-phi-lanna",
+    "veridian-phi-north"
+   ]
+  }
+ },
+ {
+  "id": "white-lion-house",
+  "name": "The White Lion house",
+  "th": "บ้านจางเหมือ",
+  "sub": "The story, not the address",
+  "kind": "story",
+  "modes": [
+   "walk"
+  ],
+  "where": "North-west quarter of the old city. This entry gives no address on purpose.",
+  "open": "—",
+  "cost": "—",
+  "dead": "A family, by the account Citylife printed",
+  "story": [
+   "Citylife's haunted-places piece tells it: a man built on a plot everyone told him was wrong, moved his family in, and killed them all. The compound has stood empty since except for people sleeping rough in it. A sign on one building reads House of Success.",
+   "It is private property with people living in it. Read the story; do not go and stand in the yard.",
+   "It is on the route because a ghost tour that only visits wats is a temple tour."
+  ],
+  "merit": [
+   "yat-nam"
+  ],
+  "merit_here": "Pour water for them somewhere else, at any of the wats on this walk. That is the whole of it.",
+  "doubt": "A newspaper account of a killing, repeated. No police record was consulted for this build.",
+  "sources": [
+   "citylife-haunted"
+  ],
+  "no_map": true,
+  "ghost": {
+   "tier": "cited",
+   "text": "Citylife printed it: a man built on a plot he was told repeatedly was wrong, moved his family in, and killed all of them. A death like that is ผีตายโหง in the northern classification — died wrong, died violently, did not get the rites — and the class is defined by not going anywhere. The compound has stood empty since apart from people sleeping rough in it, and one building still has a sign on it reading House of Success.",
+   "sources": [
+    "citylife-haunted",
+    "lanner-phi-lanna",
+    "veridian-phi-north"
+   ]
+  }
+ },
+ {
+  "id": "wat-suan-dok",
+  "name": "Wat Suan Dok",
+  "th": "วัดสวนดอก",
+  "sub": "The royal cemetery",
+  "kind": "wat",
+  "modes": [
+   "ride",
+   "drive"
+  ],
+  "geo_query": "Wat Suan Dok, Chiang Mai",
+  "where": "Suthep Road, about 1.5 km west of Suan Dok Gate",
+  "open": "06:00–20:00 roughly",
+  "cost": "Free; a donation box at the chedis",
+  "dead": "The ruling house of Chiang Mai. The white chedis hold their ashes, moved here in 1909.",
+  "story": [
+   "A flower garden belonging to King Ku Na, given to a forest monk in 1370 and turned into a wat. The relic the monk brought split in two; half went up the mountain and became Doi Suthep.",
+   "The field of whitewashed chedis at the front is the Lanna royal cemetery — the Na Chiang Mai family and their predecessors, gathered from burial grounds around the city by Princess Dara Rasmi and set down in one place.",
+   "Late afternoon the whole field goes orange and then pink. It is the most photographed hour on this route and the reason a camera is worth carrying."
+  ],
+  "merit": [
+   "bangsukun",
+   "yat-nam",
+   "tan-khan-khao"
+  ],
+  "merit_here": "Bangsukun, at the hall behind the chedis. If there is a service running for someone else's family, stand at the back and pour water with them; nobody minds.",
+  "commons": "Category:Wat Suan Dok",
+  "images": [
+   {
+    "file": "wat-suan-dok/wat-suan-dok-c2696a13.jpg",
+    "title": "File:วัดสวนดอกยามค่ำคืน.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3A%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AA%E0%B8%A7%E0%B8%99%E0%B8%94%E0%B8%AD%E0%B8%81%E0%B8%A2%E0%B8%B2%E0%B8%A1%E0%B8%84%E0%B9%88%E0%B8%B3%E0%B8%84%E0%B8%B7%E0%B8%99.jpg",
+    "author": "Defehowk",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "w": 4286,
+    "h": 2846,
+    "landscape": true,
+    "band": true
+   },
+   {
+    "file": "wat-suan-dok/wat-suan-dok-baaefbc2.jpg",
+    "title": "File:โบสถ์วัดสวนดอก.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3A%E0%B9%82%E0%B8%9A%E0%B8%AA%E0%B8%96%E0%B9%8C%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AA%E0%B8%A7%E0%B8%99%E0%B8%94%E0%B8%AD%E0%B8%81.jpg",
+    "author": "Panuwat Tansui",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "w": 6000,
+    "h": 4000,
+    "landscape": true
+   }
+  ],
+  "ghost": {
+   "tier": "tradition",
+   "text": "The white chedis are not where these people were first buried. Princess Dara Rasmi had the Lanna royal dead gathered up from grounds all over the city in 1909 and brought here into one field. Moving a grave is the thing the northern rites are most careful about, and this was moving a dynasty. Whatever was done to settle them was done in 1909 and the field has been quiet since, which people here will tell you is not an accident.",
+   "sources": [
+    "lanner-phi-lanna",
+    "veridian-phi-north"
+   ]
+  }
+ },
+ {
+  "id": "wat-umong",
+  "name": "Wat Umong",
+  "th": "วัดอุโมงค์",
+  "sub": "Tunnels and the broken images",
+  "kind": "wat",
+  "modes": [
+   "ride",
+   "drive"
+  ],
+  "geo_query": "วัดอุโมงค์",
+  "where": "Off Suthep Road, at the foot of the mountain behind the university",
+  "open": "06:00–17:00 roughly",
+  "cost": "Free; parking donation",
+  "dead": "A field of broken Buddha images, collected from wats that failed",
+  "story": [
+   "Ku Na had the tunnels cut into the mound in the 1380s. The story attached is that they were built for a monk who wandered — the walls painted with trees and birds so he would have somewhere to go without leaving.",
+   "Behind the mound the ground is covered in damaged images: heads without bodies, torsos, hands. They were gathered here from ruined wats across the north because a broken image is still an image and cannot be thrown away.",
+   "The forest around it is the quietest place within twenty minutes of the moat, and the tunnels are cold."
+  ],
+  "merit": [
+   "sweep",
+   "pang-pratip",
+   "yat-nam"
+  ],
+  "merit_here": "A lamp in the tunnel niches, where the wat allows it, and sweeping outside. The image field takes no offering — it is a resting place, not a shrine.",
+  "doubt": "The wandering-monk story is repeated everywhere and sourced nowhere this build could check.",
+  "commons": "Category:Wat Umong Suan Phutthatham",
+  "images": [
+   {
+    "file": "wat-umong/the-buddha-in-the-tunnel-wat-umong.jpg",
+    "title": "File:The buddha in the tunnel (Wat Umong).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3AThe_buddha_in_the_tunnel_%28Wat_Umong%29.jpg",
+    "author": "Hotcatssan",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "w": 5662,
+    "h": 3774,
+    "landscape": true,
+    "band": true
+   },
+   {
+    "file": "wat-umong/wat-umong-ii.jpg",
+    "title": "File:Wat Umong (II).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3AWat_Umong_%28II%29.jpg",
+    "author": "This Photo was taken by Supanut Arunoprayote . Feel free to use any of my images, but please mention me as the author and may send me a message. (สามารถใช้ภาพได",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "w": 6044,
+    "h": 3400,
+    "landscape": true
+   }
+  ],
+  "ghost": {
+   "tier": "tradition",
+   "text": "The story told about the tunnels is that they were cut and painted with trees and birds for a monk who wandered, so that he could go somewhere without leaving. It is repeated everywhere and sourced nowhere.\nThe field behind the mound is the part that is not a story. Broken images, brought here from wats that failed across the north — heads, torsos, hands, stacked in the leaf litter. A damaged image is not rubbish and cannot be thrown out, because the position is that it is still occupied. This is where the north puts what it cannot destroy and will not worship.",
+   "sources": [
+    "lanner-phi-lanna",
+    "veridian-phi-north"
+   ]
+  }
+ },
+ {
+  "id": "wat-ku-tao",
+  "name": "Wat Ku Tao",
+  "th": "วัดกู่เต้า",
+  "sub": "A Burmese prince under five melons",
+  "kind": "wat",
+  "modes": [
+   "ride",
+   "drive"
+  ],
+  "geo_query": "Wat Ku Tao, Chiang Mai",
+  "where": "North of the moat, behind the stadium, Chang Phueak",
+  "open": "Daylight",
+  "cost": "Free",
+  "dead": "Tharrawaddy Min, son of Bayinnaung, who ruled Lanna 1578–1607 — his ashes in the chedi",
+  "story": [
+   "The chedi is five spheres stacked smallest on top, which in northern Thai reads as a pile of melons: ku tao. The five stand for five Buddhas, four past and one to come.",
+   "Inside are the ashes of the Burmese prince who governed Chiang Mai for thirty years. The wat is Shan and the Shan community still keeps it — Poi Sang Long is held here.",
+   "Almost nobody comes. It is ten minutes' ride from Chang Phueak Gate."
+  ],
+  "merit": [
+   "tan-khan-khao",
+   "tan-tung",
+   "yat-nam"
+  ],
+  "merit_here": "A tray, dedicated to a foreign dead person buried far from home. The Shan community will know exactly what you are doing.",
+  "doubt": "Sources disagree on whose ashes: Tharrawaddy Min, Nawrahta Minsaw, or a 'Prince Saravadi'. Dates for the chedi run from 1613 to 1631.",
+  "sources": [
+   "en-wiki-kutao"
+  ],
+  "commons": "Category:Wat Ku Tao",
+  "images": [
+   {
+    "file": "wat-ku-tao/wat-ku-tao-temple-building-p1150586.jpg",
+    "title": "File:Wat Ku Tao - Temple building - P1150586.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3AWat_Ku_Tao_-_Temple_building_-_P1150586.jpg",
+    "author": "FredTC",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "w": 4000,
+    "h": 3000,
+    "landscape": false,
+    "band": true
+   },
+   {
+    "file": "wat-ku-tao/001-viharn-roof-with-naga-bargeboards-9213471220.jpg",
+    "title": "File:001 Viharn Roof with Naga Bargeboards (9213471220).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3A001_Viharn_Roof_with_Naga_Bargeboards_%289213471220%29.jpg",
+    "author": "Photo Dharma from Sadao, Thailand",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "w": 3648,
+    "h": 2736,
+    "landscape": false
+   },
+   {
+    "file": "wat-ku-tao/ride-20260924-aesthetic-aa3729-408.jpg",
+    "title": "NaN Peacock, from her GoPro ride, 24 Sep 2026",
+    "page": "",
+    "author": "NaN Peacock",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "w": 900,
+    "h": 1125,
+    "landscape": false
+   }
+  ],
+  "ghost": {
+   "tier": "tradition",
+   "text": "Tharrawaddy Min governed this city for thirty years and his ashes are in the melon chedi, in a Shan wat, in a Thai town, and Burma is where he was from. The northern category for a dead person nobody at home can feed is the hungry one. The Shan community has kept this wat and its rites going round him for four hundred years, which is one way of answering the problem.",
+   "sources": [
+    "lanner-phi-lanna",
+    "veridian-phi-north",
+    "en-wiki-kutao"
+   ]
+  }
+ },
+ {
+  "id": "wat-pa-pao",
+  "name": "Wat Pa Pao",
+  "th": "วัดป่าเป้า",
+  "sub": "The Shan wat inside the wall",
+  "kind": "wat",
+  "modes": [
+   "ride",
+   "drive"
+  ],
+  "geo_query": "Wat Pa Pao, Chiang Mai",
+  "where": "Mani Nopparat Road, just inside the north-east of the moat",
+  "open": "Daylight",
+  "cost": "Free",
+  "dead": "Shan founders and abbots, in the small stupas around the chedi",
+  "story": [
+   "Founded in the late fifteenth century by Shan who came down with the army and stayed. The chedi is Shan-Burmese work and the compound is laid out nothing like a Thai wat.",
+   "A community that has been here five hundred years and is still counted as from somewhere else."
+  ],
+  "merit": [
+   "tan-tung",
+   "yat-nam"
+  ],
+  "commons": "Category:Wat Pa Pao",
+  "images": [
+   {
+    "file": "wat-pa-pao/thaichmwatpapao08.jpg",
+    "title": "File:ThaiChMWatPaPao08.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3AThaiChMWatPaPao08.jpg",
+    "author": "Ziegler175",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "w": 3243,
+    "h": 2164,
+    "landscape": true,
+    "band": true
+   },
+   {
+    "file": "wat-pa-pao/wat-pa-pao-gate.jpg",
+    "title": "File:Wat Pa Pao gate.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File%3AWat_Pa_Pao_gate.JPG",
+    "author": "Јованвб",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "w": 3264,
+    "h": 2448,
+    "landscape": false
+   }
+  ],
+  "merit_here": "A tung, written for someone who died away from where they were born. The Shan community here has been doing exactly that for five hundred years.",
+  "ghost": {
+   "tier": "tradition",
+   "text": "Shan founders, Shan abbots, in the small stupas round the chedi, five centuries into a city that still files them under from somewhere else. Northern households feed their own dead — ผีปู่ย่า, the grandparents, danced to and given food so they stay ancestors and do not turn into something hungrier. A community that buried its dead a thousand kilometres from where those dead were born has been doing that work here since the 1400s.",
+   "sources": [
+    "lanner-phi-lanna",
+    "veridian-phi-north",
+    "finearts-phi-puya",
+    "openbase-fon-phi"
+   ]
+  }
+ },
+ {
+  "id": "foreign-cemetery",
+  "name": "Chiang Mai Foreign Cemetery",
+  "th": "สุสานชาวต่างชาติเชียงใหม่",
+  "sub": "Twenty-four rai, granted 1898",
+  "kind": "cemetery",
+  "modes": [
+   "ride",
+   "drive"
+  ],
+  "geo_query": "Chiang Mai Foreign Cemetery",
+  "where": "Chiang Mai–Lamphun Road, beside the Gymkhana Club",
+  "open": "Daylight; gate sometimes shut, the keeper opens it",
+  "cost": "Free; donation box",
+  "dead": "Missionaries, teak men, consuls, soldiers, and people who died here last year",
+  "story": [
+   "King Chulalongkorn granted twenty-four rai on 14 July 1898, after the British consul asked for somewhere to bury the dozen Britons then living in Chiang Mai. The first burial was in 1900.",
+   "It is still open. More than a quarter of the graves are twenty-first century and there are plots reserved by people who are alive.",
+   "A Queen Victoria memorial, a Second World War memorial, and the Wood Chapel. Under the trees at four in the afternoon it is the coolest ground in the city."
+  ],
+  "merit": [
+   "yat-nam",
+   "sweep"
+  ],
+  "merit_here": "Not a Buddhist ground, so no tray and no monk. Water at the root of a tree and the names read off the stones out loud is the form that fits. Take the rubbish out with you.",
+  "sources": [
+   "citylife-cemetery",
+   "findagrave-cemetery",
+   "whitelotus-demortuis"
+  ],
+  "commons": "Category:Chiang Mai Foreign Cemetery",
+  "images": [
+   {
+    "file": "foreign-cemetery/chiang-mai-foreign-cemetery-street-view1.jpg",
+    "title": "File:Chiang Mai Foreign Cemetery - Street View1.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3AChiang_Mai_Foreign_Cemetery_-_Street_View1.jpg",
+    "author": "Dahlfred",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "w": 2592,
+    "h": 1936,
+    "landscape": false,
+    "band": true
+   },
+   {
+    "file": "foreign-cemetery/grave-of-daniel-mcgilvary1.jpg",
+    "title": "File:Grave Of Daniel McGilvary1.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3AGrave_Of_Daniel_McGilvary1.jpg",
+    "author": "Dahlfred",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "w": 2592,
+    "h": 1936,
+    "landscape": false
+   }
+  ],
+  "ghost": {
+   "tier": "tradition",
+   "text": "Twenty-four rai of people who were buried by the rites of somewhere else. No tray in the morning, no monk, no water poured at the root of a tree, no banner with the name on it — none of the things the rest of this route is about. By the reckoning of the city they are lying in, that is the description of a dead person with nobody making merit for them, and there are over a thousand of them under the trees beside a golf course.",
+   "sources": [
+    "lanner-phi-lanna",
+    "veridian-phi-north",
+    "citylife-cemetery"
+   ]
+  }
+ },
+ {
+  "id": "nawarat-bridge",
+  "name": "Nawarat Bridge and the Ping",
+  "th": "สะพานนวรัฐ",
+  "sub": "What the river keeps",
+  "kind": "river",
+  "modes": [
+   "ride",
+   "drive",
+   "walk"
+  ],
+  "geo_query": "Nawarat Bridge, Chiang Mai",
+  "where": "Where Tha Phae Road crosses the Ping",
+  "open": "Any hour",
+  "cost": "Free",
+  "dead": "The drowned, who in northern telling do not leave the water",
+  "story": [
+   "The Ping is the reason the city is here and the reason the first capital had to be abandoned. The drowned are a separate category of dead in the northern reckoning — held in the water, not able to move on, and dangerous to swimmers for that reason.",
+   "The bridge is the third on this crossing. Under it, at the low season, the bed shows.",
+   "Best at dusk, when the lamps come on along the far bank."
+  ],
+  "merit": [
+   "pang-pratip",
+   "yat-nam"
+  ],
+  "merit_here": "A lamp floated, or water poured off the parapet. Loi Krathong is this by the hundred thousand, and the rest of the year the act is the same act.",
+  "commons": null,
+  "commons_search": "Nawarat Bridge Ping River Chiang Mai",
+  "images": [
+   {
+    "file": "nawarat-bridge/nawarat-bridge-1.jpg",
+    "title": "File:Nawarat Bridge 1.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3ANawarat_Bridge_1.jpg",
+    "author": "Rinto Jiang",
+    "license": "Public domain",
+    "license_url": "",
+    "w": 2816,
+    "h": 2112,
+    "landscape": false,
+    "band": true
+   },
+   {
+    "file": "nawarat-bridge/ping-river-in-chiang-mai-4.jpg",
+    "title": "File:Ping River in Chiang Mai 4.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3APing_River_in_Chiang_Mai_4.jpg",
+    "author": "Christophe95",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "w": 5184,
+    "h": 3888,
+    "landscape": false
+   }
+  ],
+  "ghost": {
+   "tier": "tradition",
+   "text": "ผีพราย: the drowned, who in the northern classification do not move on, because the water keeps them. The belief has a mechanism attached — one of them gets out by putting somebody else in — and it is the reason a northern grandmother will not let a child swim in the Ping at dusk, and the reason the lamps go downstream at Loi Krathong rather than up.",
+   "sources": [
+    "lanner-phi-lanna",
+    "veridian-phi-north"
+   ]
+  }
+ },
+ {
+  "id": "ang-kaew",
+  "name": "Ang Kaew, Chiang Mai University",
+  "th": "อ่างแก้ว มช.",
+  "sub": "The student stories",
+  "kind": "story",
+  "modes": [
+   "ride",
+   "drive"
+  ],
+  "geo_query": "อ่างแก้ว เชียงใหม่",
+  "where": "Inside the CMU campus, at the foot of Doi Suthep",
+  "open": "Open to the public; busy at dawn and dusk",
+  "cost": "Free",
+  "dead": "Whoever the seniors say, told to each new intake",
+  "story": [
+   "A reservoir at the back of the university with a walking circuit round it and a ghost story for nearly every building it faces. Campus Star has seven of them written down.",
+   "Campus ghost stories are a genre with rules: a drowning, a hostel corridor, a road with a bend in it, a girl who asks for a lift. They are told to first-years in the first week and this is the point of them.",
+   "Worth the ride for the mountain reflected at six in the morning, whatever you make of the stories."
+  ],
+  "merit": [
+   "yat-nam"
+  ],
+  "merit_here": "The spirit house at the campus entrance takes flowers. For the drowned, pour water at the edge.",
+  "doubt": "Every one of these is oral and unverifiable. They are on the route as folklore, which is what they are.",
+  "sources": [
+   "campusstar-cmu"
+  ],
+  "commons": null,
+  "commons_search": "Ang Kaew Chiang Mai University reservoir",
+  "images": [
+   {
+    "file": "ang-kaew/ang-kaew-reservoir.jpg",
+    "title": "File:Ang Kaew reservoir.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3AAng_Kaew_reservoir.jpg",
+    "author": "Christophe95",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "w": 4032,
+    "h": 3024,
+    "landscape": false,
+    "band": true
+   }
+  ],
+  "ghost": {
+   "tier": "cited",
+   "text": "Campus Star collected seven of them. They run to type, because campus ghost stories are a genre with rules: a drowning in the reservoir, a corridor in a hall of residence, a bend on the mountain road, a girl at the roadside who wants a lift and is not there when you look again. They are told to first-years in the first week by second-years, on a campus built on ground that was battlefield and burial before it was a university, and being told is the point of them.",
+   "sources": [
+    "campusstar-cmu",
+    "lanner-phi-lanna",
+    "veridian-phi-north"
+   ]
+  }
+ },
+ {
+  "id": "wiang-kum-kam",
+  "name": "Wiang Kum Kam",
+  "th": "เวียงกุมกาม",
+  "sub": "The capital the river took",
+  "kind": "ruins",
+  "modes": [
+   "ride",
+   "drive"
+  ],
+  "geo_query": "Wiang Kum Kam, Chiang Mai",
+  "where": "About 5 km south of the old city, Saraphi side of the Ping",
+  "open": "08:00–17:00 at the visitor centre; the ruins are spread through a living village",
+  "cost": "Free to walk. Horse cart or tram from the centre, 200–500 ฿.",
+  "dead": "A whole town's worth, under three metres of river sand",
+  "story": [
+   "Mangrai built here first, in the 1280s, and it flooded. He moved the capital to the higher ground that became Chiang Mai in 1296, and Kum Kam went on being lived in for another two centuries before the river ended the argument.",
+   "Radiocarbon on charcoal in the flood sand puts the burial after about 1477–1512. The site was found again in 1984 when the Fine Arts Department dug at Wat Chang Kham.",
+   "More than twenty wats have been excavated so far. They sit in holes below the level of the road, between houses, with people's washing strung up above them."
+  ],
+  "merit": [
+   "pang-pratip",
+   "tan-tung",
+   "yat-nam"
+  ],
+  "merit_here": "Wat Chang Kham is a working wat standing on top of the buried one, and takes a tray or a lamp. At the excavated ruins, nothing — they are archaeology, and wax marks brick.",
+  "doubt": "Whether one flood did it or a run of them. The paleoflood work argues for a large single event in that window.",
+  "sources": [
+   "en-wiki-kumkam",
+   "wood-paleoflood"
+  ],
+  "commons": "Category:Wiang Kum Kam",
+  "images": [
+   {
+    "file": "wiang-kum-kam/wiang-kum-kam-7.jpg",
+    "title": "File:Wiang Kum Kam 7.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3AWiang_Kum_Kam_7.jpg",
+    "author": "Mathew Schwartz",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "w": 5184,
+    "h": 3456,
+    "landscape": true,
+    "band": true
+   },
+   {
+    "file": "wiang-kum-kam/wat-chedi-liam-ii.jpg",
+    "title": "File:Wat Chedi Liam (II).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3AWat_Chedi_Liam_%28II%29.jpg",
+    "author": "This Photo was taken by Supanut Arunoprayote . Feel free to use any of my images, but please mention me as the author and may send me a message. (สามารถใช้ภาพได",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "w": 5290,
+    "h": 3779,
+    "landscape": true
+   }
+  ],
+  "ghost": {
+   "tier": "tradition",
+   "text": "A capital under three metres of river sand, and the wats coming back out of it one at a time since 1984 — below the level of the road, between houses, with washing strung up over them. The story people bring to it is a city that went on underneath, which is a folk tale and is told as one. The part that is not folklore is that these are graves and shrines that were covered while in use, and that the people whose gardens they are in have been living on the roof of them for five hundred years.",
+   "sources": [
+    "pantip-kumkam",
+    "wood-paleoflood",
+    "lanner-phi-lanna",
+    "veridian-phi-north"
+   ]
+  }
+ },
+ {
+  "id": "wat-pha-lat",
+  "name": "Wat Pha Lat",
+  "th": "วัดผาลาด",
+  "sub": "Where the elephant rested",
+  "kind": "wat",
+  "modes": [
+   "drive"
+  ],
+  "geo_query": "Wat Pha Lat, Chiang Mai",
+  "where": "Halfway up the Doi Suthep road, or an hour up the monks' trail from the back of the university",
+  "open": "Daylight",
+  "cost": "Free",
+  "dead": "Nobody. This is a stop in someone else's funeral procession.",
+  "story": [
+   "The relic was loaded onto a white elephant and the elephant was let go to choose the ground. It stopped here, rested, went on, climbed to the summit, trumpeted three times and died. Doi Suthep is where it stopped for good; Pha Lat is where it stopped to breathe.",
+   "The wat is built into a stream in the trees and is dark in the afternoon. Moss on everything.",
+   "The trail up from the city is walkable in an hour and is the better arrival. The road is the one a driver takes."
+  ],
+  "merit": [
+   "yat-nam",
+   "sweep"
+  ],
+  "merit_here": "Water into the stream. It runs down into the city.",
+  "commons": "Category:Wat Pha Lat, Chiang Mai",
+  "images": [
+   {
+    "file": "wat-pha-lat/wat-pha-lat-chiang-mai-20250116.jpg",
+    "title": "File:Wat Pha Lat, Chiang Mai 20250116.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3AWat_Pha_Lat%2C_Chiang_Mai_20250116.jpg",
+    "author": "This Photo was taken by Supanut Arunoprayote . Feel free to use any of my images, but please mention me as the author and may send me a message. (สามารถใช้ภาพได",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "w": 6135,
+    "h": 3452,
+    "landscape": true,
+    "band": true
+   },
+   {
+    "file": "wat-pha-lat/ho-phra-chao-wat-pha-lat-chiang-mai-20250116.jpg",
+    "title": "File:Ho Phra Chao, Wat Pha Lat, Chiang Mai 20250116.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3AHo_Phra_Chao%2C_Wat_Pha_Lat%2C_Chiang_Mai_20250116.jpg",
+    "author": "This Photo was taken by Supanut Arunoprayote . Feel free to use any of my images, but please mention me as the author and may send me a message. (สามารถใช้ภาพได",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "w": 6169,
+    "h": 4112,
+    "landscape": true
+   }
+  ],
+  "ghost": {
+   "tier": "tradition",
+   "text": "Halfway up, in the trees, on a stream. ผีขุนน้ำ is the spirit at a water source and นางไม้ is the one in a tree, and this wat is built into both. The elephant carrying the relic stopped here to rest and went on, which makes the place a pause in a funeral procession rather than the end of one — and a pause is where things wait.",
+   "sources": [
+    "lanner-phi-lanna",
+    "veridian-phi-north"
+   ]
+  }
+ },
+ {
+  "id": "doi-suthep",
+  "name": "Wat Phra That Doi Suthep",
+  "th": "วัดพระธาตุดอยสุเทพ",
+  "sub": "Where it stopped",
+  "kind": "wat",
+  "modes": [
+   "drive"
+  ],
+  "geo_query": "วัดพระธาตุดอยสุเทพราชวรวิหาร",
+  "where": "16 km up the mountain from Huay Kaew Road",
+  "open": "06:00–20:00",
+  "cost": "30 ฿ for non-Thais at the gate, as posted 2026. Funicular 20–50 ฿ or 306 steps.",
+  "dead": "The elephant, and the half-relic it carried",
+  "story": [
+   "The relic Sumanathera brought from Sukhothai split in two. One half stayed at Wat Suan Dok. The other went up here on the back of a white elephant in 1383, and the chedi stands where the elephant stopped.",
+   "The mountain had a name before any of that. Sudeva was a hermit who lived in the caves on it, and Sudeva was the son of Pu Sae and Ya Sae, the two man-eaters from Doi Kham who took the precepts and settled for a buffalo. The holiest address in the north is named after their boy.",
+   "Go before seven or after six. The middle of the day is a car park, and the naga stair is the reason to take the steps rather than the lift."
+  ],
+  "merit": [
+   "pang-pratip",
+   "yat-nam",
+   "khan-dok"
+  ],
+  "merit_here": "Three circuits of the chedi clockwise with lotus, incense and candle — the set is sold at the top of the stairs for about 20 ฿. Then water.",
+  "commons": "Category:Wat Phra That Doi Suthep",
+  "images": [
+   {
+    "file": "doi-suthep/07a-doi-suthep-7.jpg",
+    "title": "File:07a Doi Suthep (7).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3A07a_Doi_Suthep_%287%29.jpg",
+    "author": "Dieglop",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "w": 5184,
+    "h": 3456,
+    "landscape": true,
+    "band": true
+   },
+   {
+    "file": "doi-suthep/chiang-mai-wat-phra-that-doi-suthep-0022.jpg",
+    "title": "File:Chiang Mai - Wat Phra That Doi Suthep - 0022.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3AChiang_Mai_-_Wat_Phra_That_Doi_Suthep_-_0022.jpg",
+    "author": "Stefan Fussan",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "w": 5184,
+    "h": 3456,
+    "landscape": true
+   }
+  ],
+  "sources": [
+   "th-wiki-pusae"
+  ],
+  "ghost": {
+   "tier": "cited",
+   "text": "The elephant climbed with half a relic on its back, reached the top, turned round three times, trumpeted three times, knelt, and died. They built the chedi on the spot and that is the whole founding of the holiest address in the north: an animal that walked itself to death and chose the ground.\nThe mountain under it is named for a hermit, and the hermit was the son of the two man-eaters at Doi Kham.",
+   "sources": [
+    "th-wiki-pusae",
+    "lanner-phi-lanna",
+    "veridian-phi-north"
+   ]
+  }
+ },
+ {
+  "id": "doi-kham",
+  "name": "Wat Phra That Doi Kham",
+  "th": "วัดพระธาตุดอยคำ",
+  "sub": "The mountain the man-eaters got",
+  "kind": "wat",
+  "modes": [
+   "drive"
+  ],
+  "geo_query": "Wat Phra That Doi Kham, Chiang Mai",
+  "where": "South-west of the city, above Mae Hia and the Royal Park",
+  "open": "06:00–18:00",
+  "cost": "Free; steep road, parking at the top",
+  "dead": "Pu Sae and Ya Sae, who ate the people who lived here, and stopped",
+  "story": [
+   "The wat dates itself to 687, which would put it six hundred years ahead of the city. Its draw now is the standing Buddha you can see from the ring road and a reputation for answering what it is asked, paid off in jasmine garlands by the thousand.",
+   "Underneath that is an older tenancy, and it is not a Buddhist one. Pu Sae and Ya Sae — Grandfather Sae and Grandmother Sae — were giants out of Ramming Nakhon, ancestors of the Lawa, who were in this valley before the Thai were. Northern tradition calls them เก๊าผี, the stock the rest of Chiang Mai's spirits come off.",
+   "Their son took ordination and went to live as a hermit in the caves on the mountain west of here. He is Sudeva. The mountain is Doi Suthep, and it is named after him."
+  ],
+  "merit": [
+   "khan-tang",
+   "yat-nam"
+  ],
+  "merit_here": "Garlands at the wat. A khan tang for the two of them at their shrine below. They are not asked for merit — they are asked for leave, and thanked for keeping to the bargain.",
+  "doubt": "The 687 founding date is the wat's own. The rite has been argued over in public for years: Citylife has run the outside account and the descendants' reply, and they do not agree about what it is or who may speak for it. The Fine Arts Department reads the pair against the Lawa iron-working ground they sit on.",
+  "sources": [
+   "th-wiki-pusae",
+   "en-wiki-pusae",
+   "silpamag-liangdong",
+   "maehia-pusae",
+   "accl-cmu-liangdong",
+   "citylife-pusae",
+   "citylife-pusae-desc",
+   "finearts-pusae-iron"
+  ],
+  "commons": "Category:Wat Phra That Doi Kham",
+  "images": [
+   {
+    "file": "doi-kham/the-shrine-of-pu-sae-and-ya-sae.jpg",
+    "title": "File:The shrine of Pu Sae and Ya Sae.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3AThe_shrine_of_Pu_Sae_and_Ya_Sae.jpg",
+    "author": "ManoiCMU",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "w": 3024,
+    "h": 4032,
+    "landscape": false,
+    "band": true
+   },
+   {
+    "file": "doi-kham/wat-phra-that-doi-kham-chedi.jpg",
+    "title": "File:Wat Phra That Doi Kham chedi.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3AWat_Phra_That_Doi_Kham_chedi.jpg",
+    "author": "ManoiCMU",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "w": 3024,
+    "h": 4032,
+    "landscape": false
+   },
+   {
+    "file": "doi-kham/pu-sae-and-ya-sae.jpg",
+    "title": "File:Pu Sae and Ya Sae.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3APu_Sae_and_Ya_Sae.jpg",
+    "author": "Vano111ru",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "w": 3072,
+    "h": 3273,
+    "landscape": false
+   }
+  ],
+  "ghost": {
+   "tier": "cited",
+   "text": "They ate people. Not a figure of speech and not a warning to children — the legend says they took the townspeople day after day until the town emptied and whoever was left ran. Then the Buddha came and taught them, and they took the five precepts and gave up killing, and immediately asked whether the precepts could make an exception, because they still had to eat. One person a month. Refused. One a year. Refused.\nThe bargain that held was not with him. It was with the lord of the Lawa city: one buffalo a year, against their word to hold the teaching up for five thousand years and keep this valley safe. It is the only ghost on this route that anybody negotiated with, and the terms are still being met — by them, and once a year, below this mountain, by us.",
+   "sources": [
+    "th-wiki-pusae",
+    "silpamag-liangdong",
+    "en-wiki-pusae"
+   ]
+  },
+  "rite": {
+   "name": "Liang Dong — feeding the forest",
+   "th": "ประเพณีเลี้ยงดง",
+   "when": "The fourteenth or fifteenth waxing day of the ninth northern month — late May or June. The date is set locally each year.",
+   "where": "A clearing at Ban Mae Hia, below the mountain. Not at the wat.",
+   "text": "The bargain is paid annually and in public. A buffalo is killed at the clearing and laid out raw. A medium takes the spirits into his body — the pair arrive as the pair, grandfather and grandmother — and the possessed man goes down onto the carcass and eats the meat raw, and when he has finished with the meat he drinks the blood. A cloth painted with the Buddha is held up over the ground while it happens, which is the whole argument of the rite in one image: the precepts are on, and the two of them are being fed anyway.\nIt is argued over every year in the Chiang Mai press, by people who want it stopped and by the families who hold the right to run it. Go if you are asked. It is not a show, and the clearing is small.",
+   "sources": [
+    "citylife-pusae",
+    "citylife-pusae-desc",
+    "silpamag-liangdong",
+    "maehia-pusae",
+    "accl-cmu-liangdong"
+   ]
+  }
+ },
+ {
+  "id": "tham-chiang-dao",
+  "name": "Tham Chiang Dao",
+  "th": "ถ้ำเชียงดาว",
+  "sub": "Chao Luang Kham Daeng's mountain",
+  "kind": "cave",
+  "modes": [
+   "drive"
+  ],
+  "geo_query": "Chiang Dao Cave, Chiang Mai",
+  "where": "72 km north on Highway 107, then 5 km west",
+  "open": "08:00–17:00",
+  "cost": "40 ฿ entry, as posted 2026; lamp guide 200–300 ฿ for the unlit passages",
+  "dead": "Chao Luang Kham Daeng, who rode in and did not come out",
+  "story": [
+   "Doi Luang Chiang Dao is the third-highest mountain in the country and the story is that it is hollow, with a city inside it. The lord Kham Daeng went in after a golden deer and stayed, and is the guardian spirit of the whole north from in there.",
+   "Five caves run back into the limestone. Two are lit and walkable. The rest need a woman with a pressure lamp, hired at the mouth, and she is the reason to go.",
+   "A full day with a driver, and the only stop on this route outside the valley."
+  ],
+  "merit": [
+   "khan-tang",
+   "pang-pratip",
+   "yat-nam"
+  ],
+  "merit_here": "The shrine at the cave mouth is Kham Daeng's. A khan tang, before you go in rather than after.",
+  "commons": "Category:Chiang Dao Cave",
+  "images": [
+   {
+    "file": "tham-chiang-dao/chiang-dao-cave-2023-04-02-2.jpg",
+    "title": "File:Chiang Dao Cave 2023-04-02-2.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3AChiang_Dao_Cave_2023-04-02-2.jpg",
+    "author": "Alexey Komarov",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "w": 4240,
+    "h": 2832,
+    "landscape": true,
+    "band": true
+   },
+   {
+    "file": "tham-chiang-dao/bat-cave-chiang-dao-11900024073.jpg",
+    "title": "File:Bat cave, Chiang Dao (11900024073).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3ABat_cave%2C_Chiang_Dao_%2811900024073%29.jpg",
+    "author": "Andrea Schaffer from Sydney, Australia",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "w": 4272,
+    "h": 2848,
+    "landscape": true
+   }
+  ],
+  "ghost": {
+   "tier": "tradition",
+   "text": "The mountain is held to be hollow, with a city inside it. Chao Luang Kham Daeng rode in after a golden deer and did not come out, and from in there he is the guardian spirit of the whole north — a เสื้อเมือง on a scale above any town's. Five caves run back into the limestone and two of them are lit. The woman with the pressure lamp who takes you into the other three is not telling you a ghost story. She is telling you whose house you are in.",
+   "sources": [
+    "lanner-phi-lanna",
+    "veridian-phi-north"
+   ]
+  }
+ },
+ {
+  "id": "laddaland",
+  "name": "Laddaland",
+  "th": "ลัดดาแลนด์",
+  "sub": "The one everybody names",
+  "kind": "story",
+  "modes": [],
+  "geo_query": "",
+  "where": "A housing estate in Chiang Mai. This entry gives no address.",
+  "open": "—",
+  "cost": "—",
+  "dead": "By rumour. By record, a development that failed.",
+  "story": [
+   "Ask anyone in Chiang Mai for a haunted place and this is the answer. A housing estate that emptied out, a run of rumours, and a 2011 horror film that made the name national.",
+   "People live there. It is somebody's street, and the reason it is on this page with no map link is that a ghost tour turning up outside their houses is the actual harm in this genre.",
+   "Read the Chiang Mai News piece and leave it at that."
+  ],
+  "merit": [
+   "yat-nam"
+  ],
+  "merit_here": "None on site. Do not go.",
+  "doubt": "Rumour, amplified by a film, reported back as fact. Nothing here is verified and the entry does not treat it as verified.",
+  "sources": [
+   "cmnews-laddaland"
+  ],
+  "no_map": true,
+  "ghost": {
+   "tier": "cited",
+   "text": "Ask anyone in Chiang Mai for a haunted place and you get this name. An estate that emptied out, a run of rumours, and a 2011 horror film that took the name national and sent people to the gate.\nWhich is the ghost story: a place gets a reputation, the reputation gets filmed, the film sends strangers to somebody's street, and the people still living there inherit it. No address here, and no map link, on purpose.",
+   "sources": [
+    "cmnews-laddaland"
+   ]
+  }
+ },
+ {
+  "id": "wat-umong-maha-therachan",
+  "name": "Wat Umong Maha Therachan",
+  "th": "วัดอุโมงค์มหาเถรจันทร์",
+  "sub": "The wat that was left",
+  "kind": "wat",
+  "geo_query": "วัดอุโมงค์มหาเถรจันทร์ เชียงใหม่",
+  "where": "Ratchadamnoen soi, Si Phum, inside the north-east quarter. Two minutes from the Three Kings square and nobody is there.",
+  "open": "Daylight",
+  "cost": "Free",
+  "dead": "Mahathera Chan, the monk it was renamed for, and two centuries of nobody",
+  "story": [
+   "Mangrai's foundation, under the name Wat Pho Noi. King Ku Na rebuilt it in 1367 and renamed it for the monk Mahathera Chan, which is the name it still carries.",
+   "Then Chiang Mai spent about two hundred years under Burmese rule and a great many wats inside the walls were simply left. This was one. It was declared a national monument in the Royal Gazette on 8 March 1935 and is a working wat again, with the old brick still standing in the yard.",
+   "Do not confuse it with the forest Wat Umong at the foot of the mountain, which is a different wat with a different tunnel and is on the bicycle route. Both are named for a tunnel and only one of them gets visitors."
+  ],
+  "merit": [
+   "sweep",
+   "pang-pratip",
+   "yat-nam"
+  ],
+  "merit_here": "Sweep, and light a lamp on the old brick. A wat that spent two centuries with nobody to do either is the place for it.",
+  "doubt": "Dates come from the Thai record and the temple database; the 1367 rebuild is given as B.E. 1910 and converted here.",
+  "sources": [
+   "th-wiki-umong-mahathera",
+   "templethailand-umong-mahathera"
+  ],
+  "commons": "Category:Wat Umong Maha Therachan",
+  "ghost": {
+   "tier": "tradition",
+   "text": "A wat has its own spirit — ผีเสื้อวัด, the one that holds the ground — and the northern position is that it does not leave when the monks do. Two hundred years of Burmese rule emptied wat after wat inside these walls and left the guardians in them. That is what a วัดร้าง is in Chiang Mai: not an empty building, a building with only the caretaker left in it. This one got its monks back. Most did not.",
+   "sources": [
+    "lanner-phi-lanna",
+    "veridian-phi-north"
+   ]
+  },
+  "images": [
+   {
+    "file": "wat-umong-maha-therachan/chiang-mai-wat-umong-maha-therachan-0003.jpg",
+    "title": "File:Chiang Mai - Wat Umong Maha Therachan - 0003.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3AChiang_Mai_-_Wat_Umong_Maha_Therachan_-_0003.jpg",
+    "author": "Stefan Fussan",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "w": 5184,
+    "h": 3456,
+    "landscape": true,
+    "band": true
+   },
+   {
+    "file": "wat-umong-maha-therachan/chiang-mai-wat-umong-maha-therachan-0004.jpg",
+    "title": "File:Chiang Mai - Wat Umong Maha Therachan - 0004.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3AChiang_Mai_-_Wat_Umong_Maha_Therachan_-_0004.jpg",
+    "author": "Stefan Fussan",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "w": 4661,
+    "h": 3185,
+    "landscape": true
+   }
+  ]
+ },
+ {
+  "id": "wat-chiang-yuen",
+  "name": "Wat Chiang Yuen",
+  "th": "วัดเชียงยืน",
+  "sub": "Where a ruler changed his clothes",
+  "kind": "wat",
+  "geo_query": "วัดเชียงยืน เชียงใหม่",
+  "where": "Mani Nopparat Road, just outside the north moat, east of Chang Phueak Gate",
+  "open": "Daylight",
+  "cost": "Free",
+  "dead": "Nobody in particular. What is kept here is the office, not the man.",
+  "story": [
+   "Mangrai built Wat Chiang Man first and named it for being secure. He built this one next and named it for lasting.",
+   "It is the เดชเมือง — the city's standing. A lord coming to rule Chiang Mai, or a lord riding out to a war, stopped here, changed his robes, and paid respects to the principal image before he went through the gate. Governors still come.",
+   "Outside the wall, north, on the road the army used."
+  ],
+  "merit": [
+   "tan-khan-khao",
+   "khan-tang",
+   "yat-nam"
+  ],
+  "merit_here": "A tray, in the name of somebody who held an office and had to hand it on. It is what the place is for.",
+  "sources": [
+   "th-wiki-chiang-yuen",
+   "topchiangmai-chiang-yuen"
+  ],
+  "commons": "Category:Wat Chiang Yeun",
+  "ghost": {
+   "tier": "tradition",
+   "text": "Lords changed their clothes here before going through the gate, and lords riding out to war stopped here on the way. Both directions. What a place like that accumulates, in the northern reckoning, is the office rather than the officers — the ones who came back and the ones who did not are equally present, and equally uninterested in you.",
+   "sources": [
+    "lanner-phi-lanna",
+    "veridian-phi-north",
+    "topchiangmai-chiang-yuen"
+   ]
+  },
+  "images": [
+   {
+    "file": "wat-chiang-yuen/chiang-mai-wat-chiang-yuen-octagonal-ubosot-2026-img-01.jpg",
+    "title": "File:Chiang Mai - Wat Chiang Yuen - Octagonal Ubosot อุโบสถแปดเหลี่ยม วัดเชียงยืน (2026) - IMG 01.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3AChiang_Mai_-_Wat_Chiang_Yuen_-_Octagonal_Ubosot_%E0%B8%AD%E0%B8%B8%E0%B9%82%E0%B8%9A%E0%B8%AA%E0%B8%96%E0%B9%81%E0%B8%9B%E0%B8%94%E0%B9%80%E0%B8%AB%E0%B8%A5%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A1_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A2%E0%B8%B7%E0%B8%99_%282026%29_-_IMG_01.jpg",
+    "author": "Chainwit.",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "w": 5712,
+    "h": 4284,
+    "landscape": false,
+    "band": true
+   },
+   {
+    "file": "wat-chiang-yuen/chiang-mai-wat-chiang-yuen-octagonal-ubosot-2026-img-03.jpg",
+    "title": "File:Chiang Mai - Wat Chiang Yuen - Octagonal Ubosot อุโบสถแปดเหลี่ยม วัดเชียงยืน (2026) - IMG 03.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File%3AChiang_Mai_-_Wat_Chiang_Yuen_-_Octagonal_Ubosot_%E0%B8%AD%E0%B8%B8%E0%B9%82%E0%B8%9A%E0%B8%AA%E0%B8%96%E0%B9%81%E0%B8%9B%E0%B8%94%E0%B9%80%E0%B8%AB%E0%B8%A5%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A1_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B8%A2%E0%B8%B7%E0%B8%99_%282026%29_-_IMG_03.jpg",
+    "author": "Chainwit.",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "w": 5712,
+    "h": 4284,
+    "landscape": false
+   }
+  ]
+ }
+]

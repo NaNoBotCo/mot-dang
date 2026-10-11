@@ -1,0 +1,2713 @@
+{
+ "generated": "2026-09-21",
+ "source": "https://www.chiangmaicitylife.com/",
+ "index_read": "/Users/annikapeacock/Developer/claude code projects/citylife-api/out/places.json",
+ "index_generated": "2026-09-21",
+ "rule": "name >= 0.95 within 400 m, or name >= 0.82 within 150 m; anything looser is counted and left unlinked",
+ "citylife_venues": 503,
+ "matched": 208,
+ "held_as_too_loose": 118,
+ "not_held_here": 175,
+ "held": [
+  {
+   "citylife": "Birds Nest",
+   "motdang": "Bird nest",
+   "metres": 162,
+   "nameScore": 0.947,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/birds-nest/"
+  },
+  {
+   "citylife": "Galaxy CNX",
+   "motdang": "Galaxycnx",
+   "metres": 388,
+   "nameScore": 0.947,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/galaxy-cnx/"
+  },
+  {
+   "citylife": "Paiyanyai Coffee",
+   "motdang": "Pai Yan Yai Coffee",
+   "metres": 249,
+   "nameScore": 0.941,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/paiyanyai-coffee/"
+  },
+  {
+   "citylife": "Warm Up Café",
+   "motdang": "Warm Up",
+   "metres": 264,
+   "nameScore": 0.93,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/warm-up-cafe/"
+  },
+  {
+   "citylife": "Mon Jam",
+   "motdang": "ม่อนจาวดอย-Mon Jaw Doi at Mon Jam",
+   "metres": 185,
+   "nameScore": 0.93,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/mon-jam/"
+  },
+  {
+   "citylife": "Exclusive Nails",
+   "motdang": "Exclusive Nails Salon and Spa",
+   "metres": 292,
+   "nameScore": 0.93,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/exclusive-nails/"
+  },
+  {
+   "citylife": "Nana Jungle Café and Restaurant",
+   "motdang": "Nana Jungle",
+   "metres": 221,
+   "nameScore": 0.93,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/nana-jungle-cafe-restaurant/"
+  },
+  {
+   "citylife": "Vulcano",
+   "motdang": "Volcano",
+   "metres": 207,
+   "nameScore": 0.857,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/vulcano/"
+  },
+  {
+   "citylife": "The Swan",
+   "motdang": "Wan",
+   "metres": 228,
+   "nameScore": 0.857,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/the-swan/"
+  },
+  {
+   "citylife": "Allegro",
+   "motdang": "Ailegro",
+   "metres": 189,
+   "nameScore": 0.857,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/allegro/"
+  },
+  {
+   "citylife": "Gossip Bar",
+   "motdang": "Sip Bar",
+   "metres": 294,
+   "nameScore": 0.824,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/gossip-bar/"
+  },
+  {
+   "citylife": "Ploen Rudee Night Market",
+   "motdang": "Ploen Ruedee Night Bazaar",
+   "metres": 19,
+   "nameScore": 0.816,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/ploen-rudee-night-market/"
+  },
+  {
+   "citylife": "Celebrity Ink Tattoo Chiang Mai",
+   "motdang": "Celebrity Ink™ Tattoo Studio Chiang Mai",
+   "metres": 13,
+   "nameScore": 0.816,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/celebrity-ink-tattoo-chiang-mai/"
+  },
+  {
+   "citylife": "Chili Village",
+   "motdang": "Siri Village Chiang Mai",
+   "metres": 287,
+   "nameScore": 0.8,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/chili-village/"
+  },
+  {
+   "citylife": "Ristr8to Lab",
+   "motdang": "Ristr8to",
+   "metres": 11,
+   "nameScore": 0.8,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/ristr8to-lab/"
+  },
+  {
+   "citylife": "Baan Kwan",
+   "motdang": "Baan Kaewta",
+   "metres": 207,
+   "nameScore": 0.8,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/baan-kwan/"
+  },
+  {
+   "citylife": "AS Cafe",
+   "motdang": "Day Cafe",
+   "metres": 132,
+   "nameScore": 0.8,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/as-cafe-2/"
+  },
+  {
+   "citylife": "Soho Bar and Guesthouse",
+   "motdang": "Soho Guesthouse",
+   "metres": 15,
+   "nameScore": 0.789,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/soho-bar-guesthouse/"
+  },
+  {
+   "citylife": "Nina Restaurant",
+   "motdang": "Phuping Restaurant",
+   "metres": 348,
+   "nameScore": 0.788,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/nina-restaurant/"
+  },
+  {
+   "citylife": "Rioja",
+   "motdang": "Rioja II",
+   "metres": 94,
+   "nameScore": 0.769,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/rioja/"
+  },
+  {
+   "citylife": "Fuang Vegetarian",
+   "motdang": "Vegetarian",
+   "metres": 338,
+   "nameScore": 0.769,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/fuang-vegetarian/"
+  },
+  {
+   "citylife": "LDC Dental Clinic",
+   "motdang": "LDC dental center",
+   "metres": 5,
+   "nameScore": 0.765,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/ldc-dental-clinic/"
+  },
+  {
+   "citylife": "San Pareni Café and Restaurant",
+   "motdang": "Baan Buri Cafe & Restaurant",
+   "metres": 271,
+   "nameScore": 0.764,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/san-pareni-cafe-and-restaurant/"
+  },
+  {
+   "citylife": "Vanilla Café",
+   "motdang": "alga.cafe",
+   "metres": 397,
+   "nameScore": 0.762,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/vanilla-cafe/"
+  },
+  {
+   "citylife": "Wami Studio",
+   "motdang": "Tan Studio",
+   "metres": 203,
+   "nameScore": 0.762,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/wami-studio/"
+  },
+  {
+   "citylife": "Gour Restaurant",
+   "motdang": "Big Brother Restaurant",
+   "metres": 18,
+   "nameScore": 0.757,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/gour-restaurant/"
+  },
+  {
+   "citylife": "Sunflower Chinese Restaurant",
+   "motdang": "HONG's Chinese Restaurant",
+   "metres": 140,
+   "nameScore": 0.755,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/sunflower-chinese-restaurant/"
+  },
+  {
+   "citylife": "Myst Bar",
+   "motdang": "East Bar",
+   "metres": 138,
+   "nameScore": 0.75,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/myst-bar/"
+  },
+  {
+   "citylife": "No.9 Hostel & Café",
+   "motdang": "Norn Nee Nor Hostel & Cafe",
+   "metres": 32,
+   "nameScore": 0.75,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/no-9-hostel-cafe/"
+  },
+  {
+   "citylife": "Shewe Wana Boutique Resort and Spa",
+   "motdang": "Shewe Wana Suite Resort",
+   "metres": 20,
+   "nameScore": 0.737,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/shewe-wana-boutique-resort-and-spa/"
+  },
+  {
+   "citylife": "Tawa Bistro",
+   "motdang": "D Bistro",
+   "metres": 386,
+   "nameScore": 0.737,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/tawa-bistro/"
+  },
+  {
+   "citylife": "House of Beauty",
+   "motdang": "House of Paella Thailand",
+   "metres": 365,
+   "nameScore": 0.733,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/house-of-beauty/"
+  },
+  {
+   "citylife": "Ploen-Jit Coffee House",
+   "motdang": "De May Coffee House",
+   "metres": 120,
+   "nameScore": 0.732,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/ploen-jit-coffee-house/"
+  },
+  {
+   "citylife": "Godam",
+   "motdang": "The Pagoda",
+   "metres": 169,
+   "nameScore": 0.727,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/godam/"
+  },
+  {
+   "citylife": "Somtum House",
+   "motdang": "ALSO house",
+   "metres": 165,
+   "nameScore": 0.727,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/somtum-house/"
+  },
+  {
+   "citylife": "CrossFit",
+   "motdang": "CrossFit Chiang Mai (CFCNX)",
+   "metres": 10,
+   "nameScore": 0.727,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/crossfit-chiang-mai/"
+  },
+  {
+   "citylife": "Rim-Na Restaurant",
+   "motdang": "View Doi Restaurant",
+   "metres": 88,
+   "nameScore": 0.722,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/rim-na-restaurant/"
+  },
+  {
+   "citylife": "Ramida Coffee",
+   "motdang": "Graph Coffee",
+   "metres": 178,
+   "nameScore": 0.72,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/ramida-coffee/"
+  },
+  {
+   "citylife": "Sawasdee Chiang Mai House",
+   "motdang": "Manee House",
+   "metres": 289,
+   "nameScore": 0.72,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/sawasdee-chiang-mai-house/"
+  },
+  {
+   "citylife": "32 Coffee Hill",
+   "motdang": "Coffee Bull",
+   "metres": 367,
+   "nameScore": 0.72,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/32-coffee-hill/"
+  },
+  {
+   "citylife": "Zensala Boutique Hotel and Spa",
+   "motdang": "Zensala Boutique Resort",
+   "metres": 12,
+   "nameScore": 0.717,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/zensala-boutique-hotel-and-spa/"
+  },
+  {
+   "citylife": "Imperial Mae Ping",
+   "motdang": "InterContinental Chiang Mai The Mae Ping",
+   "metres": 2,
+   "nameScore": 0.714,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/imperial-mae-ping/"
+  },
+  {
+   "citylife": "Pattana",
+   "motdang": "Lantana",
+   "metres": 202,
+   "nameScore": 0.714,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/pattana/"
+  },
+  {
+   "citylife": "Free Bird Cafe",
+   "motdang": "R-Ree-DOI Cafe",
+   "metres": 323,
+   "nameScore": 0.714,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/free-bird-cafe/"
+  },
+  {
+   "citylife": "House of Wine",
+   "motdang": "House of Paella Thailand",
+   "metres": 288,
+   "nameScore": 0.714,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/house-of-wine/"
+  },
+  {
+   "citylife": "VR Café",
+   "motdang": "C9 CAFE",
+   "metres": 220,
+   "nameScore": 0.714,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/vr-cafe-2/"
+  },
+  {
+   "citylife": "Pun Space",
+   "motdang": "MP Place",
+   "metres": 399,
+   "nameScore": 0.706,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/pun-space/"
+  },
+  {
+   "citylife": "dusitD2",
+   "motdang": "dusitD2 Chiang Mai Hotel",
+   "metres": 14,
+   "nameScore": 0.7,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/d2/"
+  },
+  {
+   "citylife": "The Volcano I (CMU)",
+   "motdang": "The Volcano",
+   "metres": 62,
+   "nameScore": 0.7,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/the-volcano-i-cmu/"
+  },
+  {
+   "citylife": "Kaweh Cafe",
+   "motdang": "Krema Cafe",
+   "metres": 306,
+   "nameScore": 0.7,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/kaweh-cafe/"
+  },
+  {
+   "citylife": "Lost Lounge",
+   "motdang": "Lost Land",
+   "metres": 42,
+   "nameScore": 0.7,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/lost-lounge/"
+  },
+  {
+   "citylife": "Seoul Mind",
+   "motdang": "Seoul Chic",
+   "metres": 344,
+   "nameScore": 0.7,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/seoul-mind/"
+  },
+  {
+   "citylife": "F:lab Cafe",
+   "motdang": "Local Cafe",
+   "metres": 188,
+   "nameScore": 0.7,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/flab-cafe/"
+  },
+  {
+   "citylife": "Café Soi",
+   "motdang": "Cafe' de Siam",
+   "metres": 282,
+   "nameScore": 0.7,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/cafe-soi/"
+  },
+  {
+   "citylife": "La Pin Cafe",
+   "motdang": "Jaiboon Cafe",
+   "metres": 325,
+   "nameScore": 0.696,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/la-pin-cafe/"
+  },
+  {
+   "citylife": "Sawang Optical",
+   "motdang": "Sawan Pot",
+   "metres": 172,
+   "nameScore": 0.696,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/sawang-optical/"
+  },
+  {
+   "citylife": "The Glasshouse",
+   "motdang": "Float's House",
+   "metres": 189,
+   "nameScore": 0.696,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/glasshouse/"
+  },
+  {
+   "citylife": "The River Market",
+   "motdang": "Mini Market",
+   "metres": 214,
+   "nameScore": 0.696,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/the-river-market/"
+  },
+  {
+   "citylife": "Sarah House Café in Town",
+   "motdang": "Sarah House CM",
+   "metres": 25,
+   "nameScore": 0.684,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/sarah-house-cafe-town/"
+  },
+  {
+   "citylife": "Gusto Bar and Restaurant",
+   "motdang": "Yunnan Restaurant",
+   "metres": 80,
+   "nameScore": 0.683,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/gusto-bar-and-restaurant/"
+  },
+  {
+   "citylife": "Ily Café Bar & Restaurant",
+   "motdang": "WHYs Nimman Cafe & Restaurant",
+   "metres": 62,
+   "nameScore": 0.68,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/ily-cafe-bar-restaurant/"
+  },
+  {
+   "citylife": "Meedee Depot",
+   "motdang": "Meedee",
+   "metres": 20,
+   "nameScore": 0.667,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/meedee-depot/"
+  },
+  {
+   "citylife": "Crema Café",
+   "motdang": "Araksa cafe",
+   "metres": 214,
+   "nameScore": 0.667,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/crema-cafe/"
+  },
+  {
+   "citylife": "Ban Suan Cafe",
+   "motdang": "Araksa cafe",
+   "metres": 214,
+   "nameScore": 0.667,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/ban-suan-cafe/"
+  },
+  {
+   "citylife": "Little Lanna",
+   "motdang": "Little Seoul",
+   "metres": 305,
+   "nameScore": 0.667,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/little-lanna/"
+  },
+  {
+   "citylife": "Sushi Box",
+   "motdang": "Juice Box",
+   "metres": 193,
+   "nameScore": 0.667,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/sushi-box/"
+  },
+  {
+   "citylife": "Bay’s Café",
+   "motdang": "Sao ChiangMai De Cafe'",
+   "metres": 229,
+   "nameScore": 0.667,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/bays-cafe/"
+  },
+  {
+   "citylife": "Cereal Cafe",
+   "motdang": "Elite Cafe",
+   "metres": 321,
+   "nameScore": 0.667,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/cereal-cafe/"
+  },
+  {
+   "citylife": "Good Day Hostel",
+   "motdang": "OYO 489 Yak Hostel",
+   "metres": 148,
+   "nameScore": 0.667,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/good-day-hostel/"
+  },
+  {
+   "citylife": "Fahtara Coffee",
+   "motdang": "Fahtara",
+   "metres": 18,
+   "nameScore": 0.667,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/fahtara-coffee/"
+  },
+  {
+   "citylife": "The Mellowship",
+   "motdang": "The Mellowship Jazz Club",
+   "metres": 7,
+   "nameScore": 0.667,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/the-mellowship/"
+  },
+  {
+   "citylife": "The Castle Boutique Guesthouse",
+   "motdang": "Thanatee Boutique Hotel",
+   "metres": 150,
+   "nameScore": 0.653,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/castle-boutique-guesthouse/"
+  },
+  {
+   "citylife": "Cmor Boutique Hotel",
+   "motdang": "Cmor by Recall Hotels",
+   "metres": 8,
+   "nameScore": 0.65,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/cmor-boutique-hotel/"
+  },
+  {
+   "citylife": "Skin Dream Laser Center",
+   "motdang": "Skin Dream Clinic",
+   "metres": 9,
+   "nameScore": 0.65,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/skin-dream-laser-center/"
+  },
+  {
+   "citylife": "The Moat Restaurant & Bar",
+   "motdang": "Noodles & Restaurant",
+   "metres": 176,
+   "nameScore": 0.649,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/the-moat-restaurant-bar/"
+  },
+  {
+   "citylife": "Chat-Peera Clinic",
+   "motdang": "Healthy Clinic",
+   "metres": 292,
+   "nameScore": 0.645,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/chat-peera-clinic/"
+  },
+  {
+   "citylife": "Embrace Studio",
+   "motdang": "Gongdee Studio",
+   "metres": 366,
+   "nameScore": 0.643,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/embrace-studio/"
+  },
+  {
+   "citylife": "Roll Me Bakery",
+   "motdang": "Rock Me Burger",
+   "metres": 261,
+   "nameScore": 0.643,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/roll-me-bakery/"
+  },
+  {
+   "citylife": "Blockland",
+   "motdang": "Blockland Kids Club ChiangMai",
+   "metres": 162,
+   "nameScore": 0.643,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/blockland/"
+  },
+  {
+   "citylife": "Hollywood Unisex Hair Studio",
+   "motdang": "On Pitt St. Hair Studio",
+   "metres": 161,
+   "nameScore": 0.64,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/hollywood-unisex-hair-studio/"
+  },
+  {
+   "citylife": "Curry Café",
+   "motdang": "Under Over Cafe",
+   "metres": 177,
+   "nameScore": 0.64,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/curry-cafe/"
+  },
+  {
+   "citylife": "Italasia",
+   "motdang": "Italasia Boutique Chiang Mai",
+   "metres": 30,
+   "nameScore": 0.64,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/italasia-kantary-terrace/"
+  },
+  {
+   "citylife": "Sangdee Gallery",
+   "motdang": "Sangdee",
+   "metres": 3,
+   "nameScore": 0.636,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/sangdee-gallery/"
+  },
+  {
+   "citylife": "S’nails",
+   "motdang": "Five star nails",
+   "metres": 371,
+   "nameScore": 0.636,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/snails/"
+  },
+  {
+   "citylife": "Kopi-O Gourmet Bakery and Naga Restaurant",
+   "motdang": "Pop Coffee and Restaurant",
+   "metres": 103,
+   "nameScore": 0.636,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/kopi-o-gourmet-bakery-and-naga-restaurant/"
+  },
+  {
+   "citylife": "Jub Tattoo Chiang Mai",
+   "motdang": "Phaka Tattoo",
+   "metres": 208,
+   "nameScore": 0.636,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/jub-tattoo-chiang-mai/"
+  },
+  {
+   "citylife": "Say Cheese",
+   "motdang": "Ma Chérie & Co",
+   "metres": 234,
+   "nameScore": 0.632,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/say-cheese/"
+  },
+  {
+   "citylife": "Small Café",
+   "motdang": "Baan Cafe",
+   "metres": 284,
+   "nameScore": 0.632,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/small-cafe/"
+  },
+  {
+   "citylife": "SugarCane Hotel and Restaurant",
+   "motdang": "Chang cooking & restaurant",
+   "metres": 361,
+   "nameScore": 0.63,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/sugarcane-hotel-restaurant/"
+  },
+  {
+   "citylife": "Ming Mitr Coffee Shop",
+   "motdang": "Minimal coffee",
+   "metres": 201,
+   "nameScore": 0.629,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/ming-mitr-coffee-shop/"
+  },
+  {
+   "citylife": "HOBS (House of Beers)",
+   "motdang": "HP House Cafe",
+   "metres": 308,
+   "nameScore": 0.625,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/hobs-house-beers/"
+  },
+  {
+   "citylife": "Pacamara",
+   "motdang": "Bupatara",
+   "metres": 249,
+   "nameScore": 0.625,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/pacamara/"
+  },
+  {
+   "citylife": "The Grill",
+   "motdang": "Chill & Grill",
+   "metres": 316,
+   "nameScore": 0.625,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/the-grill/"
+  },
+  {
+   "citylife": "Vivo Loco",
+   "motdang": "Voo Doo",
+   "metres": 178,
+   "nameScore": 0.625,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/vivo-loco/"
+  },
+  {
+   "citylife": "Romrawin Clinic",
+   "motdang": "Nitipon Clinic",
+   "metres": 85,
+   "nameScore": 0.621,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/romrawin-clinic/"
+  },
+  {
+   "citylife": "Hug Collection @ Nimman Hotel",
+   "motdang": "Art Mai Gallery Nimman Hotel",
+   "metres": 392,
+   "nameScore": 0.618,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/hug-collection-nimman-hotel/"
+  },
+  {
+   "citylife": "Pasta Paradise",
+   "motdang": "Pasta Corner",
+   "metres": 293,
+   "nameScore": 0.615,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/pasta-paradise/"
+  },
+  {
+   "citylife": "Dumnern Coffee Cafe",
+   "motdang": "Minimal Coffee Maker",
+   "metres": 42,
+   "nameScore": 0.615,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/dumnern-coffee-cafe/"
+  },
+  {
+   "citylife": "Fresh & Wraps Restobar",
+   "motdang": "Peshawar Restaurant",
+   "metres": 282,
+   "nameScore": 0.615,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/fresh-wraps-restobar/"
+  },
+  {
+   "citylife": "Tamora Pearl",
+   "motdang": "TamoraThailand",
+   "metres": 200,
+   "nameScore": 0.615,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/tamora-pearl/"
+  },
+  {
+   "citylife": "AP Home Massage and Spa",
+   "motdang": "Anime Massage",
+   "metres": 20,
+   "nameScore": 0.611,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/ap-home-massage-and-spa/"
+  },
+  {
+   "citylife": "Kantary Terrace",
+   "motdang": "Kantary's Fitness & Spa",
+   "metres": 134,
+   "nameScore": 0.611,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/kantary-terrace/"
+  },
+  {
+   "citylife": "Now Mini Hotel",
+   "motdang": "Por Hotel",
+   "metres": 231,
+   "nameScore": 0.609,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/now-mini-hotel/"
+  },
+  {
+   "citylife": "Maitree est.1987",
+   "motdang": "Maitree",
+   "metres": 142,
+   "nameScore": 0.609,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/maitree-est-1987/"
+  },
+  {
+   "citylife": "Champ Games",
+   "motdang": "Charm Bakery  チャームベーカリー",
+   "metres": 188,
+   "nameScore": 0.609,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/champ-games/"
+  },
+  {
+   "citylife": "CNX Street Bar",
+   "motdang": "Steak Bar",
+   "metres": 171,
+   "nameScore": 0.609,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/cnx-street-bar/"
+  },
+  {
+   "citylife": "Aruntara Riverside Boutique Hotel",
+   "motdang": "CM Night Boutique Hotel",
+   "metres": 346,
+   "nameScore": 0.607,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/aruntara-riverside-boutique-hotel/"
+  },
+  {
+   "citylife": "Tichaa Tea Room",
+   "motdang": "Ji Matcha Tea Time",
+   "metres": 180,
+   "nameScore": 0.606,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/tichaa-tea-room/"
+  },
+  {
+   "citylife": "Ketawa Stylish Hotel and Pet Friendly Kafe",
+   "motdang": "Ketawa Pet Friendly Hotel and Cafe",
+   "metres": 17,
+   "nameScore": 0.605,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/ketawa-stylish-hotel-pet-friendly-kafe/"
+  },
+  {
+   "citylife": "Burger Box",
+   "motdang": "dammburger",
+   "metres": 177,
+   "nameScore": 0.6,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/burger-box/"
+  },
+  {
+   "citylife": "In the Cup",
+   "motdang": "CUPs ガップ",
+   "metres": 253,
+   "nameScore": 0.6,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/in-the-cup/"
+  },
+  {
+   "citylife": "de chai the elegance spa",
+   "motdang": "Siam Elegance Studio",
+   "metres": 144,
+   "nameScore": 0.6,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/de-chai-the-elegance-spa/"
+  },
+  {
+   "citylife": "Botanique",
+   "motdang": "The Box Stadium",
+   "metres": 399,
+   "nameScore": 0.6,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/botanique/"
+  },
+  {
+   "citylife": "Ato Ai",
+   "motdang": "Bata",
+   "metres": 185,
+   "nameScore": 0.6,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/ato-ai/"
+  },
+  {
+   "citylife": "Urban Green",
+   "motdang": "Buarawong Residence",
+   "metres": 138,
+   "nameScore": 0.6,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/urban-green/"
+  },
+  {
+   "citylife": "Evolve Boxing Studio",
+   "motdang": "Grace Wedding Studio",
+   "metres": 147,
+   "nameScore": 0.6,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/evolve-boxing-studio/"
+  },
+  {
+   "citylife": "The Cutler",
+   "motdang": "Cutlers Barber",
+   "metres": 32,
+   "nameScore": 0.6,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/the-cutler/"
+  },
+  {
+   "citylife": "ie Solutions",
+   "motdang": "The Red Lion",
+   "metres": 265,
+   "nameScore": 0.6,
+   "url": "https://www.chiangmaicitylife.com/citylife-places/ie-solutions/"
+  }
+ ],
+ "links": {
+  "cm-osm-node-1797000716": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/9th-street-cafe/",
+   "name": "9th Street Cafe",
+   "rule": "near+name",
+   "metres": 4,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-3419493593": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/kandara-spa/",
+   "name": "Kandara Spa",
+   "rule": "name-sure",
+   "metres": 50,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-6482127085": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/rock-me-burger/",
+   "name": "Rock Me Burger",
+   "rule": "near+name",
+   "metres": 17,
+   "nameScore": 0.848,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-1417087929": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/tengoku-de-cuisine/",
+   "name": "Tengoku de Cuisine",
+   "rule": "name-sure",
+   "metres": 30,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-3316799962": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/norden/",
+   "name": "Norden",
+   "rule": "name-sure",
+   "metres": 16,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-3426415667": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/nori/",
+   "name": "Nori",
+   "rule": "name-sure",
+   "metres": 17,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-way-324137063": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/un-irish-pub/",
+   "name": "UN Irish Pub",
+   "rule": "name-sure",
+   "metres": 7,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-way-481723939": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/loco-elvis/",
+   "name": "Loco Elvis",
+   "rule": "name-sure",
+   "metres": 22,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-3619455600": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/duangtawan-hotel/",
+   "name": "Duangtawan Hotel",
+   "rule": "name-sure",
+   "metres": 9,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-ovt-83d672cc-8928-4153-941e-8e1ac01ea0b2": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/hong-kong-lucky/",
+   "name": "Hong Kong Lucky",
+   "rule": "near+name",
+   "metres": 24,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-4818374822": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/beast-burger/",
+   "name": "Beast Burger",
+   "rule": "name-sure",
+   "metres": 278,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-6734963385": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/lelephant/",
+   "name": "L’Elephant",
+   "rule": "name-sure",
+   "metres": 90,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-3088780286": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/pun-pun-market/",
+   "name": "Pun Pun Market",
+   "rule": "near+name",
+   "metres": 22,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-ovt-700df171-f221-4e12-b321-f4257e54c7f0": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/s-condo/",
+   "name": "S Condo",
+   "rule": "name-sure",
+   "metres": 106,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-3421207454": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/dc-dental-clinic/",
+   "name": "DC Dental Clinic",
+   "rule": "name-sure",
+   "metres": 300,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-11411206869": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/hansa-mini-golf/",
+   "name": "Hansa Mini Golf",
+   "rule": "name-sure",
+   "metres": 116,
+   "nameScore": 0.966,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-3541512049": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/lum-lum-korean-restaurant/",
+   "name": "Lum Lum Korean Restaurant",
+   "rule": "near+name",
+   "metres": 84,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-1416857573": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/la-fontana/",
+   "name": "La Fontana",
+   "rule": "name-sure",
+   "metres": 7,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-1797043367": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/why-not/",
+   "name": "Why Not?",
+   "rule": "name-sure",
+   "metres": 42,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-ovt-6fa574a6-5d25-4c4e-add9-15414d3e08ab": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/the-mexican-grill/",
+   "name": "The Mexican Grill",
+   "rule": "name-sure",
+   "metres": 25,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-2041535372": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/three-little-pigs/",
+   "name": "Three Little Pigs",
+   "rule": "name-sure",
+   "metres": 21,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-1643026281": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/the-olive-tree/",
+   "name": "The Olive Tree",
+   "rule": "name-sure",
+   "metres": 316,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-3274160917": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/steak-of-the-day/",
+   "name": "Steak of the Day",
+   "rule": "name-sure",
+   "metres": 137,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-3328333693": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/kitchen-hush/",
+   "name": "Kitchen Hush",
+   "rule": "name-sure",
+   "metres": 87,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-11927308169": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/dollar-coffee/",
+   "name": "Dollar Coffee",
+   "rule": "name-sure",
+   "metres": 35,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-2085487654": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/paper-spoon/",
+   "name": "Paper Spoon",
+   "rule": "name-sure",
+   "metres": 9,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-2527662833": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/akha-ama/",
+   "name": "Akha Ama",
+   "rule": "name-sure",
+   "metres": 9,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-3400272248": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/i-like-ice-cream/",
+   "name": "I Like Ice Cream",
+   "rule": "name-sure",
+   "metres": 23,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-way-320142380": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/lovin-sweets-in-green-garden/",
+   "name": "Lovin’ Sweets in Green Garden",
+   "rule": "near+name",
+   "metres": 63,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-4109610297": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/nakara-jardin/",
+   "name": "Nakara Jardin",
+   "rule": "near+name",
+   "metres": 19,
+   "nameScore": 0.846,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-3751356191": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/coffee-villa/",
+   "name": "Coffee Villa",
+   "rule": "name-sure",
+   "metres": 48,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-3287785561": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/the-coffee-bar-nimman/",
+   "name": "The Coffee Bar Nimman",
+   "rule": "name-sure",
+   "metres": 27,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-way-562707358": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/yummy-pizza/",
+   "name": "Yummy Pizza",
+   "rule": "name-sure",
+   "metres": 2,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-1617076520": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/miguels-cafe/",
+   "name": "Miguel’s Cafe",
+   "rule": "near+name",
+   "metres": 148,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-1157479254": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/zoe-in-yellow/",
+   "name": "Zoe in Yellow",
+   "rule": "near+name",
+   "metres": 6,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-2468510967": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/hollanda-montri-guesthouse/",
+   "name": "Hollanda Montri Guesthouse",
+   "rule": "name-sure",
+   "metres": 64,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-ovt-98e73090-4c72-41a7-af5b-c2aeb8114aa3": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/vdara-resort-and-spa/",
+   "name": "Vdara Resort and Spa",
+   "rule": "name-sure",
+   "metres": 17,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-1090529197": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/kiree-thara-boutique-hotel/",
+   "name": "Kiree Thara Boutique Hotel",
+   "rule": "near+name",
+   "metres": 20,
+   "nameScore": 0.868,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-3414106790": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/lanna-house/",
+   "name": "Lanna House",
+   "rule": "name-sure",
+   "metres": 33,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-1129280654": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/our-house/",
+   "name": "Our House",
+   "rule": "near+name",
+   "metres": 18,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-ovt-e517a347-d0b3-471a-91c9-6097dcde0179": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/crossroads-asia/",
+   "name": "Crossroads Asia",
+   "rule": "name-sure",
+   "metres": 12,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-ovt-a7ee1677-4279-4922-b0fd-b4b1a68185c9": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/the-grand-village-sansai/",
+   "name": "The Grand Village Sansai",
+   "rule": "near+name",
+   "metres": 13,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-3440864916": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/cooking-home/",
+   "name": "Cooking @ Home",
+   "rule": "name-sure",
+   "metres": 16,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-4686351107": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/meena-rice-based-cuisine/",
+   "name": "Meena Rice Based Cuisine",
+   "rule": "name-sure",
+   "metres": 29,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-way-320183137": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/pruksa/",
+   "name": "Pruksa",
+   "rule": "near+name",
+   "metres": 40,
+   "nameScore": 0.857,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-2055855118": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/peppermint-coffee-house/",
+   "name": "Peppermint Coffee House",
+   "rule": "name-sure",
+   "metres": 296,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-ovt-a5a37ebd-c4fd-483a-b45d-0ee2efb109ab": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/the-nimman-bar-and-grill/",
+   "name": "The Nimman Bar and Grill",
+   "rule": "near+name",
+   "metres": 98,
+   "nameScore": 0.889,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-5672713821": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/the-drunken-flower/",
+   "name": "The Drunken Flower",
+   "rule": "near+name",
+   "metres": 18,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-2136065482": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/lemongrass/",
+   "name": "Lemongrass",
+   "rule": "name-sure",
+   "metres": 94,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-2085462290": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/pun-pun-wat-suan-dok/",
+   "name": "Pun Pun Wat Suan Dok",
+   "rule": "name-sure",
+   "metres": 20,
+   "nameScore": 0.974,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-way-408595881": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/de-lanna-hotel/",
+   "name": "De Lanna Hotel",
+   "rule": "name-sure",
+   "metres": 40,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-2660438583": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/dude-cafe/",
+   "name": "Dude Cafe",
+   "rule": "name-sure",
+   "metres": 299,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-2523241186": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/neighborhood/",
+   "name": "Neighborhood",
+   "rule": "name-sure",
+   "metres": 282,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-1797002637": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/marble-arch/",
+   "name": "Marble Arch",
+   "rule": "name-sure",
+   "metres": 16,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-4449635313": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/nics-restaurant/",
+   "name": "Nic’s Restaurant",
+   "rule": "near+name",
+   "metres": 31,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-4430796190": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/cat-house/",
+   "name": "Cat House",
+   "rule": "name-sure",
+   "metres": 13,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-way-383916114": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/sausage-king-garden-restaurant/",
+   "name": "Sausage King Garden Restaurant",
+   "rule": "near+name",
+   "metres": 76,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-4358675894": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/mamory-delicious/",
+   "name": "Mamory Delicious",
+   "rule": "name-sure",
+   "metres": 22,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-3907871477": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/my-secret-cafe/",
+   "name": "My Secret Cafe",
+   "rule": "name-sure",
+   "metres": 256,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-2211037641": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/dailycious/",
+   "name": "Dailycious",
+   "rule": "name-sure",
+   "metres": 70,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-ovt-a0d470e3-467d-4147-a1f5-ff3949614763": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/green-o-clock/",
+   "name": "Green O’ Clock",
+   "rule": "name-sure",
+   "metres": 13,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-way-418044600": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/cafe-de-nimman/",
+   "name": "Cafe de Nimman",
+   "rule": "name-sure",
+   "metres": 57,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-ovt-fa3ab195-ddde-4b7b-b084-51ca6a097728": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/the-balcony-village/",
+   "name": "The Balcony Village",
+   "rule": "name-sure",
+   "metres": 19,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-3287033149": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/cafe-de-museum/",
+   "name": "Cafe’ De Museum",
+   "rule": "name-sure",
+   "metres": 52,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-4664717328": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/slee-banyan/",
+   "name": "Slee Banyan",
+   "rule": "name-sure",
+   "metres": 52,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-ovt-9e9a97c0-0634-4738-a0a7-f15c8dbd9609": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/rimping-village/",
+   "name": "Rimping Village",
+   "rule": "near+name",
+   "metres": 18,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-ovt-3b5d5b81-e011-4a93-8b6c-ac07ecce4023": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/palette/",
+   "name": "Palette",
+   "rule": "name-sure",
+   "metres": 15,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-way-256273906": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/le-crystal/",
+   "name": "Le Crystal",
+   "rule": "near+name",
+   "metres": 12,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-3304475325": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/perns-restaurant/",
+   "name": "Pern’s Restaurant",
+   "rule": "name-sure",
+   "metres": 5,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-ovt-95b2bf31-36de-45d6-ba96-8b241441f5d9": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/the-canal-restaurant/",
+   "name": "The Canal Restaurant",
+   "rule": "near+name",
+   "metres": 5,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-1797000726": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/tea-tales/",
+   "name": "Tea Tales",
+   "rule": "name-sure",
+   "metres": 249,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-2132019005": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/rajdarbar/",
+   "name": "Rajdarbar",
+   "rule": "name-sure",
+   "metres": 36,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-3168260766": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/librarista/",
+   "name": "Librarista",
+   "rule": "name-sure",
+   "metres": 8,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-3905979257": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/maison-de-cafe/",
+   "name": "Maison de Cafe (Baan Kafae)",
+   "rule": "near+name",
+   "metres": 16,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-3426415666": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/mix/",
+   "name": "Mix",
+   "rule": "name-sure",
+   "metres": 31,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-3417161533": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/baan-jangapor/",
+   "name": "Baan Jangapor",
+   "rule": "name-sure",
+   "metres": 22,
+   "nameScore": 0.963,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-3619858705": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/vava-frozen-yogurt/",
+   "name": "Vava Frozen Yogurt",
+   "rule": "name-sure",
+   "metres": 9,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-way-337525523": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/chiang-mai-rock-climbing-adventures/",
+   "name": "Chiang Mai Rock Climbing Adventures",
+   "rule": "name-sure",
+   "metres": 2,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-3415499422": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/cloud-9-massage-spa/",
+   "name": "Cloud 9 Massage & Spa",
+   "rule": "near+name",
+   "metres": 31,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-4563204089": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/el-diablos-burritos/",
+   "name": "El Diablo’s Burritos",
+   "rule": "name-sure",
+   "metres": 53,
+   "nameScore": 0.974,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-ovt-affd5d61-2868-487b-93b9-ce9e65b9e1cc": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/greenhouse-nails/",
+   "name": "Greenhouse Nails",
+   "rule": "name-sure",
+   "metres": 4,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-2362979747": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/cuisine-de-garden/",
+   "name": "Cuisine De Garden",
+   "rule": "name-sure",
+   "metres": 16,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-1797053421": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/the-salad-concept/",
+   "name": "The Salad Concept",
+   "rule": "name-sure",
+   "metres": 3,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-ovt-0713e9ee-fd28-47c8-b808-a4aee3d61743": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/bagel-house-cafe/",
+   "name": "Bagel House Cafe",
+   "rule": "name-sure",
+   "metres": 33,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-6909510786": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/boy-blues-bar/",
+   "name": "Boy Blues Bar",
+   "rule": "name-sure",
+   "metres": 171,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-6388824985": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/chiang-mai-breakfast-world/",
+   "name": "Chiang Mai Breakfast World",
+   "rule": "name-sure",
+   "metres": 26,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-way-390559033": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/sala-cafe/",
+   "name": "Sala Cafe",
+   "rule": "name-sure",
+   "metres": 80,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-3624377794": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/burgers-and-springrolls/",
+   "name": "Burgers and Springrolls",
+   "rule": "near+name",
+   "metres": 11,
+   "nameScore": 0.905,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-5023530126": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/natwat-home-cafe/",
+   "name": "Natwat Home Cafe",
+   "rule": "name-sure",
+   "metres": 32,
+   "nameScore": 0.97,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-way-668371809": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/kaysorn-residence/",
+   "name": "Kaysorn Residence",
+   "rule": "name-sure",
+   "metres": 154,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-2113309885": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/chez-marco/",
+   "name": "Chez Marco",
+   "rule": "near+name",
+   "metres": 78,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-3318093958": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/paak-dang/",
+   "name": "Paak Dang",
+   "rule": "name-sure",
+   "metres": 19,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-10836941005": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/food4thought/",
+   "name": "Food 4 Thought",
+   "rule": "name-sure",
+   "metres": 49,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-ovt-3fd35ce8-7049-4c30-9335-a348d69aeda5": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/srimantra-spa/",
+   "name": "Srimantra Spa",
+   "rule": "name-sure",
+   "metres": 2,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-3897763597": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/cafe-mouthfeel/",
+   "name": "Cafe Mouthfeel",
+   "rule": "name-sure",
+   "metres": 4,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-3285298574": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/zzziesta/",
+   "name": "zzziesta",
+   "rule": "name-sure",
+   "metres": 8,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cr-osm-way-751053203": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/le-meridien-chiang-rai-resort/",
+   "name": "Le Meridien Chiang Rai Resort",
+   "rule": "name-sure",
+   "metres": 61,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-way-475897562": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/le-meridien-chiang-mai/",
+   "name": "Le Méridien Chiang Mai",
+   "rule": "name-sure",
+   "metres": 36,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-4352243455": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/four-heavens-cafe-bistro/",
+   "name": "Four Heavens Cafe & Bistro",
+   "rule": "name-sure",
+   "metres": 16,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-2580626436": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/salad-terrace/",
+   "name": "Salad Terrace",
+   "rule": "name-sure",
+   "metres": 3,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-way-481787797": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/beer-republic/",
+   "name": "Beer Republic",
+   "rule": "name-sure",
+   "metres": 5,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-way-249676814": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/siripanna-villa-resort-spa/",
+   "name": "Siripanna Villa Resort & Spa",
+   "rule": "name-sure",
+   "metres": 36,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-ovt-8f8a3e13-9f4c-413d-8a4a-ac30e4c66ff9": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/veranda-chiang-mai-high-resort-2/",
+   "name": "Veranda Chiang Mai The High Resort",
+   "rule": "near+name",
+   "metres": 27,
+   "nameScore": 0.848,
+   "checked": "2026-09-21",
+   "year": "2018"
+  },
+  "cm-osm-node-3440864913": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/baan-orapin/",
+   "name": "Baan Orapin",
+   "rule": "name-sure",
+   "metres": 58,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-ovt-51474005-5bb6-4a68-804f-c05346a4b7b0": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/futsal-heaven/",
+   "name": "Futsal Heaven",
+   "rule": "name-sure",
+   "metres": 16,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-4476187491": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/woods-cafe/",
+   "name": "Into the Woods Cafe",
+   "rule": "near+name",
+   "metres": 16,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-1041280756": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/aroon-rai/",
+   "name": "Aroon Rai",
+   "rule": "name-sure",
+   "metres": 205,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-3401322096": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/the-volcano-2/",
+   "name": "The Volcano II",
+   "rule": "near+name",
+   "metres": 57,
+   "nameScore": 0.824,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-2468510964": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/bake-and-bite/",
+   "name": "Bake & Bite",
+   "rule": "name-sure",
+   "metres": 49,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-3996636060": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/bearista/",
+   "name": "B(e)arista",
+   "rule": "near+name",
+   "metres": 9,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-2783276222": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/blackdoor/",
+   "name": "Blackdoor",
+   "rule": "near+name",
+   "metres": 53,
+   "nameScore": 0.947,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-way-127736836": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/dhara-dhevi/",
+   "name": "Dhara Dhevi",
+   "rule": "name-sure",
+   "metres": 161,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-ovt-290e5240-851f-4771-8929-4a717dce60fb": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/chiang-mai-international-exhibition-and-convention-centre/",
+   "name": "Chiang Mai International Exhibition and Convention Centre",
+   "rule": "name-sure",
+   "metres": 139,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-ovt-4d785e3e-e367-4467-b6aa-4f566a1fc2af": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/tengoku-san-kamphaeng/",
+   "name": "Tengoku San Kamphaeng",
+   "rule": "name-sure",
+   "metres": 33,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-ovt-f905b92b-8954-4339-93ce-41cd1d0889c7": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/maeping-garden-market/",
+   "name": "Maeping Garden Market",
+   "rule": "near+name",
+   "metres": 96,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-ovt-9e8b7210-b327-4d75-a86b-6092206139ca": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/golden-latex/",
+   "name": "Golden Latex",
+   "rule": "near+name",
+   "metres": 3,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2016"
+  },
+  "cm-osm-way-294031574": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/bangkok-hospital-chiang-mai/",
+   "name": "Bangkok Hospital Chiang Mai",
+   "rule": "name-sure",
+   "metres": 64,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-3888608226": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/thamel-coffee/",
+   "name": "Thamel Coffee",
+   "rule": "name-sure",
+   "metres": 30,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2016"
+  },
+  "cm-osm-node-3287776262": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/limoncello/",
+   "name": "Limoncello",
+   "rule": "name-sure",
+   "metres": 41,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-3673955770": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/the-dukes-maya/",
+   "name": "The Duke’s Maya",
+   "rule": "name-sure",
+   "metres": 66,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-5230589921": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/mai-saigon-restaurant-and-bar/",
+   "name": "Mai Saigon Restaurant and Bar",
+   "rule": "near+name",
+   "metres": 64,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-1618868154": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/good-morning-chiang-mai/",
+   "name": "Good Morning Chiang Mai",
+   "rule": "name-sure",
+   "metres": 5,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-2631133180": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/casa-diverso/",
+   "name": "Casa Diverso",
+   "rule": "name-sure",
+   "metres": 68,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-ovt-a6aa378c-63cf-4e2f-8759-cf93cf1b2389": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/anantara-chiang-mai-resort-spa/",
+   "name": "Anantara Resort & Spa",
+   "rule": "near+name",
+   "metres": 10,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-3384119223": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/kiriya-spa-vana/",
+   "name": "Kiriya Spa Vana",
+   "rule": "name-sure",
+   "metres": 16,
+   "nameScore": 0.966,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-6007376185": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/sense-massage-spa/",
+   "name": "Sense Massage Spa",
+   "rule": "name-sure",
+   "metres": 5,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-ovt-8d68c362-1edb-4458-8997-da621746d133": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/egg-tots-house/",
+   "name": "Egg Tots House",
+   "rule": "name-sure",
+   "metres": 105,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-3222795502": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/bus-bar/",
+   "name": "Bus Bar",
+   "rule": "name-sure",
+   "metres": 164,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-3276155581": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/try-umm-cafe/",
+   "name": "Try Umm Cafe",
+   "rule": "near+name",
+   "metres": 17,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-3388710162": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/mixology/",
+   "name": "Mixology",
+   "rule": "name-sure",
+   "metres": 6,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-4866191746": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/rise-bar/",
+   "name": "Rise Bar",
+   "rule": "near+name",
+   "metres": 20,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-3385473039": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/big-daddys/",
+   "name": "Big Daddy’s",
+   "rule": "near+name",
+   "metres": 37,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-1837083756": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/tao-garden/",
+   "name": "Tao Garden",
+   "rule": "name-sure",
+   "metres": 58,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-3491191763": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/airport-home-condominium/",
+   "name": "Airport Home Condominium",
+   "rule": "name-sure",
+   "metres": 45,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-way-331367693": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/kao-hotel/",
+   "name": "Kao Hotel",
+   "rule": "name-sure",
+   "metres": 31,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-ovt-314f2055-57f8-4963-a8b7-77aecf958241": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/hotel-des-artistss-ping-silhouette/",
+   "name": "Hotel Des Artists’s Ping Silhouette",
+   "rule": "near+name",
+   "metres": 23,
+   "nameScore": 0.866,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-ovt-dee98f92-3f74-4489-818a-f3e08181f57d": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/dr-alex-aesthetic-clinic/",
+   "name": "Dr. Alex Aesthetic Clinic",
+   "rule": "name-sure",
+   "metres": 24,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-479708459": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/chiang-mai-zoo/",
+   "name": "Chiang Mai Zoo",
+   "rule": "name-sure",
+   "metres": 67,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-4872451730": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/tawan-bedclub/",
+   "name": "Tawan Bedclub",
+   "rule": "name-sure",
+   "metres": 78,
+   "nameScore": 0.963,
+   "checked": "2026-09-21",
+   "year": "2016"
+  },
+  "cm-ovt-ce5f3775-5853-4f84-b7ad-c5804260f365": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/gekko-books/",
+   "name": "Gekko Books",
+   "rule": "near+name",
+   "metres": 27,
+   "nameScore": 0.909,
+   "checked": "2026-09-21",
+   "year": "2016"
+  },
+  "cm-osm-node-3461566102": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/rice-life/",
+   "name": "Rice Life",
+   "rule": "name-sure",
+   "metres": 68,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-node-2371283718": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/samyan-seafood/",
+   "name": "Samyan Seafood",
+   "rule": "name-sure",
+   "metres": 62,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-6734839585": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/coco-corner-coconut/",
+   "name": "Coco Corner Coconut",
+   "rule": "name-sure",
+   "metres": 21,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2016"
+  },
+  "cm-osm-node-3421249042": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/crazy-noodle/",
+   "name": "Crazy Noodle",
+   "rule": "name-sure",
+   "metres": 4,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2016"
+  },
+  "cm-osm-way-551650301": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/rabieng-na-maerim/",
+   "name": "Rabieng Na Maerim",
+   "rule": "name-sure",
+   "metres": 162,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2016"
+  },
+  "cm-osm-node-4466258889": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/toey-dimsum/",
+   "name": "Toey Dimsum",
+   "rule": "near+name",
+   "metres": 33,
+   "nameScore": 0.87,
+   "checked": "2026-09-21",
+   "year": "2016"
+  },
+  "cm-osm-node-7131241185": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/slope-motion/",
+   "name": "Slope Motion",
+   "rule": "name-sure",
+   "metres": 13,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2016"
+  },
+  "cm-ovt-cd9bf81f-2ff7-421c-abb8-d57a45763775": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/london-tearoom-and-guesthouse/",
+   "name": "London Tearoom and Guesthouse",
+   "rule": "near+name",
+   "metres": 17,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2016"
+  },
+  "cm-osm-way-761859524": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/b-samcook-home-16/",
+   "name": "B Samcook Home 16",
+   "rule": "name-sure",
+   "metres": 235,
+   "nameScore": 0.97,
+   "checked": "2026-09-21",
+   "year": "2017"
+  },
+  "cm-osm-node-2686878857": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/eat-on-earth/",
+   "name": "Eat on Earth",
+   "rule": "name-sure",
+   "metres": 60,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2017"
+  },
+  "cm-ovt-f152e2af-7d22-491f-8283-e61ad1b6c373": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/hidden-village/",
+   "name": "Hidden Village",
+   "rule": "near+name",
+   "metres": 26,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2017"
+  },
+  "cm-ovt-7487447b-a2b1-4e56-816b-043969b7e86e": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/mastermind-brain-spa-and-total-wellness-center/",
+   "name": "Mastermind Brain Spa and Total Wellness Center",
+   "rule": "near+name",
+   "metres": 3,
+   "nameScore": 0.917,
+   "checked": "2026-09-21",
+   "year": "2017"
+  },
+  "cm-osm-node-9379317921": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/kamrai-in-the-garden/",
+   "name": "Kamrai in the Garden",
+   "rule": "name-sure",
+   "metres": 5,
+   "nameScore": 0.97,
+   "checked": "2026-09-21",
+   "year": "2017"
+  },
+  "cm-osm-node-3287356487": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/babylonian-iraqi-restaurant/",
+   "name": "Babylonian Iraqi Restaurant",
+   "rule": "near+name",
+   "metres": 58,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2017"
+  },
+  "cm-osm-way-537308760": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/meena-rice-base-cuisine/",
+   "name": "Meena Rice Base Cuisine",
+   "rule": "name-sure",
+   "metres": 17,
+   "nameScore": 0.979,
+   "checked": "2026-09-21",
+   "year": "2017"
+  },
+  "cm-osm-node-5331063801": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/accha-indian-fusion/",
+   "name": "Accha Indian Fusion",
+   "rule": "near+name",
+   "metres": 3,
+   "nameScore": 0.872,
+   "checked": "2026-09-21",
+   "year": "2017"
+  },
+  "cm-osm-node-5093665394": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/monsoon-tea-2/",
+   "name": "Monsoon Tea",
+   "rule": "name-sure",
+   "metres": 16,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2017"
+  },
+  "cm-osm-way-644697906": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/di-bosco-coffee/",
+   "name": "Di Bosco Coffee",
+   "rule": "near+name",
+   "metres": 34,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2017"
+  },
+  "cm-ovt-42f1ef10-65a0-4f71-a2e9-92d8ac9fbc99": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/bombay-hut/",
+   "name": "Bombay Hut",
+   "rule": "name-sure",
+   "metres": 19,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2017"
+  },
+  "cm-ovt-d28db8a7-a007-404e-8aff-73846794ba01": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/jack-bains-bar/",
+   "name": "Jack Bain’s Bar",
+   "rule": "name-sure",
+   "metres": 17,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2017"
+  },
+  "cm-osm-node-6992303886": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/drinksmit/",
+   "name": "Drinksmith",
+   "rule": "name-sure",
+   "metres": 53,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2017"
+  },
+  "cm-osm-node-1041391290": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/le-bistrot-de-chiang-mai/",
+   "name": "Le Bistrot de Chiang Mai",
+   "rule": "name-sure",
+   "metres": 10,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2017"
+  },
+  "cm-ovt-2373c56a-1216-4d13-8e4d-fe6767082960": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/holiday-inn/",
+   "name": "Holiday Inn",
+   "rule": "name-sure",
+   "metres": 30,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-ovt-c6753e73-5a6b-4861-a84b-2ecfc018d284": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/mcouture-studio-81-ms81/",
+   "name": "Mcouture Studio 81 (MS81)",
+   "rule": "near+name",
+   "metres": 20,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2017"
+  },
+  "cm-osm-node-5230148372": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/chez-nous/",
+   "name": "Chez Nous",
+   "rule": "name-sure",
+   "metres": 17,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2017"
+  },
+  "cm-osm-node-3751056345": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/monoceros-resort/",
+   "name": "Monoceros Resort",
+   "rule": "name-sure",
+   "metres": 41,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2017"
+  },
+  "cm-ovt-30827403-9e48-49cd-bfe2-09d2b9845444": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/away-chiang-mai-thapae-resort-vegetarian-retreat/",
+   "name": "Away Chiang Mai Thapae Resort – Moreganic Restaurant",
+   "rule": "near+name",
+   "metres": 4,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2017"
+  },
+  "cm-ovt-9ee06122-17c4-4cf8-ac3a-bf46e5d05e67": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/praew-factory/",
+   "name": "Praew Factory",
+   "rule": "name-sure",
+   "metres": 16,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2018"
+  },
+  "cm-ovt-0bd882c0-7dfd-4feb-bb42-271823063ad0": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/chu-hotel/",
+   "name": "Chu Hotel",
+   "rule": "name-sure",
+   "metres": 32,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2016"
+  },
+  "cm-osm-node-5608475321": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/panumart-tattoo-chiang-mai/",
+   "name": "Panumart Tattoo Chiang Mai",
+   "rule": "name-sure",
+   "metres": 25,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2017"
+  },
+  "cm-osm-node-3153996395": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/lamour-cafe/",
+   "name": "Lamour Cafe",
+   "rule": "name-sure",
+   "metres": 11,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2018"
+  },
+  "cm-osm-node-13790893801": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/stucco-loft-residency-coffee/",
+   "name": "Stucco Loft Residency & Coffee",
+   "rule": "near+name",
+   "metres": 7,
+   "nameScore": 0.873,
+   "checked": "2026-09-21",
+   "year": "2018"
+  },
+  "cm-osm-way-653533229": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/peak-nimman-prestige-hotel/",
+   "name": "Peak Nimman Prestige Hotel",
+   "rule": "name-sure",
+   "metres": 15,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2018"
+  },
+  "cm-ovt-7a4fbc8a-9dfc-431b-a93f-c168b8e69619": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/yak-hostel/",
+   "name": "Yak Hostel",
+   "rule": "name-sure",
+   "metres": 4,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2018"
+  },
+  "cm-ovt-e8e8e583-9c7c-4748-9304-4bc5d517531d": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/virgin-active/",
+   "name": "Virgin Active",
+   "rule": "name-sure",
+   "metres": 131,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2018"
+  },
+  "cm-osm-node-5208044724": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/bear-hug-cafe/",
+   "name": "Bear Hug Café",
+   "rule": "name-sure",
+   "metres": 18,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2017"
+  },
+  "cm-osm-node-3274160916": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/rimm-phi-romm/",
+   "name": "Rimm Phi Romm",
+   "rule": "name-sure",
+   "metres": 14,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2017"
+  },
+  "cm-ovt-a75f16d1-ec30-48b9-9434-847e63baabbd": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/winstons-pool-sports-club/",
+   "name": "Winstons Pool and Sports Club",
+   "rule": "name-sure",
+   "metres": 27,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2017"
+  },
+  "cm-osm-node-5933234770": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/the-yellow-pug/",
+   "name": "The Yellow Pug",
+   "rule": "near+name",
+   "metres": 9,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2017"
+  },
+  "cm-ovt-be39a463-d87a-4d45-822f-59a215edaa69": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/de-richy-restaurant/",
+   "name": "De’ Richy Restaurant",
+   "rule": "near+name",
+   "metres": 138,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2017"
+  },
+  "cm-osm-node-7599272060": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/jardin-dete/",
+   "name": "Jardin d’été",
+   "rule": "near+name",
+   "metres": 33,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2016"
+  },
+  "cm-ovt-6a975bb5-9362-43e5-8f36-83a53154ebf6": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/pavana-resort-spa/",
+   "name": "The Pavana Resort and Spa",
+   "rule": "near+name",
+   "metres": 83,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-osm-way-528019091": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/137-pillars-house-platinum/",
+   "name": "137 Pillars House",
+   "rule": "name-sure",
+   "metres": 20,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-ovt-811214e3-14c2-4288-b663-8fd5a487a08c": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/wabi-cha/",
+   "name": "Wabi Cha",
+   "rule": "near+name",
+   "metres": 13,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2018"
+  },
+  "cm-ovt-72b03484-fa51-4f70-8317-5a2d72c40684": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/nivas-chiang-mai/",
+   "name": "Nivas Chiang Mai",
+   "rule": "name-sure",
+   "metres": 55,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2018"
+  },
+  "cm-ovt-a35118fd-71c1-4a61-a0a9-c663a197a4ab": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/redbox/",
+   "name": "Redbox",
+   "rule": "name-sure",
+   "metres": 17,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2018"
+  },
+  "cm-osm-node-6481719572": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/daddys-antique/",
+   "name": "Daddy’s Antique",
+   "rule": "name-sure",
+   "metres": 15,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2018"
+  },
+  "cm-ovt-62f9e9bf-460f-4ef1-8936-bcc1113e43ef": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/shanta-premium-massage-day-spa/",
+   "name": "Shanta Premium Massage & Day Spa",
+   "rule": "name-sure",
+   "metres": 7,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2017"
+  },
+  "cm-osm-node-3180206961": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/shabugu/",
+   "name": "SHABUGU",
+   "rule": "name-sure",
+   "metres": 6,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2018"
+  },
+  "cm-ovt-5726a8d7-f5f1-4343-be44-f29591de8fd5": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/raya-heritage/",
+   "name": "Raya Heritage",
+   "rule": "name-sure",
+   "metres": 25,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2018"
+  },
+  "cm-ovt-c49eb6b5-4721-48d9-91fb-a8cee969dc8d": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/candice-facial-spa/",
+   "name": "Candice Facial Spa",
+   "rule": "name-sure",
+   "metres": 90,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2018"
+  },
+  "cm-ovt-2e82238e-57f0-4b36-9abd-e4d6a169ca7d": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/fah-lanna-spa/",
+   "name": "Fah Lanna Spa",
+   "rule": "name-sure",
+   "metres": 5,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-ovt-c0d4dadf-bca7-438e-93ba-2995061f2693": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/hillkoff/",
+   "name": "Hillkoff",
+   "rule": "name-sure",
+   "metres": 37,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2015"
+  },
+  "cm-ovt-ffc9b928-8da1-4fc4-9dc0-0be7acb51dc8": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/nimman-social-cafe-bar-alexa-hostel/",
+   "name": "Nimman Social Cafe and Bar at ALEXA Hostel",
+   "rule": "near+name",
+   "metres": 4,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2018"
+  },
+  "cm-osm-way-530971019": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/le-coq-dor/",
+   "name": "Le Coq d’Or",
+   "rule": "name-sure",
+   "metres": 363,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2014"
+  },
+  "cm-osm-node-820826924": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/bloodline-tattoo/",
+   "name": "Bloodline Tattoo",
+   "rule": "name-sure",
+   "metres": 14,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2018"
+  },
+  "cm-ovt-7406680f-4bd7-4bbd-b0f8-eb09a00569ba": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/somtam-udon-pordoi-cafe/",
+   "name": "Somtam Udon at Pordoi Café",
+   "rule": "near+name",
+   "metres": 10,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2018"
+  },
+  "cm-osm-node-4476976180": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/cafe-kantary-2/",
+   "name": "Café Kantary",
+   "rule": "name-sure",
+   "metres": 22,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2019"
+  },
+  "cm-ovt-ade28038-e2be-4ace-9e27-c00f17ae7a90": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/little-kitchen/",
+   "name": "Little Kitchen",
+   "rule": "name-sure",
+   "metres": 4,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2019"
+  },
+  "cm-ovt-a17f0337-4f94-49d7-b28f-f6975d055507": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/mira-restaurant/",
+   "name": "Mira Restaurant",
+   "rule": "name-sure",
+   "metres": 74,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2019"
+  },
+  "cm-osm-node-1743968214": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/hard-rock-cafe/",
+   "name": "Hard Rock Cafe",
+   "rule": "name-sure",
+   "metres": 2,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2019"
+  },
+  "cm-osm-node-11499304969": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/early-owl/",
+   "name": "Early Owl",
+   "rule": "near+name",
+   "metres": 29,
+   "nameScore": 0.947,
+   "checked": "2026-09-21",
+   "year": "2019"
+  },
+  "cm-ovt-77daa691-fe47-4c27-ace0-f3e39415361a": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/oasis-spa-nimman-branch/",
+   "name": "Oasis Spa Nimman Branch",
+   "rule": "near+name",
+   "metres": 2,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2019"
+  },
+  "cm-osm-way-22981272": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/makkha-health-spa-night-bazaar-branch/",
+   "name": "Makkha Health & Spa, Night Bazaar branch",
+   "rule": "near+name",
+   "metres": 140,
+   "nameScore": 0.93,
+   "checked": "2026-09-21",
+   "year": "2019"
+  },
+  "cm-ovt-818e268c-aed1-4f52-869c-7b3e74d04444": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/pawtel/",
+   "name": "Pawtel",
+   "rule": "name-sure",
+   "metres": 54,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2020"
+  },
+  "cm-osm-way-389552873": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/the-core-hotel/",
+   "name": "The Core hotel",
+   "rule": "name-sure",
+   "metres": 19,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2019"
+  },
+  "cm-osm-node-2005892291": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/jasmine-hills-lodge/",
+   "name": "Jasmine Hills Lodge",
+   "rule": "name-sure",
+   "metres": 77,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2019"
+  },
+  "cm-osm-way-1005881892": {
+   "url": "https://www.chiangmaicitylife.com/citylife-places/spice-garden/",
+   "name": "Spice Garden",
+   "rule": "name-sure",
+   "metres": 27,
+   "nameScore": 1.0,
+   "checked": "2026-09-21",
+   "year": "2019"
+  }
+ }
+}

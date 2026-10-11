@@ -1,0 +1,80 @@
+{
+ "what": "Foursquare OS Places category label -> Mot Dang cat/sub. Ordered; first match wins.",
+ "why": "Foursquare publishes hierarchical labels ('Dining and Drinking > Restaurant > Asian Restaurant > Thai Restaurant'), not slugs, so the rules match on the label text. As with overture_categories.json this DELIBERATELY does not map everything: a category with no row here admits no record. Unmapped rows are counted and named in the run's review file so the gap is visible rather than silent.",
+ "written": "2026-09-08",
+ "measured": "Against the 2024 mirror restricted to a CM/CR postcode, still trading and not already ours: 35,310 rows. Dining 18,049 - retail 4,555 - community and government 4,261 - business services 4,120 - travel 3,026 - landmarks 1,685 - health 866 - arts 693 - sport 425 - events 58.",
+ "rules": [
+  {"match": "> Spiritual Center > (Temple|Buddhist Temple)", "cat": "wat"},
+  {"match": "> Spiritual Center", "cat": "wat"},
+
+  {"match": "> Cafe, Coffee, and Tea House", "cat": "food", "sub": "cafe"},
+  {"match": "> Bakery", "cat": "food", "sub": "bakery"},
+  {"match": "> Dessert Shop|> Ice Cream", "cat": "food", "sub": "dessert"},
+  {"match": "> Bar$|> Bar >|> Pub|> Brewery|> Nightlife", "cat": "food", "sub": "bar"},
+  {"match": "> Food Truck|> Food Stand|> Street Food", "cat": "food", "sub": "street"},
+  {"match": "^Dining and Drinking", "cat": "food"},
+
+  {"match": "> Lodging > (Hostel|Guest ?house)", "cat": "hotel", "sub": "hostel"},
+  {"match": "> Lodging|> Resort|> Hotel", "cat": "hotel"},
+
+  {"match": "> Hospital", "cat": "medical", "sub": "hospital"},
+  {"match": "> Dentist", "cat": "medical", "sub": "dental"},
+  {"match": "> Physician|> Medical Center|> Clinic", "cat": "medical", "sub": "clinic"},
+  {"match": "> Pharmacy|> Drugstore", "cat": "medical", "sub": "pharmacy"},
+  {"match": "> Veterinarian", "cat": "pets", "sub": "vet"},
+  {"match": "^Health and Medicine", "cat": "medical"},
+
+  {"match": "> Health and Beauty Service > (Massage|Spa)", "cat": "massage"},
+  {"match": "> Health and Beauty Service > (Salon|Hair|Nail|Barber)", "cat": "beauty"},
+  {"match": "> Health and Beauty Service", "cat": "beauty"},
+  {"match": "> Tattoo", "cat": "tattoo"},
+
+  {"match": "> Convenience Store", "cat": "essentials", "sub": "convenience"},
+  {"match": "> Food and Beverage Retail > (Market|Grocery|Supermarket)", "cat": "market"},
+  {"match": "> Food and Beverage Retail", "cat": "shopping", "sub": "food-retail"},
+  {"match": "> Fashion Retail|> Clothing", "cat": "shopping", "sub": "clothes"},
+  {"match": "> Cosmetics Store", "cat": "shopping", "sub": "cosmetics"},
+  {"match": "> Computers and Electronics Retail", "cat": "shopping", "sub": "electronics"},
+  {"match": "> Arts and Crafts Store", "cat": "shopping", "sub": "crafts"},
+  {"match": "> Furniture and Home Store", "cat": "shopping", "sub": "home"},
+  {"match": "> Hardware Store|> Garden", "cat": "home-services"},
+  {"match": "> Bookstore", "cat": "shopping", "sub": "books"},
+  {"match": "> Automotive Retail", "cat": "repair", "sub": "parts"},
+  {"match": "^Retail > Shopping (Mall|Plaza)", "cat": "shopping", "sub": "mall"},
+  {"match": "^Retail", "cat": "shopping"},
+
+  {"match": "> Automotive Service > (Motorcycle|Motorbike)", "cat": "repair", "sub": "motorbike"},
+  {"match": "> Automotive Service", "cat": "repair", "sub": "car"},
+  {"match": "> Laundry", "cat": "home-services", "sub": "laundry"},
+
+  {"match": "> Education > (University|College)", "cat": "school", "sub": "university"},
+  {"match": "> Education > (Primary|Elementary|Middle|High) School", "cat": "school"},
+  {"match": "> Education", "cat": "school"},
+
+  {"match": "> Fuel Station|> Gas Station", "cat": "transport", "sub": "fuel"},
+  {"match": "> Transport Hub > Airport", "cat": "transport", "sub": "airport"},
+  {"match": "> Transport Hub|> Bus Station|> Train Station", "cat": "transport"},
+  {"match": "> Rental Car|> Car Rental", "cat": "transport", "sub": "rental"},
+
+  {"match": "> Gym and Studio|> Sports and Recreation > Gym", "cat": "sport", "sub": "gym"},
+  {"match": "> Martial Arts|> Muay Thai", "cat": "muaythai"},
+  {"match": "^Sports and Recreation", "cat": "sport"},
+
+  {"match": "> Park$|> Park >", "cat": "parks"},
+  {"match": "> Museum|> Art Gallery", "cat": "museums-galleries"},
+  {"match": "> Waterfall|> Scenic Lookout|> Hot Spring|> Mountain|> National Park", "cat": "sights"},
+
+  {"match": "> Financial Service > (Bank|ATM)", "cat": "essentials", "sub": "bank"},
+  {"match": "> Post Office", "cat": "essentials", "sub": "post"},
+  {"match": "> Pet (Store|Service|Groom)", "cat": "pets"}
+ ],
+ "deliberately_unmapped": {
+  "Community and Government > Residential Building": "1,107 rows. A block of flats is not a place a reader looks up, and realestate/condo is fed by the Treasury condominium register, which has unit counts and a juristic person. Admitting these would bury that shelf in unnamed buildings.",
+  "Business and Professional Services > Office": "959 rows. 'Office' names no trade. DBD's TSIC codes say what a company actually does; this label does not.",
+  "Community and Government > Housing Development": "238 rows. Same reason as Residential Building.",
+  "Landmarks and Outdoors > Structure": "434 rows. A bridge, a pylon, a gate. The Edge survey models named ways and structures separately.",
+  "Landmarks and Outdoors > Road": "181 rows. Roads are build_streets.py's job.",
+  "Landmarks and Outdoors > States and Municipalities": "176 rows. An admin area, not a place. crawl_admin.py owns these.",
+  "Community and Government > Government Building": "407 rows. civic exists but the label does not say which office, and citizeninfo does."
+ }
+}

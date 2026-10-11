@@ -1,6 +1,7 @@
 {
  "_readme": "Pages whose address changed: {old_path: new_path}, both relative to the site root. build.py write_moved_stubs() puts a tiny forwarding page (meta refresh + canonical, noindex, not in the sitemap) at each old path, and only where the new page exists. place_slug() is the Latin name plus the OSM id, so a corrected name moves a page; this is how a link pasted into a group last month still lands. Add a line whenever a curated record changes a published nameEn.",
  "moved": {
+  "cm/p/7945.html": "cm/p/ban-sabai-village-senior-residence-and-care-home-860456741841507.html",
   "cm/p/sak-yant-tatoo-chiang-mai-5703615419.html": "cm/p/sak-yant-chiang-mai-5703615419.html",
   "cm/p/103-1-1031.html": "cm/p/103-1-1031-e8c572f.html",
   "cm/p/103-2-1032.html": "cm/p/103-2-1032-ea0c673.html",
@@ -20,6 +21,477 @@
   "cm/p/f-cmcondoregf.html": "cm/p/f-cmcondoregf-f6ad4a3.html",
   "cm/p/a-b-cmcondoregab.html": "cm/p/a-b-cmcondoregab-b8d06a5.html",
   "cm/p/e-cmcondorege.html": "cm/p/e-cmcondorege-dd6e178.html",
-  "cm/p/11-11.html": "cm/p/11-11-faa93f0.html"
+  "cm/p/11-11.html": "cm/p/11-11-faa93f0.html",
+  "merit.html": "wats/",
+  "cm/p/cm-osm-node-1618122063.html": "cm/p/7-eleven-1618122063.html",
+  "cm/p/cm-curated-ricoh-services.html": "cm/p/ricoh-services-thailand-cmcuratedricohservices.html",
+  "cm/p/cm-osm-node-2466325290.html": "cm/p/7-eleven-2466325290.html",
+  "cr/p/cr-curated-ran-suea-suai.html": "cr/p/crcuratedransueasuai.html",
+  "cm/p/cm-curated-home-16567.html": "cm/p/16567.html",
+  "cr/p/cr-curated-hangthong-yaowarat-khatnga.html": "cr/p/crcuratedhangthongyaowaratkhatnga.html",
+  "cm/p/cm-ovt-8de02d4a-e9a4-4c36-90d3-f37ac8a80d79.html": "cm/p/8024944369033788079.html",
+  "cr/p/cr-curated-giordano-central-chiangrai.html": "cr/p/giordano-crcuratedgiordanocentralchiangrai.html",
+  "cr/p/cr-curated-urthe-central-chiangrai.html": "cr/p/urthe-crcuratedurthecentralchiangrai.html",
+  "cm/p/cm-osm-node-11227905206.html": "cm/p/bed-in-town-11227905206.html",
+  "cm/p/cm-ovt-f921a92a-8eaf-48cd-9faa-ecb7b0ab59ca.html": "cm/p/9219284897059.html",
+  "cm/p/cm-curated-kumuang-properties.html": "cm/p/kumuang-properties-cmcuratedkumuangproperties.html",
+  "cm/p/cm-osm-way-283054964.html": "cm/p/caltex-283054964.html",
+  "cm/p/cm-ovt-26c7594c-c0e7-46e5-85af-8c5d26b86627.html": "cm/p/lanna-lab-2675940746585852686627.html",
+  "cm/p/cm-osm-node-3067759753.html": "cm/p/daeng-klon-pratu-3067759753.html",
+  "cr/p/cr-osm-node-2138298548.html": "cr/p/wat-huai-som-2138298548.html",
+  "cm/p/cm-curated-kari-phap-chaokao.html": "cm/p/cmcuratedkariphapchaokao.html",
+  "cm/p/cm-ovt-0d2df384-9fed-4487-a500-7412c1fa96e0.html": "cm/p/023849448750074121960.html",
+  "cr/p/cr-curated-moshi-moshi-central-chiangrai.html": "cr/p/moshi-moshi-crcuratedmoshimoshicentralchiangrai.html",
+  "cm/p/cm-osm-way-623152998.html": "cm/p/baan-arak-623152998.html",
+  "cr/p/cr-osm-way-959733189.html": "cr/p/knifeshift-959733189.html",
+  "cr/p/cr-osm-node-2121910374.html": "cr/p/hot-springs-mae-khachan-2121910374.html",
+  "cm/p/cm-osm-node-6538035004.html": "cm/p/6538035004.html",
+  "cm/p/cm-osm-node-2469653312.html": "cm/p/pla-pow-pak-sod-2469653312.html",
+  "cm/p/cm-curated-sv-pharmacy.html": "cm/p/sv-pharmacy-cmcuratedsvpharmacy.html",
+  "cr/p/cr-curated-cute-press-central-chiangrai.html": "cr/p/cute-press-crcuratedcutepresscentralchiangrai.html",
+  "cr/p/cr-curated-honor-central-chiangrai.html": "cr/p/honor-crcuratedhonorcentralchiangrai.html",
+  "cm/p/cm-curated-chaeohon-phayao.html": "cm/p/cmcuratedchaeohonphayao.html",
+  "cr/p/cr-ovt-280972ac-dd2d-4502-8d44-32a66ade7496.html": "cr/p/2809722450284432667496.html",
+  "cr/p/cr-curated-verra-central-chiangrai.html": "cr/p/verra-crcuratedverracentralchiangrai.html",
+  "cm/p/cm-osm-node-6138692197.html": "cm/p/de-charme-hotel-6138692197.html",
+  "cr/p/cr-curated-amaze-central-chiangrai.html": "cr/p/amaze-crcuratedamazecentralchiangrai.html",
+  "cr/p/cr-osm-way-963169294.html": "cr/p/fika-963169294.html",
+  "cm/p/cm-osm-node-11515426705.html": "cm/p/warp-tattoo-11515426705.html",
+  "cm/p/cm-curated-bankhru-samunprai-suan-dok-branch.html": "cm/p/bankhru-samunprai-suan-dok-branch-cmcuratedbankhrusamunpraisuandokbranch.html",
+  "cm/p/cm-curated-matrix-honda-automobile.html": "cm/p/matrix-honda-automobile-cmcuratedmatrixhondaautomobile.html",
+  "cm/p/cm-ovt-222d5b22-f86a-4c2b-b5af-5408072e331e.html": "cm/p/222522864255408072331.html",
+  "cr/p/cr-curated-tokuyo-central-chiangrai.html": "cr/p/tokuyo-crcuratedtokuyocentralchiangrai.html",
+  "cm/p/cm-osm-node-2342018523.html": "cm/p/7-eleven-2342018523.html",
+  "cm/p/cm-osm-node-8690712209.html": "cm/p/4-phinong-8690712209.html",
+  "cm/p/cm-curated-top-property.html": "cm/p/top-property-cmcuratedtopproperty.html",
+  "cm/p/cm-curated-silkspan.html": "cm/p/silkspan-cmcuratedsilkspan.html",
+  "cr/p/cr-osm-node-2138306718.html": "cr/p/wat-pa-tueng-ngam-2138306718.html",
+  "cr/p/cr-curated-anello-central-chiangrai.html": "cr/p/anello-crcuratedanellocentralchiangrai.html",
+  "cr/p/cr-curated-bonchon-central-chiangrai.html": "cr/p/bonchon-crcuratedbonchoncentralchiangrai.html",
+  "cm/p/cm-curated-srisawad.html": "cm/p/srisawad-cmcuratedsrisawad.html",
+  "cm/p/cm-curated-regional-postal-bureau-5.html": "cm/p/regional-postal-bureau-5-5.html",
+  "cr/p/cr-curated-officemate-central-chiangrai.html": "cr/p/officemate-crcuratedofficematecentralchiangrai.html",
+  "cr/p/cr-osm-way-960935005.html": "cr/p/chakrapad-chicken-rice-960935005.html",
+  "cm/p/cm-curated-khlangsinkha-loetwasin.html": "cm/p/cmcuratedkhlangsinkhaloetwasin.html",
+  "cm/p/cm-curated-p-p-car-care.html": "cm/p/p-p-car-care-cmcuratedppcarcare.html",
+  "cr/p/cr-curated-skechers-central-chiangrai.html": "cr/p/skechers-crcuratedskecherscentralchiangrai.html",
+  "cm/p/cm-ovt-101e85b2-9b8c-4be3-8119-c3621efa8541.html": "cm/p/1018529843811936218541.html",
+  "cr/p/cr-curated-sabina-central-chiangrai.html": "cr/p/sabina-crcuratedsabinacentralchiangrai.html",
+  "cr/p/cr-ovt-41497dbf-9092-4edf-afd0-d4c50cfb170b.html": "cr/p/41497909240450170.html",
+  "cr/p/cr-ovt-f01f1079-a2bb-466d-9a87-a54f7897f545.html": "cr/p/0110792466987547897545.html",
+  "cm/p/cm-osm-node-10801495606.html": "cm/p/gymkruoor-10801495606.html",
+  "cr/p/cr-curated-lemony-central-chiangrai.html": "cr/p/lemony-crcuratedlemonycentralchiangrai.html",
+  "cr/p/cr-osm-node-2326555960.html": "cr/p/mung-mang-temple-ruin-2326555960.html",
+  "cr/p/cr-curated-supersports-central-chiangrai.html": "cr/p/supersports-crcuratedsupersportscentralchiangrai.html",
+  "cr/p/cr-osm-way-387050901.html": "cr/p/municipal-market-1-387050901.html",
+  "cr/p/cr-curated-istudio-central-chiangrai.html": "cr/p/istudio-crcuratedistudiocentralchiangrai.html",
+  "cm/p/cm-curated-paper-5487.html": "cm/p/5487.html",
+  "cr/p/cr-ovt-548302ef-8740-4375-98a7-7c1633941bb7.html": "cr/p/54830287404375987716339417.html",
+  "cm/p/cm-ovt-15a17430-8f50-4f4f-8fb0-18692b9885ff.html": "cm/p/15174308504480186929885.html",
+  "cr/p/cr-curated-phriao.html": "cr/p/crcuratedphriao.html",
+  "cr/p/cr-curated-mister-donut-central-chiangrai.html": "cr/p/mister-donut-crcuratedmisterdonutcentralchiangrai.html",
+  "cr/p/cr-osm-node-8946977368.html": "cr/p/power-buy-8946977368.html",
+  "cr/p/cr-curated-it-city-central-chiangrai.html": "cr/p/it-city-crcurateditcitycentralchiangrai.html",
+  "cm/p/cm-ovt-beccea3a-4257-423b-a52a-0cf4646a8ded.html": "cm/p/ping-audio-shop-3425742352046468.html",
+  "cm/p/cm-curated-ayutthaya-thai-kitchen.html": "cm/p/ayutthaya-thai-kitchen-cmcuratedayutthayathaikitchen.html",
+  "cm/p/cm-ovt-0453959d-4a5b-4195-89c3-ed4316b9be07.html": "cm/p/04539594541958934316907.html",
+  "cm/p/cm-ovt-a994bd50-cf13-4313-9dda-33a95a4c36ff.html": "cm/p/chiangmai-muay-thai-gym-9945013431393395436.html",
+  "cr/p/cr-curated-laksami.html": "cr/p/crcuratedlaksami.html",
+  "cr/p/cr-curated-daiso-central-chiangrai.html": "cr/p/daiso-crcurateddaisocentralchiangrai.html",
+  "cm/p/cm-ovt-5043732e-f0c1-4068-8a4d-b7017519ff9a.html": "cm/p/k-perfect-nails-spa-singharat-50437320140688470175199.html",
+  "cm/p/cm-curated-jackie-fitness.html": "cm/p/jackie-fitness-cmcuratedjackiefitness.html",
+  "cr/p/cr-curated-trairat-thantaphaet.html": "cr/p/crcuratedtrairatthantaphaet.html",
+  "cr/p/cr-curated-dtac-hall-central-chiangrai.html": "cr/p/dtac-hall-crcurateddtachallcentralchiangrai.html",
+  "cm/p/cm-osm-way-301655694.html": "cm/p/chiang-lukchin-pla-301655694.html",
+  "cm/p/cm-curated-121-coffee.html": "cm/p/121-coffee-121.html",
+  "cm/p/cm-curated-srisawad-buak-khrok-luang-branch.html": "cm/p/srisawad-buak-khrok-luang-branch-cmcuratedsrisawadbuakkhrokluangbranch.html",
+  "cr/p/cr-curated-fotobooth-central-chiangrai.html": "cr/p/fotobooth-crcuratedfotoboothcentralchiangrai.html",
+  "cr/p/cr-curated-ran-phronni-kaisot.html": "cr/p/crcuratedranphronnikaisot.html",
+  "cr/p/cr-ovt-2efa3b17-1cd3-4e3d-8cd1-a75b739d75d2.html": "cr/p/owndays-central-chiangrai-231713438175739752.html",
+  "cr/p/cr-curated-wai-wan-yunipom.html": "cr/p/crcuratedwaiwanyunipom.html",
+  "cr/p/cr-curated-de-beers-forevermark-central-chiangrai.html": "cr/p/de-beers-forevermark-crcurateddebeersforevermarkcentralchiangrai.html",
+  "cr/p/cr-curated-talia-central-chiangrai.html": "cr/p/talia-crcuratedtaliacentralchiangrai.html",
+  "cr/p/cr-osm-way-1110659333.html": "cr/p/central-chiang-rai-1110659333.html",
+  "cm/p/cm-osm-way-537852249.html": "cm/p/bangchak-537852249.html",
+  "cm/p/cm-ovt-8735b55d-9edd-4a24-bae7-3aa1c7ae3a57.html": "cm/p/87355594247317357.html",
+  "cm/p/cm-curated-sweet-taro.html": "cm/p/sweet-taro-cmcuratedsweettaro.html",
+  "cm/p/cm-osm-node-9784520720.html": "cm/p/barber-9784520720.html",
+  "cm/p/cm-curated-praisani-samyaek-suan-prung.html": "cm/p/cmcuratedpraisanisamyaeksuanprung.html",
+  "cm/p/cm-ovt-a86be3f0-3a59-4ae7-83c9-b1b19a2a32d2.html": "cm/p/8630359478391192322.html",
+  "cm/p/cm-ovt-81a0b56e-e346-4cf7-8d56-1285ce6ee8c2.html": "cm/p/toyota-sure-chiang-mai-81056346478561285682.html",
+  "cm/p/cm-curated-yuri-thai-massage.html": "cm/p/yuri-thai-massage-cmcuratedyurithaimassage.html",
+  "cm/p/cm-curated-heng-leasing.html": "cm/p/heng-leasing-cmcuratedhengleasing.html",
+  "cm/p/cm-ovt-7979a4d0-5ed4-46bf-84a0-7dae22b30f1d.html": "cm/p/siri-lanna-massage1-7979405446840722301.html",
+  "cm/p/cm-curated-jeune-hostel-at-phra-singh.html": "cm/p/jeune-hostel-at-phra-singh-cmcuratedjeunehostelatphrasingh.html",
+  "cm/p/cm-ovt-32ca7d8b-1ff4-4c5c-b881-0e2df6db1496.html": "cm/p/c-i-tower-327814458810261496.html",
+  "cr/p/cr-curated-dilavie-central-chiangrai.html": "cr/p/dilavie-crcurateddilaviecentralchiangrai.html",
+  "cm/p/cm-osm-way-242929434.html": "cm/p/wat-pha-bong-242929434.html",
+  "cm/p/cm-ovt-ce360a66-30b9-498e-8712-30205f774809.html": "cm/p/36066309498871230205774809.html",
+  "cm/p/cm-ovt-95158348-0989-4bbe-8df7-4312ca9d87ca.html": "cm/p/9515834809894874312987.html",
+  "cr/p/cr-curated-crocs-central-chiangrai.html": "cr/p/crocs-crcuratedcrocscentralchiangrai.html",
+  "cm/p/cm-osm-way-249376159.html": "cm/p/grandent-dental-clinic-249376159.html",
+  "cm/p/cm-ovt-c21fc7cf-6d2f-4a38-8b22-e6d4eb0e5019.html": "cm/p/risa-thai-massage-217624388226405019.html",
+  "cm/p/cm-curated-bake-a-seat.html": "cm/p/bake-a-seat-cmcuratedbakeaseat.html",
+  "cm/p/cm-curated-naronghipsop.html": "cm/p/cmcuratednaronghipsop.html",
+  "cm/p/cm-osm-node-6597502156.html": "cm/p/om-mueang-pharmacy-6597502156.html",
+  "cm/p/cm-osm-way-585950762.html": "cm/p/kaet-rotyon-585950762.html",
+  "cm/p/cm-osm-node-5859346225.html": "cm/p/ari-5859346225.html",
+  "cr/p/cr-ovt-61844bd4-68dd-46eb-b591-df0ef460e215.html": "cr/p/oriental-jewelry-gold-61844468465910460215.html",
+  "cm/p/cm-osm-node-7027943486.html": "cm/p/hug-smoothie-7027943486.html",
+  "cr/p/cr-curated-hot-spring-halal-food.html": "cr/p/hot-spring-halal-food-crcuratedhotspringhalalfood.html",
+  "cm/p/cm-curated-linda-eye-clinic.html": "cm/p/linda-eye-clinic-cmcuratedlindaeyeclinic.html",
+  "cr/p/cr-osm-way-387050904.html": "cr/p/wat-ming-mueang-387050904.html",
+  "cr/p/cr-curated-chob-cha-central-chiangrai.html": "cr/p/chob-cha-crcuratedchobchacentralchiangrai.html",
+  "cm/p/cm-ovt-2d810a2f-ef43-4ad3-9347-3dba8f0ad47b.html": "cm/p/best-look-optic-281024343934738047.html",
+  "cm/p/cm-osm-node-3385510725.html": "cm/p/3385510725.html",
+  "cr/p/cr-curated-faechan-faep-rik.html": "cr/p/crcuratedfaechanfaeprik.html",
+  "cr/p/cr-ovt-79d9e14e-cb34-42a2-a007-15578dc4f05b.html": "cr/p/antiques-cafe-799143442200715578405.html",
+  "cr/p/cr-curated-clock-tower.html": "cr/p/chiang-rai-clock-tower-crcuratedclocktower.html",
+  "cm/p/cm-curated-sayamchai.html": "cm/p/cmcuratedsayamchai.html",
+  "cm/p/cm-ovt-d750a232-0c69-475c-9990-341b5c8a3473.html": "cm/p/greather-coffee-7502320694759990341583473.html",
+  "cm/p/cm-osm-way-406992974.html": "cm/p/wat-dubphai-406992974.html",
+  "cm/p/cm-ovt-662af26f-073d-4107-b58a-ffc206f5a8b8.html": "cm/p/66226073410758206588.html",
+  "cm/p/cm-ovt-11081868-03a2-47d3-ba3d-e3e92f29a335.html": "cm/p/mass-coffee-11081868032473339229335.html",
+  "cm/p/cm-ovt-47aa87b0-2159-4686-94f7-686bd683fb9a.html": "cm/p/47870215946869476866839.html",
+  "cm/p/cm-osm-way-208674913.html": "cm/p/bangchak-208674913.html",
+  "cm/p/cm-curated-chiang-mai-laminet.html": "cm/p/cmcuratedchiangmailaminet.html",
+  "cr/p/cr-curated-clinic-thantakrarom-urai-wan-thantaphaet.html": "cr/p/crcuratedclinicthantakraromuraiwanthantaphaet.html",
+  "cr/p/cr-osm-way-961802267.html": "cr/p/nari-cafe-961802267.html",
+  "cm/p/cm-ovt-9950505e-cb51-466f-89df-eae255112d80.html": "cm/p/finnix-film-9950505514668925511280.html",
+  "cr/p/cr-ovt-bb0d8000-ffa3-49d4-a1dc-9cad9b2212d0.html": "cr/p/08000349419922120.html",
+  "cr/p/cr-curated-auntie-annes-central-chiangrai.html": "cr/p/auntie-anne-s-crcuratedauntieannescentralchiangrai.html",
+  "cm/p/cm-ovt-d0537261-825d-4947-ae3f-c7b023152430.html": "cm/p/block-and-play-cafe-0537261825494737023152430.html",
+  "cm/p/cm-curated-professional-26928.html": "cm/p/26928.html",
+  "cm/p/cm-curated-cotto-life.html": "cm/p/cotto-life-cmcuratedcottolife.html",
+  "cm/p/cm-osm-node-7027943294.html": "cm/p/women-s-massage-7027943294.html",
+  "cm/p/cm-curated-thueng-laeo.html": "cm/p/cmcuratedthuenglaeo.html",
+  "cm/p/cm-osm-way-544114219.html": "cm/p/7-eleven-544114219.html",
+  "cm/p/cm-ovt-4418bba0-5f7a-487c-8981-ea43fe90f442.html": "cm/p/441805748789814390442.html",
+  "cr/p/cr-curated-the-face-shop-central-chiangrai.html": "cr/p/the-face-shop-crcuratedthefaceshopcentralchiangrai.html",
+  "cm/p/cm-ovt-a7f179b0-ce4e-4b7d-9b7c-838e40c4bed6.html": "cm/p/the-spacebar-71790447978384046.html",
+  "cm/p/cm-curated-vet-14792.html": "cm/p/14792.html",
+  "cr/p/cr-curated-ku-phai-saeng-kaew-phothiyan.html": "cr/p/crcuratedkuphaisaengkaewphothiyan.html",
+  "cm/p/cm-curated-ride0923-p-p-car-care.html": "cm/p/p-p-car-care-cmcuratedppcarcare.html",
+  "cm/p/p-p-car-care-0923.html": "cm/p/p-p-car-care-cmcuratedppcarcare.html",
+  "cm/p/cm-curated-ride0923-bake-a-seat.html": "cm/p/bake-a-seat-cmcuratedbakeaseat.html",
+  "cm/p/bake-a-seat-0923.html": "cm/p/bake-a-seat-cmcuratedbakeaseat.html",
+  "cm/p/cm-curated-ride0923-th094b8db0.html": "cm/p/cmcuratedthuenglaeo.html",
+  "cm/p/092309480.html": "cm/p/cmcuratedthuenglaeo.html",
+  "cm/p/cm-curated-ride0923-heng-leasing.html": "cm/p/heng-leasing-cmcuratedhengleasing.html",
+  "cm/p/heng-leasing-0923.html": "cm/p/heng-leasing-cmcuratedhengleasing.html",
+  "cm/p/cm-curated-ride0923-bankhru-samunprai-suan-dok-branch.html": "cm/p/bankhru-samunprai-suan-dok-branch-cmcuratedbankhrusamunpraisuandokbranch.html",
+  "cm/p/bankhru-samunprai-suan-dok-branch-0923.html": "cm/p/bankhru-samunprai-suan-dok-branch-cmcuratedbankhrusamunpraisuandokbranch.html",
+  "cm/p/cm-curated-ride0923-silkspan.html": "cm/p/silkspan-cmcuratedsilkspan.html",
+  "cm/p/silkspan-0923.html": "cm/p/silkspan-cmcuratedsilkspan.html",
+  "cm/p/cm-curated-ride0923-th3bb764f8.html": "cm/p/cmcuratedsayamchai.html",
+  "cm/p/092337648.html": "cm/p/cmcuratedsayamchai.html",
+  "cm/p/cm-curated-ride0923-top-property.html": "cm/p/top-property-cmcuratedtopproperty.html",
+  "cm/p/top-property-0923.html": "cm/p/top-property-cmcuratedtopproperty.html",
+  "cm/p/cm-curated-ride0923-th2592c0e5.html": "cm/p/cmcuratednaronghipsop.html",
+  "cm/p/0923259205.html": "cm/p/cmcuratednaronghipsop.html",
+  "cm/p/cm-curated-ride0923-sweet-taro.html": "cm/p/sweet-taro-cmcuratedsweettaro.html",
+  "cm/p/sweet-taro-0923.html": "cm/p/sweet-taro-cmcuratedsweettaro.html",
+  "cm/p/cm-curated-ride0923-th7b08dec5.html": "cm/p/cmcuratedkariphapchaokao.html",
+  "cm/p/09237085.html": "cm/p/cmcuratedkariphapchaokao.html",
+  "cm/p/cm-curated-ride0923-ayutthaya-thai-kitchen.html": "cm/p/ayutthaya-thai-kitchen-cmcuratedayutthayathaikitchen.html",
+  "cm/p/ayutthaya-thai-kitchen-0923.html": "cm/p/ayutthaya-thai-kitchen-cmcuratedayutthayathaikitchen.html",
+  "cm/p/cm-curated-ride0923-thb2e2af10.html": "cm/p/cmcuratedchiangmailaminet.html",
+  "cm/p/09232210.html": "cm/p/cmcuratedchiangmailaminet.html",
+  "cm/p/cm-curated-ride0923-srisawad-buak-khrok-luang-branch.html": "cm/p/srisawad-buak-khrok-luang-branch-cmcuratedsrisawadbuakkhrokluangbranch.html",
+  "cm/p/srisawad-buak-khrok-luang-branch-0923.html": "cm/p/srisawad-buak-khrok-luang-branch-cmcuratedsrisawadbuakkhrokluangbranch.html",
+  "cm/p/cm-curated-ride0923-srisawad.html": "cm/p/srisawad-cmcuratedsrisawad.html",
+  "cm/p/srisawad-0923.html": "cm/p/srisawad-cmcuratedsrisawad.html",
+  "cm/p/cm-curated-ride0923-jackie-fitness.html": "cm/p/jackie-fitness-cmcuratedjackiefitness.html",
+  "cm/p/jackie-fitness-0923.html": "cm/p/jackie-fitness-cmcuratedjackiefitness.html",
+  "cm/p/cm-curated-ride0923-linda-eye-clinic.html": "cm/p/linda-eye-clinic-cmcuratedlindaeyeclinic.html",
+  "cm/p/linda-eye-clinic-0923.html": "cm/p/linda-eye-clinic-cmcuratedlindaeyeclinic.html",
+  "cm/p/cm-curated-ride0923-thf0c433f8.html": "cm/p/cmcuratedchaeohonphayao.html",
+  "cm/p/092304338.html": "cm/p/cmcuratedchaeohonphayao.html",
+  "cm/p/cm-curated-ride0923-cotto-life.html": "cm/p/cotto-life-cmcuratedcottolife.html",
+  "cm/p/cotto-life-0923.html": "cm/p/cotto-life-cmcuratedcottolife.html",
+  "cm/p/cm-curated-ride0923-yuri-thai-massage.html": "cm/p/yuri-thai-massage-cmcuratedyurithaimassage.html",
+  "cm/p/yuri-thai-massage-0923.html": "cm/p/yuri-thai-massage-cmcuratedyurithaimassage.html",
+  "cm/p/cm-curated-ride0923-jeune-hostel-at-phra-singh.html": "cm/p/jeune-hostel-at-phra-singh-cmcuratedjeunehostelatphrasingh.html",
+  "cm/p/jeune-hostel-at-phra-singh-0923.html": "cm/p/jeune-hostel-at-phra-singh-cmcuratedjeunehostelatphrasingh.html",
+  "cm/p/cm-curated-ride0923-kumuang-properties.html": "cm/p/kumuang-properties-cmcuratedkumuangproperties.html",
+  "cm/p/kumuang-properties-0923.html": "cm/p/kumuang-properties-cmcuratedkumuangproperties.html",
+  "cm/p/cm-curated-ride0923-tha14e82a8.html": "cm/p/cmcuratedkhlangsinkhaloetwasin.html",
+  "cm/p/092314828.html": "cm/p/cmcuratedkhlangsinkhaloetwasin.html",
+  "cm/p/cm-curated-ride0923-matrix-honda-automobile.html": "cm/p/matrix-honda-automobile-cmcuratedmatrixhondaautomobile.html",
+  "cm/p/matrix-honda-automobile-0923.html": "cm/p/matrix-honda-automobile-cmcuratedmatrixhondaautomobile.html",
+  "cm/p/cm-curated-ride0923-sv-pharmacy.html": "cm/p/sv-pharmacy-cmcuratedsvpharmacy.html",
+  "cm/p/sv-pharmacy-0923.html": "cm/p/sv-pharmacy-cmcuratedsvpharmacy.html",
+  "cm/p/cm-curated-ride0923-thfdc82a28.html": "cm/p/cmcuratedpraisanisamyaeksuanprung.html",
+  "cm/p/09238228.html": "cm/p/cmcuratedpraisanisamyaeksuanprung.html",
+  "cm/p/cm-curated-ride0923-ricoh-services-thailand.html": "cm/p/ricoh-services-thailand-cmcuratedricohservices.html",
+  "cm/p/ricoh-services-thailand-0923.html": "cm/p/ricoh-services-thailand-cmcuratedricohservices.html",
+  "cm/p/cm-curated-ride0923-regional-postal-bureau-5.html": "cm/p/regional-postal-bureau-5-5.html",
+  "cm/p/regional-postal-bureau-5-09235.html": "cm/p/regional-postal-bureau-5-5.html",
+  "cm/p/cm-curated-ride0923-121-coffee.html": "cm/p/121-coffee-121.html",
+  "cm/p/121-coffee-0923121.html": "cm/p/121-coffee-121.html",
+  "cr/p/cr-curated-auntie-anne-s-central-chiangrai.html": "cr/p/auntie-anne-s-crcuratedauntieannescentralchiangrai.html",
+  "cr/p/cr-curated-auntie-anne-s-central-chiangrai-crcuratedauntieannescentralchiangrai.html": "cr/p/auntie-anne-s-crcuratedauntieannescentralchiangrai.html",
+  "cr/p/cr-curated-sangkaew.html": "cr/p/crcuratedkuphaisaengkaewphothiyan.html",
+  "cr/p/cr-curated-sangkaew-crcuratedsangkaew.html": "cr/p/crcuratedkuphaisaengkaewphothiyan.html",
+  "cr/p/little-one-10245740614.html": "cr/p/little-one-hostel-crcuratedlittleonehostel.html"
+ },
+ "_readme_split": "A shelf that became several: {old_path: {th, en, to: [[new_path, th, en], …]}}. build.py write_split_stubs() writes a small noindex page at the old path with a link to each new page that exists. Car & Bike Rental split into scooter rental and car rental, Nan 2026-10-04.",
+ "split": {
+  "cm/transport/rental/index.html": {
+   "th": "เช่ารถ-มอเตอร์ไซค์ แยกเป็นสองชั้น",
+   "en": "Car & Bike Rental is now two shelves",
+   "to": [
+    [
+     "cm/transport/motorbike-rental/index.html",
+     "เช่ามอเตอร์ไซค์ เชียงใหม่",
+     "Motorbike Rental, Chiang Mai"
+    ],
+    [
+     "cm/transport/car-rental/index.html",
+     "รถเช่า เชียงใหม่",
+     "Car Rental, Chiang Mai"
+    ]
+   ]
+  },
+  "cm/transport/rental/page-2.html": {
+   "th": "เช่ารถ-มอเตอร์ไซค์ แยกเป็นสองชั้น",
+   "en": "Car & Bike Rental is now two shelves",
+   "to": [
+    [
+     "cm/transport/motorbike-rental/index.html",
+     "เช่ามอเตอร์ไซค์ เชียงใหม่",
+     "Motorbike Rental, Chiang Mai"
+    ],
+    [
+     "cm/transport/car-rental/index.html",
+     "รถเช่า เชียงใหม่",
+     "Car Rental, Chiang Mai"
+    ]
+   ]
+  },
+  "cm/transport/rental/page-3.html": {
+   "th": "เช่ารถ-มอเตอร์ไซค์ แยกเป็นสองชั้น",
+   "en": "Car & Bike Rental is now two shelves",
+   "to": [
+    [
+     "cm/transport/motorbike-rental/index.html",
+     "เช่ามอเตอร์ไซค์ เชียงใหม่",
+     "Motorbike Rental, Chiang Mai"
+    ],
+    [
+     "cm/transport/car-rental/index.html",
+     "รถเช่า เชียงใหม่",
+     "Car Rental, Chiang Mai"
+    ]
+   ]
+  },
+  "cm/transport/rental/tag-car-hire.html": {
+   "th": "เช่ารถ-มอเตอร์ไซค์ แยกเป็นสองชั้น",
+   "en": "Car & Bike Rental is now two shelves",
+   "to": [
+    [
+     "cm/transport/motorbike-rental/index.html",
+     "เช่ามอเตอร์ไซค์ เชียงใหม่",
+     "Motorbike Rental, Chiang Mai"
+    ],
+    [
+     "cm/transport/car-rental/index.html",
+     "รถเช่า เชียงใหม่",
+     "Car Rental, Chiang Mai"
+    ]
+   ]
+  },
+  "cm/transport/rental/tag-in-mueang-chiang-mai-p2.html": {
+   "th": "เช่ารถ-มอเตอร์ไซค์ แยกเป็นสองชั้น",
+   "en": "Car & Bike Rental is now two shelves",
+   "to": [
+    [
+     "cm/transport/motorbike-rental/index.html",
+     "เช่ามอเตอร์ไซค์ เชียงใหม่",
+     "Motorbike Rental, Chiang Mai"
+    ],
+    [
+     "cm/transport/car-rental/index.html",
+     "รถเช่า เชียงใหม่",
+     "Car Rental, Chiang Mai"
+    ]
+   ]
+  },
+  "cm/transport/rental/tag-in-mueang-chiang-mai.html": {
+   "th": "เช่ารถ-มอเตอร์ไซค์ แยกเป็นสองชั้น",
+   "en": "Car & Bike Rental is now two shelves",
+   "to": [
+    [
+     "cm/transport/motorbike-rental/index.html",
+     "เช่ามอเตอร์ไซค์ เชียงใหม่",
+     "Motorbike Rental, Chiang Mai"
+    ],
+    [
+     "cm/transport/car-rental/index.html",
+     "รถเช่า เชียงใหม่",
+     "Car Rental, Chiang Mai"
+    ]
+   ]
+  },
+  "cm/transport/rental/tag-vehicle-hire.html": {
+   "th": "เช่ารถ-มอเตอร์ไซค์ แยกเป็นสองชั้น",
+   "en": "Car & Bike Rental is now two shelves",
+   "to": [
+    [
+     "cm/transport/motorbike-rental/index.html",
+     "เช่ามอเตอร์ไซค์ เชียงใหม่",
+     "Motorbike Rental, Chiang Mai"
+    ],
+    [
+     "cm/transport/car-rental/index.html",
+     "รถเช่า เชียงใหม่",
+     "Car Rental, Chiang Mai"
+    ]
+   ]
+  },
+  "cm/tag/car-bike-rental--transport-p2.html": {
+   "th": "เช่ารถ-มอเตอร์ไซค์ แยกเป็นสองชั้น",
+   "en": "Car & Bike Rental is now two shelves",
+   "to": [
+    [
+     "cm/transport/motorbike-rental/index.html",
+     "เช่ามอเตอร์ไซค์ เชียงใหม่",
+     "Motorbike Rental, Chiang Mai"
+    ],
+    [
+     "cm/transport/car-rental/index.html",
+     "รถเช่า เชียงใหม่",
+     "Car Rental, Chiang Mai"
+    ]
+   ]
+  },
+  "cm/tag/car-bike-rental--transport-p3.html": {
+   "th": "เช่ารถ-มอเตอร์ไซค์ แยกเป็นสองชั้น",
+   "en": "Car & Bike Rental is now two shelves",
+   "to": [
+    [
+     "cm/transport/motorbike-rental/index.html",
+     "เช่ามอเตอร์ไซค์ เชียงใหม่",
+     "Motorbike Rental, Chiang Mai"
+    ],
+    [
+     "cm/transport/car-rental/index.html",
+     "รถเช่า เชียงใหม่",
+     "Car Rental, Chiang Mai"
+    ]
+   ]
+  },
+  "cm/tag/car-bike-rental--transport.html": {
+   "th": "เช่ารถ-มอเตอร์ไซค์ แยกเป็นสองชั้น",
+   "en": "Car & Bike Rental is now two shelves",
+   "to": [
+    [
+     "cm/transport/motorbike-rental/index.html",
+     "เช่ามอเตอร์ไซค์ เชียงใหม่",
+     "Motorbike Rental, Chiang Mai"
+    ],
+    [
+     "cm/transport/car-rental/index.html",
+     "รถเช่า เชียงใหม่",
+     "Car Rental, Chiang Mai"
+    ]
+   ]
+  },
+  "cm/tag/car-bike-rental-p2.html": {
+   "th": "เช่ารถ-มอเตอร์ไซค์ แยกเป็นสองชั้น",
+   "en": "Car & Bike Rental is now two shelves",
+   "to": [
+    [
+     "cm/transport/motorbike-rental/index.html",
+     "เช่ามอเตอร์ไซค์ เชียงใหม่",
+     "Motorbike Rental, Chiang Mai"
+    ],
+    [
+     "cm/transport/car-rental/index.html",
+     "รถเช่า เชียงใหม่",
+     "Car Rental, Chiang Mai"
+    ]
+   ]
+  },
+  "cm/tag/car-bike-rental-p3.html": {
+   "th": "เช่ารถ-มอเตอร์ไซค์ แยกเป็นสองชั้น",
+   "en": "Car & Bike Rental is now two shelves",
+   "to": [
+    [
+     "cm/transport/motorbike-rental/index.html",
+     "เช่ามอเตอร์ไซค์ เชียงใหม่",
+     "Motorbike Rental, Chiang Mai"
+    ],
+    [
+     "cm/transport/car-rental/index.html",
+     "รถเช่า เชียงใหม่",
+     "Car Rental, Chiang Mai"
+    ]
+   ]
+  },
+  "cm/tag/car-bike-rental.html": {
+   "th": "เช่ารถ-มอเตอร์ไซค์ แยกเป็นสองชั้น",
+   "en": "Car & Bike Rental is now two shelves",
+   "to": [
+    [
+     "cm/transport/motorbike-rental/index.html",
+     "เช่ามอเตอร์ไซค์ เชียงใหม่",
+     "Motorbike Rental, Chiang Mai"
+    ],
+    [
+     "cm/transport/car-rental/index.html",
+     "รถเช่า เชียงใหม่",
+     "Car Rental, Chiang Mai"
+    ]
+   ]
+  },
+  "cr/transport/rental/index.html": {
+   "th": "เช่ารถ-มอเตอร์ไซค์ แยกเป็นสองชั้น",
+   "en": "Car & Bike Rental is now two shelves",
+   "to": [
+    [
+     "cr/transport/motorbike-rental/index.html",
+     "เช่ามอเตอร์ไซค์ เชียงราย",
+     "Motorbike Rental, Chiang Rai"
+    ],
+    [
+     "cr/transport/car-rental/index.html",
+     "รถเช่า เชียงราย",
+     "Car Rental, Chiang Rai"
+    ]
+   ]
+  },
+  "cr/tag/car-bike-rental--transport.html": {
+   "th": "เช่ารถ-มอเตอร์ไซค์ แยกเป็นสองชั้น",
+   "en": "Car & Bike Rental is now two shelves",
+   "to": [
+    [
+     "cr/transport/motorbike-rental/index.html",
+     "เช่ามอเตอร์ไซค์ เชียงราย",
+     "Motorbike Rental, Chiang Rai"
+    ],
+    [
+     "cr/transport/car-rental/index.html",
+     "รถเช่า เชียงราย",
+     "Car Rental, Chiang Rai"
+    ]
+   ]
+  },
+  "cr/tag/car-bike-rental.html": {
+   "th": "เช่ารถ-มอเตอร์ไซค์ แยกเป็นสองชั้น",
+   "en": "Car & Bike Rental is now two shelves",
+   "to": [
+    [
+     "cr/transport/motorbike-rental/index.html",
+     "เช่ามอเตอร์ไซค์ เชียงราย",
+     "Motorbike Rental, Chiang Rai"
+    ],
+    [
+     "cr/transport/car-rental/index.html",
+     "รถเช่า เชียงราย",
+     "Car Rental, Chiang Rai"
+    ]
+   ]
+  }
  }
 }

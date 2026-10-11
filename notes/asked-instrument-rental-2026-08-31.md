@@ -49,7 +49,7 @@ ever fired.
 
 This is a harder version of the beauty-shelf failure. There, a shelf sat empty
 under a stated reason that had stopped being true. Here there was no reason and
-no number — the query existed in the source and was never sent, so nothing ever
+no number — the query existed in the source and went unsent, so nothing ever
 looked wrong. **A selector that has never run is not a measurement, and an
 absent cache file is the only thing that shows it.**
 

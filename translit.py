@@ -53,6 +53,7 @@ into a build that runs offline, and RTGS is a published rule set that fits in
 one file.
 """
 
+import functools
 import re
 import unicodedata
 
@@ -720,6 +721,7 @@ def romanize(text, sep=" ", syl_sep=""):
     return s
 
 
+@functools.lru_cache(maxsize=None)
 def title(text, syl_sep=""):
     """The reading, capitalised the way a name is written in Latin script.
 
@@ -848,11 +850,17 @@ def head_split(text):
     return None, t
 
 
+# CACHED (2026-09-12). Both are pure: the same Thai string always reads the
+# same way. The site asks for the same readings over and over — a record
+# sits on ~10 tag pages and every one of them romanises its name again —
+# and romanising was 56% of the time spent drawing a tag page. Measured on
+# five tag pages: 10.8 s to 6.3 s.
+@functools.lru_cache(maxsize=None)
 def reading(text, syl_sep=""):
     """What a reader is shown beside a Thai-only name.
 
     The generic head word in English, the rest of the name read by RTGS. Both
-    halves are honest about what they are: `Wat Phra Singh` translates วัด and
+    halves state what they are: `Wat Phra Singh` translates วัด and
     reads พระสิงห์ — it does not claim to be the temple's own English sign.
     """
     if not text:

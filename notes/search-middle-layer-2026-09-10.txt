@@ -1,0 +1,233 @@
+SEARCH — THE MIDDLE LAYER · 2026-09-10
+======================================
+From River Tavern, Chiang Rai. Nothing here touches the box, the front page,
+the maps or the data model. Everything sits between the typed words and the
+drawn rows. Built in an offline lane while another session's build held
+docs/; verified in a scratch build; NOT deployed.
+
+
+WHAT WAS WRONG, MEASURED ON THE LIVE SITE THIS MORNING
+------------------------------------------------------
+"river tavern chiang rai"    0 on the site · 0 on /api/v1
+"river tavern"               0 on the site · 1 on /api/v1
+                             (the record is HELD: name only, no pin, and held
+                             records were kept out of the site index)
+"khao soi chiang rai"        9 rows. The index holds 85 Chiang Rai khao soi
+                             places. The 9 are the ones with the city in
+                             their NAME.
+Chiang Rai rows carrying their own city anywhere: 4,773 of 25,351 (19%).
+
+Every result row printed "📞 Phone number held · 📘 Facebook page held"
+beside the phone number itself, and "A thin entry · Not pinned yet · No way
+to reach it" on rows that were visibly short.
+
+With a query typed, the five curated pills baked for the EMPTY page stood on
+screen until data/index.json (49 MB raw, 9.8 MB on the wire) arrived and
+parsed: 10 s on a Mac on broadband, never on Beer's phone (his report, 9/9).
+
+
+WHAT CHANGED
+------------
+1  Every row carries its province, Thai and Latin, in both indexes. On the
+   site it is intuited from the code the row already carries — zero bytes
+   added. On the edge (/api/v1) it is written into the row's search blob.
+2  A city name in the query is a filter: it narrows to that province and is
+   a removable chip. It is never two more words a name has to contain. Both
+   engines. A query naming both cities lifts neither.
+3  A held record (no pin, two facts or fewer) is in the index on its name
+   and province alone. A shelf word cannot reach it, it files behind every
+   row that can say more, and typing its name finds it however the rest is
+   phrased. The side file of exact names is retired.
+4  The state family of tags (phone held, Facebook held, website held, hours
+   held, thin entry, not pinned, no contact, name only, multi-source) no
+   longer reaches a reader: not on result rows, not in the second line, not
+   in the refine drawers, not on place pages. It stays on the record, on
+   tags.html and in the API.
+5  The instant a query exists the baked pills come off and a thin bar under
+   the box says the answer is coming. /api/v1 is asked in parallel and its
+   rows are drawn in about 0.3 s, name and reading only; the full engine
+   repaints when the index lands. Not for a where-question; never on a zero
+   from the edge.
+6  Nothing found hides the refine rail and the sponsor box. The shelves and
+   "tell the ants" stay.
+7  The province word on a list that spans both cities read a field no row
+   had. It reads the one every row has.
+9  FOUND ON THE WAY, AND FIXED: "nearest first" was not. Since the index
+   was split in two on 9/8 the pins travel in the second file, and the page
+   answered from the first without waiting — so every distance was null,
+   the rail's default nearest-first order was the match order, and a row
+   never printed its metres. The page now waits for the pins before it
+   measures anything (capped at 8 s; a file that never lands costs the
+   metres, never the answer). The test that would have caught it had been
+   throwing since the card shipped: two page helpers were never stubbed and
+   the harness read only the first file. Both harnesses fixed.
+10 FOUND ON THE WAY, AND FIXED: "tha phae gate" returned eight places near
+   the gate and not the gate. The register bridged the spelling (the record
+   says Thapae) and lifted the point, but the gate's own row matched two
+   words of three and left the answer. A query that is only a landmark now
+   leads with the landmark, at 0 m. "coffee near tha phae gate" still leads
+   with coffee.
+   Still red, and older than today (identical under the live pipeline):
+   "wat phra singh" is out-ranked by a loosely-matched temple; "kow soi"
+   loosens to the whole khao soi shelf; "zzzzqqq" finds 16 rows at the loose
+   tier; a bare shelf word ("hospital") becomes a soft tag chip; 173 tag
+   pages (open-late, wheelchair, open-24h and the rest of that family) carry
+   no crumb back to tags.html, live and built alike — the gate had reported
+   2,685 because it wanted the crumb without its family anchor, and now
+   reports the true 173. Listed, not touched.
+8  River Tavern: pin 19.915313, 99.832266 — the post's own map link, plus
+   code WR8J+4WC, 70 m from Akha River House and the riverside park —
+   ต.เวียง อ.เมืองเชียงราย 57000, riverside + bar-pub, "open every night
+   from 6pm". Source: the CHIANG RAI Everything group post of 14 Feb 2026.
+   No phone and no page of its own found outside Facebook.
+
+Files: build.py (pipeline, render, emission, CSS) · tags_layer.py
+(index_tags, pills) · api_layer.py (blob) · publish/api.js (parseQuery) ·
+data/curated/featured-chiang-rai.json · tests/test_search.py (+6 cases) ·
+tests/test_search_page.py (+7) · tests/test_api_worker.js (+2) ·
+tests/test_index_silence.py (new) · both search harnesses (stubs, second index file).
+
+Scratch build 2026-09-10 (101 min, 96,371 pages, 199,629 files; the live
+tree untouched): data/index.json 38.5 MB raw · 9.5 MB gzipped (live: 49.3 ·
+9.8) · 88,223 rows · 260 held rows now in · 9 state tags kept out of every
+row · River Tavern in the index. Gates: index-silence 5/5 · API engine all
+green · index weight PASS · search page (render) all 40 checks green · engine suite green on every
+case but the three older reds named below · tag gate 173 (older, named below).
+Gemba on the scratch build, phone width: "river tavern chiang rai" → 1 row,
+River Tavern, the city an active chip, nothing on the row about a lack ·
+"khao soi chiang rai" → 95 rows, every one in Chiang Rai, nearest the Clock
+Tower first, no "held" words anywhere on the page · a miss → 0, six shelf
+doors, "tell the ants", and nothing else.
+
+
+WHAT IT NEEDS
+-------------
+importers/import_all.py (folds the pin) → build.py → publish/deploy.py --yes
+→ the Worker redeploy for api.js. One word.
+
+
+FIELDS A RECORD CAN CARRY WITHOUT ANYONE TYPING THEM
+----------------------------------------------------
+Your question, twice: "can some of these fields be intuited?" Counted on the
+88,223 records this morning.
+
+field                 from                          gains it           status
+province words        the province code             88,223 (all)       BUILT today
+RTGS reading          the Thai name                 46,666 carry it    built (r), searchable
+English name          the reading, where none       61,712 lack nameEn shows as reading today
+tambon + amphoe       the pin inside a polygon      66,519 lack tambon,
+                                                    70,593 lack amphoe  FORK F1
+postcode              the tambon                    77,357 lack one    follows F1
+street                nearest road in the graph     73,275 lack one    STREET_OF exists; reach unmeasured
+bearing to a landmark the 68 landmarks              every pinned row   WO-64 BUILT, hook not applied
+inside the old city   the moat polygon              every CM pinned row built (tag)
+riverside             distance to the Ping / Kok    unmeasured         needs the river lines (OSM, ODbL)
+open now · closes soon the hours                    4,402 carry hours  built (lamp)
+branch of             the name (สาขา …)             unmeasured         a name rule
+cuisine · trade       name words                    73 rules + 1,782 trade words   built
+kind                  OSM / Overture category       built (kd)
+phone · page          nothing intuits these — a source or a walk supplies them
+
+
+FORKS — YOURS
+-------------
+F1  Tambon and amphoe from the pin. OSM admin boundaries (ODbL, share-alike,
+    attribution already on every page) or COD-AB (on disk since 9/8, licence
+    unverified — HDX refuses my fetch). Recommend OSM. One importer, one
+    build; every ย่าน chip and district drawer fills.
+F2  The edge-first paint stays as built, or the Worker runs searchcore itself
+    — same code, same index, at the edge — so no phone downloads the index to
+    ask one question. That removes the wait rather than covering it.
+    Recommend. About a day.
+F3  The sponsor box on result pages: stays (your rail) or moves below the
+    footer. Left as is.
+
+
+SECOND PASS — the evening, on your five words
+=============================================
+"fix all other problems you found · tambon and amphoe, OSM boundaries fine ·
+Worker can run search engine · a sponsor box on result pages"
+
+FIXED
+  wat phra singh — the word "wat" was read as the tag buddhist-temple (an
+    Overture category the temple's own OSM record never carried) and the
+    soft filter dropped the one exact match. A word that names a tag now
+    LIFTS the rows carrying it and removes nothing; the chip is not drawn.
+  zzzzqqq — the phonetic key folded it to "sk" and matched SK House. A Latin
+    key that loses more than half its letters is no key. Fixed in the shared
+    search core (both twins, parity green, synced to every consumer).
+  kow soi / rajavej hospital — the two test rules were stale, not the
+    engine: a thesaurus synonym is not fuzz, and a soft chip is not a filter.
+  tha phae gate — the landmark's own row leads a landmark-only query.
+  the tag gate — reads the crumb the pages actually carry; the true gap is
+    173 pages of the hours/access families with no crumb at all (older;
+    listed in the gate now, not fixed).
+  the sponsor box stays on every search page, the empty one included.
+
+TAMBON AND AMPHOE FROM THE PIN (WO-83)
+  OSM holds no tambon boundaries for either province — 0 relations at
+  admin_level 8, and only the amphoe at 6 — so "OSM boundaries" cannot give
+  the tambon. The polygons on this disk since 9/8 are OCHA's COD-AB set,
+  drawn by the Royal Thai Survey Department; licence verified tonight through
+  the HDX record: CC BY-IGO, attribution only. Used, with the attribution
+  written into the file and into every receipt.
+  The pass (derive.py, 12 seconds) fills what is empty and overwrites
+  nothing: amphoe on 50,978 CM + 19,028 CR records, tambon on 46,270 +
+  18,295; 135 tambons the address said and the pin confirms are promoted;
+  where a field and the pin disagree the pair is written on the record;
+  a pin within 60 m of a boundary is left alone. Every district drawer and
+  every ย่าน chip fills from this. River Tavern's own pin stands in ต.ริมกก,
+  not the ต.เวียง Google's address string said — corrected.
+  Runs at the tail of import_all; it is in the next data pass, then the
+  build after that.
+
+THE ENGINE AT THE EDGE (WO-82)
+  The page's engine needs 537 MB of memory for its index; no Worker can hold
+  that. So the build now writes the engine's postings as 1,024 small shard
+  files (33 MB) and the Worker walks them: /api/v1/search runs searchcore
+  itself — the same file the page runs — and answers in about 30 ms with the
+  vocabulary in memory and only the lists a query needs fetched. Held to the
+  page's engine on 18 queries: identical rankings, id by id. The results
+  page asks it first, so the first rows are the RIGHT rows, ranked by the
+  real engine, before the 10 MB index has even started to arrive.
+  Deployed 20:35 after you logged wrangler in (version c07a3c83). The API's
+  city filter is live at once; /api/v1/search says "not deployed" until the
+  second content deploy lands the shards, then it answers.
+
+THE FRONT PAGE (WO-81) — see the redesign note: go/redesign-home
+
+WHAT SHIPS WHEN
+  1. the build that started 16:44 (carries the morning's search fixes) →
+     deploy — tonight, the moment it ends.
+  2. import_all (tambon, River Tavern) → a fresh build (front page, the
+     evening fixes, the edge shards) → gates on docs/ → deploy — tonight,
+     about two and a half hours after step 1.
+  3. the Worker deploy — yours, one command, any time after step 2.
+
+
+THE MISS LOOP, FIRST PULL (WO-84, 21:00) — and what it found in the hour
+========================================================================
+importers/box_misses.py pulls the results page's own log (no reader in it:
+no address, no seat, no session) and writes _incoming/box-misses-<date>.txt:
+words nobody understood, searches that found nothing, half-matches, results
+nobody opened. It runs with the daily loop (enrich_daily.sh, step 7).
+
+First pull: 1,680 searches, 19 distinct questions, most of them today's
+testing. Two real leads, and one of them was an engine fault older than the
+site's Thai search:
+
+  อาหาร (food) answered with TWO loose rows. The engine strips question words
+  before it searches, and for Thai it stripped them from INSIDE words: หา
+  ("find") cut อาหาร into อา + ร, ขอ ("may I") cut ของกิน into งกิน, and the
+  vegan word เจ cut เจดีย์ out of every temple named for a chedi — while
+  quietly setting a vegan filter on the search. Fixed in the shared core: a
+  Thai phrase is stripped only where a non-Thai character or the edge of the
+  text bounds it. Both twins, parity on 98 queries, synced to every site that
+  carries the core, the Worker redeployed. อาหาร now reaches 39,270 rows;
+  วัดเจดีย์หลวง answers with the temple and nothing about vegans.
+
+  อีเว้นวันนี้ ("events today") answered with 301 half-matches led by a hotel.
+  The question is the calendar: an events door is in the panels now, and the
+  front page carries the week itself.
+
+Tomorrow's pull will hold Beer's and your searches rather than mine.

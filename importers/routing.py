@@ -196,13 +196,17 @@ class Graph(object):
             best = min(best, cost[t.b] + t.to_b)
         return None if best == float("inf") else best
 
-    def matrix(self, points, mode):
+    def matrix(self, points, mode, allow=None):
         """Full cost matrix in metres, snap walk-in included on both ends.
 
         None where no route exists — an unreachable pair is not a distance of
         zero and must never be allowed to look like the cheapest leg.
+
+        `allow` narrows which edges a stop may snap onto, the same predicate
+        `snap` and `route` take. Passing `main_component(mode)` is what keeps a
+        stop off a footpath fragment inside its own compound.
         """
-        snaps = [self.snap(p, mode) for p in points]
+        snaps = [self.snap(p, mode, allow) for p in points]
         n = len(points)
         out = [[None] * n for _ in range(n)]
         for i, s in enumerate(snaps):
@@ -219,6 +223,37 @@ class Graph(object):
                 if c is not None:
                     out[i][j] = c + s.d + t.d
         return out
+
+    def main_component(self, mode):
+        """`allow` for the biggest connected run of road this mode can use.
+
+        A wat's pin often lands nearest a path inside its own compound that
+        joins nothing — Wat Phra Singh snapped onto sixteen junctions of
+        courtyard footway and was set aside as unreachable, off every round.
+        Connectivity is read either-way here: a one-way soi still joins the
+        city, it just has to be left by the other end.
+        """
+        seen = [False] * len(self.nodes)
+        best, cur_best = set(), 0
+        fwd, bwd, _ = MODES[mode]
+        for start in range(len(self.nodes)):
+            if seen[start]:
+                continue
+            stack, group = [start], []
+            seen[start] = True
+            while stack:
+                n = stack.pop()
+                group.append(n)
+                for (to, _l, flags, _ei, _f) in self.adj[n]:
+                    if not (flags & (fwd | bwd)) or seen[to]:
+                        continue
+                    seen[to] = True
+                    stack.append(to)
+            if len(group) > cur_best:
+                best, cur_best = set(group), len(group)
+        keep = {i for i, e in enumerate(self.edges)
+                if (e[3] & (fwd | bwd)) and e[0] in best and e[1] in best}
+        return lambda i: i in keep
 
     def distance(self, a, b, mode):
         sa, sb = self.snap(a, mode), self.snap(b, mode)

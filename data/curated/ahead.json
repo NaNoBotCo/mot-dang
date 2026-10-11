@@ -1,0 +1,28 @@
+{
+  "_about": "The front page stage's Ahead strip (Nan 2026-10-02: show 14 days, encourage planning further out — Loy Krathong, New Year, Songkran — and the smoke season to bug out of). front_layer.bake_ahead → docs/front/ahead.json. Dates come from data/festival_calendar.json (lunar), a fixed d [MM-DD, MM-DD], or rule [n, 'weekend', month] = the nth Saturday–Sunday of that month (usual = the custom, not a published date). kind picks the drawing in front.js.",
+  "months": 7,
+  "picks": [
+    {"id": "yi-peng-loi-krathong", "kind": "lantern", "th": "ยี่เป็ง · ลอยกระทง", "en": "Yi Peng & Loy Krathong",
+     "line_th": "คืนเพ็ญเดือนยี่ โคมลอยเต็มฟ้า กระทงเต็มน้ำปิง ที่พักในเวียงเต็มเร็ว",
+     "line_en": "Full-moon nights: lanterns over the city, krathong on the Ping. Rooms in the old city book up early."},
+    {"id": "nye-countdown", "kind": "firework", "th": "เคานต์ดาวน์ปีใหม่", "en": "New Year's Eve",
+     "line_th": "นับถอยหลังที่ประตูท่าแพและหอนาฬิกาเชียงราย หรือสวดมนต์ข้ามปีที่วัด",
+     "line_en": "The countdown at Tha Phae Gate and the Chiang Rai clock tower, or chanting through midnight at a wat."},
+    {"id": "bo-sang-umbrella", "kind": "umbrella", "rule": [3, "weekend", 1], "th": "งานร่มบ่อสร้าง", "en": "Bo Sang Umbrella Festival",
+     "line_th": "ขบวนร่มกระดาษสาและตลาดหัตถกรรมที่สันกำแพง",
+     "line_en": "A parade of painted saa-paper umbrellas and a craft market in San Kamphaeng."},
+    {"id": "chinese-new-year", "kind": "cny", "th": "ตรุษจีน", "en": "Chinese New Year",
+     "line_th": "เชิดสิงโตที่กาดหลวง และงานใหญ่ของชาวยูนนานที่ดอยแม่สลอง",
+     "line_en": "Lion dances at Warorot, and the Yunnanese new year up at Doi Mae Salong."},
+    {"id": "cm-flower-festival", "kind": "flower", "rule": [1, "weekend", 2], "th": "เทศกาลดอกไม้เชียงใหม่", "en": "Chiang Mai Flower Festival",
+     "line_th": "รถบุปผชาติจากสะพานนวรัฐเข้าสวนบวกหาด เช้าวันเสาร์",
+     "line_en": "Flower floats from Nawarat Bridge to Buak Had Park on the Saturday morning."},
+    {"id": "songkran-pi-mai-muang", "kind": "water", "d": ["04-13", "04-15"], "th": "สงกรานต์ · ปี๋ใหม่เมือง", "en": "Songkran, the Lanna New Year",
+     "line_th": "รดน้ำดำหัว ขนทรายเข้าวัด แล้วเล่นน้ำรอบคูเมือง",
+     "line_en": "Blessing the elders, sand to the wat, then water the whole way round the moat."}
+  ],
+  "smoke": {"kind": "smoke", "cut": 0.25, "th": "ฤดูหมอกควัน", "en": "Smoke season",
+            "line_th": "ไฟที่ดาวเทียมเห็นรอบภาคเหนือ ไทย พม่า ลาว ราว 9 ใน 10 อยู่ในก.พ.–เม.ย. หนักสุดราวปลายมีนาคม วางแผนไปทะเลหรือที่อากาศดีได้ตั้งแต่ตอนนี้",
+            "line_en": "About 9 in 10 of the fires satellites see across the north, Thailand, Myanmar and Laos, burn February to April, worst around late March. A good time to plan a trip somewhere with clean air.",
+            "page": "sites/smoky-season/"}
+}

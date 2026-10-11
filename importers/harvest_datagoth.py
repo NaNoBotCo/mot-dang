@@ -100,7 +100,7 @@ SOURCES = [
      "โรงเรียนพระปริยัติธรรม แผนกสามัญศึกษา — the monastic schools OSM has no tag for; joins to temples through the wat"),
     ("universities", "univ_uni_11_03", "CSV", None,
      "รายชื่อสถาบันอุดมศึกษา (MHESI) — the national higher-education list, for the university/college children"),
-    # Yardsticks — official counts to print beside what we hold.
+    # Yardsticks — official counts to print beside the count this catalogue holds.
     ("cm-hotels-cert", "_67_76", "CSV", None, "hotels certified, by amphoe (yardstick)"),
     ("cm-tour-ops", "dataset_10_344", "CSV", None, "licensed tour operators (yardstick)"),
     ("cr-clinics", "dataset50_77", "CSV", None, "CR clinics of all types (yardstick)"),

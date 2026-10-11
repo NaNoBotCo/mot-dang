@@ -130,6 +130,15 @@ def shrine_kind(name):
     return None
 
 
+def shrine_lens(name):
+    """'spirit-house' when the NAME says ศาลพระภูมิ / ศาลเจ้าที่, else None.
+    The shelf sub stays plain 'shrine' for every kind (see shrine_kind), but
+    wat/spirit-house matches on a lens, and until the fall-through above there
+    was no path from a crawled name to that shelf at all — it held one record,
+    seeded from mueang-map, while ศาลพระภูมิ sat in the refusal file."""
+    return "spirit-house" if shrine_kind(name) == "spirit-house" else None
+
+
 def shrine_fence_reason(name):
     """Why a shrine-flavoured name may NOT file — for the STRAYS report."""
     if not name:
@@ -177,7 +186,22 @@ def shrines_hit(t, name=""):
     if t.get("historic") == "wayside_shrine":
         return "shrine"
     if t.get("amenity") == "place_of_worship":
-        return "shrine" if t.get("religion") in SHRINE_RELIGIONS else None
+        # A STATED RELIGION DECIDES. NO STATED RELIGION IS NOT A DECISION.
+        # Until 2026-09-05 the absence of a religion tag returned None here,
+        # so the name rules below — the ones that actually read Thai — never
+        # ran on a place_of_worship at all. Nineteen cached elements carry no
+        # religion tag, and seventeen of them are shrines that say so in their
+        # own names: ศาลเจ้าปุงเถ่ากง, เทวสถานพระพิฆเนศเชียงใหม่,
+        # ศาลเจ้าแม่ทับทิม, and ศาลพระภูมิ itself — which is the literal Thai
+        # label of a shelf that was holding one record. They sat in
+        # cache/shrine_review_cm.txt under the heading "do NOT state a public
+        # shrine" while stating it in the only language they were written in.
+        # The fences below are what makes the fall-through safe: วัด, มัสยิด,
+        # โบสถ์, พุทธสถาน and ซอย are all refused by name, so a Buddhist wat
+        # still goes to the register fold and a street named after a shrine
+        # still files as nothing.
+        if t.get("religion"):
+            return "shrine" if t.get("religion") in SHRINE_RELIGIONS else None
     if t.get("shop") == "religion":
         return None          # the trade is real and is NOT a shrine — its
                              # shelf waits for records (proposal, doors)

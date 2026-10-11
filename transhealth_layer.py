@@ -112,9 +112,9 @@ REGISTERS = [
      "สมาคมศัลยแพทย์ตกแต่งแห่งประเทศไทย",
      "Society of Plastic and Reconstructive Surgeons of Thailand",
      "https://thprs.org",
-     "วุฒิบัตรศัลยศาสตร์ตกแต่ง คือใบที่ควรถามถึงก่อนการผ่าตัดยืนยันเพศทุกชนิด",
+     "วุฒิบัตรศัลยศาสตร์ตกแต่ง คือวุฒิที่อยู่เบื้องหลังการผ่าตัดยืนยันเพศทุกชนิด",
      "Board certification in plastic surgery (วุฒิบัตรศัลยศาสตร์ตกแต่ง) is the "
-     "credential to ask about before any gender-affirming operation."),
+     "credential behind any gender-affirming operation."),
     ("มาตรฐานการดูแลที่คลินิกอ้างถึง คืออะไร",
      "The standards of care a clinic cites — what are they?",
      "WPATH — Standards of Care (SOC-8)", "WPATH — Standards of Care (SOC-8)",
@@ -173,6 +173,20 @@ def emit(g, data):
     name_of = g["name_of"]
     shelf_og = g.get("shelf_og")
     bi_text = g.get("bi_text") or (lambda th, en: f"{th} · {en}")
+    verdict, BROKEN = g["verdict"], g["BROKEN"]
+
+    def cite(s, i):
+        """A source's [n]. A source that has gone dead is still cited — it is
+        why the row says what it says — but the link goes to the archived copy
+        if there is one, and nowhere if there is not. The register's own rule,
+        and what channels() does for a place's website."""
+        url = (s.get("ref") or "").strip()
+        v = verdict(url) if url else {}
+        if v.get("status") in BROKEN:
+            url = ((v.get("wayback") or {}).get("url") or "")
+        n = "[" + str(i + 1) + "]"
+        return (' <a href="' + att(url) + '" rel="noopener">' + n + "</a>") if url \
+            else ' <span class="ln-dead">' + n + "</span>"
 
     (DOCS / "trans-health.css").write_text(CSS)
 
@@ -226,7 +240,7 @@ def emit(g, data):
                + att(bi_text(*title_pair)) + '">' + bi(tag_th, tag_en) + "</span>")
         pid = row.get("place")
         srcs = "".join(
-            ' <a href="' + att(s["ref"]) + '" rel="noopener">[' + str(i + 1) + "]</a>"
+            cite(s, i)
             for i, s in enumerate(row.get("sources") or []))
         # A credential is a REGISTER ENTRY and never a rating. This site names
         # no doctor as good or bad — womens_health_layer settled that twice —
@@ -310,7 +324,7 @@ def emit(g, data):
     community_rows = []
     for c in reg.get("community") or []:
         srcs = "".join(
-            ' <a href="' + att(s["ref"]) + '" rel="noopener">[' + str(i + 1) + "]</a>"
+            cite(s, i)
             for i, s in enumerate(c.get("sources") or []))
         community_rows.append(
             "<li>" + bi(esc(c.get("name_th") or ""), esc(c.get("name_en") or ""))
@@ -322,7 +336,7 @@ def emit(g, data):
     # ---- the benefit box ---------------------------------------------------
     ben = reg.get("benefit") or {}
     ben_srcs = "".join(
-        ' <a href="' + att(s["ref"]) + '" rel="noopener">[' + str(i + 1) + "]</a>"
+        cite(s, i)
         for i, s in enumerate(ben.get("sources") or []))
     benefit_html = ""
     if ben:
@@ -348,7 +362,7 @@ def emit(g, data):
         procs = "".join("<li>" + esc(p) + "</li>"
                         for p in rules.get("procedures", []))
         rsrc = "".join(
-            ' <a href="' + att(s["ref"]) + '" rel="noopener">[' + str(i + 1) + "]</a>"
+            cite(s, i)
             for i, s in enumerate(rules.get("sources") or []))
         rules_html = (
             '<div class="gx-benefit"><b>'
@@ -493,8 +507,8 @@ def emit(g, data):
         + ("<h2>" + bi("ที่ที่ป้ายแผนที่ว่ายินดีต้อนรับ", "Everyday places the map marks as welcoming")
            + ' <span class="count">(' + str(len(venue_rows)) + ")</span></h2>"
            + '<p class="gx-note">'
-           + bi("ป้ายเหล่านี้เป็นบันทึกของผู้ทำแผนที่ใน OpenStreetMap ไม่ใช่ป้ายของร้านเอง — บอกไว้ตรง ๆ แบบเดียวกับทุกหน้าของมดแดง",
-                "These marks are OpenStreetMap mappers' statements, not the venues' own signs — said plainly, the way every Mot Dang page does")
+           + bi("ป้ายเหล่านี้เป็นบันทึกของผู้ทำแผนที่ใน OpenStreetMap ไม่ใช่ป้ายของร้านเอง",
+                "These marks are OpenStreetMap mappers' statements, not the venues' own signs")
            + "</p><ul class=\"gx-list\">" + "".join(venue_rows) + "</ul>" if venue_rows else "")
         + pharm_html
         + "<h2>" + bi("ตรวจใบวุฒิบัตรได้ที่นี่",
@@ -511,11 +525,10 @@ def emit(g, data):
         + "</p>" + gloss_html
         + '<p class="gx-note">' + zero_note + "</p>"
         + '<p class="gx-note">'
-        + bi("มดแดงเป็นสารบัญของสถานที่ ไม่ใช่คำแนะนำทางการแพทย์ ไม่ใช่การส่งต่อคนไข้ และไม่ใช่การรับรองคุณภาพ "
+        + bi("มดแดงเป็นสารบัญของสถานที่ "
              "ข้อมูลสถานพยาบาลบางส่วนมาจาก OpenStreetMap (ODbL 1.0) และจากหน้าเว็บของแต่ละที่ตามวันที่ที่ระบุ "
-             "เห็นอะไรที่เปลี่ยนไปหรือควรเพิ่ม — บอกมดได้ที่หน้าเสนอแนะ",
-             "Mot Dang is a directory of places. It is not medical advice, not a referral, and not a quality "
-             "guarantee. Some facility data is derived from OpenStreetMap (ODbL 1.0), © OpenStreetMap "
+             "เห็นอะไรที่เปลี่ยนไปหรืออยากให้เพิ่ม — บอกมดได้ที่หน้าเสนอแนะ",
+             "Mot Dang is a directory of places. Some facility data is derived from OpenStreetMap (ODbL 1.0), © OpenStreetMap "
              "contributors, and from each place's own pages on the dates shown. If something here has "
              "changed or is missing, tell the ants via the suggestion page.")
         + "</p>"

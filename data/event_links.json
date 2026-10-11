@@ -1,0 +1,3078 @@
+{
+ "generated": "2026-10-10",
+ "tally": {
+  "event": 302,
+  "series": 62,
+  "venue": 16,
+  "none": 25
+ },
+ "links": {
+  "cr-w-night-bazaar-2026-10-10": {
+   "url": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/566-Chiang-Rai-Night-Bazaar.html",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-sat-walking-street-2026-10-10": {
+   "url": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/567-Kad-Chiang-Hai-Ram-Luk-(Walking-Street).html",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-jing-jai-weekend-market-2026-10-10": {
+   "url": "https://www.facebook.com/jjmarketchiangmai",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-morning-aerobics-2026-10-10": {
+   "url": "https://www.facebook.com/hashtag/mahamitraerobic",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "event_316823926@meetup.com": {
+   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/316823926/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-slowcial-running-club-cm-2026-10-10": {
+   "url": "https://chat.whatsapp.com/J8geG0xQXpKEvnr8JgIvyB?s=cl&p=a&mlu=0&amv=0",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-10-slowcial-running-club-cm-meets-at": {
+   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/316823926/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-padel-saturday-mexicano-2026-10-10": {
+   "url": "https://app.playtomic.io/tenant/81c96967-fccb-4b98-9b1d-2ce7e8e1d129",
+   "rung": "event",
+   "kind": "event",
+   "status": "redirect-offsite",
+   "checked": "2026-10-10"
+  },
+  "event_316764411@meetup.com": {
+   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/316764411/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-lanna-rugby-club-training-2026-10-10": {
+   "url": "https://www.facebook.com/lannarugbyclub",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-10-alala-dance-fest-spirit-and-ritual": {
+   "url": "https://www.facebook.com/alala.dancefest/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "10001157": {
+   "url": "https://www.lllpayap.com/event/stretch-and-balance-gentle-exercises-for-better-mobility-and-balance-2/2026-10-10/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-10-the-superlative-artistry-of-japan-kogei-craft-exhibition-cl": {
+   "url": "https://www.facebook.com/TCDCChiangMai",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-eggspurt-club-quiet-co-working-social-2026-10-10": {
+   "url": "https://www.facebook.com/events/2040963749852701/2040963773186032/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-pipa-duck-dim-sum-lunch-2026-10-10": {
+   "url": "https://tinyurl.com/slcm-signature-dim-sum",
+   "rung": "event",
+   "kind": "event",
+   "status": "redirect-offsite",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-chiang-mai-drawing-and-sketching-club-2026-10-10": {
+   "url": "https://www.facebook.com/groups/1775851536060135/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-keo-park-beer-garden-2026-10-10": {
+   "url": "https://www.facebook.com/profile.php?id=61573681704280",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-weekend-curry-lunch-buffet-2026-10-10": {
+   "url": "https://www.eastinhotelsresidences.com/eastintanchiangmai/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-disc-golf-2026-10-10": {
+   "url": "https://www.facebook.com/groups/www.chiangmaidiscgolf.comsportsdiscgolf/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-10-chatgpt-meetup": {
+   "url": "https://luma.com/user/usr-t3w2x2w2CozYgHb",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-the-white-market-2026-10-10": {
+   "url": "https://www.onenimman.com/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-senior-saturdays-2026-10-10": {
+   "url": "https://www.facebook.com/events/2872631169763098/2872631173096431/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-10-opening-of-days-in-wonder-at-weave-artisan-society": {
+   "url": "https://www.facebook.com/events/2557274888127824",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-10-heartspace-at-4seas-nimman": {
+   "url": "https://www.meetup.com/heartspace-chiang-mai/events/316825086/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-dancemandala-movement-meditation-2026-10-10": {
+   "url": "https://www.facebook.com/cmholistic",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-deck-building-night-2026-10-10": {
+   "url": "https://www.facebook.com/GameTreeCafe",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-10-hometown-opening-of-chaknarin-inwongwarn-s-7th-solo-show": {
+   "url": "https://www.facebook.com/events/1688762969428675/1688762972762008/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-professionals-nomads-dinner-with-locals-2026-10-10": {
+   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315099499/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-10-saturday-social-dinner-at-spice-garden": {
+   "url": "https://www.meetup.com/beyond-small-talk-chiang-mai/events/316634561/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-seafood-buffet-dinner-2026-10-10": {
+   "url": "https://lin.ee/7hb90qp",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "event_316634561@meetup.com": {
+   "url": "https://www.meetup.com/beyond-small-talk-chiang-mai/events/316634561/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-clock-tower-show-2026-10-10": {
+   "url": "https://www.chiangraitimes.com/chiang-rai-guide/chiang-rai-clock-tower-light-show/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-swing-2026-10-10": {
+   "url": "https://www.facebook.com/onenimman/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "cr-w-night-bazaar-2026-10-11": {
+   "url": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/566-Chiang-Rai-Night-Bazaar.html",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-sun-walking-street-2026-10-11": {
+   "url": "https://www.chiangraitimes.com/chiang-rai-guide/night-market-chiang-rai-which-evening-is-best-to-visit/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-sunday-music-by-the-river-2026-10-11": {
+   "url": "http://www.theriversidechiangmai.com/",
+   "rung": "event",
+   "kind": "event",
+   "status": "redirect-offsite",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-jing-jai-weekend-market-2026-10-11": {
+   "url": "https://www.facebook.com/jjmarketchiangmai",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-hatha-ashtanga-yoga-2026-10-11": {
+   "url": "https://linktr.ee/thedencnx",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "event_316837600@meetup.com": {
+   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/316837600/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-pipa-duck-dim-sum-lunch-2026-10-11": {
+   "url": "https://tinyurl.com/slcm-signature-dim-sum",
+   "rung": "event",
+   "kind": "event",
+   "status": "redirect-offsite",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-addiction-recovery-support-for-digital-nomads-2026-10-11": {
+   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/314943946/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-weekend-curry-lunch-buffet-2026-10-11": {
+   "url": "https://www.eastinhotelsresidences.com/eastintanchiangmai/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-11-buy-nothing-free-swap": {
+   "url": "https://www.facebook.com/events/1255372053339282/1255372066672614/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-ecstatic-dance-2026-10-11": {
+   "url": "https://www.facebook.com/share/p/1J5a2fY8uh/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-all-day-gaming-2026-10-11": {
+   "url": "https://www.facebook.com/GameTreeCafe",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-padel-sunday-social-americano-2026-10-11": {
+   "url": "https://app.playtomic.io/tenant/81c96967-fccb-4b98-9b1d-2ce7e8e1d129",
+   "rung": "event",
+   "kind": "event",
+   "status": "redirect-offsite",
+   "checked": "2026-10-10"
+  },
+  "event_316763814@meetup.com": {
+   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/316763814/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-the-white-market-2026-10-11": {
+   "url": "https://www.onenimman.com/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-11-vocal-river-exploration-at-the-goodcery": {
+   "url": "https://forms.gle/tQWPcDoszmprid2r7",
+   "rung": "event",
+   "kind": "event",
+   "status": "walled",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-sunday-walk-around-chiang-mai-university-meet-at-cmu-entrance-2": {
+   "url": "https://www.meetup.com/beyond-small-talk-chiang-mai/events/316646763/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "event_316523844@meetup.com": {
+   "url": "https://www.meetup.com/beyond-small-talk-chiang-mai/events/316523844/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-seafood-buffet-dinner-2026-10-11": {
+   "url": "https://lin.ee/7hb90qp",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-sunday-roast-buffet-2026-10-11": {
+   "url": "https://www.gekkogardenrestaurant.com/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "event_316648647@meetup.com": {
+   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/316648647/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-clock-tower-show-2026-10-11": {
+   "url": "https://www.chiangraitimes.com/chiang-rai-guide/chiang-rai-clock-tower-light-show/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-crystal-singing-bowls-sound-bath-2026-10-11": {
+   "url": "https://www.facebook.com/cmholistic/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-salsa-2026-10-11": {
+   "url": "https://www.facebook.com/onenimman/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "event_316592189@meetup.com": {
+   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/316592189/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-night-bazaar-2026-10-12": {
+   "url": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/566-Chiang-Rai-Night-Bazaar.html",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-monday-yoga-reset-2026-10-12": {
+   "url": "https://www.maawellnessretreat.com",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-12-yunnan-cup-basketball-tournament": {
+   "url": "https://www.chiangmaicitylife.com/citynow/social-life/live-events/yunnan-cup-chiang-mai-2026-press-conference/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-monday-yoga-at-cfcnx-2026-10-12": {
+   "url": "https://www.facebook.com/cfcnxfitness",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-monday-free-yoga-at-one-nimman-2026-10-12": {
+   "url": "https://www.facebook.com/onenimman",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-monday-padel-monday-mexicano-2026-10-12": {
+   "url": "https://app.playtomic.io/tenant/81c96967-fccb-4b98-9b1d-2ce7e8e1d129",
+   "rung": "event",
+   "kind": "event",
+   "status": "redirect-offsite",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-12-lanna-expo-2026": {
+   "url": "https://www.chiangmaiconvention.com/en/lanna-expo-2026/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-monday-shut-up-write-chiang-mai-at-artisan-caf-2026-10-12": {
+   "url": "https://www.shutupwrite.com/series/id2wv2875w00",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-monday-chiang-mai-bridge-club-2026-10-12": {
+   "url": "http://www.bridgewebs.com/chiangmai/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "10001047": {
+   "url": "https://www.lllpayap.com/event/thai-language-for-beginners/2026-10-12/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-clock-tower-show-2026-10-12": {
+   "url": "https://www.chiangraitimes.com/chiang-rai-guide/chiang-rai-clock-tower-light-show/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-monday-latin-nature-social-dance-2026-10-12": {
+   "url": "https://chat.whatsapp.com/HSRcoxlA4ekGOv4KXEi4wR",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-night-bazaar-2026-10-13": {
+   "url": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/566-Chiang-Rai-Night-Bazaar.html",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-tuesday-sound-healing-2026-10-13": {
+   "url": "https://www.maawellnessretreat.com",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-tuesday-yoga-at-cfcnx-2026-10-13": {
+   "url": "https://www.facebook.com/cfcnxfitness",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-tuesday-hiit-circuit-social-chat-2026-10-13": {
+   "url": "https://chat.whatsapp.com/JI1gSHHPcc56jLZoifni18",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-tuesday-chiang-mai-geeks-2026-10-13": {
+   "url": "https://bit.ly/3zE1VSD",
+   "rung": "event",
+   "kind": "event",
+   "status": "redirect-offsite",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-tuesday-writers-together-2026-10-13": {
+   "url": "https://www.facebook.com/groups/560946855677052",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-tuesday-dune-day-2026-10-13": {
+   "url": "https://www.facebook.com/GameTreeCafe",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-tuesday-zuzalu-longevity-social-2026-10-13": {
+   "url": "https://www.facebook.com/events/1375039671185313/1375048144517799",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-tuesday-aquatic-workout-english-2026-10-13": {
+   "url": "https://docs.google.com/forms/d/e/1FAIpQLSfwayqPN8H1MC4ysU8L81iK1HfpC6OjF9T4UJ-S0QRzwtVEdw/viewform?",
+   "rung": "event",
+   "kind": "event",
+   "status": "walled",
+   "checked": "2026-10-10"
+  },
+  "event_316677119@meetup.com": {
+   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/316677119/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-tuesday-improv-comedy-workshop-2026-10-13": {
+   "url": "https://www.facebook.com/kindredstudio.art",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "cr-w-clock-tower-show-2026-10-13": {
+   "url": "https://www.chiangraitimes.com/chiang-rai-guide/chiang-rai-clock-tower-light-show/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-tuesday-language-exchange-2026-10-13": {
+   "url": "https://www.facebook.com/groups/349933706518867/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-tuesday-mixed-sound-bath-2026-10-13": {
+   "url": "http://www.chiangmaiholistic.com",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-tuesday-quiz-night-2026-10-13": {
+   "url": "https://www.facebook.com/archerschiangmai",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "cr-w-night-bazaar-2026-10-14": {
+   "url": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/566-Chiang-Rai-Night-Bazaar.html",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-wednesday-herbal-steam-2026-10-14": {
+   "url": "https://www.maawellnessretreat.com",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-wednesday-yoga-at-cfcnx-2026-10-14": {
+   "url": "https://www.facebook.com/cfcnxfitness",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-wednesday-hatha-ashtanga-yoga-2026-10-14": {
+   "url": "https://linktr.ee/thedencnx",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-wednesday-padel-wednesday-americano-2026-10-14": {
+   "url": "https://app.playtomic.io/tenant/81c96967-fccb-4b98-9b1d-2ce7e8e1d129",
+   "rung": "event",
+   "kind": "event",
+   "status": "redirect-offsite",
+   "checked": "2026-10-10"
+  },
+  "273039": {
+   "url": "https://www.lllpayap.com/event/amulets-tattoos-and-other-sacred-objects-in-thai-buddhism-2/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-wednesday-morning-yoga-2026-10-14": {
+   "url": "https://rebrand.ly/3f2320",
+   "rung": "event",
+   "kind": "event",
+   "status": "walled",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-wednesday-cnx-weekly-women-s-lunch-2026-10-14": {
+   "url": "https://fb.me/e/2wzLRzfwa?mibextid=RQdjqZ",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-wednesday-chiang-mai-bridge-club-2026-10-14": {
+   "url": "http://www.bridgewebs.com/chiangmai/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "event_316691663@meetup.com": {
+   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/316691663/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-wednesday-catan-night-2026-10-14": {
+   "url": "https://www.facebook.com/GameTreeCafe",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "event_316692420@meetup.com": {
+   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/316692420/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-14-movie-soundtrack-concert-moonlight-string-ensemble": {
+   "url": "https://www.facebook.com/profile.php?id=100064782906703",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-wednesday-breaking-practice-b-boy-b-girl-2026-10-14": {
+   "url": "https://www.facebook.com/events/1970656306851334/1970656426851322/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-wednesday-free-yoga-at-one-nimman-2026-10-14": {
+   "url": "https://www.facebook.com/onenimman/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "cr-w-clock-tower-show-2026-10-14": {
+   "url": "https://www.chiangraitimes.com/chiang-rai-guide/chiang-rai-clock-tower-light-show/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-wednesday-farangutans-fc-football-2026-10-14": {
+   "url": "https://www.facebook.com/groups/203913962982666/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-wednesday-music-night-2026-10-14": {
+   "url": "https://www.facebook.com/yummypizzachiangmai/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-wednesday-cobras-touch-rugby-2026-10-14": {
+   "url": "https://www.facebook.com/cobrasrugby",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-wednesday-trivia-night-2026-10-14": {
+   "url": "https://www.facebook.com/theglobechiangmai",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-wednesday-trivia-quiz-2026-10-14": {
+   "url": "https://www.facebook.com/p/GooMans-cnx-61573583033500/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "cr-w-night-bazaar-2026-10-15": {
+   "url": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/566-Chiang-Rai-Night-Bazaar.html",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-thursday-ice-bath-2026-10-15": {
+   "url": "https://www.maawellnessretreat.com",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "chiangraifocus-wp-46097": {
+   "url": "https://www.chiangraifocus.com/46097/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-thursday-yoga-at-cfcnx-2026-10-15": {
+   "url": "https://www.facebook.com/cfcnxfitness",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-thursday-the-white-market-2026-10-15": {
+   "url": "https://www.onenimman.com/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-thursday-strategy-night-2026-10-15": {
+   "url": "https://www.facebook.com/GameTreeCafe",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-thursday-padel-king-of-the-club-2026-10-15": {
+   "url": "https://app.playtomic.io/tenant/81c96967-fccb-4b98-9b1d-2ce7e8e1d129",
+   "rung": "event",
+   "kind": "event",
+   "status": "redirect-offsite",
+   "checked": "2026-10-10"
+  },
+  "event_316720438@meetup.com": {
+   "url": "https://www.meetup.com/beyond-small-talk-chiang-mai/events/316720438/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-thursday-seafood-buffet-dinner-2026-10-15": {
+   "url": "https://lin.ee/7hb90qp",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "event_316707618@meetup.com": {
+   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/316707618/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-thursday-chiang-mai-cigar-whiskey-club-2026-10-15": {
+   "url": "https://www.facebook.com/groups/cigarandwhiskey",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "cr-w-clock-tower-show-2026-10-15": {
+   "url": "https://www.chiangraitimes.com/chiang-rai-guide/chiang-rai-clock-tower-light-show/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-thursday-chiang-mai-highlanders-ball-hockey-2026-10-15": {
+   "url": "https://www.facebook.com/groups/chiangmaihighlanders",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-thursday-tibetan-singing-bowls-sound-bath-2026-10-15": {
+   "url": "https://www.facebook.com/cmholistic/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-thursday-open-decks-2026-10-15": {
+   "url": "https://www.facebook.com/events/1295796312414695/1295796325748027/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-thursday-open-mic-comedy-night-2026-10-15": {
+   "url": "https://www.facebook.com/MoatHouseCM",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-thursday-pub-quiz-2026-10-15": {
+   "url": "https://www.facebook.com/unirishpub/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-thursday-tango-2026-10-15": {
+   "url": "https://www.facebook.com/onenimman/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "cr-w-night-bazaar-2026-10-16": {
+   "url": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/566-Chiang-Rai-Night-Bazaar.html",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-friday-onsen-bath-2026-10-16": {
+   "url": "https://www.maawellnessretreat.com/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-friday-yoga-at-cfcnx-2026-10-16": {
+   "url": "https://www.facebook.com/cfcnxfitness",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-friday-padel-friday-early-mexicano-2026-10-16": {
+   "url": "https://app.playtomic.io/tenant/81c96967-fccb-4b98-9b1d-2ce7e8e1d129",
+   "rung": "event",
+   "kind": "event",
+   "status": "redirect-offsite",
+   "checked": "2026-10-10"
+  },
+  "10001145": {
+   "url": "https://www.lllpayap.com/event/thai-language-for-beginners/2026-10-16/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-friday-hiit-circuit-social-chat-2026-10-16": {
+   "url": "https://chat.whatsapp.com/JI1gSHHPcc56jLZoifni18",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-friday-keo-park-beer-garden-2026-10-16": {
+   "url": "https://www.facebook.com/profile.php?id=61573681704280",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "10000998": {
+   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-10-16/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-friday-chiang-mai-bridge-club-2026-10-16": {
+   "url": "http://www.bridgewebs.com/chiangmai/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-friday-the-white-market-2026-10-16": {
+   "url": "https://www.onenimman.com/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-16-the-freedom-250-american-fair": {
+   "url": "https://th.usembassy.gov/freedom-250/",
+   "rung": "event",
+   "kind": "event",
+   "status": "walled",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-16-cacao-ceremony-at-lanna-expo": {
+   "url": "https://www.chiangmaiconvention.com/en/lanna-expo-2026/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-friday-carvery-night-buffet-2026-10-16": {
+   "url": "https://lin.ee/bm1Fmn9",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-friday-new-gamers-night-2026-10-16": {
+   "url": "https://www.facebook.com/GameTreeCafe",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-friday-seafood-buffet-dinner-2026-10-16": {
+   "url": "https://lin.ee/7hb90qp",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-friday-temple-game-night-2026-10-16": {
+   "url": "https://www.buddhadailywisdom.com/courses-retreats-in-chiang-mai-thai",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-clock-tower-show-2026-10-16": {
+   "url": "https://www.chiangraitimes.com/chiang-rai-guide/chiang-rai-clock-tower-light-show/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-friday-friday-night-special-k-at-tiki-torch-2026-10-16": {
+   "url": "https://www.facebook.com/tikitorchcnx",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-friday-coco-bongo-latin-night-2026-10-16": {
+   "url": "https://www.facebook.com/events/928517180202262/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "cr-w-night-bazaar-2026-10-17": {
+   "url": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/566-Chiang-Rai-Night-Bazaar.html",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-sat-walking-street-2026-10-17": {
+   "url": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/567-Kad-Chiang-Hai-Ram-Luk-(Walking-Street).html",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-jing-jai-weekend-market-2026-10-17": {
+   "url": "https://www.facebook.com/jjmarketchiangmai",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-morning-aerobics-2026-10-17": {
+   "url": "https://www.facebook.com/hashtag/mahamitraerobic",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-slowcial-running-club-cm-2026-10-17": {
+   "url": "https://chat.whatsapp.com/J8geG0xQXpKEvnr8JgIvyB?s=cl&p=a&mlu=0&amv=0",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-padel-saturday-mexicano-2026-10-17": {
+   "url": "https://app.playtomic.io/tenant/81c96967-fccb-4b98-9b1d-2ce7e8e1d129",
+   "rung": "event",
+   "kind": "event",
+   "status": "redirect-offsite",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-lanna-rugby-club-training-2026-10-17": {
+   "url": "https://www.facebook.com/lannarugbyclub",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "10001158": {
+   "url": "https://www.lllpayap.com/event/stretch-and-balance-gentle-exercises-for-better-mobility-and-balance-2/2026-10-17/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-eggspurt-club-quiet-co-working-social-2026-10-17": {
+   "url": "https://www.facebook.com/events/2040963749852701/2040963773186032/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-pipa-duck-dim-sum-lunch-2026-10-17": {
+   "url": "https://tinyurl.com/slcm-signature-dim-sum",
+   "rung": "event",
+   "kind": "event",
+   "status": "redirect-offsite",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-17-mils-music-recital-10-at-lanna-expo": {
+   "url": "https://www.facebook.com/milschiangmai",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-chiang-mai-drawing-and-sketching-club-2026-10-17": {
+   "url": "https://www.facebook.com/groups/1775851536060135/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-keo-park-beer-garden-2026-10-17": {
+   "url": "https://www.facebook.com/profile.php?id=61573681704280",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-17-the-freedom-250-american-fair": {
+   "url": "https://th.usembassy.gov/freedom-250/",
+   "rung": "event",
+   "kind": "event",
+   "status": "walled",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-weekend-curry-lunch-buffet-2026-10-17": {
+   "url": "https://www.eastinhotelsresidences.com/eastintanchiangmai/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-disc-golf-2026-10-17": {
+   "url": "https://www.facebook.com/groups/www.chiangmaidiscgolf.comsportsdiscgolf/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-the-white-market-2026-10-17": {
+   "url": "https://www.onenimman.com/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-senior-saturdays-2026-10-17": {
+   "url": "https://www.facebook.com/events/2872631169763098/2872631173096431/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-dancemandala-movement-meditation-2026-10-17": {
+   "url": "https://www.facebook.com/cmholistic",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-deck-building-night-2026-10-17": {
+   "url": "https://www.facebook.com/GameTreeCafe",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-professionals-nomads-dinner-with-locals-2026-10-17": {
+   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/315099499/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-seafood-buffet-dinner-2026-10-17": {
+   "url": "https://lin.ee/7hb90qp",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "cr-w-clock-tower-show-2026-10-17": {
+   "url": "https://www.chiangraitimes.com/chiang-rai-guide/chiang-rai-clock-tower-light-show/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-swing-2026-10-17": {
+   "url": "https://www.facebook.com/onenimman/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "cr-w-night-bazaar-2026-10-18": {
+   "url": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/566-Chiang-Rai-Night-Bazaar.html",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-sun-walking-street-2026-10-18": {
+   "url": "https://www.chiangraitimes.com/chiang-rai-guide/night-market-chiang-rai-which-evening-is-best-to-visit/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-sunday-music-by-the-river-2026-10-18": {
+   "url": "http://www.theriversidechiangmai.com/",
+   "rung": "event",
+   "kind": "event",
+   "status": "redirect-offsite",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-jing-jai-weekend-market-2026-10-18": {
+   "url": "https://www.facebook.com/jjmarketchiangmai",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-hatha-ashtanga-yoga-2026-10-18": {
+   "url": "https://linktr.ee/thedencnx",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-pipa-duck-dim-sum-lunch-2026-10-18": {
+   "url": "https://tinyurl.com/slcm-signature-dim-sum",
+   "rung": "event",
+   "kind": "event",
+   "status": "redirect-offsite",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-addiction-recovery-support-for-digital-nomads-2026-10-18": {
+   "url": "https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/events/314943946/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-18-the-freedom-250-american-fair": {
+   "url": "https://th.usembassy.gov/freedom-250/",
+   "rung": "event",
+   "kind": "event",
+   "status": "walled",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-weekend-curry-lunch-buffet-2026-10-18": {
+   "url": "https://www.eastinhotelsresidences.com/eastintanchiangmai/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-ecstatic-dance-2026-10-18": {
+   "url": "https://www.facebook.com/share/p/1J5a2fY8uh/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-all-day-gaming-2026-10-18": {
+   "url": "https://www.facebook.com/GameTreeCafe",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-padel-sunday-social-americano-2026-10-18": {
+   "url": "https://app.playtomic.io/tenant/81c96967-fccb-4b98-9b1d-2ce7e8e1d129",
+   "rung": "event",
+   "kind": "event",
+   "status": "redirect-offsite",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-the-white-market-2026-10-18": {
+   "url": "https://www.onenimman.com/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-18-charity-evening-in-aid-of-philanthropy-connections-at-137-p": {
+   "url": "https://donorbox.org/events/960105/steps/choose_tickets",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "event_316646763@meetup.com": {
+   "url": "https://www.meetup.com/beyond-small-talk-chiang-mai/events/316646763/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-seafood-buffet-dinner-2026-10-18": {
+   "url": "https://lin.ee/7hb90qp",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-sunday-roast-buffet-2026-10-18": {
+   "url": "https://www.gekkogardenrestaurant.com/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-clock-tower-show-2026-10-18": {
+   "url": "https://www.chiangraitimes.com/chiang-rai-guide/chiang-rai-clock-tower-light-show/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-crystal-singing-bowls-sound-bath-2026-10-18": {
+   "url": "https://www.facebook.com/cmholistic/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-salsa-2026-10-18": {
+   "url": "https://www.facebook.com/onenimman/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "cr-w-night-bazaar-2026-10-19": {
+   "url": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/566-Chiang-Rai-Night-Bazaar.html",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "10001048": {
+   "url": "https://www.lllpayap.com/event/thai-language-for-beginners/2026-10-19/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-clock-tower-show-2026-10-19": {
+   "url": "https://www.chiangraitimes.com/chiang-rai-guide/chiang-rai-clock-tower-light-show/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-night-bazaar-2026-10-20": {
+   "url": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/566-Chiang-Rai-Night-Bazaar.html",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "10001041": {
+   "url": "https://www.lllpayap.com/event/beyond-the-smile-understanding-thai-values-and-relationships/2026-10-20/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "10001017": {
+   "url": "https://www.lllpayap.com/event/portraits-in-drawing-and-watercolor/2026-10-20/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-clock-tower-show-2026-10-20": {
+   "url": "https://www.chiangraitimes.com/chiang-rai-guide/chiang-rai-clock-tower-light-show/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-night-bazaar-2026-10-21": {
+   "url": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/566-Chiang-Rai-Night-Bazaar.html",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "273036": {
+   "url": "https://www.lllpayap.com/event/displacement-buddhism-and-sex-workers/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-clock-tower-show-2026-10-21": {
+   "url": "https://www.chiangraitimes.com/chiang-rai-guide/chiang-rai-clock-tower-light-show/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-night-bazaar-2026-10-22": {
+   "url": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/566-Chiang-Rai-Night-Bazaar.html",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "273470": {
+   "url": "https://www.lllpayap.com/event/tour-of-the-doctor-prince-mahidol-museum-under-royal-patronage/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-22-isaan-textiles-at-jing-jai-market": {
+   "url": "https://www.facebook.com/jjmarketchiangmai",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-22-speed-dating-part-ii-with-fran-at-spice-garden": {
+   "url": "https://www.meetup.com/beyond-small-talk-chiang-mai/events/316838198/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "event_316838198@meetup.com": {
+   "url": "https://www.meetup.com/beyond-small-talk-chiang-mai/events/316838198/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-clock-tower-show-2026-10-22": {
+   "url": "https://www.chiangraitimes.com/chiang-rai-guide/chiang-rai-clock-tower-light-show/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-23-cnx-young-musicians-festival-2026": {
+   "url": "https://www.facebook.com/cnxymf",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "cr-w-night-bazaar-2026-10-23": {
+   "url": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/566-Chiang-Rai-Night-Bazaar.html",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-23-grand-opening-and-oktoberfest": {
+   "url": "https://www.facebook.com/chitholechiangmai",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-23-isaan-textiles-at-jing-jai-market": {
+   "url": "https://www.facebook.com/jjmarketchiangmai",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "10001146": {
+   "url": "https://www.lllpayap.com/event/thai-language-for-beginners/2026-10-23/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "10000999": {
+   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-10-23/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-clock-tower-show-2026-10-23": {
+   "url": "https://www.chiangraitimes.com/chiang-rai-guide/chiang-rai-clock-tower-light-show/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-23-irish-film-festival-2026-free-screenings": {
+   "url": "https://bit.ly/4jaqZbk",
+   "rung": "event",
+   "kind": "event",
+   "status": "walled",
+   "checked": "2026-10-10"
+  },
+  "cr-w-sat-walking-street-2026-10-24": {
+   "url": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/567-Kad-Chiang-Hai-Ram-Luk-(Walking-Street).html",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-24-isaan-textiles-at-jing-jai-market": {
+   "url": "https://www.facebook.com/jjmarketchiangmai",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-24-the-ritual-festival-2026-fire-shadows": {
+   "url": "https://www.facebook.com/events/1545075017342903",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-24-cozy-october-golden-land-at-the-loft-caf": {
+   "url": "https://www.facebook.com/events/1584115180396118/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-24-thunder-scales-exhibition-opening-and-artists-talk": {
+   "url": "https://www.facebook.com/Studio88ArtistResidency",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-24-community-kickball-tournament-at-chiang-mai-university": {
+   "url": "https://forms.gle/LcboNvar5fnNY74z5",
+   "rung": "event",
+   "kind": "event",
+   "status": "walled",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-24-irish-film-festival-2026-free-screenings": {
+   "url": "https://bit.ly/4jaqZbk",
+   "rung": "event",
+   "kind": "event",
+   "status": "walled",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-24-saturday-social-dinner-at-spice-garden": {
+   "url": "https://www.meetup.com/th-th/beyond-small-talk-chiang-mai/events/zrmkbvyjcnbgc/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "event_316646764@meetup.com": {
+   "url": "https://www.meetup.com/beyond-small-talk-chiang-mai/events/316646764/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-24-the-concerto-concert-chiang-mai-serenade-string-orchestra": {
+   "url": "https://www.facebook.com/cnxsso",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-25-halloween-haunted-zoo-costume-contest-31-oct-18-30": {
+   "url": "https://www.facebook.com/onenimman",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "cr-w-sun-walking-street-2026-10-25": {
+   "url": "https://www.chiangraitimes.com/chiang-rai-guide/night-market-chiang-rai-which-evening-is-best-to-visit/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-25-isaan-textiles-at-jing-jai-market": {
+   "url": "https://www.facebook.com/jjmarketchiangmai",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-25-irish-film-festival-2026-free-screenings": {
+   "url": "https://bit.ly/4jaqZbk",
+   "rung": "event",
+   "kind": "event",
+   "status": "walled",
+   "checked": "2026-10-10"
+  },
+  "event_316646765@meetup.com": {
+   "url": "https://www.meetup.com/beyond-small-talk-chiang-mai/events/316646765/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "10001049": {
+   "url": "https://www.lllpayap.com/event/thai-language-for-beginners/2026-10-26/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "10001042": {
+   "url": "https://www.lllpayap.com/event/beyond-the-smile-understanding-thai-values-and-relationships/2026-10-27/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "10001018": {
+   "url": "https://www.lllpayap.com/event/portraits-in-drawing-and-watercolor/2026-10-27/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "273520": {
+   "url": "https://www.lllpayap.com/event/the-asis-countdown-to-a-goodnights-sleep/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "event_316879388@meetup.com": {
+   "url": "https://www.meetup.com/questionsthatmatter/events/316879388/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "273257": {
+   "url": "https://www.lllpayap.com/event/the-ho-chi-minh-trail-then-and-today/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "10001147": {
+   "url": "https://www.lllpayap.com/event/thai-language-for-beginners/2026-10-30/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "10001000": {
+   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-10-30/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-30-annual-halloween-pumpkin-carving-party-at-mitt-studio": {
+   "url": "https://www.facebook.com/events/28320644350880068/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "cr-w-sat-walking-street-2026-10-31": {
+   "url": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/567-Kad-Chiang-Hai-Ram-Luk-(Walking-Street).html",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-31-sbs-chiangmai-spooky-playdate": {
+   "url": "https://form.jotform.com/262591510157051",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-31-annual-halloween-pumpkin-carving-party-at-mitt-studio": {
+   "url": "https://www.facebook.com/events/28320644350880068/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-31-halloween-dinner-with-fran-at-spice-garden": {
+   "url": "https://www.meetup.com/th-th/beyond-small-talk-chiang-mai/events/316850967/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-31-the-crimson-court-vampire-gala-at-hong-s-sky-bar": {
+   "url": "https://chiangmai.intercontinental.com/en/offers/crimson-court-vampire-gala",
+   "rung": "event",
+   "kind": "event",
+   "status": "walled",
+   "checked": "2026-10-10"
+  },
+  "event_316850967@meetup.com": {
+   "url": "https://www.meetup.com/beyond-small-talk-chiang-mai/events/316850967/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-01-d-a-de-muertos-collective-altar-and-music": {
+   "url": "https://www.facebook.com/events/1161730175396308/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "cr-w-sun-walking-street-2026-11-01": {
+   "url": "https://www.chiangraitimes.com/chiang-rai-guide/night-market-chiang-rai-which-evening-is-best-to-visit/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-01-scenic-marathon": {
+   "url": "https://www.facebook.com/scenicchiangmai",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "event_316646766@meetup.com": {
+   "url": "https://www.meetup.com/beyond-small-talk-chiang-mai/events/316646766/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "273448": {
+   "url": "https://www.lllpayap.com/event/three-day-excursion-to-phrae-history-heritage-houses-and-handicrafts/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "10001050": {
+   "url": "https://www.lllpayap.com/event/thai-language-for-beginners/2026-11-02/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-03-cross-border-summit-2026": {
+   "url": "https://crossbordersummit.com/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "10001019": {
+   "url": "https://www.lllpayap.com/event/portraits-in-drawing-and-watercolor/2026-11-03/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "273601": {
+   "url": "https://www.lllpayap.com/event/chiang-mai-photographers-green-pictures/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "10001148": {
+   "url": "https://www.lllpayap.com/event/thai-language-for-beginners/2026-11-06/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "10001001": {
+   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-11-06/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-sat-walking-street-2026-11-07": {
+   "url": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/567-Kad-Chiang-Hai-Ram-Luk-(Walking-Street).html",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "event_whrnbvyjcpbkb@meetup.com": {
+   "url": "https://www.meetup.com/beyond-small-talk-chiang-mai/events/whrnbvyjcpbkb/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-sun-walking-street-2026-11-08": {
+   "url": "https://www.chiangraitimes.com/chiang-rai-guide/night-market-chiang-rai-which-evening-is-best-to-visit/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-08-cmu-chiang-mai-marathon": {
+   "url": "https://www.facebook.com/events/989915577197918/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-08-pea-mini-marathon-empower-run": {
+   "url": "https://www.facebook.com/events/940328179017941/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-08-kiz-in-the-park-vol-4-at-huay-kaew-arboretum": {
+   "url": "https://form.jotform.com/230627249837060",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "273297": {
+   "url": "https://www.lllpayap.com/event/mindful-sashiko-hand-stitching/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "10001051": {
+   "url": "https://www.lllpayap.com/event/thai-language-for-beginners/2026-11-09/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "273276": {
+   "url": "https://www.lllpayap.com/event/view-the-stars-with-experts-from-narit-astronomy-park-4/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "10001020": {
+   "url": "https://www.lllpayap.com/event/portraits-in-drawing-and-watercolor/2026-11-10/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "273509": {
+   "url": "https://www.lllpayap.com/event/women-as-social-change-agents-buddhist-women-leaders-seeking-social-change/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "273347": {
+   "url": "https://www.lllpayap.com/event/mobile-phone-support-workshop-2-2-2-2-2/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "273283": {
+   "url": "https://www.lllpayap.com/event/our-life-on-an-endless-world-cruise/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "10001149": {
+   "url": "https://www.lllpayap.com/event/thai-language-for-beginners/2026-11-13/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "10001002": {
+   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-11-13/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-sat-walking-street-2026-11-14": {
+   "url": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/567-Kad-Chiang-Hai-Ram-Luk-(Walking-Street).html",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-14-tedxchiangmai-future-of-learning-at-faculty-of-economics-ch": {
+   "url": "https://www.eventpop.me/e/172510/tedxchiangmaifutureoflearning",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-sun-walking-street-2026-11-15": {
+   "url": "https://www.chiangraitimes.com/chiang-rai-guide/night-market-chiang-rai-which-evening-is-best-to-visit/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "273551": {
+   "url": "https://www.lllpayap.com/event/macassar-makassar-a-tale-of-two-cities/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "10001052": {
+   "url": "https://www.lllpayap.com/event/thai-language-for-beginners/2026-11-16/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "273292": {
+   "url": "https://www.lllpayap.com/event/the-complete-mobile-photographer-shoot-smarter-edit-better-share-faster-with-google-photos/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "10001150": {
+   "url": "https://www.lllpayap.com/event/thai-language-for-beginners/2026-11-20/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "10001003": {
+   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-11-20/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-sat-walking-street-2026-11-21": {
+   "url": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/567-Kad-Chiang-Hai-Ram-Luk-(Walking-Street).html",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-21-citylife-garden-fair": {
+   "url": "https://www.facebook.com/CitylifeChiangMai",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-22-run-for-freedom-bitcoin-half-marathon": {
+   "url": "https://jogandjoy.run/project/detail/168",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-sun-walking-street-2026-11-22": {
+   "url": "https://www.chiangraitimes.com/chiang-rai-guide/night-market-chiang-rai-which-evening-is-best-to-visit/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-22-chiang-mai-cross-country-run": {
+   "url": "https://race.thai.run/crosscountryrun2026",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "10001053": {
+   "url": "https://www.lllpayap.com/event/thai-language-for-beginners/2026-11-23/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-24-chiang-mai-cad-khomloy-sky-lantern-festival-at-the-cad-cult": {
+   "url": "https://yipengchiangmailanternfestival.com/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-24-chiang-mai-valley-of-light-at-doi-saket-voyage-of-light": {
+   "url": "https://visitchiangmai-online.globaltix.com/attraction/chiang-mai-voyage-of-light-121425",
+   "rung": "event",
+   "kind": "event",
+   "status": "walled",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-24-moonlight-sky-lantern-at-i-love-banthi": {
+   "url": "https://www.chiangmaiskylantern.com/product/moonlight-sky-lantern-2026/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-24-sky-of-wishes-san-pa-tong": {
+   "url": "https://skyofwishes.com/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-24-loy-krathong-buffet-at-m-venpick-suriwongse-hotel": {
+   "url": "https://megatix.com.au/events/MVPLoykrathong",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-24-loy-krathong-set-dinner-for-2-at-aruntara-riverside-boutiqu": {
+   "url": "https://www.facebook.com/AruntaraRiversideBoutiqueHotel/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-25-yi-peng-at-skugga-estate": {
+   "url": "https://www.facebook.com/share/14pjvPsCR2V/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-25-loy-krathong-buffet-at-m-venpick-suriwongse-hotel": {
+   "url": "https://megatix.com.au/events/MVPLoykrathong",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-25-loy-krathong-set-dinner-for-2-at-aruntara-riverside-boutiqu": {
+   "url": "https://www.facebook.com/AruntaraRiversideBoutiqueHotel/",
+   "rung": "event",
+   "kind": "event",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "273096": {
+   "url": "https://www.lllpayap.com/event/many-ways-of-knowing-a-biomimicry-journey/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "10001151": {
+   "url": "https://www.lllpayap.com/event/thai-language-for-beginners/2026-11-27/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "10001004": {
+   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-11-27/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-sat-walking-street-2026-11-28": {
+   "url": "https://www.lovethailand.org/travel/en/2-Chiang-Rai/567-Kad-Chiang-Hai-Ram-Luk-(Walking-Street).html",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-w-sun-walking-street-2026-11-29": {
+   "url": "https://www.chiangraitimes.com/chiang-rai-guide/night-market-chiang-rai-which-evening-is-best-to-visit/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "10001005": {
+   "url": "https://www.lllpayap.com/event/caring-and-sharing-group-13/2026-12-04/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-03-melodies-and-motifs-in-the-mountains-exhibition-closed-mond": {
+   "url": "https://motdang.net/sites/melodies-and-motifs/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-tat-2026-10-03-good-job-fair-2026": {
+   "url": "https://www.chiangraifocus.com/46019/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-tat-2026-10-26-loi-ruea-fai-huai-luek": {
+   "url": "https://www.chiangraifocus.com/46019/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-tat-2026-10-27-poi-ton-paek-wat-wiang-phan": {
+   "url": "https://www.chiangraifocus.com/46019/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-tat-2026-10-28-chiang-rai-fashion-to-the-world-4": {
+   "url": "https://www.chiangraifocus.com/46019/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "cr-thg-2026-11-24-chiang-rai-lantern-festival": {
+   "url": "https://www.thaiholidayguide.com/events/chiang-rai-lantern-festival/",
+   "rung": "event",
+   "kind": "event",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-10-chiang-mai-fencing-open": {
+   "url": "https://www.facebook.com/ChiangmaiFencing/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-chiang-mai-gay-men-s-group-cmgmg-2026-10-10": {
+   "url": "https://www.facebook.com/p/Chiang-Mai-Gay-Mens-Group-100071326691161/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-salsa-for-beginners-2026-10-10": {
+   "url": "https://www.instagram.com/bailamos_chiangmai/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-saturday-feast-buffet-dinner-2026-10-10": {
+   "url": "https://www.facebook.com/CentaraRiversideChiangMai",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-the-saturday-social-2026-10-10": {
+   "url": "https://www.facebook.com/realspacecm/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-latin-party-2026-10-10": {
+   "url": "https://www.facebook.com/TravelodgeNimman/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-10-chiang-mai-big-band-live-at-moment-s-notice-jazz-club-old-c": {
+   "url": "https://www.facebook.com/momentsnoticecnx/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-11-chiang-mai-fencing-open": {
+   "url": "https://www.facebook.com/ChiangmaiFencing/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-sunday-brunch-2026-10-11": {
+   "url": "https://www.facebook.com/SkuggaVineyard/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-sunday-family-brunch-2026-10-11": {
+   "url": "https://www.shangri-la.com/chiangmai/shangrila/dining/restaurants/kad-kafe/",
+   "rung": "series",
+   "kind": "host",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-sunday-brunch-buffet-2026-10-11": {
+   "url": "https://www.facebook.com/CentaraRiversideChiangMai",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-sunday-roast-2026-10-11": {
+   "url": "https://www.facebook.com/yummypizzachiangmai/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-mafia-social-deduction-game-2026-10-11": {
+   "url": "https://www.facebook.com/realspacecm/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-monday-bachata-ladies-styling-2026-10-12": {
+   "url": "https://www.instagram.com/bailamos_chiangmai/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-tuesday-christ-centered-meditation-2026-10-13": {
+   "url": "https://www.facebook.com/sevenfountains/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-tuesday-pottery-good-company-40-2026-10-13": {
+   "url": "https://www.facebook.com/mittstudio.cnx",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-13-lunch-buffet-at-gaj-kitchen-and-bar": {
+   "url": "https://www.gajkitchenchiangmai.com/",
+   "rung": "series",
+   "kind": "host",
+   "status": "walled",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-tuesday-bachata-solo-styling-footwork-2026-10-13": {
+   "url": "https://www.instagram.com/bailamos_chiangmai/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-14-lunch-buffet-at-gaj-kitchen-and-bar": {
+   "url": "https://www.gajkitchenchiangmai.com/",
+   "rung": "series",
+   "kind": "host",
+   "status": "walled",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-wednesday-sketching-club-2026-10-14": {
+   "url": "https://www.facebook.com/attikastudiocnx/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-wednesday-bachata-kizomba-for-beginners-2026-10-14": {
+   "url": "https://www.instagram.com/bailamos_chiangmai/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-thursday-pottery-good-company-40-2026-10-15": {
+   "url": "https://www.facebook.com/mittstudio.cnx",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-15-lunch-buffet-at-gaj-kitchen-and-bar": {
+   "url": "https://www.gajkitchenchiangmai.com/",
+   "rung": "series",
+   "kind": "host",
+   "status": "walled",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-thursday-sound-journey-2026-10-15": {
+   "url": "https://www.facebook.com/attikastudiocnx/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-thursday-lanna-rugby-club-practice-2026-10-15": {
+   "url": "https://www.facebook.com/lannarugbyclub",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-16-an-evening-in-france-wine-pairing-dinner": {
+   "url": "https://www.facebook.com/LeCoqdOr/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-friday-friday-social-language-night-2026-10-16": {
+   "url": "https://www.facebook.com/attikastudiocnx/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-16-french-movie-night-spectateurs": {
+   "url": "https://www.facebook.com/AllianceFrancaiseChiangMai/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-chiang-mai-gay-men-s-group-cmgmg-2026-10-17": {
+   "url": "https://www.facebook.com/p/Chiang-Mai-Gay-Mens-Group-100071326691161/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-salsa-for-beginners-2026-10-17": {
+   "url": "https://www.instagram.com/bailamos_chiangmai/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-saturday-feast-buffet-dinner-2026-10-17": {
+   "url": "https://www.facebook.com/CentaraRiversideChiangMai",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-the-saturday-social-2026-10-17": {
+   "url": "https://www.facebook.com/realspacecm/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-latin-party-2026-10-17": {
+   "url": "https://www.facebook.com/TravelodgeNimman/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-sunday-brunch-2026-10-18": {
+   "url": "https://www.facebook.com/SkuggaVineyard/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-sunday-family-brunch-2026-10-18": {
+   "url": "https://www.shangri-la.com/chiangmai/shangrila/dining/restaurants/kad-kafe/",
+   "rung": "series",
+   "kind": "host",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-18-sunday-jazz-brunch-at-oxygen-dining-room": {
+   "url": "https://www.facebook.com/Oxygendiningroom/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-sunday-brunch-buffet-2026-10-18": {
+   "url": "https://www.facebook.com/CentaraRiversideChiangMai",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-sunday-roast-2026-10-18": {
+   "url": "https://www.facebook.com/yummypizzachiangmai/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-sunday-mafia-social-deduction-game-2026-10-18": {
+   "url": "https://www.facebook.com/realspacecm/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-19-vintage-photography-exhibition-at-137-pillars-house": {
+   "url": "https://www.facebook.com/137pillarshouse/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-23-halloween-haunted-house": {
+   "url": "https://www.facebook.com/p/Think-Park-Shibuya-Chiang-Mai-100063628947039/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-24-hong-s-chinese-restaurant-for-spice-duo": {
+   "url": "https://chiangmai.intercontinental.com/en/offers/spice-duo-four-hands-dinner",
+   "rung": "series",
+   "kind": "event",
+   "status": "walled",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-24-137-pillars-trading-club-jazz-flavour": {
+   "url": "https://www.facebook.com/137pillarshouse/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-29-halloween-seafood-buffet": {
+   "url": "https://www.facebook.com/EatAtRincome/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-30-halloween-cover-dance-contest-age-22-and-under": {
+   "url": "https://www.facebook.com/p/Think-Park-Shibuya-Chiang-Mai-100063628947039/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-30-french-movie-night-making-of": {
+   "url": "https://www.facebook.com/AllianceFrancaiseChiangMai/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-31-halloween-cover-dance-challenge": {
+   "url": "https://www.facebook.com/CentralChiangmaiAirport/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-31-halloween-weekend-lunch-buffet": {
+   "url": "https://www.facebook.com/EastinTanHotelChiangMai/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-31-ucis-open-house-trunk-or-treat-this-special-event-is-a-wond": {
+   "url": "https://www.ucis.ac.th/",
+   "rung": "series",
+   "kind": "host",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-31-a-wicked-halloween-feast-at-gad-lanna": {
+   "url": "https://chiangmai.intercontinental.com/en/offers/halloween-dinner-buffet",
+   "rung": "series",
+   "kind": "event",
+   "status": "walled",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-31-halloween-buffet-dinner-at-centara-riverside-chiang-mai": {
+   "url": "https://www.facebook.com/CentaraRiversideChiangMai",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-12-boy-peacemaker-live": {
+   "url": "https://www.facebook.com/chefstogehter/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-24-loy-krathong-dinner-at-four-seasons": {
+   "url": "https://www.fourseasons.com/chiangmai/dining/restaurants/khao/",
+   "rung": "series",
+   "kind": "host",
+   "status": "walled",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-24-loy-krathong-experience-2026": {
+   "url": "https://www.facebook.com/Comedara/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-24-celebrate-loy-krathong-yeepeng-chiang-mai-at-chef-s-togethe": {
+   "url": "https://www.facebook.com/chefstogehter/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-25-loy-krathong-at-137-pillars-house": {
+   "url": "https://www.facebook.com/137pillarshouse/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-25-loy-krathong-at-oxygen-dining-room-cross-chiang-mai-riversi": {
+   "url": "https://www.facebook.com/Oxygendiningroom/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-25-celebrate-loy-krathong-yeepeng-chiang-mai-at-chef-s-togethe": {
+   "url": "https://www.facebook.com/chefstogehter/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-26-thanksgiving-at-137-pillars-house": {
+   "url": "https://www.facebook.com/137pillarshouse/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-26-thanksgiving-barbecue-dinner-at-four-seasons": {
+   "url": "https://www.fourseasons.com/chiangmai/dining/restaurants/north/",
+   "rung": "series",
+   "kind": "host",
+   "status": "walled",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-26-thanksgiving-set-dinner-at-chiang-mai-marriott-at-favola": {
+   "url": "https://www.facebook.com/FavolaChiangMai/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-29-the-137-pillars-trading-club-jazz-flavour": {
+   "url": "https://www.facebook.com/137pillarshouse/",
+   "rung": "series",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-10-voter-assistance-clinic-for-u-s-voters": {
+   "url": "https://www.tiktok.com/@meechok.plaza?_r=1&_t=ZS-967xMenqA9x",
+   "rung": "venue",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-men-s-circle-2026-10-10": {
+   "url": "https://www.sacredgroundscnx.com/classes-and-events",
+   "rung": "venue",
+   "kind": "host",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-10-trio-plus-a-flute-concert": {
+   "url": "https://www.prc.ac.th/",
+   "rung": "venue",
+   "kind": "host",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-monday-old-chiangmai-vintage-market-2026-10-12": {
+   "url": "http://www.oldchiangmai.com",
+   "rung": "venue",
+   "kind": "host",
+   "status": "walled",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-tuesday-expat-tuesday-dinner-2026-10-13": {
+   "url": "http://www.wineconnection.co.th/",
+   "rung": "venue",
+   "kind": "host",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-tuesday-game-night-chess-backgammon-2026-10-13": {
+   "url": "http://www.cnxcigars.com/",
+   "rung": "venue",
+   "kind": "host",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-wednesday-chess-meetup-at-yellow-coworking-nimman-soi-5-2026-10-14": {
+   "url": "https://www.yellowincubator.com/coworking",
+   "rung": "venue",
+   "kind": "host",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-wednesday-bingo-night-2026-10-14": {
+   "url": "https://thai1on-website.vercel.app/",
+   "rung": "venue",
+   "kind": "host",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-17-voter-assistance-clinic-for-u-s-voters": {
+   "url": "https://www.rimping.com/",
+   "rung": "venue",
+   "kind": "host",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-w-saturday-men-s-circle-2026-10-17": {
+   "url": "https://www.sacredgroundscnx.com/classes-and-events",
+   "rung": "venue",
+   "kind": "host",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-22-dee-band-live-at-paapu-house": {
+   "url": "https://opl.to/paapuhouse",
+   "rung": "venue",
+   "kind": "host",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-23-champagne-night-at-the-four-seasons": {
+   "url": "https://www.fourseasons.com/chiangmai/",
+   "rung": "venue",
+   "kind": "host",
+   "status": "walled",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-23-the-1921-society": {
+   "url": "https://www.service1921.com/",
+   "rung": "venue",
+   "kind": "host",
+   "status": "ok",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-10-24-voter-assistance-clinic-for-u-s-voters": {
+   "url": "https://www.tiktok.com/@meechok.plaza?_r=1&_t=ZS-967xMenqA9x",
+   "rung": "venue",
+   "kind": "host",
+   "status": "social",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-01-chiang-mai-birders": {
+   "url": "https://renegadecraftbeer.com/",
+   "rung": "venue",
+   "kind": "host",
+   "status": "walled",
+   "checked": "2026-10-10"
+  },
+  "newsletter-d-2026-11-06-chiang-mai-women-s-retreat": {
+   "url": "https://www.suanbua.com/",
+   "rung": "venue",
+   "kind": "host",
+   "status": "ok",
+   "checked": "2026-10-10"
+  }
+ },
+ "judged": [
+  "10000998",
+  "10000999",
+  "10001000",
+  "10001001",
+  "10001002",
+  "10001003",
+  "10001004",
+  "10001005",
+  "10001017",
+  "10001018",
+  "10001019",
+  "10001020",
+  "10001041",
+  "10001042",
+  "10001047",
+  "10001048",
+  "10001049",
+  "10001050",
+  "10001051",
+  "10001052",
+  "10001053",
+  "10001145",
+  "10001146",
+  "10001147",
+  "10001148",
+  "10001149",
+  "10001150",
+  "10001151",
+  "10001157",
+  "10001158",
+  "273036",
+  "273039",
+  "273096",
+  "273257",
+  "273276",
+  "273283",
+  "273292",
+  "273297",
+  "273347",
+  "273448",
+  "273470",
+  "273509",
+  "273520",
+  "273551",
+  "273601",
+  "chiangraifocus-wp-46097",
+  "cr-tat-2026-10-03-good-job-fair-2026",
+  "cr-tat-2026-10-26-loi-ruea-fai-huai-luek",
+  "cr-tat-2026-10-27-poi-ton-paek-wat-wiang-phan",
+  "cr-tat-2026-10-28-chiang-rai-fashion-to-the-world-4",
+  "cr-thg-2026-11-24-chiang-rai-lantern-festival",
+  "cr-w-clock-tower-show-2026-10-10",
+  "cr-w-clock-tower-show-2026-10-11",
+  "cr-w-clock-tower-show-2026-10-12",
+  "cr-w-clock-tower-show-2026-10-13",
+  "cr-w-clock-tower-show-2026-10-14",
+  "cr-w-clock-tower-show-2026-10-15",
+  "cr-w-clock-tower-show-2026-10-16",
+  "cr-w-clock-tower-show-2026-10-17",
+  "cr-w-clock-tower-show-2026-10-18",
+  "cr-w-clock-tower-show-2026-10-19",
+  "cr-w-clock-tower-show-2026-10-20",
+  "cr-w-clock-tower-show-2026-10-21",
+  "cr-w-clock-tower-show-2026-10-22",
+  "cr-w-clock-tower-show-2026-10-23",
+  "cr-w-night-bazaar-2026-10-10",
+  "cr-w-night-bazaar-2026-10-11",
+  "cr-w-night-bazaar-2026-10-12",
+  "cr-w-night-bazaar-2026-10-13",
+  "cr-w-night-bazaar-2026-10-14",
+  "cr-w-night-bazaar-2026-10-15",
+  "cr-w-night-bazaar-2026-10-16",
+  "cr-w-night-bazaar-2026-10-17",
+  "cr-w-night-bazaar-2026-10-18",
+  "cr-w-night-bazaar-2026-10-19",
+  "cr-w-night-bazaar-2026-10-20",
+  "cr-w-night-bazaar-2026-10-21",
+  "cr-w-night-bazaar-2026-10-22",
+  "cr-w-night-bazaar-2026-10-23",
+  "cr-w-sat-walking-street-2026-10-10",
+  "cr-w-sat-walking-street-2026-10-17",
+  "cr-w-sat-walking-street-2026-10-24",
+  "cr-w-sat-walking-street-2026-10-31",
+  "cr-w-sat-walking-street-2026-11-07",
+  "cr-w-sat-walking-street-2026-11-14",
+  "cr-w-sat-walking-street-2026-11-21",
+  "cr-w-sat-walking-street-2026-11-28",
+  "cr-w-sun-walking-street-2026-10-11",
+  "cr-w-sun-walking-street-2026-10-18",
+  "cr-w-sun-walking-street-2026-10-25",
+  "cr-w-sun-walking-street-2026-11-01",
+  "cr-w-sun-walking-street-2026-11-08",
+  "cr-w-sun-walking-street-2026-11-15",
+  "cr-w-sun-walking-street-2026-11-22",
+  "cr-w-sun-walking-street-2026-11-29",
+  "event_316523844@meetup.com",
+  "event_316592189@meetup.com",
+  "event_316634561@meetup.com",
+  "event_316646763@meetup.com",
+  "event_316646764@meetup.com",
+  "event_316646765@meetup.com",
+  "event_316646766@meetup.com",
+  "event_316648647@meetup.com",
+  "event_316677119@meetup.com",
+  "event_316691663@meetup.com",
+  "event_316692420@meetup.com",
+  "event_316707618@meetup.com",
+  "event_316720438@meetup.com",
+  "event_316763814@meetup.com",
+  "event_316764411@meetup.com",
+  "event_316823926@meetup.com",
+  "event_316837600@meetup.com",
+  "event_316838198@meetup.com",
+  "event_316850967@meetup.com",
+  "event_316879388@meetup.com",
+  "event_whrnbvyjcpbkb@meetup.com",
+  "newsletter-d-2026-10-03-melodies-and-motifs-in-the-mountains-exhibition-closed-mond",
+  "newsletter-d-2026-10-10-alala-dance-fest-spirit-and-ritual",
+  "newsletter-d-2026-10-10-chatgpt-meetup",
+  "newsletter-d-2026-10-10-chiang-mai-big-band-live-at-moment-s-notice-jazz-club-old-c",
+  "newsletter-d-2026-10-10-chiang-mai-fencing-open",
+  "newsletter-d-2026-10-10-heartspace-at-4seas-nimman",
+  "newsletter-d-2026-10-10-hometown-opening-of-chaknarin-inwongwarn-s-7th-solo-show",
+  "newsletter-d-2026-10-10-opening-of-days-in-wonder-at-weave-artisan-society",
+  "newsletter-d-2026-10-10-saturday-social-dinner-at-spice-garden",
+  "newsletter-d-2026-10-10-slowcial-running-club-cm-meets-at",
+  "newsletter-d-2026-10-10-the-superlative-artistry-of-japan-kogei-craft-exhibition-cl",
+  "newsletter-d-2026-10-10-trio-plus-a-flute-concert",
+  "newsletter-d-2026-10-10-voter-assistance-clinic-for-u-s-voters",
+  "newsletter-d-2026-10-11-buy-nothing-free-swap",
+  "newsletter-d-2026-10-11-chiang-mai-fencing-open",
+  "newsletter-d-2026-10-11-moonlight-music-camp-string-players",
+  "newsletter-d-2026-10-11-vocal-river-exploration-at-the-goodcery",
+  "newsletter-d-2026-10-12-lanna-expo-2026",
+  "newsletter-d-2026-10-12-yunnan-cup-basketball-tournament",
+  "newsletter-d-2026-10-13-lunch-buffet-at-gaj-kitchen-and-bar",
+  "newsletter-d-2026-10-14-lunch-buffet-at-gaj-kitchen-and-bar",
+  "newsletter-d-2026-10-14-movie-soundtrack-concert-moonlight-string-ensemble",
+  "newsletter-d-2026-10-15-lunch-buffet-at-gaj-kitchen-and-bar",
+  "newsletter-d-2026-10-16-an-evening-in-france-wine-pairing-dinner",
+  "newsletter-d-2026-10-16-cacao-ceremony-at-lanna-expo",
+  "newsletter-d-2026-10-16-french-movie-night-spectateurs",
+  "newsletter-d-2026-10-16-the-freedom-250-american-fair",
+  "newsletter-d-2026-10-17-italasia-chiang-mai-warehouse-sale",
+  "newsletter-d-2026-10-17-mils-music-recital-10-at-lanna-expo",
+  "newsletter-d-2026-10-17-the-freedom-250-american-fair",
+  "newsletter-d-2026-10-17-voter-assistance-clinic-for-u-s-voters",
+  "newsletter-d-2026-10-18-charity-evening-in-aid-of-philanthropy-connections-at-137-p",
+  "newsletter-d-2026-10-18-italasia-chiang-mai-warehouse-sale",
+  "newsletter-d-2026-10-18-sunday-jazz-brunch-at-oxygen-dining-room",
+  "newsletter-d-2026-10-18-the-freedom-250-american-fair",
+  "newsletter-d-2026-10-19-vintage-photography-exhibition-at-137-pillars-house",
+  "newsletter-d-2026-10-22-chiang-mai-birders-huai-tueng-tao",
+  "newsletter-d-2026-10-22-dee-band-live-at-paapu-house",
+  "newsletter-d-2026-10-22-isaan-textiles-at-jing-jai-market",
+  "newsletter-d-2026-10-22-oktoberfest",
+  "newsletter-d-2026-10-22-speed-dating-part-ii-with-fran-at-spice-garden",
+  "newsletter-d-2026-10-23-champagne-night-at-the-four-seasons",
+  "newsletter-d-2026-10-23-cnx-young-musicians-festival-2026",
+  "newsletter-d-2026-10-23-grand-opening-and-oktoberfest",
+  "newsletter-d-2026-10-23-halloween-haunted-house",
+  "newsletter-d-2026-10-23-irish-film-festival-2026-free-screenings",
+  "newsletter-d-2026-10-23-isaan-textiles-at-jing-jai-market",
+  "newsletter-d-2026-10-23-the-1921-society",
+  "newsletter-d-2026-10-24-137-pillars-trading-club-jazz-flavour",
+  "newsletter-d-2026-10-24-community-kickball-tournament-at-chiang-mai-university",
+  "newsletter-d-2026-10-24-cozy-october-golden-land-at-the-loft-caf",
+  "newsletter-d-2026-10-24-hong-s-chinese-restaurant-for-spice-duo",
+  "newsletter-d-2026-10-24-irish-film-festival-2026-free-screenings",
+  "newsletter-d-2026-10-24-isaan-textiles-at-jing-jai-market",
+  "newsletter-d-2026-10-24-saturday-social-dinner-at-spice-garden",
+  "newsletter-d-2026-10-24-the-concerto-concert-chiang-mai-serenade-string-orchestra",
+  "newsletter-d-2026-10-24-the-ritual-festival-2026-fire-shadows",
+  "newsletter-d-2026-10-24-thunder-scales-exhibition-opening-and-artists-talk",
+  "newsletter-d-2026-10-24-voter-assistance-clinic-for-u-s-voters",
+  "newsletter-d-2026-10-25-halloween-haunted-zoo-costume-contest-31-oct-18-30",
+  "newsletter-d-2026-10-25-irish-film-festival-2026-free-screenings",
+  "newsletter-d-2026-10-25-isaan-textiles-at-jing-jai-market",
+  "newsletter-d-2026-10-25-sunday-afternoon-music-at-simple-pleasures-caf-in-doi-saket",
+  "newsletter-d-2026-10-29-halloween-seafood-buffet",
+  "newsletter-d-2026-10-30-annual-halloween-pumpkin-carving-party-at-mitt-studio",
+  "newsletter-d-2026-10-30-french-movie-night-making-of",
+  "newsletter-d-2026-10-30-halloween-cover-dance-contest-age-22-and-under",
+  "newsletter-d-2026-10-31-a-wicked-halloween-feast-at-gad-lanna",
+  "newsletter-d-2026-10-31-annual-halloween-pumpkin-carving-party-at-mitt-studio",
+  "newsletter-d-2026-10-31-chiang-mai-birders",
+  "newsletter-d-2026-10-31-halloween-buffet-dinner-at-centara-riverside-chiang-mai",
+  "newsletter-d-2026-10-31-halloween-cover-dance-challenge",
+  "newsletter-d-2026-10-31-halloween-dinner-with-fran-at-spice-garden",
+  "newsletter-d-2026-10-31-halloween-weekend-lunch-buffet",
+  "newsletter-d-2026-10-31-sbs-chiangmai-spooky-playdate",
+  "newsletter-d-2026-10-31-the-crimson-court-vampire-gala-at-hong-s-sky-bar",
+  "newsletter-d-2026-10-31-ucis-open-house-trunk-or-treat-this-special-event-is-a-wond",
+  "newsletter-d-2026-11-01-chiang-mai-birders",
+  "newsletter-d-2026-11-01-d-a-de-muertos-collective-altar-and-music",
+  "newsletter-d-2026-11-01-scenic-marathon",
+  "newsletter-d-2026-11-03-cross-border-summit-2026",
+  "newsletter-d-2026-11-06-chiang-mai-women-s-retreat",
+  "newsletter-d-2026-11-08-cmu-chiang-mai-marathon",
+  "newsletter-d-2026-11-08-kiz-in-the-park-vol-4-at-huay-kaew-arboretum",
+  "newsletter-d-2026-11-08-pea-mini-marathon-empower-run",
+  "newsletter-d-2026-11-11-chiang-mai-birders",
+  "newsletter-d-2026-11-12-boy-peacemaker-live",
+  "newsletter-d-2026-11-14-tedxchiangmai-future-of-learning-at-faculty-of-economics-ch",
+  "newsletter-d-2026-11-21-citylife-garden-fair",
+  "newsletter-d-2026-11-22-chiang-mai-cross-country-run",
+  "newsletter-d-2026-11-22-run-for-freedom-bitcoin-half-marathon",
+  "newsletter-d-2026-11-24-celebrate-loy-krathong-yeepeng-chiang-mai-at-chef-s-togethe",
+  "newsletter-d-2026-11-24-chiang-mai-cad-khomloy-sky-lantern-festival-at-the-cad-cult",
+  "newsletter-d-2026-11-24-chiang-mai-valley-of-light-at-doi-saket-voyage-of-light",
+  "newsletter-d-2026-11-24-lanna-lantern-festival-2026-doi-saket-mass-lantern-release-",
+  "newsletter-d-2026-11-24-loy-krathong-at-wat-phathat-suthiyan-doi-saket",
+  "newsletter-d-2026-11-24-loy-krathong-buffet-at-m-venpick-suriwongse-hotel",
+  "newsletter-d-2026-11-24-loy-krathong-dinner-at-four-seasons",
+  "newsletter-d-2026-11-24-loy-krathong-experience-2026",
+  "newsletter-d-2026-11-24-loy-krathong-set-dinner-for-2-at-aruntara-riverside-boutiqu",
+  "newsletter-d-2026-11-24-moonlight-sky-lantern-at-i-love-banthi",
+  "newsletter-d-2026-11-24-sky-of-wishes-san-pa-tong",
+  "newsletter-d-2026-11-25-celebrate-loy-krathong-yeepeng-chiang-mai-at-chef-s-togethe",
+  "newsletter-d-2026-11-25-lanna-lantern-festival-2026-doi-saket-mass-lantern-release-",
+  "newsletter-d-2026-11-25-loy-krathong-at-137-pillars-house",
+  "newsletter-d-2026-11-25-loy-krathong-at-oxygen-dining-room-cross-chiang-mai-riversi",
+  "newsletter-d-2026-11-25-loy-krathong-at-wat-phathat-suthiyan-doi-saket",
+  "newsletter-d-2026-11-25-loy-krathong-buffet-at-m-venpick-suriwongse-hotel",
+  "newsletter-d-2026-11-25-loy-krathong-set-dinner-for-2-at-aruntara-riverside-boutiqu",
+  "newsletter-d-2026-11-25-yi-peng-at-skugga-estate",
+  "newsletter-d-2026-11-26-thanksgiving-at-137-pillars-house",
+  "newsletter-d-2026-11-26-thanksgiving-barbecue-dinner-at-four-seasons",
+  "newsletter-d-2026-11-26-thanksgiving-set-dinner-at-chiang-mai-marriott-at-favola",
+  "newsletter-d-2026-11-29-the-137-pillars-trading-club-jazz-flavour",
+  "newsletter-w-friday-bolly-with-shukki-2026-10-16",
+  "newsletter-w-friday-carvery-night-buffet-2026-10-16",
+  "newsletter-w-friday-chiang-mai-bridge-club-2026-10-16",
+  "newsletter-w-friday-coco-bongo-latin-night-2026-10-16",
+  "newsletter-w-friday-friday-night-special-k-at-tiki-torch-2026-10-16",
+  "newsletter-w-friday-friday-social-language-night-2026-10-16",
+  "newsletter-w-friday-hiit-circuit-social-chat-2026-10-16",
+  "newsletter-w-friday-keo-park-beer-garden-2026-10-16",
+  "newsletter-w-friday-language-culture-exchange-2026-10-16",
+  "newsletter-w-friday-mae-rim-backgammon-club-2026-10-16",
+  "newsletter-w-friday-new-gamers-night-2026-10-16",
+  "newsletter-w-friday-onsen-bath-2026-10-16",
+  "newsletter-w-friday-padel-friday-early-mexicano-2026-10-16",
+  "newsletter-w-friday-seafood-buffet-dinner-2026-10-16",
+  "newsletter-w-friday-temple-game-night-2026-10-16",
+  "newsletter-w-friday-the-white-market-2026-10-16",
+  "newsletter-w-friday-yoga-at-cfcnx-2026-10-16",
+  "newsletter-w-monday-bachata-ladies-styling-2026-10-12",
+  "newsletter-w-monday-chiang-mai-bridge-club-2026-10-12",
+  "newsletter-w-monday-free-yoga-at-one-nimman-2026-10-12",
+  "newsletter-w-monday-latin-nature-social-dance-2026-10-12",
+  "newsletter-w-monday-old-chiangmai-vintage-market-2026-10-12",
+  "newsletter-w-monday-padel-monday-mexicano-2026-10-12",
+  "newsletter-w-monday-shut-up-write-chiang-mai-at-artisan-caf-2026-10-12",
+  "newsletter-w-monday-yoga-at-cfcnx-2026-10-12",
+  "newsletter-w-monday-yoga-reset-2026-10-12",
+  "newsletter-w-saturday-chiang-mai-drawing-and-sketching-club-2026-10-10",
+  "newsletter-w-saturday-chiang-mai-drawing-and-sketching-club-2026-10-17",
+  "newsletter-w-saturday-chiang-mai-gay-men-s-group-cmgmg-2026-10-10",
+  "newsletter-w-saturday-chiang-mai-gay-men-s-group-cmgmg-2026-10-17",
+  "newsletter-w-saturday-dancemandala-movement-meditation-2026-10-10",
+  "newsletter-w-saturday-dancemandala-movement-meditation-2026-10-17",
+  "newsletter-w-saturday-deck-building-night-2026-10-10",
+  "newsletter-w-saturday-deck-building-night-2026-10-17",
+  "newsletter-w-saturday-disc-golf-2026-10-10",
+  "newsletter-w-saturday-disc-golf-2026-10-17",
+  "newsletter-w-saturday-eggspurt-club-quiet-co-working-social-2026-10-10",
+  "newsletter-w-saturday-eggspurt-club-quiet-co-working-social-2026-10-17",
+  "newsletter-w-saturday-jing-jai-weekend-market-2026-10-10",
+  "newsletter-w-saturday-jing-jai-weekend-market-2026-10-17",
+  "newsletter-w-saturday-keo-park-beer-garden-2026-10-10",
+  "newsletter-w-saturday-keo-park-beer-garden-2026-10-17",
+  "newsletter-w-saturday-lanna-rugby-club-training-2026-10-10",
+  "newsletter-w-saturday-lanna-rugby-club-training-2026-10-17",
+  "newsletter-w-saturday-latin-party-2026-10-10",
+  "newsletter-w-saturday-latin-party-2026-10-17",
+  "newsletter-w-saturday-men-s-circle-2026-10-10",
+  "newsletter-w-saturday-men-s-circle-2026-10-17",
+  "newsletter-w-saturday-mobility-plus-2026-10-10",
+  "newsletter-w-saturday-mobility-plus-2026-10-17",
+  "newsletter-w-saturday-morning-aerobics-2026-10-10",
+  "newsletter-w-saturday-morning-aerobics-2026-10-17",
+  "newsletter-w-saturday-padel-saturday-mexicano-2026-10-10",
+  "newsletter-w-saturday-padel-saturday-mexicano-2026-10-17",
+  "newsletter-w-saturday-pipa-duck-dim-sum-lunch-2026-10-10",
+  "newsletter-w-saturday-pipa-duck-dim-sum-lunch-2026-10-17",
+  "newsletter-w-saturday-professionals-nomads-dinner-with-locals-2026-10-10",
+  "newsletter-w-saturday-professionals-nomads-dinner-with-locals-2026-10-17",
+  "newsletter-w-saturday-salsa-for-beginners-2026-10-10",
+  "newsletter-w-saturday-salsa-for-beginners-2026-10-17",
+  "newsletter-w-saturday-saturday-feast-buffet-dinner-2026-10-10",
+  "newsletter-w-saturday-saturday-feast-buffet-dinner-2026-10-17",
+  "newsletter-w-saturday-seafood-buffet-dinner-2026-10-10",
+  "newsletter-w-saturday-seafood-buffet-dinner-2026-10-17",
+  "newsletter-w-saturday-senior-saturdays-2026-10-10",
+  "newsletter-w-saturday-senior-saturdays-2026-10-17",
+  "newsletter-w-saturday-slowcial-running-club-cm-2026-10-10",
+  "newsletter-w-saturday-slowcial-running-club-cm-2026-10-17",
+  "newsletter-w-saturday-social-bridge-2026-10-10",
+  "newsletter-w-saturday-social-bridge-2026-10-17",
+  "newsletter-w-saturday-swing-2026-10-10",
+  "newsletter-w-saturday-swing-2026-10-17",
+  "newsletter-w-saturday-the-saturday-social-2026-10-10",
+  "newsletter-w-saturday-the-saturday-social-2026-10-17",
+  "newsletter-w-saturday-the-white-market-2026-10-10",
+  "newsletter-w-saturday-the-white-market-2026-10-17",
+  "newsletter-w-saturday-weekend-curry-lunch-buffet-2026-10-10",
+  "newsletter-w-saturday-weekend-curry-lunch-buffet-2026-10-17",
+  "newsletter-w-sunday-addiction-recovery-support-for-digital-nomads-2026-10-11",
+  "newsletter-w-sunday-addiction-recovery-support-for-digital-nomads-2026-10-18",
+  "newsletter-w-sunday-all-day-gaming-2026-10-11",
+  "newsletter-w-sunday-all-day-gaming-2026-10-18",
+  "newsletter-w-sunday-crystal-singing-bowls-sound-bath-2026-10-11",
+  "newsletter-w-sunday-crystal-singing-bowls-sound-bath-2026-10-18",
+  "newsletter-w-sunday-ecstatic-dance-2026-10-11",
+  "newsletter-w-sunday-ecstatic-dance-2026-10-18",
+  "newsletter-w-sunday-hatha-ashtanga-yoga-2026-10-11",
+  "newsletter-w-sunday-hatha-ashtanga-yoga-2026-10-18",
+  "newsletter-w-sunday-jing-jai-weekend-market-2026-10-11",
+  "newsletter-w-sunday-jing-jai-weekend-market-2026-10-18",
+  "newsletter-w-sunday-mafia-social-deduction-game-2026-10-11",
+  "newsletter-w-sunday-mafia-social-deduction-game-2026-10-18",
+  "newsletter-w-sunday-padel-sunday-social-americano-2026-10-11",
+  "newsletter-w-sunday-padel-sunday-social-americano-2026-10-18",
+  "newsletter-w-sunday-pipa-duck-dim-sum-lunch-2026-10-11",
+  "newsletter-w-sunday-pipa-duck-dim-sum-lunch-2026-10-18",
+  "newsletter-w-sunday-salsa-2026-10-11",
+  "newsletter-w-sunday-salsa-2026-10-18",
+  "newsletter-w-sunday-seafood-buffet-dinner-2026-10-11",
+  "newsletter-w-sunday-seafood-buffet-dinner-2026-10-18",
+  "newsletter-w-sunday-sunday-brunch-2026-10-11",
+  "newsletter-w-sunday-sunday-brunch-2026-10-18",
+  "newsletter-w-sunday-sunday-brunch-buffet-2026-10-11",
+  "newsletter-w-sunday-sunday-brunch-buffet-2026-10-18",
+  "newsletter-w-sunday-sunday-family-brunch-2026-10-11",
+  "newsletter-w-sunday-sunday-family-brunch-2026-10-18",
+  "newsletter-w-sunday-sunday-music-by-the-river-2026-10-11",
+  "newsletter-w-sunday-sunday-music-by-the-river-2026-10-18",
+  "newsletter-w-sunday-sunday-roast-2026-10-11",
+  "newsletter-w-sunday-sunday-roast-2026-10-18",
+  "newsletter-w-sunday-sunday-roast-buffet-2026-10-11",
+  "newsletter-w-sunday-sunday-roast-buffet-2026-10-18",
+  "newsletter-w-sunday-sunday-walk-around-chiang-mai-university-meet-at-cmu-entrance-2",
+  "newsletter-w-sunday-the-white-market-2026-10-11",
+  "newsletter-w-sunday-the-white-market-2026-10-18",
+  "newsletter-w-sunday-weekend-curry-lunch-buffet-2026-10-11",
+  "newsletter-w-sunday-weekend-curry-lunch-buffet-2026-10-18",
+  "newsletter-w-thursday-chiang-mai-cigar-whiskey-club-2026-10-15",
+  "newsletter-w-thursday-chiang-mai-highlanders-ball-hockey-2026-10-15",
+  "newsletter-w-thursday-chiang-mai-squash-club-social-squash-2026-10-15",
+  "newsletter-w-thursday-competitive-friendly-scrabble-caf-varies-2026-10-15",
+  "newsletter-w-thursday-crafternoon-2026-10-15",
+  "newsletter-w-thursday-ice-bath-2026-10-15",
+  "newsletter-w-thursday-lanna-rugby-club-practice-2026-10-15",
+  "newsletter-w-thursday-open-decks-2026-10-15",
+  "newsletter-w-thursday-open-mic-comedy-night-2026-10-15",
+  "newsletter-w-thursday-padel-king-of-the-club-2026-10-15",
+  "newsletter-w-thursday-pottery-good-company-40-2026-10-15",
+  "newsletter-w-thursday-pub-quiz-2026-10-15",
+  "newsletter-w-thursday-seafood-buffet-dinner-2026-10-15",
+  "newsletter-w-thursday-sound-journey-2026-10-15",
+  "newsletter-w-thursday-strategy-night-2026-10-15",
+  "newsletter-w-thursday-tango-2026-10-15",
+  "newsletter-w-thursday-the-white-market-2026-10-15",
+  "newsletter-w-thursday-tibetan-singing-bowls-sound-bath-2026-10-15",
+  "newsletter-w-thursday-yoga-at-cfcnx-2026-10-15",
+  "newsletter-w-tuesday-aquatic-workout-english-2026-10-13",
+  "newsletter-w-tuesday-bachata-solo-styling-footwork-2026-10-13",
+  "newsletter-w-tuesday-bolly-with-shukki-2026-10-13",
+  "newsletter-w-tuesday-chiang-mai-geeks-2026-10-13",
+  "newsletter-w-tuesday-christ-centered-meditation-2026-10-13",
+  "newsletter-w-tuesday-dune-day-2026-10-13",
+  "newsletter-w-tuesday-expat-tuesday-dinner-2026-10-13",
+  "newsletter-w-tuesday-game-night-chess-backgammon-2026-10-13",
+  "newsletter-w-tuesday-hiit-circuit-social-chat-2026-10-13",
+  "newsletter-w-tuesday-improv-comedy-workshop-2026-10-13",
+  "newsletter-w-tuesday-language-exchange-2026-10-13",
+  "newsletter-w-tuesday-mixed-sound-bath-2026-10-13",
+  "newsletter-w-tuesday-mobility-plus-2026-10-13",
+  "newsletter-w-tuesday-pottery-good-company-40-2026-10-13",
+  "newsletter-w-tuesday-quiz-night-2026-10-13",
+  "newsletter-w-tuesday-sound-healing-2026-10-13",
+  "newsletter-w-tuesday-tuesday-talents-workshop-2026-10-13",
+  "newsletter-w-tuesday-writers-together-2026-10-13",
+  "newsletter-w-tuesday-yoga-at-cfcnx-2026-10-13",
+  "newsletter-w-tuesday-zuzalu-longevity-social-2026-10-13",
+  "newsletter-w-wednesday-bachata-kizomba-for-beginners-2026-10-14",
+  "newsletter-w-wednesday-bingo-night-2026-10-14",
+  "newsletter-w-wednesday-breaking-practice-b-boy-b-girl-2026-10-14",
+  "newsletter-w-wednesday-catan-night-2026-10-14",
+  "newsletter-w-wednesday-chess-meetup-at-yellow-coworking-nimman-soi-5-2026-10-14",
+  "newsletter-w-wednesday-chiang-mai-bridge-club-2026-10-14",
+  "newsletter-w-wednesday-cnx-weekly-women-s-lunch-2026-10-14",
+  "newsletter-w-wednesday-cobras-touch-rugby-2026-10-14",
+  "newsletter-w-wednesday-farangutans-fc-football-2026-10-14",
+  "newsletter-w-wednesday-free-yoga-at-one-nimman-2026-10-14",
+  "newsletter-w-wednesday-hatha-ashtanga-yoga-2026-10-14",
+  "newsletter-w-wednesday-herbal-steam-2026-10-14",
+  "newsletter-w-wednesday-morning-yoga-2026-10-14",
+  "newsletter-w-wednesday-music-night-2026-10-14",
+  "newsletter-w-wednesday-padel-wednesday-americano-2026-10-14",
+  "newsletter-w-wednesday-sketching-club-2026-10-14",
+  "newsletter-w-wednesday-trivia-night-2026-10-14",
+  "newsletter-w-wednesday-trivia-quiz-2026-10-14",
+  "newsletter-w-wednesday-yoga-at-cfcnx-2026-10-14"
+ ]
+}
