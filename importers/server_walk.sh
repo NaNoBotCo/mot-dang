@@ -25,6 +25,8 @@ export MD_PROFILE=${MD_PROFILE:-$SSTATE/build-profile.json}   # build_sampler.py
 export MD_LAYER_STATE=${MD_LAYER_STATE:-$SSTATE/layers.json}   # layers.py: each layer's time, outputs, failures
 export MD_HOLD_BACK=${MD_HOLD_BACK:-$SSTATE/held-back.txt}     # tools/holdback.py: pages held at their live version
 MISSING_CEILING=500   # 2026-10-05: an 11-hour-old source would have deleted 1,977 live files
+# Announced cuts that landed (publish/safety.py, 2b) stay used up across hand-offs.
+export MD_EXPECT_DONE=$SSTATE/expected-done.txt
 
 mkdir -p "$SSTATE"
 if [[ -f "$LOG" ]] && (( $(stat -c %s "$LOG") > 5242880 )); then mv -f "$LOG" "$LOG.1"; fi
@@ -137,33 +139,55 @@ fi
 # the laptop no longer builds: that day it carried 1,340 place pages the live
 # site answers 404 for, enough to refuse any build.
 pre_deploy() {
-  local n rc
-  python3 - "$SSTATE/missing.txt" <<'PY'
+  local rc out why
+  # Deletions an announcement covers (publish/expected.json) are held to its
+  # number, ±10%; MISSING_CEILING counts the rest (publish/safety.py, 2b).
+  out=$(python3 - "$SSTATE/missing.txt" "$MISSING_CEILING" <<'PY'
 import sys
+from collections import Counter
 sys.path.insert(0, "publish")
+sys.path.insert(0, "tools")
 try:
     import deploy, safety, holdback
-    gone = safety.deletions_preview("R2:%s" % deploy.BUCKET,
-                                    deploy.rclone_env(deploy.creds()), deploy.run)
+    gone, added = safety.diff_preview("R2:%s" % deploy.BUCKET,
+                                      deploy.rclone_env(deploy.creds()), deploy.run)
     gone = [k for k in gone if not holdback.held(k)]   # held: left as it is
 except BaseException as e:
     print("bucket listing failed: %r" % (e,))
     sys.exit(2)
 with open(sys.argv[1], "w") as fh:
     fh.write("".join(k + "\n" for k in gone))
+ceiling = int(sys.argv[2])
+announced, said = safety.load_expected()
+rest, groups = safety.expected_split(gone, announced)
+for line in said + safety.additions_lines(added, announced):
+    print(line.strip())
+print("%d live file(s) not in this build, %d of them announced"
+      % (len(gone), len(gone) - len(rest)))
+for line in safety.expected_lines(groups):
+    print(line.strip())
+over = [g for g in groups if g["found"] > g["hi"]]
+if over:
+    print("FAIL more than announced went: %s"
+          % ", ".join("%s %d of %d" % (g["pattern"], g["found"], g["expected"]) for g in over))
+    sys.exit(3)
+if len(rest) > ceiling:
+    for d, n in Counter("/".join(k.split("/")[:2]) for k in rest).most_common(8):
+        print("  %6d %s" % (n, d))
+    print("FAIL %d unannounced live files missing from the build, over %d" % (len(rest), ceiling))
+    sys.exit(3)
 PY
+)
   rc=$?
-  if (( rc != 0 )); then
+  print -r -- "$out" | grep -v '^FAIL ' | while IFS= read -r l; do say "$l"; done
+  if (( rc == 2 )); then
     say "REFUSING — could not list the live bucket to compare against"
     note "failed" "bucket listing"
     return 1
-  fi
-  n=$(wc -l < "$SSTATE/missing.txt")
-  say "$n live file(s) not in this build"
-  if (( n > MISSING_CEILING )); then
-    awk -F/ '{print $1"/"$2}' "$SSTATE/missing.txt" | sort | uniq -c | sort -rn | head -8
-    say "REFUSING — over $MISSING_CEILING; the list is $SSTATE/missing.txt"
-    note "failed" "$n live files missing from the build"
+  elif (( rc != 0 )); then
+    why=$(print -r -- "$out" | sed -n 's/^FAIL //p' | tail -1)
+    say "REFUSING — ${why:-the missing-files check failed}; the list is $SSTATE/missing.txt"
+    note "failed" "${why:-missing-files check}"
     return 1
   fi
 }

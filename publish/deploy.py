@@ -708,7 +708,11 @@ def main():
     # --prune said out loud, or a bound (--prune-up-to N) that the
     # whole-site check has earned.
     print("\n  listing the bucket to see what this would delete…")
-    gone = safety.deletions_preview(dest, env, run)
+    gone, added = safety.diff_preview(dest, env, run)
+    # What the change said would come and go (publish/expected.json).
+    announced, said = safety.load_expected()
+    for line in said + safety.additions_lines(added, announced):
+        note(line)
     # Files uploaded after this build's source was taken are newer than the
     # build: it keeps its hands off them (safety.uploaded_since says why).
     since, how = safety.source_time()
@@ -735,16 +739,20 @@ def main():
         atexit.register(keep_list.unlink, missing_ok=True)
         keep_list.write_text("".join(g + "\n" for g in hold))
     ok, msg = safety.deletion_verdict(gone, prune=prune, prune_up_to=prune_up_to,
-                                      tree_ok=tree_ok)
+                                      tree_ok=tree_ok, announced=announced)
     if not ok:
         sys.exit("\n" + msg + "\n")
     note(msg)
+    used = safety.expected_used(safety.expected_split(gone, announced)[1])
 
     note("\n  syncing… (%s local files, %s deletions)"
          % (f"{n_after:,}", f"{len(gone):,}"))
     mirror(["rclone", "sync", str(DOCS), dest] + common
            + (["--exclude-from", str(keep_list)] if keep_list else []), env)
     note("  site synced")
+    if used:
+        safety.mark_expected_done(used)
+        note("  announced cuts done, no longer applied: %s" % ", ".join(used))
 
     if with_tiles:
         archives = declared_archives()

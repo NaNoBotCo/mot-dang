@@ -176,6 +176,27 @@ because `build.py` wipes `docs/` at the start of every run. A build that dies
 halfway leaves a real directory holding a handful of files, and syncing that is
 indistinguishable from meaning to delete 27,000 pages.
 
+### Announced cuts
+
+A change that retires live files says how many in `publish/expected.json`,
+committed with it:
+
+```json
+{"announced": [{"id": "tag-geojson-2026-10-11", "until": "2026-10-25",
+                "why": "per-tag GeoJSON cut",
+                "remove": {"data/c[mr]-tag-*.geojson": 2950},
+                "add": {"data/": 2}}]}
+```
+
+A pattern is a prefix, or a glob when it holds `*`, `?` or `[`. At publish,
+the deletions under each pattern are counted: more than 10% (or 5 files) over
+the announced number refuses; fewer is logged and publishes. Deletions no
+pattern covers still meet the fixed ceiling (500 on the server walk, 2,000 in
+`deploy.py`). `add` is logged, never refused. A cut that landed within its
+band is used up (`/srv/state/expected-done.txt` on the server,
+`cache/expected-done.txt` here); one past `until` never applies. An
+announcement cannot cover `vendor/`, `glyphs/` or `api/`.
+
 ## Still worth doing
 
 `docs/` is committed, which is why `.git` is 2.8 GB and why every rebuild is a
