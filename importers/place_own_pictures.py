@@ -233,6 +233,83 @@ def provisional_record(cat, day, group):
     }
 
 
+# Her word 2026-10-11: "Any spirit houses I have pictures of on motdang or in my
+# storage should have their own placeid. Same with big trees." A ride subject of
+# these kinds gets a record of its own, beside whatever shop it stands at.
+OWN_KIND = {  # subject -> (id stem, cat, sub, th, en, extra attrs)
+    "spirit-house": ("spirit-house", ["wat"], ["spirit-house"], "ศาลพระภูมิ", "Spirit house",
+                     {"lens": ["spirit-house"]}),
+    "ribbon-tree": ("big-tree", ["parks"], ["nature", "big-tree"], "ต้นไม้ใหญ่พันผ้า",
+                    "Big tree wrapped in cloth", {}),
+}
+OWN_KIND_M = 25
+
+
+def own_places(cat, picks, adds):
+    """Link each spirit house / big tree picture to its own record, making one
+    when none of that kind stands within OWN_KIND_M. A picture marked noOwnPlace
+    (the crop misses the subject; a shop that sells them) is left alone. Also links a record's
+    attrs.pic, which the Google Photos pass writes without placing the picture."""
+    by_id = dict(cat.by_id)
+    for recs in adds.values():
+        for r in recs:
+            by_id[r["id"]] = r
+    pics = {p["slug"]: p for p in picks}
+    made, linked = [], 0
+
+    def link(p, rid):
+        nonlocal linked
+        if rid in {p.get("placeId"), *(p.get("places") or [])}:
+            return
+        if not p.get("placeId"):
+            p["placeId"] = rid
+        else:
+            p["places"] = sorted(set(p.get("places") or []) | {rid})
+        p.setdefault("placedBy", "own %s, %s" % (rid, datetime.date.today().isoformat()))
+        linked += 1
+
+    for r in by_id.values():
+        pic = (r.get("attrs") or {}).get("pic")
+        if pic in pics and {"spirit-house", "big-tree"} & set(r.get("sub") or []):
+            link(pics[pic], r["id"])
+    for p in picks:
+        k = OWN_KIND.get(p.get("subject"))
+        if not k or p.get("noOwnPlace") or p.get("lat") is None or p.get("lng") is None:
+            continue
+        stem, cats, subs, th, en, extra = k
+        holds = {subs[-1], "shrine"} if stem == "spirit-house" else {subs[-1]}
+        if any(holds & set((by_id.get(x) or {}).get("sub") or [])
+               for x in {p.get("placeId"), *(p.get("places") or [])} - {None}):
+            continue
+        same = [r for r in by_id.values() if r.get("lat") is not None and subs[-1] in (r.get("sub") or [])
+                and metres(p["lat"], p["lng"], r["lat"], r["lng"]) <= OWN_KIND_M]
+        if same:
+            link(p, same[0]["id"])
+            continue
+        pv = "cr" if p["lat"] > 19.5 else "cm"
+        h = hashlib.sha1(("%.5f,%.5f" % (p["lat"], p["lng"])).encode()).hexdigest()[:8]
+        rid = "%s-own-%s-%s" % (pv, stem, h)
+        rec = {
+            "id": rid, "province": pv, "cat": cats, "sub": subs,
+            "name": th, "nameTh": th, "nameEn": p.get("title") or en,
+            "lat": round(p["lat"], 7), "lng": round(p["lng"], 7), "geoPrecision": "approx",
+            "address": None, "phone": None, "website": None, "hours": None,
+            "attrs": {"kind": p.get("description") or en, "kindTh": p.get("description_th"),
+                      "pic": p["slug"], **extra,
+                      "geo": "approx: her camera's GPS fix at the frame; the subject stands within ~30 m of it"},
+            "featured": False, "landmark": False,
+            "sources": [{"type": "field", "ref": "NaN's own photograph " + p["slug"],
+                         "fetched": p.get("date"), "via": "importers/place_own_pictures.py"}],
+            "confidence": "field",
+            "updatedAt": datetime.date.today().isoformat(),
+        }
+        adds[pv].append(rec)
+        by_id[rid] = rec
+        made.append(rec)
+        link(p, rid)
+    return made, linked
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--write", action="store_true")
@@ -240,6 +317,16 @@ def main():
     cat = Catalogue()
     own = json.loads(OWN.read_text())
     picks = own["picks"]
+    adds = {pv: json.loads(ADD[pv].read_text()) for pv in ("cm", "cr")}
+    own_made, own_linked = own_places(cat, picks, adds)
+    print("spirit houses and big trees: %d new record(s), %d picture link(s)" % (len(own_made), own_linked))
+    for rec in own_made:
+        print("  new %s  %s" % (rec["id"], rec["nameEn"]))
+    if a.write and (own_made or own_linked):
+        for pv in ("cm", "cr"):
+            if any(r["province"] == pv for r in own_made):
+                ADD[pv].write_text(json.dumps(adds[pv], ensure_ascii=False, indent=1) + "\n")
+        OWN.write_text(json.dumps(own, ensure_ascii=False, indent=1))
     todo = [p for p in picks if not p.get("placeId") and p.get("lat") is not None and p.get("lng") is not None]
     n = collections.Counter()
     dealt = collections.defaultdict(int)       # member id -> frames given
