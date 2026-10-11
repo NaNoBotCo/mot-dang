@@ -1,0 +1,9 @@
+[Unit]
+Description=Mot Dang source to the Storage Box (importers/server_backup.sh)
+
+[Service]
+Type=oneshot
+User=root
+Nice=19
+IOSchedulingClass=idle
+ExecStart=/bin/bash /srv/mot-dang/importers/server_backup.sh

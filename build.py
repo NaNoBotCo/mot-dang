@@ -18907,6 +18907,78 @@ def _jobs():
 import anthill_layer  # noqa: E402  (the place pages' link to the bots' forum)
 
 
+<<<<<<< origin/main
+=======
+# ------------------------------------------- place pages carried over a build
+# Every place page is rendered every build, but most come out byte for byte
+# what the last build wrote. Writing them all again cost 444 of 1,687 seconds on
+# motdang-build (2026-10-11), almost all of it waiting on writeback with the
+# 4 GB box in swap. Now a page whose bytes match last build's moves the old file
+# from docs/ into docs.next/ instead. A file counts only when it still has the
+# size and mtime it had when written: festivals_layer and graph_layer add a
+# band to some pages after this step, and those pages are written fresh each
+# build. MD_KEEP_PAGES=0 writes every page, as before.
+PAGES_KEPT = ROOT / "cache" / "place-pages-kept.json"
+_KEPT_WAS = {}      # rel: [digest, size, mtime_ns], docs/ as the last build left it
+_KEPT_NOW = {}      # rel: [digest, size, mtime_ns], as written by this build
+_KEPT_N = [0, 0]    # [moved, written]
+
+
+def _kept_load():
+    _KEPT_WAS.clear()
+    _KEPT_NOW.clear()
+    _KEPT_N[:] = [0, 0]
+    if os.environ.get("MD_KEEP_PAGES", "1") == "0" or _FINAL_DOCS is None or _FINAL_DOCS == DOCS:
+        return
+    try:
+        _KEPT_WAS.update(json.loads(PAGES_KEPT.read_text()))
+    except (OSError, ValueError):
+        pass
+
+
+def _put_page(path, text, out):
+    data = text.encode("utf-8")
+    dig = hashlib.blake2b(data, digest_size=16).hexdigest()
+    rel = path.relative_to(DOCS).as_posix()
+    was = _KEPT_WAS.get(rel)
+    if was and was[0] == dig:
+        old = _FINAL_DOCS / rel
+        try:
+            st = old.stat()
+            if [st.st_size, st.st_mtime_ns] == was[1:]:
+                os.rename(old, path)
+                out[rel] = was
+                return True
+        except OSError:
+            pass
+    path.write_bytes(data)
+    st = path.stat()
+    out[rel] = [dig, st.st_size, st.st_mtime_ns]
+    return False
+
+
+def _kept_save():
+    """Before the swap: keep the pages nothing touched after they were written."""
+    if os.environ.get("MD_KEEP_PAGES", "1") == "0" or _FINAL_DOCS is None:
+        return {}
+    keep = {}
+    for rel, e in _KEPT_NOW.items():
+        try:
+            st = (DOCS / rel).stat()
+        except OSError:
+            continue
+        if [st.st_size, st.st_mtime_ns] == e[1:]:
+            keep[rel] = e
+    return keep
+
+
+def _kept_write(keep):
+    tmp = PAGES_KEPT.with_suffix(".tmp")
+    tmp.write_text(json.dumps(keep, separators=(",", ":")))
+    tmp.replace(PAGES_KEPT)
+
+
+>>>>>>> HEAD
 def _place_chunk(idx):
     global _lock_held
     if os.getpid() != _PP.get("parent"):
@@ -18915,25 +18987,47 @@ def _place_chunk(idx):
                                   _PP["p"], _PP["photos"])
     _UNKNOWN_CATS.clear()
     images = {}
+<<<<<<< origin/main
+=======
+    written = {}
+    moved = 0
+>>>>>>> HEAD
     for i in idx:
         r = recs[i]
         slug = place_slug(r)
         photo_file = photos.get(r["id"])
         # WO-71: nothing renders `related` any more (see detail_page).
         # 🐜 each place page links its thread on รังมด · The Anthill
+<<<<<<< origin/main
         (pdir / "p" / f"{slug}.html").write_text(anthill_layer.into_place(
             detail_page(r, p, photo_file,
                         whats_on_here(r["id"], EVENTS, depth=2), related=None), key, slug))
+=======
+        moved += _put_page(pdir / "p" / f"{slug}.html", anthill_layer.into_place(
+            detail_page(r, p, photo_file,
+                        whats_on_here(r["id"], EVENTS, depth=2), related=None), key, slug), written)
+>>>>>>> HEAD
         if photo_file:
             images[f"{key}/p/{slug}.html"] = (BASE + f"photos/{photo_file}", name_text(r))
         # A predictable .json beside every .html. A reader that guesses the
         # URL is right, every time, and the endpoint answers without a key.
+<<<<<<< origin/main
         (pdir / "p" / f"{slug}.json").write_text(
             json.dumps(place_json(r, photo_file), ensure_ascii=False))
     return images, dict(_UNKNOWN_CATS)
 
 
 def write_place_pages(records, pdir, key, p, photos, sitemap_images):
+=======
+        moved += _put_page(pdir / "p" / f"{slug}.json",
+                           json.dumps(place_json(r, photo_file), ensure_ascii=False), written)
+    return images, dict(_UNKNOWN_CATS), written, moved
+
+
+def write_place_pages(records, pdir, key, p, photos, sitemap_images):
+    if not _KEPT_NOW and not _KEPT_N[1]:
+        _kept_load()
+>>>>>>> HEAD
     prior = {k: list(v) for k, v in _UNKNOWN_CATS.items()}
     import placecode
     PLACE_CODES.update(placecode.assign([r["id"] for r in records]))
@@ -18946,8 +19040,16 @@ def write_place_pages(records, pdir, key, p, photos, sitemap_images):
     jobs = _jobs()
 
     def take(result):
+<<<<<<< origin/main
         images, unknown = result
         sitemap_images.update(images)
+=======
+        images, unknown, written, moved = result
+        sitemap_images.update(images)
+        _KEPT_NOW.update(written)
+        _KEPT_N[0] += moved
+        _KEPT_N[1] += len(written) - moved
+>>>>>>> HEAD
         for k, ids in unknown.items():
             prior.setdefault(k, []).extend(ids)
 
@@ -24197,7 +24299,14 @@ coordinates, channels and ant rank, no markup to strip. {len(all_recs):,} lines.
 
     layers.finish()
     if _FINAL_DOCS is not None:
+<<<<<<< origin/main
         _swap_into_place()
+=======
+        _kept = _kept_save()
+        _swap_into_place()
+        _kept_write(_kept)
+        print(f"place pages: {_KEPT_N[0]:,} carried over from the last build, {_KEPT_N[1]:,} written")
+>>>>>>> HEAD
     n_pages = sum(1 for _ in DOCS.rglob("*.html"))
     print(f"built {n_pages:,} pages -> {DOCS.name}/")
 
