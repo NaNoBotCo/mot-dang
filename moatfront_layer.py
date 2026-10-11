@@ -28,8 +28,17 @@ moat's own, the sacred and photos first.
 Nan, the same night: "Similarly, give wararot, nimman, santhitam areas some love." So every
 published place inside AREAS goes in the same way.
 
+Then: "that's too many places. Please apply some kind of reasonable person filter." Off the
+moat, a place without the moat's tier stays when it is somewhere a visitor goes (VISIT), has a
+Latin name, and lists one of phone, web, hours, LINE on the two roads, two in the areas, where
+it is also the best known such place in its 35 m square.
+
     rows: [id, lat, lng, thai name, latin name, page path, first category, photo 0/1, antRank,
-           RTGS reading of a Thai-only name (build.name_roman) or ""]
+           RTGS reading of a Thai-only name (build.name_roman) or "",
+           tier: 0 landmark or sacred, 1 photo, 2 well described, 3 the rest]
+
+Nan, the same night: "Don't show all places at every zoom level pls." The tier is for that:
+map.js moatFront() lets in more tiers as the view closes in.
 
     python3 moatfront_layer.py          writes it from docs/api/v1/index.json
     python3 moatfront_layer.py roads    rewrites data/front_roads.json from cache/roads/
@@ -139,8 +148,6 @@ def pick(places, land, roman=lambda r: ""):
                      (r.get("cat") or [""])[0], 1 if "photo" in (r.get("has") or []) else 0,
                      r.get("antRank") or 0, "" if en else roman(r), t])
     rows.sort(key=lambda x: (x[10], -x[8]))
-    for x in rows:
-        x.pop()
     return rows
 
 
@@ -156,6 +163,10 @@ def road_lines():
                 if all(pts):
                     ways[e["id"]] = [[round(a, 7), round(b, 7)] for a, b in pts]
     return list(ways.values())
+
+
+VISIT = {"food", "massage", "shopping", "hotel", "tattoo", "market", "parks", "whats-on", "muaythai"}
+SPACING = 35                                     # metres between plain places in an area
 
 
 def _inside(la, ln):
@@ -183,10 +194,16 @@ def pick_roads(places, lines, have, roman=lambda r: ""):
         if not en and not THAI.search(name):
             en = name
         t = tier(r, en, th)
+        area = _inside(la, ln)
+        if t is None:
+            has = set(r.get("has") or [])
+            if (r.get("cat") or [""])[0] not in VISIT or not en or \
+                    sum(k in has for k in ("phone", "web", "hours", "line")) < (2 if area else 1):
+                continue
         sacred = t == 0 and bool(SACRED & set(_subs(r)) or any(k in r["id"] for k in SACRED))
         if r.get("geoPrecision") not in (("exact", "block", "approx") if sacred else ("exact", "block")):
             continue
-        if not _inside(la, ln) and (not edges or min(_dist((la, ln), a, b, kx) for a, b in edges)
+        if not area and (not edges or min(_dist((la, ln), a, b, kx) for a, b in edges)
                                     > (REACH_SACRED if sacred else REACH_ROAD)):
             continue
         rows.append([r["id"], round(la, 6), round(ln, 6), th, en,
@@ -194,9 +211,15 @@ def pick_roads(places, lines, have, roman=lambda r: ""):
                      (r.get("cat") or [""])[0], 1 if "photo" in (r.get("has") or []) else 0,
                      r.get("antRank") or 0, "" if en else roman(r), 3 if t is None else t])
     rows.sort(key=lambda x: (x[10], -x[8]))
+    taken, kept = set(), []
     for x in rows:
-        x.pop()
-    return rows
+        if x[10] == 3 and _inside(x[1], x[2]):
+            cell = (int(x[1] * 110574 / SPACING), int(x[2] * 104700 / SPACING))
+            if cell in taken:
+                continue
+            taken.add(cell)
+        kept.append(x)
+    return kept
 
 
 def write(docs, roman):
