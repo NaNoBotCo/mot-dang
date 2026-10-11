@@ -22,6 +22,7 @@ export MD_JOBS=${MD_JOBS:-1}
 # build; at 180 it also ended slow healthy ones, every round from 2026-10-05.
 export MD_BUILD_TIMEOUT=${MD_BUILD_TIMEOUT:-360m}
 export MD_PROFILE=${MD_PROFILE:-$SSTATE/build-profile.json}   # build_sampler.py
+export MD_LAYER_STATE=${MD_LAYER_STATE:-$SSTATE/layers.json}   # layers.py: each layer's time, outputs, failures
 MISSING_CEILING=500   # 2026-10-05: an 11-hour-old source would have deleted 1,977 live files
 
 mkdir -p "$SSTATE"
@@ -38,6 +39,12 @@ print(json.dumps({"at": time.strftime("%Y-%m-%dT%H:%M:%S"), "verdict": sys.argv[
 PY
 }
 stand_down() { say "standing down — $1"; note "stood-down" "$1"; exit 0 }
+# A layer that failed did not stop the build (layers.py); its pages are a round old.
+layer_note() {
+  local f; f=$(python3 -c 'import json,sys; print(", ".join(json.load(open(sys.argv[1])).get("failed", [])))' "$MD_LAYER_STATE" 2>/dev/null)
+  [[ -n "$f" ]] && { say "⚠️  layers that failed, their last good pages kept: $f"; note "layers-failed" "$f" }
+  return 0
+}
 remember_gate_fail() { say "the gate failed on hand-off $HAND; the next hand-off builds again" }
 
 HAND=$(cat "$STAGE/.handoff" 2>/dev/null)
@@ -165,6 +172,7 @@ if publish_once; then
   print -- "$HAND" > "$SSTATE/published"
   say "== published $HAND — $COUNT files"
   note "published" "$HAND $COUNT files"
+  layer_note
   exit 0
 fi
 
@@ -188,6 +196,7 @@ if publish_once; then
   print -- "$HAND" > "$SSTATE/published"
   say "== published $HAND with the code of $GOOD — $COUNT files; the newer code failed: $WHY"
   note "published-last-good-code" "$HAND data, $GOOD code, $COUNT files; newer code failed: $WHY"
+  layer_note
   exit 0
 fi
 note "failed" "the last good code failed too ($WHY)"

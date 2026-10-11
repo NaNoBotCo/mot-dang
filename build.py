@@ -19003,6 +19003,8 @@ def build():
     clear_docs()
     check_room()
     DOCS.mkdir(exist_ok=True)
+    import layers  # each layer on its own; one that fails keeps its last good pages (layers.py)
+    layers.start(DOCS, _FINAL_DOCS)
     (DOCS / ".nojekyll").write_text("")
     # NO docs/CNAME. It was emitted here for GitHub Pages, which has not served
     # this site since it moved to an R2 bucket behind a Worker; motdang.net is
@@ -19055,9 +19057,9 @@ def build():
         _rl_fh.write("\n" + hotel_layer.CSS)
     # Clips under the photograph: assets/video/ → docs/v/, gate-checked rows only.
     _vshown, _vheld, _vwhy = video_layer.counts()
-    print("  video: %d shown, %d held%s, %d files copied" % (
+    layers.run("video.copy_assets", lambda: print("  video: %d shown, %d held%s, %d files copied" % (
         _vshown, _vheld, (" (%s)" % ", ".join("%s: %d" % kv for kv in _vwhy.items())) if _vwhy else "",
-        video_layer.copy_assets(DOCS)))
+        video_layer.copy_assets(DOCS))))
     print("  commons pictures:", commons_layer.counts())
     _nshown, _nskip = net_layer.counts()
     print("  nets: %d member pages%s" % (_nshown, (", %d skipped (no record): %s" % (
@@ -19111,9 +19113,9 @@ def build():
         shutil.copytree(_sites, DOCS / "sites", dirs_exist_ok=True)
         # the doodle maps' map.js and /pins.js named by their content (mappins_layer.py)
         import mappins_layer
-        mappins_layer.stamp_doodle(DOCS)
+        layers.run("mappins.stamp_doodle", lambda: mappins_layer.stamp_doodle(DOCS))
         # a slot for thumbs and a note at the foot of each minisite (feedback_layer)
-        feedback_layer.stamp_sites(DOCS)
+        layers.run("feedback.stamp_sites", lambda: feedback_layer.stamp_sites(DOCS))
     # /markets/ — every market and mall, /markets/<cm|cr>/, and one folder per market that has
     # its own site (/markets/cm/kamthieng/amulets/). Built in the markets repo with MOTDANG=1 and
     # installed into assets/markets/. Publish with:  python3 publish/deploy.py --only markets --yes
@@ -19244,9 +19246,9 @@ def build():
         for _f in sorted(SITE_ART_SRC.glob("*.jpg")):
             shutil.copy(_f, DOCS / "site" / _f.name)
     # 360-degree spheres (importers/make_panos.py) → docs/pano/, Pannellum → docs/vendor/pannellum/.
-    print("  pano: %d files copied" % pano_layer.copy_assets(DOCS))
-    print("  inat: %d photos copied" % inat_layer.copy_assets(DOCS))
-    print("  street photos: %s" % streetphoto_layer.emit({"DOCS": DOCS, "bi_text": bi_text}))
+    layers.run("pano.copy_assets", lambda: print("  pano: %d files copied" % pano_layer.copy_assets(DOCS)))
+    layers.run("inat.copy_assets", lambda: print("  inat: %d photos copied" % inat_layer.copy_assets(DOCS)))
+    layers.run("streetphoto.emit", lambda: print("  street photos: %s" % streetphoto_layer.emit({"DOCS": DOCS, "bi_text": bi_text})))
     # Nan's own frames for the front page — importers/make_hero.py. The
     # homepage reads site/hero/index.json out of the tree being built, so the
     # frames have to be copied in like any other asset. They used to be
@@ -22388,11 +22390,11 @@ def build():
         # both layers keep the flat dark rectangle they had.
         ground_night=_city_ground(night=True))
     import nitnoy_layer
-    print("  nitnoy:", nitnoy_layer.emit(globals(), data, _city_frame))
+    layers.run("nitnoy.emit", lambda: print("  nitnoy:", nitnoy_layer.emit(globals(), data, _city_frame)))
 
     # ---- taste.html: รสเมือง — the cuisine terroir ------------------------
     import taste_layer
-    print("  taste:", taste_layer.emit(globals(), data, _city_frame))
+    layers.run("taste.emit", lambda: print("  taste:", taste_layer.emit(globals(), data, _city_frame)))
 
     # ---- the full buffet: one JSON dump of every field, for agents --------
     full_dump = []
@@ -22434,10 +22436,10 @@ def build():
         _sc = "" if r.get("photo") or place_thumb(r["id"]) else doodles_layer.place_scene(r)
         if _sc:
             _pp.append((r, _sc, _dtg.get(r["id"]) or [], f"{r['province']}/p/{place_slug(r)}.html"))
-    print("doodles gallery:", doodles_layer.gallery(DOCS, _pp), "place portraits")
+    layers.run("doodles.gallery", lambda: print("doodles gallery:", doodles_layer.gallery(DOCS, _pp), "place portraits"))
     # /doodles/: the doodle repository (data/doodles/, recorded nightly by tools/doodle_repo.py)
     import doodlerepo_layer
-    print("doodle repository:", doodlerepo_layer.emit(DOCS), "doodles")
+    layers.run("doodlerepo.emit", lambda: print("doodle repository:", doodlerepo_layer.emit(DOCS), "doodles"))
 
     # ---- our own RSS feed: no fabricated per-item timestamps ---------------
     def rss_escape(s):
@@ -22875,9 +22877,9 @@ def build():
     # ---- festivals.html: the evergreen half of the festivals layer -------
     build_festivals_page()
     import festivals_layer  # a page per festival, the year wheel, festivals.ics
-    print("  festivals:", festivals_layer.emit(globals(), EVENTS, data))
+    layers.run("festivals.emit", lambda: print("  festivals:", festivals_layer.emit(globals(), EVENTS, data)))
     import graph_layer
-    print("  graph:", graph_layer.emit(globals(), data))
+    layers.run("graph.emit", lambda: print("  graph:", graph_layer.emit(globals(), data)))
 
     # ---- events.html + the free listing route -----------------------------
     build_events_page(EVENTS)
@@ -22890,7 +22892,7 @@ def build():
     build_notfound_page()
     print("  words on the signs:", build_trades_page(), "trade terms")
     print("  roads & sois:", build_street_pages(data), "pages")
-    print("  wats:", wats_layer.emit(globals(), data), "pages")
+    layers.run("wats.emit", lambda: print("  wats:", wats_layer.emit(globals(), data), "pages"))
     # ---- the basemap shell: one map constructor for the whole site --------
     # Emits map.js + the vendored libraries ONLY when data/basemap.json names
     # a real .pmtiles file and assets/vendor/ actually holds MapLibre. Until
@@ -22907,40 +22909,40 @@ def build():
     import live_shell
     print("  live:", live_shell.emit(globals()))
     # ALPHA ONLY. Writes docs/alpha.js, or nothing — see alpha_layer.py.
-    print("  alpha:", alpha_layer.emit(globals()))
+    layers.run("alpha.emit", lambda: print("  alpha:", alpha_layer.emit(globals())))
     # ---- toilets.html: the one question asked under a clock ---------------
     # /walk.html answers "how thick is this city with toilets"; this answers
     # "where is one, now". Same points, opposite instrument.
     import toilets_layer
-    print("  toilets:", toilets_layer.emit(globals(), data))
+    layers.run("toilets.emit", lambda: print("  toilets:", toilets_layer.emit(globals(), data)))
     # ---- flights.html: who flies here — the CNX + CEI route board --------
     import flights_layer
-    print("  flights:", flights_layer.emit(globals(), data))
+    layers.run("flights.emit", lambda: print("  flights:", flights_layer.emit(globals(), data)))
     # ---- chuai.html + sw.js: the lifeline page, and offline for the site -
     # WO-57 item 1. Last of the root pages to be written before the sitemap
     # picks it up, and the only one that also installs a service worker.
     import chuai_layer
-    print("  chuai:", chuai_layer.emit(globals(), data))
+    layers.run("chuai.emit", lambda: print("  chuai:", chuai_layer.emit(globals(), data)))
     # ---- foon.html: the smoke season and the clean-air room register ----
     # WO-57 item 4. Reads data/cleanrooms.json (importers/fetch_cleanrooms.py);
     # says so and steps aside if the register has not been fetched.
     import foon_layer
-    print("  foon:", foon_layer.emit(globals(), data))
+    layers.run("foon.emit", lambda: print("  foon:", foon_layer.emit(globals(), data)))
     # ---- nam.html: the Ping, against the RID's own alert levels ---------
     # WO-57 item 5. Reads data/ping.json (importers/make_ping.py) and steps
     # aside when the gauges have not been read.
     import nam_layer
-    print("  nam:", nam_layer.emit(globals(), data))
+    layers.run("nam.emit", lambda: print("  nam:", nam_layer.emit(globals(), data)))
     import traffic_layer                          # C106 answered 2026-10-03: "pls publish tomtom"
-    print("  traffic:", traffic_layer.emit(globals()))
+    layers.run("traffic.emit", lambda: print("  traffic:", traffic_layer.emit(globals())))
     # ---- lottery.html: the Government Lottery draw, every tier, a ticket check
     import lottery_layer
-    print("  lottery:", lottery_layer.emit(globals(), data))
+    layers.run("lottery.emit", lambda: print("  lottery:", lottery_layer.emit(globals(), data)))
     import films_layer
-    print("  films:", films_layer.emit(globals(), data))
+    layers.run("films.emit", lambda: print("  films:", films_layer.emit(globals(), data)))
     # ---- app.html: the toilets map as an installable, offline app -------
     import app_layer
-    print("  app:", app_layer.emit(globals(), data))
+    layers.run("app.emit", lambda: print("  app:", app_layer.emit(globals(), data)))
     # ---- get.html: the toys, and the search rows that find them ---------
     # WO-75. After app_layer, because the APK it publishes is one of the rows
     # and the register measures the file rather than trusting the registry.
@@ -22948,30 +22950,30 @@ def build():
     # own tables — so this must run before the sitemap and before any check
     # that reads the built docs/.
     import downloads_layer
-    print("  toys:", downloads_layer.emit(globals()))
+    layers.run("downloads.emit", lambda: print("  toys:", downloads_layer.emit(globals())))
     # ---- map.html: the city as a way IN, not only as an illustration -----
     # After the province loop, because it labels its chips with the point
     # counts those GeoJSON files actually came out at.
     print("  tap card:", tapcard.emit(globals()))
 
     import explore_layer
-    print("  explore:", explore_layer.emit(globals()))
+    layers.run("explore.emit", lambda: print("  explore:", explore_layer.emit(globals())))
     # ---- here.html: the site opening where the reader is standing --------
     # After explore_layer, whose INKS it shares. Nan chose the chip and no
     # homepage hop (2026-09-07), so nothing here redirects anybody: the page
     # is reached by tapping, and asks for a position only through MDLOC.
     import here_layer
-    print("  here:", here_layer.emit(globals(), data))
+    layers.run("here.emit", lambda: print("  here:", here_layer.emit(globals(), data)))
     # ---- whereis.js: any point said every way — address, Plus Code, the map apps ----
     # (Nan, 2026-10-10: share location "to work well with any mapping function").
     # Read by the send sheet (share_layer), /live.html and the doodle maps.
     import whereis_layer
-    print("  whereis:", whereis_layer.emit(globals(), data))
+    layers.run("whereis.emit", lambda: print("  whereis:", whereis_layer.emit(globals(), data)))
     (DOCS / "widgets.html").write_text(
         build_widgets_page(EVENTS, data, moon_svg_markup))
     write_sky_json()
     write_today_json()
-    nownear_layer.write_json(DOCS)   # the strip's weather and air, read by JS
+    layers.run("nownear.write_json", lambda: nownear_layer.write_json(DOCS))   # the strip's weather and air, read by JS
     if FORTUNE_DAYS:
         shutil.copyfile(ROOT / "data" / "fortune.json", DOCS / "data" / "fortune.json")
 
@@ -22979,26 +22981,26 @@ def build():
     # After festivals_layer (reads g["_ANNOUNCED"]) and before the sitemap,
     # so the pages index themselves like everything else.
     import answers_layer
-    print("  answers:", answers_layer.emit(globals(), data))
+    layers.run("answers.emit", lambda: print("  answers:", answers_layer.emit(globals(), data)))
 
     import asked_layer  # reader-asked questions the catalogue can or can't answer yet
-    print("  asked:", asked_layer.emit(globals(), data))
+    layers.run("asked.emit", lambda: print("  asked:", asked_layer.emit(globals(), data)))
 
     import pins_layer
-    print("  pins:", pins_layer.emit(globals(), data))
+    layers.run("pins.emit", lambda: print("  pins:", pins_layer.emit(globals(), data)))
 
     print("  moved:", write_moved_stubs())
 
     # ---- muaythai.html: the fight board, the shelf's porch, the primer ---
     import muaythai_layer  # weekly nights already merged into EVENTS_RAW above
-    print("  muaythai:", muaythai_layer.emit(globals(), data))
+    layers.run("muaythai.emit", lambda: print("  muaythai:", muaythai_layer.emit(globals(), data)))
 
     # ---- chang.html: the register of what each camp states, the shelf's
     # porch, the city's elephant names, the primer. Nothing merged into
     # EVENTS_RAW: a camp's program is a booking, not a happening; the one
     # day that is a happening (วันช้างไทย) is in festivals.json.
     import elephant_layer
-    print("  chang:", elephant_layer.emit(globals(), data))
+    layers.run("elephant.emit", lambda: print("  chang:", elephant_layer.emit(globals(), data)))
 
     # ---- namphuron.html: the whole north's hot springs — the register, the
     # drawn map, the primer (WO-23). The one board whose frame is wider than
@@ -23007,7 +23009,7 @@ def build():
     # per province. Springs are never merged into EVENTS_RAW — a soak is a
     # place, not a happening.
     import hotspring_layer
-    print("  namphuron:", hotspring_layer.emit(globals(), data))
+    layers.run("hotspring.emit", lambda: print("  namphuron:", hotspring_layer.emit(globals(), data)))
 
     # ---- san.html: the shrine register of both provinces — the drawn map,
     # the kinds as their keepers use them, the primer (WO-39). Register-only
@@ -23015,17 +23017,17 @@ def build():
     # pin; told-of names stay in their own block and never enter the
     # register. Nothing here ranks a shrine.
     import shrine_layer
-    print("  san:", shrine_layer.emit(globals(), data))
+    layers.run("shrine.emit", lambda: print("  san:", shrine_layer.emit(globals(), data)))
 
     # ---- /full-moon: every full moon of the year at the wats (NaN, 2026-09-27),
     # and the net it stamps onto the member wats' pages, the wat shelves and the
     # festival pages. After the festivals and /wats, whose pages it writes into.
     import fullmoon_layer
-    print("  full-moon: %d pages, %d stamped" % fullmoon_layer.emit(DOCS))
-    print(pics_layer.emit(DOCS))
+    layers.run("fullmoon.emit", lambda: print("  full-moon: %d pages, %d stamped" % fullmoon_layer.emit(DOCS)))
+    layers.run("pics.emit", lambda: print(pics_layer.emit(DOCS)))
     import ahead_layer
-    print(ahead_layer.emit(globals()))
-    print(waypics_layer.emit(DOCS))
+    layers.run("ahead.emit", lambda: print(ahead_layer.emit(globals())))
+    layers.run("waypics.emit", lambda: print(waypics_layer.emit(DOCS)))
 
     # ---- doi.html: the land itself (WO-37) — hillshade over the basemap,
     # the opt-in 3D mode, the basin cut west to east, the highest cell the
@@ -23035,23 +23037,23 @@ def build():
     # Skips itself, and says so,
     # until the terrain readings exist on disk.
     import geography_layer
-    print("  doi:", geography_layer.emit(globals(), data))
+    layers.run("geography.emit", lambda: print("  doi:", geography_layer.emit(globals(), data)))
 
     # ---- moat.html: ในเวียงหรือนอกเวียง — nine ways to read the moat -------
     # The earth page, then the water page. Geometry comes from MOAT_POLY and
     # _moat_crossings() (the catalogue's pins, same as the maps); the census
     # is taken live from the records, so its sentences heal themselves.
     import moat_layer
-    print("  moat:", moat_layer.emit(globals(), data))
+    layers.run("moat.emit", lambda: print("  moat:", moat_layer.emit(globals(), data)))
     import bearings_layer
-    print("  bearings:", bearings_layer.emit(globals(), data))
+    layers.run("bearings.emit", lambda: print("  bearings:", bearings_layer.emit(globals(), data)))
 
     # ---- seven.html: เซเว่นทุกซอย — the branch layer (WO-38) --------------
     # The chain voice (what any branch can do) and the census, counted live;
     # the branch voice stays on each branch's own page (facet row + the
     # sevenband, both fed by SEVEN_CTX so page and hub agree on every metre).
     import seven_layer
-    print("  seven:", seven_layer.emit(globals(), data))
+    layers.run("seven.emit", lambda: print("  seven:", seven_layer.emit(globals(), data)))
 
     # ---- cooking.html: the class board, the shelf's porch, the primer ------
     # Deliberately NOT merged into EVENTS_RAW the way fight nights are: a
@@ -23059,7 +23061,7 @@ def build():
     # daily "events" would bury the real ones. The board lives on its page and
     # on each school's own record (known_facts rows).
     import cooking_layer
-    print("  cooking:", cooking_layer.emit(globals(), data))
+    layers.run("cooking.emit", lambda: print("  cooking:", cooking_layer.emit(globals(), data)))
 
     # ---- beauty.html: the words, the shelves, the census of the silence ---
     # No board and no register rows yet, deliberately: WO-22 was zero-network
@@ -23069,14 +23071,14 @@ def build():
     # corrections (barber 6 -> 62, salon 0 -> 62) and a printed count of the
     # five questions no shopfront in either province answers.
     import beauty_layer
-    print("  beauty:", beauty_layer.emit(globals(), data))
+    layers.run("beauty.emit", lambda: print("  beauty:", beauty_layer.emit(globals(), data)))
 
     # ---- realestate.html: the words before the deposit, the split shelves,
     # the census of what no building has been asked, the register (WO). The
     # one board whose biggest number is a silence: zero Land Offices, zero
     # posted rates, and it says so.
     import realestate_layer
-    print("  realestate:", realestate_layer.emit(globals(), data))
+    layers.run("realestate.emit", lambda: print("  realestate:", realestate_layer.emit(globals(), data)))
 
     # ---- /listings/: the Listing Sheet, served from this domain -----------
     # A separate instrument with its own rules — dated prices, agencies, and
@@ -23084,7 +23086,7 @@ def build():
     # this catalogue takes from it is a count and a link on the buildings it
     # already holds. Optional: absent or unbuilt, the site is unchanged.
     import listings_layer
-    print("  listings:", listings_layer.emit(globals(), data))
+    layers.run("listings.emit", lambda: print("  listings:", listings_layer.emit(globals(), data)))
 
     # ---- womens-health.html: the graded list, the registers, the sign -----
     # Not a shelf: women's health is a speciality FIELD, the same shape as
@@ -23093,7 +23095,7 @@ def build():
     # the field's front porch — and the place the graded `obgyn` signal from
     # the cm-womens-health harvester finally gets read by something.
     import womens_health_layer
-    print("  womens-health:", womens_health_layer.emit(globals(), data))
+    layers.run("womens_health.emit", lambda: print("  womens-health:", womens_health_layer.emit(globals(), data)))
 
     # ---- care.html: departments, after-hours clinics, the paperwork ------
     # WO-25. The corpus holds buildings; ongoing care lives in DEPARTMENTS, so
@@ -23101,14 +23103,14 @@ def build():
     # every claim carrying its sentence, its url and its date — and prints the
     # silences beside the answers.
     import care_layer
-    print("  care:", care_layer.emit(globals(), data))
+    layers.run("care.emit", lambda: print("  care:", care_layer.emit(globals(), data)))
 
     # ---- trans-health.html: the curated register, the benefit, the sign ---
     # WO-26. The corpus states nothing here (measured in transhealth_layer.py,
     # live at build time), so the page is curated research with dated sources;
     # data/curated/transhealth.json is the one file it and the index both read.
     import transhealth_layer
-    print("  trans-health:", transhealth_layer.emit(globals(), data))
+    layers.run("transhealth.emit", lambda: print("  trans-health:", transhealth_layer.emit(globals(), data)))
 
     # ---- adhd.html: the schedule, the stock, and the questions for the desk
     # WO-31. Measured zero in the corpus (live in adhd_layer.py), so the page
@@ -23117,7 +23119,7 @@ def build():
     # and what a desk will do — because collapsing them is what makes people
     # believe there is no lawful door at all.
     import adhd_layer
-    print("  adhd:", adhd_layer.emit(globals(), data))
+    layers.run("adhd.emit", lambda: print("  adhd:", adhd_layer.emit(globals(), data)))
 
     # ---- medicine-airport.html: medicine through the airport, both ways ---
     # The Thai FDA's own two traveler-guidance documents, read 2026-08-26 and
@@ -23126,7 +23128,7 @@ def build():
     # and what never boards. The ADHD-stimulant special case stays on
     # /adhd.html, which owns it.
     import medtravel_layer
-    print("  medicine-airport:", medtravel_layer.emit(globals(), data))
+    layers.run("medtravel.emit", lambda: print("  medicine-airport:", medtravel_layer.emit(globals(), data)))
 
     # ---- souvenir.html: protection status of animals and plants, for the
     # traveller at the airport. WO-32. The corpus's own names say almost
@@ -23137,7 +23139,7 @@ def build():
     # for a traveller at all — because folding them into one rumour is what
     # gets a person stopped at a red channel.
     import souvenir_layer
-    print("  souvenir:", souvenir_layer.emit(globals(), data))
+    layers.run("souvenir.emit", lambda: print("  souvenir:", souvenir_layer.emit(globals(), data)))
 
     # ---- hom.html: หม้อห้อม, indigo — the plant, the pot and the shirt. WO-50.
     # NOT a shelf, and the layer's docstring says why: the directory holds
@@ -23151,7 +23153,7 @@ def build():
     # true year scale. Register: data/curated/hom.json. Sibling article with
     # the manuscript evidence: wichaa.net/a/entity_hom/.
     import hom_layer
-    print("  hom:", hom_layer.emit(globals(), data))
+    layers.run("hom.emit", lambda: print("  hom:", hom_layer.emit(globals(), data)))
 
     # ---- tawai.html: ไม้แกะสลักบ้านถวาย, the carving village. WO-51.
     # Also NOT a shelf, and for a different reason than hom's. The village is
@@ -23169,7 +23171,7 @@ def build():
     # data/curated/carve.json. Carry-flags are NOT restated here; they live on
     # souvenir.html and this page links them.
     import carve_layer
-    print("  tawai:", carve_layer.emit(globals(), data))
+    layers.run("carve.emit", lambda: print("  tawai:", carve_layer.emit(globals(), data)))
 
     # ---- longcare.html: nursing homes · convalescence · addiction · retirement
     # WO-32. Four questions people type as one, kept apart. The corpus said
@@ -23179,7 +23181,7 @@ def build():
     # stands on the mended medical/long-care shelf plus the graded register
     # in data/curated/longcare.json — mapped/route only so far, and it says so.
     import longcare_layer
-    print("  longcare:", longcare_layer.emit(globals(), data))
+    layers.run("longcare.emit", lambda: print("  longcare:", longcare_layer.emit(globals(), data)))
 
     # ---- ot.html: occupational therapy — children, adults, Chiang Rai ----
     # WO-55. Zero names in 21,047 carry กิจกรรมบำบัด (census live in
@@ -23187,7 +23189,7 @@ def build():
     # data/curated/ot.json was read from each institution's own site or
     # poster, and the index takes its keywords from the same file above.
     import ot_layer
-    print("  ot:", ot_layer.emit(globals(), data))
+    layers.run("ot.emit", lambda: print("  ot:", ot_layer.emit(globals(), data)))
 
     # ---- the lenses: one graded register per file in data/curated/lens/ --
     # WO-56+. Same page shape as care/adhd/longcare/ot, drawn by one module.
@@ -23199,19 +23201,19 @@ def build():
     # (train/bus/songthaew/taxi/funicular/pier), and finally gives the
     # flights board a page that points at it.
     import transport_layer
-    print("  transport:", transport_layer.emit(globals(), data))
+    layers.run("transport.emit", lambda: print("  transport:", transport_layer.emit(globals(), data)))
 
     # ---- 🏷 tags: the cross-shelf pages, /tags.html, data/tags.json ------
     # Assigned right after load() (every place page already wears its pills);
     # drawn here, before the sitemap, so the pages index themselves.
-    print("  tags:", _tags_layer.emit(globals(), data))
+    layers.run("tags.emit", lambda: print("  tags:", _tags_layer.emit(globals(), data)))
 
     # ---- 🔌 the public API: /api/v1/*, /api/, /terms.html ----------------
     # After tags, because a row carries its tags; before the sitemap, so the
     # two new pages index themselves. The query engine is publish/api.js and
     # runs at the edge — this writes only the baked index it reads.
     import api_layer
-    print("  api:", api_layer.emit(globals(), data, photos, _tg))
+    layers.run("api.emit", lambda: print("  api:", api_layer.emit(globals(), data, photos, _tg)))
 
     # ---- the register: /sites/ and docs/data/sites.json -----------------
     # Late on purpose: /sites/ lists the root pages under their own <h1>, so they
@@ -24157,7 +24159,7 @@ coordinates, channels and ant rank, no markup to strip. {len(all_recs):,} lines.
         _lf.write(sala_layer.llms_section())
         _lf.write(eggs_layer.llms_section())
         _lf.write(sitenet_layer.llms_section(DOCS))
-    fullmoon_layer.llms(DOCS)
+    layers.run("fullmoon.llms", lambda: fullmoon_layer.llms(DOCS))
 
     # ---- the Mot Dang net: every register page shows every other ----------
     # Last of the page writes, so the colophon, /source/ and /sites/ carry it.
@@ -24165,7 +24167,7 @@ coordinates, channels and ant rank, no markup to strip. {len(all_recs):,} lines.
     # The Send button on every page that does not load md.js (minisites, /loop,
     # /roads, /markets, listings): share_layer.py, Nan 2026-10-03.
     import share_layer as _share_layer
-    print(f"  share: /locshare.js put on {_share_layer.inject(DOCS)} pages without md.js")
+    layers.run("share.inject", lambda: print(f"  share: /locshare.js put on {_share_layer.inject(DOCS)} pages without md.js"))
     (DOCS / "net.json").write_text(json.dumps(
         sitenet_layer.net_json(DOCS), ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     print(f"  sitenet: {_sn_pages} pages carry the net; served elsewhere: {', '.join(_sn_off)}")
@@ -24193,6 +24195,7 @@ coordinates, channels and ant rank, no markup to strip. {len(all_recs):,} lines.
     (DOCS / GOOGLE_VERIFY).write_text(
         f"google-site-verification: {GOOGLE_VERIFY}\n")
 
+    layers.finish()
     if _FINAL_DOCS is not None:
         _swap_into_place()
     n_pages = sum(1 for _ in DOCS.rglob("*.html"))
