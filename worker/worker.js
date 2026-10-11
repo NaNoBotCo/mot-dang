@@ -354,6 +354,19 @@ async function putDoodleVote(env, request, body) {
 //   fbt:<item>            the tally {up, down, at}
 //   fb-vote:<iso>:<rand>  one event per change of vote
 //   fb-note:<iso>:<rand>  a paragraph, with the vote it came with; private, read with the key only
+// CREDITS (WO-110) — a name on /credits.html. A reader is named when the form sent
+// credit: {consent: true, name} and the name passes this test; the Worker stamps the wording version
+// the form carried. Anything else returns null and the record holds no credit. The name is public once
+// a person accepts the report; the note, the contact address and the voter id are not part of it.
+const CREDIT_V = '2026-10-11'
+function cleanCredit(raw) {
+  if (!raw || raw.consent !== true) return null
+  const name = cap(raw.name, 60).replace(/\s+/g, ' ')
+  if (name.length < 2 || /[\u0000-\u001f\u007f<>]/.test(name)) return null
+  if (/@|:\/\/|www\./i.test(name) || /(?:\d[\s().+-]*){6,}/.test(name)) return null
+  return { name, v: CREDIT_V }
+}
+
 const FB_ITEM_RE = /^[A-Za-z0-9:_\-./]{1,120}$/
 const FB_WHO_RE = /^[A-Za-z0-9_-]{8,64}$/
 const FB_PER_HOUR = 120
@@ -384,9 +397,11 @@ async function putFeedback(env, request, body) {
     await env.KV.put(`fb-vote:${at}:${crypto.randomUUID().slice(0, 8)}`,
       JSON.stringify({ item, x, old, who, page, lang, at }))
   }
-  if (note) await env.KV.put(`fb-note:${at}:${crypto.randomUUID().slice(0, 8)}`,
-    JSON.stringify({ item, x, note, who, page, lang, at }))
-  return { ok: true, item, mine: x, tally }
+  const credit = note ? cleanCredit(body?.credit) : null
+  const ref = crypto.randomUUID().slice(0, 8)
+  if (note) await env.KV.put(`fb-note:${at}:${ref}`,
+    JSON.stringify({ item, x, note, who, page, lang, at, ...(credit ? { credit, ref } : {}) }))
+  return { ok: true, item, mine: x, tally, ...(credit ? { ref } : {}) }
 }
 
 async function feedbackEvents(env, since) {
@@ -1666,6 +1681,7 @@ export default {
         return json({ error: 'placeId not a recognized Mot Dang id' }, 400)
 
       const id = crypto.randomUUID()
+      const credit = cleanCredit(body?.credit)   // null unless the box was ticked and the name passes
       await env.KV.put(`sug:${id}`, JSON.stringify({
         id,
         kind,
@@ -1678,11 +1694,12 @@ export default {
         from: cap(body?.from, 200) || null,
         page: cap(body?.page, 300) || null,   // where they were standing when they told us
         lang: body?.lang === 'th' ? 'th' : 'en',
+        credit,
         status: 'new',
         createdAt: new Date().toISOString(),
       }))
       await env.KV.put(bucket, String(count + 1), { expirationTtl: 3600 })
-      return json({ ok: true, id })
+      return json({ ok: true, id, ...(credit ? { ref: id.slice(0, 8) } : {}) })
     }
 
     // There is deliberately NO public GET for the suggestion queue.

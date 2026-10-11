@@ -8367,8 +8367,19 @@ form.kind.addEventListener('change',detShow);detShow();
 const where=document.getElementById('suggestwhere');
 if(pid&&where){where.textContent=pid;where.parentElement.hidden=false;}
 const say=document.getElementById('suggestsay');
+// CREDITS (WO-110). A name travels only when the box is ticked and a name is typed. Ticking opens the
+// name box; unticking empties it. The Worker applies the same test to the name.
+const cbx=form.querySelector('[name=credit]'),cbox=document.getElementById('creditbox'),
+cnm=form.querySelector('[name=creditname]'),cnote=document.getElementById('creditnote');
+const cShow=()=>{const on=!!(cbx&&cbx.checked);if(cbox)cbox.hidden=!on;if(cnote)cnote.hidden=!on;if(!on&&cnm)cnm.value='';};
+if(cbx)cbx.addEventListener('change',cShow);cShow();
+const creditBad=n=>n.length<2||n.length>60||/@|:\/\/|www\./i.test(n)||/(?:\d[\s().+-]*){6,}/.test(n);
 form.addEventListener('submit',async e=>{
 e.preventDefault();
+let credit=null;
+if(cbx&&cbx.checked){const cn=(cnm.value||'').replace(/\s+/g,' ').trim();
+if(creditBad(cn)){say.textContent='ใส่ชื่อที่จะแสดง (ไม่มีอีเมลหรือเบอร์) / Type a name to show (no email or phone number)';return;}
+credit={consent:true,name:cn};}
 let what=form.what.value.trim();
 if(ff&&ff.value&&fv&&fv.value.trim())what='fact:'+JSON.stringify({field:ff.value,value:fv.value.trim(),note:what});
 else if(ff&&ff.value&&!what){say.textContent='ใส่ค่าในช่องด้วยเจ้า / Put the value in the box';return;}
@@ -8383,13 +8394,14 @@ const res=await fetch(cfg.workerUrl+'/suggest',{method:'POST',
 headers:{'content-type':'application/json'},
 body:JSON.stringify({kind:form.kind.value,what:what,
 detail:dv||null,
-placeId:pid||null,from:form.from.value.trim()||null,
+placeId:pid||null,from:form.from.value.trim()||null,credit:credit,
 page:qs.get('p')||document.referrer||location.href,
 lang:document.documentElement.lang==='th'?'th':'en'})});
 const out=await res.json();
 if(out.ok){form.hidden=true;
 say.textContent='ขอบคุณเจ้า — มดรับเรื่องแล้ว จะมีคนอ่านทุกข้อ / '
-+'Thank you — the ants have it. A person reads every one.';}
++'Thank you — the ants have it. A person reads every one.'
++(credit&&out.ref?' · รหัสอ้างอิง / reference '+out.ref:'');}
 else{say.textContent=(out.error||'ส่งไม่สำเร็จ / could not send')+
 ' — ลองใหม่อีกครั้ง / please try again';btn.disabled=false;}
 }catch(err){
@@ -16412,6 +16424,10 @@ def build_privacy_page():
          "แก้ชื่อหรือที่อยู่ไม่ได้ และสิ่งที่ยืนยันแล้วจะขึ้นเว็บเป็นสาธารณะ",
          "LINE, email, the claim form. The form takes contact channels and opening hours "
          "only — not a name or an address — and what you confirm becomes public."),
+        ("ชื่อบนหน้าเครดิต",
+         "A name on the credits page",
+         "ถ้าติ๊กใส่ชื่อ ชื่อที่พิมพ์จะขึ้นหน้าเครดิตพร้อมประเภทเรื่องและเดือน",
+         "A name typed with the tick is shown on the credits page with the kind of help and the month."),
         ("โฮสต์และลิงก์ออก",
          "Hosting and outbound links",
          "เว็บนี้และบันทึกการค้นหาอยู่บน Cloudflare ซึ่งเก็บ log เซิร์ฟเวอร์ตามปกติ "
@@ -17978,6 +17994,21 @@ def door_ledger_line(depth=0):
     th = "แจ้งแล้วไม่เงียบเจ้า — มดแก้ตามแจ้งไปแล้ว %d เรื่อง ดูบันทึกได้เลย" % st["total"]
     en = "Reports here go somewhere: %d fixes on the public log, dates and all" % st["total"]
     return f'<p class="doorledger"><a href="{r}fixed.html">🛠 {bi(th, en)}</a></p>'
+
+
+def build_credits_page():
+    """/credits.html (WO-110) — the people who ticked the box on the tell-the-ants form and typed a
+    name. Written on every build, empty or not. Rows come from data/credits.json through credits_layer,
+    which leaves off any row that fails its own check."""
+    import credits_layer
+    rows, left = credits_layer.listed(credits_layer.load(credits_layer.CREDITS_JSON))
+    for i, why in left:
+        print("credits: row %d left off: %s" % (i, "; ".join(why)))
+    body = (f'<style>{credits_layer.CSS}</style>'
+            + credits_layer.body(rows, bi, esc)
+            + share_block(BASE + "credits.html", "เครดิต · มดแดง"))
+    return page("เครดิต", body, depth=0, path="credits.html",
+                desc="เครดิต · Credits: people who reported a bug or fixed a place and ticked the box to be named")
 
 
 def build_fixed_page():
@@ -20519,6 +20550,7 @@ def build():
     fixed_html = build_fixed_page()
     if fixed_html:
         (DOCS / "fixed.html").write_text(fixed_html)
+    (DOCS / "credits.html").write_text(build_credits_page())
 
     # ---- my page: the personal start page, the pre-Google way -----------
     pick_groups = []
@@ -20865,6 +20897,13 @@ def build():
         f'<label>{bi("ถ้าอยากให้ติดต่อกลับ (ไม่ใส่ก็ได้)", "If you want a reply (optional)")}<br>'
         f'<input name="from" maxlength="200" '
         f'placeholder="{bi_text("อีเมล หรือ ไลน์ไอดี", "Email or LINE id")}"></label>'
+        f'<label class="creditask"><input type="checkbox" name="credit"> '
+        f'{bi("ใส่ชื่อฉันในหน้าเครดิต (ไม่บังคับ)", "Name me on the credits page (optional)")}</label>'
+        f'<label id="creditbox" hidden>{bi("ชื่อที่จะแสดง", "Name to show")}<br>'
+        f'<input name="creditname" maxlength="60" '
+        f'placeholder="{bi_text("ชื่อหรือชื่อเล่น", "a name or nickname")}"></label>'
+        f'<p id="creditnote" class="tinynote" hidden>'
+        f'{bi("หน้าเครดิตแสดงชื่อนี้ ประเภทเรื่อง และเดือน", "The credits page shows this name, the kind of report and the month.")}</p>'
         f'<button>🐜 {bi("ส่งให้มดแดง", "Send it to the ants")}</button>'
         f'</form><p id="suggestsay" class="suggestsay" role="status" aria-live="polite"></p>'
         f'<p class="tinynote">{privacy_note}</p></div>'
@@ -22682,6 +22721,7 @@ def build():
             f'<a href="{href}">{bi(th_l, en_l)}</a>' for href, th_l, en_l in [
                 ("reach.html", "ลิงก์ทางการที่ตายแล้ว", "the official links that are dead"),
                 ("fixed.html", "สมุดแก้", "the fix log"),
+                ("credits.html", "เครดิต", "credits"),
                 ("privacy.html", "ความเป็นส่วนตัว", "privacy"),
                 ("source/", "โค้ดและข้อมูลดิบ", "code and raw data"),
             ])

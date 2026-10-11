@@ -1,0 +1,4 @@
+{
+ "_note": "WO-110. One row per person who ticked the box on the form and typed a name. consent is the wording version the form carried when they ticked (the Worker stamps it as credit.v). ref is the first 8 characters of the private queue id and ties a row to the queue; the page does not print it. month, not date. page is a path on this site. fix is a row number in fixes.json. kind: fix, add, photo, bug.",
+ "credits": []
+}
