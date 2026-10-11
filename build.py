@@ -8461,6 +8461,7 @@ ASK_HOST = "https://ask.motdang.net"
 
 
 @functools.lru_cache(maxsize=None)   # once a build, not once a page (~30 s on 2026-10-11)
+@functools.lru_cache(maxsize=None)   # once per build: page() asked on every page, ~30 s on motdang-build (2026-10-11)
 def ask_enabled():
     p = ROOT / "data" / "ask.json"
     if not p.exists():
