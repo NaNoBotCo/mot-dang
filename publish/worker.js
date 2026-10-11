@@ -178,11 +178,14 @@ function headers(obj, key, extra) {
 /* Machine translation off (Nan, 2026-09-23). Done here, not in a build, because
  * the bucket holds pages from several builds. A page's etag gains NT_ETAG so a
  * browser holding a copy from before this change fetches the page again. */
-const NT_ETAG = "-nt1";
+const NT_ETAG = "-nt2";
 const NT_META_GOOGLE = '<meta name="google" content="notranslate">';
 const NT_META_ROBOTS = '<meta name="robots" content="notranslate">';
 const NT_SCRIPT = '<script>if(/[.]translate[.]goog$/.test(location.hostname))location.replace("https://"+location.hostname.slice(0,-15).replace(/--/g,"~").replace(/-/g,".").replace(/~/g,"-")+location.pathname+location.search.replace(/([?&])_x_tr_[^&]*/g,"$1").replace(/[?&]+$/,"").replace(/[?]&+/,"?")+location.hash)</script>';
 const NT_DONE = new WeakSet();
+/* Travelpayouts, project Motdang 581229 (Nan, 2026-10-11): their site script,
+ * as they gave it, in the head of every page. */
+const TP_SCRIPT = '<script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">(function () {var script = document.createElement("script");script.async = 1;script.setAttribute("data-cmp-ab","2");script.src = \'https://tp-em.com/NTgxMjI5.js?t=581229\';document.head.appendChild(script);})();</script>';
 
 export const ntEtag = (tag) => tag.replace(/"$/, NT_ETAG + '"');
 
@@ -215,9 +218,9 @@ export function ntConditional(reqHeaders) {
 }
 
 function noTranslate(rw) {
-  let done = false, google = false, robots = false, script = false;
+  let done = false, google = false, robots = false, script = false, tp = false;
   const tags = () => (google ? "" : NT_META_GOOGLE) + (robots ? "" : NT_META_ROBOTS) +
-                     (script ? "" : NT_SCRIPT);
+                     (script ? "" : NT_SCRIPT) + (tp ? "" : TP_SCRIPT);
   const put = (write) => { if (!done) { done = true; write(tags()); } };
   return rw
     .on("html", {
@@ -229,7 +232,10 @@ function noTranslate(rw) {
     .on('meta[name="google" i][content*="notranslate" i]', { element() { google = true; } })
     .on('meta[name="robots" i][content*="notranslate" i]', { element() { robots = true; } })
     .on("head > script:not([src]):not([type])", {
-      text(t) { if (t.text.includes("translate[.]goog")) script = true; },
+      text(t) {
+        if (t.text.includes("translate[.]goog")) script = true;
+        if (t.text.includes("tp-em.com")) tp = true;
+      },
     })
     .on("head", {
       element(e) { e.onEndTag((end) => put((s) => end.before(s, { html: true }))); },
