@@ -54,7 +54,7 @@ def load():
     vers, gone, params = {}, {}, {}
     led = STORE / "ledger.jsonl"
     if led.exists():
-        for line in led.read_text().splitlines():
+        for line in led.read_text().split("\n"):
             if not line.strip():
                 continue
             r = json.loads(line)
@@ -68,7 +68,7 @@ def load():
                 gone.pop(r["id"], None)
     pf = STORE / "params.jsonl"
     if pf.exists():
-        for line in pf.read_text().splitlines():
+        for line in pf.read_text().split("\n"):
             if line.strip():
                 r = json.loads(line)
                 params[r["ph"]] = r["p"]
