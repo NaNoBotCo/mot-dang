@@ -409,7 +409,7 @@ function build(el){
     attributionControl:{compact:false},
     /* No geolocate control. There is exactly one door to the permission
        prompt on this site and it is not a map button — see MDLOC in md.js. */
-    dragRotate:false,pitchWithRotate:false,touchPitch:false,
+    pitchWithRotate:false,touchPitch:false,
     /* ---- WHOSE GESTURE IS IT -------------------------------------------
        Nearly everyone here is holding a phone, and a map that pans on one
        finger takes the page's scroll away from them: a thumb that lands on
@@ -453,21 +453,20 @@ function build(el){
       'FullscreenControl.Exit':'ออกจากเต็มจอ · Leave full screen'
     }
   });
-  /* dragRotate:false is the MOUSE. Touch rotation lives on its own handler
-     and is on by default, which on a phone is not a feature anybody asked
-     for — and here it is worse than unwanted: sync() below fixes the drawing
-     to the ground with a translate and a uniform scale, arithmetic that is
-     only true at bearing 0. Let a casual two-finger twist through and every
-     pin, ring and moat drawn over the tiles skews off the streets it names,
-     with no compass on screen to put it back. */
-  map.touchZoomRotate.disableRotation();
+  /* The map turns (Nan, 2026-10-12: "You should also be able to rotate
+     maps"): two fingers twist it, the right mouse button or ctrl-drag turns
+     it, and the compass puts north back. sync() below turns the drawing with
+     the ground, holds pins upright and turns the drawn north arrows, so
+     nothing drawn over the tiles leaves the street it names. Pitch stays off:
+     a tilted drawing cannot be laid flat over the tiles with one transform. */
   /* Top-LEFT. Three of the four corners are already spoken for: the drawings
      put their north arrow top-right, the credit sits bottom-right, and the
      soi and event maps put a scale bar bottom-left. That last collision was
      invisible while the drawing painted over the controls, and became a
      zoom button sitting on top of "100 ม./m" the moment the controls were
-     lifted above it. No compass — rotation is off. */
-  map.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-left');
+     lifted above it. The compass shows north once the map is turned and a
+     tap on it turns north back up. */
+  map.addControl(new maplibregl.NavigationControl({visualizePitch:false}),'top-left');
   /* Full screen, because cooperative gestures are a bargain and this is the
      other half of it: two fingers inside a band on a page, and everything
      back — one finger, the whole screen — for a reader who came to look at
@@ -491,7 +490,7 @@ function build(el){
     b.innerHTML='<span aria-hidden="true">◎</span>';
     b.addEventListener('click',function(){
       if(!home)return;
-      m.easeTo({center:home.center,zoom:home.zoom,duration:
+      m.easeTo({center:home.center,zoom:home.zoom,bearing:0,duration:
         matchMedia('(prefers-reduced-motion:reduce)').matches?0:420});
     });
     d.appendChild(b);this._d=d;return d;};
@@ -567,10 +566,16 @@ function build(el){
     var p=map.project([anchor.lng,anchor.lat]);
     var k=Math.pow(2,map.getZoom()-anchor.z);
     var tx=p.x-k*anchor.x,ty=p.y-k*anchor.y;
-    draw.style.transform='translate('+tx.toFixed(2)+'px,'+ty.toFixed(2)+
-      'px) scale('+k.toFixed(6)+')';
-    marks(k);
-    corner(k,tx,ty);
+    /* A turned map turns the drawing about the anchor's point on screen. */
+    var b=map.getBearing();
+    turned=Math.abs(b)>0.01;
+    draw.style.transform=turned?
+      'translate('+p.x.toFixed(2)+'px,'+p.y.toFixed(2)+'px) rotate('+(-b).toFixed(3)+
+      'deg) scale('+k.toFixed(6)+') translate('+(-anchor.x).toFixed(2)+'px,'+(-anchor.y).toFixed(2)+'px)':
+      'translate('+tx.toFixed(2)+'px,'+ty.toFixed(2)+'px) scale('+k.toFixed(6)+')';
+    el.classList.toggle('mdmap-turned',turned);
+    marks(k,turned?b:0);
+    if(turned)cornerTurned(k,b,p);else corner(k,tx,ty);
     /* One state class, so a layer can style whatever it drew that is only
        true at the scale it was drawn at. The scale bars use it. */
     el.classList.toggle('mdmap-zoomed',k!==1);
@@ -597,7 +602,7 @@ function build(el){
      The transform attribute of a tagged element belongs to this module and
      will be overwritten. A layer that needs its own placement transform
      should tag a wrapper <g> instead — see the scale bars in build.py. */
-  var tagged=[],fixt=[],ppu=1,q0x=0,q0y=0;
+  var tagged=[],fixt=[],north=[],ppu=1,q0x=0,q0y=0,turned=false;
   function readMarks(){
     tagged=[];fixt=[];
     if(!draw)return;
@@ -619,6 +624,11 @@ function build(el){
        back on every frame of a drag is how a map starts to stutter. */
     var root=draw.querySelector('svg');
     fixt=[].slice.call(draw.querySelectorAll('[data-mdfix]'));
+    /* A north arrow is the one piece of furniture that must turn with the
+       ground: a group that is not a scale bar and says nothing but north. */
+    north=fixt.map(function(g){
+      if(g.classList.contains('mdmap-scale')||!/^(N|เหนือ|North|)$/.test((g.textContent||'').trim()))return null;
+      try{var bb=g.getBBox();return [bb.x+bb.width/2,bb.y+bb.height/2];}catch(e){return null;}});
     if(root&&fixt.length&&root.getScreenCTM){
       var M=root.getScreenCTM(),b=draw.getBoundingClientRect();
       /* Both read in the same breath, so the page's own scroll is in both
@@ -636,14 +646,28 @@ function build(el){
         ') scale('+(1/k).toFixed(6)+')');
     }
   }
-  function marks(k){
+  /* On a turned map the box's whole transform is undone, in the SVG's own
+     units: into box pixels, back through the turn, the scale and the pan,
+     and out again. A north arrow then turns about its own middle. */
+  function cornerTurned(k,b,p){
+    var u='translate('+q0x+' '+q0y+') scale('+(1/ppu)+') translate('+anchor.x+' '+anchor.y+
+      ') scale('+(1/k).toFixed(6)+') rotate('+b.toFixed(3)+') translate('+(-p.x)+' '+(-p.y)+
+      ') scale('+ppu+') translate('+(-q0x)+' '+(-q0y)+')';
+    for(var i=0;i<fixt.length;i++){
+      var n=north[i];
+      fixt[i].setAttribute('transform',u+(n?' rotate('+(-b).toFixed(3)+' '+n[0]+' '+n[1]+')':''));
+    }
+  }
+  function marks(k,b){
     /* At rest the attribute is removed rather than set to an identity
        transform: this is also what prints, and a printed page should carry
-       the drawing exactly as it was drawn. */
+       the drawing exactly as it was drawn. On a turned map a pin is turned
+       back, so it still stands upright over its doorway. */
     for(var i=0;i<tagged.length;i++){
       var t=tagged[i];
-      if(k===1)t[0].removeAttribute('transform');
-      else t[0].setAttribute('transform','translate('+t[1]+' '+t[2]+') scale('+
+      if(k===1&&!b)t[0].removeAttribute('transform');
+      else t[0].setAttribute('transform','translate('+t[1]+' '+t[2]+')'+
+        (b?' rotate('+b.toFixed(3)+')':'')+' scale('+
         (1/k).toFixed(6)+') translate('+(-t[1])+' '+(-t[2])+')');
     }
   }
@@ -668,6 +692,8 @@ function build(el){
     el.classList.remove('mdmap-zoomed');
     el.style.setProperty('--mdmap-k','1');
     el.dispatchEvent(new CustomEvent('mdmap:sync',{detail:{k:1}}));
+    /* measured flat; a turned map turns the drawing straight back */
+    if(Math.abs(map.getBearing())>0.01)sync();
   }
   anch.set(el,anchorNow);
   map.on('move',sync);
@@ -1229,6 +1255,8 @@ CSS = """/* The map box. The drawn SVG and the live tiles occupy the same square
 .mdmap:not(.mdmap-on)>.maplibregl-ctrl-top-right{display:none}
 .mdmap .mdmap-north{margin:8px 10px 0 0;pointer-events:none;
   filter:drop-shadow(0 0 2px #FFFDF8) drop-shadow(0 0 2px #FFFDF8)}
+/* a turned map: the compass beside the zoom buttons says where north is */
+.mdmap.mdmap-turned .mdmap-north{display:none!important}
 /* Out of the live layer, they no longer fade in with it — so they are held
    back until there is a basemap for them to belong to. A zoom button over a
    picture that cannot zoom, and a tile credit with no tiles under it, both
