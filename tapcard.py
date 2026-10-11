@@ -60,9 +60,11 @@ page() looking for data-mdmap in the finished body, so a map built next year
 gets the card without anyone remembering to ask for it.
 """
 
+import functools
 import zlib
 
 
+@functools.lru_cache(maxsize=None)
 def version():
     """Content hash for the ?v= on tap.css/tap.js.
 

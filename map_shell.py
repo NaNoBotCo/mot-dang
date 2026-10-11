@@ -127,6 +127,27 @@ def version():
     tile URL or a retuned style layer changes what this script *does* just as
     surely as an edited line does.
     """
+    key = tuple(_stat(f) for f in (ROOT / "assets" / "icons.svg", ROOT / "data" / "basemap_style.json"))
+    if _VERSION.get("key") != key:
+        _VERSION.update(key=key, v=_version())
+    return _VERSION["v"]
+
+
+# Every map page asked for version(), and each call re-read the icon sprite and the
+# basemap style: about 270 of a 1,687-second place-page run on motdang-build,
+# 2026-10-11. The two files' stat is the key, so an edit to either still counts.
+_VERSION = {}
+
+
+def _stat(p):
+    try:
+        st = p.stat()
+        return st.st_mtime_ns, st.st_size
+    except OSError:
+        return None
+
+
+def _version():
     cfg = config()
     payload = JS + mine_layer.map_js() + mapsense_layer.map_js() + traffic_map_layer.map_js() + mappins_layer.map_js() + json.dumps(
         {"url": cfg.get("url"), "glyphs": cfg.get("glyphs"),
