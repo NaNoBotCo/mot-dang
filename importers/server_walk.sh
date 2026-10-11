@@ -78,6 +78,7 @@ done
 (( ${#HELD} )) && note "data-held-back" "$(( ${#HELD} / 2 )) file(s) that do not parse"
 flock "$SSTATE/stage.lock" rsync -a --delete --exclude /docs/ --exclude /docs.next/ \
   --exclude /docs.prev/ --exclude /cache/build.lock --exclude /.handoff --exclude /.handoff-at \
+  --exclude /cache/place-pages-kept.json \
   "${HELD[@]}" "$STAGE/" "$REPO/" \
   || { say "copy from staging FAILED"; note "failed" "staging copy"; exit 1 }
 print -- "$HAND" > "$SSTATE/attempted"
