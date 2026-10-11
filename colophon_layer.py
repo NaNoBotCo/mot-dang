@@ -299,6 +299,9 @@ def emit(g, data):
         f'<a href="{att(BASE + "colophon.json")}">/colophon.json</a></p>'
         f'<h2 class="cx-h">{bi("ใบเสร็จ", "The receipts")}</h2>'
         + "".join(rcpt_html(r) for r in receipts)
+        + f'<h2 class="cx-h">{bi("บันทึกการสร้าง", "Build notes")}</h2>'
+        f'<p class="cx-intro">{bi("มดแดงสร้างและเดินระบบอย่างไร สำหรับวิศวกร", "How the site is built and run, for engineers.")} '
+        f'<a class="cx-pill" href="{att(BASE + "build-notes.html")}">{bi("บันทึกการสร้าง", "Build notes →")}</a></p>'
         + f'<h2 class="cx-h">{bi("เจอจุดบกพร่อง?", "Found a fault?")}</h2>'
         f'<p class="cx-intro">{bi("รายงานได้ และเราจ่ายค่าตอบแทน", "Report it — it is paid work.")} '
         f'<a class="cx-pill" href="{att(BASE + "security")}">{bi("การรายงานช่องโหว่และค่าตอบแทน", "The bug bounty →")}</a></p>'
@@ -307,6 +310,16 @@ def emit(g, data):
     (DOCS / "colophon.html").write_text(page(
         "โคโลฟอน", body, depth=0, path="colophon.html",
         desc=bi("เว็บนี้สร้างอย่างไร ตรวจสอบได้ทุกข้อ", intro_en)),
+        encoding="utf-8")
+
+    # ---- the engineers' page, WO-111: linked from the colophon above -------
+    import build_notes_layer
+    (DOCS / "build-notes.html").write_text(page(
+        "บันทึกการสร้าง", build_notes_layer.body() + f'<style>{build_notes_layer.CSS}</style>'
+        + share_block(BASE + "build-notes.html", "บันทึกการสร้าง · Build notes"),
+        depth=0, path="build-notes.html",
+        desc="How motdang.net is built and run, for engineers: data and provenance, the walks, "
+             "the build server, the build, gates, R2, map and search."),
         encoding="utf-8")
 
     # ---- the bug bounty page ----------------------------------------
@@ -390,7 +403,7 @@ def emit(g, data):
         f"# Found a fault? It is paid work: {BASE}security\n"
     )
 
-    status = (f"colophon.html, colophon.json, audit.json ({audit['verdict']}, "
+    status = (f"colophon.html, build-notes.html, colophon.json, audit.json ({audit['verdict']}, "
               f"{passed}/{len(checks)}), security.html, .well-known/security.txt")
     return {"status": status, "llms_section": llms_section,
             "robots_note": robots_note, "audit": audit}
