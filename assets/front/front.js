@@ -2135,4 +2135,6 @@ setInterval(function () {
     }
   });
   addEventListener('popstate', function () { if (now.classList.contains('tool') && !(history.state && history.state.mdmap)) off(); });
+  /* a pinch on the city switch zooms nothing, not the whole page */
+  now.addEventListener('wheel', function (e) { if (e.ctrlKey) e.preventDefault(); }, { passive: false });
 })();
