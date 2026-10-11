@@ -80,8 +80,36 @@ def on_disk(repo):
     return found
 
 
+OK_LIST = "cache/codecheck-ok.txt"
+
+
+def compiles(commit, root="."):
+    """tools/codecheck.py on one commit; a commit that passed once is remembered."""
+    ok = Path(root, OK_LIST)
+    known = set(ok.read_text().split()) if ok.exists() else set()
+    if commit in known:
+        return True
+    r = subprocess.run([sys.executable, "tools/codecheck.py", commit], cwd=root,
+                       capture_output=True, text=True)
+    if r.returncode == 0:
+        with open(ok, "a") as fh:
+            fh.write(commit + "\n")
+        return True
+    sys.stderr.write("commit %s does not compile:\n%s" % (commit[:10], r.stdout))
+    return False
+
+
+def newest_that_compiles(ref="HEAD", root=".", depth=30):
+    """HEAD, or the newest commit before it whose code compiles (2026-10-11: a
+    commit that did not compile stopped every build until a session fixed it)."""
+    for commit in git("rev-list", "--first-parent", "-n", str(depth), ref, root=root).decode().split():
+        if compiles(commit, root):
+            return commit
+    raise SystemExit("none of the last %d commits compiles" % depth)
+
+
 def pack(out, ref="HEAD", root="."):
-    commit = git("rev-parse", ref, root=root).decode().strip()
+    commit = newest_that_compiles(ref, root)
     paths = sorted(committed(commit, root))
     tmp = Path(str(out) + ".part")
     with open(tmp, "wb") as fh:

@@ -47,6 +47,9 @@ hand_to_server() {
       || { say "could not pack the committed code"; return 1 }
     left=$(python3 importers/build_code.py left-out 2>/dev/null)
     say "code from commit ${commit:0:10}"
+    [[ "$commit" == "$(git rev-parse HEAD)" ]] \
+      || { say "  ⚠️  HEAD $(git rev-parse --short=10 HEAD) does not compile (tools/codecheck.py HEAD); sent the newest commit that does"
+           note "code-held-back" "HEAD $(git rev-parse --short=10 HEAD) does not compile" }
     if [[ -n "$left" ]]; then
       say "  not committed, so not built ($(print -- "$left" | grep -c .)):"
       print -- "$left" | head -12 | while read -r l; do say "    $l"; done
