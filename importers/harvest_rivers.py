@@ -27,7 +27,7 @@ def fetch(tile):
     last = None
     for url in MIRRORS:
         try:
-            req = urllib.request.Request(url, data=data, headers={"User-Agent": "motdang-rivers/1.0 (peacocksettlement@proton.me)"})
+            req = urllib.request.Request(url, data=data, headers={"User-Agent": "motdang-rivers/1.0 (+https://motdang.net)"})
             with urllib.request.urlopen(req, timeout=240) as r:
                 return json.loads(r.read().decode("utf-8"))
         except Exception as e:      # a mirror that is busy is not a reason to stop
