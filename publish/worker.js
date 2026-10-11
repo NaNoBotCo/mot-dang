@@ -217,7 +217,11 @@ export function ntConditional(reqHeaders) {
   return h;
 }
 
-function noTranslate(rw) {
+/* `atHeadEnd` is anything else a caller writes at the end of the head. It has
+ * to come through here: an element holds one end-tag handler, so a second
+ * onEndTag on <head> replaces this one and these tags fall through to before
+ * <body>. */
+function noTranslate(rw, atHeadEnd = () => {}) {
   let done = false, google = false, robots = false, script = false, tp = false;
   const tags = () => (google ? "" : NT_META_GOOGLE) + (robots ? "" : NT_META_ROBOTS) +
                      (script ? "" : NT_SCRIPT) + (tp ? "" : TP_SCRIPT);
@@ -238,7 +242,9 @@ function noTranslate(rw) {
       },
     })
     .on("head", {
-      element(e) { e.onEndTag((end) => put((s) => end.before(s, { html: true }))); },
+      element(e) {
+        e.onEndTag((end) => { put((s) => end.before(s, { html: true })); atHeadEnd(end); });
+      },
     })
     .on("body", { element(e) { put((s) => e.before(s, { html: true })); } })
     .onDocument({ end(d) { put((s) => d.append(s, { html: true })); } });
@@ -370,18 +376,11 @@ function withWhere(res, request, size) {
   let isList = false;  // an ItemList in the head → this is a directory or shelf
   let drawn = false;
   let metaSeen = false;
-  const rw = noTranslate(new HTMLRewriter())
+  const rw = noTranslate(new HTMLRewriter(), (end) => {
+    if (!metaSeen) end.before(`<meta name="md-where" content="${esc(v)}">`, { html: true });
+  })
     .on('meta[name="md-where"]', {
       element(e) { metaSeen = true; e.setAttribute("content", v); },
-    })
-    .on("head", {
-      element(e) {
-        e.onEndTag((end) => {
-          if (!metaSeen) {
-            end.before(`<meta name="md-where" content="${esc(v)}">`, { html: true });
-          }
-        });
-      },
     });
 
   if (known) {
