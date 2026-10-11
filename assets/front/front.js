@@ -1430,7 +1430,11 @@ function doodle() {
     var rim = DAY_HEX[new Date(T.d + 'T12:00:00Z').getUTCDay()] || '#c9973f';
     paper(k, function (q) { circ(q, cx, cy, R * 1.13, 21); q.moveTo(cx + R * 0.99, cy); q.arc(cx, cy, R * 0.99, 0, 6.2832, true); }, rim, 2.2);
     paper(k, function (q) { circ(q, cx, cy, R, 22); }, '#f2e6c9', 1.6);
-    /* the ring: the next 12 hours, from the hour hand clockwise, cut at sunrise and sunset */
+    /* the face is wichaa.net/moon's dial (Nan, 2026-10-12), disc and indices turned to the phase by its own gear (lunation.js),
+       filling the face; the 12-hour day ring and its rain drops went with it (her word, the same day) */
+    var luna = window.MDLUNA && MDLUNA.draw(k, cx, cy, R, T.now);
+    /* before the disc loads, the ring: the next 12 hours, from the hour hand clockwise, cut at sunrise and sunset */
+    if (!luna) {
     var rise = T.sun.rise ? hourOf(T.sun.rise) : 6, set = T.sun.set ? hourOf(T.sun.set) : 18, h0 = hourOf(T.now), cuts = [h0];
     [rise, set].forEach(function (b) { for (var o = -24; o <= 24; o += 24) if (b + o > h0 && b + o < h0 + 12) cuts.push(b + o); });
     cuts.sort(function (p, q) { return p - q; }); cuts.push(h0 + 12);
@@ -1440,16 +1444,19 @@ function doodle() {
     })(cuts[i], cuts[i + 1]);
     k.fillStyle = 'rgba(40,25,10,.7)';
     for (i = 0; i < 12; i++) { a = dialA(i); k.save(); k.translate(cx + Math.cos(a) * R, cy + Math.sin(a) * R); k.rotate(a); k.fillRect(-(i % 3 ? R * 0.06 : R * 0.12), -0.9, i % 3 ? R * 0.06 : R * 0.12, 1.8); k.restore(); }
-    k.font = '800 ' + Math.max(10, Math.round(R * 0.2)) + 'px ' + (en ? 'system-ui' : '"Sarabun",system-ui'); k.textAlign = 'center'; k.textBaseline = 'middle'; k.fillStyle = '#24170a';
-    for (i = 0; i < 12; i += 3) { a = dialA(i); k.fillText(en ? String(i || 12) : thd(i || 12), cx + Math.cos(a) * R * 0.63, cy + Math.sin(a) * R * 0.63); }
-    /* tonight's moon in a window over the 6; on wan phra its frame is gold */
-    if (T.moon) {
+    }
+    /* the numerals: on the paper face before the disc; on the dial's dark case, in cream, once it fills the face */
+    var nr = luna ? R * 0.94 : R * 0.63;
+    k.font = '800 ' + Math.max(9, Math.round(R * (luna ? 0.1 : 0.2))) + 'px ' + (en ? 'system-ui' : '"Sarabun",system-ui'); k.textAlign = 'center'; k.textBaseline = 'middle'; k.fillStyle = luna ? '#f4e8c9' : '#24170a';
+    for (i = 0; i < 12; i += 3) { a = dialA(i); k.fillText(en ? String(i || 12) : thd(i || 12), cx + Math.cos(a) * nr, cy + Math.sin(a) * nr); }
+    /* before the disc loads: tonight's moon in a window over the 6; on wan phra its frame is gold */
+    if (T.moon && !luna) {
       var mo = T.moon, il = mo.illum == null ? 0.5 : mo.illum, side = mo.waxing ? 1 : -1, kk = 2 * il - 1, mx = cx, my = cy + R * 0.36, mr = R * 0.11;
       paper(k, function (q) { circ(q, mx, my, mr * 1.3, 10); }, mo.wan_phra ? '#e0a92a' : '#8a6a3a', 1.2);
       paper(k, function (q) { circ(q, mx, my, mr, 9); }, '#2b2f63', 0.8);
       if (il > 0.02) paper(k, function (q) { q.beginPath(); q.arc(mx, my, mr, -Math.PI / 2, Math.PI / 2, side < 0); q.ellipse(mx, my, mr * Math.abs(kk), mr, 0, Math.PI / 2, -Math.PI / 2, side > 0 ? kk < 0 : kk >= 0); q.closePath(); }, '#fff2c8', 0.6);
     }
-    var hs = T.w ? T.w.hours || [] : [], k0 = hourKey(T.now); dropHits = [];
+    var hs = T.w && !luna ? T.w.hours || [] : [], k0 = hourKey(T.now); dropHits = [];
     hs.forEach(function (h) {
       var t = Date.parse(h[0] + ':00+07:00'); if (t <= T.now - 36e5 || t > T.now + 11 * 36e5 || !(h[1] >= 40 || h[2] >= 0.2)) return;
       var aa = dialA(hourOf(t) + 0.5), s = R * (0.035 + 0.035 * Math.min(1, h[1] / 100)), dx = cx + Math.cos(aa) * R * 0.87, dy = cy + Math.sin(aa) * R * 0.87;
@@ -1701,6 +1708,7 @@ function doodle() {
     veil.set(0, T.a ? T.a.pm25 : 0);
     rebuild();
   });
+  document.addEventListener('mdluna', function () { lastMin = -1; });   /* the disc's pictures have loaded: redraw the face */
   function rebuild() {
     T = today(); words();
     lay.back = layer('back', back);

@@ -1302,6 +1302,7 @@ def bake(docs=None, thumbs=True, ask=True):
     shutil.copy(ASSETS / "tiles.js", docs / "front/tiles.js")
     shutil.copy(ASSETS / "front.js", docs / "front/front.js")
     shutil.copy(ASSETS / "wx.js", docs / "front/wx.js")
+    shutil.copy(ASSETS / "lunation.js", docs / "front/lunation.js")
     doodles_layer.copy(docs)
     return ("front: %d lamps, %d specks · %d near photos (%d new thumbs) · %d minisites with pictures · "
             "%d events, %d at a known venue · %d with reader interest") % (
@@ -1320,7 +1321,7 @@ def stamp(t):
     """Each front-page script's own hash in its address. sw.js answers a script from its cache first, so an
     unstamped address hands a returning phone yesterday's script beside today's page (Nan's phone, 2026-10-03:
     the doodle and tiles blank until a second visit). One page carries these; the rest of the site does not."""
-    for js in ("skyline.js", "doodler.js", "doodles.js", "when.js", "tiles.js", "wx.js", "front.js"):
+    for js in ("skyline.js", "doodler.js", "doodles.js", "when.js", "tiles.js", "wx.js", "lunation.js", "front.js"):
         f = ASSETS / js
         if f.exists():
             v = hashlib.md5(f.read_bytes()).hexdigest()[:8]
