@@ -873,6 +873,46 @@
    ]
   },
   {
+   "id": "build-notes",
+   "href": "build-notes.html",
+   "th": "บันทึกการสร้าง",
+   "en": "Build notes",
+   "line_th": "มดแดงสร้างและเดินระบบอย่างไร สำหรับวิศวกร",
+   "line_en": "how motdang.net is built and run, for engineers",
+   "icon": "i-gear",
+   "shipped": "2026-10-11",
+   "group": "behind",
+   "where": "both",
+   "served": "docs",
+   "shelves": [],
+   "words": [
+    "build notes",
+    "engineering",
+    "how it's built",
+    "บันทึกการสร้าง"
+   ]
+  },
+  {
+   "id": "credits",
+   "href": "credits.html",
+   "th": "เครดิต",
+   "en": "Credits",
+   "line_th": "คนที่แจ้งข้อผิดพลาดหรือช่วยแก้ข้อมูลสถานที่",
+   "line_en": "people who reported a bug or fixed a place",
+   "icon": "i-heart",
+   "shipped": "2026-10-11",
+   "group": "behind",
+   "where": "both",
+   "served": "docs",
+   "shelves": [],
+   "words": [
+    "credits",
+    "thanks",
+    "contributors",
+    "เครดิต"
+   ]
+  },
+  {
    "id": "api",
    "href": "api/",
    "th": "API สาธารณะ",
