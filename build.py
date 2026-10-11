@@ -68,6 +68,7 @@ import inat_layer  # iNaturalist sightings near a place (Nan, 2026-10-02)
 import loo_road  # road distance to the nearest toilet (Nan, 2026-10-02)
 import hotel_layer  # the Stay block on lodging pages (NaN, 2026-10-04)
 import affiliate_layer  # paid links on named place pages (affiliate-slots registry, 2026-10-04)
+import feedback_layer  # thumbs up, thumbs down, an optional paragraph on any item (Nan, 2026-10-11)
 import net_layer
 import commons_layer
 import doodles_layer
@@ -8810,6 +8811,10 @@ def page(title, body, depth, crumbs="", path="", desc="", extra_head="", og=None
     if 'data-mdmap="1"' in body and "tap.js" not in extra_head:
         extra_head = tapcard.head(depth) + extra_head
     # Kept RAW here and escaped once at each use. It used to arrive
+    # The feedback control is a slot in the body (feedback_layer.slot) that
+    # assets/feedback.js fills; the script rides with any page that has one.
+    if feedback_layer.MARK in body and "feedback.js" not in extra_head:
+        extra_head = extra_head + feedback_layer.script_tag(r)
     # pre-escaped and then go through att() again for og:title, so any
     # place with an ampersand in its name — "Shaka Laka Bar & Restaurant"
     # — shared as "Bar &amp; Restaurant" on LINE, Facebook and every other
@@ -10842,7 +10847,7 @@ def toolbar(records=None):
 
 def listing_pages(title_th, title_en, records, depth, prov, crumbs, path, extra_top="",
                   extra_head="", seo_title=None, og=None, seo_title_en=None, doors="",
-                  map_of=None):
+                  map_of=None, fb=None):
     """A list of places as pages of SHELF_PAGE_ROWS: [(path, html), ...].
 
     Page one carries the furniture — the lede, the doors to the shelves inside
@@ -10877,7 +10882,8 @@ def listing_pages(title_th, title_en, records, depth, prov, crumbs, path, extra_
                     f"{extra_top}{ad_box(path, depth)}{doors}{facet_chips(records)}"
                     f"{mapped}{toolbar(chunk)}{pager}"
                     f'<ul class="dir" data-sortable>{lis}</ul>{pager}'
-                    f"{share_block(BASE + path, title_th, card=og)}")
+                    f"{share_block(BASE + path, title_th, card=og)}"
+                    f"{feedback_layer.slot(fb) if fb else ''}")
             out.append((path, page(full_title, body, depth, crumbs=crumbs, path=path,
                                    desc=f"{title_th} — {len(records)} แห่ง{d_en} · มดแดง",
                                    extra_head=extra_head, og=og)))
@@ -13141,6 +13147,7 @@ def province_card_html(p, counts, live_cats, total):
     soon = [c for c in CAT_ORDER if c not in live_cats]
     if soon:
         chips = "".join(
+            f'{feedback_layer.slot("place:" + r["id"])}'
             f'<span class="soonchip">{svg_icon(CAT_ICON.get(c), 18)}'
             f'{bi(CATS[c]["th"], CATS[c]["en"])}</span>' for c in soon)
         foot = (f'<span>{bi("มดกำลังไปเก็บ", "ants on the way")}</span>{chips}')
@@ -16952,6 +16959,7 @@ def build_add_page():
                 "to Wikimedia Commons and send the link — we pick those up automatically, "
                 "credit and licence attached.")
     body = (f'<h1>🐜 {bi("เพิ่มข้อมูล", "Add something")}</h1>'
+    shutil.copyfile(ROOT / "assets" / "feedback.js", DOCS / "feedback.js")
             f'<p>{bi(lede_th, lede_en)}</p>'
             f'{add_doors(0)}'
             f'{line_qr_block(0)}'
@@ -19133,6 +19141,8 @@ def build():
     # Publish it on its own with:  python3 publish/deploy.py --only field --yes
     _field = ROOT / "assets" / "field"
     if _field.is_dir():
+        # a slot for thumbs and a note at the foot of each minisite (feedback_layer)
+        feedback_layer.stamp_sites(DOCS)
         shutil.copytree(_field, DOCS / "field", dirs_exist_ok=True)
     # Voight-Kampff at /voight-kampff. One hand-written page in assets/voight-kampff/,
     # copied here for the same reason /loop and /ghost are.
@@ -19879,6 +19889,7 @@ def build():
             _EXPLORE_COUNTS[(key, c)] = len(gj["features"])
             dl = (f'<p class="prov"><a href="../../data/{gj_name}">⬇ GeoJSON</a> '
                   f'({len(gj["features"]):,} {bi("จุด", "points")})</p>')
+                        fb=f"shelf:{key}/{c}/{child['key']}",
             crumbs = (f'<a href="../../index.html">{bi("หน้าแรก", "Home")}</a> › '
                       f'<a href="../index.html">{bi(p["th"], p["en"])}</a> › {bi(cdef["th"], cdef["en"])}')
             cat_bc_ld = breadcrumb_ld([
@@ -19923,7 +19934,8 @@ def build():
                             f'{shelf_map(dom_order or chunk, c, p)}{toolbar(chunk)}'
                             f'{pager}'
                             f'<ul class="dir" data-sortable>{lis}</ul>{pager}{dl}'
-                            f'{share_block(BASE + f"{key}/{c}/index.html", cdef["th"] + " " + p["th"], card=shelf_og(key, c))}')
+                            f'{share_block(BASE + f"{key}/{c}/index.html", cdef["th"] + " " + p["th"], card=shelf_og(key, c))}'
+                            f'{feedback_layer.slot(f"shelf:{key}/{c}")}')
                     continue
                 # Pages two and after carry the rows and the way back, and
                 # none of the shelf-front furniture: the bands, the art, the

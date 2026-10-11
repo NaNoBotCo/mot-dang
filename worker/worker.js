@@ -345,6 +345,67 @@ async function putDoodleVote(env, request, body) {
   return { ok: true, id, v, mine: prev.votes, tally: t }
 }
 
+// FEEDBACK — a thumb up, a thumb down and a paragraph, on any item the site shows (Nan, 2026-10-11:
+// "You should be able to give feedback on any item on motdang (thumbs up, thumbs down, pgph input
+// optional field)"). assets/feedback.js sends it. An item is a short id: place:<id>, shelf:<cat/sub>,
+// site:<slug>, event:<key>, festival:<key>.
+//   fbv:<item>:<who>      this browser's current vote {x, at}; a new vote replaces it, so a reader
+//                         can change their mind. <who> is a random id the browser keeps itself.
+//   fbt:<item>            the tally {up, down, at}
+//   fb-vote:<iso>:<rand>  one event per change of vote
+//   fb-note:<iso>:<rand>  a paragraph, with the vote it came with; private, read with the key only
+const FB_ITEM_RE = /^[A-Za-z0-9:_\-./]{1,120}$/
+const FB_WHO_RE = /^[A-Za-z0-9_-]{8,64}$/
+const FB_PER_HOUR = 120
+const FB_NOTES_PER_HOUR = 12
+
+async function putFeedback(env, request, body) {
+  const item = typeof body?.item === 'string' ? body.item : ''
+  if (!FB_ITEM_RE.test(item)) return { error: 'bad item', status: 400 }
+  const xs = body?.x
+  if (xs !== undefined && xs !== 1 && xs !== -1 && xs !== 0) return { error: 'x is 1, -1 or 0', status: 400 }
+  const note = cap(body?.note, 2000).replace(/[\u0000-\u0008\u000b-\u001f]/g, ' ')
+  if (xs === undefined && !note) return { error: 'send x as 1, -1 or 0, or a note', status: 400 }
+  const whoRaw = typeof body?.who === 'string' ? body.who : ''
+  if (whoRaw && !FB_WHO_RE.test(whoRaw)) return { error: 'bad who', status: 400 }
+  const who = whoRaw || await voterId(request)
+  const vk = `fbv:${item}:${who}`, tk = `fbt:${item}`
+  const prev = await env.KV.get(vk, 'json'), old = prev?.x || 0
+  const x = xs === undefined ? old : xs
+  const t = await env.KV.get(tk, 'json') || {}
+  const tally = { up: Number(t.up) || 0, down: Number(t.down) || 0 }
+  const at = new Date().toISOString()
+  const page = cap(body?.page, 300), lang = body?.lang === 'th' ? 'th' : 'en'
+  if (x !== old) {
+    if (old) tally[old > 0 ? 'up' : 'down'] = Math.max(0, tally[old > 0 ? 'up' : 'down'] - 1)
+    if (x) tally[x > 0 ? 'up' : 'down'] += 1
+    await env.KV.put(vk, JSON.stringify({ x, at }))
+    await env.KV.put(tk, JSON.stringify({ ...tally, at }))
+    await env.KV.put(`fb-vote:${at}:${crypto.randomUUID().slice(0, 8)}`,
+      JSON.stringify({ item, x, old, who, page, lang, at }))
+  }
+  if (note) await env.KV.put(`fb-note:${at}:${crypto.randomUUID().slice(0, 8)}`,
+    JSON.stringify({ item, x, note, who, page, lang, at }))
+  return { ok: true, item, mine: x, tally }
+}
+
+async function feedbackEvents(env, since) {
+  const out = []
+  for (const prefix of ['fb-vote:', 'fb-note:']) {
+    let cursor
+    do {
+      const pg = await env.KV.list({ prefix, cursor, limit: 1000 })
+      const fresh = pg.keys.filter(k => k.name.slice(prefix.length) > since)
+      const vals = await Promise.all(fresh.map(k => env.KV.get(k.name)))
+      fresh.forEach((k, i) => { if (vals[i]) try { out.push({ k: k.name, ...JSON.parse(vals[i]) }) } catch {} })
+      cursor = pg.list_complete ? null : pg.cursor
+    } while (cursor)
+  }
+  out.sort((a, b) => String(a.at).localeCompare(String(b.at)))
+  return out
+}
+
+
 // A pick: the better of two doodles (Nan, 2026-10-05: "I want the .0001 dollar one to be choosing
 // the better of 2 images"). The pair comes from /doodles/data/pairs.json; a second pick of the same
 // pair by the same voter replaces the first. dvp:<pair>:<voter> holds it; the event goes in dve: too.
@@ -1376,6 +1437,53 @@ export default {
         { headers: { 'content-type': 'application/json', 'cache-control': 'public, max-age=60', ...CORS } })
     }
 
+    // POST /feedback — {item, x?: 1|-1|0, note?: string<=2000, page?, lang?, who?}. A vote replaces
+    // this browser's (who's) earlier vote on the item. Returns {ok, item, mine, tally: {up, down}}.
+    // GET /feedback-tally?item=<id> — {ok, item, up, down}, cached a minute.
+    // GET /feedback-events?since=<iso> — every vote change and note; only with the FEEDBACK_KEY
+    // secret in x-md-key (importers/sync_feedback.py). Notes have no public GET: they can carry
+    // contact details.
+    if (url.pathname === '/feedback' && request.method === 'POST') {
+      const ip = request.headers.get('cf-connecting-ip') || 'unknown'
+      const hour = Math.floor(Date.now() / 3600_000)
+      const bucket = `rlfb:${ip}:${hour}`
+      const count = Number((await env.KV.get(bucket)) || 0)
+      if (count >= FB_PER_HOUR) return json({ error: 'rate limit — try again later' }, 429)
+      const text = await request.text()
+      if (text.length > 6000) return json({ error: 'body too large' }, 400)
+      let body
+      try { body = JSON.parse(text) } catch { return json({ error: 'invalid json' }, 400) }
+      let nbucket = null, ncount = 0
+      if (cap(body?.note, 2000)) {
+        nbucket = `rlfn:${ip}:${hour}`
+        ncount = Number((await env.KV.get(nbucket)) || 0)
+        if (ncount >= FB_NOTES_PER_HOUR) return json({ error: 'rate limit — try again later' }, 429)
+      }
+      const result = await putFeedback(env, request, body)
+      if (result.error) return json({ error: result.error }, result.status)
+      await env.KV.put(bucket, String(count + 1), { expirationTtl: 3600 })
+      if (nbucket) await env.KV.put(nbucket, String(ncount + 1), { expirationTtl: 3600 })
+      return json(result)
+    }
+    if (url.pathname === '/feedback-tally' && request.method === 'GET') {
+      const item = url.searchParams.get('item') || ''
+      if (!FB_ITEM_RE.test(item)) return json({ error: 'bad item' }, 400)
+      const ck = new Request('https://cache.mot-dang/feedback-tally/' + encodeURIComponent(item))
+      const cached = typeof caches !== 'undefined' ? caches.default : null
+      const hit = cached ? await cached.match(ck) : null
+      if (hit) return hit
+      const t = await env.KV.get(`fbt:${item}`, 'json') || {}
+      const res = new Response(JSON.stringify({ ok: true, item, up: Number(t.up) || 0, down: Number(t.down) || 0 }),
+        { headers: { 'content-type': 'application/json', 'cache-control': 'public, max-age=60', ...CORS } })
+      if (cached && ctx?.waitUntil) ctx.waitUntil(cached.put(ck, res.clone()))
+      return res
+    }
+    if (url.pathname === '/feedback-events' && request.method === 'GET') {
+      const want = env.FEEDBACK_KEY, got = request.headers.get('x-md-key') || ''
+      if (!want || got.length !== want.length || got !== want) return json({ error: 'not found' }, 404)
+      const events = await feedbackEvents(env, url.searchParams.get('since') || '')
+      return json({ ok: true, count: events.length, events })
+    }
     // POST /doodle-vote — {id, v, accuracy?: 1|-1|0, aesthetics?: 1|-1|0, like?: 1|-1|0, fav?: 1|0, by?: "bot"}.
     // GET /doodle-votes — every tally, for importers/sync_doodle_votes.py;
     // ?id=<id>&v=<v> for one version's, which the doodle page reads.
@@ -2033,7 +2141,7 @@ export default {
     /* ============ end ALPHA — DELETE THIS BLOCK AT BETA ================== */
 
     return json({ error: 'not found', endpoints: ['/claim', '/edit/:token', '/claims',
-      '/toilet', '/toilets', '/doodle-vote', '/doodle-votes', '/doodle-scores', '/doodle-pick', '/suggest', '/listing', '/listing-csv', '/listing/confirm/:token', '/webhook/line', '/alpha', '/health'] }, 404)
+      '/toilet', '/toilets', '/feedback', '/feedback-tally', '/doodle-vote', '/doodle-votes', '/doodle-scores', '/doodle-pick', '/suggest', '/listing', '/listing-csv', '/listing/confirm/:token', '/webhook/line', '/alpha', '/health'] }, 404)
   },
 
   /* ============== ALPHA — DELETE THIS BLOCK AT BETA ==================== */
