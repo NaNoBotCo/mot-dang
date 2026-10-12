@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" stroke-linejoin="round" stroke-linecap="round"><title>Volcano · ภูเขาไฟ</title>
+<ellipse cx="32" cy="58.6" rx="26" ry="3.4" fill="#c9a77c" stroke="#2b2118" stroke-width="1.4"/>
+<path d="M4.6 58.4C14 52 18 34 23 22H41C46 34 50 52 59.4 58.4Z" fill="#8a6a4a" stroke="#2b2118" stroke-width="1.9"/>
+<path d="M41 22C46 34 50 52 59.4 58.4H48C47 48 44 34 41 22Z" fill="#6b4429" opacity=".5"/>
+<ellipse cx="32" cy="22" rx="9.2" ry="2.8" fill="#d8443a" stroke="#2b2118" stroke-width="1.5"/>
+<ellipse cx="32" cy="22.2" rx="5" ry="1.2" fill="#e9b52f"/>
+<path d="M29.6 24C28.6 30 33 34 31 40C30 44 34 48 32.6 54" fill="none" stroke="#2b2118" stroke-width="4.4"/>
+<path d="M29.6 24C28.6 30 33 34 31 40C30 44 34 48 32.6 54" fill="none" stroke="#e8902a" stroke-width="2.4"/>
+<path d="M29.6 24C28.6 30 33 34 31 40" fill="none" stroke="#e9b52f" stroke-width="1"/>
+<path d="M27.4 21.6C28.4 18 24 16.6 24.6 12.8 25.4 9.4 29.6 8.6 31.8 10.2 33.2 6 39.6 5.6 41.2 10 45.6 10.4 46.6 15 43.6 16.8 41.6 18 42.2 20.4 37.6 21.6Z" fill="#b0b8bf" stroke="#2b2118" stroke-width="1.5"/>
+<path d="M29 12.6C31 11 33.4 11.4 34.4 12.8" fill="none" stroke="#fbf8f1" stroke-width="1" opacity=".8"/>
+<circle cx="22.4" cy="14.4" r="1.1" fill="#d8443a"/><circle cx="46.6" cy="11" r="1" fill="#e8902a"/>
+</svg>

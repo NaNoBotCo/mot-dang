@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" stroke-linejoin="round" stroke-linecap="round"><title>Forest · ป่า</title>
+<ellipse cx="32" cy="58.6" rx="26" ry="3.4" fill="#9cc77a" stroke="#2b2118" stroke-width="1.4"/>
+<rect x="12.8" y="38" width="3.4" height="9" fill="#b07a4c" stroke="#2b2118" stroke-width="1.1"/>
+<path d="M14.4 5 20.4 17.4H17.6L23 28.8H19L25.4 41H4.8L10.2 28.8H6.2L11.2 17.4H8.4Z" fill="#3f7a3a" stroke="#2b2118" stroke-width="1.5"/>
+<rect x="28.2" y="26" width="3.6" height="19" fill="#b07a4c" stroke="#2b2118" stroke-width="1.1"/>
+<circle cx="30" cy="19" r="10.4" fill="#5f9a4a" stroke="#2b2118" stroke-width="1.6"/>
+<path d="M24 16C25.6 13.6 28 12.6 30.6 12.6" fill="none" stroke="#9cc77a" stroke-width="1.4"/>
+<rect x="47.4" y="36" width="3" height="9" fill="#b07a4c" stroke="#2b2118" stroke-width="1.1"/>
+<path d="M49 8 55 19H52L57.6 29.6H53.4L59.6 41H38.4L44.6 29.6H40.4L46 19H43Z" fill="#5f9a4a" stroke="#2b2118" stroke-width="1.5"/>
+<rect x="21" y="47" width="2.6" height="9" fill="#b07a4c" stroke="#2b2118" stroke-width="1"/>
+<circle cx="22.4" cy="43" r="8" fill="#9cc77a" stroke="#2b2118" stroke-width="1.6"/>
+<rect x="38.6" y="36" width="3.2" height="20.4" fill="#fbf8f1" stroke="#2b2118" stroke-width="1.2"/>
+<path d="M38.8 41H41.6M38.8 47H41.6M38.8 52H41.6" fill="none" stroke="#2b2118" stroke-width="1"/>
+<ellipse cx="40.2" cy="32" rx="7" ry="8.2" fill="#e8c860" stroke="#2b2118" stroke-width="1.6"/>
+<path d="M51 58 54.6 49 58.2 58Z" fill="#3f7a3a" stroke="#2b2118" stroke-width="1.2"/>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" stroke-linejoin="round" stroke-linecap="round"><title>Island · เกาะ</title>
+<ellipse cx="32" cy="58.6" rx="26" ry="3.4" fill="#8cc4ea" stroke="#2b2118" stroke-width="1.4"/>
+<path d="M10 56C12 50 20 47 32 47S52 50 54 56C46 60 18 60 10 56Z" fill="#e8cf8e" stroke="#2b2118" stroke-width="1.9"/>
+<path d="M17 51.4C20 48.6 26 47.6 32 47.6S44 48.6 47 51.4C40 50 24 50 17 51.4Z" fill="#9cc77a" stroke="#2b2118" stroke-width="1"/>
+<path d="M30.6 48C30 38 33 27 39 17" fill="none" stroke="#2b2118" stroke-width="4.4"/>
+<path d="M30.6 48C30 38 33 27 39 17" fill="none" stroke="#b07a4c" stroke-width="2.2"/>
+<path d="M39 17C33 11.6 25 14 22.6 20.4 29 16.6 34 17.6 39 17ZM39 17C35 8.6 28.6 7.6 25 10.6 31 10 35 13 39 17ZM39 17C39.6 9 45 5 50.6 6.4 45.6 9 42.6 12.6 39 17ZM39 17C45 13 51.6 14.4 54.2 20 48 17.4 43.6 18.4 39 17Z" fill="#5f9a4a" stroke="#2b2118" stroke-width="1.3"/>
+<circle cx="37.8" cy="19.2" r="1.7" fill="#6b4429" stroke="#2b2118" stroke-width=".8"/>
+<path d="M4.6 53.4C6.6 51.8 8.6 51.8 10.6 53.4M53.4 51.6C55.4 50 57.4 50 59.4 51.6M5.4 57.6C7 56.6 8.6 56.6 10.4 57.6M54 57.4C55.6 56.4 57.4 56.4 58.8 57.4" fill="none" stroke="#fbf8f1" stroke-width="1.3"/>
+<path d="M44 53.4H49M16 55.4H21" fill="none" stroke="#c9a77c" stroke-width="1.1"/>
+</svg>

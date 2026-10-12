@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" stroke-linejoin="round" stroke-linecap="round"><title>Golden Gate Bridge · สะพานโกลเดนเกต</title>
+<ellipse cx="32" cy="58.6" rx="27" ry="3.4" fill="#8cc4ea" stroke="#2b2118" stroke-width="1.4"/>
+<path d="M5 45Q10.5 30 20 10Q32 76 44 10Q53.5 30 59 45" fill="none" stroke="#2b2118" stroke-width="3.6"/>
+<path d="M5 45Q10.5 30 20 10Q32 76 44 10Q53.5 30 59 45" fill="none" stroke="#d8553a" stroke-width="1.8"/>
+<path d="M7.3 37.2V46M11 29V46M24 28.8V46M28 39.4V46M32 43V46M36 39.4V46M40 28.8V46M53 29V46M56.7 37.2V46" fill="none" stroke="#b03a2a" stroke-width="1"/>
+<rect x="4.4" y="46" width="55.2" height="3.2" rx=".8" fill="#d8553a" stroke="#2b2118" stroke-width="1.5"/>
+<path d="M15.5 8H18.5V57H15.5ZM21.5 8H24.5V57H21.5ZM39.5 8H42.5V57H39.5ZM45.5 8H48.5V57H45.5Z" fill="#d8553a" stroke="#2b2118" stroke-width="1.5"/>
+<path d="M18.5 14H21.5V16.4H18.5ZM18.5 24H21.5V26.4H18.5ZM18.5 34H21.5V36.4H18.5ZM42.5 14H45.5V16.4H42.5ZM42.5 24H45.5V26.4H42.5ZM42.5 34H45.5V36.4H42.5Z" fill="#d8553a" stroke="#2b2118" stroke-width="1.2"/>
+<path d="M5.2 54C5.2 51.8 8.4 51.6 9.2 52.8 10 50.6 13.4 50.8 14.2 52.9 16 51.8 19 52.5 19.6 54.2 21 54 23 55 22.4 56.6H6.4C4.4 56.6 4.2 55 5.2 54Z" fill="#fbf8f1" opacity=".92" stroke="#9aa3ab" stroke-width="1"/>
+</svg>

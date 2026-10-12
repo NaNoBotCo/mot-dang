@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" stroke-linejoin="round" stroke-linecap="round"><title>Waterfall · น้ำตก</title>
+<ellipse cx="32" cy="58.6" rx="26" ry="3.4" fill="#8cc4ea" stroke="#2b2118" stroke-width="1.4"/>
+<path d="M4 14 14 9 26 7.4H38L50 9 60 14V55H4Z" fill="#8a6a4a" stroke="#2b2118" stroke-width="1.9"/>
+<path d="M8 24H21M43 28H57M7 38H18M46 42H58" fill="none" stroke="#6b4429" stroke-width="1.1"/>
+<path d="M4 14C4 8.6 12 6.4 12 11.6 12 6 20 5.4 20 10.4" fill="#5f9a4a" stroke="#2b2118" stroke-width="1.3"/>
+<path d="M60 14C60 8.6 52 6.4 52 11.6 52 6 44 5.4 44 10.4" fill="#5f9a4a" stroke="#2b2118" stroke-width="1.3"/>
+<path d="M26 7.6H38L40 30C41 40 43 46 45.4 52H18.6C21 46 23 40 24 30Z" fill="#bfe0f2" stroke="#2b2118" stroke-width="1.6"/>
+<path d="M29.6 11V40M34.4 11V46" fill="none" stroke="#fbf8f1" stroke-width="1.6"/>
+<path d="M13 52C12 49 16 47.4 19 48.4 20 45.4 25 45 27 47.4 29 44.4 35 44 37 47 39 44.4 45 44.6 47 47.4 50 45.4 54 46.6 54 49.4 56 50 57 52Z" fill="#fbf8f1" stroke="#9aa3ab" stroke-width="1.1"/>
+<path d="M8 53.4C10 52.4 12 52.6 13.4 53.8M51 53.8C52.6 52.6 54.6 52.4 56.4 53.4" fill="none" stroke="#fbf8f1" stroke-width="1.2"/>
+</svg>

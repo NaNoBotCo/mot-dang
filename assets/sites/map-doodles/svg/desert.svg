@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" stroke-linejoin="round" stroke-linecap="round"><title>Desert · ทะเลทราย</title>
+<ellipse cx="32" cy="58.6" rx="26" ry="3.4" fill="#e8cf8e" stroke="#2b2118" stroke-width="1.4"/>
+<circle cx="47" cy="17" r="7.4" fill="#e9b52f" stroke="#2b2118" stroke-width="1.6"/>
+<path d="M47 5.6V3.4M56.4 8.4 58 6.8M57.6 17H59.4M36.2 8.4 34.6 6.8" fill="none" stroke="#e9b52f" stroke-width="1.6"/>
+<path d="M28 56C34 44 46 38 56 44C59.4 46.4 59.6 52 59.6 54.6Z" fill="#e8cf8e" stroke="#2b2118" stroke-width="1.7"/>
+<path d="M4 54C10 40 22 30 34 34 42 37 50 46 59.4 54C59.4 58 4 58 4 54Z" fill="#f0d9a0" stroke="#2b2118" stroke-width="1.9"/>
+<path d="M34 34C42 37 50 46 59.4 54C59.4 58 36 58 34 56C36 48 36 40 34 34Z" fill="#d9b27a"/>
+<path d="M4 54C10 40 22 30 34 34 42 37 50 46 59.4 54" fill="none" stroke="#2b2118" stroke-width="1.9"/>
+<path d="M14 49C22 44 30 46 36 51M40 52C46 50 52 52 56 55" fill="none" stroke="#d9b27a" stroke-width="1.2"/>
+<path d="M19.4 56V28C19.4 25.2 24.6 25.2 24.6 28V56Z" fill="#5f9a4a" stroke="#2b2118" stroke-width="1.7"/>
+<path d="M19.4 44H16C13 44 13 40 13 37V34C13 31.6 17 31.6 17 34V40H19.4ZM24.6 40H28C30.6 40 30.6 37 30.6 35V31C30.6 28.6 27 28.6 27 31V36H24.6Z" fill="#5f9a4a" stroke="#2b2118" stroke-width="1.5"/>
+<path d="M22 29V54" fill="none" stroke="#3f7a3a" stroke-width="1"/>
+<path d="M45 55.4 50 55.4M10 57H15" fill="none" stroke="#b8936a" stroke-width="1.1"/>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" stroke-linejoin="round" stroke-linecap="round"><title>Niagara Falls · น้ำตกไนแองการา</title>
+<ellipse cx="32" cy="58.6" rx="26" ry="3.4" fill="#8cc4ea" stroke="#2b2118" stroke-width="1.4"/>
+<path d="M12 22C18 12 46 12 52 22L46.6 3.6H17.4Z" fill="#8cc4ea" stroke="#2b2118" stroke-width="1.2"/>
+<path d="M20 12C27 9 37 9 44 12M24 6.8H40" fill="none" stroke="#fbf8f1" stroke-width="1.1" opacity=".9"/>
+<path d="M4 16 8 13 12 17 13 22 12.4 51 4 52ZM60 16 56 13 52 17 51 22 51.6 51 60 52Z" fill="#9aa3ab" stroke="#2b2118" stroke-width="1.7"/>
+<path d="M4.2 15.4A4 4 0 0 1 12.2 15.4ZM59.8 15.4A4 4 0 0 0 51.8 15.4Z" fill="#5f9a4a" stroke="#2b2118" stroke-width="1.1"/>
+<path d="M12 22C18 12 46 12 52 22L51 46C44 41 20 41 13 46Z" fill="#bfe0f2" stroke="#2b2118" stroke-width="1.7"/>
+<path d="M12 22C18 12 46 12 52 22" fill="none" stroke="#2f9a8a" stroke-width="2.6"/>
+<path d="M13 23 15 44M51 23 49 44" fill="none" stroke="#8cc4ea" stroke-width="3.2"/>
+<path d="M19 20V38M25 17.4V40M31 16.6V36M37 16.6V40M43 17.4V37M48 20V39" fill="none" stroke="#fbf8f1" stroke-width="1.5"/>
+<path d="M8 49C7 45.4 11.6 43.6 14.6 44.6 15.6 41.4 21 41 23 43.4 25 40.2 31 39.8 33 42.8 35 40.2 41 40.4 43 43.4 46 41.2 50.4 42.4 50 45.6 54.4 45.2 56 48.4 58 50.4 55 52.6 52 52 49.6 54.4 46 52.6 43 54.2 39 52.6 35 54.2 31 52.6 27 54.2 23 52.6 19 54.2 15 52.6 11.6 53.6 8.6 52.4 6.6 51Z" fill="#fbf8f1" stroke="#9aa3ab" stroke-width="1.1"/>
+<path d="M24 54.4H40L38.4 58H25.6Z" fill="#d8443a" stroke="#2b2118" stroke-width="1.3"/>
+<rect x="28" y="51.4" width="8" height="3.2" rx=".6" fill="#fbf8f1" stroke="#2b2118" stroke-width="1.1"/>
+<path d="M27 52.6H29M35 52.6H37" fill="none" stroke="#3f93d6" stroke-width="2.2"/>
+</svg>

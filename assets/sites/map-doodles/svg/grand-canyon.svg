@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" stroke-linejoin="round" stroke-linecap="round"><title>Grand Canyon · แกรนด์แคนยอน</title>
+<ellipse cx="32" cy="58.6" rx="26" ry="3.4" fill="#c9a77c" stroke="#2b2118" stroke-width="1.4"/>
+<path d="M8 13L14 13L17 12L24 12L27 13.5L36 13L40 12L48 12.5L52 14L58 13L60 15L60 18L4 18L4 15Z" fill="#efdcae"/>
+<path d="M60 18L60 26L4 26L4 18Z" fill="#f2b66e"/>
+<path d="M60 26L60 35L4 35L4 26Z" fill="#e79a73"/>
+<path d="M60 35L60 52L4 52L4 35Z" fill="#d8856c"/>
+<path d="M4 52L4 15L8 13L14 13L17 12L24 12L27 13.5L36 13L40 12L48 12.5L52 14L58 13L60 15L60 52Z" fill="none" stroke="#2b2118" stroke-width="1.2"/>
+<path d="M18 24L18 24L21 23L21 17L26 16L27 23L29 24L29 24Z" fill="#e8902a"/>
+<path d="M15 32L15 31L18 30L18 24L18 24L29 24L29 24L29 31L32 32L32 32ZM46 32L46 27L50 26L50.8 32Z" fill="#d97a4a"/>
+<path d="M13.5 40L15 38L15 32L32 32L32 32L32 38L33.5 40ZM42 40L42 40L42 34L46 33L46 32L50.8 32L51 34L54 35L54 40Z" fill="#c0573a"/>
+<path d="M13.5 40L33.5 40L35 42L37 52L10 52L12 42ZM42 40L42 40L54 40L54 41L57 44L59 52L38 52L39 43Z" fill="#8a4a38"/>
+<path d="M10 52L12 42L15 38L15 31L18 30L18 24L21 23L21 17L26 16L27 23L29 24L29 31L32 32L32 38L35 42L37 52ZM38 52L39 43L42 40L42 34L46 33L46 27L50 26L51 34L54 35L54 41L57 44L59 52Z" fill="none" stroke="#2b2118" stroke-width="1.7"/>
+<path d="M26.4 58C27 54 32 52 30.4 48C29.4 45.6 30.8 43.4 32.6 41.6L34.6 43C34 45 35.4 47 36.2 49.6C37.4 53 36 55.6 37.6 58Z" fill="#8cc4ea" stroke="#2b2118" stroke-width="1.4"/>
+<path d="M4 58L4 47L10 45L18 46.5L25 52L28 58ZM60 58L60 47L54 45.4L46 47L40 52L36 58Z" fill="#d9b27a" stroke="#2b2118" stroke-width="1.9"/>
+<path d="M7 51.5 15 50.2M55 51.2 47 50.4" fill="none" stroke="#fbf3e2" stroke-width="1" opacity=".8"/>
+</svg>
