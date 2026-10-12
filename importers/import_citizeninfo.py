@@ -48,7 +48,12 @@ CREDIT = "ระบบ CITIZENinfo · สำนักงานพัฒนาร
 DATASET = ("https://data.go.th/dataset/"
            "00170665-bda1-4f4a-ad7c-52dac7abc7a5")
 
-PROVINCE = {"เชียงใหม่": "cm", "เชียงราย": "cr"}
+PROVINCE = {"เชียงใหม่": "cm", "เชียงราย": "cr",
+            "ปทุมธานี": "pth"}   # Nan 2026-10-12: Pathum Thani
+PROVINCE_TH = {v: k for k, v in PROVINCE.items()}
+# A pin outside its province's box is a bad row, not a discovery: (S, N, W, E).
+PIN_BOX = {"cm": (17.0, 21.0, 97.5, 100.8), "cr": (17.0, 21.0, 97.5, 100.8),
+           "pth": (13.85, 14.35, 100.25, 101.0)}
 
 
 def _text():
@@ -67,7 +72,7 @@ def _province(address):
     name — ถ.เชียงราย-เชียงใหม่ runs between them — and filing a place by the
     first province word it happens to contain is how a clinic ends up in the
     wrong one."""
-    m = re.findall(r"(?:จ\.|จังหวัด)\s*(เชียงใหม่|เชียงราย)", address or "")
+    m = re.findall(r"(?:จ\.|จังหวัด)\s*(" + "|".join(PROVINCE) + ")", address or "")
     if m:
         return PROVINCE[m[-1]]
     return None
@@ -90,7 +95,7 @@ def _clean(name, province):
     Only an exact trailing match is removed — nothing is reworded, and a name
     that carries the province in the middle keeps it.
     """
-    th = "เชียงใหม่" if province == "cm" else "เชียงราย"
+    th = PROVINCE_TH[province]
     for tail in (f" จังหวัด{th}", f" จ.{th}", f" {th}"):
         if name.endswith(tail):
             return name[: -len(tail)].strip()
@@ -127,8 +132,8 @@ def records():
         except (ValueError, TypeError):
             skipped += 1
             continue
-        # A pin outside the two provinces is a bad row, not a discovery.
-        if not (17.0 < lat < 21.0 and 97.5 < lng < 100.8):
+        s_, n_, w_, e_ = PIN_BOX[prov]
+        if not (s_ < lat < n_ and w_ < lng < e_):
             skipped += 1
             continue
         if not name or not code or code in seen:

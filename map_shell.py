@@ -154,6 +154,7 @@ def _version():
          "bounds": cfg.get("bounds") or BOUNDS,
          "minZoom": cfg.get("minZoom") or MIN_ZOOM,
          "terrain": cfg.get("terrain"),
+         "regions": cfg.get("regions") or [],
          "style": _style_layers_raw()},
         sort_keys=True, ensure_ascii=False)
     return "%08x" % (zlib.crc32(payload.encode("utf-8")) & 0xFFFFFFFF)
@@ -318,9 +319,19 @@ var GLYPHS=(function(){
    style stands without it. */
 var TER=CFG.terrain&&CFG.terrain.url?
   new URL(CFG.terrain.url,new URL(ROOT||'./',location.href)).href:null;
-function style(){
-  var src={p:{type:'vector',url:'pmtiles://'+ABS,attribution:CFG.attribution||''}};
-  if(TER)src.t={type:'raster-dem',url:'pmtiles://'+TER,
+/* A province with an archive of its own (Pathum Thani, 2026-10-12): a map
+   whose centre falls in a region's bounds reads that region's tiles and keeps
+   to its bounds. The relief is cm-cr only, so its layer drops there. */
+function region(lng,lat){
+  var R=CFG.regions||[];
+  for(var i=0;i<R.length;i++){var b=R[i].bounds;
+    if(lng>=b[0][0]&&lng<=b[1][0]&&lat>=b[0][1]&&lat<=b[1][1])return R[i];}
+  return null;
+}
+function style(rg){
+  var u=rg?new URL(rg.url,new URL(ROOT||'./',location.href)).href:ABS;
+  var src={p:{type:'vector',url:'pmtiles://'+u,attribution:CFG.attribution||''}};
+  if(TER&&!rg)src.t={type:'raster-dem',url:'pmtiles://'+TER,
     encoding:CFG.terrain.encoding||'terrarium',tileSize:256,
     maxzoom:CFG.terrain.maxzoom||12};
   return {version:8,glyphs:GLYPHS,sources:src,
@@ -399,9 +410,10 @@ function build(el){
   var live=document.createElement('div');
   live.className='mdmap-live';
   el.appendChild(live);
+  var rg=region(parseFloat(el.dataset.lng),parseFloat(el.dataset.lat));
   var map=new maplibregl.Map({
     container:live,
-    style:style(),
+    style:style(rg),
     center:[parseFloat(el.dataset.lng),parseFloat(el.dataset.lat)],
     zoom:parseFloat(el.dataset.zoom)||14,
     /* The credit is a licence condition. Non-compact so it is legible
@@ -435,7 +447,7 @@ function build(el){
        maxBounds is the two provinces with a margin; minZoom stops the
        zoom-out that ends in an empty planet. A reader cannot get lost
        somewhere we have nothing to show them. */
-    maxBounds:CFG.bounds||[[96.9,16.6],[101.0,20.9]],
+    maxBounds:(rg&&rg.bounds)||CFG.bounds||[[96.9,16.6],[101.0,20.9]],
     minZoom:CFG.minZoom||7.2,
     /* The gesture prompt is the one piece of MapLibre's own copy a reader
        here will read, so it arrives in both languages like everything else
@@ -1350,7 +1362,8 @@ def emit(g):
                # page that reads it (doi.js). Configured beside the basemap
                # url above so this module stays the only place tiles are set
                # up; map.js itself never touches it.
-               "terrain": cfg.get("terrain")}
+               "terrain": cfg.get("terrain"),
+               "regions": cfg.get("regions") or []}
     (docs / "map.js").write_text(
         "window.MDMAP_CFG=" + json.dumps(runtime, ensure_ascii=False,
                                          separators=(",", ":")) + ";\n" + JS

@@ -319,7 +319,9 @@ def declared_archives():
         sys.exit("cannot read %s: %s" % (BASEMAP, e))
     out = []
     for u in (cfg.get("url"), (cfg.get("terrain") or {}).get("url"),
-              (cfg.get("doodle") or {}).get("url")):
+              (cfg.get("doodle") or {}).get("url"),
+              # a province's own archive (Pathum Thani, 2026-10-12)
+              *((r or {}).get("url") for r in cfg.get("regions") or [])):
         if not u or "://" in u:
             continue
         key = u.lstrip("./")

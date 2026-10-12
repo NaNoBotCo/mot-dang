@@ -72,14 +72,15 @@ CREDIT = "ทะเบียนโรงเรียน สพฐ. · สำน�
 # the year is what the figures describe, the fetch is when we took a copy.
 FETCHED = "2026-08-18"
 
-PROVINCE = {"เชียงใหม่": "cm", "เชียงราย": "cr"}
+PROVINCE = {"เชียงใหม่": "cm", "เชียงราย": "cr", "ปทุมธานี": "pth"}   # pth: Nan 2026-10-12
 
 # A pin outside this is in another province. Bounds are the register's own
 # trimmed extent (99.5th percentile, so the two gross errors cannot set them),
 # widened south for Chiang Mai because อมก๋อย genuinely reaches past 17.26°N
 # and its schools must survive the test that exists to protect them.
 BOX = {"cm": (17.10, 20.25, 97.30, 99.65),
-       "cr": (18.95, 20.55, 99.15, 100.65)}
+       "cr": (18.95, 20.55, 99.15, 100.65),
+       "pth": (13.85, 14.35, 100.25, 101.00)}
 
 # A school that stands far from every other school in its own อำเภอ is a typo,
 # but "far" has to be read against how big that district is. The limit is three

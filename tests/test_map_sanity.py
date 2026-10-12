@@ -96,6 +96,25 @@ def within(box, lat, lng):
     return s <= lat <= n and w <= lng <= e
 
 
+def _regions():
+    """(S, W, N, E) of each province archive data/basemap.json declares beside
+    cm-cr (Pathum Thani, 2026-10-12): its ground is in that archive."""
+    try:
+        cfg = json.loads((ROOT / "data" / "basemap.json").read_text())
+    except (OSError, ValueError):
+        return []
+    return [(r["bounds"][0][1], r["bounds"][0][0], r["bounds"][1][1], r["bounds"][1][0])
+            for r in cfg.get("regions") or [] if r.get("bounds")]
+
+
+REGIONS = _regions()
+
+
+def grounded(box, lat, lng):
+    """Inside `box` (the cm-cr fence or the mount rails), or inside a region."""
+    return within(box, lat, lng) or any(within(b, lat, lng) for b in REGIONS)
+
+
 def seg_km(lat, lng, a, b):
     kx = math.cos(math.radians(lat)) * 111.32
     ax, ay = (a[1] - lng) * kx, (a[0] - lat) * 110.57
@@ -289,7 +308,7 @@ def main():
                         off.setdefault(str(f.relative_to(DOCS)), f"({x:.0f},{y:.0f}) in {w:.0f}x{h:.0f}")
             for m in mount_rx.finditer(s):
                 la, ln = float(m.group(1)), float(m.group(2))
-                if not (ms <= la <= mn and mw <= ln <= me):
+                if not grounded((ms, mw, mn, me), la, ln):
                     bad_mount.append(f"{f.relative_to(DOCS)} {la},{ln}")
                     mount_pages.add(f.relative_to(DOCS).as_posix())
             # A mount present but the basemap script missing is the other half of
@@ -342,7 +361,7 @@ def main():
                     continue
                 n_pt += 1
                 x, y = geo["coordinates"][:2]
-                if not within(FENCE, y, x):
+                if not grounded(FENCE, y, x):
                     bad_pt.append(f"{f.name} {x},{y}")
         check(f"{n_pt:,} GeoJSON points inside the fence", not bad_pt, "; ".join(bad_pt[:5]))
 
