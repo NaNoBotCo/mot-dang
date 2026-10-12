@@ -72,7 +72,8 @@ const SUGGEST_KINDS = new Set([
 const SUGGEST_DETAIL_MAX = 300
 // Nan 2026-09-29: coverage is all of northern Thailand (data/coverage.json —
 // the 17 provinces; we crawl CM and CR, and take what arrives from the rest).
-const PROVINCE_KEYS = 'cm|cr|lpn|lpg|utt|pre|nan|pyo|mhs|nsn|uti|kpt|tak|sti|plk|pct|pnb'
+// Pathum Thani (pth), crawled since 2026-10-12, her word.
+const PROVINCE_KEYS = 'cm|cr|pth|lpn|lpg|utt|pre|nan|pyo|mhs|nsn|uti|kpt|tak|sti|plk|pct|pnb'
 const NORTH = { south: 14.8, north: 20.5, west: 97.3, east: 101.8 }
 const PLACE_ID_RE = new RegExp(`^(${PROVINCE_KEYS})-[a-z0-9-]+$`)
 const SESSION_TTL = 900 // 15 minutes between LINE messages before the flow resets
