@@ -25,7 +25,8 @@ PAD = 10
 
 # Two provinces, one ground truth for both: the boundary set's own bbox.
 BOUND = json.loads((MD / "data/admin_boundaries.json").read_text())
-AMPHOE = BOUND["levels"]["amphoe"]["features"]
+AMPHOE = [f for f in BOUND["levels"]["amphoe"]["features"]
+          if f["properties"].get("province") in ("cm", "cr")]   # the art is the north pair
 
 CITY = [("เชียงใหม่", "Chiang Mai", 18.7883, 98.9853, "cm"),
         ("เชียงราย", "Chiang Rai", 19.9105, 99.8406, "cr")]

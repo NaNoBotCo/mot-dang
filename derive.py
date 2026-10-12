@@ -70,7 +70,7 @@ TODAY = ""  # set by main(); an empty `at` is omitted by provenance.stamp
 
 # The province's own อำเภอเมือง, which an address almost never spells out: it
 # says "อ.เมือง" and expects the reader to know which city they are standing in.
-MUANG = {"cm": "เมืองเชียงใหม่", "cr": "เมืองเชียงราย"}
+MUANG = {"cm": "เมืองเชียงใหม่", "cr": "เมืองเชียงราย", "pth": "เมืองปทุมธานี"}
 
 # Every marker that can end the run of Thai letters after another marker. A
 # Thai address is written without spaces between a marker and its name and
