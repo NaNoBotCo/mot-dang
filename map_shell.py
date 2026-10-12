@@ -828,6 +828,8 @@ function build(el){
     if(window.MDTRAFFIC)window.MDTRAFFIC.paint(map,el);
     /* the directory's places as icon pins, more with every step in (mappins_layer.py) */
     if(window.MDPINS)window.MDPINS.paint(map,el);
+    /* landmark drawings on the places that are landmarks (assets/sites/map-doodles/on-maps.js) */
+    doodles(map,el);
     /* The drawn SVG stays in the DOM — it is what prints, and it is what
        comes back if the tiles ever stop resolving. It is only hidden from
        sight, and only once there is something real underneath. */
@@ -951,6 +953,17 @@ function nearOf(el){
       n:a.getAttribute('data-n')||'',u:a.href});
   });
   return out;
+}
+/* The landmark drawings (assets/sites/map-doodles/on-maps.js): one script, fetched by the first map to load
+   and used by every map after it. It draws nothing below zoom 10.5, and skips the doodle maps' own views. */
+var DOODLE_Q=null;
+function doodles(map,el){
+  if(window.MDDOODLEMAP)return window.MDDOODLEMAP.attach(map,el);
+  if(DOODLE_Q){DOODLE_Q.push([map,el]);return;}
+  DOODLE_Q=[[map,el]];
+  var s=document.createElement('script');s.src=ROOT+'sites/map-doodles/on-maps.js';
+  s.onload=function(){DOODLE_Q.forEach(function(a){window.MDDOODLEMAP.attach(a[0],a[1]);});};
+  document.head.appendChild(s);
 }
 var FULL=null;
 function fullSet(el,on){
