@@ -737,6 +737,21 @@ def finish_crawled(prov, records, outdir, entry):
             r["attrs"] = {**ex.get("attrs", {}), **r.get("attrs", {})}
         by_id[r["id"]] = r
     final = sorted(by_id.values(), key=lambda r: r["id"])
+    # A shelf the site does not have (the extract answers groups CM and CR
+    # never asked, `reading` → "read") is taken off; a record left with none
+    # is not written. build.py has no page for either.
+    shelves = {c["key"] for c in json.loads(
+        (ROOT / "data" / "categories.json").read_text())["categories"]}
+    dropped = {}
+    for r in final:
+        for c in r["cat"]:
+            if c not in shelves:
+                dropped[c] = dropped.get(c, 0) + 1
+        r["cat"] = [c for c in r["cat"] if c in shelves]
+    final = [r for r in final if r["cat"]]
+    if dropped:
+        print(f"{prov}: shelves the site does not have, taken off: "
+              + ", ".join(f"{k} {v}" for k, v in sorted(dropped.items())))
     import_fixtures.apply(final, prov)
     apply_curated_names(final)
     apply_curated_story_hooks(final)
