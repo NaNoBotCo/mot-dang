@@ -1,0 +1,29 @@
+DOODLE LESSONS — what the doodler learns, read before drawing or judging a doodle
+
+Read by the doodle-awesome workflow's critics and builders (.claude/workflows/doodle-awesome.js) and by the nightly doodle topper. Nan, 2026-10-12: "continue to make the awesome-doodler more awesome from feedback and stuff." Each line carries its source and date. The topper adds to the two lower sections; her words go in the first only when she says them.
+
+HER WORDS
+
+2026-10-02 · "magically lanna all of it"; Akha looks Akha; a food banner by cuisine; the moat Monet-ish at its gates and corners and hours.
+2026-10-02 · "a doodle can be reused, but only after significant editing to make it more baller than last time." (The front band; elsewhere doodles reuse freely, 2026-10-04.)
+2026-10-02 · Best means "genuinely useful, and beautiful because you don't need an explanation to know what it does. Inuit design standards."
+2026-10-02 · "utilize the doodler to avoid filler."
+2026-10-03 · Current data drawn into the front doodle: time of day, rain, smoke, haze, Suthep visibility.
+2026-10-04 · The sights should "look more like chiang mai": redrawn from Commons photographs.
+2026-10-10 · Street scenes: scooters far outnumber people walking; sidecars (mobile noodle shops, fruit sellers), samlors, tuk tuks, songthaews; fewer walkers except around the moat and Loi Kroh; shophouse rows where they stand; towers to their floors. "slowly and relentlessly."
+2026-10-10 · "All graphics should do something cute if you click on them."
+2026-09-28 · Nan, Beer and Gai Chon keep their avatar looks in every drawing of them (memory feedback_brand_avatars).
+2026-10-12 · The dance doodle was "very generic"; dance has many kinds: one dancer, a troupe, a nightclub, a square dance, a ballet, cabaret with backup dancers.
+2026-10-12 · "Don't want art to pile up, but I want the art to be relevant and the best form of itself." "Quality, enchantment, and consistency, not quantity."
+2026-10-12 · "I want people to act more natural." (She kept the spirit-house builder's woman kneeling with the morning tray.)
+2026-10-12 · "Doodles need continuous slow improvement and pruning."
+2026-10-12 · "do groundtruthing in support of the doodler, and prioritize items with more ground truth." "Ground truth is the new backlinks." (tools/doodle_truth.py ranks the pools; open a pool's refs before drawing it.)
+Standing · No blood, gore or wounds without asking her.
+
+HOW PEOPLE ACT (from the 2026-10-12 word; add what drawings teach)
+
+Every person has a reason to be in the frame and is doing it: selling, haggling, carrying, eating, riding, waiting, phoning, chatting, praying, minding a child. Two or three of them relate to each other (look at, hand over, laugh with). Poses differ; timing differs; no two people move in step unless the subject is a dance or a procession. Thai everyday ways: the wai, sitting on heels or a low stool, a scooter with a passenger side-saddle, an umbrella against the sun, shopkeepers resting at the counter. The kit's person() adds breath and weight shift at rest (doodler.js natural()); a scene still owes each figure an action.
+
+FROM VOTERS AND CRITICS (topper appends: date · doodle · what was wrong · what fixed it)
+
+FROM GROUND TRUTH (topper appends: date · doodle · what the photographs showed that the drawing missed)
