@@ -256,7 +256,7 @@ export const LEADS = {
             [SAFETY + "#river", "ระดับน้ำปิง · Ping river level"]],
   },
   rent: {
-    th: "เช่า-ขาย", en: "rent or buy",
+    th: "ประกาศขาย-เช่า", en: "property listings",
     links: [["/listings/", "ประกาศเช่า-ขาย · listings"], ["/listings/register/", "ทะเบียนตึก · building register"],
             ["/listings/join", "ลงประกาศ · list a property"]],
   },
