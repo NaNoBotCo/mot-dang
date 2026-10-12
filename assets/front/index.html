@@ -485,6 +485,19 @@ html.lang-both #month .nxms small .en{display:none}
 #drawer h3{margin:.8rem 0 .2rem;font-size:1rem}
 #foot{padding:0 0 3rem;text-align:center;font-size:.9rem;color:var(--mute)}
 #foot p{padding:0 18px}#foot p:first-of-type{margin-top:1.4rem}
+/* the robots' ticker (Nan, 2026-10-12: "a subtle traffic stats crawler plus link to voight-kampff"): /served/served.json
+   and /voight-kampff/gossip.json, read in the browser, so it moves with each Monday issue without a rebuild */
+.vkt{display:flex;align-items:center;gap:.6rem;max-width:100%;overflow:hidden;padding:.35rem 18px;border-top:1px solid var(--line);
+  font:.72rem/1.5 var(--mono);color:var(--dim);text-decoration:none;white-space:nowrap}
+.vkt:hover,.vkt:focus-visible{color:var(--mute)}
+.vkt .vkh{flex:none;color:var(--ant-dark);font-weight:700;letter-spacing:.06em}
+.vkt .vkw{flex:1;min-width:0;overflow:hidden}
+.vkt .vkr{display:inline-block}
+.vkt .vki{margin-right:2.4rem}.vkt .vki b{font-weight:700;color:var(--mute);margin-right:.4rem}
+html.lang-both .vkt .vki .en::before{content:" · "}
+@media (prefers-reduced-motion:no-preference){.vkt.go .vkr{animation:vkt var(--vkd,90s) linear infinite}
+  .vkt.go:hover .vkr,.vkt.go:focus-visible .vkr{animation-play-state:paused}}
+@keyframes vkt{to{transform:translateX(-50%)}}
 #veil{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
 @media (prefers-reduced-motion:no-preference){.chip,.msc,#flip button,#doors a,.shelves a{transition:transform .15s ease,box-shadow .15s ease}
  .chip:hover,.msc:hover,#flip button:hover,#doors a:hover,.shelves a:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--hot)}
@@ -594,6 +607,27 @@ html[data-contrast="more"] #veil{display:none}
   <h3 class="bi"><span class="th" lang="th">อื่น ๆ</span><span class="en" lang="en">The rest</span></h3><div class="shelves" id="rest" data-p="rest"></div>
 </details>
 </main>
+
+<a class="vkt" id="vkt" href="/voight-kampff/"><span class="vkh">VOIGHT-KAMPFF →</span><span class="vkw"><span class="vkr" id="vktr"><span class="vki"><span class="th" lang="th">ข่าวซุบซิบบอทรายสัปดาห์</span><span class="en" lang="en">weekly gossip about the bots who eat here</span></span></span></span></a>
+<script>/* the robots' ticker: the weekly numbers in, the strip moves only once both have answered */
+(function(){var a=document.getElementById('vkt'),r=document.getElementById('vktr');if(!a||!r||!window.fetch)return;
+var TH=['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'],EN=['Jan','Feb','Mar','Apr','May','June','July','Aug','Sept','Oct','Nov','Dec'];
+function d(s){var p=String(s).split('-');return{y:+p[0],m:+p[1]-1,d:+p[2]}}
+function span(c,l,t){var e=document.createElement('span');e.className=c;if(l)e.lang=l;e.textContent=t;return e}
+function item(th,en,hth,hen){var i=span('vki');if(hth||hen){var b=document.createElement('b');b.appendChild(span('th','th',hth||hen));b.appendChild(span('en','en',hen||hth));i.appendChild(b)}
+  if(th===en)i.appendChild(span('','',th));else{i.appendChild(span('th','th',th));i.appendChild(span('en','en',en))}return i}
+function n(x){return Number(x).toLocaleString('en-US')}
+function j(u){return fetch(u,{cache:'no-cache'}).then(function(x){return x.ok?x.json():null}).catch(function(){return null})}
+Promise.all([j('/served/served.json'),j('/voight-kampff/gossip.json')]).then(function(v){var s=v[0],g=v[1],out=[];
+  if(s&&s.served){var b=d(s.base&&s.base.from||'2026-07-27');
+    out.push(item(n(s.served)+' ครั้ง ตั้งแต่ '+b.d+' '+TH[b.m]+' '+(b.y+543),n(s.served)+' requests since '+b.d+' '+EN[b.m]+' '+b.y,'เสิร์ฟแล้ว','Served'))}
+  if(g&&g.beats&&g.beats.length){var f=d(g.from),t=d(g.to),wth=f.d+(f.m==t.m?'':' '+TH[f.m])+'–'+t.d+' '+TH[t.m],wen=f.d+(f.m==t.m?'':' '+EN[f.m])+'–'+t.d+' '+EN[t.m];
+    if(s&&s.regulars&&s.regulars.length){var rr=s.regulars.slice(0,8).map(function(x){return x[0]+' '+n(x[1])}).join(' · ');out.push(item(rr,rr,'ขาประจำ '+wth,'Regulars, '+wen))}
+    g.beats.forEach(function(x){out.push(item(x.th,x.en,x.title_th,x.title_en))})}
+  if(!out.length)return;
+  r.textContent='';out.forEach(function(e){r.appendChild(e)});out.forEach(function(e){var c=e.cloneNode(true);c.setAttribute('aria-hidden','true');r.appendChild(c)});
+  a.setAttribute('aria-label','Voight-Kampff: '+(g&&g.beats?g.beats.length+' stories about the robots who read this site, ':'')+(s&&s.served?n(s.served)+' requests served':''));
+  a.style.setProperty('--vkd',Math.max(60,Math.round(r.scrollWidth/2/35))+'s');a.classList.add('go')})})();</script>
 
 <footer id="foot"><p class="bi"><span class="th" lang="th">มดแดง เชียงใหม่ เชียงราย โดย NaN · ข้อความและข้อมูล CC BY 4.0 · หมุดและข้อมูลพื้นดิน © OpenStreetMap (ODbL) · ภาพใกล้ๆ NaN Peacock CC BY 4.0 · ฝน อากาศ Open-Meteo (CAMS)</span><span class="en" lang="en">Mot Dang, Chiang Mai and Chiang Rai, by NaN · text and data CC BY 4.0 · pins and much ground truth © OpenStreetMap contributors (ODbL) · near photos NaN Peacock, CC BY 4.0 · rain, air Open-Meteo (CAMS)</span></p>
 <p><a href="/sites/city-live/#engine">&gt;_ engine</a> · <a href="/api/">API</a> · <a href="/privacy.html">ความเป็นส่วนตัว · privacy</a> · <a href="/home-classic.html">หน้าแรกแบบเดิม · the old front page</a> · {{BUILT}}</p></footer>
