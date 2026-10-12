@@ -9,6 +9,7 @@ heads ready to go, not emojis."
     python3 tools/map_doodles.py sheet [ids…] -o x.png    # a contact sheet at 96 px and 32 px (rsvg-convert)
     python3 tools/map_doodles.py build                    # map-doodles.svg (the sprite) from svg/ + the manifest
     python3 tools/map_doodles.py wikidata                 # landmarks: wikidata id, coordinates, fame rank
+    python3 tools/map_doodles.py export [repo-dir]        # copy the set into the public repo (../map-doodles)
 
     from tools.map_doodles import match, img              # in a build layer: match({"amenity": "fuel"}) → "fuel-station"
 
@@ -268,8 +269,27 @@ MD_KINDS = {
 }
 
 
+def cmd_export(args):
+    """Copy the set into the public repo (github.com/NaNoBotCo/map-doodles), which the CDN, Zenodo and
+    Software Heritage read. Its README, LICENSE, NOTICE and citation files are the repo's own."""
+    import shutil
+    dest = pathlib.Path(args[0] if args else ROOT.parent / "map-doodles")
+    if not (dest / ".git").is_dir():
+        sys.exit("%s is not a clone of the repo" % dest)
+    if (dest / "svg").is_dir():
+        shutil.rmtree(dest / "svg")
+    shutil.copytree(SVG, dest / "svg")
+    for name in ("map-doodles.json", "map-doodles.svg", "map-doodles.js", "index.html", "card.jpg"):
+        shutil.copy2(SITE / name, dest / name)
+    (dest / "data").mkdir(exist_ok=True)
+    shutil.copy2(SITE / "data" / "world.json", dest / "data" / "world.json")
+    print("%s: %d drawings" % (dest, len(list((dest / "svg").glob("*.svg")))))
+    return 0
+
+
 def main():
-    cmds = {"check": cmd_check, "sheet": cmd_sheet, "build": cmd_build, "wikidata": cmd_wikidata}
+    cmds = {"check": cmd_check, "sheet": cmd_sheet, "build": cmd_build, "wikidata": cmd_wikidata,
+            "export": cmd_export}
     if len(sys.argv) < 2 or sys.argv[1] not in cmds:
         sys.exit(__doc__)
     return cmds[sys.argv[1]](sys.argv[2:])
