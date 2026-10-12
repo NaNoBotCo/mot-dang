@@ -456,6 +456,18 @@ t("lead lines: emergency numbers, the route planner on the first place, listings
     .includes("plan.html?stops=cm%3Awat-chedi-luang&amp;go=1"), "Guide me");
   ok(h("condo for rent").includes("/listings/"), "condo → listings");
   eq(h("scooter rental"), "", "scooter → no listings line");
+  eq(h("car rental"), "", "car → no listings line");
+  eq(h("เช่ารถ"), "", "car hire in Thai → no listings line");
+  eq(h("ร้านขายยา"), "", "a pharmacy is not a sale");
+  for (const q of ["rent", "house for sale", "buy a house", "บ้านให้เช่า", "คอนโดเชียงใหม่", "land for sale chiang mai",
+                   "real estate agent", "monthly apartment"]) ok(h(q).includes("/listings/"), `${q} → listings`);
+  for (const q of ["maid", "หาแม่บ้าน", "plumber", "laundry near me", "ซ่อมบ้าน", "gardener"]) {
+    ok(h(q).includes("/home-help/?near=1"), `${q} → home help`);
+  }
+  eq(h("maid cafe"), "", "a maid café is a café");
+  eq(h("dry cleaning"), "", "dry cleaning is a shop");
+  ok(h("jobs").includes("/home-help/join"), "jobs → list yourself");
+  eq(h("workout"), "", "a workout is not work");
 });
 
 t("MASSIVE false lifts stay fixed: vacuums, Uber, students, San Kamphaeng, CJ, orders", () => {

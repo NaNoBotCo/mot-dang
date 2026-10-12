@@ -202,6 +202,10 @@ html.maptool,html.maptool body{overflow:hidden;overscroll-behavior:none}
 #flip button .ico{width:1.2rem;height:1.2rem}
 #flip button[aria-selected=true]{background:var(--ink);border-color:var(--ink);color:var(--hot)}
 #flip button[aria-selected=true] .ico,#flip button[aria-selected=true] .en{color:var(--hot)}
+#doors{display:flex;gap:8px;padding-bottom:.7rem}
+#doors a{flex:1 1 0;max-width:16rem;display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:2.9rem;padding:0 .8rem;border-radius:12px;border:2px solid var(--ink);background:var(--hot);color:#000;font:600 .98rem var(--head);text-decoration:none;box-shadow:4px 4px 0 var(--shadow)}
+#doors a .en{color:#000}
+#doors a .ico{width:1.2rem;height:1.2rem;color:var(--ant-dark);flex:none}
 #month{display:none;padding:0 0 1.6rem}
 html[data-stage=cal] #month{display:block}
 html[data-stage=cal] #now{display:none}
@@ -482,8 +486,8 @@ html.lang-both #month .nxms small .en{display:none}
 #foot{padding:0 0 3rem;text-align:center;font-size:.9rem;color:var(--mute)}
 #foot p{padding:0 18px}#foot p:first-of-type{margin-top:1.4rem}
 #veil{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
-@media (prefers-reduced-motion:no-preference){.chip,.msc,#flip button,.shelves a{transition:transform .15s ease,box-shadow .15s ease}
- .chip:hover,.msc:hover,#flip button:hover,.shelves a:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--hot)}
+@media (prefers-reduced-motion:no-preference){.chip,.msc,#flip button,#doors a,.shelves a{transition:transform .15s ease,box-shadow .15s ease}
+ .chip:hover,.msc:hover,#flip button:hover,#doors a:hover,.shelves a:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--hot)}
  .chip:active,.msc:active,#flip button:active{transform:translate(1px,1px);box-shadow:2px 2px 0 var(--shadow)}}
 @media (prefers-reduced-motion:reduce){#nearHero img.on{animation:none}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
 html[data-contrast="more"] .reveal{opacity:1;transform:none}
@@ -534,6 +538,7 @@ html[data-contrast="more"] #veil{display:none}
   <button type="button" role="tab" id="tab-cal" aria-controls="month" data-stage="cal"><svg class="ico" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="/icons.svg#i-cal"></use></svg><span class="bi"><span class="th" lang="th">ปฏิทิน</span><span class="en" lang="en">Calendar</span></span></button>
   <button type="button" role="tab" id="tab-map" aria-controls="now" data-stage="map"><svg class="ico" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="/icons.svg#i-map"></use></svg><span class="bi"><span class="th" lang="th">แผนที่</span><span class="en" lang="en">Map</span></span></button>
 </div>
+<nav id="doors" class="wrap" aria-label="บ้านและงานบ้าน · homes and home help"><a href="/listings/"><svg class="ico" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="/icons.svg#i-home2"></use></svg><span class="bi"><span class="th" lang="th">บ้าน คอนโด เช่า-ขาย</span><span class="en" lang="en">Homes to rent or buy</span></span></a><a href="/home-help/?near=1"><svg class="ico" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><use href="/icons.svg#i-broom"></use></svg><span class="bi"><span class="th" lang="th">แม่บ้าน คนสวน ช่าง</span><span class="en" lang="en">Home help</span></span></a></nav>
 <div id="month" role="tabpanel" aria-labelledby="tab-cal"><div class="wrap"><div id="mgrid"></div>
 <div id="cnow" role="region" aria-label="เมืองตอนนี้ · the city now"><div class="cnc" role="group" aria-label="เมืองตอนนี้ · the city now"></div>
 <div id="cnx" hidden><div class="cnxbar"><a class="cnxmore" hidden></a><button type="button" class="cnxi" aria-pressed="false" aria-label="ที่มาของข้อมูล · sources" title="ที่มาของข้อมูล · sources">i</button><button type="button" class="cnxx" aria-label="ปิด · close" title="ปิด · close">×</button></div>
