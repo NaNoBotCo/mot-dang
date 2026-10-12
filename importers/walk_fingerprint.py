@@ -36,6 +36,7 @@ the walk's log every time. That is the intended failure — visible and cheap to
 read, not silent.
 """
 
+import os
 import hashlib
 import json
 import sys
@@ -104,9 +105,22 @@ def manifest(root="."):
         import build_code
         for rel, blob in build_code.committed("HEAD", root).items():
             out[rel] = "git:" + blob
-    for p in sorted(root.rglob("*")):
-        if not p.is_file():
-            continue
+    # os.walk rather than rglob: a folder that cannot be read (2026-10-12,
+    # _incoming/gopro-* links onto the Passport drive answering EIO) is
+    # passed over like an unreadable file below, instead of ending the
+    # walk's round with nothing sent.
+    found = []
+    for dirpath, dirnames, filenames in os.walk(root, followlinks=True,
+                                                onerror=lambda e: None):
+        dirnames[:] = [d for d in dirnames if d not in SKIP_DIRS and not d.startswith(".")]
+        for fn in filenames:
+            p = Path(dirpath) / fn
+            try:
+                if p.is_file():
+                    found.append(p)
+            except OSError:
+                pass
+    for p in sorted(found):
         rel = p.relative_to(root)
         if any(part in SKIP_DIRS or part.startswith(".") for part in rel.parts):
             continue
