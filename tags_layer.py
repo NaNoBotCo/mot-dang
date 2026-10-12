@@ -901,7 +901,7 @@ def emit(g, data):
     breadcrumb_ld, item_list_ld = g["breadcrumb_ld"], g["item_list_ld"]
     listing_page = g["listing_page"]
     CATS, CAT_ORDER, PROVINCES = g["CATS"], g["CAT_ORDER"], g["PROVINCES"]
-    name_of, is_featured = g["name_of"], g["is_featured"]
+    name_of, is_featured, ground_truth = g["name_of"], g["is_featured"], g["ground_truth"]
     BUILD_DATE = g["BUILD_DATE"]
     defs, order = T["defs"], T["order"]
     fams = {f["key"]: f for f in T["doc"]["families"]}
@@ -925,7 +925,7 @@ def emit(g, data):
         def k(r):
             cats = r.get("cat") or []
             ci = min((CAT_ORDER.index(c) for c in cats if c in CAT_ORDER), default=999)
-            return (ci, not is_featured(r), name_of(r))
+            return (ci, not is_featured(r), -ground_truth(r), name_of(r))
         return sorted(recs, key=k)
 
     for p in PROVINCES:

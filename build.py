@@ -73,6 +73,7 @@ import feedback_layer  # thumbs up, thumbs down, an optional paragraph on any it
 import net_layer
 import commons_layer
 import doodles_layer
+import truth_layer
 import preview_layer
 import shelfmap_layer  # the doodle map at the head of every list, Nan 2026-10-12
 import pics_layer
@@ -5140,6 +5141,11 @@ found.sort((a,b)=>b.score-a.score);}
 // a dozen — so it orders rows that matched about as well.
 if(found.some(r=>r.doc.ev)){for(const r of found)if(r.doc.ev)r.score+=Math.min(0.3,0.08*Math.log2(1+r.doc.ev));
 found.sort((a,b)=>b.score-a.score);}
+// GROUND TRUTH ORDERS WHAT THE WORDS FOUND (Nan, 2026-10-12: "ground truth and user intent"): `g`,
+// 1-9, is how much of the place someone has seen. Up to 0.27, under the shelf lift, so a better
+// match still leads and ground truth orders rows that matched about as well.
+if(found.some(r=>r.doc.g)){for(const r of found)if(r.doc.g)r.score+=0.03*r.doc.g;
+found.sort((a,b)=>b.score-a.score);}
 // Loosen by STEPS, never all at once. A reader who typed two words meant both,
 // so listings matching all of them are the answer and listings matching one are
 // a fallback offered only when there is no answer. Keeping them mixed in also
@@ -9235,6 +9241,13 @@ def has_contact(r):
     return hit
 
 
+def ground_truth(r):
+    """How much of this place someone has seen (truth_layer.py): her photographs most, then a
+    curated photo, the business's own confirmation, street and Commons photos. Orders places
+    within what the reader asked for (Nan, 2026-10-12: "ground truth and user intent")."""
+    return truth_layer.score(r, OWN_BY_PLACE, STREET_PHOTOS, COMMONS_IMAGES, PHOTO_FILES, CLAIMS)
+
+
 def is_featured(r):
     """Featured means showcased, and a showcase needs a picture — unless the
     record is one of the hand-vetted exceptions in data/curated/ (photoExempt)."""
@@ -9638,7 +9651,7 @@ def ant_bits(r):
         "line": "line" in chans,
         "hours": bool(claim.get("hours") or r.get("hours")),
         "web": "web" in chans,
-        "photo": r["id"] in PHOTO_FILES,
+        "photo": r["id"] in PHOTO_FILES or r["id"] in OWN_BY_PLACE or r["id"] in STREET_PHOTOS or r["id"] in COMMONS_IMAGES,
         "claimed": bool(claim),
         # "Verified" means a person touched it, not that a crawl swept past.
         # A bulk OSM import would otherwise hand this ant to every record at
@@ -10753,16 +10766,14 @@ def fold_rows(records, href_of, order_out=None):
     for r in groups.pop("", []):
         out.append(entry_li(r, href_of(r)))
         dom.append(r)
-    # Shelves take their place in the alphabet alongside the single rows rather
-    # than being stacked in front of them by size. A directory is looked up,
-    # not read down: 7-Eleven belongs under 7 and ธนาคารกรุงเทพ under ธ, where
-    # a reader goes to look for them. Ordering the chains biggest-first would
-    # also rank them against each other on the page, which is not this page's
-    # business — the same reason the 🐜 chips sleep outside their own sort.
+    # Rows and folded chains in order of ground truth, then name (Nan, 2026-10-12: "rank places by
+    # ground truth too"): a chain stands where its best-seen branch would; inside it each area
+    # leads with its best-seen branch.
+    gt = lambda r: (-ground_truth(r), name_of(r))
     shelved = []                  # (sort key, html, [records in emitted order])
     for key, rs in groups.items():
         if len(rs) < FOLD_MIN:
-            shelved.extend((name_of(r), entry_li(r, href_of(r)), [r]) for r in rs)
+            shelved.extend((gt(r), entry_li(r, href_of(r)), [r]) for r in rs)
             continue
         by_area = {}
         for r in rs:
@@ -10770,14 +10781,14 @@ def fold_rows(records, href_of, order_out=None):
         unknown = by_area.pop("", [])
         blocks, members = [], []
         for area, in_area in sorted(by_area.items(), key=lambda kv: (-len(kv[1]), kv[0])):
-            in_area.sort(key=name_of)
+            in_area.sort(key=gt)
             blocks.append(
                 f'<li class="areahead shelf">{esc(area)} '
                 f'<span class="count">{len(in_area):,}</span></li>'
                 + "".join(entry_li(r, href_of(r)) for r in in_area))
             members.extend(in_area)
         if unknown:
-            unknown.sort(key=name_of)
+            unknown.sort(key=gt)
             blocks.append(
                 f'<li class="areahead shelf">'
                 + bi("ยังไม่รู้ว่าอยู่ถนนไหน", "road not known yet")
@@ -10787,7 +10798,7 @@ def fold_rows(records, href_of, order_out=None):
         # A count in the summary, so the size of the shelf is legible while it
         # is still shut — the reader decides whether to open it knowing what is
         # behind it.
-        shelved.append((key[0] or key[1],
+        shelved.append(((min(-ground_truth(r) for r in rs), key[0] or key[1]),
             f'<li class="brandshelf"><details><summary>{bi(key[0], key[1])} '
             f'<span class="count">({len(rs):,})</span></summary>'
             f'<ul class="dir sub">{"".join(blocks)}</ul></details></li>', members))
@@ -11008,7 +11019,7 @@ def shelf_doors(recs, p, rel_dir, depth, crumbs_head, name_th, name_en, og=None,
     if n_all <= SHELF_MIN:
         return ""
     key = p["key"]
-    order = lambda rs: sorted(rs, key=lambda r: (not is_featured(r), name_of(r)))
+    order = lambda rs: sorted(rs, key=lambda r: (not is_featured(r), -ground_truth(r), name_of(r)))
     lines = []
 
     zone_links = []
@@ -11457,6 +11468,7 @@ def place_json(r, photo_file=None):
     rec["names"] = {"th": _th or None, "en": _en or None}
     rec["antRank"] = ant_rank(r)
     rec["antBits"] = ant_bits(r)
+    rec["groundTruth"] = ground_truth(r)
     # What this kind of place is asked, in both languages — so an API consumer
     # reading antBits knows why a wat is asked for its sect and a shop is not.
     _sth, _sen = kind_layer.says(r)
@@ -18625,7 +18637,7 @@ def shelf_map(records, cat_key, prov_cfg, depth=2, label_th=None, label_en=None,
     # pins is the same small lie as a shelf chip promising more dots than it
     # paints — the reason _EXPLORE_COUNTS reads the GeoJSON back rather than
     # trusting len(in_cat).
-    top = sorted(inside, key=lambda r: (-ant_rank(r), name_of(r)))[:10]
+    top = sorted(inside, key=lambda r: (-ground_truth(r), -ant_rank(r), name_of(r)))[:10]
     top_ids = {r["id"] for r in top}
     order = {r["id"]: i for i, r in enumerate(records if rows is None else rows)}
     rest = [r for r in inside if r["id"] not in top_ids and r["id"] in order]
@@ -19643,6 +19655,10 @@ def build():
             _fx = (facet_set_of(r) or {}).get("key")
             idx_entry = {"id": r["id"], "s": place_slug(r), "n": _th or _en or name_of(r),
                         "e": _en or None, "p": key, "pv": p["th"], "c": r["cat"]}
+            # `g` — ground truth, 1–9, where someone has seen the place (truth_layer.level)
+            _g = truth_layer.level(ground_truth(r))
+            if _g:
+                idx_entry["g"] = _g
             # `kd` — the second axis, in the index. Without it the axis exists
             # everywhere in the build except the one door readers actually use.
             # Omitted for commerce, which is 70% of the corpus and the default
@@ -19993,7 +20009,7 @@ def build():
         for c in live_cats:
             cdef = CATS[c]
             in_cat = sorted([r for r in records if c in r["cat"]],
-                            key=lambda r: (not is_featured(r), name_of(r)))
+                            key=lambda r: (not is_featured(r), -ground_truth(r), name_of(r)))
             (pdir / c).mkdir(exist_ok=True)
             # subcategory shelf (Yahoo genre: bold sub-links with counts; wireframes muted)
             sub_bits = []
@@ -20008,7 +20024,7 @@ def build():
                         (cdef["th"], BASE + key + "/" + c + "/index.html"),
                         (child["th"], BASE + sub_path),
                     ])
-                    sub_sorted = sorted(in_sub, key=lambda r: (not is_featured(r), name_of(r)))
+                    sub_sorted = sorted(in_sub, key=lambda r: (not is_featured(r), -ground_truth(r), name_of(r)))
                     sub_crumbs = (f'<a href="../../../index.html">{bi("หน้าแรก", "Home")}</a> › '
                                   f'<a href="../../index.html">{bi(p["th"], p["en"])}</a> › '
                                   f'<a href="../index.html">{bi(cdef["th"], cdef["en"])}</a> › '
@@ -20502,7 +20518,7 @@ def build():
     for _p2 in PROVINCES:
         _pool = [_r for _r in data[_p2["key"]]
                  if _r["id"] in PHOTO_FILES and band_place_file(_r["id"])]
-        _pool.sort(key=lambda z: (-ant_rank(z), z["id"]))
+        _pool.sort(key=lambda z: (-ground_truth(z), -ant_rank(z), z["id"]))
         if not _pool:
             continue
         _stride = max(1, int(round(len(_pool) / 1.6180339887)))

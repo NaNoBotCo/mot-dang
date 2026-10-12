@@ -229,6 +229,7 @@ def build_index(g, data, photos, tags):
                 "cat": list(r.get("cat") or []),
                 "geoPrecision": r.get("geoPrecision") or "needs-pin",
                 "antRank": g["ant_rank"](r),
+                "groundTruth": g["ground_truth"](r),
                 "has": has,
                 "confidence": r.get("confidence"),
                 # Which licence the reader is standing under, stated per row
