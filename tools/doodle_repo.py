@@ -140,8 +140,9 @@ def gather(eng, day):
             continue
         n = K.get(st, {"th": st, "en": st})
         i = "s-" + st + ("-" + va if va else "")
-        out[i] = {"c": "scene", "sub": st, "d": day, "th": n["th"] + (" · " + va.replace("-", " ") if va else ""),
-                  "en": n["en"] + (" · " + va.replace("-", " ") if va else ""), "href": "", "p": {"set": st, "variant": va}}
+        own = K.get(st + ":" + va) if va else None   # a variant named in doodle_kinds.json ("dance:club" → Disco)
+        out[i] = {"c": "scene", "sub": st, "d": day, "th": own["th"] if own else n["th"] + (" · " + va.replace("-", " ") if va else ""),
+                  "en": own["en"] if own else n["en"] + (" · " + va.replace("-", " ") if va else ""), "href": "", "p": {"set": st, "variant": va}}
     return out
 
 
