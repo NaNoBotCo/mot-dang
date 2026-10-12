@@ -435,12 +435,14 @@ export function slugCandidates(index, key) {
  * exactly take this path (gridEligible); the rest still walk the index. */
 export const GRID_CHUNK = 256;
 
-/* The /places default order: ant rank, then name in Thai collation, then
- * index position (Array.prototype.sort is stable). Over a subset this is the
- * order queryPlaces gives that subset, so one global rank serves every box. */
+/* The /places default order: ground truth (truth_layer.py; Nan, 2026-10-12: "rank places by ground
+ * truth too"), then ant rank, then name in Thai collation, then index position (Array.prototype.sort
+ * is stable). Over a subset this is the order queryPlaces gives that subset, so one global rank
+ * serves every box. A row without groundTruth counts 0. */
 export function gridOrder(places) {
   const coll = new Intl.Collator("th");
   return [...places.keys()].sort((i, j) =>
+    (places[j].groundTruth || 0) - (places[i].groundTruth || 0) ||
     places[j].antRank - places[i].antRank || coll.compare(String(places[i].name), String(places[j].name)));
 }
 

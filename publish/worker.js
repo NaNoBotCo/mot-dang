@@ -692,7 +692,7 @@ export async function searchHandler(env, ix, sp, now = new Date()) {
     }
     const cmpName = (a, b) => String(a[0].name).localeCompare(String(b[0].name), "th");
     if (p.near) rows.sort((a, b) => a[1] - b[1] || cmpName(a, b));
-    else rows.sort((a, b) => b[0].antRank - a[0].antRank || cmpName(a, b));
+    else rows.sort((a, b) => (b[0].groundTruth || 0) - (a[0].groundTruth || 0) || b[0].antRank - a[0].antRank || cmpName(a, b));
   }
 
   const page = rows.slice(offset, offset + limit);
