@@ -309,6 +309,10 @@ for _p in json.loads((ROOT / "data" / "coverage.json").read_text())["provinces"]
             and json.loads(_f.read_text() or "[]")):
         PROVINCES.append({"key": _p["key"], "th": _p["th"], "en": _p["en"],
                           "mode": "wireframe", "passive": True})
+# Provinces outside the north (data/coverage.json "region"; Pathum Thani, Nan
+# 2026-10-12): no Lanna or elsewhere pictures stand in for their own.
+CENTRAL = {_p["key"] for _p in json.loads((ROOT / "data" / "coverage.json").read_text())["provinces"]
+           if _p.get("region", "north") != "north"}
 
 # One drawn icon per category, keyed to the sprite in ICON_SPRITE. Drawn rather
 # than emoji: emoji change shape on every platform, carry a tone nobody chose,
@@ -886,10 +890,10 @@ def cat_art_band(cat_key, prov_key, depth=2):
     _m = int(BUILD_DATE[5:7])
     _season = "hot" if _m in (3, 4, 5) else "rains" if 6 <= _m <= 10 else "cool"
     more(place=prov_key, season=_season, not_topic=("people",), local=True)
-    for pl in (prov_key, "lanna"):
+    for pl in (prov_key,) if prov_key in CENTRAL else (prov_key, "lanna"):
         if len(picks) < 3:
             more(place=pl, not_topic=("people",), local=True)
-    if len(picks) < 3:
+    if len(picks) < 3 and prov_key not in CENTRAL:
         more(place="elsewhere")
     picks = picks[:3]
     if not picks:
