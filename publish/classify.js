@@ -95,6 +95,10 @@ const SIGNATURES = [
   ['social', 'redditbot', /redditbot/i],
   ['social', 'Skype', /SkypeUriPreview/i],
   ['social', 'VK', /vkShare/i],
+  // Bluesky's card fetcher wears a Chrome string from AWS; Mastodon servers
+  // fetch as http.rb from wherever the instance is hosted.
+  ['social', 'Bluesky', /Bluesky Cardyb/i],
+  ['social', 'Mastodon', /\(Mastodon\/[\d.]/],
 
   // ---- SEO / market-intelligence crawlers: mostly pure cost ---------------
   ['seo', 'AhrefsBot', /AhrefsBot/i],
