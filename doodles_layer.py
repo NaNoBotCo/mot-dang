@@ -149,9 +149,14 @@ def copy(docs):
 # ---------------------------------------------------------------- portraits of one place
 # A place page with no photograph of its own draws that place from its own facts with the
 # auto-doodler (Nan, 2026-10-02: "utilize the doodler to avoid filler"). The scene shows what
-# the place does, under its own name, in its own setting. Wats, historic sights and museums
-# keep their map: a drawing would be a temple that is not this temple.
-PORTRAIT_SKIP = {"wat", "sights", "museums-galleries"}
+# the place does, under its own name, in its own setting. Historic sights and museums keep their map. A wat is drawn as
+# a Lanna viharn and a spirit house as one of the Spirit House Manual's models (Nan, 2026-10-12,
+# C187 (a): her best minisite drawings onto their subject's pages, "but make the map available.
+# keep the pics a bit compact"); the map stays at the top of the page, the drawing below.
+PORTRAIT_SKIP = {"sights", "museums-galleries"}
+WAT_NAME = re.compile(r"^\s*(?:วัด|wat\b)", re.I)
+SPIRIT_HOUSE = re.compile(r"ศาลพระภูมิ|ศาลเจ้าที่|spirit house", re.I)
+COMPACT = {"wat", "spirithouse"}   # drawn in a lower frame, 5:2
 PORTRAIT = [  # (cat, sub or None, scene) — first match wins
     ("food", "cafe", "cafe"), ("food", "bar-pub", "bar"), ("food", "bakery-dessert", "bakery"),
     ("food", "street-food", "streetfood"), ("food", "noodle", "noodle"), ("food", None, "restaurant"),
@@ -194,6 +199,11 @@ def place_scene(r):
     if not cats or cats[0] in PORTRAIT_SKIP:
         return ""
     a = r.get("attrs") or {}
+    if cats[0] == "wat":   # shrines, hermitages, churches and the unnamed keep the map
+        names = [r.get("nameTh") or "", r.get("name") or "", r.get("nameEn") or ""]
+        if "spirit-house" in (r.get("sub") or []) or any(SPIRIT_HOUSE.search(n) for n in names):
+            return "spirithouse"
+        return "wat" if any(WAT_NAME.search(n) for n in names) else ""
     if cats[0] in ("medical", "beauty", "massage") and BEAUTY_CLINIC.search(
             " ".join(str(x) for x in (r.get("name"), r.get("nameEn"), a.get("specialty"), a.get("facilityType")) if x)):
         return "beautyclinic"
@@ -253,7 +263,10 @@ def portrait_label(nm_th, nm_en, scene, props=()):
     """(th, en) for a place portrait: the place's name, what the scene draws, and the props its tags add."""
     a = alt(scene)
     w = PORTRAIT_WORDS.get(scene)
-    if a[0]:   # the scene's words name the trade, so the name stands alone
+    if scene in COMPACT:   # the kind is drawn, not this building
+        k = {"wat": ("วิหารล้านนา", "a Lanna viharn"), "spirithouse": ("ศาลพระภูมิ", "a spirit house")}[scene]
+        th, en = "ภาพวาด%s · %s" % (k[0], nm_th), "Drawing of %s · %s" % (k[1], nm_en)
+    elif a[0]:   # the scene's words name the trade, so the name stands alone
         th, en = "ภาพวาด %s: %s" % (nm_th, a[0]), "Drawing of %s: %s" % (nm_en, a[1])
     elif w:
         th, en = "ภาพวาด%s %s" % (w[0], nm_th), "Drawing of %s, %s" % (nm_en, w[1])
@@ -276,7 +289,7 @@ def portrait(r, scene, rel, att, bi=None, tags=None):
     cap = bi("ภาพวาด", "Drawing") if bi else "ภาพวาด · Drawing"
     return (f'<figure class="portrait" style="margin:0"><canvas class="mdportrait" data-set="{att(scene)}" data-p="{att(facts)}" '
             f'role="img" aria-label="{att(label[0] + " / " + label[1])}" '
-            'style="width:100%;aspect-ratio:2/1;display:block;border-radius:12px;background:#121330"></canvas>'
+            f'style="width:100%;aspect-ratio:{"5/2" if scene in COMPACT else "2/1"};display:block;border-radius:12px;background:#121330"></canvas>'
             f'<figcaption class="tinynote">{cap}</figcaption></figure>'
             + "".join(f'<script src="{rel}front/{js}" defer></script>' for js in ("skyline.js", "doodler.js", "portrait.js")))
 
