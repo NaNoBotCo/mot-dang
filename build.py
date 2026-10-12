@@ -8514,6 +8514,24 @@ function mdGlyphs(h){h=h==null?'':String(h);
 const ic=globalThis.mdIcon;
 return h.replace(/(^|>)([^<]+)/g,(m,a,t)=>a+t.replace(MD_EMOJI_RE,c=>
 (MD_EMOJI[c]&&typeof ic==='function')?ic(MD_EMOJI[c]):''));}
+// The same swap for text a layer writes after load (innerHTML, textContent, appended nodes), so a
+// layer that never calls mdGlyphs still shows the drawn glyph (2026-10-12: "🗺 your plan" on the
+// shelves). An emoji MD_EMOJI does not know stays as it is; inputs and editable text are left alone.
+(function(){
+if(typeof MutationObserver!=='function'||typeof document==='undefined')return;
+const T=/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B05}-\u{2B55}]/u,SKIP=/^(SCRIPT|STYLE|TEXTAREA|INPUT|SELECT|OPTION|TITLE|NOSCRIPT)$/;
+const esc=t=>t.replace(/[&<>]/g,c=>c==='&'?'&amp;':c==='<'?'&lt;':'&gt;');
+const fix=n=>{const t=n.nodeValue,p=n.parentNode,ic=globalThis.mdIcon;
+if(!t||!T.test(t)||!p||SKIP.test(p.nodeName)||p.isContentEditable||typeof ic!=='function')return;
+let hit=false;const h=esc(t).replace(MD_EMOJI_RE,c=>{if(MD_EMOJI[c]){hit=true;return ic(MD_EMOJI[c]);}return c==='\uFE0F'?'':c;});
+if(!hit)return;const s=document.createElement('span');s.innerHTML=h;const f=document.createDocumentFragment();
+while(s.firstChild)f.appendChild(s.firstChild);p.replaceChild(f,n);};
+const walk=r=>{if(r.nodeType===3)return fix(r);if(r.nodeType!==1||SKIP.test(r.nodeName))return;
+const w=document.createTreeWalker(r,4),a=[];while(w.nextNode())a.push(w.currentNode);a.forEach(fix);};
+const go=()=>{walk(document.body);new MutationObserver(ms=>ms.forEach(m=>{if(m.type==='characterData')fix(m.target);
+else m.addedNodes.forEach(walk);})).observe(document.body,{childList:true,subtree:true,characterData:true});};
+document.body?go():document.addEventListener('DOMContentLoaded',go);
+})();
 """
 
 # The thesaurus is NO LONGER inlined. Mining took it from 76 groups to 2,290 —

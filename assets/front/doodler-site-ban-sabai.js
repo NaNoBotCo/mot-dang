@@ -123,6 +123,6 @@ function draw(S) {
   }
 }
 
-D.addScene('ban-sabai', draw, /care|nursing|elderly|senior|retire|บ้านพัก|ผู้สูงอายุ/i, 'n = 21', 1);
+D.addScene('ban-sabai', draw, /\b(?:care ?homes?|aged care|assisted living|nursing|elderly|seniors?|retire\w*)\b|บ้านพัก|ผู้สูงอายุ/i, 'n = 21', 1);
 
 })();
