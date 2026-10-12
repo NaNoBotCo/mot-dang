@@ -355,7 +355,7 @@ JS = r"""
 (function(){
 function nnPlan(){var el=document.querySelector('.nnplan');if(!el)return;
 var n=0;try{var v=JSON.parse(localStorage.getItem('md-plan'));n=Array.isArray(v)?v.length:0;}catch(e){}
-el.hidden=!n;el.innerHTML=n?'<span class="nnsep"> · </span>🗺 '+mdBi('แผนของคุณ '+n+' จุด','your plan, '+n+(n>1?' stops':' stop')):'';}
+el.hidden=!n;el.innerHTML=n?'<span class="nnsep"> · </span>'+(window.mdIcon?mdIcon('i-map',16)+' ':'')+mdBi('แผนของคุณ '+n+' จุด','your plan, '+n+(n>1?' stops':' stop')):'';}
 nnPlan();
 document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('.planbtn'))setTimeout(nnPlan,0);});
 window.addEventListener('storage',function(e){if(!e.key||e.key==='md-plan')nnPlan();});

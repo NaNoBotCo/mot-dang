@@ -1216,10 +1216,17 @@ function doodleEvent() {
     if (nearC.length) cand = nearC;
     /* a new drawing each day (Nan, 2026-10-02): the auto-doodler turns the scenes by date */
     var yd = ymd(now - 864e5), prev = E.events.filter(function (e) { var s = span(e); return ymd(s[0]) === yd && s[1] - s[0] < 30 * 3600e3; });
+    var r2 = ((D.doodle || {}).days || []).filter(function (d) { return d.date === today; })[0], sets = (r2 && r2.sets) || {};
+    cand.forEach(function (e) { if (sets[e.k] && !e.ds) e.ds = sets[e.k]; });
     if (window.MDDOODLER) { var ch = window.MDDOODLER.choose(cand, today, prev, (D.doodle || {}).aired || {}); pick = ch && ch.e; set = ch && ch.set;
       /* every scene for today has aired at its version: the day's own row, if it is still ahead */
       if (!pick) { var r0 = ((D.doodle || {}).days || []).filter(function (d) { return d.date === today; })[0], e0 = r0 && byK[r0.k];
-        if (e0 && span(e0)[1] > now) { pick = e0; row = r0; set = r0.set; } } }
+        if (e0 && span(e0)[1] > now) { pick = e0; row = r0; set = r0.set; } }
+      /* the bake chose this event's drawing with every scene file loaded; here only some are, so its choice
+         stands (2026-10-12: the Clock Tower show drew as a classroom off "read" in its description) */
+      var r1 = ((D.doodle || {}).days || []).filter(function (d) { return d.date === today; })[0],
+        o1 = pick && r1 && (r1.opts || [r1]).filter(function (o) { return o.k === pick.k; })[0];
+      if (o1) { row = Object.assign({}, r1, o1); set = o1.set; } }
     else { cand.sort(function (a, b) { return (DOODLES.has(b.dd) ? 1 : 0) - (DOODLES.has(a.dd) ? 1 : 0) || (b.have.length + (b.la != null ? 1 : 0)) - (a.have.length + (a.la != null ? 1 : 0)) || at(a.s) - at(b.s); }); pick = cand[0]; }
     if (!row || !pick || row.k !== pick.k) row = null;
     kind = pick ? pick.dd : '';
