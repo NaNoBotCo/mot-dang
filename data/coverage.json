@@ -21,6 +21,6 @@
   {"key": "plk", "iso": "TH-65", "post": "65", "th": "พิษณุโลก",     "en": "Phitsanulok"},
   {"key": "pct", "iso": "TH-66", "post": "66", "th": "พิจิตร",        "en": "Phichit"},
   {"key": "pnb", "iso": "TH-67", "post": "67", "th": "เพชรบูรณ์",     "en": "Phetchabun"},
-  {"key": "pth", "iso": "TH-13", "post": "12", "th": "ปทุมธานี",     "en": "Pathum Thani", "region": "central", "release": false}
+  {"key": "pth", "iso": "TH-13", "post": "12", "th": "ปทุมธานี",     "en": "Pathum Thani", "region": "central", "release": true}
  ]
 }

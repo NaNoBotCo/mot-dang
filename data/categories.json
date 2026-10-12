@@ -1801,6 +1801,12 @@
    "th": "เชียงราย",
    "en": "Chiang Rai",
    "mode": "wireframe"
+  },
+  {
+   "key": "pth",
+   "th": "ปทุมธานี",
+   "en": "Pathum Thani",
+   "mode": "wireframe"
   }
  ]
 }
