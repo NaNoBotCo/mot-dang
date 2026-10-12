@@ -47,6 +47,7 @@ h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.05;margin:.1em 0 .2em;font-wei
 .zoom button{width:40px;height:40px;border-radius:50%;border:2px solid var(--ink);background:var(--panel);font:700 20px Mali,sans-serif;color:var(--ink);cursor:pointer}
 .card{position:absolute;left:30px;bottom:14px;max-width:min(360px,calc(100% - 60px));background:var(--panel);border:2px solid var(--ink);border-radius:16px;padding:10px 14px 10px 10px;display:none;gap:10px;align-items:center;box-shadow:4px 4px 0 var(--ink)}
 .card.on{display:flex}
+.card.right{left:auto;right:30px}
 .card img{width:72px;height:72px;flex:none}
 .card b{display:block;font-size:1.1rem;line-height:1.2}
 .card small{color:var(--mute);display:block}
@@ -243,10 +244,12 @@ var cv = $('#world'), c = cv.getContext('2d'), W = 0, H = 0, DPR = 1;
 var WORLD = null, dirty = true, pick = null, hits = [], bounce = { id: null, t: 0 };
 var view = { x: 0, y: 0, k: 1 };          // map units: x = lng + 180 (0..360), y = 90 - lat (0..180); k = px per degree
 var INK = '#2b2118', SEA = '#cfe6ef', TINTS = ['#f3e3b5', '#e6efc4', '#f6d9c2', '#dfe9d0', '#f1e0cf', '#e9e4c4', '#f7e6c8', '#dcebd6'];
+var touched = false;                     // the reader has moved the map; until then it re-centres on every resize
 function size() {
   var r = cv.getBoundingClientRect(); DPR = Math.min(2, window.devicePixelRatio || 1);
-  var first = !W; W = r.width; H = r.height; cv.width = W * DPR; cv.height = H * DPR;
-  if (first) home();
+  if (!r.width || !r.height) return;      // a tab opened hidden has no size yet
+  W = r.width; H = r.height; cv.width = W * DPR; cv.height = H * DPR;
+  if (touched) clamp(); else home();
   dirty = true;
 }
 function home() { view.k = Math.max(W / 360, H / 150); view.x = 180 + 10 - W / 2 / view.k; view.y = 90 - 18 - H / 2 / view.k; clamp(); }
@@ -332,22 +335,25 @@ function drawMap() {
   c.fillStyle = '#d8443a'; c.strokeStyle = INK; c.lineWidth = 1.5; c.beginPath(); c.arc(cm[0], cm[1], 4.5, 0, 6.3); c.fill(); c.stroke();
   if (ROWS.length) landmarks();
 }
-function frame() { if (dirty) { dirty = false; drawMap(); } requestAnimationFrame(frame); }
+function frame() { if (dirty && W) { dirty = false; drawMap(); } requestAnimationFrame(frame); }
 MDDOODLES.onload = function () { dirty = true; };
 
+var fromFly = false;
 function card(r) {
   pick = r; $('#cimg').src = MDDOODLES.url(r.id); $('#cimg').alt = r.en;
   $('#cname').textContent = lang === 'th' ? r.th : r.en;
   $('#cwhere').textContent = [lang === 'th' ? r.en : r.th, r.city, r.cc ? region(r.cc) : ''].filter(Boolean).join(' · ');
   var w = $('#cwiki'); if (r.wiki) { w.href = 'https://en.wikipedia.org/wiki/' + encodeURIComponent(r.wiki.replace(/ /g, '_')); w.parentNode.style.display = ''; } else w.parentNode.style.display = 'none';
+  var p = px(r.lng, r.lat); $('#card').classList.toggle('right', p[0] < W / 2 && !fromFly);
   $('#card').classList.add('on');
 }
 $('#cx').addEventListener('click', function () { $('#card').classList.remove('on'); pick = null; dirty = true; });
 $('#card').addEventListener('click', function (e) { if (e.target.id === 'cimg') boing(e.target); });
 function fly(r) {
+  touched = true;
   var k0 = view.k, x0 = view.x, y0 = view.y, k1 = Math.max(k0, 14);
   var x1 = r.lng + 180 - W / 2 / k1, y1 = 90 - r.lat - H / 2 / k1, t0 = performance.now();
-  card(r); bounce = { id: r.id, t: t0 + (REDUCED ? 0 : 700) };
+  fromFly = true; card(r); fromFly = false; bounce = { id: r.id, t: t0 + (REDUCED ? 0 : 700) };
   (function step() {
     var t = REDUCED ? 1 : Math.min(1, (performance.now() - t0) / 700), e = t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
     view.k = k0 + (k1 - k0) * e; view.x = x0 + (x1 - x0) * e; view.y = y0 + (y1 - y0) * e; clamp(); dirty = true;
@@ -355,6 +361,7 @@ function fly(r) {
   })();
 }
 function zoomAt(f, sx, sy) {
+  touched = true;
   var mx = view.x + sx / view.k, my = view.y + sy / view.k;
   view.k *= f; clamp(); view.x = mx - sx / view.k; view.y = my - sy / view.k; clamp(); dirty = true;
 }
@@ -373,7 +380,7 @@ cv.addEventListener('pointermove', function (e) {
     pinch = 1;
   } else {
     var dx = e.clientX - ptrs[e.pointerId][0], dy = e.clientY - ptrs[e.pointerId][1];
-    view.x -= dx / view.k; view.y -= dy / view.k; clamp(); dirty = true;
+    view.x -= dx / view.k; view.y -= dy / view.k; clamp(); dirty = true; touched = true;
   }
   moved += Math.abs(e.clientX - ptrs[e.pointerId][0]) + Math.abs(e.clientY - ptrs[e.pointerId][1]);
   ptrs[e.pointerId] = [e.clientX, e.clientY];
@@ -392,6 +399,7 @@ function up(e) {
 cv.addEventListener('pointerup', up); cv.addEventListener('pointercancel', up);
 cv.addEventListener('dblclick', function (e) { var r = cv.getBoundingClientRect(); zoomAt(2, e.clientX - r.left, e.clientY - r.top); });
 window.addEventListener('resize', size);
+if (window.ResizeObserver) new ResizeObserver(size).observe(cv);
 
 /* ---------- start ---------- */
 setLang(lang);
