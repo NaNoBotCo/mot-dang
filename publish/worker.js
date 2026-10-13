@@ -46,7 +46,7 @@
 
 import { SCHEMA_VERSION, queryPlaces, findPlace, slugCandidates, minuteOfWeek,
          present, liftProvince, norm, parseQuery, rowMatches,
-         gridEligible, queryPlacesGrid,
+         gridEligible, queryPlacesGrid, cmpPlaceName, cmpPlaceDefault,
          LIMIT_DEFAULT, LIMIT_MAX } from "./api.js";
 import SEARCHCORE from "./searchcore.js";
 import { fleetSearch } from "./fleetsearch.js";
@@ -691,9 +691,8 @@ export async function searchHandler(env, ix, sp, now = new Date()) {
       if (d === false) continue;
       rows.push([row, d, null, null]);
     }
-    const cmpName = (a, b) => String(a[0].name).localeCompare(String(b[0].name), "th");
-    if (p.near) rows.sort((a, b) => a[1] - b[1] || cmpName(a, b));
-    else rows.sort((a, b) => (b[0].groundTruth || 0) - (a[0].groundTruth || 0) || b[0].antRank - a[0].antRank || cmpName(a, b));
+    if (p.near) rows.sort((a, b) => a[1] - b[1] || cmpPlaceName(a[0], b[0]));
+    else rows.sort((a, b) => cmpPlaceDefault(a[0], b[0]));
   }
 
   const page = rows.slice(offset, offset + limit);

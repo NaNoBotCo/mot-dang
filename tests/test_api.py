@@ -149,7 +149,8 @@ class AShutPlaceLightsNoLamp(unittest.TestCase):
              "BASE": "https://motdang.net/", "BUILD_DATE": "2026-09-11",
              "ant_bits": lambda r: {}, "facet_bits": lambda r: {},
              "name_pair": lambda r: (r["name"], ""), "place_slug": lambda r: r["id"],
-             "name_of": lambda r: r["name"], "ant_rank": lambda r: 0}
+             "name_of": lambda r: r["name"], "ant_rank": lambda r: 0,
+             "ground_truth": lambda r: 0}
         data = {"cm": [rec("a"), rec("b", "closed"), rec("c", "moved")]}
         real = api_layer._schedule_table
         api_layer._schedule_table = lambda g: ([[0, 1]], {"a": 0, "b": 0, "c": 0}, "")

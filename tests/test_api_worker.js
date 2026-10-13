@@ -296,6 +296,33 @@ t("haversine agrees with a known city distance", () => {
     const got = JSON.stringify(await viaGrid(s));
     t("grid = index walk: " + s, () => eq(got, want, `${got.length} vs ${want.length} bytes`));
   }
+  /* 2026-10-13: the grid put ground truth first and the index walk did not, so
+   * a Chiang Mai box gave different rows on each path. The built index above
+   * only catches that when it carries groundTruth, so this one is made to:
+   * ground truth against ant rank, ties on both, Thai names that sort
+   * differently from their code points, and a row with no groundTruth. */
+  {
+    const names = ["ไก่ย่าง", "กาแฟ", "เกาะ", "ข้าวซอย", "ก้อน", "Zebra", "กา", "ฃ", "ไข่", "ก"];
+    const places = names.map((name, k) => ({
+      id: "cm-t-" + k, province: "cm", slug: "t-" + k, name, cat: [], sub: [],
+      lat: 18.79 + k * 1e-4, lng: 98.99 + k * 1e-4, antRank: [7, 3, 3, 6, 3, 9, 3, 6, 3, 5][k],
+      ...(k === 9 ? {} : { groundTruth: [1, 22, 22, 21, 0, 1, 22, 21, 22, 0][k] }),
+    }));
+    const tix = { ...ix, places };
+    const { meta: tm, chunks: tc } = buildGrid(tix);
+    for (const s of ["bbox=98.98,18.78,99.01,18.80", "bbox=98.98,18.78,99.01,18.80&limit=3&offset=2"]) {
+      const want = queryPlaces(tix, new URLSearchParams(s));
+      const got = await queryPlacesGrid(tm, async (c) => tc[c], new URLSearchParams(s));
+      const ids = (r) => r.results.map((x) => x.id).join(" ");
+      t("grid = index walk with ground truth and Thai ties: " + s, () => {
+        eq(ids(got), ids(want), "rows:");
+        eq(JSON.stringify(got), JSON.stringify(want), "envelope:");
+      });
+    }
+    t("the default order is ground truth, then ant rank, then Thai name", () => eq(
+      queryPlaces(tix, new URLSearchParams("bbox=98.98,18.78,99.01,18.80")).results.map((r) => r.name).join(" "),
+      "กา กาแฟ เกาะ ไข่ ข้าวซอย ฃ Zebra ไก่ย่าง ก ก้อน"));
+  }
   reads = 0;
   await viaGrid("bbox=98.9800,18.7850,98.9950,18.7950&limit=23");
   t(`one ninth of a view reads ${reads} of ${chunks.length} chunks`, () => ok(reads <= 23 && reads < chunks.length / 10));

@@ -309,6 +309,20 @@ export function rowMatches(row, p, schedules, minute, opts = {}) {
   return d;
 }
 
+/* Names compare in Thai collation, through one Collator shared by every path
+ * that orders places, so the index walk, the grid and /search cannot disagree
+ * on a tie. */
+const THAI = new Intl.Collator("th");
+export const cmpPlaceName = (a, b) => THAI.compare(String(a.name), String(b.name));
+
+/* The /places default order (sort=ants): ground truth (truth_layer.py; Nan,
+ * 2026-10-12: "rank places by ground truth too"), then ant rank, then name. A
+ * row without groundTruth counts 0. queryPlaces, gridOrder and the worker's
+ * /search walk all sort with this; on 2026-10-13 the index walk alone lacked
+ * ground truth and answered a box with different rows from the grid. */
+export const cmpPlaceDefault = (a, b) =>
+  (b.groundTruth || 0) - (a.groundTruth || 0) || b.antRank - a.antRank || cmpPlaceName(a, b);
+
 /* The whole filter/sort/page path. `index` is the parsed docs/api/v1/index.json. */
 export function queryPlaces(index, sp, now = new Date()) {
   const p = parseQuery(sp);
@@ -325,7 +339,7 @@ export function queryPlaces(index, sp, now = new Date()) {
     hits.push([row, d]);
   }
 
-  const cmpName = (a, b) => String(a[0].name).localeCompare(String(b[0].name), "th");
+  const cmpName = (a, b) => cmpPlaceName(a[0], b[0]);
   if (p.sort === "distance" && p.near) hits.sort((a, b) => a[1] - b[1] || cmpName(a, b));
   else if (p.sort === "name") hits.sort(cmpName);
   else if (p.sort === "relevance" && p.tokens.length) {
@@ -344,7 +358,7 @@ export function queryPlaces(index, sp, now = new Date()) {
       return s;
     };
     hits.sort((a, b) => score(b[0]) - score(a[0]) || b[0].antRank - a[0].antRank || cmpName(a, b));
-  } else hits.sort((a, b) => b[0].antRank - a[0].antRank || cmpName(a, b));
+  } else hits.sort((a, b) => cmpPlaceDefault(a[0], b[0]));
 
   const page = hits.slice(p.offset, p.offset + p.limit);
   return {
@@ -436,15 +450,11 @@ export function slugCandidates(index, key) {
 export const GRID_CHUNK = 400;   // a cell holding more rows than this splits in four
 const GRID_BITS = 20;            // cell sides: 360 / 2^20 degrees, about 38 m
 
-/* The /places default order: ground truth (truth_layer.py; Nan, 2026-10-12: "rank places by ground
- * truth too"), then ant rank, then name in Thai collation, then index position (Array.prototype.sort
- * is stable). Over a subset this is the order queryPlaces gives that subset, so one global rank
- * serves every box. A row without groundTruth counts 0. */
+/* The /places default order (cmpPlaceDefault), then index position
+ * (Array.prototype.sort is stable). Over a subset this is the order queryPlaces
+ * gives that subset, so one global rank serves every box. */
 export function gridOrder(places) {
-  const coll = new Intl.Collator("th");
-  return [...places.keys()].sort((i, j) =>
-    (places[j].groundTruth || 0) - (places[i].groundTruth || 0) ||
-    places[j].antRank - places[i].antRank || coll.compare(String(places[i].name), String(places[j].name)));
+  return [...places.keys()].sort((i, j) => cmpPlaceDefault(places[i], places[j]));
 }
 
 function zkey(x, y) {
