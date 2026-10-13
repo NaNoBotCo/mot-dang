@@ -19383,6 +19383,11 @@ def build():
     _ghost = ROOT / "assets" / "ghost"
     if _ghost.is_dir():
         shutil.copytree(_ghost, DOCS / "ghost", dirs_exist_ok=True)
+    # /parking (Nan 2026-10-13): where to park, full now, and where you left your
+    # bike. tools/parking_bake.py writes its places into assets/parking/t/.
+    _parking = ROOT / "assets" / "parking"
+    if _parking.is_dir():
+        shutil.copytree(_parking, DOCS / "parking", dirs_exist_ok=True)
     # ภาคสนาม · Field at /field. Built elsewhere (field) with
     # SITE_URL=https://motdang.net/field and installed into assets/field/, copied here
     # for the same reason /loop and /ghost are. Its place links point at this site's

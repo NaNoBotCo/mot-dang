@@ -275,6 +275,40 @@ async function putToiletReport(env, placeId, report, source) {
   return { ok: true, ...rec }
 }
 
+// ---- parking reports ---------------------------------------------------------
+// Nan 2026-10-13, /parking/: is it full right now, how full usually, are bikes
+// fined. One word per tap, at one place, no name.
+//   pk:<placeId>:<at>:<rand>   kept 180 days: the place's own history ("usually")
+//   pkn:<at>:<placeId>:<rand>  kept 6 hours: what is being said right now
+const PARKING_ANSWERS = ['full', 'space', 'fined', 'free', 'paid', 'covered', 'open24',
+  'bigbike', 'nobigbike', 'gone']
+const PARKING_PER_HOUR = 30
+
+async function putParkingReport(env, placeId, answer, vehicle) {
+  if (!PARKING_ANSWERS.includes(answer)) return { error: 'unknown answer', status: 400 }
+  if (!PLACE_ID_RE.test(placeId)) return { error: 'bad place id', status: 400 }
+  const at = new Date().toISOString()
+  const rand = crypto.randomUUID().slice(0, 8)
+  const rec = { placeId, answer, vehicle: ['m', 'c'].includes(vehicle) ? vehicle : '', at }
+  const v = JSON.stringify(rec)
+  await env.KV.put(`pk:${placeId}:${at}:${rand}`, v, { expirationTtl: 180 * 86400 })
+  await env.KV.put(`pkn:${at}:${placeId}:${rand}`, v, { expirationTtl: 6 * 3600 })
+  return { ok: true, ...rec }
+}
+
+async function listParking(env, prefix, keep) {
+  const out = []
+  let cursor
+  do {
+    const page = await env.KV.list({ prefix, cursor, limit: 1000 })
+    const names = page.keys.map(k => k.name).filter(keep)
+    const vals = await Promise.all(names.map(n => env.KV.get(n)))
+    for (const v of vals) if (v) try { out.push(JSON.parse(v)) } catch {}
+    cursor = page.list_complete ? null : page.cursor
+  } while (cursor && out.length < 5000)
+  return out
+}
+
 // ---- doodle votes ------------------------------------------------------------
 // A thumb up or down on one version of one doodle (/doodles/), on accuracy and
 // on aesthetics, with a note. Nan, 2026-10-05: "humans and bots …
@@ -1394,6 +1428,39 @@ export default {
       if (result.error) return json({ error: result.error }, result.status)
       await env.KV.put(bucket, String(count + 1), { expirationTtl: 3600 })
       return json(result)
+    }
+
+    // POST /parking {placeId, answer, vehicle?} — one tap on /parking/.
+    // GET /parking?hours=N (≤6) — every report in the last N hours, all places.
+    // GET /parking?id=<placeId> — that place's reports, up to 180 days.
+    if (url.pathname === '/parking' && request.method === 'POST') {
+      const ip = request.headers.get('cf-connecting-ip') || 'unknown'
+      const bucket = `rlpk:${ip}:${Math.floor(Date.now() / 3600_000)}`
+      const count = Number((await env.KV.get(bucket)) || 0)
+      if (count >= PARKING_PER_HOUR) return json({ error: 'rate limit — try again later' }, 429)
+      const text = await request.text()
+      if (text.length > 400) return json({ error: 'body too large' }, 400)
+      let body
+      try { body = JSON.parse(text) } catch { return json({ error: 'invalid json' }, 400) }
+      const result = await putParkingReport(env, cap(body?.placeId, 80), cap(body?.answer, 12),
+        cap(body?.vehicle, 2))
+      if (result.error) return json({ error: result.error }, result.status)
+      await env.KV.put(bucket, String(count + 1), { expirationTtl: 3600 })
+      return json(result)
+    }
+    if (url.pathname === '/parking' && request.method === 'GET') {
+      const id = url.searchParams.get('id')
+      let reports
+      if (id) {
+        if (!PLACE_ID_RE.test(id)) return json({ error: 'bad place id' }, 400)
+        reports = await listParking(env, `pk:${id}:`, () => true)
+      } else {
+        const hours = Math.min(Math.max(Number(url.searchParams.get('hours')) || 2, 1), 6)
+        const since = new Date(Date.now() - hours * 3600_000).toISOString()
+        reports = await listParking(env, 'pkn:', n => n.slice(4, 28) >= since)
+      }
+      return new Response(JSON.stringify({ ok: true, count: reports.length, reports }),
+        { headers: { 'content-type': 'application/json', 'cache-control': 'public, max-age=30', ...CORS } })
     }
 
     // POST /rain · POST /flood — Nan 2026-09-28: "an 'is it raining now'
