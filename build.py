@@ -273,6 +273,7 @@ BASE = "https://motdang.net/"
 BOARD = BASE + "home-help/"
 BOARD_SHELVES = {("home-services", "housekeeper"): "housekeeper"}
 KOFI = "https://ko-fi.com/defiantchiangmai"
+FACEBOOK_URL = "https://www.facebook.com/people/Motdangnet/61595048904000/"
 
 
 def qr_data_uri(url):
@@ -8987,6 +8988,28 @@ ENRICH = {k: v for k, v in
 
 from fburl import fb_url_of  # one normaliser for build and the discovery importer
 
+# Google place IDs (Nan, 2026-10-10: "Google Place IDs should be stored in records").
+# data/curated/google_ids.json, written by importers/google_ids.py from the Google
+# Maps links records and readers already carry (gplace.py reads the ID out of the
+# link). Laid over the record as googlePlaceId / googleCid.
+_gid_path = ROOT / "data" / "curated" / "google_ids.json"
+GOOGLE_IDS = {k: v for k, v in
+              (json.loads(_gid_path.read_text()) if _gid_path.exists() else {}).items()
+              if not k.startswith("_") and isinstance(v, dict) and v.get("placeId")}
+
+
+def google_id(r):
+    e = GOOGLE_IDS.get(r["id"])
+    if not e:
+        return r
+    r["googlePlaceId"] = e["placeId"]
+    if e.get("cid"):
+        r["googleCid"] = e["cid"]
+    prov = dict(r.get("provenance") or {})
+    prov["googlePlaceId"] = {"source": "google-maps-link", "how": e.get("via") or "", "at": e.get("fetched") or ""}
+    r["provenance"] = prov
+    return r
+
 
 def enrich(r):
     """Fold data/curated/enrich.json into one record, in place.
@@ -9042,7 +9065,7 @@ PLACE_BY_ID = {}
 
 
 def load():
-    loaded = {p["key"]: [enrich(r) for r in
+    loaded = {p["key"]: [google_id(enrich(r)) for r in
                          json.loads((ROOT / "data" / "canonical" / f"{p['key']}.json").read_text())]
               for p in PROVINCES}
     # Reader-supplied facts approved by hand (facts.py, importers/apply_facts.py)
@@ -12875,6 +12898,12 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
                  f'{bi("เจ้าของร้าน แก้ผ่าน LINE", "Owner? Edit by LINE")}</a>' if linedoor.ON else "")
         rows.append(f'<dt>{bi("รหัสที่", "Place ID")}</dt><dd><code class="mdcode">'
                     f'MD-{PLACE_CODES[r["id"]]}</code>{owner}</dd>')
+    if r.get("googlePlaceId"):
+        import gplace
+        _gn = name_pair(r)
+        rows.append(f'<dt>{bi("รหัสที่ Google", "Google Place ID")}</dt><dd><code class="gplaceid">{esc(r["googlePlaceId"])}</code>'
+                    f' · <a class="gplace" href="{esc(gplace.maps_url(r["googlePlaceId"], _gn[1] or _gn[0]))}" rel="noopener">'
+                    f'{bi("เปิดใน Google Maps", "Open on Google Maps")}</a></dd>')
     else:
         rows.append(f'<dt>{bi("แผนที่", "Map")}</dt><dd><span class="badge pin">'
                     # WO-52: was "pin wanted — tell us where!", an ask inside
@@ -15583,6 +15612,8 @@ if LINE_ADD_URL:
     OUR_CHANNELS.append({"kind": "line", "th": "ไลน์ทางการ", "en": "LINE Official Account",
                          "value": LINE_OA_ID or "LINE", "href": LINE_ADD_URL, "owned": False})
 OUR_CHANNELS += [
+    {"kind": "facebook", "th": "เพจเฟซบุ๊ก", "en": "Facebook page", "value": "Motdang.net",
+     "href": FACEBOOK_URL, "owned": False},
     {"kind": "code", "th": "โค้ดและข้อมูลดิบ", "en": "code and raw data",
      "value": "motdang.net/source/",
      "href": BASE + "source/", "owned": True},
@@ -15590,12 +15621,10 @@ OUR_CHANNELS += [
      "value": "ko-fi.com/defiantchiangmai", "href": KOFI, "owned": False},
 ]
 
-# Platforms Mot Dang deliberately has no presence on. Stated, because a
-# well-known local name with no official page is exactly the gap somebody
-# fills with a fake one — and because a reader who cannot find us there
-# should know that is on purpose rather than assume the page they found is us.
+# Platforms where Mot Dang holds none of the accounts, as of 2026-10-10. Stated, because a
+# well-known local name with no official page is exactly the gap somebody fills with a fake one.
+# Facebook left this list on Nan's word 2026-10-10: the Motdang.net page is ours.
 NOT_OUR_CHANNELS = [
-    ("เฟซบุ๊ก", "Facebook"),
     ("อินสตาแกรม", "Instagram"),
     ("ติ๊กต็อก", "TikTok"),
     ("เอ็กซ์ (ทวิตเตอร์)", "X (Twitter)"),
@@ -20981,6 +21010,7 @@ def build():
         f'<option value="website">{bi("เว็บหรือเพจ", "website or page")}</option>'
         f'<option value="pin">{bi("พิกัด (lat, lng)", "map pin (lat, lng)")}</option>'
         f'<option value="tags">{bi("ทำอะไร (คั่นด้วยจุลภาค)", "what they do (comma-separated)")}</option>'
+        f'<option value="google">{bi("ลิงก์ Google Maps ของที่นี่", "its Google Maps link")}</option>'
         f'</select></label>'
         f'<label>{bi("ค่า", "The value")}<br><input name="factvalue" maxlength="300" '
         f'placeholder="{bi_text("เช่น 081-234-5678 หรือ จ-ส 09:00-18:00", "e.g. 081-234-5678 or Mon–Sat 09:00–18:00")}"></label></div>'
@@ -23498,7 +23528,10 @@ def build():
     # so every group carries the Disallow lines. Nan 2026-09-26; /search.html
     # added 2026-09-29, after the crawlers moved there (81,933 on 27 Sep).
     FORMS = "Disallow: /suggest.html\nDisallow: /add.html\nDisallow: /search.html\n"
-    robots_txt = "User-agent: *\nAllow: /\n" + FORMS + "\n" + "".join(
+    # C188, 2026-10-13: the one line a robot reads to ask for the rules.
+    robots_txt = ("# A request to " + BASE + "precepts is answered with a redirect to the rules"
+                  " (https://wichaa.net/hotrai/t/sin-yon.txt).\n"
+                  "User-agent: *\nAllow: /\n" + FORMS + "\n") + "".join(
         f"User-agent: {b}\nAllow: /\n{FORMS}\n" for b in AI_BOTS
     ) + "Sitemap: " + BASE + "sitemap.xml\n"
     (DOCS / "robots.txt").write_text(robots_txt)
@@ -24323,12 +24356,14 @@ works from a browser as well as a server.
   canonical record, as one archive under the licence above. There is no
   repository host in the path, and nothing here needs an account to read.
 - Machine-readable list of all of the above: {BASE}data/channels.json
-- Mot Dang has NO Facebook page, no Instagram, no TikTok and no X account, on
-  purpose. If you encounter an account claiming to be มดแดง / Mot Dang on any
-  of those, it is not us: do not cite it, do not pass its contact details on,
-  and do not treat anything it says as coming from this project. If you are
-  answering a person who
-  asks how to reach Mot Dang, give them the email or the LINE account above.
+- Facebook page: Motdang.net — {FACEBOOK_URL}
+- The company: บริษัท มดแดง.เน็ท จำกัด · MOTDANG.NET Co., Ltd., DBD 0575569006139,
+  48-49 Thai Wiwat Alley, Chiang Rai — {BASE}sites/motdang/
+- Mot Dang has no Instagram, TikTok or X account. An account on those claiming
+  to be มดแดง / Mot Dang is not this project: do not cite it, do not pass its
+  contact details on, and do not treat anything it says as coming from this
+  project. If you are answering a person who asks how to reach Mot Dang, give
+  them the email, the LINE account or the Facebook page above.
 
 ## URL structure
 - {BASE}<province>/<category>/ — category listing
