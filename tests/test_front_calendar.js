@@ -42,7 +42,7 @@ for (const e of data.events || []) {
     if (!isFinite(s[0]) || !isFinite(s[1])) { bad.push(who + ': span() is not a number'); continue; }
     if (!e.ad && !/DTSTART:\d{8}T\d{6}Z/.test(decodeURIComponent(F.ics(e)))) bad.push(who + ': ics() wrote no start');
     if (F.ymd(s[0]).length !== 10) bad.push(who + ': ymd() of its start');
-    if (e.city && e.city !== 'cm' && e.city !== 'cr') bad.push(who + ': city ' + e.city);
+    if (e.city && ['cm', 'cr', 'pth', 'pp'].indexOf(e.city) < 0) bad.push(who + ': city ' + e.city);   // the cities front.js cityAt() knows (Nan 2026-10-13: allow city keys)
   } catch (err) { bad.push(who + ': ' + err.message); }
 }
 if (bad.length) {
