@@ -1604,7 +1604,7 @@
    "shipped": "2026-10-12",
    "group": "biz",
    "where": "both",
-   "served": "worker",
+   "served": "external",
    "words": [
     "make a website",
     "make a page",
