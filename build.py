@@ -24414,6 +24414,7 @@ coordinates, channels and ant rank, no markup to strip. {len(all_recs):,} lines.
         _lf.write(sites_layer.llms_section(DOCS))
         _lf.write(sala_layer.llms_section())
         _lf.write(eggs_layer.llms_section())
+        _lf.write(chuai_layer.llms_section(globals()))
         _lf.write(sitenet_layer.llms_section(DOCS))
         _lf.write("\n" + (ROOT / "data" / "llms_mcp_section.txt").read_text(encoding="utf-8"))
     layers.run("fullmoon.llms", lambda: fullmoon_layer.llms(DOCS))
