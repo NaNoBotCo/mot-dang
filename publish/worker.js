@@ -793,8 +793,13 @@ function loadGrid(env) {
   return GRID_P;
 }
 
+/* Two layouts, told apart by meta. Layout 2 (2026-10-13): meta.cn names each
+ * chunk file and meta.cv holds its own hash, so a publish rewrites only the
+ * chunks whose rows changed. Layout 1: c0000.json … all stamped with meta.v. */
 async function gridChunk(env, meta, c) {
-  const k = meta.v + "/" + c;
+  const file = meta.cn ? meta.cn[c] + ".json" : "c" + String(c).padStart(4, "0") + ".json";
+  const want = meta.cv ? meta.cv[c] : meta.v;
+  const k = meta.cn ? meta.cn[c] + "/" + want : meta.v + "/" + c;
   const held = GRID_ROWS.get(k);
   if (held) { GRID_ROWS.delete(k); GRID_ROWS.set(k, held); return held; }
   let cache = null, req = null, text = null;
@@ -806,12 +811,12 @@ async function gridChunk(env, meta, c) {
   } catch { cache = null; }
   const fresh = text == null;
   if (fresh) {
-    const obj = await env.SITE.get("api/v1/grid/c" + String(c).padStart(4, "0") + ".json");
+    const obj = await env.SITE.get("api/v1/grid/" + file);
     if (!obj) throw new Error("grid chunk missing");
     text = await obj.text();
   }
   const body = JSON.parse(text);
-  if (body.v !== meta.v) throw new Error("grid chunk out of step");
+  if (body.v !== want) throw new Error("grid chunk out of step");
   if (fresh && cache) {
     try { await cache.put(req, new Response(text, { headers: { "cache-control": "public, max-age=86400" } })); }
     catch { /* the answer stands without the copy */ }
