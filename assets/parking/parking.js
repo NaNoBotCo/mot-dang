@@ -10,7 +10,7 @@
 'use strict';
 var WORKER = 'https://mot-dang-claims.nanobotco.workers.dev/parking';
 var BASE = document.documentElement.getAttribute('data-pk') || '';
-var APK = BASE + 'motdang.apk';
+var APK = BASE + 'motdang-0.4.apk';
 var APP = (window.MotDangApp && typeof window.MotDangApp.parkState === 'function') ? window.MotDangApp : null;
 var GATE = {th: 'ประตูท่าแพ', en: 'Tha Phae Gate', lat: 18.7876, lng: 98.9931};
 var $ = function (s, r) { return (r || document).querySelector(s); };
