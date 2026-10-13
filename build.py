@@ -11159,7 +11159,7 @@ def share_block(url, name, qr=False, card=None, pick=False):
     if card:
         card_html = (f'<a class="pill poster" href="{att(BASE + card)}" download>'
                      f'🖼 {bi("บันทึกการ์ด", "Save card")}</a>')
-    return (f'<div class="share"><span class="sharelabel">{bi("บอกต่อ", "Share")}</span>'
+    return (f'<div class="share" role="group" aria-label="{att(bi_text("บอกต่อ", "Share"))}">'
             f'<div class="row">'
             f'<button class="pill native" data-native data-url="{u}" data-title="{t}" style="display:none">'
             f'📤 {bi("แชร์", "Share")}</button>'
@@ -11415,7 +11415,6 @@ def reach_block(r):
     if not pills and not retired_html:
         return record_html
     row = f'<div class="row">{"".join(pills)}</div>' if pills else ""
-    label = bi("ติดต่อได้ที่", "Reach them")
     hint = ""
     # WO-69: "ordered by what actually gets an answer" came off — the order
     # is the order, and a sentence about it is a sentence (Michael, 9/7).
@@ -11423,7 +11422,7 @@ def reach_block(r):
         hint = ('<span class="tinynote">'
                 + bi("เรียงตามช่องทางที่ติดต่อติดจริง", "ordered by what actually gets an answer")
                 + "</span>")
-    return (f'<section class="reach"><span class="reachlabel">{label}</span>{hint}'
+    return (f'<section class="reach" aria-label="{att(bi_text("ติดต่อได้ที่", "Reach them"))}">{hint}'
             f"{row}</section>{retired_html}{record_html}")
 
 
@@ -12708,7 +12707,10 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
     cats = " · ".join(
         f'<a href="../{c}/index.html">{bi(CATS[c]["th"], CATS[c]["en"])}</a>'
         for c in r["cat"] if c in CATS)
-    rows.append(f"<dt>{bi('หมวด', 'Category')}</dt><dd>{cats}</dd>")
+    # One shelf is already in the trail above the name; the row stays for a
+    # place that stands on several (Nan, 2026-10-13: simple, nothing lost).
+    if len([c for c in r["cat"] if c in CATS]) > 1:
+        rows.append(f"<dt>{bi('หมวด', 'Category')}</dt><dd>{cats}</dd>")
     if r.get("nameEn") and r.get("nameEn") != r.get("name"):
         rows.append(f"<dt>{bi('ชื่ออังกฤษ', 'English name')}</dt><dd>{esc(r['nameEn'])}</dd>")
     if r.get("address"):
@@ -12725,7 +12727,11 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
             _rd = lex_reading(_nm, AREA_LEX)
             _area.append(f'<span class="th solo" lang="th">{_pre_th}{esc(_nm)}</span>'
                          + (f' <span class="en roman" lang="en">{_pre_en} {esc(_rd)}</span>' if _rd else ""))
-    if _area:
+    _addr_txt = str(r.get("address") or "")
+    _tb, _ap = str(_al.get("tambon") or "").strip(), str(_al.get("amphoe") or "").strip()
+    _in_addr = bool(_tb and _tb in _addr_txt and _ap
+                    and (_ap in _addr_txt or (_ap.startswith("เมือง") and "เมือง" in _addr_txt)))
+    if _area and not _in_addr:
         rows.append(f"<dt>{bi('ตำบล · อำเภอ', 'District')}</dt><dd>{' · '.join(_area)}</dd>")
     # INSIDE WHAT (derive.py, 2026-09-08). 307 records stand at the same exact
     # coordinate as a market, a hospital or a campus that names itself one, and
@@ -12874,22 +12880,18 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
             geo += f"({urllib.parse.quote(name_text(r))})"
         approx = " " + bi("(โดยประมาณ)", "(approximate)") if r["geoPrecision"] == "approx" else ""
         
-        # Coordinates row
+        # One row: whose map, then the numbers to paste. (The Coordinates row
+        # and the Geo URI label were the same links under two labels.)
         copy_ll = (f' <button type="button" class="copylink badge" data-url="{ll}" '
-                   f'data-done="{esc(bi_text("คัดลอกแล้ว", "Copied"))}">{bi("คัดลอก", "Copy")}</button>')
-        rows.append(f'<dt>{bi("พิกัด", "Coordinates")}</dt><dd>'
-                    f'<span style="-webkit-user-select:all;user-select:all;">{ll}</span>{copy_ll}</dd>')
-        
-        # The <dt> beside it already says Map, so the first link says WHOSE
-        # map it is instead of saying "map" a second time.
+                   f'data-done="{esc(bi_text("คัดลอกแล้ว", "Copied"))}">{esc(ll)}</button>')
         rows.append(f'<dt>{bi("แผนที่", "Map")}</dt><dd>'
                     f'<a href="../../map.html#16/{r["lat"]:.5f}/{r["lng"]:.5f}/'
                     f'{_pin_shelf(r)}/pin={r["province"]}:{place_slug(r)}">'
                     f'{bi("มดแดง", "Mot Dang")}</a> · '
                     f'<a href="{osm}" rel="noopener">OpenStreetMap</a> · '
-                    f'<a href="{gmap}" rel="noopener">Google Maps</a> · '
-                    f'<a href="{apple}" rel="noopener">Apple Maps</a> · '
-                    f'<a href="{geo}">แอปแผนที่ / Geo URI</a>{approx}</dd>')
+                    f'<a href="{gmap}" rel="noopener">Google</a> · '
+                    f'<a href="{apple}" rel="noopener">Apple</a> · '
+                    f'<a href="{geo}">Geo</a>{approx}{copy_ll}</dd>')
     if PLACE_CODES.get(r["id"]):
         # Michael, 2026-09-28: a place ID short enough to say or paste. The map
         # box opens it (placecode.py).
@@ -12901,10 +12903,10 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
     if r.get("googlePlaceId"):
         import gplace
         _gn = name_pair(r)
-        rows.append(f'<dt>{bi("รหัสที่ Google", "Google Place ID")}</dt><dd><code class="gplaceid">{esc(r["googlePlaceId"])}</code>'
-                    f' · <a class="gplace" href="{esc(gplace.maps_url(r["googlePlaceId"], _gn[1] or _gn[0]))}" rel="noopener">'
+        # The ID string is machine text; the link is what a reader uses.
+        rows.append(f'<dt>Google</dt><dd><a class="gplace" href="{esc(gplace.maps_url(r["googlePlaceId"], _gn[1] or _gn[0]))}" rel="noopener">'
                     f'{bi("เปิดใน Google Maps", "Open on Google Maps")}</a></dd>')
-    else:
+    if r.get("lat") is None:
         rows.append(f'<dt>{bi("แผนที่", "Map")}</dt><dd><span class="badge pin">'
                     # WO-52: was "pin wanted — tell us where!", an ask inside
                     # a facts list. The state is the fact; the ask is one link
@@ -13244,7 +13246,11 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
             f"{elsewhere_block(r)}{net_layer.block(r, NET_HELPERS)}"
             f"{ad_box(path, 2)}{related_html}"
             f'{feedback_layer.slot("place:" + r["id"])}'
-            f'<p class="prov">{prov_line}{fetched}{checked}</p>{contact_cta}')
+            f'<p class="prov">{prov_line}{fetched}{checked}</p>{contact_cta}'
+            + ownpage_layer.make_html(
+                r, bi, att, (lambda _p: _p[0] or _p[1])(name_pair(r)),
+                phone=str((claim or {}).get("phone") or r.get("phone") or ""),
+                hours=str(hours or ""), address=str(r.get("address") or "")))
     desc = place_desc(r, prov_cfg)
     robots = "index,follow" if place_has_substance(r) else "noindex,follow"
     return page(place_title(r, prov_cfg), body, depth=2, crumbs=crumbs, path=path, desc=desc,

@@ -710,8 +710,7 @@ def row_html(r, bi, esc, href=None, c=None, lines=None):
     unc = pin_uncertainty(r)
     if unc is not None and unc > LOOSE_PIN_M:
         parts.append('<span class="tinynote">'
-                     + bi(f"หมุดโดยประมาณ ±{int(unc):,} ม. — ระยะเป็นเมตรจึงไม่ระบุ",
-                          f"pin approximate to ±{int(unc):,} m, so no metre distances are given")
+                     + bi(f"หมุด ±{int(unc):,} ม.", f"pin ±{int(unc):,} m")
                      + "</span>")
     return (f"<dt>{bi('ทิศทาง', 'Bearings')}</dt><dd>" + "<br>".join(parts) + "</dd>")
 
