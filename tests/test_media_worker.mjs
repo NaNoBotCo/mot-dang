@@ -192,7 +192,12 @@ const MEDIA = media.default;
   assert.equal((await hit(1, CHROME_WIN, "203.0.113.10")).status, 404, "another address is served");
   for (let i = 0; i < 30; i++) assert.notEqual((await hit(i, CLAUDEBOT, "203.0.113.11")).status, 302, "a named crawler is not counted as hammering");
   for (let i = 0; i < 30; i++) assert.notEqual((await b.hit(site, "/assets/x" + i + ".js", { headers: { "user-agent": CHROME_WIN, "cf-connecting-ip": "203.0.113.12" } })).status, 302, "scripts and pictures are not pages");
-  ok("a client asking for more than 20 pages a minute is sent to the rules; one address, a named crawler and pictures are not"); }
+  const bare = (ua, h = {}) => b.hit(site, "/suggest.html", { headers: { "user-agent": ua, "cf-connecting-ip": "203.0.113.20", ...h } });
+  assert.equal((await bare(CHROME_WIN)).status, 302, "no Sec-Fetch-Mode and a page robots.txt disallows");
+  assert.equal((await bare(CHROME_WIN, REAL_CHROME)).status, 404, "a browser sends Sec-Fetch-Mode and is served");
+  assert.equal((await bare(CLAUDEBOT)).status, 404, "a named crawler is not sent");
+  assert.equal((await b.hit(site, "/cm/", { headers: { "user-agent": CHROME_WIN, "cf-connecting-ip": "203.0.113.21" } })).status, 404, "a page robots.txt allows is served");
+  ok("a client asking for more than 20 pages a minute is sent to the rules; one address, a named crawler and pictures are not; a client with no Sec-Fetch-Mode on a disallowed form page is"); }
 
 { const b = counted({}, { objects: both });
   const r = await b.hit(MEDIA, askPath, { headers: { "user-agent": GPTBOT } });

@@ -123,9 +123,11 @@ function trimPath(pathname) {
  * A 302 to the precepts at the ho trai instead of the page, for two kinds of
  * asker and no other:
  *   1. a bot that misbehaves: a secret-file scanner (a path like /.env,
- *      /wp-login.php, /config.php) or a client that asks for pages faster than
+ *      /wp-login.php, /config.php); a client that asks for pages faster than
  *      a reader does (HAMMER_MAX page requests in HAMMER_MS from one address
- *      and one User-Agent);
+ *      and one User-Agent); or one that sends no Sec-Fetch-Mode header, as a
+ *      browser does, and asks for a page robots.txt disallows (the form pages,
+ *      2,846 of the 2,999 Alibaba requests sent on 12 Oct);
  *   2. a bot that asks: a request to /precepts, which robots.txt names.
  * Until 2026-10-13 every browser string from a hosting network was sent, which
  * also sent people on a VPN and card services (24,833 on 5–12 Oct; 96.5% of
@@ -142,6 +144,8 @@ const RULES_ASK = new Set(["/precepts", "/precepts.txt"]);
 const HAMMER_MAX = 20, HAMMER_MS = 60_000, HAMMER_KEYS = 5000;
 const HAMMER_SPARED = new Set(["ai", "search", "social", "seo", "monitor"]);
 const PROBE = /(^|\/)\.(env|git|svn|hg|aws|ssh|htaccess|htpasswd|ds_store)(\b|$)|\.(php\d?|aspx?|jsp|cgi)$|^\/(wp-(admin|login|content|includes|json)|xmlrpc|phpmyadmin|pma|cgi-bin|vendor\/phpunit|actuator|server-status|boaform)(\/|$|\.)/i;
+/* The Disallow lines of robots.txt (build.py FORMS); keep the two in step. */
+const DISALLOWED = new Set(["/suggest.html", "/add.html", "/search.html"]);
 const hammered = new Map();
 
 /* A page, not a picture, script or data file. */
@@ -151,7 +155,9 @@ function isPage(url) {
 }
 
 function isHammering(request, url, category) {
-  if (HAMMER_SPARED.has(category) || request.method !== "GET" || !isPage(url)) return false;
+  if (HAMMER_SPARED.has(category) || request.method !== "GET") return false;
+  if (DISALLOWED.has(url.pathname) && !request.headers.has("sec-fetch-mode")) return true;
+  if (!isPage(url)) return false;
   const key = (request.headers.get("cf-connecting-ip") || "") + "|" + (request.headers.get("user-agent") || "");
   const now = Date.now();
   if (hammered.size > HAMMER_KEYS) {
