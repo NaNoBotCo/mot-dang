@@ -224,6 +224,49 @@ def test_an_admit_flag_survives_a_new_run():
     assert {e["page"]: e["admit"] for e in again["proposed"]} == {"example-baan-lung-mee": False, "example-tha-sai-shop": True}
 
 
+def _aged(days, reports, name="example-tha-sai-shop"):
+    p = copy.deepcopy(WEAVE)
+    p["name"] = name
+    p["published"] = f"2026-10-{13 - days:02d}T03:00:00Z" if days <= 12 else "2026-09-20T03:00:00Z"
+    if reports is not None:
+        p["reports"] = reports
+    return p
+
+
+def _entry(d, name="example-tha-sai-shop"):
+    return [e for e in d["proposed"] if e["page"] == name][0]
+
+
+def test_a_proposal_joins_on_its_own_after_seven_live_days_with_no_reports():
+    assert _entry(doc_for([], pages=[_aged(7, 0)]))["admit"] is True
+    e = _entry(doc_for([], pages=[_aged(7, 0)]))
+    assert e["admitted"] == "auto" and e["days_live"] == 7 and e["reports"] == 0
+    assert _entry(doc_for([], pages=[_aged(6, 0)]))["admit"] is False, "six days is not seven"
+    assert _entry(doc_for([], pages=[_aged(30, 1)]))["admit"] is False, "one report keeps it out"
+    assert _entry(doc_for([], pages=[_aged(30, None)]))["admit"] is False, "a feed with no reports count never admits"
+    p = _aged(30, 0)
+    p["published"] = None
+    assert _entry(doc_for([], pages=[p]))["admit"] is False, "no publish date, no days"
+
+
+def test_a_report_after_an_auto_admission_takes_it_back_and_a_hand_admission_stays():
+    first = doc_for([], pages=[_aged(10, 0)])
+    assert _entry(first)["admitted"] == "auto"
+    after = doc_for([], pages=[_aged(10, 2)], previous=first)
+    assert _entry(after)["admit"] is False, "an auto admission is worked out again each run"
+    hand = doc_for([], pages=[_aged(10, 2)])
+    _entry(hand)["admit"], _entry(hand)["admitted"] = True, "hand"
+    again = doc_for([], pages=[_aged(10, 2)], previous=hand)
+    assert _entry(again)["admit"] is True and _entry(again)["admitted"] == "hand"
+
+
+def test_an_auto_admitted_page_joins_the_catalogue_like_a_hand_one():
+    d = doc_for([], pages=[_aged(9, 0)])
+    filled, new = O.apply([], "cr", doc=d)
+    assert [r["id"] for r in new] == ["cr-own-example-tha-sai-shop"], new
+    assert O.apply([], "cr", doc=doc_for([], pages=[_aged(9, 1)]))[1] == [], "a reported page does not"
+
+
 # --------------------------------------------------------------------- apply
 
 def _matched_doc(r):

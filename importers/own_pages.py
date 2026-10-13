@@ -22,7 +22,11 @@ place record it describes. Two outputs, one file, `data/curated/own_pages.json`:
                `own-site`, labelled "own page". It is a proposal. It joins the
                catalogue when its entry carries "admit": true, because a free
                page is made in a minute by anyone and the directory is not the
-               place to find that out. `--admit NAME` sets it.
+               place to find that out. `--admit NAME` sets it by hand
+               ("admitted": "hand"). Nan, 2026-10-13 (C192): a page also joins
+               on its own, "admitted": "auto", once it has been live AUTO_DAYS
+               days and the feed says it has had no reports; a report, or a
+               feed with no `reports` count, takes that away on the next run.
 
 `apply(final, prov)` is called by importers/import_all.py on the merged list,
 before Overture, and writes the matched facts into the record. It never
@@ -44,6 +48,9 @@ never matched; a pin outside the covered provinces is never proposed.
     python3 importers/own_pages.py --fixture tests/fixtures/own_pages_feed.json
     python3 importers/own_pages.py --admit example-new-shop --write
 
+The standing walk runs `--write` each pass, so a page that turns seven days old joins on the
+next pass (importers/standing_walk.sh).
+
 The feed is fetched with a short timeout; the last good copy is kept at
 cache/own_pages/feed.json and is what a failed fetch falls back to. With no
 feed at all the file on disk is left as it was.
@@ -58,7 +65,7 @@ import sys
 import unicodedata
 import urllib.request
 from collections import defaultdict
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -71,6 +78,7 @@ CACHE = ROOT / "cache" / "own_pages" / "feed.json"
 OUT = ROOT / "data" / "curated" / "own_pages.json"
 CANON = ROOT / "data" / "canonical"
 
+AUTO_DAYS = 7         # a proposal joins on its own after this many live days with no reports (C192)
 MATCH_M = 80          # a pin the owner placed and a pin a mapper placed agree to this
 MIN_CORE = 3          # a name has to be this long once its generic words are gone
 UA = "motdang-own-pages/1 (+https://motdang.net)"
@@ -412,11 +420,31 @@ def proposal_of(p: dict, prov: str, seen: str) -> dict:
 
 # -------------------------------------------------------------------- build
 
+def days_live(p: dict, seen: str):
+    """Whole days from the page's first publish to the day the feed was read; None when unknown."""
+    try:
+        return (date.fromisoformat(seen[:10]) - datetime.fromisoformat(str(p.get("published")).replace("Z", "+00:00")).date()).days
+    except (ValueError, TypeError):
+        return None
+
+
+def admitted_how(p: dict, seen: str, by_hand: set):
+    """"hand", "auto" or None. Auto needs AUTO_DAYS live days and a feed that says reports == 0."""
+    if p["name"] in by_hand:
+        return "hand"
+    n, reports = days_live(p, seen), p.get("reports")
+    if n is not None and n >= AUTO_DAYS and isinstance(reports, int) and not isinstance(reports, bool) and reports == 0:
+        return "auto"
+    return None
+
+
 def build(pages, records, seen, previous=None) -> dict:
     """The document for data/curated/own_pages.json. `records` are the held
     records (any province); `previous` is the file as it stood, so an
     "admit" flag survives a regeneration."""
-    admitted = {e.get("page") for e in (previous or {}).get("proposed", []) if e.get("admit")}
+    # only a hand admission is carried over; an auto one is worked out again from the feed each run
+    admitted = {e.get("page") for e in (previous or {}).get("proposed", [])
+                if e.get("admit") and e.get("admitted") in (None, "hand")}
     grid = _grid(records)
     by_id = {r["id"]: r for r in records}
     matched, proposed, unpinned, outside = [], [], [], []
@@ -442,14 +470,17 @@ def build(pages, records, seen, previous=None) -> dict:
         if not prov:
             outside.append(p["name"])
             continue
+        how = admitted_how(p, seen, admitted)
         e = {"page": p["name"], "url": p["url"], "tier": p.get("tier") or "free", "province": prov,
-             "admit": p["name"] in admitted, "record": proposal_of(p, prov, seen)}
+             "admit": how is not None, "admitted": how, "days_live": days_live(p, seen),
+             "reports": p.get("reports"), "record": proposal_of(p, prov, seen)}
         proposed.append(e)
     return {
         "_note": "importers/own_pages.py writes this from https://sites.motdang.net/feed.json. "
                  "matched: pages that are records we hold; apply() fills the gaps on those records, "
                  "never over a value they have. proposed: pages with a pin and no record, admitted "
-                 "only where admit is true (importers/own_pages.py --admit NAME).",
+                 "only where admit is true: by hand (importers/own_pages.py --admit NAME) or on its own after "
+                 f"{AUTO_DAYS} live days with the feed's reports count at 0.",
         "generated": seen,
         "matched": matched, "proposed": proposed,
         "unpinned": unpinned, "not_proposed": outside,
@@ -609,7 +640,7 @@ def main(argv=None) -> int:
         if not hit:
             print(f"own_pages: --admit {name}: no such proposed page")
             continue
-        hit[0]["admit"] = True
+        hit[0]["admit"], hit[0]["admitted"] = True, "hand"
     print(f"own_pages: {len(pages)} page(s) from the {via} feed of {seen}: "
           f"{len(result['matched'])} matched, {len(result['proposed'])} proposed "
           f"({sum(1 for e in result['proposed'] if e['admit'])} admitted), "
@@ -617,7 +648,7 @@ def main(argv=None) -> int:
     for m in result["matched"]:
         print(f"  matched   {m['page']} -> {m['place']} ({m['metres']} m, {m['how']}); lacks {', '.join(m['lacks']) or 'nothing'}")
     for e in result["proposed"]:
-        print(f"  proposed  {e['page']} -> {e['record']['id']} {'ADMITTED' if e['admit'] else ''}")
+        print(f"  proposed  {e['page']} -> {e['record']['id']} {'ADMITTED (' + e['admitted'] + ')' if e['admit'] else ''}")
     if a.write:
         out.parent.mkdir(parents=True, exist_ok=True)
         tmp = out.with_suffix(".tmp")
