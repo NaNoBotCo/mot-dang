@@ -1379,12 +1379,24 @@ function doodle() {
   var landHits = [];
   function land(k) {
     landHits = SKY.landscape(k, L.W, L.H, { horizon: L.horizon, cr: where.lat > 19.5, night: T.alt < -4, pm25: T.a ? T.a.pm25 : 10,
-      ridge: D.ridge, phone: L.phone, x0: L.phone ? L.W * 0.02 : L.W * 0.3, x1: L.W * 0.98 });
+      ridge: D.ridge, river: riverOn() ? riverLook() : null, phone: L.phone, x0: L.phone ? L.W * 0.02 : L.W * 0.3, x1: L.W * 0.98 });
   }
-  /* ---- the Ping on its gauge and the week's fires (Nan, 2026-10-03). Off for now, her word the same day:
-     "skip 1 and 2 for now, revisit when needed by events". To return: river: riverLook() in land(), and
-     river(c, t); fires(c, t) before haze and staff(c) after shade in paint(). The lottery and the films moved
-     to their own tiles (tiles.js). */
+  /* ---- the Ping on its gauge and the week's fires (Nan, 2026-10-03). Off the same day (her word: "revisit when
+     needed by events"); on by event since 2026-10-13 (C123 (b)): the river and its staff gauge while the Ping at the
+     Nawarat Bridge stands at 75% of its alert level or higher, the fires from 15 January to 30 April. The lottery and
+     the films moved to their own tiles (tiles.js). */
+  var LIVE_RIVER_AT = 0.75;
+  function riverOn() { var g = gauge(); return !!(g && g.level / g.limit >= LIVE_RIVER_AT); }
+  function firesOn() {                                                  /* the smoky season's dates, by the Bangkok calendar */
+    var b = new Date(Date.now() + 7 * 36e5), m = b.getUTCMonth() + 1, d = b.getUTCDate();
+    return (m === 1 && d >= 15) || m === 2 || m === 3 || (m === 4 && d <= 30);
+  }
+  function liveLoad() {                                                 /* 300 bytes for the gauge; the fire counts only in season */
+    j(LIVE + 'front/ping.json').then(function (d) { D.ping = d; lastMin = -1; }, function () { });
+    if (firesOn()) j(LIVE + 'front/fires.json').then(function (d) { D.fires = d; lastMin = -1; }, function () { });
+  }
+  liveLoad();
+  setInterval(function () { if (!document.hidden) j(LIVE + 'front/ping.json').then(function (d) { D.ping = d; lastMin = -1; }, function () { }); }, 30 * 6e4);
   function gauge() {                                                   /* the city's gauge, Nawarat Bridge */
     if (!D.ping || where.lat > 19.5) return null;
     var g = D.ping.stations.filter(function (q) { return q.id === (D.ping.city_station || 'P.1'); })[0];
@@ -1788,12 +1800,12 @@ function doodle() {
     c.setTransform(1, 0, 0, 1, 0, 0); c.clearRect(0, 0, cv.width, cv.height); c.drawImage(lay.back, 0, 0);
     c.setTransform(DPR, 0, 0, DPR, 0, 0); clouds(c, t);
     c.setTransform(1, 0, 0, 1, 0, 0); c.drawImage(lay.land, 0, 0);
-    c.setTransform(DPR, 0, 0, DPR, 0, 0); liveHits = []; haze(c, t);
+    c.setTransform(DPR, 0, 0, DPR, 0, 0); liveHits = []; if (riverOn()) river(c, t); if (firesOn()) fires(c, t); haze(c, t);
     c.save();
     if (sl < 1) { var se = 1 - Math.pow(1 - sl, 3); c.globalAlpha = se; c.translate(FX.dir * (1 - se) * L.W * 0.16, 0); }
     if (hy) c.translate(0, -hy);
     stage(c, t + FX.warp); c.restore();
-    shade(c, t); puffs(c, t); rain(c, t); confetti(c); gears(c);
+    shade(c, t); if (riverOn()) staff(c); puffs(c, t); rain(c, t); confetti(c); gears(c);
     c.setTransform(1, 0, 0, 1, 0, 0); c.drawImage(lay.dial, 0, 0);
     c.setTransform(DPR, 0, 0, DPR, 0, 0); hands(c); glow(c);
   }

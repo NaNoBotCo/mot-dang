@@ -1241,6 +1241,23 @@ def bake_fires(docs):
     return sum(f.get("per_day", []))
 
 
+def bake_ping(docs):
+    """docs/front/ping.json: the city gauge's level and its own alert level, 300 bytes. The doodle draws the river
+    on its gauge when the level passes 75% of that alert level (Nan 2026-10-13, C123 (b)); data/ping.json holds
+    ten stations and a week of hours and is 50 kB."""
+    src = ROOT / "data" / "ping.json"
+    if not src.exists():
+        return 0
+    p = _j(src)
+    cid = p.get("city_station") or "P.1"
+    keep = ("id", "th", "en", "level", "limit", "dischg", "dischg_limit", "observed")
+    st = [{k: s[k] for k in keep if k in s} for s in p.get("stations", []) if s.get("id") == cid]
+    (docs / "front").mkdir(parents=True, exist_ok=True)
+    (docs / "front" / "ping.json").write_text(json.dumps(
+        {"generated": p.get("generated"), "city_station": cid, "stations": st}, ensure_ascii=False, separators=(",", ":")))
+    return len(st)
+
+
 AIRPORTS_CSV = ROOT / "cache" / "ourairports.csv"   # OurAirports, public domain: davidmegginson.github.io/ourairports-data
 
 
@@ -1298,7 +1315,7 @@ def bake(docs=None, thumbs=True, ask=True):
     ix = _index(docs)
     counts = (interest() if ask else (_j(INTEREST) if INTEREST.exists() else {})).get("counts", {})
     parts = {"map": bake_map(docs, ix), "near": bake_near(docs, ix, thumbs), "sites": bake_sites(docs),
-             "events": bake_events(docs, ix, counts), "when": _when_or_none(docs), "ahead": bake_ahead(docs), "fires": bake_fires(docs),
+             "events": bake_events(docs, ix, counts), "when": _when_or_none(docs), "ahead": bake_ahead(docs), "fires": bake_fires(docs), "ping": bake_ping(docs),
              "flights": bake_flights(docs), "roads": bake_roads(docs)}
     shutil.copy(ASSETS / "when.js", docs / "front/when.js")
     shutil.copy(ASSETS / "tiles.js", docs / "front/tiles.js")
