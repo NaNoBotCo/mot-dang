@@ -8,7 +8,7 @@
   "cards[]   id, href (relative to motdang.net/, or a full URL for another host),",
   "          th, en, line_th, line_en, icon (an i-* id in docs/icons.svg),",
   "          shipped (YYYY-MM-DD, or null when not known), group (a key in groups),",
-  "          where (cm | cr | both), shelves (shelf keys whose pages it heads),",
+  "          where (cm | cr | both | a province key in coverage.json | elsewhere), shelves (shelf keys whose pages it heads),",
   "          net (a key in nets.json), words (what a reader might type), fav (Nan's pick),",
   "          served (docs | worker | external),",
   "          until (YYYY-MM-DD: off the front page after it), season ([\"MM-DD\", \"MM-DD\"]: on the",
