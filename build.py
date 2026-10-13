@@ -81,6 +81,7 @@ import shelfmap_layer  # the doodle map at the head of every list, Nan 2026-10-1
 import pics_layer
 import waypics_layer
 import streetphoto_layer  # a Mapillary or own street photo at the pin (WO-79; NaN 2026-10-11)
+import streetview_layer  # step down a street in Mapillary photos, her pick (a) 2026-10-13
 import sites_layer
 import sitenet_layer
 import indexsplit_layer
@@ -985,6 +986,11 @@ def street_fig(r):
     return streetphoto_layer.figure_html(r, STREET_PHOTOS.get(r["id"]), {
         "att": att, "bi": bi, "esc": esc, "bi_text": bi_text,
         "name_th": name_th, "name_en": name_en})
+
+
+def street_view_btn(r):
+    """Street view from the nearest harvested photo, from streetview_layer; "" when none."""
+    return streetview_layer.button_html(r, {"att": att, "bi": bi, "bi_text": bi_text})
 
 
 def _emph(s):
@@ -13238,7 +13244,7 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
         _photo = img_tag.startswith('<img class="photo"') and "placeholderpic" not in img_tag
         img_tag = _band + (img_tag if _photo else "")
     body = (f"<h1>{name_bi(r)}</h1>{status_line(r)}{best_layer.line(r, bi)}{top_map}{plan_cta}{reach_block(r)}"
-            f"{img_tag}{own_strip(r, photo_file)}{street_fig(r)}{pano_layer.block(r, att, esc, bi, svg_icon)}{landmark_gallery(r)}{video_layer.block(r, att, esc, bi)}{around_pics(r)}{inat_layer.block(r, NET_HELPERS)}{waypics_layer.block(r, bi, svg_icon)}{hotel_layer.block(r, HOTEL_HELPERS)}"
+            f"{img_tag}{own_strip(r, photo_file)}{street_fig(r)}{street_view_btn(r)}{pano_layer.block(r, att, esc, bi, svg_icon)}{landmark_gallery(r)}{video_layer.block(r, att, esc, bi)}{around_pics(r)}{inat_layer.block(r, NET_HELPERS)}{waypics_layer.block(r, bi, svg_icon)}{hotel_layer.block(r, HOTEL_HELPERS)}"
             f"{share_block(BASE + path, name_text(r), qr=True, pick=True)}"
             f"{honour_panel(r)}{facet_panel(r)}{seven_band(r)}{tag_pills(r)}"
             f"{landmark_history(r)}{wander_html}{blurb}"
@@ -15518,7 +15524,7 @@ SOURCE_FILES = ["build.py", "CLAUDE.md", "README.md", "AGENTS.md",
                 "moat_layer.py", "seven_layer.py", "hom_layer.py", "bearings_layer.py",
                 "video_layer.py", "net_layer.py", "commons_layer.py", "fullmoon_layer.py", "sites_layer.py", "sitenet_layer.py", "pano_layer.py",
                 "pics_layer.py", "waypics_layer.py", "ahead_layer.py",
-                "streetphoto_layer.py", "ownpage_layer.py"]
+                "streetphoto_layer.py", "streetview_layer.py", "ownpage_layer.py"]
 # Anything that is somebody's private business, a credential, or a working
 # scratch never enters the archive. Whitelisting the trees above and naming
 # these again is belt and braces: a bare "everything except" would ship
@@ -19293,6 +19299,7 @@ def build():
         _rl_fh.write("\n" + video_layer.CSS)
         _rl_fh.write("\n" + pano_layer.CSS)
         _rl_fh.write("\n" + streetphoto_layer.CSS)
+        _rl_fh.write("\n" + streetview_layer.CSS)
         _rl_fh.write("\n" + net_layer.CSS)
         _rl_fh.write("\n" + commons_layer.CSS)
         _rl_fh.write("\n" + sites_layer.CSS)
@@ -19499,6 +19506,7 @@ def build():
     layers.run("pano.copy_assets", lambda: print("  pano: %d files copied" % pano_layer.copy_assets(DOCS)))
     layers.run("inat.copy_assets", lambda: print("  inat: %d photos copied" % inat_layer.copy_assets(DOCS)))
     layers.run("streetphoto.emit", lambda: print("  street photos: %s" % streetphoto_layer.emit({"DOCS": DOCS, "bi_text": bi_text})))
+    layers.run("streetview.emit", lambda: print("  street view: %s" % streetview_layer.emit({"DOCS": DOCS})))
     # Nan's own frames for the front page — importers/make_hero.py. The
     # homepage reads site/hero/index.json out of the tree being built, so the
     # frames have to be copied in like any other asset. They used to be

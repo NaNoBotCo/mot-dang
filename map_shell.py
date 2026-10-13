@@ -52,6 +52,7 @@ import mine_layer
 import mapsense_layer
 import traffic_map_layer
 import mappins_layer
+import streetview_layer  # street view, her pick (a) 2026-10-13
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -840,6 +841,8 @@ function build(el){
     if(window.MDTRAFFIC)window.MDTRAFFIC.paint(map,el);
     /* the directory's places as icon pins, more with every step in (mappins_layer.py) */
     if(window.MDPINS)window.MDPINS.paint(map,el);
+    /* a Street view button: photo points, a tap opens the viewer (streetview_layer.py) */
+    if(window.MDSVMAP)window.MDSVMAP.paint(map,el);
     /* landmark drawings on the places that are landmarks (assets/sites/map-doodles/on-maps.js) */
     doodles(map,el);
     /* The drawn SVG stays in the DOM — it is what prints, and it is what
@@ -1368,7 +1371,7 @@ def emit(g):
         "window.MDMAP_CFG=" + json.dumps(runtime, ensure_ascii=False,
                                          separators=(",", ":")) + ";\n" + JS
         + "\n" + mine_layer.map_js() + "\n" + mapsense_layer.map_js() + "\n" + traffic_map_layer.map_js()
-        + "\n" + mappins_layer.map_js())
+        + "\n" + mappins_layer.map_js() + "\n" + streetview_layer.map_js())
     # /pins.js on its own, for the doodle maps' canvas (mappins_layer.py)
     mappins_layer.emit(docs)
     vend = docs / "vendor"

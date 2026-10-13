@@ -32,6 +32,8 @@ HANDOFF_EXCLUDES=(--exclude /docs/ --exclude /docs.next/ --exclude /docs.prev/
   # Mac). Excluded, so this mirror neither sends nor deletes them; her own
   # photos in assets/streetphotos/own/ still travel.
   --exclude '/assets/streetphotos/*.jpg' --exclude /data/street_photos.json
+  # Street view (harvest_streetview.py, her pick (a) 2026-10-13): same place, same reason.
+  --exclude /assets/streetphotos/sv/ --exclude /data/streetview/ --exclude /cache/streetview-harvest.json
   # Importer caches and old logs that no server build read from 2026-10-05 to
   # 10-11 (atime on /srv): 3.6 GB in 19k files a round. The Mac keeps them;
   # the server keeps its last copy. Nan, 2026-10-11: cut what weighs and adds little.
