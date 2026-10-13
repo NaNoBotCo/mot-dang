@@ -56,6 +56,8 @@ HANDOFF_EXCLUDES=(--exclude /docs/ --exclude /docs.next/ --exclude /docs.prev/
 hand_to_server() {
   local id at; id="$(date +%Y%m%dT%H%M%S)-$$"; at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
   "${SSH[@]}" "$SERVER" "mkdir -p $STAGE $SSTATE" || return 1
+  # The roster the sites page reads (sites_layer.py: ../index/data/fleet.json); /srv/index had stopped at 74 of 80 sites.
+  [[ -f ../index/data/fleet.json ]] && rsync -a -e "${SSH[*]}" ../index/data/fleet.json "$SERVER:/srv/index/data/fleet.json" 2>/dev/null
   # What is live, as far as this Mac knows: the server checks its build against it.
   (cd docs && find . -type f ! -path './tiles/*' | sed 's#^\./##' | sort) | gzip > cache/docs-list.txt.gz
   # The code of HEAD rides beside the folder; the server puts it over the
