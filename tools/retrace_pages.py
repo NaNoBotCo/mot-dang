@@ -277,7 +277,7 @@ def page(lang):
 <link rel="alternate" hreflang="en" href="{URL}"><link rel="alternate" hreflang="th" href="{URL}th/"><link rel="alternate" hreflang="x-default" href="{URL}">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Mot Dang · มดแดง">
 <meta property="og:title" content="{s['title']}"><meta property="og:description" content="{s['desc']}"><meta property="og:url" content="{here}">
-<meta property="og:image" content="{URL}card.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image" content="{URL}card.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="A map of the old city of Chiang Mai with three numbered wats joined by a marigold band, beside the word Retrace.">
 <meta property="og:locale" content="{'th_TH' if lang == 'th' else 'en_US'}">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{URL}card.jpg">
 <link rel="icon" href="/sites/retrace/icon.svg" type="image/svg+xml">
