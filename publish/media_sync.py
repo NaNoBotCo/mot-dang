@@ -53,9 +53,9 @@ def probe(env):
     finally:
         os.unlink(tmp)
     if p.returncode != 0:
-        why = [ln for ln in (p.stderr or "").splitlines() if "ERROR" in ln or "Failed" in ln]
+        why = [ln[20:] for ln in (p.stderr or "").splitlines() if "ERROR" in ln or "Failed" in ln]
         print("media: %s is not writable from this host — %s"
-              % (BUCKET, (why[-1] if why else "rclone failed")[-160:]))
+              % (BUCKET, (why[-1] if why else "rclone failed")[:200]))
         return 1
     return 0
 
