@@ -279,6 +279,11 @@ python3 importers/sync_suggestions.py || say "suggestion queue not read this rou
 # (NaN 2026-10-11). Before the import, so a record it makes is imported now.
 python3 importers/place_own_pictures.py --write || say "picture placing kept the last pass"
 
+# People's own pages (sites.motdang.net) matched to the places they describe
+# (NaN 2026-10-13). Before the import, so the facts they state land this round.
+# A feed that does not answer leaves data/curated/own_pages.json as it was.
+python3 importers/own_pages.py --write || say "own pages kept the last pass"
+
 # --- fold in finished crawls ---------------------------------------------
 # import_all.py reads cache/overpass/ wholesale and rewrites data/canonical/.
 # A crawl still writing into that cache can hand it a half-written file, and a

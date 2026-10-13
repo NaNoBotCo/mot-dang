@@ -57,6 +57,7 @@ import terms
 # answers a question someone could ask OF ITS OWN KIND, not when it offers a
 # way to contact a seller. See kind_layer.py's header and data/curated/kinds.json.
 import kind_layer
+import ownpage_layer  # a place's own page: the button and the menu it lists (Nan 2026-10-13)
 import best_layer
 import edge_layer
 import nownear_layer
@@ -11345,6 +11346,9 @@ def reach_block(r):
             f'<span class="chwrap"><a class="pill {c["cls"]}" href="{att(href)}"{rel}>'
             f'<span class="chico">{icon}</span> <span class="chlabel">'
             f'{bi(c["th"], c["en"])}</span> <b>{text}</b></a>{badge}</span>')
+    _own = ownpage_layer.pill_html(r, bi, att, esc, svg_icon)
+    if _own:
+        pills.append(_own)
 
     notes = []
     for x in retired:
@@ -12820,6 +12824,10 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
     _lrow = _listings_layer.place_row(r, bi, esc, base="../../")
     if _lrow:
         rows.append(_lrow)
+    # The menu a place lists on its own page (ownpage_layer, importers/own_pages.py).
+    _orow = ownpage_layer.menu_row(r, bi, esc, att, mark)
+    if _orow:
+        rows.append(_orow)
     # menu/note come only from a claim (owner's own words, never crawled), so
     # the badge is unconditional whenever present — unlike hours above, which
     # can come from either source.
@@ -15474,7 +15482,7 @@ SOURCE_FILES = ["build.py", "CLAUDE.md", "README.md", "AGENTS.md",
                 "moat_layer.py", "seven_layer.py", "hom_layer.py", "bearings_layer.py",
                 "video_layer.py", "net_layer.py", "commons_layer.py", "fullmoon_layer.py", "sites_layer.py", "sitenet_layer.py", "pano_layer.py",
                 "pics_layer.py", "waypics_layer.py", "ahead_layer.py",
-                "streetphoto_layer.py"]
+                "streetphoto_layer.py", "ownpage_layer.py"]
 # Anything that is somebody's private business, a credential, or a working
 # scratch never enters the archive. Whitelisting the trees above and naming
 # these again is belt and braces: a bare "everything except" would ship

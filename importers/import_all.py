@@ -960,6 +960,17 @@ def main():
             print(f"{prov}: {c_stamped} condo(s) stamped from the Treasury "
                   f"register, {len(c_unmapped)} registered but not held")
             final = sorted(final + c_unmapped, key=lambda r: r["id"])
+        # People's own pages (sites.motdang.net, importers/own_pages.py), before
+        # Overture because a place's own words are the first witness: the facts
+        # a page states fill what the record lacks, never over a value it has,
+        # each with its receipt. A page with a pin and no record is only a
+        # proposal in data/curated/own_pages.json until its entry says admit.
+        import own_pages
+        op_filled, op_new = own_pages.apply(final, prov)
+        if op_filled or op_new:
+            print(f"{prov}: {op_filled} record(s) gained facts from their own page, "
+                  f"{len(op_new)} page(s) admitted as a place")
+            final = sorted(final + op_new, key=lambda r: r["id"])
         # Overture Places, on the merged list and for the same reason the two
         # registers above are: it joins by name and proximity, so it has to see
         # everything we hold before it decides a place is missing. Two jobs in

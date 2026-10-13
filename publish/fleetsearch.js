@@ -28,6 +28,7 @@ import { learnedFor } from "./findlearn.js";
 import { pinsFor } from "./findpins.js";
 import { liftMore, preferOf, saidOf, leadHtml, leadJson } from "./intents.js";
 import { meaningSoon, semBoost, rescueRows, rescueHtml } from "./findmeaning.js";
+import { OWN_SITE, ownWanted, ownPagesSoon, mergeOwn } from "./ownfind.js";
 import { readingHtml, sayLine, stripHtml, rowData, PEEK_BTN, PREVIEW_CSS } from "./findpreview.js";
 
 const RE_THAI = /[฀-๿]+/g;
@@ -1473,7 +1474,7 @@ footer{margin-top:2.5em;padding-top:.6em;border-top:1px solid var(--rule);color:
 .th img{display:block;width:72px;height:72px}
 .th i{position:absolute;width:10px;height:10px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--red);border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.35)}
 .cr{font-size:.86em;color:var(--mute)}.cr a{color:var(--mute)}
-.sem li{margin:.5em 0}.sem .abs{font-size:.9em}.rich{font-size:.9em;margin:.15em 0}.rich span{margin-right:.9em;white-space:nowrap}.rich .fa{letter-spacing:.12em}
+.own{font-size:.78em;border:1px solid #c9b88a;border-radius:.7em;padding:0 .55em;margin-left:.4em;white-space:nowrap}.own .ic{width:1em;height:1em;vertical-align:-.15em;margin-right:.25em}.sem li{margin:.5em 0}.sem .abs{font-size:.9em}.rich{font-size:.9em;margin:.15em 0}.rich span{margin-right:.9em;white-space:nowrap}.rich .fa{letter-spacing:.12em}
 @media(max-width:40em){.th,.th img{width:60px;height:60px}.r{gap:.6em}}
 label{display:inline-block;margin-right:.8em}
 @media(max-width:40em){.sites{columns:1}html{font-size:16px}}
@@ -1851,6 +1852,10 @@ export function thumbHtml(row) {
     return `<a class="th" href="${href}" tabindex="-1" aria-hidden="true"><img src="${THUMBS}${esc(t)}.webp"` +
            ` alt="" width="72" height="72" loading="lazy" decoding="async"${credit ? ` title="${esc(credit)}"` : ""}></a>`;
   }
+  if (!t && row.thumbUrl) {          // a live page of the page maker: its own small cover
+    return `<a class="th" href="${href}" tabindex="-1" aria-hidden="true"><img src="${esc(row.thumbUrl)}"` +
+           ` alt="" width="72" height="72" loading="lazy" decoding="async"></a>`;
+  }
   const m = /^g\/(\d+)_(\d+)$/.exec(t);
   if (m && row.lat != null && row.lon != null) {
     const [x, y] = cellPos(Number(row.lat), Number(row.lon), Number(m[1]), Number(m[2]));
@@ -1877,6 +1882,11 @@ export function rowActs(r) {
          `</span>`;
 }
 
+/* A page made with the page maker, marked as what it is. */
+export function ownMark(r) {
+  return r.site === OWN_SITE ? ` <span class="own">${sicon("i-shop")}เพจของร้านเอง · own page</span>` : "";
+}
+
 function resultList(rows, page, n, pin, aux, when) {
   const start = (page - 1) * n + 1;
   const items = rows.map((r) => {
@@ -1893,7 +1903,7 @@ function resultList(rows, page, n, pin, aux, when) {
     const pic = thumbHtml(r) || ((parseJson(r.rich) || {}).sc
       ? `<a class="th" href="${esc(r.url)}" tabindex="-1" aria-hidden="true"></a>` : "");
     return `<li><div class="r" ${rowData(r)}>${pic}<div class="b">${PEEK_BTN}${crumbLine(r, rows)}` +
-           `<a class="t" href="${esc(r.url)}">${esc(r.title)}</a>${(readingHtml(r) + sayLine(r, iv, when.minute)) || "<br>"}` +
+           `<a class="t" href="${esc(r.url)}">${esc(r.title)}</a>${ownMark(r)}${(readingHtml(r) + sayLine(r, iv, when.minute)) || "<br>"}` +
            `${esc(r.abstract)}${stripHtml(r)}` +
            `${richLine(r, aux, when, { lamp: !iv }) || "<br>"}` +
            `<span class="u">${esc(r.url.replace(/^https?:\/\//, ""))}</span>` +
@@ -2118,7 +2128,7 @@ async function answer(request, env, url, ctx, coreP, now) {
     if (core === null && coreP) { try { core = await coreP(); } catch { core = false; } }
     return core || null;
   };
-  const [register, events, , ax, learn, answers, mean] = await Promise.all([
+  let [register, events, , ax, learn, answers, mean] = await Promise.all([
     lap("sites", siteRows(env)),
     adv ? null : lap("cal", eventData(env)),
     (!boolQ || /[฀-๿]/.test(qm)) ? lap("dict", getCore()) : null,
@@ -2227,6 +2237,11 @@ async function answer(request, env, url, ctx, coreP, now) {
       : Promise.resolve({ res: [], forms });
   };
   const doorP = doorOk ? doorQuery({}).catch(() => null) : null;
+  /* People's own pages (ownfind.js): the page maker is asked beside the index,
+   * waits its few hundred ms at most, and an empty list is the fallback. */
+  const ownP = ownWanted({ q: qm, adv, boolQ, lucky, page, sort: st.sort, site: st.site, kind: st.kind,
+                           sec: st.sec, has: st.has, from: st.from, to: st.to })
+    ? lap("own", ownPagesSoon(env, qm, st.pin)) : null;
   let partials = pl.steps.filter((x) => x.partial);
   for (const step of pl.steps.filter((x) => !x.partial)) if (await attempt(step)) break;
   if (!fault && pl.mode === "simple" && total <= 2 && pl.items) {
@@ -2260,6 +2275,13 @@ async function answer(request, env, url, ctx, coreP, now) {
     } catch { door = null; }
     if (door && st.sort === "rank" && !lucky) {
       rows = [door].concat(rows.filter((r) => r.id !== door.id)).slice(0, st.n);
+    }
+  }
+  if (ownP && !fault) {
+    const live = await ownP;
+    if (live.length) {
+      const m = mergeOwn(rows, live, { HAS, today: when.today }, ax);
+      rows = m.rows; ax = m.aux; total += m.added;
     }
   }
   const ms = Date.now() - t0;
@@ -2315,7 +2337,8 @@ async function answer(request, env, url, ctx, coreP, now) {
           url: r.url, title: r.title, abstract: r.abstract, site: r.site,
           lastmod: r.lastmod, kb: r.kb, kind: r.kind || undefined,
           crumbs: (parseJson(r.crumbs) || []).map(([name, href, en]) => ({ name, url: href || undefined, en: en || undefined })),
-          thumb: r.thumb ? `${url.origin}${THUMBS}${r.thumb}.webp` : undefined,
+          thumb: r.thumb ? `${url.origin}${THUMBS}${r.thumb}.webp` : r.thumbUrl || undefined,
+          own_page: r.site === OWN_SITE ? true : undefined,
           ways: rich.ways,
           toilet: Array.isArray(rich.toilet) ? (rich.toilet[0] === "n"
             ? { kind: "nearby", name: rich.toilet[1] || undefined, metres: rich.toilet[2] }
