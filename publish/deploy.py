@@ -376,6 +376,13 @@ def audit_tiles(env, dest):
                       % (key, f"{have:,}", f"{want:,}"))
 
 
+def media_excludes():
+    """--exclude pairs for the four media prefixes, while MD_MEDIA_BUCKET=1."""
+    if os.environ.get("MD_MEDIA_BUCKET") != "1":
+        return []
+    return [a for p in safety.MEDIA_PREFIXES for a in ("--exclude", "/" + p + "**")]
+
+
 def rclone_env(c):
     """rclone configured entirely through the environment, so no credential
     ever lands in a config file on disk."""
@@ -661,6 +668,11 @@ def main():
               # MapLibre and then 404 on the tiles. Re-uploading is ~280 MB
               # and nobody would connect the two events.
               "--exclude", "tiles/**",
+              # The picture folders in mot-dang-media (media_layer.py,
+              # publish/media_sync.py, worker-media/) when the build left them
+              # out of docs/: this sync neither uploads nor deletes them, and
+              # the copies already in this bucket stay where they are.
+              *media_excludes(),
               # 96 in flight, and no HEAD after each PUT (Nan, 2026-09-10).
               # Measured that night: one object round trip ~1 s from here,
               # the sync moving 27 files/s with the line 88% idle — bound by

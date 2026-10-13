@@ -10,6 +10,15 @@ export PYTHONUNBUFFERED=1
 # The same bytes from the same inputs: str hash() is salted per process unless
 # this is pinned, and an event without a uid takes its .ics UID from it (build.py).
 export PYTHONHASHSEED=0
+# Pictures (streetphotos/, photos/, inat/, og/) go to the bucket mot-dang-media instead of
+# docs/ when this host can write it (media_layer.py, publish/media_sync.py, worker-media/).
+# A host whose key does not cover that bucket publishes them with the site as before.
+export MD_MEDIA_BUCKET=0
+if python3 publish/media_sync.py probe; then
+  export MD_MEDIA_BUCKET=1
+else
+  say "⚠️  pictures ride the site build: mot-dang-media is not writable from this host"
+fi
 if command -v timeout >/dev/null 2>&1; then
   timeout "$BUILD_TIMEOUT" python3 build.py || { say "BUILD FAILED (or timed out after $BUILD_TIMEOUT) — nothing published"; note "failed" "build.py"; exit 1 }
 else
@@ -106,6 +115,11 @@ say "docs/ holds $COUNT files"
 if (( COUNT < 20000 )); then
   say "REFUSING — $COUNT files is a broken build, not a small site"
   note "failed" "docs floor: $COUNT files"; exit 1
+fi
+
+# The pictures the build listed go up before the pages that name them.
+if [[ "$MD_MEDIA_BUCKET" == 1 ]]; then
+  python3 publish/media_sync.py sync || { say "media sync FAILED — nothing published"; note "failed" "media sync"; exit 1 }
 fi
 
 # The server defines pre_deploy (importers/server_walk.sh); the laptop does not.

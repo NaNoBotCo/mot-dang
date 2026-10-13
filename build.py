@@ -67,6 +67,7 @@ import rowline_layer
 import video_layer
 import pano_layer
 import inat_layer  # iNaturalist sightings near a place (Nan, 2026-10-02)
+import media_layer  # pictures in their own bucket, off the site build (Nan 2026-10-13, "B")
 import loo_road  # road distance to the nearest toilet (Nan, 2026-10-02)
 import hotel_layer  # the Stay block on lodging pages (NaN, 2026-10-04)
 import affiliate_layer  # paid links on named place pages (affiliate-slots registry, 2026-10-04)
@@ -19466,9 +19467,8 @@ def build():
         for _s in WIDGET_SHOTS:
             shutil.copy(ROOT / "assets" / _s["file"], DOCS / _s["file"])
     if OG_FILES:
-        (DOCS / "og").mkdir(exist_ok=True)
-        for _id in OG_FILES:
-            shutil.copy(OG_SRC / f"{_id}.png", DOCS / "og" / f"{_id}.png")
+        for _id in OG_FILES:   # docs/og/, or mot-dang-media when it is on (media_layer.py)
+            media_layer.put(OG_SRC / f"{_id}.png", DOCS, f"og/{_id}.png")
     # The partner one-pager rides every build or the docs wipe eats it.
     # Regenerate with make_portfolio.py; handed to venues, linked in LINE.
     _portfolio = ROOT / "assets" / "handouts" / "portfolio.pdf"
@@ -19496,16 +19496,15 @@ def build():
     moon_svg_markup = None
     photos = PHOTO_FILES
     if photos:
-        (DOCS / "photos").mkdir(exist_ok=True)
-        for fname in photos.values():
-            shutil.copy(PHOTOS_SRC / fname, DOCS / "photos" / fname)
+        for fname in photos.values():   # docs/photos/, or mot-dang-media when it is on
+            media_layer.put(PHOTOS_SRC / fname, DOCS, f"photos/{fname}")
     # A landmark's photo gallery (landmark_gallery) — the roads corpus's Commons
     # pictures under assets/photos/landmarks/<id>/. collect_photos() reads only
     # the top of assets/photos, so these subtrees are copied whole and served at
     # the same path the gallery links to.
     _land_src = PHOTOS_SRC / "landmarks"
     if _land_src.exists():
-        shutil.copytree(_land_src, DOCS / "photos" / "landmarks", dirs_exist_ok=True)
+        media_layer.put_tree(_land_src, DOCS, "photos/landmarks")
 
     data = load()
     _fill_seven_ctx(data)   # WO-38: twins + neighbours before any page renders
@@ -24427,6 +24426,7 @@ coordinates, channels and ant rank, no markup to strip. {len(all_recs):,} lines.
     (DOCS / GOOGLE_VERIFY).write_text(
         f"google-site-verification: {GOOGLE_VERIFY}\n")
 
+    media_layer.flush()   # the pictures mot-dang-media is to hold (publish/media_sync.py)
     layers.finish()
     if _FINAL_DOCS is not None:
         _kept = _kept_save()

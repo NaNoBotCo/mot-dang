@@ -307,7 +307,22 @@ def _local_keys(root=None):
     return {str(p.relative_to(root)) for p in root.rglob("*") if p.is_file()}
 
 
-def deletions_preview(dest, env, run, root=None, exclude=("tiles/",)):
+# The four picture folders that live in mot-dang-media instead of the site bucket
+# (media_layer.py, publish/media_sync.py). With MD_MEDIA_BUCKET=1 a publish neither
+# uploads nor deletes them, so the preview does not count them as missing either.
+MEDIA_PREFIXES = ("streetphotos/", "photos/", "inat/", "og/")
+
+
+def preview_excludes(exclude=None):
+    """The key prefixes a sync leaves alone: the tile archives, and the media
+    folders while the media bucket holds them (the same --exclude list deploy.py
+    passes to rclone)."""
+    if exclude is not None:
+        return tuple(exclude)
+    return ("tiles/",) + (MEDIA_PREFIXES if os.environ.get("MD_MEDIA_BUCKET") == "1" else ())
+
+
+def deletions_preview(dest, env, run, root=None, exclude=None):
     """Sorted list of keys a sync would delete. The truth, both sides listed.
 
     `exclude` mirrors deploy.py's own --exclude: the tile archives live in the
@@ -317,9 +332,10 @@ def deletions_preview(dest, env, run, root=None, exclude=("tiles/",)):
     return diff_preview(dest, env, run, root, exclude)[0]
 
 
-def diff_preview(dest, env, run, root=None, exclude=("tiles/",)):
+def diff_preview(dest, env, run, root=None, exclude=None):
     """(keys a sync would delete, keys it would add), both sorted, from one
     listing of each side."""
+    exclude = preview_excludes(exclude)
     live = _bucket_keys(dest, env, run)
     local = _local_keys(root)
     gone = {k for k in live - local

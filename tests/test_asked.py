@@ -47,6 +47,7 @@ def main():
     want_cards = "--no-cards" not in sys.argv
     import asked_layer
     import build
+    import media_layer
     data = build.load()
     everything = asked_layer.load(include_drafts=True)
     entries = [e for e in everything if not e.get("draft")]
@@ -115,8 +116,8 @@ def main():
                 fails.append((k, "no share card — run make_shelf_cards.py"))
             if not og.endswith(f"/og/asked-{k}.png"):
                 fails.append((k, f"og:image is {og or 'missing'}, not its own card"))
-            elif not (DOCS / "og" / f"asked-{k}.png").exists():
-                fails.append((k, "og:image names a card that is not in docs/og/"))
+            elif not media_layer.in_build(DOCS, f"og/asked-{k}.png"):
+                fails.append((k, "og:image names a card that is not in docs/og/ or the media list"))
 
     print(f"{len(entries)} questions in data/asked.json"
           + (f" · {len(drafts)} DRAFT (unpublished): {', '.join(drafts)}" if drafts else ""))

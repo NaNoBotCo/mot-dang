@@ -86,6 +86,11 @@ def main():
              for f in OG_SRC.glob(pat)} if OG_SRC.exists() else set()
     shipped = {f.stem for pat in ("shelf-*.png", "asked-*.png")
                for f in (DOCS / "og").glob(pat)} if (DOCS / "og").is_dir() else set()
+    # with the media bucket on, a card the build ships is on the media list, not in docs/og/
+    sys.path.insert(0, str(ROOT))
+    import media_layer
+    shipped |= {pathlib.Path(r).stem for r in (media_layer.listed() or ()) if media_layer.on()
+                and r.startswith("og/") and pathlib.Path(r).name.startswith(("shelf-", "asked-"))}
     # Reader questions draw into the same folder and index (see test_asked.py
     # for their own four checks); here they only need to not be orphans. A
     # `gap: true` question is exempt in both directions — it has no card by
@@ -105,7 +110,7 @@ def main():
         rel = (m.group(1) if m else "").rsplit("/", 1)[-1]
         if not m:
             broken.append((stem, "no og:image at all"))
-        elif not (DOCS / ("og/" + rel if rel.startswith(("shelf-", "asked-")) else rel)).exists():
+        elif not media_layer.in_build(DOCS, "og/" + rel if rel.startswith(("shelf-", "asked-")) else rel):
             broken.append((stem, rel))
         elif not rel.startswith(("shelf-", "asked-")):
             uncarded.append((stem, "falls back to " + rel))
