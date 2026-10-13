@@ -426,14 +426,15 @@ export function slugCandidates(index, key) {
  * So the build also writes api/v1/grid/: meta.json holds, for every pinned
  * row, only what a box query reads (lat, lng, ant rank, province) in the
  * order /places would sort them, plus where the whole row sits: one of a few
- * hundred chunk files of GRID_CHUNK rows, cut along a Z-order curve so a box
- * touches few of them. A box query scans meta in memory, counts `total`, and
+ * hundred chunk files of at most GRID_CHUNK rows, one per quadtree cell, so a
+ * box touches few of them. A box query scans meta in memory, counts `total`, and
  * reads only the chunks its page lands in.
  *
  * The answer is the one queryPlaces gives, byte for byte; tests/
  * test_api_worker.js compares the two. Only queries the grid can answer
  * exactly take this path (gridEligible); the rest still walk the index. */
-export const GRID_CHUNK = 256;
+export const GRID_CHUNK = 400;   // a cell holding more rows than this splits in four
+const GRID_BITS = 20;            // cell sides: 360 / 2^20 degrees, about 38 m
 
 /* The /places default order: ground truth (truth_layer.py; Nan, 2026-10-12: "rank places by ground
  * truth too"), then ant rank, then name in Thai collation, then index position (Array.prototype.sort
@@ -448,39 +449,57 @@ export function gridOrder(places) {
 
 function zkey(x, y) {
   let k = 0;
-  for (let b = 15; b >= 0; b--) k = k * 4 + (((y >> b) & 1) << 1) + ((x >> b) & 1);
+  for (let b = GRID_BITS - 1; b >= 0; b--) k = k * 4 + (((y >> b) & 1) << 1) + ((x >> b) & 1);
   return k;
 }
 
 /* index → { meta, chunks }. meta's columns run in /places order; `ch`/`at`
  * say which chunk holds the full row and where. A chunk row is the index row
- * without `q`, the match blob: a box query has no words to match. */
+ * without `q`, the match blob: a box query has no words to match.
+ *
+ * STABLE CHUNKS (2026-10-13, Nan's "do a": R2 bills each changed object). The
+ * world is cut into a fixed quadtree and a cell that holds more than
+ * GRID_CHUNK rows splits in four; each leaf is one chunk, named by its cell.
+ * Adding or removing a place changes its own leaf and no other, unless the
+ * count crosses the limit. meta.cn names the chunks and meta.cv holds each
+ * one's hash; a chunk carries its own hash and is used only when it matches. */
 export function buildGrid(index) {
   const P = index.places;
   const pinned = [...P.keys()].filter((i) => P[i].lat != null);
-  let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
-  for (const i of pinned) {
-    const x = P[i].lng ?? 0, y = P[i].lat;
-    if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y;
-  }
-  const qx = (v) => Math.max(0, Math.min(65535, Math.round(((v - x0) / ((x1 - x0) || 1)) * 65535)));
-  const qy = (v) => Math.max(0, Math.min(65535, Math.round(((v - y0) / ((y1 - y0) || 1)) * 65535)));
+  const N = 2 ** GRID_BITS - 1;
+  const qx = (v) => Math.max(0, Math.min(N, Math.floor(((v + 180) / 360) * (N + 1))));
+  const qy = (v) => Math.max(0, Math.min(N, Math.floor(((v + 90) / 180) * (N + 1))));
   const z = new Map(pinned.map((i) => [i, zkey(qx(P[i].lng ?? 0), qy(P[i].lat))]));
   const spatial = [...pinned].sort((a, b) => z.get(a) - z.get(b) || a - b);
+  const cells = [];                       // { name, rows: [place index] }
+  const cut = (lo, hi, level) => {
+    if (hi - lo <= GRID_CHUNK || level === GRID_BITS) {
+      const prefix = Math.floor(z.get(spatial[lo]) / 4 ** (GRID_BITS - level));
+      cells.push({ name: "g" + level.toString(36) + "-" + prefix.toString(36), rows: spatial.slice(lo, hi) });
+      return;
+    }
+    const unit = 4 ** (GRID_BITS - level - 1);
+    let a = lo;
+    while (a < hi) {
+      const quad = Math.floor(z.get(spatial[a]) / unit);
+      let b = a + 1;
+      while (b < hi && Math.floor(z.get(spatial[b]) / unit) === quad) b++;
+      cut(a, b, level + 1);
+      a = b;
+    }
+  };
+  if (spatial.length) cut(0, spatial.length, 0);
   const where = new Map();
-  const chunks = [];
-  spatial.forEach((i, k) => {
-    const c = Math.floor(k / GRID_CHUNK);
-    if (!chunks[c]) chunks[c] = [];
+  const chunks = cells.map((cell, c) => cell.rows.map((i, at) => {
     const { q, ...row } = P[i];
-    where.set(i, [c, chunks[c].length]);
-    chunks[c].push(row);
-  });
+    where.set(i, [c, at]);
+    return row;
+  }));
   const provs = [...new Set(pinned.map((i) => P[i].province))].sort();
   const meta = {
     generated: index.generated, base: index.base,
     attribution: index.attribution, licence: index.licence, terms: index.terms,
-    chunks: chunks.length, provs,
+    chunks: chunks.length, cn: cells.map((cell) => cell.name), provs,
     lat: [], lng: [], ant: [], prov: [], ch: [], at: [],
   };
   for (const i of gridOrder(P)) {

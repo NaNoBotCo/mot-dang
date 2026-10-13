@@ -13,9 +13,19 @@
  *
  *   docs/api/v1/edge/meta.json         fields, weights, shard count, row count
  *   docs/api/v1/edge/vocab.json        {field: [word…], field_loose: [key…]}
- *   docs/api/v1/edge/ids.json          row position -> place id
+ *   docs/api/v1/edge/ids.json          row number -> place id (null: retired)
+ *   docs/api/v1/edge/rank.json         row number -> position in index.json (-1: retired)
  *   docs/api/v1/edge/<field>/<nnn>.json   {word: [row, row…]}   exact words
  *   docs/api/v1/edge/<field>-loose/<nnn>.json                  loose keys
+ *
+ * ROW NUMBERS ARE KEPT, NOT POSITIONS (Nan, 2026-10-13, "do a": R2 bills each
+ * changed object). A place has a number for good, noted in the ledger
+ * (MD_EDGE_ROWIDS; /srv/state/edge-rowids.json on the build server, else
+ * cache/edge-rowids.json). One record added or removed used to shift every
+ * later position and rewrite all 1,024 shards; now only the shards holding
+ * that record's words change, plus ids.json and rank.json. rank.json keeps the
+ * tie order of index.json for the reader. Words inside a shard are sorted so
+ * the bytes depend on the content alone.
  *
  * Same fields and weights as build.py's pipeline (name 1.0 / shelf 0.45, the
  * province words in shelf, a held row on its name and province alone). If the
@@ -45,6 +55,31 @@ function addRow(index, e) {
   index.add(e, f);
 }
 
+/* The ledger: place id -> its row number, never reused. A place that leaves
+ * keeps its number (ids.json holds null there). Lost ledger = a fresh
+ * numbering, correct and one full rewrite. */
+const LEDGER = process.env.MD_EDGE_ROWIDS
+  || (fs.existsSync("/srv/state") ? "/srv/state/edge-rowids.json" : path.join(__dirname, "..", "cache", "edge-rowids.json"));
+
+function rowNumbers(rows) {
+  let led = { next: 0, ids: {} };
+  try { const j = JSON.parse(fs.readFileSync(LEDGER, "utf8")); if (j && j.ids && Number.isInteger(j.next)) led = j; } catch (e) { /* none yet */ }
+  const before = led.next;
+  const seen = new Map();
+  const num = rows.map(r => {
+    const n = seen.get(r.id) || 0; seen.set(r.id, n + 1);
+    const key = n ? r.id + "#" + n : String(r.id);     // a repeated id gets its own number
+    if (!(key in led.ids)) led.ids[key] = led.next++;
+    return led.ids[key];
+  });
+  if (led.next !== before) {
+    fs.mkdirSync(path.dirname(LEDGER), { recursive: true });
+    fs.writeFileSync(LEDGER + ".tmp", JSON.stringify(led));
+    fs.renameSync(LEDGER + ".tmp", LEDGER);
+  }
+  return { num, total: led.next, added: led.next - before };
+}
+
 function shardOf(word) {
   return crypto.createHash("md5").update(word).digest().readUInt16BE(0) % SHARDS;
 }
@@ -58,6 +93,7 @@ function main() {
   const index = new SC.Index(core);
   for (const e of rows) addRow(index, e);
   index.finalize();
+  const { num, total, added } = rowNumbers(rows);
   const out = path.join(DOCS, "api", "v1", "edge");
   fs.rmSync(out, { recursive: true, force: true });
   fs.mkdirSync(out, { recursive: true });
@@ -65,10 +101,11 @@ function main() {
   let files = 0, bytes = 0;
   const write = (dir, post) => {
     const buckets = new Map();
-    for (const [w, ids] of post) {
+    const words = Array.from(post).sort((a, b) => (a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0));
+    for (const [w, ids] of words) {
       const s = shardOf(w);
       if (!buckets.has(s)) buckets.set(s, {});
-      buckets.get(s)[w] = Array.from(ids).sort((a, b) => a - b);
+      buckets.get(s)[w] = Array.from(ids, i => num[i]).sort((a, b) => a - b);
     }
     fs.mkdirSync(path.join(out, dir), { recursive: true });
     for (const [s, obj] of buckets) {
@@ -80,11 +117,14 @@ function main() {
   for (const [name, post] of index.postings) { vocab[name] = Array.from(post.keys()); write(name, post); }
   for (const [name, lpost] of index.loosePostings) { vocab[name + "_loose"] = Array.from(lpost.keys()); write(name + "-loose", lpost); }
   fs.writeFileSync(path.join(out, "vocab.json"), JSON.stringify(vocab));
-  fs.writeFileSync(path.join(out, "ids.json"), JSON.stringify(rows.map(r => r.id)));
-  const meta = { generated: new Date().toISOString().slice(0, 10), rows: rows.length, shards: SHARDS,
+  const ids = new Array(total).fill(null), rank = new Array(total).fill(-1);
+  rows.forEach((r, i) => { ids[num[i]] = r.id; rank[num[i]] = i; });
+  fs.writeFileSync(path.join(out, "ids.json"), JSON.stringify(ids));
+  fs.writeFileSync(path.join(out, "rank.json"), JSON.stringify(rank));
+  const meta = { generated: new Date().toISOString().slice(0, 10), rows: rows.length, shards: SHARDS, layout: 2, rank: "rank.json",
                  fields: Array.from(index.fields.entries()), hash: "md5:be16 % " + SHARDS,
-                 files, bytes, note: "postings by row position into ids.json; built by publish/emit_edge_index.js from the shipped searchcore.js" };
+                 files, bytes, note: "postings by kept row number into ids.json; rank.json gives index.json order; built by publish/emit_edge_index.js from the shipped searchcore.js" };
   fs.writeFileSync(path.join(out, "meta.json"), JSON.stringify(meta));
-  console.log(`  edge index: ${rows.length.toLocaleString()} rows · ${files} shard files · ${(bytes / 1048576).toFixed(1)} MB · vocab ${Object.values(vocab).reduce((a, v) => a + v.length, 0).toLocaleString()} keys · ${Date.now() - t0} ms`);
+  console.log(`  edge index: ${rows.length.toLocaleString()} rows · ${files} shard files · ${(bytes / 1048576).toFixed(1)} MB · ${added.toLocaleString()} new numbers · vocab ${Object.values(vocab).reduce((a, v) => a + v.length, 0).toLocaleString()} keys · ${Date.now() - t0} ms`);
 }
 main();
