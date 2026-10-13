@@ -3,7 +3,7 @@
 # hold goes to the site Worker (service binding SITE_WORKER), so nothing that was served before 404s.
 # Fed by publish/media_sync.py from the build's media manifest; this Worker only reads.
 #
-# ROLLBACK, one command: npx wrangler delete --name motdang-media
+# ROLLBACK, one command: npx wrangler delete motdang-media --force
 # (the routes go with the Worker; the four prefixes are still in mot-dang-site, so the site Worker serves them as before)
 name = "motdang-media"
 main = "src/index.js"

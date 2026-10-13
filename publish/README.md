@@ -213,7 +213,7 @@ or the bucket listing still publishes nothing.
 
 With `MD_MEDIA_BUCKET=1` the build copies none of the four into `docs/`; `media_layer.py` writes the list to `cache/media-manifest.txt`, `publish/media_sync.py sync` uploads what the bucket lacks or holds changed (copy only), and `deploy.py` and the deletion preview leave the four prefixes alone. `importers/publish_steps.sh` sets the variable when `media_sync.py probe` can write the bucket, and publishes the old way when it cannot. The copies already in `mot-dang-site` stay.
 
-Off in one command: `cd worker-media && npx wrangler delete --name motdang-media`. This Worker goes, its routes with it, and the site Worker serves the four prefixes from `mot-dang-site` as before.
+Off in one command: `cd worker-media && npx wrangler delete motdang-media --force`. This Worker goes, its routes with it, and the site Worker serves the four prefixes from `mot-dang-site` as before.
 
 ## Still worth doing
 
