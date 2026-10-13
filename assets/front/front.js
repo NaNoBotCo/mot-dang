@@ -511,7 +511,11 @@ function arts(root, list) {
 var MLIST = [], MVIEW = null, MF = { c: null }, MDAYS = [], CALAT = null, EVS = {};
 /* the calendar's city; it follows the map's switch, and the map follows it */
 var MCITY = ((document.querySelector('#now .mapcity button[aria-pressed="true"]') || { dataset: {} }).dataset.city) || 'cm';
-var CITY_N = { cm: ['เชียงใหม่', 'Chiang Mai'], cr: ['เชียงราย', 'Chiang Rai'] };
+var CITY_N = { cm: ['เชียงใหม่', 'Chiang Mai'], cr: ['เชียงราย', 'Chiang Rai'], pth: ['ปทุมธานี', 'Pathum Thani'], pp: ['พนมเปญ', 'Phnom Penh'] };
+/* Pathum Thani and Phnom Penh (Nan, 2026-10-13: "just show me the PT view for when I'm there"): their calendar is theirs alone,
+   and its button shows only when the map's switch is on that city */
+var MAPSRC = { cm: '/sites/doodle-map/?embed=1', cr: '/sites/doodle-chiang-rai/?embed=1', pth: '/sites/doodle-pathum-thani/?embed=1', pp: '/sites/doodle-phnom-penh/?embed=1' };
+function cityAt(lat, lng) { return lat < 12.5 && lng > 102 ? 'pp' : lat < 15 && lng > 100 ? 'pth' : lat > 19.5 ? 'cr' : 'cm'; }
 var WD_TH = ['จ', 'อ', 'พ', 'พฤ', 'ศ', 'ส', 'อา'], WD_EN = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
 function evKey(e) { return e.k + '|' + e.s; }
 function evOf(el) { return el && EVS[el.dataset.k + '|' + el.dataset.s]; }
@@ -548,13 +552,16 @@ function nxPick(evs, n) { var o = nxSort(evs); return { top: o.slice(0, n), rest
 /* Monday of the week a date is in */
 function nxWeek(d) { var t = at(d + ' 12:00:00'); return ymd(t - ((bkk(t).getUTCDay() + 6) % 7) * 864e5); }
 
+/* a festival on the calendar of the city it is in: Chiang Mai's and Chiang Rai's as before, the national days
+   on every Thai calendar, nothing Thai on Phnom Penh's */
+function festHere(p) { return MCITY === 'pp' ? false : MCITY === 'pth' ? p === 'national' : p !== 'pth'; }
 /* wan phra and festivals on a date: from when.json when it has arrived, else the older soon.json and sky.json */
 function dayMarks(d) {
   var out = { wan: false, fest: [] }, W = D.when, m;
   if (W && W.items) {
     W.items.forEach(function (x) {
-      if (x.kind === 'sky' && x.d === d && x.wan) out.wan = true;
-      else if (x.kind === 'fest' && d >= x.d0 && d <= x.d1) out.fest.push(x);
+      if (x.kind === 'sky' && x.d === d && x.wan) { if (MCITY !== 'pp') out.wan = true; }
+      else if (x.kind === 'fest' && d >= x.d0 && d <= x.d1 && festHere(x.prov)) out.fest.push(x);
     });
     return out;
   }
@@ -566,12 +573,13 @@ function dayMarks(d) {
 /* Find a room (Nan, 2026-10-11: a and b): the map with motdang's hotel layer on, by the calendar's city;
    and the paid booking link for that city when ahead.json's plan.room carries one */
 function roomHref() {
-  var c = MCITY === 'cr' ? ['cr', 19.9094, 99.8325] : ['cm', GATE[0], GATE[1]];
+  var c = MCITY === 'cr' ? ['cr', 19.9094, 99.8325] : MCITY === 'pth' ? ['pth', 14.0208, 100.5250] : ['cm', GATE[0], GATE[1]];
   return LIVE + 'map.html#12.4/' + c[1].toFixed(5) + '/' + c[2].toFixed(5) + '/' + c[0] + '-hotel';
 }
 function planOf() { return (D.ahead && D.ahead.plan) || {}; }
 function roomBtns() {
   var P = planOf(), paid = P.room && P.room[MCITY];
+  if (MCITY === 'pp') return '';
   return '<a class="chip room" href="' + roomHref() + '">' + bi('หาที่พัก', 'Find a room') + '</a>' +
     (paid ? '<a class="chip room paid" href="' + esc(paid.url) + '" rel="sponsored nofollow noopener" target="_blank" title="' + esc((P.paid || {}).en || '') + '">' + bi(esc(paid.th), esc(paid.en)) + '</a>' : '');
 }
@@ -579,6 +587,7 @@ function roomBtns() {
    from plan.guide.helpers; then the Department of Tourism's licence register */
 function guideBtns() {
   var G = planOf().guide || {}, hs = (G.helpers || []).filter(function (x) { return !x.city || x.city === MCITY; });
+  if (MCITY === 'pp') return '';
   return hs.slice(0, 3).map(function (x) {
     return '<a class="chip guide" href="' + esc(x.url) + '" rel="noopener">' + bi(esc(x.th || x.en), esc(x.en)) + (x.price ? ' <i>฿' + esc(x.price) + '</i>' : '') + '</a>';
   }).join('') + (G.register ? '<a class="chip guide reg" href="' + esc(G.register) + '" rel="noopener" target="_blank">' + bi('เช็กใบอนุญาตไกด์', 'Check a guide’s licence') + '</a>' : '');
@@ -647,7 +656,7 @@ var MS_FEST = { krathong: 'yi-peng-loi-krathong', 'khom-loi': 'yi-peng-loi-krath
 function msHref(s) { return /^https?:/.test(s.href) ? s.href : LIVE + s.href; }
 function msCal(td, last) {
   var out = { today: [], day: {}, later: [] }, urls = {};
-  if (!D.sites || MF.c || MVIEW === 'kept') return out;
+  if (!D.sites || MF.c || MVIEW === 'kept' || MCITY === 'pth' || MCITY === 'pp') return out;   // the dated minisites are the north's
   (D.events ? D.events.events : []).forEach(function (e) { if (e.url) urls[e.url.replace(/^https?:\/\/[^/]+\//, '')] = 1; });
   D.sites.forEach(function (s) {
     if (!(s.on || s.now) || urls[s.href] || MS_FEST[s.id] || (s.u && s.u < td)) return;
@@ -673,7 +682,9 @@ var NXAT = 0;
 function calNext(how) {
   var E = D.events, g = $('mgrid'); if (!E || !g) return;
   how = how || {};
-  var now = Date.now(), td = MW.dayOf(now), maxN = 1, maxC = 0, all = [], cityN = { cm: 0, cr: 0 }, kinds = {}, nKept = 0, h, o = '';
+  /* the city-now tiles (sky, air, flights, roads, films) are Chiang Mai's and Chiang Rai's */
+  var cn = $('cnow'); if (cn) cn.style.display = MCITY === 'pth' || MCITY === 'pp' ? 'none' : '';
+  var now = Date.now(), td = MW.dayOf(now), maxN = 1, maxC = 0, all = [], cityN = { cm: 0, cr: 0, pth: 0, pp: 0 }, kinds = {}, nKept = 0, h, o = '';
   NXAT = now;
   E.cats.forEach(function (c) { CATMAP[c.k] = c; });
   E.events.forEach(function (e) { if (e.n > maxN) maxN = e.n; EVS[evKey(e)] = e; });
@@ -691,7 +702,7 @@ function calNext(how) {
   var tot = days.reduce(function (n, d) { return n + by[d].length; }, 0);
   /* the title, the city, the order, the filters: one state for all three bands */
   h = '<div class="mtopbar"><div class="nxtitle" role="heading" aria-level="2">' + bi('ปฏิทิน', 'Calendar') + '</div>' +
-    '<span class="mcity" role="group" aria-label="เมือง · city">' + ['cm', 'cr'].map(function (c) {
+    '<span class="mcity" role="group" aria-label="เมือง · city">' + ['cm', 'cr'].concat(MCITY === 'pth' || MCITY === 'pp' ? [MCITY] : []).map(function (c) {
       return '<button type="button" data-mcity="' + c + '" aria-pressed="' + (MCITY === c) + '">' + bi(CITY_N[c][0], CITY_N[c][1]) + '<i class="badge-count">' + (cityN[c] || 0) + '</i></button>';
     }).join('') + '</span></div>';
   h += '<div class="mbar" role="toolbar" aria-label="เลือกดู · pick"><span class="mord" role="group" aria-label="ลำดับ · order">' +
@@ -901,6 +912,7 @@ function scene(cv, k, t, seed) {
 var AH = { on: false, raf: 0, sel: null, marks: [] };
 function ahead() {
   var A = D.ahead, box = $('ahead'); if (!A || !box) return;
+  if (MCITY === 'pth' || MCITY === 'pp') { box.innerHTML = ''; AH.all = []; return; }   // the north's festivals and smoke season
   var today = ymd(Date.now()), all = A.items.filter(function (x) { return x.d1 >= today; });
   if (A.smoke && A.smoke.d1 >= today) all.push(A.smoke);
   all.sort(function (a, b) { return a.d0 < b.d0 ? -1 : 1; });
@@ -963,16 +975,17 @@ $('ahead').addEventListener('click', function (ev) {
 });
 /* the calendar's city; the map's switch is moved with it (and it with the map's) */
 function setCity(c, byHand) {
-  if (c !== 'cm' && c !== 'cr') return;
+  if (!MAPSRC[c]) return;
   MCITY = c; MVIEW = null;
   month({ anim: 'unfold' });
+  if (D.ahead) ahead();
   if (!byHand) return;
   try { sessionStorage.setItem('md-map-city', c); } catch (x) { }
   var mb = document.querySelector('#now .mapcity button[data-city="' + c + '"]'), f = mapFrame();
   if (!mb || mb.getAttribute('aria-pressed') === 'true') return;
   if (f && f.getAttribute('src')) { mb.click(); return; }
   document.querySelectorAll('#now .mapcity button').forEach(function (b) { b.setAttribute('aria-pressed', String(b === mb)); });
-  if (f) f.setAttribute('data-src', c === 'cr' ? '/sites/doodle-chiang-rai/?embed=1' : '/sites/doodle-map/?embed=1');
+  if (f) f.setAttribute('data-src', MAPSRC[c]);
 }
 (function () {
   var mc = document.querySelector('#now .mapcity'); if (!mc) return;
@@ -1133,8 +1146,8 @@ function flyTo(lat, lng, label, z) {
   var f = mapFrame(); if (!f || lat == null) { if (lat != null) location.href = LIVE + 'map.html#16/' + lat + '/' + lng; return; }
   MAPQ = { type: 'md-fly', lat: lat, lng: lng, z: z || 'street', label: label || null, pulse: true };
   /* a map not yet loaded opens at the place itself (?v=lat,lng,scale); a loaded one is flown there */
-  var cr = lat > 19.5, cb = document.querySelector('#now .mapcity button[data-city="' + (cr ? 'cr' : 'cm') + '"]');
-  var vu = '/sites/' + (cr ? 'doodle-chiang-rai' : 'doodle-map') + '/?embed=1&v=' + (+lat).toFixed(5) + ',' + (+lng).toFixed(5) + ',' + (z === 'area' ? 12000 : 34000);
+  var cc = cityAt(+lat, +lng), cb = document.querySelector('#now .mapcity button[data-city="' + cc + '"]');
+  var vu = MAPSRC[cc].replace('?embed=1', '') + '?embed=1&v=' + (+lat).toFixed(5) + ',' + (+lng).toFixed(5) + ',' + (z === 'area' ? 12000 : 34000);
   if (cb && cb.getAttribute('aria-pressed') !== 'true') { MAPREADY = false; cb.click(); f.setAttribute('data-src', vu); if (f.getAttribute('src')) f.src = vu; }
   else if (!f.getAttribute('src')) { MAPREADY = false; f.setAttribute('data-src', vu); }
   else if (FLYOK !== true) { MAPREADY = false; f.src = vu; }

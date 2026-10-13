@@ -971,8 +971,10 @@ def bake_events(docs, ix, counts):
         row = {"k": _slug(e["title"]), "t": re.sub(r"<[^>]+>", "", e["title"]).strip(), "s": s, "e": e.get("end"), "ad": bool(e.get("all_day")),
                "v": e.get("venue_name") or "", "cost": e.get("cost") or "", "url": url,
                "rec": bool(e.get("recurring")), "src": e.get("source") or "", "c": cat[0],
-               # the calendar has two cities; a venue in a neighbouring province (Lamphun's) goes with Chiang Mai
-               "city": "cr" if ((v or {}).get("province") or e.get("city")) == "cr" else "cm"}
+               # a venue in a neighbouring province (Lamphun's) goes with Chiang Mai; Pathum Thani and Phnom Penh
+               # (Nan 2026-10-13) are their own, named by the row
+               "city": e["city"] if e.get("city") in ("pth", "pp") else
+                       "cr" if ((v or {}).get("province") or e.get("city")) == "cr" else "cm"}
         if got and (got.get("kind") == "host" or got["rung"] == "venue"):
             row["lk"] = "host"              # the page of whoever runs or hosts it, not of this event
         desc = re.sub(r"\s*·?\s*booking: \S+", "", e.get("description") or "").strip(" ·")
