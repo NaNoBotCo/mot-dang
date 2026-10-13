@@ -25,7 +25,7 @@ RSYNC_IDLE=--timeout=300
 # _incoming/enrich/ and the path enrich.py reads (cache/enrich_archive.txt) stay on this Mac.
 HANDOFF_EXCLUDES=(--exclude /docs/ --exclude /docs.next/ --exclude /docs.prev/
   --exclude __pycache__/ --exclude '*.pyc' --exclude /cache/build.lock
-  --exclude /cache/walk-rest --exclude /_incoming/enrich/ --exclude /cache/enrich_archive.txt --exclude /.claude/
+  --exclude /cache/walk-rest --exclude /cache/place-inputs.json --exclude /_incoming/enrich/ --exclude /cache/enrich_archive.txt --exclude /.claude/
   --exclude .DS_Store
   # Mapillary street photos are harvested on the server, into the staging
   # folder, and held there only (her word 2026-10-11: rented storage, not the

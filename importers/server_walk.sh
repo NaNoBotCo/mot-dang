@@ -26,6 +26,8 @@ export MD_LAYER_STATE=${MD_LAYER_STATE:-$SSTATE/layers.json}   # layers.py: each
 export MD_HOLD_BACK=${MD_HOLD_BACK:-$SSTATE/held-back.txt}     # tools/holdback.py: pages held at their live version
 MISSING_CEILING=500   # 2026-10-05: an 11-hour-old source would have deleted 1,977 live files
 export MD_DEFERRED=$SSTATE/deferred.txt   # deploy.py: deletions a publish put off
+export MD_PLACE_PUBLISHED=$SSTATE/place-published.json   # publish/placeround.py: the weekly place round
+export MD_PLACE_FULL_NOW=$SSTATE/place-full-now          # touch it for a full place round next publish
 # Announced cuts that landed (publish/safety.py, 2b) stay used up across hand-offs.
 export MD_EXPECT_DONE=$SSTATE/expected-done.txt
 
@@ -158,10 +160,12 @@ from collections import Counter
 sys.path.insert(0, "publish")
 sys.path.insert(0, "tools")
 try:
-    import deploy, safety, holdback
+    import deploy, safety, holdback, placeround
     gone, added = safety.diff_preview("R2:%s" % deploy.BUCKET,
                                       deploy.rclone_env(deploy.creds()), deploy.run)
     gone = [k for k in gone if not holdback.held(k)]   # held: left as it is
+    if placeround.plan():                               # place deletions wait for the weekly round
+        gone = [k for k in gone if not placeround.covered(k)]
 except BaseException as e:
     print("bucket listing failed: %r" % (e,))
     sys.exit(2)

@@ -19135,6 +19135,7 @@ def _place_chunk(idx):
     _UNKNOWN_CATS.clear()
     images = {}
     written = {}
+    inputs = {}
     moved = 0
     for i in idx:
         r = recs[i]
@@ -19151,7 +19152,16 @@ def _place_chunk(idx):
         # URL is right, every time, and the endpoint answers without a key.
         moved += _put_page(pdir / "p" / f"{slug}.json",
                            json.dumps(place_json(r, photo_file), ensure_ascii=False), written)
-    return images, dict(_UNKNOWN_CATS), written, moved
+        # What this place's own data was, for publish/deploy.py's weekly place round
+        # (Nan, 2026-10-13): a page whose record is unchanged waits for the full round.
+        h = hashlib.sha1(json.dumps([r, photo_file], sort_keys=True, default=str,
+                                    ensure_ascii=False).encode()).hexdigest()[:16]
+        inputs[f"{key}/p/{slug}.html"] = inputs[f"{key}/p/{slug}.json"] = h
+    return images, dict(_UNKNOWN_CATS), written, moved, inputs
+
+
+PLACE_INPUTS = {}                                   # "<prov>/p/<slug>.html|json" -> record hash
+PLACE_INPUTS_FILE = ROOT / "cache" / "place-inputs.json"
 
 
 def write_place_pages(records, pdir, key, p, photos, sitemap_images):
@@ -19169,7 +19179,8 @@ def write_place_pages(records, pdir, key, p, photos, sitemap_images):
     jobs = _jobs()
 
     def take(result):
-        images, unknown, written, moved = result
+        images, unknown, written, moved, inputs = result
+        PLACE_INPUTS.update(inputs)
         sitemap_images.update(images)
         _KEPT_NOW.update(written)
         _KEPT_N[0] += moved
@@ -19195,6 +19206,10 @@ def write_place_pages(records, pdir, key, p, photos, sitemap_images):
         _UNKNOWN_CATS.clear()
         _UNKNOWN_CATS.update(prior)
         _PP.clear()
+    # Every province written so far this build; publish/deploy.py reads it.
+    tmp = PLACE_INPUTS_FILE.with_suffix(".tmp")
+    tmp.write_text(json.dumps(PLACE_INPUTS, sort_keys=True))
+    tmp.replace(PLACE_INPUTS_FILE)
 
 
 def home_next_page():

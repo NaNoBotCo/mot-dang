@@ -94,6 +94,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import safety                                    # noqa: E402  (same directory)
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
 import holdback                                  # noqa: E402  pages held back this round
+import placeround                                # noqa: E402  the weekly place round
 
 ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
@@ -749,6 +750,18 @@ def main():
         note("  holding back %d page(s) or site(s) at their live version: %s"
              % (len(hold), ", ".join(sorted(holdback.load()))))
         gone = [k for k in gone if not holdback.held(k)]
+    # The weekly place round (publish/placeround.py, Nan 2026-10-13): between
+    # full rounds, place pages go up only when their own record changed.
+    places = placeround.plan()
+    if places:
+        hold += places[0]
+        n_gone = len(gone)
+        gone = [k for k in gone if not placeround.covered(k)]
+        note("  place pages: %s with changed records go up; the rest wait for the "
+             "weekly round%s" % (f"{len(places[1]):,}",
+                                 ", as do %d deletion(s)" % (n_gone - len(gone)) if n_gone > len(gone) else ""))
+    else:
+        note("  place pages: full round — %s" % placeround.why_full())
     if young:
         note("  keeping %d live file(s) uploaded after this build's source "
              "(%s, %s): %s%s"
@@ -793,6 +806,16 @@ def main():
         if used:
             safety.mark_expected_done(used)
             note("  announced cuts done, no longer applied: %s" % ", ".join(used))
+    if places and places[1]:
+        # --files-from refuses other filters, so this copy takes the flags alone.
+        ups = Path(tempfile.mkstemp(suffix=".txt")[1])
+        atexit.register(ups.unlink, missing_ok=True)
+        ups.write_text("".join(k + "\n" for k in places[1]))
+        mirror(["rclone", "copy", str(DOCS), dest, "--files-from", str(ups), "--checksum",
+                "--transfers", "96", "--checkers", "32", "--s3-no-head", "--stats", "10s",
+                "--stats-one-line", "--stats-log-level", "NOTICE"], env)
+        note("  place pages with changed records copied")
+    placeround.record(full=places is None, uploaded=places[1] if places else ())
 
     if with_tiles:
         archives = declared_archives()
