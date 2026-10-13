@@ -1,0 +1,35 @@
+html,body.am{height:100%;overflow:hidden}
+body.am{display:flex;flex-direction:column}
+.am-top{display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--ant);color:#fff;z-index:20;flex:none}
+.am-home{color:#fff;display:grid;place-items:center;width:40px;height:40px;flex:none}
+.am-home .ic{width:28px;height:28px}
+.am-search{flex:1;display:flex;min-width:0;background:#fff;border-radius:14px;overflow:hidden}
+.am-search input{flex:1;min-width:0;border:0;padding:10px 12px;font:inherit;font-size:16px;color:#2B2118;background:#fff}
+.am-search button{border:0;background:var(--gold);color:#000;width:46px;display:grid;place-items:center}
+.am-map.pk-map{flex:1;height:auto;min-height:0}
+.am-fabs{position:fixed;right:12px;top:72px;z-index:15;display:flex;flex-direction:column;gap:10px}
+.am-fab{width:50px;height:50px;border-radius:50%;border:0;background:var(--you);color:#fff;
+  display:grid;place-items:center;box-shadow:0 3px 10px rgba(0,0,0,.3)}
+.am-fab .ic{width:26px;height:26px}
+.am-sheet{flex:none;max-height:52vh;overflow-y:auto;background:var(--cream);border-radius:20px 20px 0 0;
+  margin-top:-18px;position:relative;z-index:10;padding:10px 12px max(10px,env(safe-area-inset-bottom));
+  box-shadow:0 -4px 16px rgba(0,0,0,.18)}
+.am-quick{display:grid;grid-template-columns:1fr 1fr auto;gap:8px}
+.am-quick button,.am-quick a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:52px;
+  border:1.5px solid var(--line);background:var(--card);border-radius:16px;font-weight:700;color:inherit;
+  text-decoration:none;padding:0 12px}
+.am-p{width:26px;height:26px;border-radius:7px;background:#2B5C8A;color:#fff;display:grid;place-items:center;font-weight:900}
+.am-quick .ic{width:24px;height:24px;color:#0F6E78}
+.am .pk-mine{margin:10px 0 0}
+.am .pk-card{padding:12px}
+.am .pk-big{min-height:58px;margin:8px 0 4px}
+.am-loo{background:var(--card);border:2px solid #0F6E78;border-radius:18px;padding:12px;margin-top:10px}
+.am-loo h3{margin:0;font-size:18px}
+.am-loo .pk-dir{margin:2px 0 6px}
+.am-loo .row{display:flex;gap:8px;margin-top:8px}
+.am-loo .row button{flex:1}
+.am .pk-card.has:not(.open) .where,.am .pk-card.has:not(.open) .pk-row-btns,.am .pk-card.has:not(.open) img.shot,.am .pk-card.has:not(.open) #notebox{display:none}
+.am .pk-card.has h2{cursor:pointer}
+.am .pk-card.has h2::after{content:"⌄";margin-left:auto;font-size:20px;color:var(--soft);transition:transform .2s}
+.am .pk-card.has.open h2::after{transform:rotate(180deg)}
+.am-sheet{max-height:46vh}

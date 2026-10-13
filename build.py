@@ -19395,6 +19395,11 @@ def build():
     _parking = ROOT / "assets" / "parking"
     if _parking.is_dir():
         shutil.copytree(_parking, DOCS / "parking", dirs_exist_ok=True)
+    # /appmap (Nan 2026-10-13): what the Android app opens on — the map with your
+    # bike, parking and toilets. Reads ../parking/ and /data/toilets.json.
+    _appmap = ROOT / "assets" / "appmap"
+    if _appmap.is_dir():
+        shutil.copytree(_appmap, DOCS / "appmap", dirs_exist_ok=True)
     # ภาคสนาม · Field at /field. Built elsewhere (field) with
     # SITE_URL=https://motdang.net/field and installed into assets/field/, copied here
     # for the same reason /loop and /ghost are. Its place links point at this site's

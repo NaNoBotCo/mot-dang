@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="th" data-root="../" data-pk="../parking/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>มดแดง · Mot Dang</title>
+<meta name="description" content="แผนที่มดแดง: รถของคุณ ที่จอดรถ ห้องน้ำ · The Mot Dang map: your bike, parking, toilets.">
+<link rel="canonical" href="https://motdang.net/appmap/">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../parking/icon.svg">
+<meta name="theme-color" content="#B3261E">
+<link rel="stylesheet" href="../parking/parking.css">
+<link rel="stylesheet" href="appmap.css">
+<link rel="stylesheet" href="../vendor/maplibre-gl.css">
+<script src="../vendor/pmtiles.js" defer></script>
+<script src="../vendor/maplibre-gl.js" defer></script>
+<script src="../map.js" defer></script>
+<script src="../parking/parking.js" defer></script>
+<script src="appmap.js" defer></script>
+</head>
+<body class="am">
+<header class="am-top">
+  <a class="am-home" href="../" aria-label="มดแดง motdang.net"><svg class="ic" viewBox="0 0 24 24"><use href="../icons.svg#i-ant-solid"/></svg></a>
+  <form class="am-search" action="../find" method="get" role="search">
+    <input name="q" type="search" placeholder="ค้นหา · search" aria-label="ค้นหา · search" autocomplete="off">
+    <button type="submit" aria-label="search"><svg class="ic" viewBox="0 0 24 24"><use href="../icons.svg#i-search"/></svg></button>
+  </form>
+  <button class="pk-lang" id="lang" type="button">EN</button>
+</header>
+
+<div id="pkmap" class="mdmap pk-map am-map" data-mdmap="1" data-mdfull="1" data-lat="18.78760" data-lng="98.99310" data-zoom="16"><div class="mdmap-draw"></div></div>
+
+<div class="am-fabs">
+  <button class="am-fab am-me" id="near" type="button" aria-label="ใกล้ฉัน · near me"><svg class="ic" viewBox="0 0 24 24"><use href="../icons.svg#i-here"/></svg></button>
+</div>
+
+<section class="am-sheet">
+  <div class="am-quick">
+    <button type="button" id="qp"><span class="am-p">P</span><span data-th="จอดใกล้สุด" data-en="Nearest parking">จอดใกล้สุด</span></button>
+    <button type="button" id="qt"><svg class="ic" viewBox="0 0 24 24"><use href="../icons.svg#i-loo"/></svg><span data-th="ห้องน้ำใกล้สุด" data-en="Nearest toilet">ห้องน้ำใกล้สุด</span></button>
+    <a href="../parking/" class="am-more"><svg class="ic" viewBox="0 0 24 24"><use href="../icons.svg#i-list"/></svg><span data-th="ทั้งหมด" data-en="All">ทั้งหมด</span></a>
+  </div>
+  <section class="pk-mine" id="mine" aria-live="polite"></section>
+  <div class="am-loo" id="loo" hidden></div>
+</section>
+
+<dialog class="pk-lot" id="lot"><div id="lotbody"></div></dialog>
+
+<section class="pk-back" id="back" hidden aria-live="polite">
+  <button class="pk-x" id="backx" type="button" aria-label="close"><svg class="ic" viewBox="0 0 24 24"><use href="../icons.svg#i-x"/></svg></button>
+  <div class="pk-dist" id="bdist"></div>
+  <div class="pk-steps" id="bsteps"></div>
+  <svg class="pk-arrow" id="barrow" viewBox="-100 -100 200 200" aria-hidden="true">
+    <circle r="92" class="ring"/>
+    <g id="barrowg"><path d="M0,-78 L44,10 L14,2 L14,70 L-14,70 L-14,2 L-44,10 Z" class="arrow"/></g>
+  </svg>
+  <div class="pk-say" id="bsay"></div>
+  <div class="pk-hint" id="bhint"></div>
+  <div class="pk-look" id="blook"></div>
+  <div class="pk-back-btns">
+    <button type="button" class="pk-gold" id="bfound">เจอแล้ว</button>
+    <button type="button" id="bcompass" hidden data-th="เปิดเข็มทิศ" data-en="Use the compass">เปิดเข็มทิศ</button>
+  </div>
+</section>
+
+<input type="file" id="photo" accept="image/*" capture="environment" hidden>
+</body>
+</html>

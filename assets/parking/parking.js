@@ -9,7 +9,8 @@
 (function () {
 'use strict';
 var WORKER = 'https://mot-dang-claims.nanobotco.workers.dev/parking';
-var APK = 'motdang.apk';
+var BASE = document.documentElement.getAttribute('data-pk') || '';
+var APK = BASE + 'motdang.apk';
 var APP = (window.MotDangApp && typeof window.MotDangApp.parkState === 'function') ? window.MotDangApp : null;
 var GATE = {th: 'ประตูท่าแพ', en: 'Tha Phae Gate', lat: 18.7876, lng: 98.9931};
 var $ = function (s, r) { return (r || document).querySelector(s); };
@@ -77,7 +78,7 @@ function ensureTiles(la, ln) {
     if (!TILES.has(k) && MODEL.tiles.indexOf(k) >= 0) { TILES.add(k); want.push(k); }
   }
   return Promise.all(want.map(function (k) {
-    return fetch('t/' + k + '.json').then(function (r) { return r.json(); }).then(function (rows) {
+    return fetch(BASE + 't/' + k + '.json').then(function (r) { return r.json(); }).then(function (rows) {
       rows.forEach(function (r) { LOTS.set(r.id, r); });
     }).catch(function () { TILES.delete(k); });
   }));
@@ -268,6 +269,7 @@ function candidates() {
 function render() {
   if (!MODEL || !from) return;
   var all = candidates(), list = $('#list');
+  if (!list) { drawMap(all.slice(0, 300)); return; }
   $('#from').textContent = (fromIsMe ? L('ใกล้คุณ', 'Near you') : L('ใกล้', 'Near ') + (from.name || L('จุดกลางแผนที่', 'the map centre'))) +
     ' · ' + all.length + L(' ที่', ' places');
   list.innerHTML = all.slice(0, SHOW).map(function (x) {
@@ -598,6 +600,7 @@ function wireAuto() {
   if (sk) sk.onclick = function () { store('md-park-setup-' + sk.getAttribute('data-step'), 1); paintMine(); };
 }
 function paintHist() {
+  if (!$('#hist')) return;
   var h = history().filter(function (x) { return x && x.lat != null; }).slice(0, 12);
   $('#hist').hidden = !h.length;
   $('#histlist').innerHTML = h.map(function (x, i) {
@@ -632,16 +635,18 @@ $('#photo').addEventListener('change', function (e) {
    words "turn left" rather than a map. With a trail from the app, it leads
    back the way you came instead of in a straight line through buildings. */
 var B = {on: false, watch: null, heading: null, headT: 0, course: null, prev: null, ptr: -1, lastBuzz: 0, lock: null, best: Infinity, mark: null};
-function openBack() {
-  var p = getPark();
+function openBack(dest) {
+  var p = dest || getPark();
   if (!p || B.on) return;
+  B.bike = !dest;
   B.on = true; B.p = p; B.best = Infinity; B.ptr = -1; B.mark = null;
-  var trail = (p.trail || []).filter(function (x) { return x && x.length >= 2; });
+  $('#bfound').textContent = B.bike ? L('เจอแล้ว', 'Found it') : L('ถึงแล้ว', "I'm here");
+  var trail = B.bike ? (p.trail || []).filter(function (x) { return x && x.length >= 2; }) : [];
   B.trail = trail;
   $('#back').hidden = false; $('#back').classList.remove('arrived');
   $('#bsay').textContent = L('กำลังหาตำแหน่ง…', 'Finding where you are…');
   $('#bdist').textContent = ''; $('#bsteps').textContent = ''; $('#bhint').textContent = '';
-  $('#blook').innerHTML = lookHtml(p);
+  $('#blook').innerHTML = B.bike ? lookHtml(p) : esc(p.label || '');
   try { navigator.wakeLock && navigator.wakeLock.request('screen').then(function (l) { B.lock = l; }); } catch (e) {}
   if (window.DeviceOrientationEvent && typeof DeviceOrientationEvent.requestPermission === 'function') $('#bcompass').hidden = false;
   window.addEventListener('deviceorientationabsolute', onOrient, true);
@@ -649,7 +654,7 @@ function openBack() {
   if (navigator.geolocation) B.watch = navigator.geolocation.watchPosition(onBackFix, function () {
     $('#bsay').textContent = L('เปิดตำแหน่งก่อน', 'Turn on location first');
   }, {enableHighAccuracy: true, maximumAge: 1000, timeout: 20000});
-  if (location.hash !== '#back') history_replace('#back');
+  if (B.bike && location.hash !== '#back') history_replace('#back');
 }
 function closeBack() {
   B.on = false;
@@ -711,8 +716,8 @@ function paintBack() {
     if (!$('#back').classList.contains('arrived')) buzz([80, 60, 80, 60, 220]);
     $('#back').classList.add('arrived');
     arrow.classList.add('near'); g.setAttribute('transform', 'rotate(0)');
-    $('#bsay').textContent = L('ถึงแล้ว! รถอยู่แถวนี้', "You're there. It's right around here.");
-    $('#bhint').textContent = p.level ? L('ชั้น ' + p.level, 'Level ' + p.level) : L('มองรอบ ๆ ตัว', 'Look around you.');
+    $('#bsay').textContent = B.bike ? L('ถึงแล้ว! รถอยู่แถวนี้', "You're there. It's right around here.") : L('ถึงแล้ว', "You're there.");
+    $('#bhint').textContent = B.bike && p.level ? L('ชั้น ' + p.level, 'Level ' + p.level) : L('มองรอบ ๆ ตัว', 'Look around you.');
     return;
   }
   $('#back').classList.remove('arrived'); arrow.classList.remove('near');
@@ -745,7 +750,7 @@ function paintBack() {
   $('#bhint').textContent = hint.join(' · ');
 }
 $('#backx').onclick = closeBack;
-$('#bfound').onclick = function () { closeBack(); clearPark(); };
+$('#bfound').onclick = function () { var bike = B.bike; closeBack(); if (bike) clearPark(); };
 $('#bcompass').onclick = function () {
   DeviceOrientationEvent.requestPermission().then(function () { $('#bcompass').hidden = true; }).catch(function () {});
 };
@@ -764,6 +769,7 @@ function setLang(l) {
   paintKerb(); paintMine(); paintHist(); render();
 }
 function paintKerb() {
+  if (!$('#kerblist')) return;
   var col = {'red-white': ['#C62828', '#fff'], 'yellow-white': ['#F2C230', '#fff'], 'odd-even': ['#2B5C8A', '#fff'], 'clamp': ['#333', '#F2C230']};
   $('#kerblist').innerHTML = (MODEL ? MODEL.kerb : []).map(function (k) {
     var c = col[k.key] || ['#999', '#fff'];
@@ -787,8 +793,8 @@ $('#lang').onclick = function () { setLang(LANG === 'th' ? 'en' : 'th'); };
     SHOW = 25; render();
   };
 });
-$('#more').onclick = function () { SHOW += 25; render(); };
-$('#list').addEventListener('click', function (e) {
+if ($('#more')) $('#more').onclick = function () { SHOW += 25; render(); };
+if ($('#list')) $('#list').addEventListener('click', function (e) {
   var li = e.target.closest('li[data-id]'); if (!li) return;
   var lot = LOTS.get(li.getAttribute('data-id')); if (!lot) return;
   centreMap(lot.la, lot.ln); openLot(lot.id);
@@ -804,7 +810,7 @@ function locate(first) {
     ensureTiles(here.lat, here.lng).then(function () { render(); paintMine(); placeMarkers(); });
   }, function () {}, {enableHighAccuracy: true, maximumAge: 30000, timeout: 15000});
 }
-$('#near').onclick = function () { locate(); };
+if ($('#near')) $('#near').onclick = function () { locate(); };
 
 function hashGo() {
   var h = location.hash;
@@ -812,10 +818,24 @@ function hashGo() {
   else if (h === '#photo' && getPark()) { document.getElementById('mine').scrollIntoView(); var b = $('#mphoto'); if (b) b.classList.add('pk-gold'); }
   else if (h === '#mine') document.getElementById('mine').scrollIntoView();
 }
+window.MDPark = {
+  walkTo: function (la, ln, label) { openBack({lat: la, lng: ln, label: label}); },
+  openLot: function (id) { openLot(id); },
+  nearest: function (la, ln) {
+    var best = null;
+    LOTS.forEach(function (o) { var A = answers(o); if (!fits(o, A)) return;
+      var d = metres(la, ln, o.la, o.ln); if (!best || d < best.d) best = {d: d, lot: o}; });
+    return best;
+  },
+  here: function () { return here; },
+  park: function () { return getPark(); },
+  L: L, fmtD: fmtD, dir8: dir8, metres: metres, bearing: bearing, esc: esc, icon: icon,
+  ensureTiles: function (la, ln) { return ensureTiles(la, ln); }
+};
 window.addEventListener('hashchange', hashGo);
 document.addEventListener('visibilitychange', function () { if (!document.hidden) { paintMine(); placeMarkers(); fetchNow().then(render); } });
 
-fetch('model.json').then(function (r) { return r.json(); }).then(function (m) {
+fetch(BASE + 'model.json').then(function (r) { return r.json(); }).then(function (m) {
   MODEL = m;
   m.classes.forEach(function (c) { CLS[c.key] = c; });
   var p = getPark(), start = p ? {lat: p.lat, lng: p.lng} : {lat: GATE.lat, lng: GATE.lng, name: L(GATE.th, GATE.en)};
