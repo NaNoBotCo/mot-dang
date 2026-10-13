@@ -5,33 +5,58 @@
   {
    "id": "mug",
    "th": "แก้วมัค",
-   "en": "Mug"
+   "en": "Mug",
+   "price": {
+    "thb": 390,
+    "usd": 11
+   }
   },
   {
    "id": "tee",
    "th": "เสื้อยืด",
-   "en": "T-shirt"
+   "en": "T-shirt",
+   "price": {
+    "thb": 790,
+    "usd": 22
+   }
   },
   {
    "id": "tote",
    "th": "กระเป๋าผ้า",
-   "en": "Tote"
+   "en": "Tote",
+   "price": {
+    "thb": 490,
+    "usd": 14
+   }
   },
   {
    "id": "poster",
    "th": "โปสเตอร์",
-   "en": "Poster"
+   "en": "Poster",
+   "price": {
+    "thb": 590,
+    "usd": 17
+   }
   },
   {
    "id": "flip",
    "th": "สมุดพลิก",
-   "en": "Flip book"
+   "en": "Flip book",
+   "price": {
+    "thb": 350,
+    "usd": 10
+   }
   },
   {
    "id": "book",
    "th": "หนังสือภาพ",
-   "en": "Picture book"
+   "en": "Picture book",
+   "price": {
+    "thb": 2500,
+    "usd": 70
+   }
   }
  ],
- "links": {}
+ "links": {},
+ "priced": "2026-10-13: mid-high, level of Good Goods (Thai local-wisdom brand, Central Group; Jing Jai Market, Chiang Mai). thb and usd per product; a chip shows only where links sets a url."
 }
