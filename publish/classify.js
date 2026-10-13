@@ -43,6 +43,9 @@ const SIGNATURES = [
   ['ai', 'ChatGPT-User', /ChatGPT-User/i],
   ['ai', 'OAI-SearchBot', /OAI-SearchBot/i],
   ['ai', 'PerplexityBot', /PerplexityBot/i],
+  // Exa: a search engine whose readers are AI programs; it answers their
+  // questions from what this bot reads (first seen here 6 Oct 2026).
+  ['ai', 'ExaSearchBot', /\bExa(Search)?Bot\b/i],
   ['ai', 'Perplexity-User', /Perplexity-User/i],
   ['ai', 'Google-Extended', /Google-Extended/i],
   ['ai', 'Applebot-Extended', /Applebot-Extended/i],

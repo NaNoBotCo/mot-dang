@@ -11,6 +11,8 @@ const CASES = [
   ['Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.2; +https://openai.com/gptbot)', 'ai', 'GPTBot'],
   ['Mozilla/5.0 (compatible; OAI-SearchBot/1.0; +https://openai.com/searchbot)', 'ai', 'OAI-SearchBot'],
   ['Mozilla/5.0 (Macintosh) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119 Safari/537.36 PerplexityBot/1.0', 'ai', 'PerplexityBot'],
+  ['Mozilla/5.0 (compatible; ExaSearchBot/1.0; +https://exa.ai)', 'ai', 'ExaSearchBot'],
+  ['ExaBot/1.0', 'ai', 'ExaSearchBot'],
   ['Mozilla/5.0 (compatible; Google-Extended/1.0)', 'ai', 'Google-Extended'],
   ['Mozilla/5.0 (compatible; CCBot/2.0; +https://commoncrawl.org/faq/)', 'ai', 'CCBot'],
   ['Mozilla/5.0 (Linux; Android 8.0) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/81 Mobile Safari/537.36 (compatible; Bytespider; spider-feedback@bytedance.com)', 'ai', 'Bytespider'],

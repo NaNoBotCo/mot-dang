@@ -23487,6 +23487,8 @@ def build():
         # Claude Code is exactly the hospitality this list is for.
         "ClaudeBot", "Claude-User", "Claude-SearchBot", "claude-code",
         "PerplexityBot", "Perplexity-User",
+        # Exa, the search engine AI programs query (ExaBot is its older name).
+        "ExaSearchBot", "ExaBot",
         "Google-Extended", "Applebot-Extended", "Meta-ExternalAgent",
         "Amazonbot", "CCBot", "Bytespider",
     ]
@@ -23563,9 +23565,33 @@ def build():
     LASTMOD_DB = ROOT / "cache" / "sitemap-lastmod.json"
     _be_today = f"{BE_BUILD}{BUILD_DATE[4:]}"
 
+    # 2026-10-13: hashing the whole file still moved 96,650 of 97,387 dates
+    # on the server's build that day. The template changes most days — a
+    # language button, a script, the order of a nearby list (data-rank) — and
+    # every page carries the template. So the fingerprint is what a reader
+    # reads: the visible text and pictures of <main>, the JSON-LD and the
+    # description. Header, footer, nav, scripts, styles and attributes are
+    # left out. A change of template no longer dates every page, and a
+    # change of words, hours, photo or place data still does. The "t:" prefix marks the method, so the first build
+    # with it dates every page once, as losing the table would.
+    _FP_LD = re.compile(r'<script[^>]*application/ld\+json[^>]*>(.*?)</script>', re.S | re.I)
+    _FP_MAIN = re.compile(r'<main\b.*?</main\s*>', re.S | re.I)
+    _FP_DROP = re.compile(r'<(script|style|template|nav|header|footer)\b.*?</\1\s*>', re.S | re.I)
+    _FP_DESC = re.compile(r'<meta\s+(?:name|property)="(?:description|og:image)"\s+content="([^"]*)"', re.I)
+    _FP_IMG = re.compile(r'<img\b[^>]*?\ssrc="([^"]*)"', re.I)
+    _FP_TAG = re.compile(r'<[^>]+>')
+
     def _fingerprint(text):
         text = text.replace(BUILD_DATE, "<d>").replace(_be_today, "<d>")
-        return hashlib.blake2b(text.encode("utf-8"), digest_size=16).hexdigest()
+        m = _FP_MAIN.search(text)
+        body = m.group(0) if m else text
+        read = "\x00".join([
+            "\x01".join(_FP_LD.findall(text)),
+            "\x01".join(_FP_DESC.findall(text)),
+            "\x01".join(_FP_IMG.findall(body)),
+            " ".join(_FP_TAG.sub(" ", _FP_DROP.sub(" ", body)).split()),
+        ])
+        return "t:" + hashlib.blake2b(read.encode("utf-8"), digest_size=16).hexdigest()
 
     try:
         _lm_was = json.loads(LASTMOD_DB.read_text(encoding="utf-8"))
