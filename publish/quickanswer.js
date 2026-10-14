@@ -101,7 +101,7 @@ const CALC_WORDS = /^(calculator|calc|เครื่องคิดเลข|�
 const CALC_LEAD = /^(what is|whats|what's|calculate|calc|compute|คำนวณ|คิด)\s*/;
 const CALC_TAIL = /\s*(=|เท่ากับ|เท่าไหร่|เท่าไร|ได้เท่าไหร่|\?)+\s*$/;
 export function calcMatch(q) {
-  let s = String(q || "").toLowerCase().normalize("NFKC").trim();
+  let s = String(q || "").toLowerCase().normalize("NFC").trim();
   if (CALC_WORDS.test(s)) return { kind: "calc", expr: "", value: null };
   const led = CALC_LEAD.test(s) || CALC_TAIL.test(s);
   s = s.replace(CALC_LEAD, "").replace(CALC_TAIL, "").trim();
@@ -270,7 +270,7 @@ const isLetter = (ch) => !!ch && /[\p{L}\p{M}]/u.test(ch) && !/[฀-๿]/.test(c
 /* The line as numbers, currencies, units and glue — or null at the first
  * word that is none of them. */
 export function scan(q) {
-  let s = String(q || "").toLowerCase().normalize("NFKC")
+  let s = String(q || "").toLowerCase().normalize("NFC")
     .replace(/[๐-๙]/g, (d) => String(d.charCodeAt(0) - 0x0e50))
     .replace(/(\d),(?=\d{3}(?!\d))/g, "$1").replace(/[?!¿]/g, " ")
     .replace(/(\d)\s*k\b/g, "$1000").replace(/\s+/g, " ").trim();
@@ -298,7 +298,7 @@ export function scan(q) {
 }
 
 export function convMatch(q) {
-  const raw = String(q || "").toLowerCase().normalize("NFKC").replace(/\s+/g, " ").trim();
+  const raw = String(q || "").toLowerCase().normalize("NFC").replace(/\s+/g, " ").trim();
   if (CONVERTER_ONLY.some((r) => r.test(raw))) return { kind: "fx", amt: 1, from: "USD", to: "THB", bare: true };
   if (UNIT_ONLY.some((r) => r.test(raw))) return { kind: "unit", dim: "length", amt: 1, from: "km", to: "mi", bare: true };
   const pair = /^([a-z]{3})([a-z]{3})$/.exec(raw);
@@ -338,9 +338,136 @@ export function convMatch(q) {
   return null;
 }
 
-/* One reading of the line: a sum first (25000*33.54), then a conversion. */
+/* ---------- translator ------------------------------------------------- */
+
+/* Nan, 2026-10-14: "add a translator too." Any line that asks to translate
+ * (translate toilet to thai · ห้องน้ำ ภาษาอังกฤษ · ไก่ แปลว่า · how do you say
+ * thank you in burmese) opens the box with the words already in it. */
+export const LANGS = [
+  ["th", "ไทย", "Thai", ["thai", "ไทย"]],
+  ["en", "อังกฤษ", "English", ["english", "eng", "อังกฤษ"]],
+  ["my", "พม่า", "Burmese", ["burmese", "myanmar", "พม่า", "เมียนมา", "မြန်မာ"]],
+  ["lo", "ลาว", "Lao", ["lao", "laotian", "ลาว"]],
+  ["km", "เขมร", "Khmer", ["khmer", "cambodian", "เขมร", "กัมพูชา"]],
+  ["vi", "เวียดนาม", "Vietnamese", ["vietnamese", "เวียดนาม"]],
+  ["zh", "จีน", "Chinese", ["chinese", "mandarin", "จีน", "中文"]],
+  ["ja", "ญี่ปุ่น", "Japanese", ["japanese", "ญี่ปุ่น", "日本語"]],
+  ["ko", "เกาหลี", "Korean", ["korean", "เกาหลี", "한국어"]],
+  ["hi", "ฮินดี", "Hindi", ["hindi", "ฮินดี"]],
+  ["ms", "มลายู", "Malay", ["malay", "มลายู", "มาเลย์"]],
+  ["id", "อินโดนีเซีย", "Indonesian", ["indonesian", "อินโดนีเซีย"]],
+  ["tl", "ฟิลิปิโน", "Filipino", ["filipino", "tagalog", "ฟิลิปิโน", "ตากาล็อก"]],
+  ["ru", "รัสเซีย", "Russian", ["russian", "รัสเซีย", "русский"]],
+  ["fr", "ฝรั่งเศส", "French", ["french", "ฝรั่งเศส"]],
+  ["de", "เยอรมัน", "German", ["german", "เยอรมัน"]],
+  ["es", "สเปน", "Spanish", ["spanish", "สเปน"]],
+  ["it", "อิตาลี", "Italian", ["italian", "อิตาลี"]],
+  ["pt", "โปรตุเกส", "Portuguese", ["portuguese", "โปรตุเกส"]],
+  ["nl", "ดัตช์", "Dutch", ["dutch", "ดัตช์"]],
+  ["he", "ฮีบรู", "Hebrew", ["hebrew", "ฮีบรู", "עברית"]],
+  ["ar", "อาหรับ", "Arabic", ["arabic", "อาหรับ"]],
+];
+const LANG_BY = Object.fromEntries(LANGS.map((l) => [l[0], l]));
+const langOf = (w) => {
+  w = String(w || "").trim().replace(/^ภาษา/, "");
+  const l = LANGS.find((x) => x[3].includes(w));
+  return l ? l[0] : "";
+};
+const LANG_RE = LANGS.flatMap((l) => l[3]).sort((a, b) => b.length - a.length)
+  .map((a) => a.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|");
+const THAI = /[฀-๿]/, LATIN_ONLY = /^[\x00-\x7f]+$/;
+/* "ภาษาจีน" after these is a course or a school, not a question */
+const LEARN = /(เรียน|สอน|โรงเรียน|คอร์ส|ครู|ติว|สถาบัน|หลักสูตร|ล่าม|รับแปล)\s*$/;
+const TR_BARE = /^(translate|translator|translation|google translate|แปล|แปลภาษา|โปรแกรมแปลภาษา|ตัวแปลภาษา|เครื่องแปลภาษา)$/;
+const TR_PATTERNS = [
+  [new RegExp(`^(?:translate|แปล)\\s*(.+?)\\s*(?:(?:to|into|in)\\s+|เป็น\\s*(?:ภาษา)?|ภาษา)(${LANG_RE})$`), 1, 2],
+  [new RegExp(`^how (?:do you|do i|to|would you|would i|can i) say\\s+(.+?)\\s+in\\s+(${LANG_RE})\\??$`), 1, 2],
+  [new RegExp(`^what(?:'s| is) (.+?) in (${LANG_RE})\\??$`), 1, 2],
+  [new RegExp(`^what does (.+?) mean(?: in (${LANG_RE}))?\\??$`), 1, 2, "en"],
+  [/^(?:translate|แปล)\s*(?:ว่า\s*)?(.+)$/, 1, 0],
+  [/^(?:meaning of|define)\s+(.+)$/, 1, 0, "en"],
+  [/^(.+?)\s*(?:แปลว่า(?:อะไร)?|หมายถึง(?:อะไร)?|meaning)\??$/, 1, 0],
+  [new RegExp(`^(.+?)\\s*ภาษา(${LANG_RE})\\s*(?:ว่าอะไร|เรียกว่าอะไร|ว่า|พูดว่าอะไร|พูดยังไง|คือ)?$`), 1, 2],
+  [new RegExp(`^(.+?) in (${LANG_RE})$`), 1, 2],
+];
+export function trMatch(q) {
+  /* NFC, not NFKC: NFKC takes ำ apart (ห้องน้ำ → ห้องน้ํา) */
+  const s = String(q || "").toLowerCase().normalize("NFC").replace(/\s+/g, " ").trim();
+  if (!s) return null;
+  if (TR_BARE.test(s)) return { kind: "tr", text: "", from: "auto", to: "" };
+  for (const [re, ti, li, dflt] of TR_PATTERNS) {
+    const m = re.exec(s);
+    if (!m) continue;
+    /* the words as typed, not lower-cased */
+    const raw = String(q).normalize("NFC").replace(/\s+/g, " ").trim();
+    const at = s.indexOf(m[ti]);
+    let text = raw.slice(at, at + m[ti].length).replace(/^["“'‘]|["”'’]$/g, "").trim();
+    const to = li ? langOf(m[li]) : "";
+    if (!text || text.length > 300 || LEARN.test(text)) return null;
+    if (li && langOf(text)) return null;                          // "english to thai"
+    /* "what does X mean" and "X meaning" in plain English are a dictionary
+     * question about English; the box answers only across languages */
+    if (!li && !dflt && LATIN_ONLY.test(text) && !/^(?:translate|แปล)/.test(s) && !THAI.test(s)) return null;
+    const goal = to || dflt || (THAI.test(text) ? "en" : "th");
+    /* "menu in english", "massage in english": a search for places, not a sentence to turn */
+    if (goal === "en" && LATIN_ONLY.test(text) && !dflt) return null;
+    return { kind: "tr", text, from: "auto", to: goal };
+  }
+  return null;
+}
+
+export const TR_MODEL = "@cf/deepseek-ai/deepseek-v4-flash-0731";
+const TR_SYS = "You are a translator for a Chiang Mai directory. Translate the user's text into the target language named on the first line. "
+  + "Reply with JSON only: {\"from\":\"<ISO 639-1 code of the source language>\",\"t\":\"<translation>\",\"r\":\"<if the target is Thai: how the Thai sounds in Latin letters, RTGS with no tone marks; else empty>\"}. "
+  + "Keep names, numbers and prices. No notes.";
+/* One translation, kept at the edge for a month: the same words in the same
+ * direction are asked once. */
+export async function translate(env, text, to, from = "auto") {
+  text = String(text || "").normalize("NFC").trim().slice(0, 1000);
+  if (!text || !LANG_BY[to] || (from !== "auto" && !LANG_BY[from])) return null;
+  const key = new Request(`https://motdang.net/api/translate?from=${from}&to=${to}&text=${encodeURIComponent(text)}`);
+  let cache = null;
+  try { cache = caches.default; const hit = await cache.match(key); if (hit) return await hit.json(); } catch { /* no cache here */ }
+  if (!env || !env.AI) return null;
+  const head = `Target: ${LANG_BY[to][2]}` + (from !== "auto" ? ` (source: ${LANG_BY[from][2]})` : "");
+  const out = await env.AI.run(TR_MODEL, { messages: [{ role: "system", content: TR_SYS },
+    { role: "user", content: head + "\n" + text }], max_tokens: 800 });
+  let said = out && (out.response !== undefined ? out.response : out.choices && out.choices[0] && out.choices[0].message && out.choices[0].message.content);
+  let j = null;
+  if (said && typeof said === "object") j = said;
+  else {
+    said = String(said || "").replace(/<think>[\s\S]*?<\/think>/g, "");
+    const m = /\{[\s\S]*\}/.exec(said);
+    try { j = m ? JSON.parse(m[0]) : null; } catch { j = null; }
+    if (!j && said.trim()) j = { t: said.trim() };
+  }
+  if (!j || !j.t) return null;
+  const res = { text, from: LANG_BY[j.from] ? j.from : from === "auto" ? "" : from, to, t: String(j.t).trim(),
+    r: to === "th" && j.r ? String(j.r).trim() : "" };
+  if (cache) {
+    try { await cache.put(key, new Response(JSON.stringify(res), { headers: { "content-type": "application/json", "cache-control": "public, max-age=2592000" } })); } catch { /* next asker */ }
+  }
+  return res;
+}
+
+/* GET /api/translate?text=…&to=th[&from=en] — what the box calls as the reader types. */
+export async function translateApi(url, env) {
+  const sp = url.searchParams, to = sp.get("to") || "", from = sp.get("from") || "auto";
+  const text = (sp.get("text") || "").slice(0, 1000);
+  const H = { "content-type": "application/json; charset=utf-8", "access-control-allow-origin": "*" };
+  if (!text.trim() || !LANG_BY[to] || (from !== "auto" && !LANG_BY[from])) {
+    return new Response(JSON.stringify({ error: "text and to= (" + LANGS.map((l) => l[0]).join(", ") + ") are needed" }), { status: 400, headers: H });
+  }
+  let r = null;
+  try { r = await translate(env, text, to, from); } catch { r = null; }
+  if (!r) return new Response(JSON.stringify({ error: "no translation" }), { status: 502, headers: { ...H, "cache-control": "no-store" } });
+  return new Response(JSON.stringify(r), { headers: { ...H, "cache-control": "public, max-age=86400" } });
+}
+
+/* One reading of the line: a sum first (25000*33.54), then a conversion,
+ * then a translation. */
 export function quickMatch(q) {
-  return calcMatch(q) || convMatch(q);
+  return calcMatch(q) || convMatch(q) || trMatch(q);
 }
 
 /* ---------- data -------------------------------------------------------- */
@@ -376,7 +503,16 @@ export async function fxHistory(from, to, now = Date.now()) {
   return got ? got.pts : null;
 }
 
-export async function quickData(m) {
+export async function quickData(m, env, ctx, wait = 2500) {
+  if (m && m.kind === "tr") {
+    if (!m.text) return null;
+    /* the page waits a little for the words; past that the box asks for them itself */
+    const p = translate(env, m.text, m.to, m.from).catch(() => null);
+    const late = new Promise((r) => setTimeout(() => r("late"), wait));
+    const got = await Promise.race([p, late]);
+    if (got === "late") { try { ctx && ctx.waitUntil(p); } catch { /* */ } return { late: true }; }
+    return got ? { tr: got } : { late: true };
+  }
   if (!m || m.kind !== "fx") return null;
   const [fx, hist] = await Promise.all([fxRates(), fxHistory(m.from, m.to)]);
   return fx ? { ...fx, hist } : null;
@@ -439,7 +575,9 @@ function opts(list, sel) {
 }
 
 /* The page's script: one function per kind, reading the box's own data. */
-const QA_JS = `(function(){function run(){var b=document.querySelector(".qa");if(!b)return;var D=JSON.parse(b.dataset.qa),r=document.documentElement,
+/* __name: wrangler's bundler wraps named inner functions in __name(fn, "x") to
+ * keep their names, and mdCalc / mdSpark reach the page through toString. */
+const QA_JS = `(function(){var __name=function(f){return f};function run(){var b=document.querySelector(".qa");if(!b)return;var D=JSON.parse(b.dataset.qa),r=document.documentElement,
 L=r.classList.contains("lang-th")?"th":r.classList.contains("lang-en")?"en":"";function nm(o){return L=="th"?o.th:L=="en"?o.en:o.th+" · "+o.en}
 function f(v,m){if(!isFinite(v))return"—";var a=Math.abs(v);if(m){var d=a>=1||a===0?2:Math.min(8,1-Math.floor(Math.log10(a))+2);return v.toLocaleString("en-US",{minimumFractionDigits:a>=1||a===0?2:0,maximumFractionDigits:d})}
 if(a!==0&&(a>=1e15||a<1e-6))return v.toPrecision(10).replace(/\\.?0+e/,"e");return Number(v.toPrecision(12)).toLocaleString("en-US",{maximumFractionDigits:10})}
@@ -466,8 +604,53 @@ b.querySelector(".qa-swap").addEventListener("click",function(e){e.preventDefaul
 /* after the page's language script, so the headline speaks the reader's language */
 if(document.readyState=="loading")document.addEventListener("DOMContentLoaded",run);else run()})()`;
 
+const TR_JS = `(function(){function run(){var b=document.querySelector(".qa-tr");if(!b)return;var D=JSON.parse(b.dataset.qa),r=document.documentElement,
+L=r.classList.contains("lang-th")?"th":r.classList.contains("lang-en")?"en":"";
+var I=b.querySelector(".tr-in"),O=b.querySelector(".tr-out"),R=b.querySelector(".tr-r"),F=b.querySelector(".tr-from"),T=b.querySelector(".tr-to"),G=b.querySelector(".tr-got"),tk=0,tm=0,last=D.tr||null;
+var VO={th:"th-TH",en:"en-US",my:"my-MM",lo:"lo-LA",km:"km-KH",vi:"vi-VN",zh:"zh-CN",ja:"ja-JP",ko:"ko-KR",hi:"hi-IN",ms:"ms-MY",id:"id-ID",tl:"fil-PH",ru:"ru-RU",fr:"fr-FR",de:"de-DE",es:"es-ES",it:"it-IT",pt:"pt-PT",nl:"nl-NL",he:"he-IL",ar:"ar-SA"};
+function nm(k){var l=D.langs[k];return!l?"":L=="th"?l[0]:L=="en"?l[1]:l[0]+" · "+l[1]}
+function got(j){last=j;O.textContent=j?j.t:"";R.textContent=j&&j.r?j.r:"";R.hidden=!(j&&j.r);G.textContent=j&&j.from&&F.value=="auto"?(L=="th"?"ตรวจพบ ":L=="en"?"detected ":"ตรวจพบ · detected ")+nm(j.from):"";b.classList.remove("busy")}
+function go(){var t=I.value.trim(),me=++tk;if(!t){got(null);return}b.classList.add("busy");
+fetch("/api/translate?to="+T.value+"&from="+F.value+"&text="+encodeURIComponent(t)).then(function(x){return x.json()}).then(function(j){if(me==tk)got(j.t?j:null)}).catch(function(){if(me==tk)got(null)})}
+function soon(){clearTimeout(tm);tm=setTimeout(go,700)}
+I.addEventListener("input",soon);F.addEventListener("change",go);T.addEventListener("change",go);
+I.addEventListener("keydown",function(e){if(e.key=="Enter"&&!e.shiftKey){e.preventDefault();clearTimeout(tm);go()}});
+b.querySelector(".tr-swap").addEventListener("click",function(e){e.preventDefault();var f=F.value=="auto"?(last&&last.from)||"":F.value;if(!f||f==T.value)return;
+F.value=T.value;T.value=f;if(last&&last.t)I.value=last.t;go()});
+function say(t,k){if(!window.speechSynthesis||!t)return;var u=new SpeechSynthesisUtterance(t);u.lang=VO[k]||k;speechSynthesis.cancel();speechSynthesis.speak(u)}
+b.querySelectorAll(".tr-say").forEach(function(x){if(!window.speechSynthesis){x.hidden=true;return}x.addEventListener("click",function(e){e.preventDefault();
+if(x.dataset.s=="in")say(I.value,F.value=="auto"?(last&&last.from)||"":F.value);else say(O.textContent,T.value)})});
+var cp=b.querySelector(".tr-copy");cp.addEventListener("click",function(e){e.preventDefault();try{navigator.clipboard.writeText(O.textContent);cp.classList.add("did");setTimeout(function(){cp.classList.remove("did")},900)}catch(x){}});
+if(!I.value){T.value=L=="th"?"en":"th";I.focus()}else if(!D.tr)go();else got(D.tr)}
+if(document.readyState=="loading")document.addEventListener("DOMContentLoaded",run);else run()})()`;
+
+function trHtml(m, data) {
+  const tr = data && data.tr;
+  const langs = Object.fromEntries(LANGS.map((l) => [l[0], [l[1], l[2]]]));
+  const lo = (sel, auto) => (auto ? `<option value="auto"${sel === "auto" ? " selected" : ""}>ตรวจหาภาษา · detect</option>` : "")
+    + LANGS.map((l) => `<option value="${l[0]}"${l[0] === sel ? " selected" : ""}>${esc(l[1])} · ${esc(l[2])}</option>`).join("");
+  const from = tr && tr.from && LANG_BY[tr.from] ? LANG_BY[tr.from] : null;
+  return `<section class="qa qa-tr" aria-label="แปลภาษา · Translate" data-qa='${esc(JSON.stringify({ kind: "tr", langs, tr: tr || null }))}'>`
+    + `<h2>แปลภาษา · Translate</h2>`
+    + `<div class="tr-io"><div class="tr-p"><div class="tr-bar"><select class="tr-from" aria-label="จาก · from">${lo(m.from, true)}</select>`
+    + `<button type="button" class="tr-say" data-s="in" aria-label="ฟัง · listen">${SAY_SVG}</button></div>`
+    + `<textarea class="tr-in" rows="3" maxlength="1000" aria-label="ข้อความ · text">${esc(m.text)}</textarea>`
+    + `<small class="tr-got">${from ? `ตรวจพบ · detected <span>${esc(from[1])} · ${esc(from[2])}</span>` : ""}</small></div>`
+    + `<button type="button" class="tr-swap" aria-label="สลับ · swap">⇄</button>`
+    + `<div class="tr-p tr-p2"><div class="tr-bar"><select class="tr-to" aria-label="เป็น · to">${lo(m.to || "th", false)}</select>`
+    + `<button type="button" class="tr-say" data-s="out" aria-label="ฟัง · listen">${SAY_SVG}</button>`
+    + `<button type="button" class="tr-copy" aria-label="คัดลอก · copy">${COPY_SVG}</button></div>`
+    + `<div class="tr-out" lang="${esc(m.to || "th")}" aria-live="polite">${tr ? esc(tr.t) : ""}</div>`
+    + `<p class="tr-r"${tr && tr.r ? "" : " hidden"}>${tr && tr.r ? esc(tr.r) : ""}</p></div></div>`
+    + `<p class="qa-src"><span>แปลด้วยเครื่อง · machine translation</span>, DeepSeek V4 Flash</p>`
+    + `<script>${TR_JS}</script></section>`;
+}
+const SAY_SVG = `<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`;
+const COPY_SVG = `<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="8" y="8" width="11" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M5 15V6a2 2 0 0 1 2-2h8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>`;
+
 export function quickHtml(m, data) {
   if (!m) return "";
+  if (m.kind === "tr") return trHtml(m, data);
   if (m.kind === "calc") {
     const keys = [["(", ")", "%", "AC"], ["7", "8", "9", "÷"], ["4", "5", "6", "×"], ["1", "2", "3", "−"],
       ["0", ".", "=", "+"], ["√", "^", "π", "⌫"]];
@@ -516,6 +699,12 @@ export function quickHtml(m, data) {
 
 export function quickJson(m, data) {
   if (!m) return undefined;
+  if (m.kind === "tr") {
+    const tr = data && data.tr;
+    return { kind: "translate", text: m.text || undefined, from: tr && tr.from || undefined, to: m.to || undefined,
+      translation: tr ? tr.t : undefined, reading: tr && tr.r || undefined, model: TR_MODEL,
+      pending: data && data.late ? `/api/translate?to=${m.to}&text=${encodeURIComponent(m.text)}` : undefined };
+  }
   if (m.kind === "calc") return { kind: "calc", expression: m.expr || undefined, value: m.value === null ? undefined : m.value };
   if (m.kind === "fx" && !data) return undefined;
   const r = convert(m, data);
@@ -549,5 +738,18 @@ export const QA_CSS = `
 .qa-keys{display:grid;grid-template-columns:repeat(4,1fr);gap:.35em}
 .qa-keys button{font:inherit;font-size:1.15em;padding:.5em 0;border:1px solid var(--rule);border-radius:.45em;background:#fffaf0;color:var(--ink);cursor:pointer}
 .qa-keys button.op{background:#f1e6cc}.qa-keys button.fn{background:#eee6d6}
+.qa-tr .tr-io{display:flex;gap:.5em;align-items:stretch}.qa-tr .tr-p{flex:1;min-width:0;display:flex;flex-direction:column}
+.qa-tr .tr-bar{display:flex;gap:.3em;align-items:center;margin:0 0 .3em}
+.qa-tr select{flex:1;min-width:0;border:1.5px solid var(--rule);border-radius:.45em;padding:.35em;font:inherit;background:#fffaf0;color:var(--ink)}
+.qa-tr .tr-say,.qa-tr .tr-copy{border:0;background:none;color:var(--mute);padding:.25em;cursor:pointer;line-height:0}
+.qa-tr .tr-copy.did{color:#1e7a3c}
+.qa-tr textarea{flex:1;width:100%;box-sizing:border-box;border:1.5px solid var(--rule);border-radius:.5em;padding:.5em .6em;font:inherit;font-size:1.1em;resize:vertical;min-height:4.5em;color:var(--ink);background:#fff}
+.qa-tr textarea:focus{outline:none;border-color:#24406E;box-shadow:0 0 0 1px #24406E}
+.qa-tr .tr-out{flex:1;min-height:4.5em;padding:.5em .6em;border-radius:.5em;background:#f6f1e6;font-size:1.25em;line-height:1.45;white-space:pre-wrap;overflow-wrap:anywhere;color:var(--ink)}
+.qa-tr.busy .tr-out{opacity:.45}
+.qa-tr .tr-r{margin:.3em 0 0;font-style:italic;color:var(--mute)}
+.qa-tr .tr-got{min-height:1.2em;color:var(--mute);font-size:.82em;margin-top:.2em}
+.qa-tr .tr-swap{align-self:center;border:1.5px solid var(--rule);background:#fffaf0;border-radius:99px;width:2.4em;height:2.4em;font-size:1.1em;cursor:pointer;color:var(--ink);flex:none}
+@media(max-width:40em){.qa-tr .tr-io{flex-direction:column}.qa-tr .tr-swap{transform:rotate(90deg)}}
 .qa-keys button[data-k="="]{background:#24406E;color:#fff;border-color:#24406E}
 `;
