@@ -267,6 +267,43 @@ def facts_of(p: dict) -> dict:
     return f
 
 
+def lowest_night(rooms):
+    """The least nightly price among a page's rooms, as a number, or None. A
+    price is typed by hand ("1,200", "฿900", "900-1,500"): its first number is
+    read, and a room with none is passed over."""
+    best = None
+    for rm in rooms or []:
+        if not isinstance(rm, dict):
+            continue
+        m = re.search(r"\d[\d,]*(?:\.\d+)?", str(rm.get("p") or ""))
+        if not m:
+            continue
+        try:
+            v = float(m.group(0).replace(",", ""))
+        except ValueError:
+            continue
+        if v > 0 and (best is None or v < best):
+            best = v
+    if best is None:
+        return None
+    return int(best) if best == int(best) else best
+
+
+def book_of(p: dict) -> dict:
+    """{"book": url, "from": lowest nightly price} for a page that takes room
+    bookings, else {}. The address must be on the pages host (the feed is
+    data); "from" is left out when no room price reads."""
+    b = p.get("book")
+    if not (isinstance(b, str) and b.startswith(PAGES_HOST)):
+        return {}
+    out = {"book": b[:300]}
+    low = lowest_night(p.get("rooms"))
+    if low is not None:
+        out["from"] = low
+        out["currency"] = _s(p.get("currency"), 8) or "THB"
+    return out
+
+
 # ----------------------------------------------------------------- matching
 
 def _norm(s) -> str:
@@ -405,7 +442,8 @@ def proposal_of(p: dict, prov: str, seen: str) -> dict:
         en = None if th else title
     f = facts_of(p)
     cat = KIND_CAT.get(kind, "business")
-    attrs = {"pinVia": "own-page-pin", "ownPage": {"url": p["url"], "tier": p.get("tier") or "free", "seen": seen}}
+    attrs = {"pinVia": "own-page-pin", "ownPage": {"url": p["url"], "tier": p.get("tier") or "free", "seen": seen,
+                                                   **book_of(p)}}
     rec = {
         "id": f"{prov}-own-{re.sub(r'[^a-z0-9-]', '', str(p['name']).lower())[:60]}",
         "province": prov, "cat": [cat], "sub": [],
@@ -463,7 +501,8 @@ def build(pages, records, seen, previous=None) -> dict:
             matched.append({"place": rec["id"], "page": p["name"], "url": p["url"],
                             "tier": p.get("tier") or "free", "title": _s(p.get("title"), 200),
                             "metres": round(d), "how": how, "seen": seen,
-                            "updated": _s(p.get("updated"), 20)[:10], "facts": facts, "lacks": lacks})
+                            "updated": _s(p.get("updated"), 20)[:10], "facts": facts, "lacks": lacks,
+                            **book_of(p)})
             continue
         if p.get("kind") not in KIND_CAT:
             outside.append(p["name"])
@@ -576,7 +615,8 @@ def apply(final, prov, doc=None):
         # The page itself: always carried, because the place page links to it.
         before = (attrs.get("ownPage") or {}).get("filled") or []
         attrs["ownPage"] = {"url": m["url"], "tier": m.get("tier") or "free", "seen": seen,
-                            "filled": sorted(set(before) | set(wrote))}
+                            "filled": sorted(set(before) | set(wrote)),
+                            **{k: m[k] for k in ("book", "from", "currency") if m.get(k) is not None}}
         if not any(P.source_key(s) == SOURCE_KEY and s.get("ref") == m["url"] for s in rec.get("sources") or []):
             rec.setdefault("sources", []).append(src)
         if wrote:

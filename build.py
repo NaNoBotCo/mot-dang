@@ -2663,6 +2663,7 @@ transition:transform .13s cubic-bezier(.34,1.56,.64,1),box-shadow .13s,filter .1
 .reach .pill.instagram{background:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF)}
 .reach .pill.whatsapp{background:#25D366}
 .reach .pill.web{background:#3B5A4A}
+.reach .pill.book,.reach .pill.book:visited{background:#F4B400;color:#2B1A00}
 .reach .pill.email{background:var(--ant-dark)}
 .reach .pill.x{background:#111} .reach .pill.tiktok{background:#111}
 .reach .pill.youtube{background:#FF0000} .reach .pill.line b{letter-spacing:.01em}
@@ -11376,6 +11377,9 @@ def reach_block(r):
             f'<span class="chwrap"><a class="pill {c["cls"]}" href="{att(href)}"{rel}>'
             f'<span class="chico">{icon}</span> <span class="chlabel">'
             f'{bi(c["th"], c["en"])}</span> <b>{text}</b></a>{badge}</span>')
+    _book = ownpage_layer.book_html(r, bi, att, svg_icon)     # Book direct (Nan 2026-10-14)
+    if _book:
+        pills.append(_book)
     _own = ownpage_layer.pill_html(r, bi, att, esc, svg_icon)
     if _own:
         pills.append(_own)

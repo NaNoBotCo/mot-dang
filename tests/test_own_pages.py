@@ -415,6 +415,61 @@ def test_the_button_goes_to_the_page_and_only_where_there_is_one():
     assert L.pill_html(bad, _bi, _esc, _esc, _icon) == "", "an address off the host is not drawn"
 
 
+def _booking_page(rooms, book="https://sites.motdang.net/example-baan-lung-mee#rooms", **kw):
+    pg = copy.deepcopy(LUNG)
+    pg["rooms"], pg["book"] = rooms, book
+    pg.update(kw)
+    return pg
+
+
+def _booked_record(pg):
+    r = rec()
+    O.apply([r], "cm", doc_for([r], [pg]))
+    return r
+
+
+def test_the_lowest_nightly_price_is_read_from_prices_typed_by_hand():
+    rooms = [{"n": "A", "p": "1,200", "guests": 2, "units": 3}, {"n": "B", "p": "฿900"},
+             {"n": "C", "p": "ask us"}, {"n": "D", "p": "1,500-2,000"}, "x", {"n": "E", "p": "0"}]
+    assert O.lowest_night(rooms) == 900
+    assert O.lowest_night([{"n": "A", "p": "1,250.50"}]) == 1250.5
+    assert O.lowest_night([{"n": "A", "p": ""}, {"n": "B"}]) is None and O.lowest_night(None) is None
+
+
+def test_the_booking_rides_through_the_matched_entry_and_onto_the_record():
+    pg = _booking_page([{"n": "A", "p": "1,200"}, {"n": "B", "p": "900"}])
+    m = doc_for([rec()], [pg])["matched"][0]
+    assert m["book"] == "https://sites.motdang.net/example-baan-lung-mee#rooms" and m["from"] == 900 and m["currency"] == "THB"
+    op = _booked_record(pg)["attrs"]["ownPage"]
+    assert op["book"] == m["book"] and op["from"] == 900
+    plain = doc_for([rec()])["matched"][0]
+    assert "book" not in plain and "from" not in plain, "a page with no booking carries none"
+    off = doc_for([rec()], [_booking_page([{"n": "A", "p": "900"}], book="https://evil.example/x")])["matched"][0]
+    assert "book" not in off, "a booking address off the pages host is dropped"
+
+
+def test_book_direct_button_shows_the_lowest_price_and_goes_to_the_rooms():
+    r = _booked_record(_booking_page([{"n": "A", "p": "1,200"}, {"n": "B", "p": "900"}]))
+    h = L.book_html(r, _bi, _esc, _icon)
+    assert 'href="https://sites.motdang.net/example-baan-lung-mee#rooms"' in h and 'class="pill book"' in h
+    assert "จองตรง" in h and "Book direct" in h and "i-bed" in h
+    assert "จาก ฿900 ต่อคืน" in h and "from ฿900 a night" in h
+    assert "commission" not in h.lower() and "save" not in h.lower()
+    eur = _booked_record(_booking_page([{"n": "A", "p": "80"}], currency="EUR"))
+    assert "from EUR 80 a night" in L.book_html(eur, _bi, _esc, _icon)
+
+
+def test_book_direct_without_a_price_is_the_button_alone_and_without_a_booking_nothing():
+    h = L.book_html(_booked_record(_booking_page([{"n": "A", "p": "ask us"}])), _bi, _esc, _icon)
+    assert "Book direct" in h and "a night" not in h
+    assert L.book_html(_booked_record(_booking_page([], book="")), _bi, _esc, _icon) == ""
+    assert L.book_html(rec(), _bi, _esc, _icon) == ""
+    bad = rec(attrs={"ownPage": {"url": "https://sites.motdang.net/x", "book": "https://evil.example/x"}})
+    assert L.book_html(bad, _bi, _esc, _icon) == "", "an address off the host is not drawn"
+    nobook = rec(attrs={"ownPage": {"book": "https://sites.motdang.net/x#rooms"}})
+    assert L.book_html(nobook, _bi, _esc, _icon) == "", "no own page, no button"
+
+
 def test_the_menu_row_lists_items_with_prices_and_its_source():
     r = rec()
     O.apply([r], "cm", _matched_doc(r))
@@ -494,6 +549,8 @@ def test_everything_is_wired_where_the_neighbours_are():
     b = _text("build.py")
     assert "import ownpage_layer" in b and "ownpage_layer.pill_html(r, bi, att, esc, svg_icon)" in b
     assert "ownpage_layer.menu_row(r, bi, esc, att, mark)" in b and '"ownpage_layer.py"' in b
+    assert "ownpage_layer.book_html(r, bi, att, svg_icon)" in b and ".reach .pill.book" in b
+    assert b.index("ownpage_layer.book_html(r,") < b.index("ownpage_layer.pill_html(r,"), "Book direct leads their page"
     ia = _text("importers/import_all.py")
     assert ia.index("own_pages.apply(final, prov)") < ia.index("import_overture.apply(final, prov)"), "its own words first"
     assert "importers/own_pages.py --write" in _text("importers/standing_walk.sh")

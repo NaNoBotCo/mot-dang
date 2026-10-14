@@ -11,6 +11,9 @@ sees of that on the place page:
 
   pill_html   a button beside the reach buttons, "เว็บของร้าน · Their own page",
               that goes to the page
+  book_html   a button, "จองตรง · Book direct", when the page takes room
+              bookings: "from ฿1,200 a night" when a room price reads, and it
+              goes to the page's rooms
   menu_row    the menu items and prices the page lists, with the day they were
               read, as one row of the details list
 
@@ -89,6 +92,38 @@ def pill_html(r: dict, bi, att, esc, icon) -> str:
     return (f'<span class="chwrap"><a class="pill web ownpage" href="{att(op["url"])}" rel="noopener">'
             f'<span class="chico">{icon("i-shop", 16)}</span> <span class="chlabel">'
             f'{bi("เว็บของร้าน", "Their own page")}</span> <b>{esc(shown)}</b></a></span>')
+
+
+def book(r: dict):
+    """The record's room booking as {url, from, currency}, or None. It needs the
+    own page and an address on the pages host; "from" may be absent."""
+    op = own(r)
+    b = (op or {}).get("book")
+    if not (isinstance(b, str) and b.startswith(PAGES_HOST)):
+        return None
+    f = op.get("from")
+    ok = isinstance(f, (int, float)) and not isinstance(f, bool) and f > 0
+    return {"url": b, "from": f if ok else None, "currency": str(op.get("currency") or "THB")}
+
+
+def from_price(amount, currency: str) -> str:
+    """'฿1,200' for THB, 'EUR 80' otherwise."""
+    n = f"{amount:,.0f}" if float(amount) == int(amount) else f"{amount:,.2f}"
+    return ("฿" + n) if currency == "THB" else f"{currency} {n}"
+
+
+def book_html(r: dict, bi, att, icon) -> str:
+    """The Book direct button for the reach row; '' when the page takes no room bookings."""
+    b = book(r)
+    if not b:
+        return ""
+    price = ""
+    if b["from"] is not None:
+        a = from_price(b["from"], b["currency"])
+        price = f' <b>{bi(f"จาก {a} ต่อคืน", f"from {a} a night")}</b>'
+    return (f'<span class="chwrap"><a class="pill book" href="{att(b["url"])}" rel="noopener">'
+            f'<span class="chico">{icon("i-bed", 16)}</span> <span class="chlabel">'
+            f'{bi("จองตรง", "Book direct")}</span>{price}</a></span>')
 
 
 def _price(p: str, currency: str) -> str:
