@@ -11054,7 +11054,7 @@ def shelf_doors(recs, p, rel_dir, depth, crumbs_head, name_th, name_en, og=None,
     if n_all <= SHELF_MIN:
         return ""
     key = p["key"]
-    order = lambda rs: sorted(rs, key=lambda r: (not is_featured(r), -ground_truth(r), name_of(r)))
+    order = lambda rs: sorted(rs, key=lambda r: (not is_featured(r), -ground_truth(r), ownpage_layer.gold_rank(r), name_of(r)))
     lines = []
 
     zone_links = []
@@ -20088,7 +20088,7 @@ def build():
         for c in live_cats:
             cdef = CATS[c]
             in_cat = sorted([r for r in records if c in r["cat"]],
-                            key=lambda r: (not is_featured(r), -ground_truth(r), name_of(r)))
+                            key=lambda r: (not is_featured(r), -ground_truth(r), ownpage_layer.gold_rank(r), name_of(r)))
             (pdir / c).mkdir(exist_ok=True)
             # subcategory shelf (Yahoo genre: bold sub-links with counts; wireframes muted)
             sub_bits = []
@@ -20103,7 +20103,7 @@ def build():
                         (cdef["th"], BASE + key + "/" + c + "/index.html"),
                         (child["th"], BASE + sub_path),
                     ])
-                    sub_sorted = sorted(in_sub, key=lambda r: (not is_featured(r), -ground_truth(r), name_of(r)))
+                    sub_sorted = sorted(in_sub, key=lambda r: (not is_featured(r), -ground_truth(r), ownpage_layer.gold_rank(r), name_of(r)))
                     sub_crumbs = (f'<a href="../../../index.html">{bi("หน้าแรก", "Home")}</a> › '
                                   f'<a href="../../index.html">{bi(p["th"], p["en"])}</a> › '
                                   f'<a href="../index.html">{bi(cdef["th"], cdef["en"])}</a> › '
@@ -23514,6 +23514,8 @@ def build():
     # every place along the moat, for Chiang Mai, Doodled (moatfront_layer.py)
     import moatfront_layer
     layers.run("moatfront.emit", lambda: print("  moat front:", moatfront_layer.emit(globals())))
+    # the gold own pages' pins for the maps (ownpage_layer.py, mappins_layer.py)
+    layers.run("ownpage.emit_gold", lambda: print("  own pages:", ownpage_layer.emit_gold(globals(), data)))
 
     # ---- the register: /sites/ and docs/data/sites.json -----------------
     # Late on purpose: /sites/ lists the root pages under their own <h1>, so they

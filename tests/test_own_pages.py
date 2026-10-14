@@ -83,6 +83,49 @@ def _with_urlopen(fn, thing):
         urllib.request.urlopen = real
 
 
+def test_stay_and_homes_pages_file_under_shelves_that_exist():
+    cats = {c["key"] for c in json.loads((ROOT / "data" / "categories.json").read_text(encoding="utf-8"))["categories"]}
+    assert O.KIND_CAT["stay"] == "hotel" and O.KIND_CAT["homes"] == "realestate"
+    assert set(O.KIND_CAT.values()) <= cats, "every kind maps to a shelf that is in categories.json"
+    assert L.maker_kind(["hotel"]) == "stay" and L.maker_kind(["realestate"]) == "homes"
+    for kind in ("stay", "homes"):
+        pg = dict(WEAVE, kind=kind, name="example-" + kind)
+        assert O.proposal_of(pg, "cr", SEEN)["cat"] == [O.KIND_CAT[kind]]
+
+
+def test_a_gold_page_sorts_ahead_and_has_a_pin_row():
+    gold = rec("cm-g", attrs={"ownPage": {"url": O.PAGES_HOST + "a", "tier": "gold"}})
+    free = rec("cm-f", attrs={"ownPage": {"url": O.PAGES_HOST + "b", "tier": "free"}})
+    none = rec("cm-n")
+    assert [L.gold_rank(r) for r in (gold, free, none)] == [0, 1, 1]
+    assert [r["id"] for r in sorted([free, none, gold], key=L.gold_rank)][0] == "cm-g"
+    off = rec("cm-x", attrs={"ownPage": {"url": "https://evil.example/a", "tier": "gold"}})
+    assert L.gold_rank(off) == 1, "an address off the pages host is not a page"
+    rows = L.gold_rows([gold, free, none], lambda r: "slug-" + r["id"])
+    assert [x["id"] for x in rows] == ["cm-g"]
+    assert rows[0]["u"] == "cm/p/slug-cm-g.html" and rows[0]["own"] == O.PAGES_HOST + "a"
+    assert rows[0]["cat"] == ["food"] and rows[0]["en"] == "Uncle Bear's Home"
+
+
+def test_gold_file_is_written_from_the_builds_records():
+    with tempfile.TemporaryDirectory() as d:
+        gold = rec("cm-g", attrs={"ownPage": {"url": O.PAGES_HOST + "a", "tier": "gold"}})
+        g = {"PROVINCES": [{"key": "cm"}], "DOCS": Path(d), "place_slug": lambda r: "s"}
+        assert L.emit_gold(g, {"cm": [gold, rec("cm-n")]}) == "1 gold page(s)"
+        doc = json.loads((Path(d) / L.GOLD_FILE).read_text(encoding="utf-8"))
+        assert [x["id"] for x in doc["rows"]] == ["cm-g"]
+
+
+def test_a_gold_page_comes_first_in_the_search_merge():
+    import subprocess
+    js = ("import('" + str(ROOT / "publish" / "ownfind.js") + "').then(m=>{"
+          "const mk=(n,t,s)=>({name:n,url:'https://sites.motdang.net/'+n,title:n,tier:t,score:s,kind:'stay'});"
+          "const r=m.mergeOwn([],[mk('a','free',9),mk('b','gold',1),mk('c','free',5)],{HAS:{},today:'2026-10-14'},{scheds:new Map()});"
+          "console.log(r.rows.map(x=>x.id).join(','))})")
+    out = subprocess.run(["node", "-e", js], capture_output=True, text=True, check=True).stdout.strip()
+    assert out == "own:b,own:a,own:c", out
+
+
 def test_a_good_fetch_is_kept_as_the_last_good_copy(tmp):
     cache = tmp / "feed.json"
     body = json.dumps(FEED).encode()

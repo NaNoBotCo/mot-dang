@@ -1118,6 +1118,8 @@ OWN_KINDS = {
     "shop": ("ร้านค้า", "Shop", "ร้านค้า ร้าน ขายของ", "shop store"),
     "food": ("ร้านอาหาร", "Food", "ร้านอาหาร อาหาร ของกิน", "food restaurant eatery"),
     "service": ("บริการ", "Service", "บริการ ช่าง รับงาน", "service"),
+    "stay": ("ที่พัก", "Stay", "ที่พัก โรงแรม เกสต์เฮาส์ โฮสเทล", "stay hotel guesthouse hostel"),
+    "homes": ("บ้านและที่ดิน", "Homes", "บ้าน ที่ดิน ขาย เช่า นายหน้า", "homes house land sale rent agent"),
     "me": ("หน้าส่วนตัว", "Personal page", "หน้าส่วนตัว เกี่ยวกับฉัน", "personal page about me"),
     "event": ("งาน", "Event", "งาน กิจกรรม", "event"),
     "group": ("กลุ่ม", "Group", "กลุ่ม ชุมชน", "group community"),
@@ -1173,7 +1175,7 @@ def own_row(p: dict):
         "lat": float(lat) if pin else None, "lon": float(lon) if pin else None,
         "lastmod": (str(p.get("updated") or p.get("published") or "")[:10]
                     or datetime.now(timezone.utc).strftime("%Y-%m-%d")),
-        "kb": 4, "kind": "place" if kind in ("shop", "food", "service") else "page", "items": 0,
+        "kb": 4, "kind": "place" if kind in ("shop", "food", "service", "stay", "homes") else "page", "items": 0,
         "crumbs": [[kth, None, ken]], "img": img if img.startswith("https://") else "",
         "rich": rich, "title_s": tokenise(title)[:300], "body_s": tokenise(body),
         "url_s": url.split("//", 1)[-1],

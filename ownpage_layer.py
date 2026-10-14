@@ -21,10 +21,16 @@ sees of that on the place page:
 The first two read the record alone (attrs.ownPage, attrs.ownMenu), so a record the
 importer never touched draws nothing and no page pays for this.
 
-The tier a page was made on (free or gold) is not drawn. Ordering gold pages
-ahead on a list is a decision about paid placement and is Nan's; build.py's
-ground_truth() feeds the search index's level as well, so it is not a one-line
-tie-break and is left alone.
+The tier a page was made on (free or gold) shows in two places (Nan, 2026-10-14:
+Gold pages should stand out):
+
+  gold_rank   0 for a gold page, 1 otherwise. build.py puts it after ground
+              truth and before the name in a shelf's sort, so among places seen
+              equally a gold page is listed first. It does not touch
+              ground_truth(), which feeds the search index's level.
+  emit_gold   docs/ownpages-gold.json, the gold pages' pins. mappins_layer.py
+              draws each as a gold disc with its name on the maps, ahead of the
+              view's other pins.
 """
 from __future__ import annotations
 
@@ -39,6 +45,39 @@ def own(r: dict):
     if isinstance(op, dict) and isinstance(op.get("url"), str) and op["url"].startswith(PAGES_HOST):
         return op
     return None
+
+
+def gold_rank(r: dict) -> int:
+    """0 when the record's own page is a gold one, else 1: a sort key."""
+    op = own(r)
+    return 0 if op and op.get("tier") == "gold" else 1
+
+
+GOLD_FILE = "ownpages-gold.json"
+
+
+def gold_rows(records, place_slug) -> list:
+    """The gold pages' pins, one per record: id, pin, names, shelf, the place's
+    page path and the page's address. Records without a pin are left out."""
+    out = []
+    for r in records:
+        if gold_rank(r) or not isinstance(r.get("lat"), (int, float)) or not isinstance(r.get("lng"), (int, float)):
+            continue
+        out.append({"id": r["id"], "lat": round(r["lat"], 6), "lng": round(r["lng"], 6),
+                    "th": r.get("nameTh") or r.get("name") or "", "en": r.get("nameEn") or "",
+                    "cat": list(r.get("cat") or [])[:3],
+                    "u": f"{r['province']}/p/{place_slug(r)}.html", "own": own(r)["url"]})
+    return sorted(out, key=lambda x: x["id"])
+
+
+def emit_gold(g, data) -> str:
+    """Write docs/ownpages-gold.json from the build's records."""
+    import json
+    recs = [r for p in g["PROVINCES"] for r in data[p["key"]]]
+    rows = gold_rows(recs, g["place_slug"])
+    (g["DOCS"] / GOLD_FILE).write_text(json.dumps({"rows": rows}, ensure_ascii=False, separators=(",", ":")),
+                                       encoding="utf-8")
+    return f"{len(rows)} gold page(s)"
 
 
 def pill_html(r: dict, bi, att, esc, icon) -> str:
@@ -90,9 +129,9 @@ def menu_row(r: dict, bi, esc, att, mark) -> str:
 
 # ---------------------------------------------------------------- the maker
 
-# The maker's six kinds (motdang-pages public/s/make.js KINDS), by shelf.
+# The maker's kinds (motdang-pages public/s/make.js KINDS), by shelf.
 _KIND_OF = {"food": "food", "shopping": "shop", "market": "shop", "essentials": "shop",
-            "cannabis": "shop", "pets": "shop", "hotel": "shop", "realestate": "shop",
+            "cannabis": "shop", "pets": "shop", "hotel": "stay", "realestate": "homes",
             "whats-on": "event"}
 _GROUP = {"wat", "community", "school", "school-intl", "parks", "sights", "museums-galleries"}
 

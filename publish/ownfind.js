@@ -26,9 +26,10 @@ const KEEP = 3;                    // live-only pages joined to an answer at mos
 
 const KIND = {
   shop: ["ร้านค้า", "Shop"], food: ["ร้านอาหาร", "Food"], service: ["บริการ", "Service"],
+  stay: ["ที่พัก", "Stay"], homes: ["บ้านและที่ดิน", "Homes"],
   me: ["หน้าส่วนตัว", "Personal page"], event: ["งาน", "Event"], group: ["กลุ่ม", "Group"],
 };
-const PLACEISH = new Set(["shop", "food", "service"]);
+const PLACEISH = new Set(["shop", "food", "service", "stay", "homes"]);
 
 const str = (v, cap) => (typeof v === "string" ? v.trim().slice(0, cap) : "");
 const num = (v) => (typeof v === "number" && Number.isFinite(v) ? v : null);
@@ -132,7 +133,10 @@ export function ownRow(p, ctx) {
  * the pages added, and a scheds wrapper that knows their lamps. */
 export function mergeOwn(rows, own, ctx, aux) {
   const have = new Set(rows.map((r) => r.url));
-  const fresh = own.filter((p) => !have.has(p.url)).sort((a, b) => (Number(b.score) || 0) - (Number(a.score) || 0))
+  /* a gold page before a free one, then by score */
+  const gold = (p) => (p && p.tier === "gold" ? 1 : 0);
+  const fresh = own.filter((p) => !have.has(p.url))
+                   .sort((a, b) => gold(b) - gold(a) || (Number(b.score) || 0) - (Number(a.score) || 0))
                    .slice(0, KEEP).map((p) => ownRow(p, ctx));
   if (!fresh.length) return { rows, added: 0, aux };
   const extra = new Map();

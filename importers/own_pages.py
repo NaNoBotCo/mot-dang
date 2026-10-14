@@ -88,8 +88,10 @@ SOURCE_KEY = f"{SOURCE_TYPE}:{SOURCE_VIA}"     # provenance.source_key() of the 
 
 # What kind of page becomes what kind of record. A person's page, an event and
 # a group are not places and are never proposed as one (they are still found by
-# the search, and a person's page matches nothing).
-KIND_CAT = {"food": "food", "shop": "shopping", "service": "business"}
+# the search, and a person's page matches nothing). `stay` (hotels, guesthouses,
+# hostels) is the "hotel" shelf in data/categories.json; `homes` (estate agents,
+# homes to sell or rent) is its "realestate" shelf.
+KIND_CAT = {"food": "food", "shop": "shopping", "service": "business", "stay": "hotel", "homes": "realestate"}
 
 _THAI = re.compile(r"[฀-๿]")
 # Words that name a kind of place, not a place.
