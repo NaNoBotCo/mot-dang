@@ -22,6 +22,7 @@
  * can run the translation without a Worker. */
 
 import { eventData, calMatch, calHtml, CAL_CSS } from "./calfind.js";
+import { quickMatch, quickData, quickHtml, quickJson, QA_CSS } from "./quickanswer.js";
 import { cachedGet } from "./r2cache.js";
 import { norm, loose, edits, slack, INTENT_RULES } from "./searchcore.js";
 import { learnedFor } from "./findlearn.js";
@@ -1502,7 +1503,7 @@ function shell(title, body, robots) {
 <title>${esc(title)}</title>
 <meta name="robots" content="${robots}">
 <link rel="icon" href="/logo/motdang-favicon.svg" type="image/svg+xml">
-<style>${CSS}${CAL_CSS}</style></head><body>
+<style>${CSS}${CAL_CSS}${QA_CSS}</style></head><body>
 ${body}
 <script src="/locshare.js" defer></script>
 <footer><a href="/">มดแดง Mot Dang</a> · <a href="/find">ค้นหา · search</a> · <a href="/find?adv=1">ตรรกะ · boolean</a> · <a href="/advanced.html">กรองสถานที่ · place filters</a> · <a href="/api/">API</a></footer>
@@ -2128,7 +2129,9 @@ async function answer(request, env, url, ctx, coreP, now) {
     if (core === null && coreP) { try { core = await coreP(); } catch { core = false; } }
     return core || null;
   };
-  let [register, events, , ax, learn, answers, mean] = await Promise.all([
+  /* a sum, a currency or a unit answers in its own box (quickanswer.js) */
+  const qaM = adv ? null : quickMatch(q);
+  let [register, events, , ax, learn, answers, mean, qaD] = await Promise.all([
     lap("sites", siteRows(env)),
     adv ? null : lap("cal", eventData(env)),
     (!boolQ || /[฀-๿]/.test(qm)) ? lap("dict", getCore()) : null,
@@ -2136,7 +2139,9 @@ async function answer(request, env, url, ctx, coreP, now) {
     adv ? new Map() : lap("learn", learnedFor(db, qm)),
     adv ? null : lap("answers", answerDocs(env)),
     adv || boolQ || !qm ? null : lap("meaning", meaningSoon(env, qm, ctx).catch(() => null)),
+    qaM && qaM.kind === "fx" ? lap("fx", quickData(qaM).catch(() => null)) : null,
   ]);
+  const qaB = quickHtml(qaM, qaD);
   const meaning = mean ? mean.hits : null;
   if (intent.near && st.pin && !sp.get("sort")) st.sort = "near";
   if (intent.open && !st.has.includes("open")) st.has = HAS_KEYS.filter((h) => h === "open" || st.has.includes(h));
@@ -2196,8 +2201,9 @@ async function answer(request, env, url, ctx, coreP, now) {
     }
     if (pl.error && !(pl.negOnly && pl.negOnly.length)) why = `<p class="note">${esc(pl.error)}</p>` + why;
     else if (pl.error) why += `<p class="note">${esc(pl.error)}</p>`;
+    if (qaB && fmt !== "json") return front(qaB + saidHtml);
     if (fmt === "json") {
-      return new Response(JSON.stringify({ q, mode: pl.mode, total: 0, results: [], error: pl.error || undefined,
+      return new Response(JSON.stringify({ q, mode: pl.mode, total: 0, results: [], quick: quickJson(qaM, qaD), error: pl.error || undefined,
         note: pl.negOnly && pl.negOnly.length ? "nothing to subtract from" : "no words" }), { status: 200, headers: {
         "content-type": "application/json; charset=utf-8", "access-control-allow-origin": "*",
         "cache-control": `public, max-age=60, s-maxage=${CACHE_S}` } });
@@ -2290,7 +2296,7 @@ async function answer(request, env, url, ctx, coreP, now) {
   /* Lucky: the shelf; else a Mot Dang minisite from the register; else a Mot
    * Dang page whose title carries the words; an off-site card only when
    * nothing here answers. */
-  if (lucky && (rows.length || siteHits.length || door)) {
+  if (lucky && !qaB && (rows.length || siteHits.length || door)) {
     const forms = [qm].concat(pl.names || [], Object.values(fixUsed).flat()).map((f) => norm(f)).filter(Boolean);
     const here = (u) => /^https:\/\/motdang\.net\//.test(u || "");
     const titled = rows.find((r) => here(r.url) && forms.some((f) => norm(r.title).includes(f)));
@@ -2303,6 +2309,7 @@ async function answer(request, env, url, ctx, coreP, now) {
   if (fmt === "json") {
     const body = JSON.stringify({
       q, mode: pl.mode, match: used, sites, page, per_page: st.n, total,
+      quick: quickJson(qaM, qaD),
       sort: st.sort, in: st.in, from: st.from || undefined, to: st.to || undefined,
       kind: st.kind || undefined, sec: st.sec || undefined, has: st.has.length ? st.has : undefined,
       near: st.pin ? { lat: st.pin.lat, lon: st.pin.lon, exact: st.pin.exact } : undefined,
@@ -2368,9 +2375,11 @@ async function answer(request, env, url, ctx, coreP, now) {
   if (intent.near && !st.pin) body += exactLink(url, null);
   const calB = calHtml(calM, today.getTime());
   const calFirst = calM && (calM.when || calM.asked);
-  body += (calFirst ? calB : "") + answerPanel(ansHit, qm) + siteCards(siteHits) + (calFirst ? "" : calB);
+  body += (page === 1 ? qaB : "") + (calFirst ? calB : "") + answerPanel(ansHit, qm) + siteCards(siteHits) + (calFirst ? "" : calB);
   if (fault) {
     body += faultHtml(fault);
+  } else if (!total && qaB) {
+    /* the box was the answer */
   } else if (!total) {
     body += `<p class="count">ไม่พบ · 0 pages found.</p>`;
     /* A filter, not the words, may be what emptied the page — so say which
