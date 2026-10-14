@@ -1,0 +1,16 @@
+date	gap_id	name	verdict	detail
+2026-10-14	51	Sub Zero	placed	cm-web-cdb0aeff-sub-zero-ice-skate-club
+2026-10-14	59	Bangkok Hospital Chiang Mai	listed	cm-osm-way-294031574
+2026-10-14	60	Chiangmai immigration	listed	cm-osm-way-822791365
+2026-10-14	12	Chada Vegetarian	listed	cm-osm-node-9872196618
+2026-10-14	11	Paa Yawd Shan Food	listed	cm-osm-node-12778850501
+2026-10-14	18	Dental 4 U	listed	cm-osm-node-2414315188
+2026-10-14	28	Chiang Mai Dentist - Chiangmai Dental Clinic International (CIDC)	listed	cm-osm-node-6561551296
+2026-10-14	17	Dental Excellence by LERTs	miss	already in the directory as cm-curated-dentist-33144 (คลินิกเลิศทันตกรรม, same pin as Google's Dental Excellence by LERTs 18.79594,98.99384; Google returns LERTs for a Thai search of เลิศทันตกรรม); th
+2026-10-14	14	Peppermint Cafe	miss	Google's Peppermint Cafe (5/19 Rachadamnoen Rd Soi 5, pin 18.78856,98.99081) sits 12 m from cm-osm-node-2055855118 Peppermint Coffee House; names differ, so likely already listed under that name — a p
+2026-10-14	13	Pun Pun	miss	Google's Pun Pun Vegetarian Slow Food (Wat Suan Dok, 139 Suthep Rd) sits ~60 m from cm-osm-node-2085462290 Pun Pun Wat Suandok; names differ in words, so likely already listed — a person can close it
+2026-10-14	1	KAYAGATA by ABSOLUTE HEALTH CLINIC	miss	KAYAGATA not found on a map listing or an own page; Google's Absolute Health Clinic pin is in Chiangmai Lake Land (18.76447,98.95198), not Nimman soi 7, and that clinic is already listed as cm-ovt-55e
+2026-10-14	5	Osteopath Chiang Mai	miss	osteopathchiangmai.co gives no address or map; a search snippet gives 183 Changklan Rd but no own page or map listing confirms it; Google's 'Osteopath Chiang Mai' result is Chiang Mai Osteopathy in Sa
+2026-10-14	6	Dr Philip Parry at Rajavej Hospital	miss	a practitioner, not a place: Dr Philip Parry consults at Rajavej Hospital, already listed as cm-osm-way-97675282
+2026-10-14	29	7-Eleven	miss	a chain, not a place: the article names no single 7-Eleven branch
+2026-10-14	30	Bonchon	miss	the article names no single branch; Google shows four Chiang Mai branches (MAYA, Central Airport, Central Chiangmai, NIM City)

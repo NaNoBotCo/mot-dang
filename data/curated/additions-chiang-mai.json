@@ -158012,5 +158012,50 @@
   ],
   "confidence": "curated",
   "updatedAt": "2026-10-11"
+ },
+ {
+  "id": "cm-web-cdb0aeff-sub-zero-ice-skate-club",
+  "province": "cm",
+  "cat": [
+   "sport"
+  ],
+  "sub": [],
+  "name": "Sub-Zero Ice Skate Club",
+  "nameTh": null,
+  "nameEn": "Sub-Zero Ice Skate Club",
+  "lat": 18.806145,
+  "lng": 99.018307,
+  "geoPrecision": "approx",
+  "address": "99/3 Lampang - Chiang Mai Superhighway, Fa Ham, Mueang Chiang Mai District, Chiang Mai 50000",
+  "phone": "082 659 2239",
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "kind": "An ice skating rink at Central Chiangmai (Central Festival), level 3.",
+   "kindTh": "ลานสเก็ตน้ำแข็งในศูนย์การค้าเซ็นทรัล เชียงใหม่ (เซ็นทรัลเฟสติวัล) ชั้น 3",
+   "pinNote": "two sources agree (21 m apart): openstreetmap.org and google.com, read 2026-10-14"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.openstreetmap.org/node/2598509616",
+    "fetched": "2026-10-14",
+    "via": "gap-closer",
+    "credit": "from the web, 2026-10-14",
+    "note": "OSM node: leisure=ice_rink, sport=ice_skating, level 3"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.google.com/maps/search/Sub+Zero+Ice+Skating+Club+Chiang+Mai",
+    "fetched": "2026-10-14",
+    "via": "gap-closer",
+    "credit": "from the web, 2026-10-14",
+    "note": "Google Maps listing: address, phone 082 659 2239"
+   }
+  ],
+  "confidence": "third-party",
+  "updatedAt": "2026-10-14"
  }
 ]
