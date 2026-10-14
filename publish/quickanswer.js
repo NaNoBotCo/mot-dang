@@ -431,7 +431,9 @@ export async function translate(env, text, to, from = "auto") {
   if (!env || !env.AI) return null;
   const head = `Target: ${LANG_BY[to][2]}` + (from !== "auto" ? ` (source: ${LANG_BY[from][2]})` : "");
   const out = await env.AI.run(TR_MODEL, { messages: [{ role: "system", content: TR_SYS },
-    { role: "user", content: head + "\n" + text }], max_tokens: 800 });
+    { role: "user", content: head + "\n" + text }], max_tokens: 800,
+    /* without this the model writes its reasoning first: 5 s and an empty answer at 300 tokens */
+    chat_template_kwargs: { thinking: false } });
   let said = out && (out.response !== undefined ? out.response : out.choices && out.choices[0] && out.choices[0].message && out.choices[0].message.content);
   let j = null;
   if (said && typeof said === "object") j = said;
@@ -658,7 +660,7 @@ export function quickHtml(m, data) {
     const out = m.value === null ? "0" : fmtNum(m.value);
     return `<section class="qa qa-calc" aria-label="เครื่องคิดเลข · Calculator" data-qa='${esc(JSON.stringify({ kind: "calc" }))}'>`
       + `<h2>เครื่องคิดเลข · Calculator</h2>`
-      + `<form action="/find" method="get"><p class="qa-was">${m.expr ? esc(m.expr) + " =" : ""}</p>`
+      + `<form action="/find" method="get"><p class="qa-was"></p>`
       + `<input class="qa-x" name="q" value="${esc(m.expr)}" inputmode="decimal" autocomplete="off" aria-label="นิพจน์ · expression">`
       + `<output class="qa-out" aria-live="polite">${out}</output></form>`
       + `<div class="qa-keys">${keys.map((r) => r.map(k).join("")).join("")}</div>`
@@ -716,7 +718,7 @@ export function quickJson(m, data) {
 }
 
 export const QA_CSS = `
-.qa{margin:.9em 0 1em;padding:.7em 1em .8em;border:2px solid var(--ink);border-radius:.7em;background:#fff;max-width:36em;box-shadow:3px 3px 0 #f1c40f}
+.qa{box-sizing:border-box;margin:.9em 0 1em;padding:.7em 1em .8em;border:2px solid var(--ink);border-radius:.7em;background:#fff;max-width:36em;box-shadow:3px 3px 0 #f1c40f}
 .qa h2{margin:0 0 .3em;font-size:.95em;color:var(--mute);font-weight:normal}
 .qa-h1{margin:0;color:var(--mute)}.qa-h2{margin:.05em 0 .5em;font-size:2em;line-height:1.15;font-weight:bold;color:var(--ink)}
 .qa-io{display:flex;gap:.5em;align-items:center}.qa-rows{flex:1;min-width:0}

@@ -50,6 +50,7 @@ import { SCHEMA_VERSION, queryPlaces, findPlace, slugCandidates, minuteOfWeek,
          LIMIT_DEFAULT, LIMIT_MAX } from "./api.js";
 import SEARCHCORE from "./searchcore.js";
 import { fleetSearch } from "./fleetsearch.js";
+import { translateApi } from "./quickanswer.js";
 import { cachedGet } from "./r2cache.js";
 
 /* The fleet search (publish/fleetsearch.js) answers /find, and it answers
@@ -1121,6 +1122,9 @@ async function serve(request, env, ctx) {
   /* What gets shared, and who comes back (sharesense.js). A POST from sendBeacon. */
   if (url.pathname === "/api/share")
     return shareSense(request, env, classify);
+  /* The translator in the search box (quickanswer.js). */
+  if (url.pathname === "/api/translate")
+    return translateApi(url, env);
   /* What people tap on /find, and whether they come back (findlearn.js). */
   if (url.pathname === "/api/find")
     return findSense(request, env, classify);

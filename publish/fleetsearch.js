@@ -2139,7 +2139,7 @@ async function answer(request, env, url, ctx, coreP, now) {
     adv ? new Map() : lap("learn", learnedFor(db, qm)),
     adv ? null : lap("answers", answerDocs(env)),
     adv || boolQ || !qm ? null : lap("meaning", meaningSoon(env, qm, ctx).catch(() => null)),
-    qaM && qaM.kind === "fx" ? lap("fx", quickData(qaM).catch(() => null)) : null,
+    qaM && (qaM.kind === "fx" || qaM.kind === "tr") ? lap("quick", quickData(qaM, env, ctx).catch(() => null)) : null,
   ]);
   const qaB = quickHtml(qaM, qaD);
   const meaning = mean ? mean.hits : null;
@@ -2418,13 +2418,13 @@ async function answer(request, env, url, ctx, coreP, now) {
   const engineDown = fault && faultKind(fault) === "engine";
   const res = html(shell(`${q} · ค้นหา · Search · มดแดง`, body, "noindex,follow"),
     engineDown ? 503 : 200, {
-      "cache-control": engineDown || (mean && mean.late) ? "no-store" : `public, max-age=60, s-maxage=${CACHE_S}`,
+      "cache-control": engineDown || (mean && mean.late) || (qaD && qaD.late) ? "no-store" : `public, max-age=60, s-maxage=${CACHE_S}`,
       "x-fleet-ms": String(ms), "server-timing": timing,
       "x-fleet-match": encodeURIComponent(used).slice(0, 900).replace(/%[0-9A-F]?$/, ""),
       ...(engineDown ? { "retry-after": "60" } : {}) });
   /* A page built while the meaning search was still out is not kept: the next
    * asker gets the meaning from the colo cache (findmeaning.js). */
-  if (cache && ckey && !fault && !(mean && mean.late)) {
+  if (cache && ckey && !fault && !(mean && mean.late) && !(qaD && qaD.late)) {
     try { ctx.waitUntil(cache.put(ckey, res.clone()).catch(() => {})); } catch { /* next asker fills it */ }
   }
   return res;

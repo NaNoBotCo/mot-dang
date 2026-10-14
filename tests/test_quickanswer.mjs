@@ -1,7 +1,7 @@
 /* Quick answers in the search (publish/quickanswer.js):  node --test tests/test_quickanswer.mjs */
 import test from "node:test";
 import assert from "node:assert/strict";
-import { quickMatch, mdCalc, quickHtml, quickJson, convert, mdSpark } from "../publish/quickanswer.js";
+import { quickMatch, mdCalc, quickHtml, quickJson, convert, mdSpark, trMatch } from "../publish/quickanswer.js";
 
 const near = (a, b, e = 1e-9) => assert.ok(Math.abs(a - b) <= e * Math.max(1, Math.abs(b)), `${a} ≉ ${b}`);
 
@@ -28,7 +28,9 @@ test("the calculator reads sums the way Google does", () => {
 
 test("searches that look like sums but are not stay with the pages", () => {
   for (const q of ["7-11", "24/7", "869/77", "053-160611", "+66 81 234 5678", "2026-10-14", "4x4", "massage -spa",
-                   "dollar", "baht bus", "dollar shop", "foot rub", "5 km", "100 kg", "งานวันนี้", "soi 5", "3.5"]) {
+                   "dollar", "baht bus", "dollar shop", "foot rub", "5 km", "100 kg", "งานวันนี้", "soi 5", "3.5",
+                   "thai massage", "menu in english", "ร้านอาหารจีน", "เรียนภาษาจีน", "โรงเรียนสอนภาษาอังกฤษ",
+                   "รับแปลภาษาอังกฤษ", "english to thai", "sabai meaning"]) {
     assert.equal(quickMatch(q), null, q);
   }
 });
@@ -80,4 +82,19 @@ test("the box: no rates, no currency box; the page script carries one calculator
   assert.match(c, /<output class="qa-out"[^>]*>300</);
   assert.equal(quickJson(quickMatch("15% of 2000")).value, 300);
   assert.equal(mdSpark([["2026-01-01", 1]], ""), "");
+});
+
+test("translator: the words and the language, Thai ำ kept whole", () => {
+  assert.deepEqual(trMatch("translate toilet to thai"), { kind: "tr", text: "toilet", from: "auto", to: "th" });
+  assert.deepEqual(trMatch("ห้องน้ำ ภาษาอังกฤษ"), { kind: "tr", text: "ห้องน้ำ", from: "auto", to: "en" });
+  assert.equal(trMatch("แปลห้องน้ำเป็นภาษาอังกฤษ").text, "ห้องน้ำ");
+  assert.equal(trMatch("how do you say thank you in burmese").to, "my");
+  assert.equal(trMatch("ไก่แปลว่าอะไร").to, "en");
+  assert.equal(trMatch("toilet แปลว่า").to, "th");
+  assert.equal(trMatch("what does sawasdee mean").to, "en");
+  assert.equal(trMatch("Translate Where Is Wat Phra Singh").text, "Where Is Wat Phra Singh");
+  assert.deepEqual(trMatch("translator"), { kind: "tr", text: "", from: "auto", to: "" });
+  const tr = quickHtml(trMatch("ห้องน้ำ ภาษาอังกฤษ"), { tr: { text: "ห้องน้ำ", from: "th", to: "en", t: "Bathroom", r: "" } });
+  assert.match(tr, /<div class="tr-out" lang="en" aria-live="polite">Bathroom<\/div>/);
+  assert.doesNotThrow(() => new Function(/<script>([\s\S]*?)<\/script>/.exec(tr)[1]), "page script parses");
 });
