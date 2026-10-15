@@ -284,7 +284,8 @@ def portrait(r, scene, rel, att, bi=None, tags=None):
     page with no photograph of it. The words say it is a drawing."""
     nm = r.get("nameTh") or r.get("name") or ""
     pf = place_facts(r, tags, scene)
-    label = portrait_label(nm, r.get("nameEn") or nm, scene, pf.get("props"))
+    drawn = "driving" if scene in ("school", "training") and "driving" in (pf.get("sub") or []) else scene   # doodler-civic.js drive()
+    label = portrait_label(nm, r.get("nameEn") or nm, drawn, pf.get("props"))
     facts = json.dumps(pf, ensure_ascii=False, separators=(",", ":"))
     cap = bi("ภาพวาด", "Drawing") if bi else "ภาพวาด · Drawing"
     return (f'<figure class="portrait" style="margin:0"><canvas class="mdportrait" data-set="{att(scene)}" data-p="{att(facts)}" '
