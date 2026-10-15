@@ -561,7 +561,9 @@ def main():
     events = mark_recurring(events)
     events.sort(key=lambda e: (e.get("start") or "", e.get("title") or ""))
     horizon = (date.today() - timedelta(days=1)).isoformat()
-    upcoming = [e for e in events if (e.get("start") or "") >= horizon]
+    # A run of days that began before the horizon and is still going (an expo,
+    # a farewell month) is upcoming by its end date; build.py reads it the same way.
+    upcoming = [e for e in events if (e.get("end") or e.get("start") or "") >= horizon]
     leads = dedupe_leads(leads)
 
     # WO-41 Phase 2. This is where 69 good events were lost on 2026-08-24: the

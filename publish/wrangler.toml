@@ -101,6 +101,11 @@ database_id = "15b25cdc-8cc1-4c85-9c2f-96d7c697dea1"
 # "true" ONLY after RESEND_KEY is set and you have okayed the consent copy.
 [vars]
 MAILING_LIST_LIVE = "true"
+# THE WEEKLY ISSUE (newsletter.js). Off unless exactly "true": an issue POSTed
+# to /newsletter/send goes only to NEWSLETTER_TEST, never to the confirmed list.
+# The POST is checked against the NEWSLETTER_TOKEN secret (token get NEWSLETTER_TOKEN).
+NEWSLETTER_LIVE = "false"
+NEWSLETTER_TEST = "events@motdang.net"
 # WHICH ROBOTS PAY (crawlpay.js, Nan 2026-10-04 "let's run a test"). "on" sends
 # training crawlers a 402 on one page in ten; anything else and they are served
 # as before. The two prices are hers to set; empty = no 402 even when "on".

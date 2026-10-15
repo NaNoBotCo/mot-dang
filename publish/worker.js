@@ -70,6 +70,7 @@ function fleetOwns(url) {
 import { EdgeIndex } from "./edgesearch.js";
 import { classify } from "./classify.js";
 import { subscribe } from "./subscribe.js";
+import { newsletter, ownsNewsletter } from "./newsletter.js";
 import { lister, ownsLister } from "./lister.js";
 import { live, ownsLive, resolve } from "./live.js";
 import { shareSense } from "./sharesense.js";
@@ -124,9 +125,7 @@ function cacheFor(ext) {
    * filling the cache cost a second full read of the same 9.4 MB object.
    * Taking a body away from the CDN to hand-cache it is a losing trade.
    *
-   * Stylesheet, scripts and the icon sprite carry no ?v= fingerprint any
-   * more (Nan, 2026-09-10): a fingerprint written into 96,000 pages made
-   * every CSS edit a full re-upload. Instead the browser shows the copy it
+   * Stylesheet, scripts and the icon sprite: the browser shows the copy it
    * holds and asks in the background whether it changed; a returning reader
    * is at most one page view behind after an edit, never a week. */
   if (ext === "css" || ext === "js" || ext === "svg")
@@ -1103,6 +1102,10 @@ async function serve(request, env, ctx) {
   if (url.pathname === "/subscribe" || url.pathname === "/subscribe/" ||
       url.pathname === "/subscribe/confirm")
     return subscribe(request, env, url);
+
+  /* The weekly issue (newsletter.js): the token-gated send, and unsubscribe. */
+  if (ownsNewsletter(url.pathname))
+    return newsletter(request, env, url);
 
   /* The listing-agent gate (lister.js): join, confirm, Nan's invite and
    * decline taps, sign-in, and /lister/me for the add form. */
