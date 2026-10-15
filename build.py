@@ -1621,6 +1621,23 @@ def collect_photos():
 
 
 PHOTO_FILES = collect_photos()
+# Photo or drawing, split between readers (data/curated/photo_doodle_ab.json, ab_place.py)
+_pdab_path = ROOT / "data" / "curated" / "photo_doodle_ab.json"
+PHOTO_DOODLE_AB = json.loads(_pdab_path.read_text()).get("places", {}) if _pdab_path.exists() else {}
+PDAB_JS = ("(function(){var b=document.currentScript.parentNode,id=b.dataset.ab,k='md-pd-ab-'+id,m=/[?&]ab=(photo|doodle)/.exec(location.search),a;"
+           "try{a=m?m[1]:localStorage.getItem(k);if(a!=='photo'&&a!=='doodle'){a=Math.random()<.5?'photo':'doodle';localStorage.setItem(k,a)}}catch(e){a=a||(Math.random()<.5?'photo':'doodle')}"
+           "[].forEach.call(b.querySelectorAll('[data-arm]'),function(d){d.hidden=d.dataset.arm!==a});if(m)return;"
+           "var pg='/ab/'+id+'/'+a,eng=0,con=0;function tell(e,w){try{navigator.sendBeacon('/api/map',JSON.stringify({pg:pg,ev:[{e:e,k:'ab:'+w}]}))}catch(x){}}"
+           "tell('view','seen');document.addEventListener('click',function(ev){var l=ev.target.closest&&ev.target.closest('a');if(!l)return;"
+           "var c=' '+(l.className||'')+' ',h=l.getAttribute('href')||'',w=/ sos /.test(c)?'':/ phone /.test(c)?'phone':/ facebook /.test(c)?'facebook':/ web /.test(c)?'website':"
+           "/ email /.test(c)?'email':/ line /.test(c)?'share-line':/ grabride /.test(c)?'grab':/ guidego /.test(c)?'guide':/maps\\.apple|google\\.com\\/maps/.test(h)?'maps':'';"
+           "if(!w)return;tell('open',w);if(!eng){eng=1;tell('open','engaged')}if(w!=='share-line'&&!con){con=1;tell('open','contact')}},true)})();")
+
+
+def photo_doodle_ab(tag, photo_html, doodle_html):
+    """Both pictures in the page, one shown per browser; without script the photo stands."""
+    return (f'<div class="pdab" data-ab="{tag}"><div data-arm="photo">{photo_html}</div>'
+            f'<div data-arm="doodle" hidden>{doodle_html}</div><script>{PDAB_JS}</script></div>')
 OG_FILES = {f.stem for f in OG_SRC.glob("*.png")} if OG_SRC.exists() else set()
 
 
@@ -12985,6 +13002,13 @@ def detail_page(r, prov_cfg, photo_file=None, whatson="", related=None):
         else:
             photo_note = ""
         photo_cta = ""
+        _abps = doodles_layer.place_scene(r) if r["id"] in PHOTO_DOODLE_AB else ""
+        if _abps:   # the same frame for both, so the picture is the only difference
+            img_tag = photo_doodle_ab(PHOTO_DOODLE_AB[r["id"]],
+                                      img_tag.replace('class="photo"', 'class="photo" style="width:100%;max-height:none;aspect-ratio:2/1;object-fit:cover;display:block"', 1) + photo_note,
+                                      doodles_layer.portrait(r, _abps, "../../", att, bi=bi,
+                                                             tags=((globals().get("TAGS") or {}).get("by_id") or {}).get(r["id"]) or []))
+            photo_note = ""
     elif COMMONS_IMAGES.get(r["id"]):
         # A picture of the place itself, matched on its own name — not merely
         # taken nearby. The description doubles as the alt text, because what

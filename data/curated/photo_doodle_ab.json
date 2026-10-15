@@ -1,0 +1,6 @@
+{
+  "about": "Photo or drawing (Nan, 2026-10-15: \"Let's a/b test which does better ... based on photo v doodle\"). A place listed here, with its own photograph in assets/photos/ and a doodler portrait scene, shows each browser one of the two at random (localStorage md-pd-ab-<tag>, ?ab=photo or ?ab=doodle to look without counting). Its beacons go to /api/map tagged /ab/<tag>/photo or /ab/<tag>/doodle; ab_place.py reads them.",
+  "places": {
+    "cm-osm-way-537932526": "cmds"
+  }
+}
