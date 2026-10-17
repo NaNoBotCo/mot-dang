@@ -311,3 +311,28 @@ time, 12s pauses, retries that rest and rotate mirrors. Refresh with `--fetch`.
   weather + horoscope home modules.
 - **Phase 3**: suggest/moderation worker (mueang-map Cloudflare pattern).
 - **Phase 4**: paying sponsors on the advertise.html terms.
+
+
+## Licence
+
+The compilation, the field-collected fields, the prose and the pages:
+**CC BY 4.0**. Code: **MIT**. These are the terms
+[motdang.net/llms.txt](https://motdang.net/llms.txt) and
+[/api/v1/](https://motdang.net/api/v1/) have been publishing, written down here
+where a machine cloning the repository will find them.
+
+Attribution string: มดแดง Mot Dang · https://motdang.net/
+
+Anything carried in from elsewhere keeps its own terms, and there is a lot of
+it — OpenStreetMap under ODbL, Overture Maps Places under CDLA-Permissive 2.0,
+data.go.th registers under the DGA Open Government License, boundaries under
+CC BY-IGO, photographs one at a time. Each layer, with its attribution string,
+is in [NOTICE.txt](NOTICE.txt); the verbatim licence text is in
+[LICENSE](LICENSE).
+
+**A commercial licence.** If attribution does not fit your use — a corpus, a
+product, a model — write to nan@motdang.net and say what you need.
+
+---
+
+Contact: Nan · nan@motdang.net · Sponsor: [Ko-fi](https://ko-fi.com/defiantchiangmai) · [Patreon](https://www.patreon.com/nanobotco)

@@ -1,0 +1,111 @@
+มดแดง Mot Dang — licences, in layers
+
+Different parts of this repository come from different places and cannot carry
+one licence between them. The layers are deliberate, and they are the same ones
+the site has been publishing at motdang.net/llms.txt and /api/v1/ — this file
+writes them down where a machine cloning the repository will find them.
+
+The verbatim text of the licence named first is in LICENSE beside this file.
+
+
+THE COMPILATION, THE PROSE AND THE PAGES
+  Creative Commons Attribution 4.0 International (CC BY 4.0)
+  SPDX-License-Identifier: CC-BY-4.0
+  https://creativecommons.org/licenses/by/4.0/
+
+  This covers the directory as a compilation, the field-collected fields, the
+  shelves and vocabulary, the written pages, and everything built from them.
+
+  Attribution string:
+
+      มดแดง Mot Dang · https://motdang.net/
+
+  Reuse it, quote it, index it, train on it. Attribution is the condition.
+
+
+SOURCE CODE
+  MIT
+  SPDX-License-Identifier: MIT
+  Copyright (c) 2026 NaNoBotCo
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+
+
+WHAT IS NOT COVERED BY EITHER, AND CARRIES ITS OWN
+
+  A record names its sources in `sources[]`, and a field can name its own in
+  `provenance` — source, how it was known, and when. What follows says which
+  licence each of those source keys is under. A field with no entry has unknown
+  provenance, which is not the same as ours.
+
+  OpenStreetMap-derived fields — source type `osm`
+      © OpenStreetMap contributors, Open Database Licence 1.0 (share-alike)
+      https://opendatacommons.org/licenses/odbl/1-0/
+      Held via Overpass. The API answers `osmDerivedRows: ODbL-1.0` for these.
+
+  Overture Maps Places — source type `directory`
+      Community Data Licence Agreement, Permissive, version 2.0
+      https://cdla.dev/permissive-2-0/
+      Release 2026-08-19.0, taken from the public S3 distribution.
+
+  Thai government open data — source types `register` and `opendata`
+      DGA Open Government License, version 1.0 of 10 June 2021
+      https://data.go.th/
+      Drawn from datasets on data.go.th: ONAB's temple register, OBEC's school
+      register, the Ministry of Education's private-school licence register,
+      CITIZENinfo, and others. The Terms prescribe a blanket reference where a
+      producing agency cannot be identified individually:
+          "The right to Use the Data is subject to the terms and conditions
+          for DGA Open Government License."
+      Attribution-only; no share-alike condition.
+
+  Administrative boundaries — data/admin_boundaries.json
+      Creative Commons Attribution for Intergovernmental Organisations
+      (CC BY-IGO)
+      Attribution string:
+          "Administrative boundaries: OCHA COD-AB Thailand,
+          Royal Thai Survey Department, CC BY-IGO"
+      Via the HDX record data.humdata.org/dataset/cod-ab-tha.
+
+  The basemap — assets/tiles/cm-cr.pmtiles, served from object storage
+      Built with Protomaps from OpenStreetMap, so ODbL applies to it as above.
+      The archive is not in this repository; it is over GitHub's file limit.
+
+  Photographs
+      Each picture carries its own author and licence in its record and on the
+      page that shows it — CC0, public domain, CC BY, CC BY-SA, or a rights
+      statement from the holding institution. None of them is relicensed here.
+      The wat photographs came through mueang-map from Wikimedia Commons.
+
+  The คาถา in data/katha.json
+      Pali root: Mahāsaṅgīti Tipiṭaka. English: Bhante Sujato. Both via
+      SuttaCentral bilara-data, CC0 1.0. The Thai script is derived by rule
+      from the romanised Pali. The curated verses in data/curated/kathas.json
+      are published everywhere in Thailand and are set down as tradition.
+
+  Live tiles that quote an outside service — air, weather, water, finance,
+  showtimes, lottery
+      Each carries its source in the matching .meta.json beside it and its
+      credit on the page that shows it. The figures belong to whoever
+      published them and are quoted, not relicensed.
+
+
+A COMMERCIAL LICENCE
+  If attribution does not fit your use — a corpus, a product, a model — write
+  to nan@motdang.net and say what you need.
