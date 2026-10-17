@@ -221,6 +221,10 @@ import audit_views as _views_rules
 # fences — bare โป่ง never matched, the village and the school and the bus
 # stop that wear a spring's name kept off the shelf — this file borrows them.
 import audit_hotsprings as _spring_rules
+# And for the games (2026-10-17): sport_kind.py owns which sport=* values name
+# a badminton court, a pitch, a snooker hall or a bowling alley; derive.py's
+# sport-kind pass reads the same table off attrs.sportTag.
+import sport_kind as _sport_rules
 # And for the housing estates (WO-27 door 3): audit_realestate owns the fence
 # — จัดสรร or a named developer, never bare หมู่บ้าน, which is the ordinary
 # word for a village and would file somebody's home as a gated estate.
@@ -766,6 +770,10 @@ def classify(t):
         # A sports centre that teaches nothing is a place to play, not a
         # school, and keeps the shelf it has always had.
         if t.get("leisure") in ("sports_centre", "dance"):
+            # A centre whose sport tag names a game is a place to play that
+            # game; the sport-kind pass files it from attrs.sportTag.
+            if _sport_rules.osm_kinds(t):
+                return "sport", "sport"
             return "sport", "gym"
         return None
     if t.get("office") == "estate_agent":
@@ -904,6 +912,13 @@ def classify(t):
         return "tattoo", "piercing"
     # Parks were never crawled before, so the directory simply had none.
     lz = t.get("leisure")
+    # Named pitches, sports halls and bowling alleys whose own tags or name
+    # name one of the games with a shelf (2026-10-17). A pitch that names no game, or a
+    # game with no shelf, files nowhere: a dot on a map is not a court
+    # anybody can book.
+    if lz in ("pitch", "sports_hall", "bowling_alley") and (
+            _sport_rules.osm_kinds(t) or _sport_rules.name_kinds(t)):
+        return "sport", "sport"
     if lz == "park":
         return "parks", "park"
     if lz == "garden":
@@ -1646,6 +1661,9 @@ def records(province="cm"):
                                      if v in ("car_rental", "motorcycle_rental",
                                               "bicycle_rental")), None),
                     "hireTypes": t.get("rental"),
+                    # OSM's sport=* list, which sport_kind.py reads for the
+                    # games' shelves; a bowling alley says so in leisure=.
+                    "sportTag": (t.get("sport") or ("10pin" if t.get("leisure") == "bowling_alley" else None)) if cat == "sport" else None,
                     "brand": brand, "brandFrom": brand_from,
                     "cuisine": t.get("cuisine"),
                     "operator": t.get("operator"), "lineId": line,

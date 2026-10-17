@@ -2343,5 +2343,19 @@
 "S2342": {"th": "อาหารพม่า", "en": "Burmese food"},
 "S2343": {"th": "อาหารไทใหญ่", "en": "Shan food"},
 "S2344": {"th": "อาหารพม่า-ไทใหญ่", "en": "Burmese & Shan"},
-"S2345": {"th": "รองรับใคร", "en": "Who it serves"}
+"S2345": {"th": "รองรับใคร", "en": "Who it serves"},
+"S2346": {"th": "สนามแบดมินตัน", "en": "Badminton Courts"},
+"S2347": {"th": "สนามฟุตบอล-ฟุตซอล", "en": "Football & Futsal"},
+"S2348": {"th": "สนามเทนนิส", "en": "Tennis Courts"},
+"S2349": {"th": "สนามบาสเกตบอล", "en": "Basketball Courts"},
+"S2350": {"th": "สนุกเกอร์-พูล", "en": "Snooker & Pool"},
+"S2351": {"th": "โบว์ลิ่ง", "en": "Bowling"},
+"S2352": {"th": "ร้านทอง", "en": "Gold Shops"},
+"S2353": {"th": "ขนส่งพัสดุ", "en": "Couriers & Parcels"},
+"S2354": {"th": "อินเทอร์เน็ต-มือถือ", "en": "Internet & Mobile"},
+"S2355": {"th": "ช่างรับเหมา-สร้างบ้าน", "en": "Builders & Contractors"},
+"S2356": {"th": "วัสดุก่อสร้าง", "en": "Building Materials"},
+"S2357": {"th": "ช่างไฟ-ช่างประปา", "en": "Electricians & Plumbers"},
+"S2358": {"th": "ช่างแอร์", "en": "Air-con Repair"},
+"S2359": {"th": "ไปรษณีย์", "en": "Post Offices"}
 }

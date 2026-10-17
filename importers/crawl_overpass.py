@@ -114,7 +114,10 @@ WIDE_GROUPS = {"stations", "cannabis", "medical", "schools", "reading", "making"
                # hot springs, a trailhead. A near ring here would answer the
                # moat, which is the one part of town where everybody already
                # knows.
-               "parking"}
+               "parking",
+               # The courts are where the schools and the tambon grounds are,
+               # in every amphoe.
+               "courts"}
 
 # Provinces crawled province-wide for every group. Chiang Rai is here on Nan's
 # instruction: a directory that only knows Mueang is not a directory for
@@ -242,6 +245,14 @@ QUERIES = {
     "pets":       ['nwr["amenity"="veterinary"]', 'nwr["shop"="pet"]',
                    'nwr["shop"="pet_grooming"]'],
     "fitness":    ['nwr["leisure"="fitness_centre"]'],
+    # 2026-10-17, Nan's pick from the Pantip read (shelf 4a): the games'
+    # shelves. Named pitches and sports halls only — the census holds 493
+    # leisure=pitch in TH-50 and most are unnamed dots in a school yard — plus
+    # every bowling alley, which is rare enough to want even bare. The import
+    # files only those whose sport tag names a game with a shelf.
+    "courts":     ['nwr["leisure"="pitch"]["name"]',
+                   'nwr["leisure"="sports_hall"]["name"]',
+                   'nwr["leisure"="bowling_alley"]'],
     "essentials": ['nwr["amenity"="bank"]', 'nwr["amenity"="post_office"]',
                    'nwr["shop"="convenience"]', 'nwr["amenity"="townhall"]'],
     # WO-27 door 2. The government offices, and the reason is one of them:

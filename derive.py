@@ -1237,6 +1237,25 @@ def apply_vehicle_hire(records: list, prov: str, counts: dict | None = None) -> 
     return vehicle_hire.apply(records, prov, counts, TODAY)
 
 
+# --------------------------------------------------------------- sport kind
+
+def apply_sport_kind(records: list, prov: str, counts: dict | None = None) -> int:
+    """Badminton, football, tennis, basketball, snooker and bowling as shelves
+    of their own, read off each sports place's own words (Nan, 2026-10-17).
+    See sport_kind.py."""
+    import sport_kind
+    return sport_kind.apply(records, prov, counts, TODAY)
+
+
+# ------------------------------------------------------------------- refile
+
+def apply_refile(records: list, prov: str, counts: dict | None = None) -> int:
+    """Gold shops off the crafts shelf, couriers off the bus shelf, the trades
+    out of one repair/home list (Nan, 2026-10-17). See refile.py."""
+    import refile
+    return refile.apply(records, prov, counts, TODAY)
+
+
 # ------------------------------------------------------------------- runner
 
 PASSES = [
@@ -1250,6 +1269,8 @@ PASSES = [
     ("venues", apply_venues),
     ("named venues", apply_named_venues),
     ("vehicle hire", apply_vehicle_hire),
+    ("sport kind", apply_sport_kind),
+    ("refile", apply_refile),
     ("category agreement", apply_category_agreement),
 ]
 

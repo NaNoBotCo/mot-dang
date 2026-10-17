@@ -113,6 +113,12 @@
 "northern thai & khantoke": [
 "lanna"
 ],
+"อาหารพม่า-ไทใหญ่": [
+"myanmar"
+],
+"burmese & shan": [
+"myanmar"
+],
 "อาหารญี่ปุ่น": [
 "japanese"
 ],
@@ -460,7 +466,8 @@
 "essentials"
 ],
 "ไปรษณีย์": [
-"essentials"
+"essentials",
+"post"
 ],
 "ราชการ": [
 "essentials"
@@ -499,11 +506,86 @@
 "drinking water & cooking gas": [
 "utilities"
 ],
-"ไปรษณีย์-ขนส่ง": [
+"เน็ตบ้าน": [
+"internet"
+],
+"ไฟเบอร์": [
+"internet"
+],
+"ซิม": [
+"internet"
+],
+"ศูนย์บริการมือถือ": [
+"internet"
+],
+"internet": [
+"internet"
+],
+"broadband": [
+"internet"
+],
+"fibre": [
+"internet"
+],
+"ais": [
+"internet"
+],
+"dtac": [
+"internet"
+],
+"sim": [
+"internet"
+],
+"อินเทอร์เน็ต-มือถือ": [
+"internet"
+],
+"internet & mobile": [
+"internet"
+],
+"post offices": [
 "post"
 ],
-"post & parcels": [
-"post"
+"ส่งพัสดุ": [
+"parcel"
+],
+"ขนส่งเอกชน": [
+"parcel"
+],
+"นิ่มเอ็กซ์เพรส": [
+"parcel"
+],
+"เคอรี่": [
+"parcel"
+],
+"แฟลช": [
+"parcel"
+],
+"courier": [
+"parcel"
+],
+"parcel": [
+"parcel"
+],
+"flash": [
+"parcel"
+],
+"kerry": [
+"parcel"
+],
+"kex": [
+"parcel"
+],
+"spx": [
+"parcel"
+],
+"dhl": [
+"parcel"
+],
+"ขนส่งพัสดุ": [
+"parcel"
+],
+"couriers & parcels": [
+"parcel"
 ],
 "ราชการ-เอกสาร": [
 "gov"
@@ -657,6 +739,15 @@
 ],
 "kindergartens & nurseries": [
 "kindergarten"
+],
+"มหาลัย": [
+"university"
+],
+"มหาลัยเอกชน": [
+"university"
+],
+"university": [
+"university"
 ],
 "วิทยาลัย-อาชีวศึกษา": [
 "college"
@@ -863,6 +954,33 @@
 ],
 "crafts & gifts": [
 "crafts"
+],
+"ร้านทอง": [
+"gold"
+],
+"ห้างทอง": [
+"gold"
+],
+"ขายทอง": [
+"gold"
+],
+"รับซื้อทอง": [
+"gold"
+],
+"ทองรูปพรรณ": [
+"gold"
+],
+"ทองแท่ง": [
+"gold"
+],
+"gold": [
+"gold"
+],
+"goldsmith": [
+"gold"
+],
+"gold shops": [
+"gold"
 ],
 "เสื้อผ้ามือสอง-คัดพิเศษ": [
 "secondhand"
@@ -1269,6 +1387,108 @@
 "home trades": [
 "home"
 ],
+"รับเหมาก่อสร้าง": [
+"builder"
+],
+"รับสร้างบ้าน": [
+"builder"
+],
+"ต่อเติมบ้าน": [
+"builder"
+],
+"ผู้รับเหมา": [
+"builder"
+],
+"builder": [
+"builder"
+],
+"contractor": [
+"builder"
+],
+"ช่างรับเหมา-สร้างบ้าน": [
+"builder"
+],
+"builders & contractors": [
+"builder"
+],
+"วัสดุก่อสร้าง": [
+"materials"
+],
+"ร้านฮาร์ดแวร์": [
+"materials"
+],
+"กระเบื้อง": [
+"materials"
+],
+"ปูนซีเมนต์": [
+"materials"
+],
+"ค้าไม้": [
+"materials"
+],
+"เหล็กเส้น": [
+"materials"
+],
+"เมทัลชีท": [
+"materials"
+],
+"hardware": [
+"materials"
+],
+"tiles": [
+"materials"
+],
+"cement": [
+"materials"
+],
+"timber": [
+"materials"
+],
+"building materials": [
+"materials"
+],
+"ช่างไฟ": [
+"electric-plumbing"
+],
+"ช่างไฟฟ้า": [
+"electric-plumbing"
+],
+"ช่างประปา": [
+"electric-plumbing"
+],
+"ซ่อมปั๊มน้ำ": [
+"electric-plumbing"
+],
+"electrician": [
+"electric-plumbing"
+],
+"plumber": [
+"electric-plumbing"
+],
+"ช่างไฟ-ช่างประปา": [
+"electric-plumbing"
+],
+"electricians & plumbers": [
+"electric-plumbing"
+],
+"ช่างแอร์": [
+"aircon"
+],
+"ล้างแอร์": [
+"aircon"
+],
+"ซ่อมแอร์": [
+"aircon"
+],
+"ติดตั้งแอร์": [
+"aircon"
+],
+"aircon": [
+"aircon"
+],
+"air-con repair": [
+"aircon"
+],
 "มือถือ-คอมพิวเตอร์": [
 "tech"
 ],
@@ -1486,6 +1706,111 @@
 ],
 "muay thai & gyms": [
 "gym"
+],
+"สนามแบด": [
+"badminton"
+],
+"คอร์ทแบด": [
+"badminton"
+],
+"จองสนามแบด": [
+"badminton"
+],
+"แบดมินตัน": [
+"badminton"
+],
+"badminton": [
+"badminton"
+],
+"สนามแบดมินตัน": [
+"badminton"
+],
+"badminton courts": [
+"badminton"
+],
+"สนามฟุตบอล": [
+"football"
+],
+"สนามหญ้าเทียม": [
+"football"
+],
+"ฟุตซอล": [
+"football"
+],
+"เช่าสนามบอล": [
+"football"
+],
+"football": [
+"football"
+],
+"futsal": [
+"football"
+],
+"soccer": [
+"football"
+],
+"สนามฟุตบอล-ฟุตซอล": [
+"football"
+],
+"football & futsal": [
+"football"
+],
+"สนามเทนนิส": [
+"tennis"
+],
+"คอร์ทเทนนิส": [
+"tennis"
+],
+"เรียนเทนนิส": [
+"tennis"
+],
+"tennis": [
+"tennis"
+],
+"tennis courts": [
+"tennis"
+],
+"สนามบาส": [
+"basketball"
+],
+"บาสเกตบอล": [
+"basketball"
+],
+"basketball": [
+"basketball"
+],
+"สนามบาสเกตบอล": [
+"basketball"
+],
+"basketball courts": [
+"basketball"
+],
+"สนุกเกอร์": [
+"snooker"
+],
+"บิลเลียด": [
+"snooker"
+],
+"โต๊ะสนุ๊ก": [
+"snooker"
+],
+"snooker": [
+"snooker"
+],
+"billiards": [
+"snooker"
+],
+"สนุกเกอร์-พูล": [
+"snooker"
+],
+"snooker & pool": [
+"snooker"
+],
+"โบว์ลิ่ง": [
+"bowling"
+],
+"bowling": [
+"bowling"
 ],
 "สนามมวย": [
 "muaythai"
@@ -1937,6 +2262,7 @@
 "professional"
 ],
 "โรงหนัง": [
+"cinema",
 "whats-on"
 ],
 "ดนตรีสด": [
@@ -1969,6 +2295,18 @@
 ],
 "movies, concerts & events": [
 "whats-on"
+],
+"โรงภาพยนตร์": [
+"cinema"
+],
+"ดูหนัง": [
+"cinema"
+],
+"cinema": [
+"cinema"
+],
+"movies": [
+"cinema"
 ],
 "โรงหนัง-รอบฉาย": [
 "cinema"
