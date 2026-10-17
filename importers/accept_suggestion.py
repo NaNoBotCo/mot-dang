@@ -45,6 +45,11 @@ QUEUE = os.environ.get("MD_SUGGEST_QUEUE") or os.path.join(ROOT, "_incoming", "s
 LEDGER = os.environ.get("MD_SUGGEST_LEDGER") or os.path.join(ROOT, "_incoming",
                                                               "suggestions-accepted.json")
 FIXES = os.environ.get("MD_FIXES_FILE") or os.path.join(ROOT, "data", "fixes.json")
+CREDITS = os.environ.get("MD_CREDITS_FILE") or os.path.join(ROOT, "data", "credits.json")
+# The kinds on the form and the label each earns on /credits.html. A kind not listed has no label
+# (question, crawl); the tool says so and leaves the row to be added by hand.
+CREDIT_KIND = {"correction": "fix", "contact": "fix", "closed": "fix", "moved": "fix",
+               "duplicate": "fix", "other": "fix", "missing": "add", "photo": "photo"}
 CANONICAL = os.environ.get("MD_CANONICAL_DIR") or os.path.join(ROOT, "data", "canonical")
 
 # The channel column on /fixed.html, in the file's own "Thai / English" habit.
@@ -152,6 +157,9 @@ def describe(row, names):
          "field": "", "value": "", "note": what, "page": site_path(row.get("page")),
          "valid": True}
     d["place"] = names.get(d["placeId"]) or d["placeId"]
+    cr = row.get("credit") if isinstance(row.get("credit"), dict) else None
+    d["credit"] = cr if cr and cr.get("name") and cr.get("v") else None
+    d["ref"] = (d["id"] or "")[:8]
     if what.startswith(facts.PREFIX):
         try:
             body = json.loads(what[len(facts.PREFIX):])
@@ -250,6 +258,8 @@ def show(items):
             line += "  " + fv
         if d["note"]:
             line += "  — " + d["note"][:80]
+        if d["credit"]:
+            line += "  [credit: %s]" % d["credit"]["name"]
         print(line)
 
 
@@ -285,11 +295,36 @@ def accept(d, th=None, en=None, today=None):
     atomic_write(FIXES, doc)
     idx = len(doc["fixes"]) - 1
     decide(d, "accepted", idx, today)
+    add_credit(d, idx, today)
     print("   ✓ %s — row %d on %s" % (d["id"][:8], idx, os.path.relpath(FIXES, ROOT)))
     print("   by hand, still:")
     for k, v in hand_edit(d, today):
         print("      %-6s %s" % (k, v))
     return idx
+
+
+def add_credit(d, fix_row, today):
+    """A reader who ticked the box and typed a name gets a row in data/credits.json. The row holds the
+    name, the kind of help, the month, the wording version ticked, the first 8 characters of the queue
+    id and the page. Contact address, note and voter id stay in the queue."""
+    cr = d.get("credit")
+    if not cr:
+        return
+    kind = CREDIT_KIND.get(d["kind"])
+    if not kind:
+        print("   credit ticked, and kind %r has no label on /credits.html — add the row by hand "
+              "(notes/engineers-2026-10-11/credits/build_credits.py add)" % d["kind"])
+        return
+    doc = load(CREDITS, {"credits": []})
+    if not isinstance(doc, dict) or not isinstance(doc.get("credits"), list):
+        raise SystemExit("%s is not the credits file — credit not written" % CREDITS)
+    row = {"name": cr["name"], "kind": kind, "month": today[:7], "consent": cr["v"], "ref": d["ref"],
+           "fix": fix_row}
+    if d["page"]:
+        row["page"] = d["page"]
+    doc["credits"].append(row)
+    atomic_write(CREDITS, doc)
+    print("   credit row %d on %s" % (len(doc["credits"]) - 1, os.path.relpath(CREDITS, ROOT)))
 
 
 def reject(d, today=None):

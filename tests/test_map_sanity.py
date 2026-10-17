@@ -34,11 +34,13 @@ HARD — fails the gate
      Mai on a cr one) still pinned within CITY_KM of its own city centre —
      derive.apply_pin_doubt marks those needs-pin
 
-Checks 2, 3, 5 and 6b ratchet (5 keyed by page, 6b by folder). The rows standing on the day the gate went in are in
+Checks 2, 3, 5 and 6b ratchet (5 keyed by page, 6b by folder; 5 is advisory). The rows standing on the day the gate went in are in
 tests/map_sanity_known.json and are printed, not failed; a NEW row fails. A
 known row that clears is reported so the file can shrink.
 
 ADVISORY — printed
+  - a NEW drawn pin outside its frame (check 5; Nan, 2026-10-11: a doodle pin
+    8 px off the Bum Gun drawing stopped the whole site five times)
   - coordinates on a 1/256-degree grid (~430 m): a geocoder's rounding
   - a place joined to a same-named street in the other province
   - the moat ring's west and east sides more than 2° apart
@@ -59,6 +61,8 @@ OFF_FRAME = {}   # check 5's rows, for --write-baseline
 NO_GROUND = {}   # check 6b's rows (by folder), for --write-baseline
 
 import regional_ground as rg  # noqa: E402
+sys.path.insert(0, str(ROOT / "tools"))
+import holdback  # noqa: E402  a page or site held back this round is not read
 
 THAILAND = (5.5, 97.2, 20.6, 105.7)          # S, W, N, E
 FENCE = (17.0, 97.3, 20.5, 100.6)            # cm-cr.pmtiles extract
@@ -78,6 +82,7 @@ PIN_DOUBT_CASES = ("cm-ovt-8fbb1fff-4899-4d77-a6f9-80ba88cf8b44",   # Chiang Rai
                    "cm-ovt-fec3f686-4697-4625-8cd6-b74a3087b896")  # The Golden Triangle
 
 FAILED, ADVISE = [], []
+HELD_OK = set()   # failed labels whose every row is a page or site tools/holdback.py can hold
 
 
 def check(label, ok, detail=""):
@@ -89,6 +94,25 @@ def check(label, ok, detail=""):
 def within(box, lat, lng):
     s, w, n, e = box
     return s <= lat <= n and w <= lng <= e
+
+
+def _regions():
+    """(S, W, N, E) of each province archive data/basemap.json declares beside
+    cm-cr (Pathum Thani, 2026-10-12): its ground is in that archive."""
+    try:
+        cfg = json.loads((ROOT / "data" / "basemap.json").read_text())
+    except (OSError, ValueError):
+        return []
+    return [(r["bounds"][0][1], r["bounds"][0][0], r["bounds"][1][1], r["bounds"][1][0])
+            for r in cfg.get("regions") or [] if r.get("bounds")]
+
+
+REGIONS = _regions()
+
+
+def grounded(box, lat, lng):
+    """Inside `box` (the cm-cr fence or the mount rails), or inside a region."""
+    return within(box, lat, lng) or any(within(b, lat, lng) for b in REGIONS)
 
 
 def seg_km(lat, lng, a, b):
@@ -114,16 +138,28 @@ def outside_km(g, iso, lat, lng):
     return line_km(lat, lng, [r + r[:1] for r in prov["rings"]])
 
 
-def ratchet(name, found, known, fmt):
-    """found: {id: detail}. Fails on ids not in known."""
+def ratchet(name, found, known, fmt, advisory=False):
+    """found: {id: detail}. Fails on ids not in known, or notes them when advisory."""
     new = sorted(set(found) - set(known))
     gone = sorted(set(known) - set(found))
-    check(f"{name}: no new rows", not new,
-          f"{len(found)} standing, {len(found) - len(new)} known, {len(new)} new")
+    detail = f"{len(found)} standing, {len(found) - len(new)} known, {len(new)} new"
+    if advisory:
+        print(f"  {'ok  ' if not new else 'note'}  {name}: no new rows  — {detail}")
+        if new:
+            ADVISE.append(f"{name}: {len(new)} new — " + ", ".join(new[:5]))
+    else:
+        check(f"{name}: no new rows", not new, detail)
     for i in new[:25]:
         print("        new  " + fmt(i, found[i]))
     if gone:
         print(f"        {len(gone)} known row(s) cleared — rerun with --write-baseline to shrink the list")
+    return new
+
+
+def hold(label, paths, why):
+    """Name a failed check's pages for tools/holdback.py (Nan, 2026-10-11)."""
+    if paths and holdback.propose(paths, "map sanity: " + why):
+        HELD_OK.add(label)
 
 
 def main():
@@ -229,6 +265,7 @@ def main():
         rest = [f for f in rest if f not in imported]
         random.seed(len(rest))
         pages += sorted(imported) + random.sample(rest, min(SAMPLE, len(rest)))
+        pages = [f for f in pages if not holdback.held(f.relative_to(DOCS).as_posix())]
         svg_rx = re.compile(r"<svg\b([^>]*)>(.*?)</svg>", re.S)
         vb_rx = re.compile(r'viewBox="\s*([-\d.]+)[ ,]+([-\d.]+)[ ,]+([-\d.]+)[ ,]+([-\d.]+)"')
         pin_rx = re.compile(r'<circle\b[^>]*?\bcx="([-\d.]+)"[^>]*?\bcy="([-\d.]+)"'
@@ -236,6 +273,7 @@ def main():
         mount_rx = re.compile(r'data-mdmap="[^"]*"[^>]*?data-lat="([-\d.]+)" data-lng="([-\d.]+)"')
         draw_rx = re.compile(r'<div class="mdmap-draw">')
         n_svg, off, bad_mount, naked, no_ground = 0, {}, [], [], []
+        mount_pages, naked_pages = set(), set()
         import map_shell
         enabled = map_shell.enabled()
         (mw, ms), (me, mn) = map_shell.config().get("bounds") or map_shell.BOUNDS
@@ -263,14 +301,16 @@ def main():
                 body = m.group(2)
                 if "data-mdpin" in body and not any(a <= m.start() < b for a, b in draws):
                     naked.append(f"{f.relative_to(DOCS)} ({w:.0f}x{h:.0f})")
+                    naked_pages.add(f.relative_to(DOCS).as_posix())
                 for c in pin_rx.finditer(body):
                     x, y = float(c.group(1) or c.group(3)), float(c.group(2) or c.group(4))
                     if not (x0 - 2 <= x <= x0 + w + 2 and y0 - 2 <= y <= y0 + h + 2):
                         off.setdefault(str(f.relative_to(DOCS)), f"({x:.0f},{y:.0f}) in {w:.0f}x{h:.0f}")
             for m in mount_rx.finditer(s):
                 la, ln = float(m.group(1)), float(m.group(2))
-                if not (ms <= la <= mn and mw <= ln <= me):
+                if not grounded((ms, mw, mn, me), la, ln):
                     bad_mount.append(f"{f.relative_to(DOCS)} {la},{ln}")
+                    mount_pages.add(f.relative_to(DOCS).as_posix())
             # A mount present but the basemap script missing is the other half of
             # the same failure (build.page auto-injects map_shell.head on any body
             # holding a mount): the drawing renders and no tiles ever arrive over
@@ -280,13 +320,16 @@ def main():
                 no_ground.append(str(f.relative_to(DOCS)))
         print(f"  ({n_svg} drawings on {len(pages)} pages, {len(imported)} of them from sites built elsewhere)")
         ratchet("pins inside the frame", off, known.get("off_frame", []),
-                lambda k, d: f"{k} {d}")
+                lambda k, d: f"{k} {d}", advisory=True)
         OFF_FRAME.update(off)
         print("6 · basemap mounts")
         check("every mount centred inside the fence", not bad_mount, "; ".join(bad_mount[:5]))
+        hold("every mount centred inside the fence", sorted(mount_pages), "a map centred off the fence")
         print("6b · a basemap under every drawn map")
         check("no drawn map outside a mount (a map that can never get ground)",
               not naked, "; ".join(naked[:5]))
+        hold("no drawn map outside a mount (a map that can never get ground)", sorted(naked_pages),
+             "a drawn map with no basemap mount")
         if enabled:
             # Keyed by folder: one template draws a folder, so a missing script
             # is a template's fault, not a page's. Ratchets like 2, 3 and 5.
@@ -294,8 +337,11 @@ def main():
             for g_ in no_ground:
                 by_dir.setdefault("/".join(g_.split("/")[:2]), []).append(g_)
             no_ground_rows = {d: f"{len(v)} page(s), e.g. {v[0]}" for d, v in by_dir.items()}
-            ratchet("every mounted map ships its basemap script", no_ground_rows,
-                    known.get("no_ground", []), lambda k, d: f"{k}: {d}")
+            hold("every mounted map ships its basemap script: no new rows",
+                 [d + "/" if not d.endswith(".html") else d for d in
+                  ratchet("every mounted map ships its basemap script", no_ground_rows,
+                          known.get("no_ground", []), lambda k, d: f"{k}: {d}")],
+                 "a map without its basemap script")
             NO_GROUND.update(no_ground_rows)
         else:
             print("  note  basemap disabled (data/basemap.json has no url) — the drawn "
@@ -315,7 +361,7 @@ def main():
                     continue
                 n_pt += 1
                 x, y = geo["coordinates"][:2]
-                if not within(FENCE, y, x):
+                if not grounded(FENCE, y, x):
                     bad_pt.append(f"{f.name} {x},{y}")
         check(f"{n_pt:,} GeoJSON points inside the fence", not bad_pt, "; ".join(bad_pt[:5]))
 
@@ -399,6 +445,9 @@ def main():
     for a in ADVISE:
         print("  note  " + a)
     print()
+    for f in FAILED:
+        if f not in HELD_OK:
+            holdback.cannot(f)
     if FAILED:
         print(f"{len(FAILED)} failed:")
         for f in FAILED:

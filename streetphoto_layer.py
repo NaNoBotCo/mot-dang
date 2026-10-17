@@ -64,6 +64,8 @@ import zlib
 from datetime import date, datetime, timezone
 from pathlib import Path
 
+import media_layer
+
 ROOT = Path(__file__).resolve().parent
 OWN_DIR = ROOT / "assets" / "streetphotos" / "own"
 MLY_DIR = ROOT / "assets" / "streetphotos"
@@ -463,6 +465,10 @@ def emit(g):
         sub = p.get("dir") or "streetphotos"
         src = ROOT / "assets" / sub / p["file"]
         if not src.exists():
+            continue
+        if media_layer.on():   # mot-dang-media takes it (media_layer.py)
+            media_layer.put(src, docs, "%s/%s" % (sub, p["file"]))
+            n += 1
             continue
         dest = docs / sub / p["file"]
         # tens of thousands of files: copy only what is new or changed

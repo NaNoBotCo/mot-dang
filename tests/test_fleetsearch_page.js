@@ -46,7 +46,8 @@ const SEARCH = {
   },
   async batch(stmts) { return stmts.map((s) => ({ results: db.prepare(s.text).all(...s.binds) })); },
 };
-const env = { SEARCH };
+/* OWN_FIND_URL "" keeps the page maker (ownfind.js) out of these timings; tests/test_ownfind.js covers it. */
+const env = { SEARCH, OWN_FIND_URL: "" };
 const ctx = { waitUntil() {} };
 
 /* The edge attaches cf.latitude/longitude to the request; here it is faked, so

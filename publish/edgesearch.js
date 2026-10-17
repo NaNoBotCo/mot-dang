@@ -43,6 +43,11 @@ export class EdgeIndex {
         this.load(this.base + "meta.json"), this.load(this.base + "vocab.json"), this.load(this.base + "ids.json")]);
       if (!meta || !vocab || !ids) throw new Error("edge index missing");
       this.meta = meta; this.ids = ids;
+      /* layout 2 (emit_edge_index.js, 2026-10-13): postings carry kept row
+       * numbers and rank.json gives each one's position in index.json, which
+       * is the tie order. No rank = layout 1, where the number is the position. */
+      this.rank = meta.rank ? await this.load(this.base + meta.rank) : null;
+      if (meta.rank && !this.rank) throw new Error("edge index missing");
       this.fields = new Map(meta.fields);           // [[name, weight], …]
       this.vocab = new Map();                        // field -> Set(words)
       this.byLen = new Map();                        // field -> Map(len -> [looseKey])
@@ -149,9 +154,11 @@ export class EdgeIndex {
     const n = an.terms.length, out = [];
     for (const [did, [total, worst, matched]] of acc) {
       const coverage = matched / n;
+      if (this.ids[did] == null) continue;           // a retired number from a shard one publish old
       out.push({ did, id: this.ids[did], score: total * coverage * coverage, tier: coverage < 1 ? TIER_PARTIAL : worst, coverage });
     }
-    out.sort((a, b) => b.score - a.score || a.did - b.did);
+    const rank = this.rank;
+    out.sort((a, b) => b.score - a.score || (rank ? rank[a.did] - rank[b.did] : a.did - b.did));
     const whole = out.filter(r => r.coverage >= 1);
     const kept = whole.length ? whole : out;
     return limit ? kept.slice(0, limit) : kept;

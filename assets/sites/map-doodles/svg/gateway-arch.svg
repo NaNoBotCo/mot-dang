@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" stroke-linejoin="round" stroke-linecap="round"><title>Gateway Arch · เกตเวย์อาร์ช</title>
+<ellipse cx="32" cy="58.6" rx="26" ry="3.4" fill="#9cc77a" stroke="#2b2118" stroke-width="1.4"/>
+<path d="M28.6 58.4 30.6 49H33.4L35.4 58.4Z" fill="#cdbfa6" stroke="#2b2118" stroke-width="1"/>
+<path d="M4.6 58.6C4.6 22 18 3 32 3C46 3 59.4 22 59.4 58.6H51.2C51.2 28 43 9.6 32 9.6C21 9.6 12.8 28 12.8 58.6Z" fill="#dfe5ea"/>
+<path d="M32 3C46 3 59.4 22 59.4 58.6H51.2C51.2 28 43 9.6 32 9.6Z" fill="#b3bdc5"/>
+<path d="M4.6 58.6C4.6 22 18 3 32 3C46 3 59.4 22 59.4 58.6H51.2C51.2 28 43 9.6 32 9.6C21 9.6 12.8 28 12.8 58.6Z" fill="none" stroke="#2b2118" stroke-width="2"/>
+<path d="M8.4 52C8.8 30 17 12 28 6" fill="none" stroke="#fbf8f1" stroke-width="1.2" opacity=".9"/>
+<path d="M8.7 58C8.6 26 20 6.4 32 6.4C44 6.4 55.4 26 55.3 58" fill="none" stroke="#9aa3ab" stroke-width=".9"/>
+<circle cx="21" cy="53.6" r="3" fill="#5f9a4a" stroke="#2b2118" stroke-width="1.1"/>
+<circle cx="43" cy="53.6" r="3" fill="#5f9a4a" stroke="#2b2118" stroke-width="1.1"/>
+</svg>

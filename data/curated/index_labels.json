@@ -33,6 +33,10 @@
    "อาหารเหนือ-ขันโตก",
    "Northern Thai & Khantoke"
   ],
+  "myanmar": [
+   "อาหารพม่า-ไทใหญ่",
+   "Burmese & Shan"
+  ],
   "japanese": [
    "อาหารญี่ปุ่น",
    "Japanese"
@@ -850,6 +854,10 @@
   "food/lanna": [
    "อาหารเหนือ-ขันโตก",
    "Northern Thai & Khantoke"
+  ],
+  "food/myanmar": [
+   "อาหารพม่า-ไทใหญ่",
+   "Burmese & Shan"
   ],
   "food/japanese": [
    "อาหารญี่ปุ่น",
@@ -1669,6 +1677,9 @@
    "อาหารเหนือ-ขันโตก",
    "อาหารเหนือ-ล้านนา-อาข่า-ไทใหญ่",
    "เหนือ"
+  ],
+  "myanmar": [
+   "shan"
   ],
   "japanese": [
    "japanese",
@@ -3448,6 +3459,9 @@
    "อาหารเหนือ-ขันโตก",
    "อาหารเหนือ-ล้านนา-อาข่า-ไทใหญ่",
    "เหนือ"
+  ],
+  "food/myanmar": [
+   "shan"
   ],
   "food/japanese": [
    "japanese",

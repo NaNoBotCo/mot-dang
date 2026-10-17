@@ -542,7 +542,8 @@ function schoolKind(P) {
 }
 function school(S) {
   var hh = S.hh, c = S.c, L = plan(S, 'school'), P = L.P, r = L.r, ck = L.ck, kind = schoolKind(P);
-  if (kind !== 'novice' && (subOf(P, 'language') || subOf(P, 'tutoring') || subOf(P, 'music-art') || subOf(P, 'dance') || subOf(P, 'driving'))) return training(S);
+  if (kind !== 'novice' && (subOf(P, 'driving') || trainKind(P) === 'drive' && subOf(P, 'training'))) return drive(S);
+  if (kind !== 'novice' && (subOf(P, 'language') || subOf(P, 'tutoring') || subOf(P, 'music-art') || subOf(P, 'dance'))) return training(S);
   var cols = SCHOOLCOL[S.seed % SCHOOLCOL.length], wk = ck.dow >= 1 && ck.dow <= 5, h = ck.h;
   var mode = S.night ? 'night' : !wk || h < 6.8 || h > 18 ? 'weekend' : h < 8.4 ? 'flag' : h < 12 ? 'class' : h < 13 ? 'play' : h < 15.5 ? 'class' : 'home';
   if (L.st.known && !L.st.open && !S.night) mode = 'weekend';
@@ -1052,6 +1053,211 @@ function tattoo(S) {
   });
 }
 
+/* ---------------------------------------------------------------- driving school
+   The yard as the school runs it (Nan, 2026-10-15: "They teach car and scootering skills. Active
+   instruction", with her photo of a class): learners in numbered bibs and helmets ride a loop
+   under a steel canopy, slow along the narrow plank (x = p − a(sin 2π(p − ¼) + 1)/2π, slowest
+   at its middle) and weaving the cones (y = A·sin πx/g); the instructor turns to whoever is
+   nearest and calls to them; the next riders wait at the line. Beside the canopy a learner car
+   with its roof sign drives past the striped-pole bay, backs into it, waits, pulls out and backs
+   up to go again. The school is two yellow storeys behind its yellow board; golden trumpet
+   trees flower over the wall. Shut: the scooters stand in a row and the car sits in the bay. */
+var BIB = [['#8ed04a', null], ['#f0622a', '#e8f04a']];   /* the vest, its reflective bands */
+var DRIVE_SAY = [['มองไกล ๆ', 'look ahead'], ['ช้า ๆ นิ่ง ๆ', 'slow and steady'], ['ดีมาก!', 'well done!'], ['เลี้ยวกว้าง ๆ', 'turn wide']];
+function tabebuia(c, S, x, y, s, k) {
+  /* เหลืองปรีดียาธร: a grey trunk, a loose green crown, and the yellow trumpets all over it */
+  paper(c, poly([[x - s * 0.06, y], [x - s * 0.04, y - s * 0.7], [x - s * 0.26, y - s * 0.98], [x - s * 0.2, y - s * 1.02], [x, y - s * 0.8], [x + s * 0.22, y - s * 1.04], [x + s * 0.27, y - s * 0.98], [x + s * 0.05, y - s * 0.7], [x + s * 0.07, y]]), nt(S, '#8a8478'), 1);
+  paper(c, function (q) { var pts = []; for (var i = 0; i <= 36; i++) { var a = Math.PI + i / 36 * Math.PI, rr = s * (0.72 + 0.1 * Math.sin(i * 2.3 + k)); pts.push([x + Math.cos(a) * rr, y - s * 1.0 + Math.sin(a) * rr * 0.7]); } pts.push([x + s * 0.7, y - s * 0.86], [x - s * 0.7, y - s * 0.86]); jag(q, pts, 30 + k, 3); }, nt(S, '#5a8a3a'), 1.2);
+  var r = rnd(k * 31 + 7);
+  for (var i = 0; i < 70; i++) { var a = Math.PI + r() * Math.PI, rr = s * 0.68 * Math.sqrt(r()); dot(c, x + Math.cos(a) * rr, y - s * 1.0 + Math.sin(a) * rr * 0.68 + s * 0.08, s * (0.035 + r() * 0.025), nt(S, r() < 0.7 ? '#f6c81e' : '#e8a812')); }
+}
+function cone(c, S, x, y, s) {
+  fp(c, [[x - s * 0.09, y], [x - s * 0.025, y - s * 0.24], [x + s * 0.025, y - s * 0.24], [x + s * 0.09, y]], nt(S, '#f0662a'));
+  fr(c, x - s * 0.055, y - s * 0.14, s * 0.11, s * 0.035, nt(S, '#f4f4f4')); fr(c, x - s * 0.12, y - s * 0.02, s * 0.24, s * 0.03, nt(S, '#d9542a'));
+}
+function stripedPole(c, S, x, y, s) {
+  var h = s * 0.62, w = Math.max(2, s * 0.045);
+  fr(c, x - w * 1.6, y - w * 0.6, w * 3.2, w * 0.9, nt(S, '#5a5a62'));
+  for (var i = 0; i < 6; i++) fr(c, x - w / 2, y - h + i * h / 6, w, h / 6 + 0.5, nt(S, i % 2 ? '#f4f4f4' : '#d9342b'));
+}
+/* the bib on the learner's back: the vest over the torso, a white square, the number in red */
+function bib(c, x, y, s, k, dir, n, kind) {
+  var V = BIB[kind], X = function (u) { return x + dir * k * u * s; }, Y = function (v) { return y + k * v * s; };
+  c.save(); c.lineCap = 'round';
+  ln(c, [[X(-0.155), Y(-0.6)], [X(-0.13), Y(-0.8)]], V[0], Math.max(2.5, s * k * 0.12));
+  if (V[1]) { ln(c, [[X(-0.2), Y(-0.66)], [X(-0.09), Y(-0.67)]], V[1], Math.max(1, s * k * 0.018)); ln(c, [[X(-0.19), Y(-0.75)], [X(-0.08), Y(-0.76)]], V[1], Math.max(1, s * k * 0.018)); }
+  var b = s * k * 0.085, bx = X(-0.19), by = Y(-0.71);
+  fr(c, bx - b / 2, by - b / 2, b, b, '#f4f4f4'); fr(c, bx - b * 0.38, by - b * 0.38, b * 0.76, b * 0.76, '#c62a20');
+  if (b > 7) txt(c, String(n), bx, by + 0.5, b * 0.62, '#ffffff', 800);
+  c.restore();
+}
+var SCOOTCOL = ['#c62a20', '#1f1f24', '#f4f2ee', '#2c4e9b', '#e5567f', '#8a9099', '#2f8f5b', '#e8a83a'];
+function rideScooter(c, S, x, y, s, k, dir, d, o) {
+  if (!K.scooter) {   /* the kit without its step-through: the street's motorbike, the rider astride, a helmet */
+    c.save(); c.translate(x, y); if (o.tilt) c.rotate(o.tilt); c.scale(k, k);
+    motorbike(c, S, 0, 0, s * 1.2, dir, SCOOTCOL[(o.col || 0) % SCOOTCOL.length]);
+    if (d) { d.dir = dir; var me = person(c, -dir * s * 0.06, -s * 0.22, s * 0.8, { lean: 0.15, seat: 0.3, legs: [1.2, -1.0, 1.1, -1.1], arms: [1.3, 0.3, 1.2, 0.35] }, d);
+      el(c, me.head[0], me.head[1] - s * 0.02, s * 0.1, s * 0.09, 0, o.helmet || '#f4efe2');
+      if (o.n) { ln(c, [me.hip, me.sh], BIB[o.vest || 0][0], Math.max(2.5, s * 0.1)); var b = s * 0.075; fr(c, me.sh[0] - dir * b * 0.6 - b / 2, (me.sh[1] + me.hip[1]) / 2 - b / 2, b, b, '#c62a20'); } }
+    c.restore(); return;
+  }
+  c.save(); c.translate(x, y); if (o.tilt) c.rotate(o.tilt); c.scale(dir * k, k);
+  K.scooter(c, s, { k: o.col, auto: true, rider: d, helmets: d ? [o.helmet] : null, th: o.th || 0, night: S.night, t: S.t });
+  c.restore();
+  if (d && o.n) bib(c, x, y, s, k, dir, o.n, o.vest);
+}
+function bubble(c, S, x, y, say, px) {
+  c.save(); c.font = '800 ' + Math.round(px) + 'px "Sarabun",system-ui,sans-serif'; var w1 = c.measureText(say[0]).width;
+  c.font = '700 ' + Math.round(px * 0.72) + 'px "Sarabun",system-ui,sans-serif'; var w2 = c.measureText(say[1]).width;
+  var w = Math.max(w1, w2) + px * 1.1, h = px * 2.3, bx = x - w * 0.3, by = y - h - px * 0.6;
+  paper(c, function (q) { q.beginPath(); var rr = px * 0.5; q.moveTo(bx + rr, by); q.lineTo(bx + w - rr, by); q.quadraticCurveTo(bx + w, by, bx + w, by + rr); q.lineTo(bx + w, by + h - rr); q.quadraticCurveTo(bx + w, by + h, bx + w - rr, by + h);
+    q.lineTo(x + px * 0.5, by + h); q.lineTo(x, y); q.lineTo(x + px * 0.05, by + h); q.lineTo(bx + rr, by + h); q.quadraticCurveTo(bx, by + h, bx, by + h - rr); q.lineTo(bx, by + rr); q.quadraticCurveTo(bx, by, bx + rr, by); q.closePath(); }, '#fffdf4', 1);
+  c.restore();
+  txt(c, say[0], bx + w / 2, by + h * 0.36, px, '#2a2a30', 800); txt(c, say[1], bx + w / 2, by + h * 0.72, px * 0.72, '#6a5a4a', 700);
+}
+/* the school's car: a white sedan, its roof sign, the learner at the wheel and the teacher beside */
+function learnerCar(c, S, x, y, s, o) {
+  var L = 1.05, X = function (u) { return x + u * s; }, gl = S.night ? '#2a3550' : '#9fc4d4', body = nt(S, '#f4f2ec');
+  c.save(); c.translate(x, y); if (o.tilt) c.rotate(o.tilt); c.translate(-x, -y);
+  c.fillStyle = 'rgba(0,0,0,.18)'; c.beginPath(); c.ellipse(x, y - s * 0.02, L * s * 1.02, s * 0.06, 0, 0, TAU); c.fill();
+  /* the roof sign */
+  paper(c, rect(X(-0.2), y - s * 0.6, s * 0.4, s * 0.12), nt(S, '#f2c94c'), 0.8); fr(c, X(-0.14), y - s * 0.48, s * 0.03, s * 0.03, '#5a5a62'); fr(c, X(0.11), y - s * 0.48, s * 0.03, s * 0.03, '#5a5a62');
+  if (s > 50) txt(c, 'สอนขับรถ', x, y - s * 0.54, s * 0.085, nt(S, '#c62a20'), 800);
+  paper(c, poly([[X(-L), y - s * 0.12], [X(-L), y - s * 0.28], [X(-L * 0.55), y - s * 0.3], [X(-L * 0.3), y - s * 0.46], [X(L * 0.25), y - s * 0.46], [X(L * 0.5), y - s * 0.3], [X(L), y - s * 0.26], [X(L), y - s * 0.12]]), body, 1);
+  var win = [[X(-L * 0.25), y - s * 0.31], [X(-L * 0.12), y - s * 0.43], [X(L * 0.22), y - s * 0.43], [X(L * 0.4), y - s * 0.31]];
+  fp(c, win, gl); fp(c, [[X(-L * 0.5), y - s * 0.31], [X(-L * 0.3), y - s * 0.43], [X(-L * 0.28), y - s * 0.31]], gl);
+  /* the two heads in the front window: the learner at the wheel on the far side, the teacher near */
+  c.save(); c.beginPath(); win.forEach(function (p, i) { i ? c.lineTo(p[0], p[1]) : c.moveTo(p[0], p[1]); }); c.closePath(); c.clip();
+  dot(c, X(0.1), y - s * 0.37, s * 0.055, nt(S, '#3a2a22')); fr(c, X(0.06), y - s * 0.33, s * 0.08, s * 0.05, nt(S, o.studentCol));
+  dot(c, X(-0.03 + (o.point || 0) * 0.02), y - s * 0.355, s * 0.06, nt(S, '#1c1410')); fr(c, X(-0.08), y - s * 0.31, s * 0.1, s * 0.05, nt(S, '#e5567f'));
+  c.restore();
+  ln(c, [[X(-0.02), y - s * 0.31], [X(-0.02), y - s * 0.14]], 'rgba(0,0,0,.3)', 1);
+  fr(c, X(-L * 0.9), y - s * 0.2, L * 1.8 * s, s * 0.02, nt(S, '#d9342b'));   /* the school's stripe */
+  /* lamps: the head lamp, the tail lamp bright on the brake, the white reversing lamp */
+  el(c, X(L - 0.02), y - s * 0.24, s * 0.035, s * 0.025, 0, S.night ? '#fff2b0' : '#f2f2e8');
+  el(c, X(-L + 0.02), y - s * 0.24, s * 0.03, s * 0.03, 0, o.brake ? '#ff3a2a' : '#a8241c');
+  if (o.brake) glow(c, X(-L), y - s * 0.24, s * 0.2, '255,60,40', 0.45);
+  el(c, X(-L + 0.02), y - s * 0.17, s * 0.025, s * 0.02, 0, o.rev ? '#ffffff' : '#c8c8c8');
+  if (o.rev) glow(c, X(-L), y - s * 0.17, s * 0.25, '255,255,235', 0.6);
+  [-L * 0.62, L * 0.62].forEach(function (u) { var wx = X(u), wy = y - s * 0.14, rr = s * 0.14; dot(c, wx, wy, rr, '#1e1e24'); dot(c, wx, wy, rr * 0.55, nt(S, '#b8bcc4'));
+    c.strokeStyle = '#6a6a72'; c.lineWidth = 1; c.beginPath(); for (var j = 0; j < 3; j++) { var a = (o.th || 0) + j * TAU / 3; c.moveTo(wx, wy); c.lineTo(wx + Math.cos(a) * rr * 0.55, wy + Math.sin(a) * rr * 0.55); } c.stroke(); });
+  c.restore();
+}
+function drive(S) {
+  var hh = S.hh, c = S.c, L = plan(S, 'drive'), P = L.P, r = L.r, st = L.st, t = S.t, H = S.H;
+  var open = st.open && !S.night;
+  var yb = S.deck - hh * 0.5, cx0 = S.x0 + S.span * 0.015, cx1 = S.x0 + S.span * 0.6, yr = yb - hh * 1.2;
+  var bw = Math.min(S.span * 0.36, hh * 3.8), bx0 = S.x0 + S.span * 0.06, bx1 = bx0 + bw;
+  var yF = S.deck + hh * 0.16, yB = yb + hh * 0.18, ox0 = cx0 + hh * 2.05, ox1 = cx1 - hh * 0.6, R = hh * 0.3;
+  var cs = hh * 0.86, Lc = 2.1 * cs, xc = Math.min(S.x1 - Lc * 1.08, Math.max(cx1 + Lc * 0.9, (cx1 + S.x1) / 2)), yC = Math.min(H - hh * 0.06, S.deck + hh * 0.62), yBay = yb + hh * 0.26;
+  var plank = [lerp(ox0, ox1, 0.06), lerp(ox0, ox1, 0.38)], cones = [];
+  for (var ci = 0; ci < 5; ci++) cones.push(lerp(ox0, ox1, 0.5 + ci * 0.1));
+  var gap = cones[1] - cones[0];
+  var still = layer(S, 'drive|' + (open ? 1 : 0), stageBox(S), function (q) {
+    var o = {};
+    /* the school: two yellow storeys, green glass in white frames, a low tiled roof */
+    var top = yb - hh * 1.55, fl = (yb - top) / 2;
+    paper(q, poly([[bx0 - hh * 0.1, top], [bx0 + hh * 0.2, top - hh * 0.22], [bx1 - hh * 0.2, top - hh * 0.22], [bx1 + hh * 0.1, top]]), nt(S, '#b8604a'), 1);
+    paper(q, rect(bx0, top, bw, yb - top), nt(S, '#f4d23e'), 1);
+    for (var f = 0; f < 2; f++) for (var w = 0; w < Math.max(2, Math.floor(bw / (hh * 0.55))); w++) {
+      var nw = Math.max(2, Math.floor(bw / (hh * 0.55))), wx = bx0 + hh * 0.18 + w * (bw - hh * 0.36) / nw, ww = (bw - hh * 0.36) / nw - hh * 0.1, wy = top + f * fl + fl * 0.22;
+      fr(q, wx - 1.5, wy - 1.5, ww + 3, fl * 0.5 + 3, nt(S, '#f8f6ee')); fr(q, wx, wy, ww, fl * 0.5, S.night && open ? '#ffe6a0' : nt(S, '#4f9a6a')); fr(q, wx + ww / 2 - 0.75, wy, 1.5, fl * 0.5, nt(S, '#f8f6ee'));
+    }
+    for (var pl = 0; pl < 3; pl++) fr(q, bx0 + pl * (bw - hh * 0.08) / 2, top, hh * 0.08, yb - top, nt(S, '#f8e27a'));
+    fr(q, bx0, top + fl - 2, bw, 4, nt(S, '#f8e27a'));
+    /* trees: golden trumpets over the wall, a banana by the yard */
+    tabebuia(q, S, bx1 + hh * 0.75, yb, hh * 1.25, S.seed % 9);
+    tabebuia(q, S, S.x1 - hh * 0.7, yb, hh * 1.15, (S.seed >>> 2) % 9 + 3);
+    banana(q, S, bx1 + hh * 1.6, yb, hh * 0.95, 1);
+    /* the board in front of the school: yellow, a red band along its foot */
+    var th = P.nameTh || P.name || '', en = P.nameEn && P.nameEn !== th ? P.nameEn : '', px = Math.max(9, hh * 0.17);
+    q.font = '800 ' + Math.round(px) + 'px "Sarabun",system-ui,sans-serif'; var tw = q.measureText(th).width;
+    var sw = Math.min(bw * 0.95, Math.max(hh * 1.6, tw + hh * 0.4)), sh = hh * (en ? 0.62 : 0.46), sx = (bx0 + bx1) / 2 - sw / 2, sy = yb - hh * 0.12 - sh;
+    fr(q, sx + sw * 0.12, sy + sh, 3, yb - sy - sh, nt(S, '#8a8a92')); fr(q, sx + sw * 0.88 - 3, sy + sh, 3, yb - sy - sh, nt(S, '#8a8a92'));
+    paper(q, rect(sx, sy, sw, sh), nt(S, '#f6e24a'), 1.2); fr(q, sx, sy + sh * 0.78, sw, sh * 0.22, nt(S, '#d9342b'));
+    txt(q, th.length > 30 ? th.slice(0, 29) + '…' : th, sx + sw / 2, sy + sh * (en ? 0.24 : 0.36), px, '#1e1e24', 800);
+    if (en) txt(q, en.length > 36 ? en.slice(0, 35) + '…' : en, sx + sw / 2, sy + sh * 0.56, px * 0.66, '#1e1e24', 700);
+    txt(q, 'รถยนต์ · จักรยานยนต์', sx + sw / 2, sy + sh * 0.89, Math.max(7, px * 0.5), '#ffffff', 700);
+    o.sign = [sx, sx + sw];
+    /* the yard: concrete, the canopy's floor a shade darker, painted lines */
+    paper(q, rect(S.x0 - 6, yb, S.span + 12, H - yb + 6), nt(S, '#bdb7aa'), 1.2);
+    fr(q, cx0, yb, cx1 - cx0, H - yb, nt(S, '#aaa497'));
+    ln(q, [[ox0 - R, yF + hh * 0.04], [ox1 + R, yF + hh * 0.04]], nt(S, '#e8c43a'), Math.max(1.5, hh * 0.025));
+    ln(q, [[cx0 + hh * 1.55, yB - hh * 0.04], [cx0 + hh * 1.55, yF + hh * 0.2]], nt(S, '#f4f4f4'), Math.max(2, hh * 0.04));   /* the start line */
+    ln(q, [[cx1 + hh * 0.2, yC + hh * 0.03], [S.x1 + 6, yC + hh * 0.03]], nt(S, '#e8c43a'), Math.max(1.5, hh * 0.025));
+    /* the bay, painted on the concrete */
+    q.strokeStyle = nt(S, '#f4f4f4'); q.lineWidth = Math.max(1.5, hh * 0.025); q.strokeRect(xc - Lc * 0.62, yBay - hh * 0.12, Lc * 1.24, hh * 0.26);
+    /* the plank the riders cross, raised on its blocks */
+    for (var bk = 0; bk < 4; bk++) fr(q, lerp(plank[0], plank[1], bk / 3) - hh * 0.05, yF - hh * 0.06, hh * 0.1, hh * 0.08, nt(S, '#8a8a8a'));
+    paper(q, rect(plank[0] - hh * 0.1, yF - hh * 0.1, plank[1] - plank[0] + hh * 0.2, hh * 0.06), nt(S, '#d8b070'), 0.8); fr(q, plank[0] - hh * 0.1, yF - hh * 0.05, plank[1] - plank[0] + hh * 0.2, hh * 0.012, nt(S, '#a8803a'));
+    /* the canopy: white posts, a roof sheet, the truss under it (its diagonals), a camera on the beam */
+    var pw = Math.max(2.5, hh * 0.06);
+    [cx0 + hh * 0.2, sx - hh * 0.15, sx + sw + hh * 0.15, cx1 - hh * 0.2].forEach(function (px2, k2, A) { if (k2 && px2 - A[k2 - 1] < hh * 0.5) return; fr(q, px2 - pw / 2, yr, pw, yb - yr, nt(S, '#eceef0')); });   /* clear of the board */
+    fr(q, cx0 - hh * 0.1, yr - hh * 0.32, cx1 - cx0 + hh * 0.2, hh * 0.08, nt(S, '#dfe3e6'));
+    ln(q, [[cx0, yr - hh * 0.24], [cx1, yr - hh * 0.24]], nt(S, '#f4f6f8'), pw * 0.7); ln(q, [[cx0, yr], [cx1, yr]], nt(S, '#f4f6f8'), pw * 0.7);
+    q.strokeStyle = nt(S, '#f4f6f8'); q.lineWidth = Math.max(1.2, pw * 0.45); q.beginPath();
+    for (var tx = cx0, up = 0; tx < cx1; tx += hh * 0.24, up ^= 1) { q.moveTo(tx, up ? yr - hh * 0.24 : yr); q.lineTo(Math.min(cx1, tx + hh * 0.24), up ? yr : yr - hh * 0.24); } q.stroke();
+    fr(q, cx1 - hh * 0.62, yr + 1, hh * 0.1, hh * 0.06, nt(S, '#f4f4f4')); dot(q, cx1 - hh * 0.6, yr + hh * 0.05, hh * 0.025, '#2a2a30');
+    if (S.night) for (var lp = 0; lp < 3; lp++) { var lx = lerp(cx0 + hh * 0.6, cx1 - hh * 0.6, lp / 2); fr(q, lx - hh * 0.25, yr + 2, hh * 0.5, 3, '#f8fbff'); glow(q, lx, yr + hh * 0.3, hh * 1.0, '235,245,255', 0.35); }
+    if (!open) { /* shut: the school's scooters in a row under the canopy */
+      for (var sc = 0; sc < 4; sc++) rideScooter(q, S, lerp(ox0, ox1, 0.1 + sc * 0.26), yB + hh * 0.1, hh * 0.72, 0.9, 1, null, { col: [0, 2, 5, 3][sc] });
+    }
+    return o;
+  }).out || {};
+  var K2 = function (y) { return lerp(0.84, 1, clamp((y - yb) / (yC - yb), 0, 1)); };
+  var cast = crowd(S, 7, { casual: 1 }), items = [];
+  /* the poles of the bay: the far pair under everything, the near pair sorted with the car */
+  [-1, 1].forEach(function (sd) { items.push({ y: yBay - hh * 0.12, f: function () { stripedPole(c, S, xc + sd * Lc * 0.62, yBay - hh * 0.12, hh * 0.82); } }); items.push({ y: yBay + hh * 0.14, f: function () { stripedPole(c, S, xc + sd * Lc * 0.62, yBay + hh * 0.14, hh * 0.92); } }); });
+  cones.forEach(function (x) { items.push({ y: yF, f: function () { cone(c, S, x, yF, hh); } }); });
+  /* the car's drill, T = 14 s: wait, forward past the bay, back into it, wait, out, back to the start */
+  var T = 14, u = ((t / 1000) % T + T) % T, xa = xc - Lc * 0.36, xbB = Math.min(S.x1 - Lc * 0.5 + hh * 0.3, xc + Lc * 0.6), cx, cy, rev = false, brake = false, tilt = 0, point = 0;
+  function seg(a, b) { return ease(clamp((u - a) / (b - a), 0, 1)); }
+  if (u < 1) { cx = xa; cy = yC; brake = true; }
+  else if (u < 3.5) { cx = lerp(xa, xbB, seg(1, 3.5)); cy = yC; }
+  else if (u < 4.2) { cx = xbB; cy = yC; brake = true; }
+  else if (u < 7.7) { var q2 = seg(4.2, 7.7); cx = lerp(xbB, xc, q2); cy = lerp(yC, yBay, q2); rev = true; tilt = -0.05 * Math.sin(Math.PI * q2); }
+  else if (u < 9.7) { cx = xc; cy = yBay; brake = true; point = 1; }
+  else if (u < 12) { var q3 = seg(9.7, 12); cx = lerp(xc, xbB, q3); cy = lerp(yBay, yC, q3); tilt = 0.05 * Math.sin(Math.PI * q3); }
+  else { cx = lerp(xbB, xa, seg(12, 14)); cy = yC; rev = true; }
+  if (!open) { cx = xc; cy = yBay; rev = false; brake = false; }
+  var ck = K2(cy);
+  items.push({ y: cy, f: function () { learnerCar(c, S, cx, cy, cs * ck, { rev: rev, brake: brake && open, tilt: tilt, th: cx / (cs * 0.14), studentCol: CLOTH2[S.seed % CLOTH2.length], point: point }); } });
+  if (open && !S.phone && u >= 7.9 && u < 9.6) items.push({ y: H + 1, f: function () { bubble(c, S, cx - cs * 0.1, cy - cs * 0.62 * ck, DRIVE_SAY[2], Math.max(9, hh * 0.13)); } });
+  if (open) {
+    /* the riders on the loop: u ∈ [0, .42) the front run, plank then cones; a turn; the back run; a turn */
+    var n = S.phone ? 2 : 3, Tl = 18, riders = [];
+    for (var i = 0; i < n; i++) {
+      var v = ((t / 1000 / Tl + i / n + (S.seed % 7) * 0.05) % 1 + 1) % 1, x, y, dir, tl = 0, lift = 0, p;
+      if (v < 0.42) { p = v / 0.42; var a = 0.62, f2 = p - a * (Math.sin(TAU * (p - 0.25)) + 1) / TAU; x = lerp(ox0, ox1, f2); dir = 1; y = yF;
+        if (x > plank[0] && x < plank[1]) { lift = hh * 0.1; tl = 0.05 * Math.sin(t / 260 + i); }
+        if (x > cones[0] - gap / 2 && x < cones[cones.length - 1] + gap / 2) { var ph = Math.PI * (x - cones[0] + gap / 2) / gap; y = yF + hh * 0.13 * Math.sin(ph); tl = 0.06 * Math.cos(ph); } }
+      else if (v < 0.5) { p = (v - 0.42) / 0.08; x = ox1 + R * Math.sin(Math.PI * p); y = lerp(yF, yB, (1 - Math.cos(Math.PI * p)) / 2); dir = p < 0.5 ? 1 : -1; tl = -0.08 * Math.sin(Math.PI * p) * dir; }
+      else if (v < 0.92) { p = (v - 0.5) / 0.42; x = lerp(ox1, ox0, p); y = yB; dir = -1; }
+      else { p = (v - 0.92) / 0.08; x = ox0 - R * Math.sin(Math.PI * p); y = lerp(yB, yF, (1 - Math.cos(Math.PI * p)) / 2); dir = p < 0.5 ? -1 : 1; tl = 0.08 * Math.sin(Math.PI * p) * dir; }
+      var d = dress(cast[i], ['#2a2a30', '#3a4a6a', '#f4f4f4'][i % 3], ['#2a2a30', '#5a5a62', '#e8e0d0'][i % 3]);
+      riders.push({ x: x, y: y, dir: dir });
+      (function (x, y, dir, tl, lift, d, i) { items.push({ y: y, f: function () { rideScooter(c, S, x, y - lift, hh * 0.74, K2(y), dir, d, { col: [0, 2, 5, 3][i % 4], helmet: ['#f4efe2', '#2a2a2a', '#7a2a3a'][i % 3], tilt: tl, th: x / (hh * 0.16) * dir, n: [19, 14, 20, 22][i % 4], vest: i === 1 ? 1 : 0 }); } }); })(x, y, dir, tl, lift, d, i);
+    }
+    /* waiting at the line, engines idling */
+    for (var wq = 0; wq < 2; wq++) { var wy2 = lerp(yB, yF, 0.1 + wq * 0.9), wd = dress(cast[3 + wq], ['#f4f4f4', '#2a2a30'][wq], ['#3a4a6a', '#2a2a30'][wq]);
+      (function (wy2, wd, wq) { items.push({ y: wy2, f: function () { rideScooter(c, S, cx0 + hh * (1.0 + wq * 0.12), wy2, hh * 0.74, K2(wy2), 1, wd, { col: [7, 1][wq], helmet: ['#c62a20', '#f4efe2'][wq], n: [1, 22][wq], vest: wq }); } }); })(wy2, wd, wq); }
+    /* the instructor: pink, a cap and a whistle, turned to the nearest rider, calling to them */
+    var ix = lerp(ox0, ox1, 0.44), iy = Math.min(H - hh * 0.04, yF + hh * 0.42), near = riders.slice().sort(function (a, b) { return Math.abs(a.x - ix) - Math.abs(b.x - ix); })[0];
+    var idir = near.x >= ix ? 1 : -1, beat = Math.sin(t / 1000 * TAU * 0.7), pointing = Math.abs(near.x - ix) < hh * 2.5;
+    var tdr = dress(cast[5], '#e5567f', '#2a2a30', 4); tdr.dir = idir;
+    items.push({ y: iy, f: function () {
+      var me = person(c, ix, iy, hh * 0.95, { lean: 0.04, legs: [0.12, 0, -0.1, 0], arms: pointing ? [1.5 + beat * 0.15, 0.1 + beat * 0.2, 0.9, 1.6] : [0.3, 0.3, 1.0, 1.7] }, tdr);
+      ln(c, [[me.sh[0] - hh * 0.04, me.sh[1] + 1], [me.sh[0], me.sh[1] + hh * 0.12], [me.sh[0] + hh * 0.04, me.sh[1] + 1]], '#2a2a30', 1);
+      dot(c, me.hand[1][0], me.hand[1][1], Math.max(1.5, hh * 0.025), '#c8ccd2');   /* the whistle, to the lips and down */
+      fr(c, me.hand[0][0] - (pointing ? 0 : hh * 0.06), me.hand[0][1] - hh * 0.02, pointing ? 0 : hh * 0.12, pointing ? 0 : hh * 0.15, '#e8dcc0');
+      var say = DRIVE_SAY[[0, 1, 3, 0][Math.floor(t / 5000) % 4]];
+      if ((t / 5000) % 1 < 0.7) bubble(c, S, me.head[0] + idir * hh * 0.1, me.head[1] - hh * 0.12, say, Math.max(9, hh * 0.13));
+    } });
+  } else dog(c, S, (cx0 + cx1) / 2, S.deck + hh * 0.5, hh * 0.6, S.seed >>> 4, true, t);
+  items.sort(function (a, b) { return a.y - b.y; }).forEach(function (it) { it.f(); });
+  S.hits.push({ k: 'place', x0: S.x0 + hh * 0.6, x1: S.x1 - hh * 0.6, y0: S.deck - hh * 2.0, y1: S.H });
+}
+
 /* ---------------------------------------------------------------- training
    A school for one skill, read from the name: music (the piano's keys going down, a guitar
    strummed), a language (the board's letters), the abacus (beads sliding, x = x₀ + d·ease),
@@ -1070,6 +1276,7 @@ function trainKind(P) {
 }
 function training(S) {
   var P = placeOf(S), kindT = trainKind(P);
+  if (kindT === 'drive') return drive(S);
   shopScene(S, 'training', {
     kinds: ['shop', 'glass', 'shop', 'row', 'gov'], back: { music: '#f2ead8', art: '#f4f0e8', computer: '#e8eef6' }[kindT] || '#f4f2e8', keyOf: function () { return kindT; },
     icon: kindT === 'music' ? ICON.note : ICON.book,

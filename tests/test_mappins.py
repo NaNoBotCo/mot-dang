@@ -44,6 +44,25 @@ class Pins(unittest.TestCase):
             subprocess.run(["node", "--check", str(Path(d) / "pins.js")], check=True)
             subprocess.run(["node", "--check", str(ROOT / "assets/sites/doodle-map/map.js")], check=True)
 
+    def test_gold_pin_reads_and_the_script_loads(self):
+        gold, ink = mappins_layer.GOLD
+        self.assertGreaterEqual((_lum(gold) + 0.05) / (_lum(ink) + 0.05), 4.5)
+        self.assertEqual(mappins_layer.table()["^"], [gold, ink])
+        js = (
+            "global.window=global;global.location={hostname:'motdang.net'};"
+            "global.fetch=()=>Promise.resolve({ok:true,json:()=>Promise.resolve({rows:["
+            "{id:'a',lat:18.8,lng:99,th:'ก',en:'A',cat:['hotel'],u:'cm/p/a.html',own:'https://sites.motdang.net/a'},"
+            "{id:'b',lat:30,lng:99,th:'ข',en:'B',cat:['food'],u:'cm/p/b.html',own:'x'}]})});"
+            "global.document={documentElement:{classList:{contains:()=>false},getAttribute:()=>''}};"
+            "require(process.argv[1]);MDPINS.goldP.then(()=>{"
+            "const g=MDPINS.goldIn(98,18,100,19);"
+            "if(g.length!==1||g[0].id!=='a'||!g[0].gold||g[0].url!=='/cm/p/a.html'||!MDPINS.gold.ids.a)throw new Error(JSON.stringify(g));"
+            "if(MDPINS.kindOf(['^','food'])!=='food')throw new Error('kindOf');console.log('ok')})")
+        with tempfile.TemporaryDirectory() as d:
+            mappins_layer.emit(d)
+            out = subprocess.run(["node", "-e", js, str(Path(d) / "pins.js")], capture_output=True, text=True)
+            self.assertEqual(out.stdout.strip(), "ok", out.stderr)
+
     def test_stamp_names_scripts_by_content(self):
         import shutil
         with tempfile.TemporaryDirectory() as d:

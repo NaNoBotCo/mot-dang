@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" stroke-linejoin="round" stroke-linecap="round"><title>Beach · ชายหาด</title>
+<ellipse cx="32" cy="58.6" rx="26" ry="3.4" fill="#e8cf8e" stroke="#2b2118" stroke-width="1.4"/>
+<path d="M4 38C4 31 14 28 32 28S60 31 60 38V44C52 41 46 46 39 44 32 42 26 46 19 44 12 42 8 45 4 44Z" fill="#8cc4ea" stroke="#2b2118" stroke-width="1.7"/>
+<path d="M10 34.6C13 33 15.4 33 18 34.6M43 34C46 32.4 48.4 32.4 51 34" fill="none" stroke="#fbf8f1" stroke-width="1.2"/>
+<path d="M4 44C8 45 12 42 19 44 26 46 32 42 39 44 46 46 52 41 60 44V50C54 58 44 59 32 59S10 58 4 50Z" fill="#e8cf8e" stroke="#2b2118" stroke-width="1.8"/>
+<path d="M5.4 44.8C9 46 12 43.4 19 45.4 26 47.4 32 43.4 39 45.4 46 47.4 52 42.6 58.6 45" fill="none" stroke="#fbf8f1" stroke-width="1.4"/>
+<path d="M17.4 55C17 45 19.4 34 25 24" fill="none" stroke="#2b2118" stroke-width="4.4"/>
+<path d="M17.4 55C17 45 19.4 34 25 24" fill="none" stroke="#b07a4c" stroke-width="2.2"/>
+<path d="M25 24C19 18.6 11 21 8.6 27.4 15 23.6 20 24.6 25 24ZM25 24C21 15.6 14.6 14.6 11 17.6 17 17 21 20 25 24ZM25 24C25.6 16 31 12 36.6 13.4 31.6 16 28.6 19.6 25 24ZM25 24C31 20 37.6 21.4 40.2 27 34 24.4 29.6 25.4 25 24Z" fill="#5f9a4a" stroke="#2b2118" stroke-width="1.3"/>
+<circle cx="23.6" cy="26.2" r="1.7" fill="#6b4429" stroke="#2b2118" stroke-width=".8"/>
+<path d="M45.4 56 43.4 30" fill="none" stroke="#2b2118" stroke-width="1.7"/>
+<path d="M32.4 32C32.4 22 55 22 55 32C50.6 29.6 46.4 31.6 43.8 32C41.4 29.6 36.6 29.6 32.4 32Z" fill="#d8443a" stroke="#2b2118" stroke-width="1.6"/>
+<path d="M43.8 25.2 43.8 32M38 26.4 37 30.4" fill="none" stroke="#fbf3e2" stroke-width="1.6"/>
+<path d="M30 51.6 42 51.6 44 56.4 28 56.4Z" fill="#e0609a" stroke="#2b2118" stroke-width="1.2"/>
+</svg>

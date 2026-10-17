@@ -73,6 +73,9 @@ KINDS = {
     "sights": ("i-star", "#BE123C"),
 }
 OTHER = ("i-pin", "#5B4636")
+# A gold own page (Nan, 2026-10-14): a gold disc with a dark glyph, a little larger
+# than the rest. Dark on gold, as the gold buttons are.
+GOLD = ("#F4B400", "#2B1A00")
 
 
 def _num(a, k, d=0.0):
@@ -113,6 +116,7 @@ def table():
     sprite = (ROOT / "assets" / "icons.svg").read_text()
     out = {k: [col, glyph(g, sprite)] for k, (g, col) in KINDS.items()}
     out["_"] = [OTHER[1], glyph(OTHER[0], sprite)]
+    out["^"] = list(GOLD)          # the gold disc and its glyph colour, not a kind
     return out
 
 
@@ -122,38 +126,69 @@ if(window.MDPINS)return;
 var K=%KINDS%;
 var LIVE=/(^|\.)motdang\.net$/.test(location.hostname)?'/':'https://motdang.net/';
 function pref(){try{var p=localStorage.getItem('md-detail');if(p==='less'||p==='most')return p;}catch(e){}return 'more';}
-/* how many a view carries: by the map's size (a card's small map 12, a phone 25, wider 50), halved at 'less' */
-function cap(w,h){var n=w<640?(h&&h<320?12:25):50;return pref()==='less'?Math.ceil(n/2):n;}
-/* fewer while the view is still wide: 45% at the floor, all of them two steps in */
-function count(w,steps,h){if(steps<0)return 0;return Math.max(4,Math.round(cap(w,h)*Math.min(1,0.45+0.275*steps)));}
-function kindOf(cats){cats=cats||[];for(var i=0;i<cats.length;i++)if(K[cats[i]])return cats[i];return '_';}
+/* how many a view carries, the same at every zoom (Nan, 2026-10-11: "every zoom level has about 50 places
+   visible on desktop, maybe a couple fewer on phone"): by the map's size (a card's small map 12, a phone 45,
+   wider 50), halved at 'less', half again at 'most' */
+function cap(w,h){var n=w<640?(h&&h<320?12:45):50,p=pref();return p==='less'?Math.ceil(n/2):p==='most'?Math.round(n*1.5):n;}
+function count(w,steps,h){return cap(w,h);}
+function kindOf(cats){cats=cats||[];for(var i=0;i<cats.length;i++)if(K[cats[i]]&&cats[i]!=='^')return cats[i];return '_';}
 function thin(r){return / · [\d.,]+ ?(m|km|ม\.|กม\.) /.test((r.nameEn||'')+' '+(r.name||'')+' ');}
 /* one pin, drawn once per kind and size and kept */
 var CACHE={};
-function icon(kind,d,R){
-  var b=K[kind]||K._,key=kind+'|'+d+'|'+R;
+function icon(kind,d,R,gold){
+  var b=K[kind]||K._,key=kind+'|'+d+'|'+R+(gold?'|g':'');
   if(CACHE[key])return CACHE[key];
   var c=document.createElement('canvas'),x=c.getContext('2d'),h=d/2;
   c.width=c.height=Math.ceil(d*R);if(!x)return null;x.scale(R,R);
   x.beginPath();x.arc(h,h,h-0.5,0,6.2832);x.fillStyle='rgba(23,17,12,.45)';x.fill();
   x.beginPath();x.arc(h,h,h-1,0,6.2832);x.fillStyle='#fff';x.fill();
-  x.beginPath();x.arc(h,h,h-2.6,0,6.2832);x.fillStyle=b[0];x.fill();
+  if(gold){x.beginPath();x.arc(h,h,h-2.2,0,6.2832);x.fillStyle='#8A6500';x.fill();}
+  x.beginPath();x.arc(h,h,h-(gold?3.4:2.6),0,6.2832);x.fillStyle=gold?K['^'][0]:b[0];x.fill();
   if(window.Path2D){var g=d*0.6,s=g/24;x.save();x.translate(h-g/2,h-g/2);x.scale(s,s);
-    x.strokeStyle='#fff';x.lineWidth=2.4;x.lineCap='round';x.lineJoin='round';
+    x.strokeStyle=gold?K['^'][1]:'#fff';x.lineWidth=2.4;x.lineCap='round';x.lineJoin='round';
     b[1].forEach(function(p){x.stroke(new Path2D(p));});x.restore();}
   return (CACHE[key]=c);
 }
 function J(u){return fetch(u).then(function(r){if(!r.ok)throw 0;return r.json();});}
+/* The gold own pages (ownpage_layer.py, /ownpages-gold.json): a few places, each drawn as a gold pin with its name
+   ahead of the view's others. Rows are shaped like the API's so the maps treat them the same. */
+var GOLD={rows:[],ids:{}};
+var GOLDP=J(LIVE+'ownpages-gold.json').then(function(d){
+  GOLD.rows=((d&&d.rows)||[]).filter(function(g){return g&&g.id&&isFinite(g.lat)&&isFinite(g.lng);}).map(function(g){
+    return {id:g.id,url:'/'+g.u,name:g.th||g.en,nameEn:g.en,categories:g.cat||[],lat:+g.lat,lng:+g.lng,gold:1,own:g.own};});
+  GOLD.rows.forEach(function(g){GOLD.ids[g.id]=1;});return GOLD;
+}).catch(function(){return GOLD;});
+function goldIn(w,s,e,n){return GOLD.rows.filter(function(g){return g.lng>=w&&g.lng<=e&&g.lat>=s&&g.lat<=n;});}
 /* the places in a box, best known first */
 function places(w,s,e,n,lim){
   return J(LIVE+'api/v1/places?bbox='+[w,s,e,n].map(function(v){return v.toFixed(4);}).join(',')+'&limit='+lim)
-    .then(function(d){return (d.results||[]).filter(function(r){return r.lat!=null&&!thin(r);});});
+    .then(function(d){return (d.results||[]).filter(function(r){return r.lat!=null&&!thin(r);});}).then(readings);
 }
+/* Nan, 2026-10-11: "All names should be transliterated on the english speaking map pages if no english
+   version exists." A Thai-only name reads by its RTGS reading in English (/readings.js, readings_layer.py),
+   waited for at most 0.8 s */
+var RJS=null;
+function readings(rows){
+  if(lang()==='th')return rows;
+  RJS=RJS||new Promise(function(ok){if(window.MDREAD)return ok(MDREAD);var s=document.createElement('script');
+    s.src=LIVE+'readings.js';s.onload=function(){ok(window.MDREAD||null);};s.onerror=function(){ok(null);};document.head.appendChild(s);});
+  return Promise.race([RJS.then(function(R){return R?R.want(rows.filter(function(r){return !r.nameEn;})):0;}),
+    new Promise(function(ok){setTimeout(ok,800);})]).then(function(){return rows;},function(){return rows;});
+}
+/* the box in nine cells, each cell's best known taken in turn: the whole box at once puts them all in the old city,
+   where they hide each other */
+function spread(w,s,e,n,lim){
+  var per=Math.ceil(lim/9),cw=(e-w)/3,ch=(n-s)/3,q=[];
+  for(var i=0;i<9;i++){var x=w+(i%3)*cw,y=s+Math.floor(i/3)*ch;q.push(places(x,y,x+cw,y+ch,per).catch(function(){return [];}));}
+  return Promise.all(q).then(function(g){var out=[],ids={};
+    for(var k=0;k<per;k++)g.forEach(function(c){var r=c[k];if(r&&!ids[r.id]){ids[r.id]=1;out.push(r);}});return out;});
+}
+function reading(r){return window.MDREAD&&!r.nameEn?MDREAD.of(r.id):'';}
 function lang(){var h=document.documentElement,c=h.classList,l=h.getAttribute('data-lang')||h.lang||'';
   return c.contains('lang-en')||/^en/.test(l)&&!c.contains('lang-th')?'en':c.contains('lang-th')||/^th/.test(l)?'th':'';}
 function names(r){
   var th=r.name||'',en=r.nameEn||'',L=lang();
-  if(L==='en')return en||th;if(L==='th')return th||en;
+  if(L==='en')return en||reading(r)||th;if(L==='th')return th||en;
   return th&&en&&th!==en?th+'\n'+en:th||en;
 }
 function item(r){
@@ -165,7 +200,6 @@ function item(r){
 var FONT=['NotoSans'];
 ((window.MDMAP_CFG&&MDMAP_CFG.layers)||[]).some(function(l){
   if(l.type==='symbol'&&l.layout&&l.layout['text-font']){FONT=l.layout['text-font'];return true;}});
-var FLOOR={less:15,more:14,most:13};
 var MUTE=new WeakMap(),REDO=new WeakMap(),ROWS=new WeakMap();
 function paint(map,el){
   if(map.getSource('md-pins'))return;
@@ -174,15 +208,15 @@ function paint(map,el){
     [parseFloat(el.dataset.lat),parseFloat(el.dataset.lng)]:null;
   map.on('styleimagemissing',function(e){
     if(!e.id||e.id.indexOf('mdp-')!==0||map.hasImage(e.id))return;
-    var c=icon(e.id.slice(4),D,R);if(!c)return;
+    var g=e.id.indexOf('mdp-^')===0,c=g?icon(e.id.slice(5),D+4,R,true):icon(e.id.slice(4),D,R);if(!c)return;
     map.addImage(e.id,c.getContext('2d').getImageData(0,0,c.width,c.height),{pixelRatio:R});});
   map.addSource('md-pins',{type:'geojson',data:{type:'FeatureCollection',features:[]}});
   var lay={id:'md-pins',type:'symbol',source:'md-pins',layout:{
     'icon-image':['concat','mdp-',['get','c']],'icon-size':['interpolate',['linear'],['zoom'],13,0.82,16,1],
     'icon-padding':4,'symbol-sort-key':['get','o']}};
   if(window.MDMAP_CFG&&MDMAP_CFG.glyphs){
-    lay.layout['text-field']=['step',['zoom'],'',15.5,['get','n']];
-    lay.layout['text-font']=FONT;lay.layout['text-size']=12;lay.layout['text-max-width']=9;
+    lay.layout['text-field']=['get','n'];
+    lay.layout['text-font']=FONT;lay.layout['text-size']=['case',['has','g'],13.5,12];lay.layout['text-max-width']=9;
     lay.layout['text-variable-anchor']=['left','right','top','bottom'];lay.layout['text-radial-offset']=1.15;
     lay.layout['text-justify']='auto';lay.layout['text-optional']=true;
     lay.paint={'text-color':'#2b2118','text-halo-color':'#FFFCF6','text-halo-width':1.6};
@@ -190,27 +224,33 @@ function paint(map,el){
   /* under every layer a page adds after it: a shelf the reader chose wins */
   var first=(map.getStyle().layers||[]).filter(function(l){return l.id.indexOf('md-mine')===0;})[0];
   map.addLayer(lay,first&&first.id);
-  var rows=[],key='',t=0;
+  /* rows holds spares: a pin that collides is hidden, so the view takes more rows until about n show */
+  var rows=[],key='',t=0,take=0,goal=0,tops=0;
   function data(){
     var m=MUTE.get(map)||{},f=[];
-    rows.forEach(function(r,i){var k=kindOf(r.categories);if(m[k])return;
-      f.push({type:'Feature',geometry:{type:'Point',coordinates:[+r.lng,+r.lat]},
-        properties:{i:i,o:i,c:k,n:names(r)}});});
+    rows.slice(0,take).forEach(function(r,i){var k=kindOf(r.categories);if(m[k]&&!r.gold)return;
+      var p={i:i,o:i,c:r.gold?'^'+k:k,n:names(r)};if(r.gold)p.g=1;
+      f.push({type:'Feature',geometry:{type:'Point',coordinates:[+r.lng,+r.lat]},properties:p});});
     var s=map.getSource('md-pins');if(s)s.setData({type:'FeatureCollection',features:f});
   }
   REDO.set(map,data);
   function want(){
-    var z=map.getZoom(),steps=z-FLOOR[pref()],ct=map.getContainer(),n=count(ct.clientWidth,steps,ct.clientHeight);
-    if(!n){if(rows.length){rows=[];key='';data();}return;}
+    var ct=map.getContainer(),n=count(ct.clientWidth,0,ct.clientHeight);
     var b=map.getBounds(),W=b.getWest(),S=b.getSouth(),E=b.getEast(),N=b.getNorth(),g=(N-S)/10;
     W=Math.floor(W/g)*g;S=Math.floor(S/g)*g;E=Math.ceil(E/g)*g;N=Math.ceil(N/g)*g;
     var k=[n,W,S,E,N].map(function(v){return typeof v==='number'?v.toFixed(4):v;}).join('|');
     if(k===key)return;key=k;
-    places(W,S,E,N,n+(skip?1:0)).then(function(rs){
+    spread(W,S,E,N,Math.min(200,n*3)).then(function(rs){
       if(key!==k)return;
+      var gs=goldIn(W,S,E,N);if(gs.length){var gi={};gs.forEach(function(g){gi[g.id]=1;});rs=gs.concat(rs.filter(function(r){return !gi[r.id];}));}
       if(skip)rs=rs.filter(function(r){return Math.abs(r.lat-skip[0])>3e-4||Math.abs(r.lng-skip[1])>3e-4;});
-      rows=rs.slice(0,n);ROWS.set(map,rows);data();}).catch(function(){if(key===k)key='';});
+      rows=rs;take=Math.min(n,rows.length);goal=n;tops=0;ROWS.set(map,rows);data();}).catch(function(){if(key===k)key='';});
   }
+  map.on('idle',function(){
+    if(!take||take>=rows.length||tops>=4||!map.getLayer('md-pins'))return;
+    var shown=map.queryRenderedFeatures({layers:['md-pins']}).length;
+    if(shown>=goal-2)return;
+    tops++;take=Math.min(rows.length,take+goal-shown);data();});
   map.on('moveend',function(){clearTimeout(t);t=setTimeout(want,300);});
   addEventListener('storage',function(e){if(e.key==='md-detail'){key='';want();}});
   new MutationObserver(data).observe(document.documentElement,{attributes:true,attributeFilter:['class','data-lang']});
@@ -225,6 +265,7 @@ function paint(map,el){
   map.on('mouseenter','md-pins',function(){map.getCanvas().style.cursor='pointer';});
   map.on('mouseleave','md-pins',function(){map.getCanvas().style.cursor='';});
   want();
+  GOLDP.then(function(){if(GOLD.rows.length){key='';want();}});
 }
 /* a shelf switched on draws its own dots: its kind's pins step aside */
 function mute(map,kind,yes){var m=MUTE.get(map)||{};m[kind]=!!yes;MUTE.set(map,m);
@@ -233,7 +274,7 @@ function mute(map,kind,yes){var m=MUTE.get(map)||{};m[kind]=!!yes;MUTE.set(map,m
 function hit(map,pt){if(!map.getLayer('md-pins'))return false;
   return map.queryRenderedFeatures([[pt.x-12,pt.y-12],[pt.x+12,pt.y+12]],{layers:['md-pins']}).length>0;}
 function row(map,i){var r=ROWS.get(map);return r&&r[i];}
-window.MDPINS={K:K,row:row,icon:icon,kindOf:kindOf,cap:cap,count:count,pref:pref,places:places,thin:thin,paint:paint,mute:mute,hit:hit};
+window.MDPINS={K:K,gold:GOLD,goldP:GOLDP,goldIn:goldIn,row:row,icon:icon,kindOf:kindOf,cap:cap,count:count,pref:pref,places:places,spread:spread,thin:thin,paint:paint,mute:mute,hit:hit};
 })();
 """
 

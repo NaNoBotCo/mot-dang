@@ -880,7 +880,7 @@ def shelf_chips(g, prov, cat, depth=1, limit=18, floor=None):
     out = []
     for n, slug in rows[:limit]:
         d = T["defs"][slug]
-        href = (f"{up}tag/{slug}--{cat}.html" if n >= T["tag_shelf_min"]
+        href = (f"{up}../search.html?tag={slug}&amp;cat={cat}" if n >= T["tag_shelf_min"]
                 else f"{up}../search.html?tag={slug}")
         out.append(_chip(g, href, d.get("glyph", "🏷"), d["th"], d["en"], n))
     more = ""
@@ -899,9 +899,9 @@ def emit(g, data):
     entry_li, shelf_map, toolbar = g["entry_li"], g["shelf_map"], g["toolbar"]
     share_block, ad_box = g["share_block"], g["ad_box"]
     breadcrumb_ld, item_list_ld = g["breadcrumb_ld"], g["item_list_ld"]
-    listing_page, geojson = g["listing_page"], g["geojson"]
+    listing_page = g["listing_page"]
     CATS, CAT_ORDER, PROVINCES = g["CATS"], g["CAT_ORDER"], g["PROVINCES"]
-    name_of, is_featured = g["name_of"], g["is_featured"]
+    name_of, is_featured, ground_truth = g["name_of"], g["is_featured"], g["ground_truth"]
     BUILD_DATE = g["BUILD_DATE"]
     defs, order = T["defs"], T["order"]
     fams = {f["key"]: f for f in T["doc"]["families"]}
@@ -925,7 +925,7 @@ def emit(g, data):
         def k(r):
             cats = r.get("cat") or []
             ci = min((CAT_ORDER.index(c) for c in cats if c in CAT_ORDER), default=999)
-            return (ci, not is_featured(r), name_of(r))
+            return (ci, not is_featured(r), -ground_truth(r), name_of(r))
         return sorted(recs, key=k)
 
     for p in PROVINCES:
@@ -995,7 +995,7 @@ def emit(g, data):
                 xlink = ""
                 if c in has_cross:
                     xn = len(x_members[c])
-                    xlink = (f' · <a class="xshelf" href="{slug}--{c}.html">'
+                    xlink = (f' · <a class="xshelf" href="../../search.html?tag={slug}&amp;cat={c}">'
                              + bi("ดูเฉพาะหมวดนี้", "just this shelf")
                              + (f" ({xn:,})" if xn != len(rs) else "") + "</a>")
                 heads[c] = (f'<li class="shelf areahead">{head} '
@@ -1027,7 +1027,7 @@ def emit(g, data):
             orphan = [c for c in has_cross if c not in by_cat]
             if orphan:
                 links = " · ".join(
-                    f'<a class="xshelf" href="{slug}--{c}.html">{bi(CATS[c]["th"], CATS[c]["en"])} '
+                    f'<a class="xshelf" href="../../search.html?tag={slug}&amp;cat={c}">{bi(CATS[c]["th"], CATS[c]["en"])} '
                     f'<span class="count">{len(x_members[c]):,}</span></a>' for c in orphan)
                 rows.append(f'<li class="shelf areahead">'
                             + bi("ยืนอยู่บนหมวดอื่นด้วย", "Also standing on other shelves")
@@ -1041,12 +1041,10 @@ def emit(g, data):
                 also = (f'<p class="tinynote tagalso">'
                         + bi("ที่อื่นที่เก็บเรื่องนี้ไว้ด้วย", "Also catalogued by")
                         + f": {links}</p>")
-            gj = geojson(recs)
-            gj_name = f"{key}-tag-{slug}.geojson"
-            (DOCS / "data" / gj_name).write_text(json.dumps(gj, ensure_ascii=False))
-            dl = (f'<p class="prov"><a href="../../data/{gj_name}">⬇ GeoJSON</a> '
-                  f'({len(gj["features"]):,} {bi("จุด", "points")}) · '
-                  f'<a href="../../data/tags/{key}-{slug}.json">JSON</a></p>')
+            # One download per tag: the JSON. A GeoJSON beside each (3,007 files,
+            # 215 MB) went 2026-10-11 (Nan: cut what weighs and adds little).
+            dl = (f'<p class="prov"><a href="../../data/tags/{key}-{slug}.json">⬇ JSON</a> '
+                  f'({len(recs):,} {bi("แห่ง", "places")})</p>')
             title_th = f'{t_th} {p["th"]}'
             crumbs = (f'<a href="../../index.html">{bi("หน้าแรก", "Home")}</a> › '
                       f'<a href="../../tags.html">{bi("ป้ายกำกับ", "Tags")}</a> › '
@@ -1103,31 +1101,22 @@ def emit(g, data):
                             "url": BASE + f"{key}/p/{g['place_slug'](r)}.html",
                             "via": T["via"][r["id"]].get(slug)} for r in recs]},
                 ensure_ascii=False))
-            # tag × shelf, only where the crowd is real.
+            # tag × shelf: since 2026-10-11 (Nan: cut what weighs and adds little) a
+            # search for the tag on that shelf, not a page of its own. The pages were
+            # 8,358 of 14,409 tag pages and about 1 GB; each old address, and its
+            # -pN pages, keeps a small forward so a shared link still lands.
             for c, rs, xpath in cross:
-                cdef = CATS[c]
-                xt_th = f'{t_th} · {cdef["th"]}'
-                xt_en = f'{t_en} · {cdef["en"]}'
-                xcrumbs = (f'<a href="../../index.html">{bi("หน้าแรก", "Home")}</a> › '
-                           f'<a href="../../tags.html">{bi("ป้ายกำกับ", "Tags")}</a> › '
-                           f'<a href="{slug}.html">{bi(d["th"], d["en"])}</a> › '
-                           f'<a href="../{c}/index.html">{bi(cdef["th"], cdef["en"])}</a>')
-                xbc = breadcrumb_ld([("หน้าแรก", BASE), ("ป้ายกำกับ", BASE + "tags.html"),
-                                     (t_th, BASE + path), (cdef["th"], BASE + xpath)])
-                # No map here on purpose: listing_page folds brand rows into
-                # <details> shelves, which reorders the DOM rows the map's dot
-                # indexes point at. The parent tag page carries the map over
-                # the full list, in an order it controls.
-                lede = (f'<p class="taglede">{bi(rule_th, rule_en)}</p>'
-                        + also_rail(g, key, slug)
-                        + f'<p class="tinynote"><a href="{slug}.html">← '
-                        + bi(f"ทุกหมวดของ {t_th}", f"all shelves for {t_en}")
-                        + f' ({len(recs):,})</a></p>')
-                g["write_listing"](
-                    xt_th, xt_en, ordered(rs), depth=2, prov=key, crumbs=xcrumbs, path=xpath,
-                    extra_top=lede, extra_head=xbc + item_list_ld(rs, key),
-                    seo_title=f'{xt_th} {p["th"]}',
-                    seo_title_en=f'{xt_en}, {p["en"]}')
+                target = BASE + f"search.html?tag={slug}&cat={c}"
+                stub = ('<!doctype html><html lang="th"><head><meta charset="utf-8">'
+                        '<meta name="robots" content="noindex">'
+                        f'<link rel="canonical" href="{att(target)}">'
+                        f'<meta http-equiv="refresh" content="0; url={att(target)}">'
+                        '<title>ย้ายแล้ว · moved</title></head><body>'
+                        f'<p>หน้านี้ย้ายไปที่ <a href="{att(target)}">{esc(target)}</a> · '
+                        'This page has moved.</p></body></html>\n')
+                first = xpath.rsplit("/", 1)[1]
+                for i in range(1, max(1, -(-len(rs) // g["SHELF_PAGE_ROWS"])) + 1):
+                    (tdir / g["page_name"](first, i)).write_text(stub)
                 n_cross += 1
 
     # ---- /tags.html + /tags/<family>.html ---------------------------------

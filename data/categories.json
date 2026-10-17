@@ -66,6 +66,14 @@
      }
     },
     {
+     "key": "myanmar",
+     "th": "อาหารพม่า-ไทใหญ่",
+     "en": "Burmese & Shan",
+     "match": {
+      "sub": "myanmar"
+     }
+    },
+    {
      "key": "japanese",
      "th": "อาหารญี่ปุ่น",
      "en": "Japanese",
@@ -481,11 +489,31 @@
      }
     },
     {
+     "key": "internet",
+     "th": "อินเทอร์เน็ต-มือถือ",
+     "en": "Internet & Mobile",
+     "teaser_th": "เน็ตบ้าน ไฟเบอร์ ซิม ศูนย์บริการมือถือ",
+     "teaser_en": "internet, broadband, fibre, AIS, dtac, 3BB, SIM",
+     "match": {
+      "sub": "internet"
+     }
+    },
+    {
      "key": "post",
-     "th": "ไปรษณีย์-ขนส่ง",
-     "en": "Post & Parcels",
+     "th": "ไปรษณีย์",
+     "en": "Post Offices",
      "match": {
       "sub": "post"
+     }
+    },
+    {
+     "key": "parcel",
+     "th": "ขนส่งพัสดุ",
+     "en": "Couriers & Parcels",
+     "teaser_th": "ส่งพัสดุ ขนส่งเอกชน นิ่มเอ็กซ์เพรส เคอรี่ แฟลช",
+     "teaser_en": "courier, parcel, Flash, Kerry, KEX, SPX, DHL",
+     "match": {
+      "sub": "parcel"
      }
     },
     {
@@ -632,7 +660,9 @@
      "en": "Universities",
      "match": {
       "sub": "university"
-     }
+     },
+     "teaser_th": "มหาลัย มหาวิทยาลัย มหาลัยเอกชน",
+     "teaser_en": "university"
     },
     {
      "key": "college",
@@ -809,6 +839,16 @@
      "en": "Crafts & Gifts",
      "match": {
       "sub": "crafts"
+     }
+    },
+    {
+     "key": "gold",
+     "th": "ร้านทอง",
+     "en": "Gold Shops",
+     "teaser_th": "ร้านทอง ห้างทอง ขายทอง รับซื้อทอง ทองรูปพรรณ ทองแท่ง",
+     "teaser_en": "gold, goldsmith",
+     "match": {
+      "sub": "gold"
      }
     },
     {
@@ -1011,7 +1051,7 @@
      "key": "car-rental",
      "th": "รถเช่า",
      "en": "Car Rental",
-     "teaser_th": "เช่ารถ เช่ารถยนต์ รถยนต์ให้เช่า รถตู้เช่า คาร์เร้นท์",
+     "teaser_th": "รถเช่า เช่ารถ เช่ารถยนต์ รถยนต์ให้เช่า รถตู้เช่า คาร์เร้นท์",
      "teaser_en": "cars, car, car hire, vans, rental",
      "match": {
       "sub": "car-rental"
@@ -1122,6 +1162,46 @@
      "en": "Home Trades",
      "match": {
       "sub": "home"
+     }
+    },
+    {
+     "key": "builder",
+     "th": "ช่างรับเหมา-สร้างบ้าน",
+     "en": "Builders & Contractors",
+     "teaser_th": "รับเหมาก่อสร้าง รับสร้างบ้าน ต่อเติมบ้าน ผู้รับเหมา",
+     "teaser_en": "builder, contractor",
+     "match": {
+      "sub": "builder"
+     }
+    },
+    {
+     "key": "materials",
+     "th": "วัสดุก่อสร้าง",
+     "en": "Building Materials",
+     "teaser_th": "วัสดุก่อสร้าง ร้านฮาร์ดแวร์ กระเบื้อง ปูนซีเมนต์ ค้าไม้ เหล็กเส้น เมทัลชีท",
+     "teaser_en": "hardware, tiles, cement, timber",
+     "match": {
+      "sub": "materials"
+     }
+    },
+    {
+     "key": "electric-plumbing",
+     "th": "ช่างไฟ-ช่างประปา",
+     "en": "Electricians & Plumbers",
+     "teaser_th": "ช่างไฟ ช่างไฟฟ้า ช่างประปา ซ่อมปั๊มน้ำ",
+     "teaser_en": "electrician, plumber",
+     "match": {
+      "sub": "electric-plumbing"
+     }
+    },
+    {
+     "key": "aircon",
+     "th": "ช่างแอร์",
+     "en": "Air-con Repair",
+     "teaser_th": "ช่างแอร์ ล้างแอร์ ซ่อมแอร์ ติดตั้งแอร์",
+     "teaser_en": "aircon",
+     "match": {
+      "sub": "aircon"
      }
     },
     {
@@ -1294,6 +1374,66 @@
      "en": "Muay Thai & Gyms",
      "match": {
       "sub": "gym"
+     }
+    },
+    {
+     "key": "badminton",
+     "th": "สนามแบดมินตัน",
+     "en": "Badminton Courts",
+     "teaser_th": "สนามแบด คอร์ทแบด จองสนามแบด แบดมินตัน",
+     "teaser_en": "badminton",
+     "match": {
+      "sub": "badminton"
+     }
+    },
+    {
+     "key": "football",
+     "th": "สนามฟุตบอล-ฟุตซอล",
+     "en": "Football & Futsal",
+     "teaser_th": "สนามฟุตบอล สนามหญ้าเทียม ฟุตซอล เช่าสนามบอล",
+     "teaser_en": "football, futsal, soccer",
+     "match": {
+      "sub": "football"
+     }
+    },
+    {
+     "key": "tennis",
+     "th": "สนามเทนนิส",
+     "en": "Tennis Courts",
+     "teaser_th": "สนามเทนนิส คอร์ทเทนนิส เรียนเทนนิส",
+     "teaser_en": "tennis",
+     "match": {
+      "sub": "tennis"
+     }
+    },
+    {
+     "key": "basketball",
+     "th": "สนามบาสเกตบอล",
+     "en": "Basketball Courts",
+     "teaser_th": "สนามบาส บาสเกตบอล",
+     "teaser_en": "basketball",
+     "match": {
+      "sub": "basketball"
+     }
+    },
+    {
+     "key": "snooker",
+     "th": "สนุกเกอร์-พูล",
+     "en": "Snooker & Pool",
+     "teaser_th": "สนุกเกอร์ บิลเลียด โต๊ะสนุ๊ก",
+     "teaser_en": "snooker, billiards",
+     "match": {
+      "sub": "snooker"
+     }
+    },
+    {
+     "key": "bowling",
+     "th": "โบว์ลิ่ง",
+     "en": "Bowling",
+     "teaser_th": "โบว์ลิ่ง",
+     "teaser_en": "bowling",
+     "match": {
+      "sub": "bowling"
      }
     }
    ]
@@ -1581,7 +1721,9 @@
      "en": "Cinemas & Showtimes",
      "match": {
       "sub": "cinema"
-     }
+     },
+     "teaser_th": "โรงหนัง โรงภาพยนตร์ ดูหนัง",
+     "teaser_en": "cinema, movies"
     },
     {
      "key": "live-music",
@@ -1792,6 +1934,12 @@
    "key": "cr",
    "th": "เชียงราย",
    "en": "Chiang Rai",
+   "mode": "wireframe"
+  },
+  {
+   "key": "pth",
+   "th": "ปทุมธานี",
+   "en": "Pathum Thani",
    "mode": "wireframe"
   }
  ]

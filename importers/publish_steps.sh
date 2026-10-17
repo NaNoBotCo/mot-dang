@@ -10,6 +10,15 @@ export PYTHONUNBUFFERED=1
 # The same bytes from the same inputs: str hash() is salted per process unless
 # this is pinned, and an event without a uid takes its .ics UID from it (build.py).
 export PYTHONHASHSEED=0
+# Pictures (streetphotos/, photos/, inat/, og/) go to the bucket mot-dang-media instead of
+# docs/ when this host can write it (media_layer.py, publish/media_sync.py, worker-media/).
+# A host whose key does not cover that bucket publishes them with the site as before.
+export MD_MEDIA_BUCKET=0
+if python3 publish/media_sync.py probe; then
+  export MD_MEDIA_BUCKET=1
+else
+  say "⚠️  pictures ride the site build: mot-dang-media is not writable from this host"
+fi
 if command -v timeout >/dev/null 2>&1; then
   timeout "$BUILD_TIMEOUT" python3 build.py || { say "BUILD FAILED (or timed out after $BUILD_TIMEOUT) — nothing published"; note "failed" "build.py"; exit 1 }
 else
@@ -17,7 +26,26 @@ else
 fi
 
 # --- the pre-publish sequence, same as by hand ---------------------------
-GATE=$(python3 tests/test_publish_gate.py 2>&1); GATE_RC=$?
+# HOLD BACK THE FAILING PART (Nan, 2026-10-11, "A"). The publish gate and map
+# sanity name the page or site they fail on; tools/holdback.py holds it, the
+# gate runs again without it, and deploy.py leaves it in the bucket as it is.
+# Anything else they fail on, or more than 20 units, fails as before.
+python3 tools/holdback.py reset
+hold_gate() {   # hold_gate <label> <cmd…>: 0 when it passes, alone or after a hold
+  local label=$1 prop out rc; shift
+  prop=$(mktemp)
+  out=$(MD_HOLD_PROPOSE=$prop "$@" 2>&1); rc=$?
+  HOLD_OUT=$out
+  if (( rc != 0 )) && python3 tools/holdback.py accept "$prop"; then
+    out=$("$@" 2>&1); rc=$?
+    HOLD_OUT=$out
+    (( rc == 0 )) && say "$label passed with the failing part held back"
+  fi
+  rm -f "$prop"
+  return $rc
+}
+hold_gate "publish gate" python3 tests/test_publish_gate.py; GATE_RC=$?
+GATE=$HOLD_OUT
 print -r -- "$GATE"
 if (( GATE_RC != 0 )); then
   say "publish gate FAILED — nothing published"; note "failed" "publish gate"
@@ -35,7 +63,7 @@ python3 tests/test_sites.py || { say "register gate FAILED — nothing published
 # wrong order. Hard, and a ratchet: rows standing when it went in are listed
 # in tests/map_sanity_known.json and printed; a NEW one fails (Nan, 2026-09-25:
 # "do sanity checks everywhere").
-MAPS_OUT=$(python3 tests/test_map_sanity.py 2>&1) || { print -r -- "$MAPS_OUT" | tail -25; say "map sanity FAILED — nothing published"; note "failed" "map sanity"; exit 1 }
+hold_gate "map sanity" python3 tests/test_map_sanity.py || { print -r -- "$HOLD_OUT" | tail -25; say "map sanity FAILED — nothing published"; note "failed" "map sanity"; exit 1 }
 # Advisory: its NO CARD mode fires legitimately when Chrome was away.
 python3 tests/test_shelf_cards.py || say "⚠️  shelf cards advisory — some list pages share as the brand card"
 # Advisory: the 🏷 tag layer's counts, thresholds and pills (tests/test_tags.py).
@@ -71,7 +99,11 @@ WHEN_OUT=$(node tests/test_when.js 2>&1) || { print -r -- "$WHEN_OUT" | tail -6;
 # must not take a keystroke from the search box, which is the whole job of
 # the page it sits on. Needs no build — it reads assets/soi_run.js.
 node tests/test_soi_run.js         || { say "soi_run FAILED — nothing published"; note "failed" "soi_run"; exit 1 }
-if grep -rlE "/Users/|/srv/mot-dang|/home/nan/" docs/ | head -1 | grep -q .; then
+# A leak inside a page or site is held back with it; one anywhere else stops the round.
+LEAKS=$(grep -rlE "/Users/|/srv/mot-dang|/home/nan/" docs/ | python3 -c '
+import sys; sys.path.insert(0, "tools"); import holdback
+print("\n".join(l.strip() for l in sys.stdin if l.strip() and not holdback.held(l.strip())))')
+if [[ -n "$LEAKS" ]] && ! print -r -- "$LEAKS" | python3 tools/holdback.py take "path leak"; then
   say "path leak in docs/ — nothing published"; note "failed" "path leak in docs/"; exit 1
 fi
 # deploy.py has its own floor, but failing here costs a second instead of a
@@ -83,6 +115,11 @@ say "docs/ holds $COUNT files"
 if (( COUNT < 20000 )); then
   say "REFUSING — $COUNT files is a broken build, not a small site"
   note "failed" "docs floor: $COUNT files"; exit 1
+fi
+
+# The pictures the build listed go up before the pages that name them.
+if [[ "$MD_MEDIA_BUCKET" == 1 ]]; then
+  python3 publish/media_sync.py sync || { say "media sync FAILED — nothing published"; note "failed" "media sync"; exit 1 }
 fi
 
 # The server defines pre_deploy (importers/server_walk.sh); the laptop does not.
@@ -102,10 +139,13 @@ if typeset -f pre_deploy >/dev/null; then pre_deploy || exit 1; fi
 # Two walks cannot pile up behind each other while this waits: the walk lock
 # at the top of this file stands the next tick down. If the lane is still
 # busy after 45 minutes the tower returns 75 and this stands down as before.
+(( ${+PRUNE_ARGS} )) || PRUNE_ARGS=()   # server_walk.sh sets it (a one-time deletion bound)
+# --defer-deletions: a refused deletion check puts the deletions off and the
+# new and changed files still go up (publish/deploy.py; Nan, 2026-10-11).
 if [[ -f "$TOWER" ]]; then
-  python3 "$TOWER" wrap cloudflare-deploy --patience 45 -- python3 publish/deploy.py --yes
+  python3 "$TOWER" wrap cloudflare-deploy --patience 45 -- python3 publish/deploy.py --yes --defer-deletions "${PRUNE_ARGS[@]}"
 else
-  python3 publish/deploy.py --yes     # the server has no tower; nothing else there publishes
+  python3 publish/deploy.py --yes --defer-deletions "${PRUNE_ARGS[@]}"     # the server has no tower; nothing else there publishes
 fi
 RC=$?
 if (( RC == 75 )); then

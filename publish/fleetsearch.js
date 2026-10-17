@@ -22,12 +22,14 @@
  * can run the translation without a Worker. */
 
 import { eventData, calMatch, calHtml, CAL_CSS } from "./calfind.js";
+import { quickMatch, quickData, quickHtml, quickJson, QA_CSS } from "./quickanswer.js";
 import { cachedGet } from "./r2cache.js";
 import { norm, loose, edits, slack, INTENT_RULES } from "./searchcore.js";
 import { learnedFor } from "./findlearn.js";
 import { pinsFor } from "./findpins.js";
 import { liftMore, preferOf, saidOf, leadHtml, leadJson } from "./intents.js";
 import { meaningSoon, semBoost, rescueRows, rescueHtml } from "./findmeaning.js";
+import { OWN_SITE, ownWanted, ownPagesSoon, mergeOwn } from "./ownfind.js";
 import { readingHtml, sayLine, stripHtml, rowData, PEEK_BTN, PREVIEW_CSS } from "./findpreview.js";
 
 const RE_THAI = /[฀-๿]+/g;
@@ -1473,7 +1475,7 @@ footer{margin-top:2.5em;padding-top:.6em;border-top:1px solid var(--rule);color:
 .th img{display:block;width:72px;height:72px}
 .th i{position:absolute;width:10px;height:10px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--red);border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.35)}
 .cr{font-size:.86em;color:var(--mute)}.cr a{color:var(--mute)}
-.sem li{margin:.5em 0}.sem .abs{font-size:.9em}.rich{font-size:.9em;margin:.15em 0}.rich span{margin-right:.9em;white-space:nowrap}.rich .fa{letter-spacing:.12em}
+.own{font-size:.78em;border:1px solid #c9b88a;border-radius:.7em;padding:0 .55em;margin-left:.4em;white-space:nowrap}.own .ic{width:1em;height:1em;vertical-align:-.15em;margin-right:.25em}.sem li{margin:.5em 0}.sem .abs{font-size:.9em}.rich{font-size:.9em;margin:.15em 0}.rich span{margin-right:.9em;white-space:nowrap}.rich .fa{letter-spacing:.12em}
 @media(max-width:40em){.th,.th img{width:60px;height:60px}.r{gap:.6em}}
 label{display:inline-block;margin-right:.8em}
 @media(max-width:40em){.sites{columns:1}html{font-size:16px}}
@@ -1501,7 +1503,7 @@ function shell(title, body, robots) {
 <title>${esc(title)}</title>
 <meta name="robots" content="${robots}">
 <link rel="icon" href="/logo/motdang-favicon.svg" type="image/svg+xml">
-<style>${CSS}${CAL_CSS}</style></head><body>
+<style>${CSS}${CAL_CSS}${QA_CSS}</style></head><body>
 ${body}
 <script src="/locshare.js" defer></script>
 <footer><a href="/">มดแดง Mot Dang</a> · <a href="/find">ค้นหา · search</a> · <a href="/find?adv=1">ตรรกะ · boolean</a> · <a href="/advanced.html">กรองสถานที่ · place filters</a> · <a href="/api/">API</a></footer>
@@ -1851,6 +1853,10 @@ export function thumbHtml(row) {
     return `<a class="th" href="${href}" tabindex="-1" aria-hidden="true"><img src="${THUMBS}${esc(t)}.webp"` +
            ` alt="" width="72" height="72" loading="lazy" decoding="async"${credit ? ` title="${esc(credit)}"` : ""}></a>`;
   }
+  if (!t && row.thumbUrl) {          // a live page of the page maker: its own small cover
+    return `<a class="th" href="${href}" tabindex="-1" aria-hidden="true"><img src="${esc(row.thumbUrl)}"` +
+           ` alt="" width="72" height="72" loading="lazy" decoding="async"></a>`;
+  }
   const m = /^g\/(\d+)_(\d+)$/.exec(t);
   if (m && row.lat != null && row.lon != null) {
     const [x, y] = cellPos(Number(row.lat), Number(row.lon), Number(m[1]), Number(m[2]));
@@ -1877,6 +1883,11 @@ export function rowActs(r) {
          `</span>`;
 }
 
+/* A page made with the page maker, marked as what it is. */
+export function ownMark(r) {
+  return r.site === OWN_SITE ? ` <span class="own">${sicon("i-shop")}เพจของร้านเอง · own page</span>` : "";
+}
+
 function resultList(rows, page, n, pin, aux, when) {
   const start = (page - 1) * n + 1;
   const items = rows.map((r) => {
@@ -1893,7 +1904,7 @@ function resultList(rows, page, n, pin, aux, when) {
     const pic = thumbHtml(r) || ((parseJson(r.rich) || {}).sc
       ? `<a class="th" href="${esc(r.url)}" tabindex="-1" aria-hidden="true"></a>` : "");
     return `<li><div class="r" ${rowData(r)}>${pic}<div class="b">${PEEK_BTN}${crumbLine(r, rows)}` +
-           `<a class="t" href="${esc(r.url)}">${esc(r.title)}</a>${(readingHtml(r) + sayLine(r, iv, when.minute)) || "<br>"}` +
+           `<a class="t" href="${esc(r.url)}">${esc(r.title)}</a>${ownMark(r)}${(readingHtml(r) + sayLine(r, iv, when.minute)) || "<br>"}` +
            `${esc(r.abstract)}${stripHtml(r)}` +
            `${richLine(r, aux, when, { lamp: !iv }) || "<br>"}` +
            `<span class="u">${esc(r.url.replace(/^https?:\/\//, ""))}</span>` +
@@ -2118,7 +2129,9 @@ async function answer(request, env, url, ctx, coreP, now) {
     if (core === null && coreP) { try { core = await coreP(); } catch { core = false; } }
     return core || null;
   };
-  const [register, events, , ax, learn, answers, mean] = await Promise.all([
+  /* a sum, a currency or a unit answers in its own box (quickanswer.js) */
+  const qaM = adv ? null : quickMatch(q);
+  let [register, events, , ax, learn, answers, mean, qaD] = await Promise.all([
     lap("sites", siteRows(env)),
     adv ? null : lap("cal", eventData(env)),
     (!boolQ || /[฀-๿]/.test(qm)) ? lap("dict", getCore()) : null,
@@ -2126,7 +2139,9 @@ async function answer(request, env, url, ctx, coreP, now) {
     adv ? new Map() : lap("learn", learnedFor(db, qm)),
     adv ? null : lap("answers", answerDocs(env)),
     adv || boolQ || !qm ? null : lap("meaning", meaningSoon(env, qm, ctx).catch(() => null)),
+    qaM && (qaM.kind === "fx" || qaM.kind === "tr") ? lap("quick", quickData(qaM, env, ctx).catch(() => null)) : null,
   ]);
+  const qaB = quickHtml(qaM, qaD);
   const meaning = mean ? mean.hits : null;
   if (intent.near && st.pin && !sp.get("sort")) st.sort = "near";
   if (intent.open && !st.has.includes("open")) st.has = HAS_KEYS.filter((h) => h === "open" || st.has.includes(h));
@@ -2186,8 +2201,9 @@ async function answer(request, env, url, ctx, coreP, now) {
     }
     if (pl.error && !(pl.negOnly && pl.negOnly.length)) why = `<p class="note">${esc(pl.error)}</p>` + why;
     else if (pl.error) why += `<p class="note">${esc(pl.error)}</p>`;
+    if (qaB && fmt !== "json") return front(qaB + saidHtml);
     if (fmt === "json") {
-      return new Response(JSON.stringify({ q, mode: pl.mode, total: 0, results: [], error: pl.error || undefined,
+      return new Response(JSON.stringify({ q, mode: pl.mode, total: 0, results: [], quick: quickJson(qaM, qaD), error: pl.error || undefined,
         note: pl.negOnly && pl.negOnly.length ? "nothing to subtract from" : "no words" }), { status: 200, headers: {
         "content-type": "application/json; charset=utf-8", "access-control-allow-origin": "*",
         "cache-control": `public, max-age=60, s-maxage=${CACHE_S}` } });
@@ -2227,6 +2243,11 @@ async function answer(request, env, url, ctx, coreP, now) {
       : Promise.resolve({ res: [], forms });
   };
   const doorP = doorOk ? doorQuery({}).catch(() => null) : null;
+  /* People's own pages (ownfind.js): the page maker is asked beside the index,
+   * waits its few hundred ms at most, and an empty list is the fallback. */
+  const ownP = ownWanted({ q: qm, adv, boolQ, lucky, page, sort: st.sort, site: st.site, kind: st.kind,
+                           sec: st.sec, has: st.has, from: st.from, to: st.to })
+    ? lap("own", ownPagesSoon(env, qm, st.pin)) : null;
   let partials = pl.steps.filter((x) => x.partial);
   for (const step of pl.steps.filter((x) => !x.partial)) if (await attempt(step)) break;
   if (!fault && pl.mode === "simple" && total <= 2 && pl.items) {
@@ -2262,13 +2283,20 @@ async function answer(request, env, url, ctx, coreP, now) {
       rows = [door].concat(rows.filter((r) => r.id !== door.id)).slice(0, st.n);
     }
   }
+  if (ownP && !fault) {
+    const live = await ownP;
+    if (live.length) {
+      const m = mergeOwn(rows, live, { HAS, today: when.today }, ax);
+      rows = m.rows; ax = m.aux; total += m.added;
+    }
+  }
   const ms = Date.now() - t0;
   const timing = Object.entries(T).map(([k, v]) => `${k};dur=${v}`).concat(`total;dur=${ms}`).join(", ");
 
   /* Lucky: the shelf; else a Mot Dang minisite from the register; else a Mot
    * Dang page whose title carries the words; an off-site card only when
    * nothing here answers. */
-  if (lucky && (rows.length || siteHits.length || door)) {
+  if (lucky && !qaB && (rows.length || siteHits.length || door)) {
     const forms = [qm].concat(pl.names || [], Object.values(fixUsed).flat()).map((f) => norm(f)).filter(Boolean);
     const here = (u) => /^https:\/\/motdang\.net\//.test(u || "");
     const titled = rows.find((r) => here(r.url) && forms.some((f) => norm(r.title).includes(f)));
@@ -2281,6 +2309,7 @@ async function answer(request, env, url, ctx, coreP, now) {
   if (fmt === "json") {
     const body = JSON.stringify({
       q, mode: pl.mode, match: used, sites, page, per_page: st.n, total,
+      quick: quickJson(qaM, qaD),
       sort: st.sort, in: st.in, from: st.from || undefined, to: st.to || undefined,
       kind: st.kind || undefined, sec: st.sec || undefined, has: st.has.length ? st.has : undefined,
       near: st.pin ? { lat: st.pin.lat, lon: st.pin.lon, exact: st.pin.exact } : undefined,
@@ -2315,7 +2344,8 @@ async function answer(request, env, url, ctx, coreP, now) {
           url: r.url, title: r.title, abstract: r.abstract, site: r.site,
           lastmod: r.lastmod, kb: r.kb, kind: r.kind || undefined,
           crumbs: (parseJson(r.crumbs) || []).map(([name, href, en]) => ({ name, url: href || undefined, en: en || undefined })),
-          thumb: r.thumb ? `${url.origin}${THUMBS}${r.thumb}.webp` : undefined,
+          thumb: r.thumb ? `${url.origin}${THUMBS}${r.thumb}.webp` : r.thumbUrl || undefined,
+          own_page: r.site === OWN_SITE ? true : undefined,
           ways: rich.ways,
           toilet: Array.isArray(rich.toilet) ? (rich.toilet[0] === "n"
             ? { kind: "nearby", name: rich.toilet[1] || undefined, metres: rich.toilet[2] }
@@ -2345,9 +2375,11 @@ async function answer(request, env, url, ctx, coreP, now) {
   if (intent.near && !st.pin) body += exactLink(url, null);
   const calB = calHtml(calM, today.getTime());
   const calFirst = calM && (calM.when || calM.asked);
-  body += (calFirst ? calB : "") + answerPanel(ansHit, qm) + siteCards(siteHits) + (calFirst ? "" : calB);
+  body += (page === 1 ? qaB : "") + (calFirst ? calB : "") + answerPanel(ansHit, qm) + siteCards(siteHits) + (calFirst ? "" : calB);
   if (fault) {
     body += faultHtml(fault);
+  } else if (!total && qaB) {
+    /* the box was the answer */
   } else if (!total) {
     body += `<p class="count">ไม่พบ · 0 pages found.</p>`;
     /* A filter, not the words, may be what emptied the page — so say which
@@ -2386,13 +2418,13 @@ async function answer(request, env, url, ctx, coreP, now) {
   const engineDown = fault && faultKind(fault) === "engine";
   const res = html(shell(`${q} · ค้นหา · Search · มดแดง`, body, "noindex,follow"),
     engineDown ? 503 : 200, {
-      "cache-control": engineDown || (mean && mean.late) ? "no-store" : `public, max-age=60, s-maxage=${CACHE_S}`,
+      "cache-control": engineDown || (mean && mean.late) || (qaD && qaD.late) ? "no-store" : `public, max-age=60, s-maxage=${CACHE_S}`,
       "x-fleet-ms": String(ms), "server-timing": timing,
       "x-fleet-match": encodeURIComponent(used).slice(0, 900).replace(/%[0-9A-F]?$/, ""),
       ...(engineDown ? { "retry-after": "60" } : {}) });
   /* A page built while the meaning search was still out is not kept: the next
    * asker gets the meaning from the colo cache (findmeaning.js). */
-  if (cache && ckey && !fault && !(mean && mean.late)) {
+  if (cache && ckey && !fault && !(mean && mean.late) && !(qaD && qaD.late)) {
     try { ctx.waitUntil(cache.put(ckey, res.clone()).catch(() => {})); } catch { /* next asker fills it */ }
   }
   return res;

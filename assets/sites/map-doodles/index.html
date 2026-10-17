@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en" data-lang="en" translate="no" class="notranslate">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="google" content="notranslate">
+<title>The World, Doodled · โลก วาดเล่น · Mot Dang</title>
+<meta name="description" content="Hand-drawn map marks for places anywhere on earth: famous landmarks drawn as themselves, from the Eiffel Tower to the moai of Rapa Nui, and every kind of place from lighthouse to spirit house. For the maps on motdang.net and its minisites.">
+<link rel="canonical" href="https://motdang.net/sites/map-doodles/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Mot Dang · มดแดง">
+<meta property="og:title" content="The World, Doodled · โลก วาดเล่น">
+<meta property="og:description" content="Hand-drawn map marks for places anywhere on earth: landmarks drawn as themselves and every kind of place, for motdang.net's maps.">
+<meta property="og:url" content="https://motdang.net/sites/map-doodles/">
+<meta property="og:image" content="https://motdang.net/sites/map-doodles/card.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A hand-drawn world map with the Eiffel Tower, the moai of Rapa Nui, Wat Arun and other landmarks drawn where they stand">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://motdang.net/sites/map-doodles/card.jpg">
+<meta name="theme-color" content="#2b2118">
+<link rel="icon" href="/sites/map-doodles/svg/moai.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5ecd7;--panel:#fffaf0;--ink:#2b2118;--mute:#6b5a48;--line:#d9c9a8;--sea:#cfe6ef;--red:#d8443a;--gold:#e9b52f;--green:#5f9a4a}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 Mali,"Sarabun","Noto Sans Thai",system-ui,sans-serif}
+html[data-lang="en"] .th{display:none!important}
+html[data-lang="th"] .en{display:none!important}
+a{color:inherit}
+header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;max-width:1180px;margin:0 auto}
+.crumb a{text-decoration:none;font-weight:600}
+.sw{display:flex;border:2px solid var(--ink);border-radius:999px;overflow:hidden}
+.sw button{font:600 14px Mali,sans-serif;background:none;border:0;padding:6px 12px;color:var(--ink);cursor:pointer;min-height:36px}
+.sw button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.hero{max-width:1180px;margin:0 auto;padding:4px 16px 8px}
+.kicker{font-weight:600;color:var(--red);font-size:.95rem}
+h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.05;margin:.1em 0 .2em;font-weight:700}
+.lede{max-width:46em;margin:0;color:var(--mute);font-size:1.05rem}
+.lede b{color:var(--ink)}
+.parade{display:flex;gap:4px;margin:14px 0 0;overflow:hidden;height:64px}
+.parade img{width:56px;height:56px;flex:none;cursor:pointer}
+.mapwrap{position:relative;max-width:1180px;margin:14px auto 0;padding:0 16px}
+#world{display:block;width:100%;height:min(62vh,560px);min-height:320px;border:2.5px solid var(--ink);border-radius:18px;background:var(--sea);touch-action:none;cursor:grab}
+#world.drag{cursor:grabbing}
+.hint{position:absolute;left:30px;top:12px;background:rgba(255,250,240,.9);border:1.5px solid var(--ink);border-radius:999px;padding:2px 12px;font-size:.85rem;pointer-events:none}
+.zoom{position:absolute;right:30px;top:12px;display:flex;flex-direction:column;gap:6px}
+.zoom button{width:40px;height:40px;border-radius:50%;border:2px solid var(--ink);background:var(--panel);font:700 20px Mali,sans-serif;color:var(--ink);cursor:pointer}
+.card{position:absolute;left:30px;bottom:14px;max-width:min(360px,calc(100% - 60px));background:var(--panel);border:2px solid var(--ink);border-radius:16px;padding:10px 14px 10px 10px;display:none;gap:10px;align-items:center;box-shadow:4px 4px 0 var(--ink)}
+.card.on{display:flex}
+.card.right{left:auto;right:30px}
+.card img{width:72px;height:72px;flex:none}
+.card b{display:block;font-size:1.1rem;line-height:1.2}
+.card small{color:var(--mute);display:block}
+.card .x{position:absolute;right:6px;top:2px;border:0;background:none;font:700 18px Mali,sans-serif;cursor:pointer;color:var(--ink);padding:4px 8px}
+main{max-width:1180px;margin:0 auto;padding:8px 16px 40px}
+h2{font-size:1.6rem;margin:1.4em 0 .3em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
+.tools input{font:16px Mali,sans-serif;padding:8px 14px;border:2px solid var(--ink);border-radius:999px;background:var(--panel);min-width:min(320px,100%);flex:1 1 240px;color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.chips button{font:600 14px Mali,sans-serif;border:1.5px solid var(--ink);background:var(--panel);color:var(--ink);border-radius:999px;padding:4px 12px;cursor:pointer;min-height:34px}
+.chips button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.chips button span{opacity:.6;font-weight:400}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:10px;margin-top:10px}
+.tile{background:var(--panel);border:1.5px solid var(--line);border-radius:14px;padding:8px 6px 6px;text-align:center;cursor:pointer;position:relative;font:inherit;color:inherit}
+.tile:hover,.tile:focus-visible{border-color:var(--ink);outline:none}
+.tile img{width:80px;height:80px;display:block;margin:0 auto}
+.tile b{display:block;font-size:.82rem;line-height:1.2;font-weight:600;margin-top:4px}
+.count{color:var(--mute);font-size:.9rem}
+.detail{display:none;grid-template-columns:auto 1fr;gap:16px;background:var(--panel);border:2px solid var(--ink);border-radius:18px;padding:14px;margin:12px 0;box-shadow:4px 4px 0 var(--ink)}
+.detail.on{display:grid}
+.detail img{width:160px;height:160px}
+.detail>div{min-width:0}
+.detail h3{margin:0;font-size:1.4rem;line-height:1.2}
+.detail .sub{color:var(--mute);margin:.2em 0 .6em}
+.detail code,.use code{font:13px/1.5 ui-monospace,Menlo,monospace;background:#f1e6cc;border-radius:6px;padding:1px 6px;word-break:break-all}
+.detail pre,.use pre{font:13px/1.5 ui-monospace,Menlo,monospace;background:#f1e6cc;border-radius:10px;padding:10px 12px;overflow-x:auto;margin:6px 0;white-space:pre}
+.copy{font:600 13px Mali,sans-serif;border:1.5px solid var(--ink);background:var(--gold);color:#000;border-radius:999px;padding:3px 12px;cursor:pointer}
+.use p{margin:.3em 0;max-width:52em}
+footer{max-width:1180px;margin:0 auto;padding:18px 16px 40px;color:var(--mute);font-size:.9rem;border-top:1.5px dashed var(--line)}
+@media (max-width:640px){.detail{grid-template-columns:1fr}.detail img{width:120px;height:120px}.hint{left:24px}.zoom{right:24px}.card{left:24px}}
+@media (prefers-reduced-motion:no-preference){
+ .boing{animation:boing .6s cubic-bezier(.3,1.6,.5,1)}
+ @keyframes boing{0%{transform:scale(1)}30%{transform:scale(1.25,.8) translateY(4px)}55%{transform:scale(.9,1.15) translateY(-8px) rotate(-6deg)}80%{transform:scale(1.04,.97) rotate(3deg)}100%{transform:none}}
+ .spark{position:absolute;width:8px;height:8px;border-radius:50%;pointer-events:none;animation:spark .7s ease-out forwards}
+ @keyframes spark{from{transform:translate(0,0) scale(1);opacity:1}to{transform:translate(var(--dx),var(--dy)) scale(.2);opacity:0}}
+ .parade img{transition:transform .25s}
+ .parade img:hover{transform:translateY(-6px) rotate(-4deg)}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <span class="crumb"><a href="/">มดแดง</a> · <a href="/sites/">sites</a></span>
+  <div class="sw"><button type="button" data-lang="th" aria-pressed="false">ไทย</button><button type="button" data-lang="en" aria-pressed="true">EN</button></div>
+</header>
+<section class="hero">
+  <div class="kicker"><span class="en">Map doodles</span><span class="th">ภาพวาดสำหรับแผนที่</span></div>
+  <h1><span class="en">The World, Doodled</span><span class="th">โลก วาดเล่น</span></h1>
+  <p class="lede"><span class="en"><b class="n-all">250</b> drawings for places anywhere on earth: <b class="n-landmark">115</b> landmarks drawn as themselves and <b class="n-kind">135</b> kinds of place, from lighthouse to spirit house. They stand on the maps of motdang.net and its minisites.</span><span class="th">ภาพวาด <b class="n-all">250</b> ภาพ สำหรับสถานที่ทั่วโลก: สถานที่สำคัญ <b class="n-landmark">115</b> แห่ง วาดให้เหมือนตัวจริง และสถานที่อีก <b class="n-kind">135</b> ประเภท ตั้งแต่ประภาคารถึงศาลพระภูมิ ใช้บนแผนที่ของมดแดงและมินิไซต์</span></p>
+  <div class="parade" id="parade" aria-hidden="true"></div>
+</section>
+<div class="mapwrap">
+  <canvas id="world" aria-label="World map with landmark drawings"></canvas>
+  <div class="hint"><span class="en">Drag, pinch, tap a drawing</span><span class="th">ลาก ถ่างนิ้ว แตะภาพวาด</span></div>
+  <div class="zoom"><button type="button" id="zin" aria-label="zoom in">+</button><button type="button" id="zout" aria-label="zoom out">−</button></div>
+  <div class="card" id="card" role="status"><img id="cimg" alt=""><div><b id="cname"></b><small id="cwhere"></small><small><a id="cwiki" href="#" target="_blank" rel="noopener">Wikipedia</a></small></div><button class="x" type="button" id="cx" aria-label="close">×</button></div>
+</div>
+<main>
+  <h2><span class="en">All drawings</span><span class="th">ภาพวาดทั้งหมด</span></h2>
+  <div class="tools"><input id="q" type="search" autocomplete="off" aria-label="Find a drawing"><span class="count" id="count"></span></div>
+  <div class="chips" id="groups"></div>
+  <div class="chips" id="subs"></div>
+  <div class="detail" id="detail" aria-live="polite"></div>
+  <div class="grid" id="grid"></div>
+  <section class="use">
+    <h2><span class="en">Put one on a map</span><span class="th">ใส่ลงแผนที่</span></h2>
+    <p><span class="en">Each drawing is its own file, 64 × 64, standing on its bottom centre, which is the map point.</span><span class="th">ภาพวาดแต่ละภาพเป็นไฟล์ของตัวเอง ขนาด 64 × 64 ยืนบนจุดกึ่งกลางด้านล่าง ซึ่งคือจุดบนแผนที่</span></p>
+<pre>&lt;img src="https://motdang.net/sites/map-doodles/svg/eiffel-tower.svg" width="48" height="48" alt="Eiffel Tower"&gt;</pre>
+    <p><span class="en">On a canvas, a MapLibre map, or from OpenStreetMap tags:</span><span class="th">บนแคนวาส บนแผนที่ MapLibre หรือเลือกจากแท็ก OpenStreetMap:</span></p>
+<pre>&lt;script src="/sites/map-doodles/map-doodles.js"&gt;&lt;/script&gt;
+MDDOODLES.ready().then(function () {
+  MDDOODLES.match({amenity: 'place_of_worship', religion: 'buddhist'});   // 'buddhist-temple'
+  MDDOODLES.match({wikidata: 'Q243'});                                     // 'eiffel-tower'
+  MDDOODLES.draw(ctx, 'moai', x, y, 48);                                   // stands on (x, y)
+  MDDOODLES.maplibre(map, ['moai']);   // then 'icon-image': 'md-doodle-moai', 'icon-anchor': 'bottom'
+});</pre>
+    <p><span class="en">The same set elsewhere:</span><span class="th">ชุดเดียวกันที่อื่น:</span> <a href="https://github.com/NaNoBotCo/map-doodles">GitHub</a> · <a href="https://cdn.jsdelivr.net/gh/NaNoBotCo/map-doodles@main/">jsDelivr</a> · <a href="https://commons.wikimedia.org/wiki/Category:Mot_Dang_map_doodles">Wikimedia Commons</a> · <a href="https://archive.org/details/motdang-map-doodles">Internet Archive</a> · <a href="https://huggingface.co/datasets/NaNoBotCo/map-doodles">Hugging Face</a></p>
+    <p><span class="en">All of them in one sprite: <a href="map-doodles.svg">map-doodles.svg</a> (symbols <code>d-&lt;id&gt;</code>). Names, places and tags: <a href="map-doodles.json">map-doodles.json</a>.</span><span class="th">ทั้งหมดในไฟล์เดียว: <a href="map-doodles.svg">map-doodles.svg</a> (สัญลักษณ์ <code>d-&lt;id&gt;</code>) ชื่อ ที่ตั้ง และแท็ก: <a href="map-doodles.json">map-doodles.json</a></span></p>
+  </section>
+</main>
+<footer><a href="/">มดแดง · motdang.net</a> · <span class="en">Drawings CC BY 4.0 · code MIT · world outline Natural Earth (public domain)</span><span class="th">ภาพวาด CC BY 4.0 · โค้ด MIT · เส้นแผนที่โลก Natural Earth (สาธารณสมบัติ)</span></footer>
+<script src="map-doodles.js"></script>
+<script>
+(function () {
+'use strict';
+var $ = function (s) { return document.querySelector(s); };
+var root = document.documentElement;
+var REDUCED = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+var lang = 'en';
+try { lang = localStorage.getItem('md-lang') || ((navigator.language || '').slice(0, 2) === 'th' ? 'th' : 'en'); } catch (e) { }
+var REG = { thailand: ['Thailand', 'ไทย'], 'southeast-asia': ['Southeast Asia', 'เอเชียตะวันออกเฉียงใต้'], 'east-asia': ['East Asia', 'เอเชียตะวันออก'],
+  'south-asia': ['South Asia', 'เอเชียใต้'], 'middle-east-north-africa': ['Middle East & North Africa', 'ตะวันออกกลางและแอฟริกาเหนือ'], africa: ['Africa', 'แอฟริกา'],
+  europe: ['Europe', 'ยุโรป'], 'north-america': ['North America', 'อเมริกาเหนือ'], 'latin-america': ['Latin America', 'ละตินอเมริกา'], oceania: ['Oceania', 'โอเชียเนีย'] };
+var SETS = { nature: ['Nature', 'ธรรมชาติ'], wildlife: ['Wildlife', 'สัตว์ป่า'], faith: ['Faith', 'ศาสนสถาน'], heritage: ['Heritage', 'มรดกและอนุสรณ์'],
+  structure: ['Structures', 'สิ่งปลูกสร้าง'], transport: ['Getting around', 'การเดินทาง'], civic: ['Services', 'บริการ'], leisure: ['Leisure', 'พักผ่อน'],
+  food: ['Food & drink', 'กินดื่ม'], shopping: ['Shopping', 'ช้อปปิ้ง'], stay: ['Stay', 'ที่พัก'], active: ['Active', 'กีฬา'], amenity: ['Amenities', 'สิ่งอำนวยความสะดวก'] };
+var L = function (pair) { return pair[lang === 'th' ? 1 : 0]; };
+var region = function (cc) { try { return new Intl.DisplayNames([lang], { type: 'region' }).of(cc); } catch (e) { return cc; } };
+
+/* ---------- a tap answered: a boing and a burst ---------- */
+var COLS = ['#d8443a', '#e9b52f', '#3f93d6', '#5f9a4a', '#e0609a', '#7a3e8e'];
+function boing(el) {
+  el.classList.remove('boing'); void el.offsetWidth; el.classList.add('boing');
+  if (REDUCED) return;
+  var host = el.closest('.tile, .detail, .card') || el.parentNode;
+  if (getComputedStyle(host).position === 'static') host.style.position = 'relative';
+  var r = el.getBoundingClientRect(), h = host.getBoundingClientRect();
+  for (var i = 0; i < 10; i++) {
+    var s = document.createElement('i'), a = i / 10 * 6.283 + Math.random() * .4, d = 34 + Math.random() * 26;
+    s.className = 'spark'; s.style.background = COLS[i % COLS.length];
+    s.style.left = (r.left - h.left + r.width / 2 - 4) + 'px'; s.style.top = (r.top - h.top + r.height / 2 - 4) + 'px';
+    s.style.setProperty('--dx', Math.cos(a) * d + 'px'); s.style.setProperty('--dy', Math.sin(a) * d + 'px');
+    host.appendChild(s); setTimeout(function (n) { n.remove(); }.bind(null, s), 800);
+  }
+}
+
+/* ---------- the gallery ---------- */
+var ROWS = [], group = 'all', sub = '', sel = null;
+function setLang(l) {
+  lang = l; root.setAttribute('data-lang', l); root.lang = l;
+  document.querySelectorAll('.sw [data-lang]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.lang === l)); });
+  try { localStorage.setItem('md-lang', l); } catch (e) { }
+  $('#q').placeholder = l === 'th' ? 'ค้นหา: ประภาคาร, ปารีส, วัด…' : 'Find: lighthouse, Paris, temple…';
+  if (ROWS.length) { chips(); grid(); if (sel) detail(sel); if (pick) card(pick); }
+  dirty = true;
+}
+document.querySelectorAll('.sw [data-lang]').forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.lang); }); });
+
+function chips() {
+  var g = $('#groups'), s = $('#subs');
+  var n = { all: ROWS.length, landmark: 0, kind: 0 };
+  ROWS.forEach(function (r) { n[r.group]++; });
+  var G = [['all', ['All', 'ทั้งหมด']], ['landmark', ['Landmarks', 'สถานที่สำคัญ']], ['kind', ['Kinds of place', 'ประเภทสถานที่']]];
+  g.innerHTML = G.map(function (x) { return '<button type="button" data-g="' + x[0] + '" aria-pressed="' + (group === x[0]) + '">' + L(x[1]) + ' <span>' + n[x[0]] + '</span></button>'; }).join('');
+  var table = group === 'landmark' ? REG : group === 'kind' ? SETS : null, key = group === 'landmark' ? 'region' : 'set';
+  if (!table) { s.innerHTML = ''; return; }
+  s.innerHTML = Object.keys(table).map(function (k) {
+    var c = ROWS.filter(function (r) { return r[key] === k; }).length;
+    return c ? '<button type="button" data-s="' + k + '" aria-pressed="' + (sub === k) + '">' + L(table[k]) + ' <span>' + c + '</span></button>' : '';
+  }).join('');
+}
+$('#groups').addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; group = b.dataset.g; sub = ''; chips(); grid(); });
+$('#subs').addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; sub = sub === b.dataset.s ? '' : b.dataset.s; chips(); grid(); });
+$('#q').addEventListener('input', grid);
+
+function shown() {
+  var q = $('#q').value.trim().toLowerCase();
+  return ROWS.filter(function (r) {
+    if (group !== 'all' && r.group !== group) return false;
+    if (sub && r.region !== sub && r.set !== sub) return false;
+    if (!q) return true;
+    return [r.id, r.en, r.th, r.city || '', (r.words || []).join(' '), (r.osm || []).join(' '), r.cc ? region(r.cc) : ''].join(' ').toLowerCase().indexOf(q) >= 0;
+  });
+}
+function grid() {
+  var list = shown();
+  $('#count').textContent = list.length + ' / ' + ROWS.length;
+  $('#grid').innerHTML = list.map(function (r) {
+    return '<button type="button" class="tile" data-id="' + r.id + '">' + MDDOODLES.html(r.id, 80, lang) + '<b>' + esc(lang === 'th' ? r.th : r.en) + '</b></button>';
+  }).join('');
+}
+function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+$('#grid').addEventListener('click', function (e) {
+  var t = e.target.closest('.tile'); if (!t) return;
+  boing(t.querySelector('img'));
+  detail(t.dataset.id);
+});
+function detail(id) {
+  sel = id;
+  var r = MDDOODLES.get(id), d = $('#detail'), url = 'https://motdang.net/sites/map-doodles/svg/' + id + '.svg';
+  var where = r.group === 'landmark' ? [r.city, r.cc ? region(r.cc) : ''].filter(Boolean).join(' · ') : L(SETS[r.set] || ['', '']);
+  var tags = (r.osm || []).map(function (t) { return '<code>' + esc(t.replace(/\+/g, ' + ')) + '</code>'; }).join(' ');
+  d.innerHTML = '<img src="' + MDDOODLES.url(id) + '" alt="' + esc(r.en) + '"><div><h3>' + esc(lang === 'th' ? r.th : r.en) + '</h3>' +
+    '<div class="sub">' + esc(lang === 'th' ? r.en : r.th) + (where ? ' · ' + esc(where) : '') + '</div>' +
+    (tags ? '<div>OSM: ' + tags + '</div>' : '') +
+    (r.lat != null ? '<div><button type="button" class="copy" data-fly="' + id + '">' + (lang === 'th' ? 'ดูบนแผนที่' : 'On the map') + '</button></div>' : '') +
+    '<pre>&lt;img src="' + url + '" width="48" height="48" alt="' + esc(r.en) + '"&gt;</pre>' +
+    '<button type="button" class="copy" data-copy="' + id + '">' + (lang === 'th' ? 'คัดลอก' : 'Copy') + '</button> <code>' + id + '</code></div>';
+  d.classList.add('on');
+}
+$('#detail').addEventListener('click', function (e) {
+  var c = e.target.closest('[data-copy]'), f = e.target.closest('[data-fly]'), im = e.target.closest('img');
+  if (im) boing(im);
+  if (c) {
+    var r = MDDOODLES.get(c.dataset.copy);
+    var txt = '<img src="https://motdang.net/sites/map-doodles/svg/' + r.id + '.svg" width="48" height="48" alt="' + r.en + '">';
+    if (navigator.clipboard) navigator.clipboard.writeText(txt);
+    c.textContent = lang === 'th' ? 'คัดลอกแล้ว' : 'Copied'; boing(c);
+  }
+  if (f) { fly(MDDOODLES.get(f.dataset.fly)); $('#world').scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'center' }); }
+});
+
+/* ---------- the world map ---------- */
+var cv = $('#world'), c = cv.getContext('2d'), W = 0, H = 0, DPR = 1;
+var WORLD = null, dirty = true, pick = null, hits = [], bounce = { id: null, t: 0 };
+var view = { x: 0, y: 0, k: 1 };          // map units: x = lng + 180 (0..360), y = 90 - lat (0..180); k = px per degree
+var INK = '#2b2118', SEA = '#cfe6ef', TINTS = ['#f3e3b5', '#e6efc4', '#f6d9c2', '#dfe9d0', '#f1e0cf', '#e9e4c4', '#f7e6c8', '#dcebd6'];
+var touched = false;                     // the reader has moved the map; until then it re-centres on every resize
+function size() {
+  var r = cv.getBoundingClientRect(); DPR = Math.min(2, window.devicePixelRatio || 1);
+  if (!r.width || !r.height) return;      // a tab opened hidden has no size yet
+  W = r.width; H = r.height; cv.width = W * DPR; cv.height = H * DPR;
+  if (touched) clamp(); else home();
+  dirty = true;
+}
+function home() { view.k = Math.max(W / 360, H / 150); view.x = 180 + 10 - W / 2 / view.k; view.y = 90 - 18 - H / 2 / view.k; clamp(); }
+function clamp() {
+  view.k = Math.max(Math.max(W / 360, H / 150) * .98, Math.min(view.k, 120));
+  view.x = Math.max(-40, Math.min(view.x, 400 - W / view.k));
+  view.y = Math.max(5, Math.min(view.y, 152 - H / view.k));
+}
+function px(lng, lat) { return [(lng + 180 - view.x) * view.k, (90 - lat - view.y) * view.k]; }
+function hash(s) { var h = 0; for (var i = 0; i < s.length; i++) h = h * 31 + s.charCodeAt(i) | 0; return Math.abs(h); }
+function ring(flat, dx) {
+  for (var i = 0; i < flat.length; i += 2) {
+    var p = px(flat[i] + dx, flat[i + 1]);
+    if (i) c.lineTo(p[0], p[1]); else c.moveTo(p[0], p[1]);
+  }
+  c.closePath();
+}
+function waves() {
+  c.save(); c.strokeStyle = 'rgba(63,147,214,.45)'; c.lineWidth = 1.3;
+  var step = 46, ox = -((view.x * view.k) % step), oy = -((view.y * view.k) % step);
+  for (var y = oy; y < H + step; y += step) for (var x = ox; x < W + step; x += step) {
+    var j = ((Math.floor((x - ox) / step) + Math.floor((y - oy) / step)) % 2) * step / 2;
+    c.beginPath(); c.moveTo(x + j - 8, y); c.quadraticCurveTo(x + j - 4, y - 4, x + j, y); c.quadraticCurveTo(x + j + 4, y + 4, x + j + 8, y); c.stroke();
+  }
+  c.restore();
+}
+function landmarks() {
+  hits = [];
+  var all = ROWS.filter(function (r) { return r.lat != null; }).sort(function (a, b) { return (a.rank || 999) - (b.rank || 999); });
+  var size = Math.max(30, Math.min(84, 18 + view.k * 3.2)), budget = W < 640 ? 45 : 50, kept = [];
+  for (var i = 0; i < all.length && kept.length < budget; i++) {
+    var r = all[i], p = px(r.lng, r.lat), box = [p[0] - size * .42, p[1] - size * .9, p[0] + size * .42, p[1]];
+    if (p[0] < -size || p[0] > W + size || p[1] < 0 || p[1] > H + size) continue;
+    if (r.id !== (pick && pick.id) && kept.some(function (b) { return !(box[2] < b[0] || box[0] > b[2] || box[3] < b[1] || box[1] > b[3]); })) continue;
+    kept.push(box); hits.push({ r: r, box: box, x: p[0], y: p[1] });
+  }
+  hits.sort(function (a, b) { return a.y - b.y; });
+  var now = performance.now();
+  hits.forEach(function (h) {
+    var s = size, lift = 0;
+    if (bounce.id === h.r.id && !REDUCED) {
+      var t = (now - bounce.t) / 600;
+      if (t < 1) { s = size * (1 + .25 * Math.sin(t * Math.PI) * (1 - t)); lift = 10 * Math.sin(t * Math.PI); dirty = true; }
+    }
+    MDDOODLES.draw(c, h.r.id, h.x, h.y - lift, s);
+  });
+  /* names under the drawings, the chosen one first, then by rank; a name that would cross another waits */
+  var named = [];
+  c.font = '600 12px Mali, sans-serif'; c.textAlign = 'center'; c.textBaseline = 'top';
+  hits.slice().sort(function (a, b) { return (pick && b.r.id === pick.id) - (pick && a.r.id === pick.id) || (a.r.rank || 999) - (b.r.rank || 999); })
+    .forEach(function (h) {
+      if (!(view.k > 9 || (pick && pick.id === h.r.id))) return;
+      var name = lang === 'th' ? h.r.th : h.r.en, w = c.measureText(name).width + 6;
+      var box = [h.x - w / 2, h.y + 2, h.x + w / 2, h.y + 18];
+      if (named.some(function (b) { return !(box[2] < b[0] || box[0] > b[2] || box[3] < b[1] || box[1] > b[3]); })) return;
+      named.push(box);
+      c.lineWidth = 3.5; c.strokeStyle = 'rgba(255,250,240,.95)'; c.strokeText(name, h.x, h.y + 3);
+      c.fillStyle = INK; c.fillText(name, h.x, h.y + 3);
+    });
+}
+function drawMap() {
+  c.setTransform(DPR, 0, 0, DPR, 0, 0);
+  c.fillStyle = SEA; c.fillRect(0, 0, W, H);
+  waves();
+  if (WORLD) {
+    /* the coast: a thick ink line under every country, whose inner half the fills then cover,
+       so shared borders vanish and only the shoreline stays inked; borders go back on dashed */
+    c.lineJoin = 'round';
+    [-360, 0, 360].forEach(function (dx) {
+      if ((dx + 360 - view.x) * view.k < 0 || (dx - view.x) * view.k > W) return;
+      c.beginPath(); WORLD.c.forEach(function (cn) { cn[1].forEach(function (f) { ring(f, dx); }); });
+      c.strokeStyle = INK; c.lineWidth = 3; c.stroke();
+      WORLD.c.forEach(function (cn) {
+        c.beginPath(); cn[1].forEach(function (f) { ring(f, dx); });
+        c.fillStyle = TINTS[hash(cn[0]) % TINTS.length]; c.fill('evenodd');
+      });
+      c.strokeStyle = 'rgba(43,33,24,.4)'; c.lineWidth = .8; c.setLineDash([3, 3]);
+      WORLD.c.forEach(function (cn) { c.beginPath(); cn[1].forEach(function (f) { ring(f, dx); }); c.stroke(); });
+      c.setLineDash([]);
+    });
+  }
+  var cm = px(98.98, 18.79);                      // home: Chiang Mai, a red ant's dot
+  c.fillStyle = '#d8443a'; c.strokeStyle = INK; c.lineWidth = 1.5; c.beginPath(); c.arc(cm[0], cm[1], 4.5, 0, 6.3); c.fill(); c.stroke();
+  if (ROWS.length) landmarks();
+}
+function frame() { if (dirty && W) { dirty = false; drawMap(); } requestAnimationFrame(frame); }
+MDDOODLES.onload = function () { dirty = true; };
+
+var fromFly = false;
+function card(r) {
+  pick = r; $('#cimg').src = MDDOODLES.url(r.id); $('#cimg').alt = r.en;
+  $('#cname').textContent = lang === 'th' ? r.th : r.en;
+  $('#cwhere').textContent = [lang === 'th' ? r.en : r.th, r.city, r.cc ? region(r.cc) : ''].filter(Boolean).join(' · ');
+  var w = $('#cwiki'); if (r.wiki) { w.href = 'https://en.wikipedia.org/wiki/' + encodeURIComponent(r.wiki.replace(/ /g, '_')); w.parentNode.style.display = ''; } else w.parentNode.style.display = 'none';
+  var p = px(r.lng, r.lat); $('#card').classList.toggle('right', p[0] < W / 2 && !fromFly);
+  $('#card').classList.add('on');
+}
+$('#cx').addEventListener('click', function () { $('#card').classList.remove('on'); pick = null; dirty = true; });
+$('#card').addEventListener('click', function (e) { if (e.target.id === 'cimg') boing(e.target); });
+function fly(r) {
+  touched = true;
+  var k0 = view.k, x0 = view.x, y0 = view.y, k1 = Math.max(k0, 14);
+  var x1 = r.lng + 180 - W / 2 / k1, y1 = 90 - r.lat - H / 2 / k1, t0 = performance.now();
+  fromFly = true; card(r); fromFly = false; bounce = { id: r.id, t: t0 + (REDUCED ? 0 : 700) };
+  (function step() {
+    var t = REDUCED ? 1 : Math.min(1, (performance.now() - t0) / 700), e = t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+    view.k = k0 + (k1 - k0) * e; view.x = x0 + (x1 - x0) * e; view.y = y0 + (y1 - y0) * e; clamp(); dirty = true;
+    if (t < 1) requestAnimationFrame(step);
+  })();
+}
+function zoomAt(f, sx, sy) {
+  touched = true;
+  var mx = view.x + sx / view.k, my = view.y + sy / view.k;
+  view.k *= f; clamp(); view.x = mx - sx / view.k; view.y = my - sy / view.k; clamp(); dirty = true;
+}
+$('#zin').addEventListener('click', function () { zoomAt(1.6, W / 2, H / 2); });
+$('#zout').addEventListener('click', function () { zoomAt(1 / 1.6, W / 2, H / 2); });
+cv.addEventListener('wheel', function (e) { e.preventDefault(); var r = cv.getBoundingClientRect(); zoomAt(Math.exp(-e.deltaY * .0015), e.clientX - r.left, e.clientY - r.top); }, { passive: false });
+var ptrs = {}, moved = 0, pinch = 0;
+cv.addEventListener('pointerdown', function (e) { cv.setPointerCapture(e.pointerId); ptrs[e.pointerId] = [e.clientX, e.clientY]; moved = 0; cv.classList.add('drag'); });
+cv.addEventListener('pointermove', function (e) {
+  if (!ptrs[e.pointerId]) return;
+  var ids = Object.keys(ptrs), r = cv.getBoundingClientRect();
+  if (ids.length === 2) {
+    var o = ids.filter(function (i) { return +i !== e.pointerId; })[0], a = ptrs[o];
+    var d0 = Math.hypot(ptrs[e.pointerId][0] - a[0], ptrs[e.pointerId][1] - a[1]), d1 = Math.hypot(e.clientX - a[0], e.clientY - a[1]);
+    if (d0 > 0) zoomAt(d1 / d0, (e.clientX + a[0]) / 2 - r.left, (e.clientY + a[1]) / 2 - r.top);
+    pinch = 1;
+  } else {
+    var dx = e.clientX - ptrs[e.pointerId][0], dy = e.clientY - ptrs[e.pointerId][1];
+    view.x -= dx / view.k; view.y -= dy / view.k; clamp(); dirty = true; touched = true;
+  }
+  moved += Math.abs(e.clientX - ptrs[e.pointerId][0]) + Math.abs(e.clientY - ptrs[e.pointerId][1]);
+  ptrs[e.pointerId] = [e.clientX, e.clientY];
+});
+function up(e) {
+  var tap = ptrs[e.pointerId] && moved < 6 && !pinch;
+  delete ptrs[e.pointerId];
+  if (!Object.keys(ptrs).length) { pinch = 0; cv.classList.remove('drag'); }
+  if (!tap) return;
+  var r = cv.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+  for (var i = hits.length - 1; i >= 0; i--) {
+    var b = hits[i].box;
+    if (x >= b[0] && x <= b[2] && y >= b[1] && y <= b[3]) { card(hits[i].r); bounce = { id: hits[i].r.id, t: performance.now() }; dirty = true; return; }
+  }
+}
+cv.addEventListener('pointerup', up); cv.addEventListener('pointercancel', up);
+cv.addEventListener('dblclick', function (e) { var r = cv.getBoundingClientRect(); zoomAt(2, e.clientX - r.left, e.clientY - r.top); });
+window.addEventListener('resize', size);
+if (window.ResizeObserver) new ResizeObserver(size).observe(cv);
+
+/* ---------- start ---------- */
+setLang(lang);
+size(); requestAnimationFrame(frame);
+fetch('data/world.json').then(function (r) { return r.json(); }).then(function (w) { WORLD = w; dirty = true; });
+MDDOODLES.ready().then(function (rows) {
+  ROWS = rows;
+  var n = { all: rows.length, landmark: 0, kind: 0 };
+  rows.forEach(function (r) { n[r.group]++; });
+  ['all', 'landmark', 'kind'].forEach(function (k) { document.querySelectorAll('.n-' + k).forEach(function (b) { b.textContent = n[k]; }); });
+  chips(); grid(); dirty = true;
+  rows.filter(function (r) { return r.lat != null; }).forEach(function (r) { MDDOODLES.image(r.id); });
+  var par = $('#parade'), pool = rows.slice().sort(function () { return Math.random() - .5; }).slice(0, 24);
+  par.innerHTML = pool.map(function (r) { return '<img src="' + MDDOODLES.url(r.id) + '" alt="" data-id="' + r.id + '">'; }).join('');
+  par.addEventListener('click', function (e) { var im = e.target.closest('img'); if (!im) return; boing(im); detail(im.dataset.id); $('#detail').scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'center' }); });
+});
+})();
+</script>
+</body>
+</html>

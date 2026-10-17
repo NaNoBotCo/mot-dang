@@ -232,6 +232,67 @@ def main():
         check("with the files present, links, canonicals and other hosts are not asked for",
               safety.referenced_missing(root) == [], safety.referenced_missing(root))
 
+    # ---- deletions the change announced (Nan, 2026-10-11) ----------------
+    # That day: 2,949 per-tag GeoJSON files and 1,212 doodle shards were cuts
+    # she had asked for, beside ~100 ordinary churn. The ceiling refused all.
+    tags = ["data/cm-tag-t%d.geojson" % i for i in range(2949)]
+    shards = ["doodles/data/v/%d.json" % i for i in range(1212)]
+    churn = ["cm/p/old%d.html" % i for i in range(108)]
+    ann = [{"id": "tag-geojson", "until": "2026-10-25",
+            "remove": {"data/c[mr]-tag-*.geojson": 2950}},
+           {"id": "doodles-kept", "until": "2026-10-25",
+            "remove": {"doodles/data/": 1212}, "add": {"doodles/": 3}}]
+    ok, msg = safety.deletion_verdict(tags + shards + churn, announced=ann)
+    check("announced cuts within 10% plus ordinary churn pass", ok, msg)
+    check("the log line says how many were announced", "4,161 of them announced" in msg, msg)
+    ok, _ = safety.deletion_verdict(tags + shards + churn)
+    check("the same deletions without announcements refuse", not ok)
+    extra = ["data/cr-tag-x%d.geojson" % i for i in range(400)]
+    ok, msg = safety.deletion_verdict(tags + extra, announced=ann)
+    check("more than announced (+13%) refuses", not ok, msg)
+    check("the refusal names the pattern", "data/c[mr]-tag-*.geojson" in msg, msg)
+    ok, msg = safety.deletion_verdict(tags[:2700] + churn, announced=ann)
+    check("fewer than announced publishes, and says so", ok and "under" in msg, msg)
+    stale = ["cm/p/limb%d.html" % i for i in range(safety.DELETE_CEILING + 1)]
+    ok, msg = safety.deletion_verdict(tags + stale, announced=ann)
+    check("unannounced loss past the ceiling still refuses beside an announcement",
+          not ok and "no announcement covers" in msg, msg)
+    ok, _ = safety.deletion_verdict(["vendor/maplibre-gl.js"],
+                                    announced=[{"id": "v", "until": "2099-01-01",
+                                                "remove": {"vendor/": 1}}])
+    check("an announcement cannot open vendor/ glyphs/ api/", not ok)
+    rest, groups = safety.expected_split(tags[:3] + ["cm/x.html"],
+                                         [{"id": "a", "remove": {"data/": 50}},
+                                          {"id": "b", "remove": {"data/cm-tag-": 3}}])
+    check("a key counts against the longest pattern it matches",
+          [g["found"] for g in groups] == [0, 3] and rest == ["cm/x.html"], groups)
+    _, groups = safety.expected_split(tags + shards, ann)
+    check("cuts within their bands are used up",
+          safety.expected_used(groups) == ["doodles-kept", "tag-geojson"], groups)
+    _, groups = safety.expected_split(shards, ann)
+    check("a cut that has not landed stays in force",
+          safety.expected_used(groups) == ["doodles-kept"], groups)
+    lines = safety.additions_lines(["doodles/index.html", "cm/new.html"], ann)
+    check("additions are counted and set against an announced add",
+          "additions: 2" in lines[0] and any("doodles-kept doodles/: 1 to add" in l for l in lines),
+          lines)
+
+    with tempfile.TemporaryDirectory() as td:
+        f = Path(td) / "expected.json"
+        f.write_text(json.dumps({"announced": ann + [
+            {"id": "old", "until": "2026-10-01", "remove": {"x/": 1}},
+            {"remove": {"y/": 1}}]}))
+        act, said = safety.load_expected(f, today="2026-10-11", done={"doodles-kept"})
+        check("load: active, used-up and expired sorted apart",
+              [a["id"] for a in act] == ["tag-geojson"], act)
+        check("load: the expired and the malformed are said",
+              any("expired" in s for s in said) and any("ignored" in s for s in said), said)
+        f.write_text("{not json")
+        act, said = safety.load_expected(f, today="2026-10-11", done=set())
+        check("load: an unreadable file applies nothing and says so", act == [] and said, said)
+        act, said = safety.load_expected(Path(td) / "none.json", done=set())
+        check("load: no file, nothing to say", act == [] and said == [])
+
     # ---- the smoke list --------------------------------------------------
     paths = [p for p, _ in safety.SMOKE]
     check("smoke asks for the front page", "/" in paths)

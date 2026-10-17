@@ -17,6 +17,9 @@ disk, in one FTS5 index on D1, answered by the site Worker as plain HTML.
 | `../tests/test_fleetsearch.js` | the query language and the SQL it becomes, 39 cases |
 | `../tests/test_fleetsearch_page.js` | the handler end to end over the twin, with the real dictionary, 35 cases |
 | `../tests/test_fleetsearch.py` | the crawler, the wiring, every planned MATCH string run in SQLite, 25 cases |
+| `../publish/ownfind.js` | people's own pages on the first page of an answer: asks the page maker, 400 ms at most, joins what the index lacks |
+| `../tests/test_ownfind.js` | that module alone, and the handler over the twin with the page maker replaced by a function |
+| `../tests/test_own_pages.py` | the feed, the match to a place record, the crawler's rows, the place-page layer |
 | `../tests/test_geofence.js` | what a page says about where you are: the arithmetic, the compass, the rounding, 12 cases |
 
 ## The pin backfill is unfinished
@@ -78,6 +81,18 @@ The nightly task stands down when that file shows a reload in the last 20 hours.
   `extra_pages.json`. An entry with `"fetch": true` is read over HTTP at crawl
   time; its listed text stands in when it does not answer. `"brand"` names a
   section whose name its subpages carry.
+- **People's own pages** (sites.motdang.net, made with the page maker):
+  `crawl.py` reads the public feed `https://sites.motdang.net/feed.json` into
+  rows under the site id `sites` (title, tagline, about, address, every menu
+  item with its price, the kind in Thai and English, the pin, the cover as the
+  picture, hours as a lamp, an event date). A feed that does not answer falls
+  back to the last good copy, `cache/fleetsearch/own_pages_feed.json`.
+  `/find` also asks `https://sites.motdang.net/api/find?q=&lat=&lng=` on page
+  one of a best-match or nearest answer, beside the index query, for at most
+  400 ms; what it returns and the index lacks joins after the first two rows
+  with an "own page" mark, and any fault leaves the answer as it was
+  (`OWN_FIND_URL=""` in the Worker's vars switches the call off).
+  `importers/own_pages.py` reads the same feed for the place records.
 - **Left out**: redirect stubs (`http-equiv=refresh`), pages with `noindex`
   in any robots meta except a Mot Dang place page (its place's one page), and
   a copy of a page that claims another's canonical under the same name. A page

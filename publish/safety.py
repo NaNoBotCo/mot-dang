@@ -307,18 +307,53 @@ def _local_keys(root=None):
     return {str(p.relative_to(root)) for p in root.rglob("*") if p.is_file()}
 
 
-def deletions_preview(dest, env, run, root=None, exclude=("tiles/",)):
+# The four picture folders that live in mot-dang-media instead of the site bucket
+# (media_layer.py, publish/media_sync.py). With MD_MEDIA_BUCKET=1 a publish neither
+# uploads nor deletes them, so the preview does not count them as missing either.
+MEDIA_PREFIXES = ("streetphotos/", "photos/", "inat/", "og/")
+
+
+def preview_excludes(exclude=None):
+    """The key prefixes a sync leaves alone: the tile archives, and the media
+    folders while the media bucket holds them (the same --exclude list deploy.py
+    passes to rclone)."""
+    if exclude is not None:
+        return tuple(exclude)
+    return ("tiles/",) + (MEDIA_PREFIXES if os.environ.get("MD_MEDIA_BUCKET") == "1" else ())
+
+
+def deletions_preview(dest, env, run, root=None, exclude=None):
     """Sorted list of keys a sync would delete. The truth, both sides listed.
 
     `exclude` mirrors deploy.py's own --exclude: the tile archives live in the
     bucket and deliberately not under docs/, so they are not deletions, they
     are the arrangement.
     """
+    return diff_preview(dest, env, run, root, exclude)[0]
+
+
+def diff_preview(dest, env, run, root=None, exclude=None):
+    """(keys a sync would delete, keys it would add), both sorted, from one
+    listing of each side."""
+    exclude = preview_excludes(exclude)
     live = _bucket_keys(dest, env, run)
     local = _local_keys(root)
     gone = {k for k in live - local
             if not any(k.startswith(x) for x in exclude)}
-    return sorted(gone)
+    return sorted(gone), sorted(local - live)
+
+
+def additions_lines(added, announced=()):
+    """What a publish adds: the total, the folders that add most, and each
+    announced "add" against its number. Said, never refused."""
+    from collections import Counter
+    if not added:
+        return ["  additions: none"]
+    top = Counter(k.split("/")[0] + ("/" if "/" in k else "") for k in added)
+    out = ["  additions: %s file(s) — %s" % (
+        f"{len(added):,}", ", ".join("%s %s" % (d, f"{n:,}") for d, n in top.most_common(5)))]
+    _, groups = expected_split(added, announced, side="add")
+    return out + expected_lines(groups, verb="add")
 
 
 # How long before its source was taken a live file still counts as newer than
@@ -393,7 +428,137 @@ def uploaded_since(dest, env, run, keys, since):
     return sorted(young)
 
 
-def deletion_verdict(gone, prune=False, prune_up_to=None, tree_ok=False):
+# ---------------------------------------------------------------------------
+# 2b. DELETIONS THE CHANGE SAID WERE COMING
+# ---------------------------------------------------------------------------
+# Nan, 2026-10-11: the test is whether what goes matches what the maker said
+# would go, within a few percent, not whether it passes a fixed number. That
+# day two cuts she had asked for (2,949 per-tag GeoJSON files, 1,212 doodle
+# data shards) refused every round against a ceiling of 500, and a hand-typed
+# bound of 3,300 refused them too.
+#
+# publish/expected.json, committed with the change that retires the files:
+#
+#   {"announced": [{"id": "tag-geojson", "until": "2026-10-25",
+#                   "why": "one GeoJSON per province replaces one per tag",
+#                   "remove": {"data/c?-tag-*.geojson": 2950},
+#                   "add": {"data/": 2}}]}
+#
+# A pattern is a prefix, or a glob when it holds * ? or [. A live file the
+# build lacks counts against the longest pattern it matches. More than
+# EXPECT_TOL over the announced number refuses; fewer is said and published
+# (fewer deletions harm nothing). What no announcement covers still meets the
+# fixed ceiling. "add" is reported, never refused. An announcement whose cut
+# landed within bounds is used up (EXPECT_DONE) and stops applying; one past
+# its "until" never applies.
+EXPECTED = ROOT / "publish" / "expected.json"
+EXPECT_TOL = 0.10
+EXPECT_SLACK = 5        # files: ±10% of 20 is 2, too tight for small cuts
+
+
+def _expect_done_path():
+    return Path(os.environ.get("MD_EXPECT_DONE") or (ROOT / "cache" / "expected-done.txt"))
+
+
+def _today():
+    import datetime
+    return datetime.date.today().isoformat()
+
+
+def load_expected(path=None, today=None, done=None):
+    """(active announcements, lines to say). A malformed file is said, not fatal:
+    without announcements the fixed ceiling applies as before."""
+    path = Path(path) if path else EXPECTED
+    today = today or _today()
+    if done is None:
+        try:
+            done = set(_expect_done_path().read_text().split())
+        except OSError:
+            done = set()
+    try:
+        raw = json.loads(path.read_text())
+    except OSError:
+        return [], []
+    except ValueError as e:
+        return [], ["  ⚠️  %s unreadable (%s); no announcements apply" % (path.name, e)]
+    active, said = [], []
+    for a in raw.get("announced", []):
+        aid, until = str(a.get("id", "")), str(a.get("until", ""))
+        if not aid or not until or not isinstance(a.get("remove", {}), dict):
+            said.append("  ⚠️  announcement without id/until ignored: %r" % (a,))
+        elif aid in done:
+            continue
+        elif until < today:
+            said.append("  announcement %s expired %s, not applied" % (aid, until))
+        else:
+            active.append(a)
+    return active, said
+
+
+def _match(key, pat):
+    import fnmatch
+    return fnmatch.fnmatchcase(key, pat) if any(c in pat for c in "*?[") else key.startswith(pat)
+
+
+def _band(n):
+    d = max(EXPECT_SLACK, int(n * EXPECT_TOL + 0.999))
+    return max(0, n - d), n + d
+
+
+def expected_split(keys, announced, side="remove"):
+    """(keys no pattern covers, groups). One group per announced pattern:
+    {id, pattern, expected, found, lo, hi}; a key counts once, against the
+    longest pattern it matches."""
+    pats = []
+    for a in announced:
+        for pat, n in (a.get(side) or {}).items():
+            pats.append((a["id"], pat, int(n)))
+    found = {(i, p): 0 for i, p, _ in pats}
+    rest = []
+    order = sorted(pats, key=lambda t: -len(t[1]))
+    for k in keys:
+        hit = next(((i, p) for i, p, _ in order if _match(k, p)), None)
+        if hit:
+            found[hit] += 1
+        else:
+            rest.append(k)
+    groups = []
+    for i, p, n in pats:
+        lo, hi = _band(n)
+        groups.append({"id": i, "pattern": p, "expected": n,
+                       "found": found[(i, p)], "lo": lo, "hi": hi})
+    return rest, groups
+
+
+def expected_lines(groups, verb="go"):
+    out = []
+    for g in groups:
+        mark = ("over" if g["found"] > g["hi"] else
+                "under" if g["found"] < g["lo"] else "within")
+        out.append("  %s %s: %s to %s, %s announced (%s)"
+                   % (g["id"], g["pattern"], f"{g['found']:,}", verb,
+                      f"{g['expected']:,}", mark))
+    return out
+
+
+def expected_used(groups):
+    """Ids whose every pattern landed within its band: their cut is done."""
+    ids = {g["id"] for g in groups}
+    bad = {g["id"] for g in groups if not g["lo"] <= g["found"] <= g["hi"]}
+    return sorted(ids - bad)
+
+
+def mark_expected_done(ids):
+    if not ids:
+        return
+    p = _expect_done_path()
+    p.parent.mkdir(parents=True, exist_ok=True)
+    with open(p, "a") as fh:
+        fh.write("".join(i + "\n" for i in ids))
+
+
+def deletion_verdict(gone, prune=False, prune_up_to=None, tree_ok=False,
+                     announced=None):
     """(ok, message). Refuses a mass deletion, and any deletion of the
     prefixes whose loss breaks the site silently.
 
@@ -401,6 +566,9 @@ def deletion_verdict(gone, prune=False, prune_up_to=None, tree_ok=False):
     only for a tree that passed check_tree (`tree_ok`, which a caller must
     say — the default is a failed tree): above N, or with a failed tree, it
     refuses. With neither the ceiling stands as before.
+
+    `announced` (load_expected): deletions an announcement covers are held to
+    its number instead of the ceiling; the ceiling counts the rest.
     """
     fatal = [k for k in gone if k.startswith(NEVER_PRUNE)]
     if fatal:
@@ -411,6 +579,17 @@ def deletion_verdict(gone, prune=False, prune_up_to=None, tree_ok=False):
             "  That means docs/ was built without them — rebuild, do not force."
             % (len(fatal), " / ".join(NEVER_PRUNE),
                "\n    ".join(fatal[:5])))
+    total, groups = len(gone), []
+    if announced and not prune:
+        gone, groups = expected_split(gone, announced)
+        over = [g for g in groups if g["found"] > g["hi"]]
+        if over:
+            return False, (
+                "REFUSING: more live files would go than the change announced\n"
+                "  (publish/expected.json, ±%d%%):\n%s\n"
+                "  Either the cut reaches further than it was meant to, or the\n"
+                "  number announced is wrong; look at the list before raising it."
+                % (int(EXPECT_TOL * 100), "\n".join(expected_lines(over))))
     if prune:
         ceiling, how = None, " (--prune given)"
     elif prune_up_to is not None:
@@ -434,12 +613,20 @@ def deletion_verdict(gone, prune=False, prune_up_to=None, tree_ok=False):
             why = ("  Ordinary retirement is a handful of pages; this is a tree that is\n"
                    "  missing limbs.")
             then = "\n  If the deletion is genuinely intended, re-run with --prune."
+        if groups:
+            why = ("  That counts only files no announcement covers; %s more are\n"
+                   "  announced (publish/expected.json).\n%s"
+                   % (f"{total - len(gone):,}", why))
         return False, (
             "REFUSING: this publish would delete %s live object(s), ceiling is %s.\n"
             "%s First 25:\n    %s%s"
             % (f"{len(gone):,}", f"{ceiling:,}", why,
                "\n    ".join(gone[:25]), then))
-    return True, "  deletions: %s object(s)%s" % (f"{len(gone):,}", how)
+    if groups:
+        return True, ("  deletions: %s object(s), %s of them announced%s\n%s"
+                      % (f"{total:,}", f"{total - len(gone):,}", how,
+                         "\n".join(expected_lines(groups))))
+    return True, "  deletions: %s object(s)%s" % (f"{total:,}", how)
 
 
 # ---------------------------------------------------------------------------

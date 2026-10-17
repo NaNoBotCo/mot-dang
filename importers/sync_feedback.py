@@ -114,7 +114,9 @@ def write_summary(rows):
         for n in notes:
             mark = {1: "up", -1: "down"}.get(n.get("x"), "-")
             txt = " ".join(n["note"].split())
-            lines.append(f"    [{n['at'][:10]} {mark} {n.get('lang', '')}] {txt[:300]}")
+            cr = (n.get("credit") or {}).get("name")
+            tag = f" CREDIT:{cr} ref {n.get('ref', '')}" if cr else ""
+            lines.append(f"    [{n['at'][:10]} {mark} {n.get('lang', '')}{tag}] {txt[:300]}")
     os.makedirs(OUT_DIR, exist_ok=True)
     with open(SUMMARY, "w", encoding="utf-8") as fh:
         fh.write("\n".join(lines) + "\n")

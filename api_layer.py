@@ -229,6 +229,7 @@ def build_index(g, data, photos, tags):
                 "cat": list(r.get("cat") or []),
                 "geoPrecision": r.get("geoPrecision") or "needs-pin",
                 "antRank": g["ant_rank"](r),
+                "groundTruth": g["ground_truth"](r),
                 "has": has,
                 "confidence": r.get("confidence"),
                 # Which licence the reader is standing under, stated per row
@@ -749,4 +750,21 @@ def emit(g, data, photos, tags):
 
     mb = (v1 / "index.json").stat().st_size / 1e6
     return (f'{index["count"]:,} places · {len(index["schedules"])} schedules · '
-            f'{index["hours"]["withKnownHours"]:,} with hours · index {mb:.1f} MB')
+            f'{index["hours"]["withKnownHours"]:,} with hours · index {mb:.1f} MB'
+            + _emit_grid(g, docs))
+
+
+def _emit_grid(g, docs):
+    """api/v1/grid/ beside index.json (publish/emit_grid.mjs). Without it the
+    Worker answers ?bbox= by walking the index, seconds per call."""
+    import subprocess
+    script = ROOT / "publish" / "emit_grid.mjs"
+    try:
+        r = subprocess.run(["node", "--max-old-space-size=4096", str(script), str(docs)],
+                           capture_output=True, text=True, timeout=600)
+    except (OSError, subprocess.TimeoutExpired) as e:
+        return f"\n  ! grid not written ({e.__class__.__name__}) — ?bbox= walks the index"
+    if r.returncode:
+        return (f"\n  ! grid not written (node exit {r.returncode}) — ?bbox= walks the index\n"
+                + r.stderr.strip()[-400:])
+    return "\n" + r.stdout.rstrip()

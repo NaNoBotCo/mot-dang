@@ -77,7 +77,8 @@ SOURCES = [
 
 # Chiang Mai and Chiang Rai. Verified against the files: adm1_pcode TH50 is
 # เชียงใหม่ and TH57 is เชียงราย.
-PROVINCES = {"TH50": "cm", "TH57": "cr"}
+PROVINCES = {"TH50": "cm", "TH57": "cr",
+             "TH13": "pth"}   # ปทุมธานี, Nan 2026-10-12
 
 # ~55 m at 18.8°N. See the docstring: a fork, not a fact.
 TOLERANCE_DEG = 0.0005

@@ -39,6 +39,8 @@ OUT = ROOT / "assets" / "fonts"
 #   Sarabun          the easy-read Thai face. LOOPED (ตัวมีหัว) where Prompt is
 #                    loopless: the loop is the letter's identifying mark and it
 #                    is the first thing to go at low acuity or small size.
+#   Noto Sans Myanmar  Burmese and Shan (2026-10-11): one variable file, 154 kB, fetched
+#                    only by a page that holds Myanmar-block letters (unicode-range).
 #   Mali             the doodled face: the hand-drawn map's lettering, and the
 #                    front page's calendar, which wears the same paper.
 FACES = {
@@ -47,6 +49,7 @@ FACES = {
     "Atkinson Hyperlegible": ([400, 700], ("latin", "latin-ext")),
     "Sarabun": ([400, 600], ("latin", "latin-ext", "thai")),
     "Mali": ([600, 700], ("latin", "thai")),
+    "Noto Sans Myanmar": ([400, 600], ("myanmar",)),
 }
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")

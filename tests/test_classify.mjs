@@ -11,6 +11,8 @@ const CASES = [
   ['Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.2; +https://openai.com/gptbot)', 'ai', 'GPTBot'],
   ['Mozilla/5.0 (compatible; OAI-SearchBot/1.0; +https://openai.com/searchbot)', 'ai', 'OAI-SearchBot'],
   ['Mozilla/5.0 (Macintosh) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119 Safari/537.36 PerplexityBot/1.0', 'ai', 'PerplexityBot'],
+  ['Mozilla/5.0 (compatible; ExaSearchBot/1.0; +https://exa.ai)', 'ai', 'ExaSearchBot'],
+  ['ExaBot/1.0', 'ai', 'ExaSearchBot'],
   ['Mozilla/5.0 (compatible; Google-Extended/1.0)', 'ai', 'Google-Extended'],
   ['Mozilla/5.0 (compatible; CCBot/2.0; +https://commoncrawl.org/faq/)', 'ai', 'CCBot'],
   ['Mozilla/5.0 (Linux; Android 8.0) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/81 Mobile Safari/537.36 (compatible; Bytespider; spider-feedback@bytedance.com)', 'ai', 'Bytespider'],
@@ -67,6 +69,9 @@ const CASES = [
   ['Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1', 'human', 'Safari', { asn: 131445, headers: new Headers({ accept: 'text/html' }) }],
   // Chrome on iOS is WebKit and is not held to Chrome's headers.
   ['Mozilla/5.0 (iPhone; CPU iPhone OS 17_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/120.0 Mobile/15E148 Safari/604.1', 'human', 'Chrome', { asn: 131445, headers: new Headers({}) }],
+  // Bluesky's link card, as it arrived on 2026-10-12 (3.18.47.21, AWS).
+  ['Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Bluesky Cardyb/1.1; +mailto:support@bsky.app) Chrome/W.X.Y.Z Safari/537.36', 'social', 'Bluesky', { asn: 16509, headers: new Headers({}) }],
+  ['http.rb/5.2.0 (Mastodon/4.3.0; +https://mastodon.social/)', 'social', 'Mastodon', { asn: 24940, headers: new Headers({}) }],
   // A named crawler keeps its name wherever it runs.
   ['Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.2; +https://openai.com/gptbot)', 'ai', 'GPTBot', { asn: 8075, headers: new Headers({}) }],
 ];

@@ -193,5 +193,5 @@ function room(S) {
   }
 }
 
-D.addScene('bag-knots', room, /bag|knot|tie|rubber band|street food|soup|แกง|ถุง/i, 'x = r cos θ', 1);
+D.addScene('bag-knots', room, /\b(?:bags?|knots?|bag ties?|rubber bands?|street food|soups?)\b|แกง|ถุง/i, 'x = r cos θ', 1);
 })();

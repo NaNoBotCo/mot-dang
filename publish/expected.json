@@ -1,0 +1,16 @@
+{
+  "announced": [
+    {
+      "id": "tag-geojson-2026-10-11",
+      "until": "2026-10-25",
+      "why": "per-tag GeoJSON cut, her word 2026-10-11",
+      "remove": {"data/c[mr]-tag-*.geojson": 2950}
+    },
+    {
+      "id": "doodles-kept-2026-10-11",
+      "until": "2026-10-25",
+      "why": "/doodles/ shows the kept 200, the rest on GitHub, her word 2026-10-11 (d046d774f1)",
+      "remove": {"doodles/data/": 1212, "doodles/places/": 25, "doodles/front/": 2}
+    }
+  ]
+}

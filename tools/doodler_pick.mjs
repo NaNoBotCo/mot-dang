@@ -38,6 +38,7 @@ const aired = {};
 function mark(r) { const key = r.variant ? r.set + ':' + r.variant : r.set; aired[key] = Math.max(aired[key] || 0, r.version || 1); }
 led.forEach(r => { if (!days.length || r.date < days[0]) mark(r); });
 const out = [];
+const byK = {}; for (const e of E) byK[e.k] = byK[e.k] || e;
 let last = led.filter(r => days.length && r.date === ymd(at(days[0] + ' 12:00:00') - 864e5))[0] || null;
 for (const day of days) {
   const prev = last && last.set ? last : of(ymd(at(day + ' 12:00:00') - 864e5));
@@ -49,8 +50,21 @@ for (const day of days) {
     const o = { k: x.e.k, set: x.set, variant: x.variant || '', version: x.version, en: x.e.t };
     opts.push(o); mark(o); skip[x.set] = 1;
   }
+  /* a reader in either city has a choice drawn for it: the browser drops options 40 km off or more, and its
+     own fallback guesses with only the scene files it has loaded (2026-10-12: three Chiang Rai options left
+     Chiang Mai readers a Clock Tower show drawn as a classroom) */
+  for (const city of ['cm', 'cr']) {
+    if (!opts.length || opts.some(o => (byK[o.k] || {}).city === city)) continue;
+    const x = D.choose(of(day).filter(e => e.city === city), day, prev, aired, skip);
+    if (!x) continue;
+    const o = { k: x.e.k, set: x.set, variant: x.variant || '', version: x.version, en: x.e.t };
+    opts.push(o); mark(o); skip[x.set] = 1;
+  }
   if (!opts.length) { out.push({ date: day, set: '', k: '' }); last = null; continue; }
-  const r = Object.assign({ date: day }, opts[0], { opts });
+  /* every event of the day with the scene it draws as, worked out here with every scene file loaded */
+  const sets = {};
+  for (const e of of(day)) { const s = D.setOf(e), v = D.variantOf(s, e); sets[e.k] = v ? s + ':' + v : s; }
+  const r = Object.assign({ date: day }, opts[0], { opts, sets });
   out.push(r); last = r;
 }
 process.stdout.write(JSON.stringify(out));

@@ -370,7 +370,31 @@ def _a_pin_in_the_other_province():
     assert r["attrs"].get("pinDoubt") == "other-province", r["attrs"]
 
 
+def _a_pin_in_another_country():
+    """Tachileik is across the river from Mae Sai: a curated reading takes the pin off a record the
+    province polygons still read as Chiang Rai."""
+    import json as _j
+    import pathlib
+    import tempfile
+    real = derive.OTHER_COUNTRY
+    with tempfile.TemporaryDirectory() as td:
+        derive.OTHER_COUNTRY = pathlib.Path(td) / "other_country.json"
+        try:
+            derive.OTHER_COUNTRY.write_text(_j.dumps({"ids": {"x-abroad": "Tachileik, Myanmar"}}))
+            r = _ovt(name="Nursery", lat=20.4545, lng=99.8954)
+            r["id"] = "x-abroad"
+            stay = _ovt(name="Bank", lat=20.4300, lng=99.8800)
+            derive.apply_pin_doubt([r, stay], "cr")
+            assert r["geoPrecision"] == "needs-pin" and r["lat"] is None, r
+            assert r["attrs"]["pinDoubt"] == "other-country: Tachileik, Myanmar", r["attrs"]
+            assert r["attrs"]["pinWas"] == [20.4545, 99.8954], r["attrs"]
+            assert not stay["attrs"].get("pinDoubt"), stay["attrs"]
+        finally:
+            derive.OTHER_COUNTRY = real
+
+
 EXTRA = [
+    ("a pin in another country needs a pin", _a_pin_in_another_country),
     ("a stack of strangers at one pin needs pins", _a_stack_of_strangers_needs_pins),
     ("four at one pin is not a stack", _four_at_one_pin_is_not_a_stack),
     ("one building's address leaves the stack standing", _one_buildings_address_leaves_the_stack),

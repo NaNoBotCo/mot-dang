@@ -26,6 +26,8 @@ reg = sites_layer.load()
 gkeys = {g["key"] for g in reg["groups"]}
 sprite = (ROOT / "docs" / "icons.svg")
 icons = set(re.findall(r'id="(i-[a-z0-9-]+)"', sprite.read_text())) if sprite.exists() else set()
+# where: cm, cr, both, a province key in data/coverage.json, or elsewhere (a city outside Thailand). Nan 2026-10-13.
+WHERE = {"cm", "cr", "both", "elsewhere"} | {p["key"] for p in json.loads((ROOT / "data" / "coverage.json").read_text())["provinces"]}
 need = ("id", "href", "th", "en", "line_th", "line_en", "icon", "group", "where", "served")
 seen = set()
 for c in reg["cards"]:
@@ -34,7 +36,7 @@ for c in reg["cards"]:
     check(c["href"] not in seen, f"card {c['id']}: href twice")
     seen.add(c["href"])
     check(c.get("group") in gkeys, f"card {c['id']}: group {c.get('group')} not in groups")
-    check(c.get("where") in ("cm", "cr", "both"), f"card {c['id']}: where")
+    check(c.get("where") in WHERE, f"card {c['id']}: where")
     check(c.get("served") in ("docs", "worker", "external"), f"card {c['id']}: served")
     check(c["href"].startswith("http") == (c.get("served") == "external"),
           f"card {c['id']}: external href and served disagree")

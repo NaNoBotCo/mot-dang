@@ -613,8 +613,28 @@ document.addEventListener('click', function (ev) {
 });
 new MutationObserver(function () { if (D.W) draw(); }).observe(H, { attributes: true, attributeFilter: ['class'] });
 
+/* the two cards in the calendar's row (tiles.js MDNOW, 2026-10-11): the sky and the air, a number, a line, a chart */
+function cards() {
+  var N = window.MDNOW; if (!N) return;
+  var c = cityOf();
+  if (c) {
+    var rs = rowsOf(c).slice(0, 24), top = rs.filter(function (r) { return num(r.p); }).reduce(function (m, r) { return !m || r.p > m.p ? r : m; }, null);
+    N.card('sky', { l: ['ฟ้า', 'Sky'], v: num(c.temp) ? r0(c.temp) + '°' : '–',
+      s: top && top.p >= 30 ? ['ฝน ' + top.p + '% ' + top.t.slice(11, 16), 'rain ' + top.p + '% at ' + top.t.slice(11, 16)] : ['ไม่น่ามีฝน 24 ชม.', 'dry for 24 h'],
+      g: N.spark(rs.map(function (r) { return num(r.p) ? Math.max(2, r.p) : null; }), { max: 100, col: function (v) { return v >= 60 ? '#2f6fd6' : v >= 30 ? '#7aa7e8' : 'rgba(43,33,24,.28)'; }, line: rs.map(function (r) { return num(r.temp) ? r.temp : null; }) }) });
+  }
+  var p = D.A && placeOf();
+  if (p && num(p.pm25)) {
+    var b = bandOf(p.pm25), td = today(), tm = plus(td, 1), past = (p.days || []).filter(function (d) { return d.date < td; }).slice(-7);
+    var xs = (p.hours || []).filter(function (h) { return num(h[1]) && h[0].slice(0, 10) === tm; }).map(function (h) { return h[1]; });
+    var mt = xs.length >= 12 ? xs.reduce(function (a, v) { return a + v; }, 0) / xs.length : null, ar = mt == null ? '' : mt < p.pm25 - 2.5 ? '↓' : mt > p.pm25 + 2.5 ? '↑' : '→';
+    N.card('air', { l: ['อากาศ', 'Air'], v: r0(p.pm25) + '<small>PM2.5</small>',
+      s: mt == null ? [b[3], b[4]] : ['พรุ่งนี้ ' + ar + r0(mt), 'tomorrow ' + ar + r0(mt)],
+      g: N.spark(past.map(function (d) { return d.pm25; }).concat([p.pm25]), { col: function (v, i) { return bandOf(v)[5]; } }) });
+  }
+}
 function draw() {
-  [drawHours, drawDays, drawAir].forEach(function (f) { try { f(); } catch (e) { console.error(e); } });
+  [drawHours, drawDays, drawAir, cards].forEach(function (f) { try { f(); } catch (e) { console.error(e); } });
 }
 window.MDWX = {
   /* front.js calls this from forecast(); false sends it back to its own three tiles */
@@ -623,6 +643,7 @@ window.MDWX = {
     D.W = W; D.A = A; D.where = where; D.spot = spot;
     draw();
     return true;
-  }
+  },
+  draw: function () { if (D.W) draw(); }
 };
 })();

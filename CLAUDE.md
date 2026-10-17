@@ -590,6 +590,11 @@ Rules that bite:
   build succeeds, publish gate passes, route tests pass, no `/Users/` paths,
   docs/ over 20,000 files. (Nan, 2026-09-08: keep — it is what stops two
   sessions deploying over each other.)
+- **One minisite goes live without the round:** `python3 tools/publish_now.py <slug>`
+  once assets/sites/<slug>/ (or an installed assets/<name>/) is finished and
+  committed. It copies that one folder to R2, deletes nothing, runs the gate's
+  checks on it, and reports LIVE or what to fix, in seconds. (Nan, 2026-10-11:
+  "make it take less time. make it not refuse constantly.")
 - **The build runs on motdang-build (2026-10-05).** With `cache/build-on-server`
   present, the standing walk gathers here, then `hand_to_server` sends the source
   (never `_incoming/enrich/`) and the server runs `importers/publish_steps.sh` —

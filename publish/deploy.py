@@ -26,6 +26,13 @@
                                          # so ordinary churn retires on its own
                                          # while a tree missing limbs still
                                          # stops. Above the bound it refuses.
+    python3 publish/deploy.py --yes --defer-deletions
+                                         # when the deletion check refuses,
+                                         # upload new and changed files and
+                                         # delete nothing (the standing walk)
+    python3 publish/deploy.py --yes --no-delete
+                                         # upload new and changed files,
+                                         # delete nothing
     python3 publish/safety.py            # is docs/ a whole site? (no network)
     python3 publish/safety.py --smoke    # is the LIVE site answering?
 
@@ -85,6 +92,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import safety                                    # noqa: E402  (same directory)
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
+import holdback                                  # noqa: E402  pages held back this round
+import placeround                                # noqa: E402  the weekly place round
 
 ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
@@ -92,6 +102,9 @@ BASEMAP = ROOT / "data" / "basemap.json"
 BUCKET = "mot-dang-site"
 BUILD_LOCK = ROOT / "cache" / "build.lock"
 DEPLOY_LOG = ROOT / "cache" / "deploy.log"
+# The deletions a publish put off (--defer-deletions, --no-delete): one key
+# per line, rewritten by every full publish, absent when none were put off.
+DEFERRED = Path(os.environ.get("MD_DEFERRED") or (ROOT / "cache" / "deferred-deletions.txt"))
 _lock_held = False
 
 
@@ -255,6 +268,9 @@ def gate(scope=None):
                  "bucket. Rebuild, then try again." % (f"{n:,}", f"{FLOOR:,}"))
     hits = subprocess.run(["grep", "-rl", "/Users/", str(root)],
                           capture_output=True, text=True).stdout.strip()
+    # A page held back this round (tools/holdback.py) is not uploaded.
+    hits = "\n".join(h for h in hits.splitlines()
+                     if not holdback.held(Path(h).relative_to(DOCS).as_posix()))
     if hits:
         sys.exit("REFUSING: local paths in the output —\n" +
                  "\n".join(hits.splitlines()[:5]))
@@ -304,7 +320,9 @@ def declared_archives():
         sys.exit("cannot read %s: %s" % (BASEMAP, e))
     out = []
     for u in (cfg.get("url"), (cfg.get("terrain") or {}).get("url"),
-              (cfg.get("doodle") or {}).get("url")):
+              (cfg.get("doodle") or {}).get("url"),
+              # a province's own archive (Pathum Thani, 2026-10-12)
+              *((r or {}).get("url") for r in cfg.get("regions") or [])):
         if not u or "://" in u:
             continue
         key = u.lstrip("./")
@@ -357,6 +375,13 @@ def audit_tiles(env, dest):
                 print("  NOTE: %s is %s bytes in the bucket, %s in assets/ — "
                       "a re-extracted archive that --tiles has not pushed yet."
                       % (key, f"{have:,}", f"{want:,}"))
+
+
+def media_excludes():
+    """--exclude pairs for the four media prefixes, while MD_MEDIA_BUCKET=1."""
+    if os.environ.get("MD_MEDIA_BUCKET") != "1":
+        return []
+    return [a for p in safety.MEDIA_PREFIXES for a in ("--exclude", "/" + p + "**")]
 
 
 def rclone_env(c):
@@ -644,6 +669,11 @@ def main():
               # MapLibre and then 404 on the tiles. Re-uploading is ~280 MB
               # and nobody would connect the two events.
               "--exclude", "tiles/**",
+              # The picture folders in mot-dang-media (media_layer.py,
+              # publish/media_sync.py, worker-media/) when the build left them
+              # out of docs/: this sync neither uploads nor deletes them, and
+              # the copies already in this bucket stay where they are.
+              *media_excludes(),
               # 96 in flight, and no HEAD after each PUT (Nan, 2026-09-10).
               # Measured that night: one object round trip ~1 s from here,
               # the sync moving 27 files/s with the line 88% idle — bound by
@@ -703,35 +733,89 @@ def main():
     # --prune said out loud, or a bound (--prune-up-to N) that the
     # whole-site check has earned.
     print("\n  listing the bucket to see what this would delete…")
-    gone = safety.deletions_preview(dest, env, run)
+    gone, added = safety.diff_preview(dest, env, run)
+    # What the change said would come and go (publish/expected.json).
+    announced, said = safety.load_expected()
+    for line in said + safety.additions_lines(added, announced):
+        note(line)
     # Files uploaded after this build's source was taken are newer than the
     # build: it keeps its hands off them (safety.uploaded_since says why).
     since, how = safety.source_time()
     young = safety.uploaded_since(dest, env, run, gone, since)
     keep_list = None
+    # Held back this round (tools/holdback.py, Nan 2026-10-11): a page or site
+    # a gate failed on keeps its live version — not uploaded, not deleted.
+    hold = holdback.excludes()
+    if hold:
+        note("  holding back %d page(s) or site(s) at their live version: %s"
+             % (len(hold), ", ".join(sorted(holdback.load()))))
+        gone = [k for k in gone if not holdback.held(k)]
+    # The weekly place round (publish/placeround.py, Nan 2026-10-13): between
+    # full rounds, place pages go up only when their own record changed.
+    places = placeround.plan()
+    if places:
+        hold += places[0]
+        n_gone = len(gone)
+        gone = [k for k in gone if not placeround.covered(k)]
+        note("  place pages: %s with changed records go up; the rest wait for the "
+             "weekly round%s" % (f"{len(places[1]):,}",
+                                 ", as do %d deletion(s)" % (n_gone - len(gone)) if n_gone > len(gone) else ""))
+    else:
+        note("  place pages: full round — %s" % placeround.why_full())
     if young:
         note("  keeping %d live file(s) uploaded after this build's source "
              "(%s, %s): %s%s"
              % (len(young), since.isoformat(timespec="seconds"), how,
                 ", ".join(young[:5]), " …" if len(young) > 5 else ""))
-        keep_list = Path(tempfile.mkstemp(suffix=".txt")[1])
-        atexit.register(keep_list.unlink, missing_ok=True)
         # --exclude-from reads globs; escape so a key matches only itself.
-        keep_list.write_text("".join(
-            "/" + re.sub(r"([*?\[\]{}\\])", r"\\\1", k) + "\n" for k in young))
+        hold += ["/" + re.sub(r"([*?\[\]{}\\])", r"\\\1", k) for k in young]
         kept = set(young)
         gone = [k for k in gone if k not in kept]
+    if hold:
+        keep_list = Path(tempfile.mkstemp(suffix=".txt")[1])
+        atexit.register(keep_list.unlink, missing_ok=True)
+        keep_list.write_text("".join(g + "\n" for g in hold))
     ok, msg = safety.deletion_verdict(gone, prune=prune, prune_up_to=prune_up_to,
-                                      tree_ok=tree_ok)
-    if not ok:
+                                      tree_ok=tree_ok, announced=announced)
+    # DEFER, DO NOT REFUSE (Nan, 2026-10-11). Deleting is the only part of a
+    # publish a refused deletion check speaks to; new and changed files go up
+    # with `rclone copy`, which deletes nothing, and the deletions wait in
+    # DEFERRED for a round that passes. --no-delete: the caller's own check
+    # refused (importers/server_walk.sh, pre_deploy). --defer-deletions: defer
+    # instead of refusing here, for a tree that passed check_tree.
+    defer = "--no-delete" in sys.argv or (
+        not ok and tree_ok and "--defer-deletions" in sys.argv)
+    if not ok and not defer:
         sys.exit("\n" + msg + "\n")
     note(msg)
-
-    note("\n  syncing… (%s local files, %s deletions)"
-         % (f"{n_after:,}", f"{len(gone):,}"))
-    mirror(["rclone", "sync", str(DOCS), dest] + common
-           + (["--exclude-from", str(keep_list)] if keep_list else []), env)
-    note("  site synced")
+    DEFERRED.unlink(missing_ok=True)
+    keep = ["--exclude-from", str(keep_list)] if keep_list else []
+    if defer:
+        DEFERRED.write_text("".join(k + "\n" for k in gone))
+        note("\n  DELETIONS DEFERRED — uploading new and changed files only; "
+             "%s live file(s) kept, listed in %s"
+             % (f"{len(gone):,}", DEFERRED))
+        mirror(["rclone", "copy", str(DOCS), dest] + common + keep, env)
+        note("  site copied, nothing deleted")
+    else:
+        used = safety.expected_used(safety.expected_split(gone, announced)[1])
+        note("\n  syncing… (%s local files, %s deletions)"
+             % (f"{n_after:,}", f"{len(gone):,}"))
+        mirror(["rclone", "sync", str(DOCS), dest] + common + keep, env)
+        note("  site synced")
+        if used:
+            safety.mark_expected_done(used)
+            note("  announced cuts done, no longer applied: %s" % ", ".join(used))
+    if places and places[1]:
+        # --files-from refuses other filters, so this copy takes the flags alone.
+        ups = Path(tempfile.mkstemp(suffix=".txt")[1])
+        atexit.register(ups.unlink, missing_ok=True)
+        ups.write_text("".join(k + "\n" for k in places[1]))
+        mirror(["rclone", "copy", str(DOCS), dest, "--files-from", str(ups), "--checksum",
+                "--transfers", "96", "--checkers", "32", "--s3-no-head", "--stats", "10s",
+                "--stats-one-line", "--stats-log-level", "NOTICE"], env)
+        note("  place pages with changed records copied")
+    placeround.record(full=places is None, uploaded=places[1] if places else ())
 
     if with_tiles:
         archives = declared_archives()

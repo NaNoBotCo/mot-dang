@@ -134,9 +134,13 @@ python3 importers/make_finance.py      || say "finance kept the snapshot"
 python3 importers/sites_traffic.py     || say "site visits kept the last count"
 python3 importers/make_horo.py         || say "horoscope kept the previous bake"
 python3 importers/make_shuffle.py      || say "scripture shuffle kept the previous bake"
+python3 importers/pull_events_mail.py || say "events@ mail: the ear did not answer"
+python3 importers/fetch_newsletter.py  || say "Steve's newsletter: the last issue stands"
 python3 importers/harvest_events.py --refetch || say "events kept the snapshot"
 # Each event's link down the ladder: its source's, its series' kept one, its venue's site; each checked.
 python3 importers/event_links.py       || say "event links kept the last run"
+# Mondays, the week's issue (publish/newsletter.js sends it; test address only until NEWSLETTER_LIVE).
+[[ $(date +%u) == 1 ]] && { python3 importers/make_newsletter.py --send --quiet || say "the weekly issue was not sent"; }
 # Festival dates were gathered once, on 2026-07-29, and then never again — the
 # walk collected events every morning and walked straight past the festivals.
 # A canon of 33 with no way to get a date is a calendar that cannot tell you

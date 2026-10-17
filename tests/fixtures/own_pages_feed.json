@@ -1,0 +1,369 @@
+{
+ "generated": "2026-10-13T10:00:00Z",
+ "pages": [
+  {
+   "name": "example-baan-lung-mee",
+   "url": "https://sites.motdang.net/example-baan-lung-mee",
+   "kind": "food",
+   "tier": "gold",
+   "title": "บ้านลุงหมี · Uncle Bear's Home",
+   "tagline": "กาแฟและขนมปังปิ้ง ข้างวัดพระสิงห์",
+   "about": "ร้านกาแฟเล็ก ๆ ในเมืองเก่า ปิ้งขนมปังเอง ชงกาแฟดริปทุกแก้ว มีที่นั่งหลังบ้านใต้ต้นมะม่วง · A small coffee house in the old city with toast grilled to order.",
+   "lang": "th",
+   "cc": "TH",
+   "lat": 18.7885,
+   "lng": 98.987,
+   "addr": "ซอยข้างวัดพระสิงห์ ต.พระสิงห์ อ.เมือง เชียงใหม่ 50200",
+   "hours": {
+    "on": true,
+    "always": false,
+    "tz": "Asia/Bangkok",
+    "week": [
+     [
+      [
+       "08:00",
+       "17:00"
+      ]
+     ],
+     [
+      [
+       "08:00",
+       "17:00"
+      ]
+     ],
+     [
+      [
+       "08:00",
+       "17:00"
+      ]
+     ],
+     [
+      [
+       "08:00",
+       "17:00"
+      ]
+     ],
+     [
+      [
+       "08:00",
+       "17:00"
+      ]
+     ],
+     [
+      [
+       "09:00",
+       "14:00"
+      ],
+      [
+       "16:00",
+       "19:00"
+      ]
+     ],
+     null
+    ]
+   },
+   "phone": "081-000-0001",
+   "line": "@example-lungmee",
+   "web": "https://example.invalid/lungmee",
+   "facebook": "https://www.facebook.com/example.lungmee",
+   "instagram": "example.lungmee",
+   "items": [
+    {
+     "n": "กาแฟดริป",
+     "p": "65",
+     "note": "เมล็ดจากแม่แจ่ม"
+    },
+    {
+     "n": "ขนมปังปิ้งเนยน้ำตาล",
+     "p": "45",
+     "note": ""
+    },
+    {
+     "n": "ชามะนาวเย็น",
+     "p": "40",
+     "note": ""
+    }
+   ],
+   "currency": "THB",
+   "cover": "https://sites.motdang.net/img/example-lungmee-cover.webp",
+   "photos": [
+    {
+     "url": "https://sites.motdang.net/img/example-lungmee-1.webp",
+     "small": "https://sites.motdang.net/img/example-lungmee-1-s.webp",
+     "credit": null
+    },
+    {
+     "url": "https://sites.motdang.net/img/example-lungmee-2.webp",
+     "small": "https://sites.motdang.net/img/example-lungmee-2-s.webp",
+     "credit": {
+      "title": "Example toast",
+      "by": "Example Photographer",
+      "src": "https://commons.wikimedia.org/wiki/File:Example.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+     }
+    }
+   ],
+   "event": null,
+   "scene": "cafe",
+   "published": "2026-10-01T03:00:00Z",
+   "updated": "2026-10-12T09:00:00Z"
+  },
+  {
+   "name": "example-tha-sai-shop",
+   "url": "https://sites.motdang.net/example-tha-sai-shop",
+   "kind": "shop",
+   "tier": "free",
+   "title": "ร้านผ้าทอท่าไทร Example",
+   "tagline": "ผ้าทอมือจากชุมชนริมน้ำ",
+   "about": "ผ้าซิ่นและผ้าคลุมไหล่ทอมือ ย้อมครามเอง รับสั่งทำ · Hand-woven cloth, indigo dyed in the village.",
+   "lang": "th",
+   "cc": "TH",
+   "lat": 19.9072,
+   "lng": 99.833,
+   "addr": "หมู่ 4 ต.เวียง อ.เมือง เชียงราย",
+   "hours": {
+    "on": true,
+    "always": false,
+    "tz": "Asia/Bangkok",
+    "week": [
+     [
+      [
+       "09:00",
+       "18:00"
+      ]
+     ],
+     [
+      [
+       "09:00",
+       "18:00"
+      ]
+     ],
+     [
+      [
+       "09:00",
+       "18:00"
+      ]
+     ],
+     [
+      [
+       "09:00",
+       "18:00"
+      ]
+     ],
+     [
+      [
+       "09:00",
+       "18:00"
+      ]
+     ],
+     [
+      [
+       "09:00",
+       "12:00"
+      ]
+     ],
+     null
+    ]
+   },
+   "phone": "081-000-0002",
+   "line": "https://line.me/ti/p/~example-weave",
+   "web": "",
+   "facebook": "",
+   "instagram": "",
+   "items": [
+    {
+     "n": "ผ้าคลุมไหล่ครามแท้",
+     "p": "850",
+     "note": "ยาว 180 ซม."
+    },
+    {
+     "n": "ผ้าซิ่นทอมือ",
+     "p": "1,200",
+     "note": ""
+    }
+   ],
+   "currency": "THB",
+   "cover": "https://sites.motdang.net/img/example-weave-cover.webp",
+   "photos": [],
+   "event": null,
+   "scene": "shop",
+   "published": "2026-09-20T03:00:00Z",
+   "updated": "2026-10-10T09:00:00Z"
+  },
+  {
+   "name": "example-plumber-no-pin",
+   "url": "https://sites.motdang.net/example-plumber-no-pin",
+   "kind": "service",
+   "tier": "free",
+   "title": "ช่างประปา ตัวอย่าง",
+   "tagline": "ซ่อมท่อรั่ว ปั๊มน้ำ ถังเก็บน้ำ",
+   "about": "รับงานในตัวเมืองเชียงใหม่และรอบนอก มาดูหน้างานฟรี · Plumbing repairs in Chiang Mai, free site visit.",
+   "lang": "th",
+   "cc": "TH",
+   "lat": null,
+   "lng": null,
+   "addr": "รับงานทั่วเชียงใหม่",
+   "hours": {
+    "on": false,
+    "always": false,
+    "tz": "Asia/Bangkok",
+    "week": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ]
+   },
+   "phone": "081-000-0003",
+   "line": "@example-plumb",
+   "web": "",
+   "facebook": "",
+   "instagram": "",
+   "items": [],
+   "currency": "THB",
+   "cover": "",
+   "photos": [],
+   "event": null,
+   "scene": "",
+   "published": "2026-10-05T03:00:00Z",
+   "updated": "2026-10-05T03:00:00Z"
+  },
+  {
+   "name": "example-overseas-me",
+   "url": "https://sites.motdang.net/example-overseas-me",
+   "kind": "me",
+   "tier": "free",
+   "title": "Example Person — a page about me",
+   "tagline": "Lived in Chiang Mai, now back in Lisbon",
+   "about": "A short page by someone who used to live in the old city and writes about it. Uma página pessoal.",
+   "lang": "en",
+   "cc": "PT",
+   "lat": null,
+   "lng": null,
+   "addr": "Lisboa",
+   "hours": {
+    "on": false,
+    "always": false,
+    "tz": "Europe/Lisbon",
+    "week": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ]
+   },
+   "phone": "",
+   "line": "",
+   "web": "https://example.invalid/me",
+   "facebook": "",
+   "instagram": "",
+   "items": [],
+   "currency": "EUR",
+   "cover": "",
+   "photos": [],
+   "event": null,
+   "scene": "",
+   "published": "2026-10-02T03:00:00Z",
+   "updated": "2026-10-02T03:00:00Z"
+  },
+  {
+   "name": "example-night-market",
+   "url": "https://sites.motdang.net/example-night-market",
+   "kind": "event",
+   "tier": "free",
+   "title": "ตลาดนัดกลางคืน ตัวอย่าง · Example Night Market",
+   "tagline": "ตลาดนัดข้างสะพาน สัปดาห์ละครั้ง",
+   "about": "พ่อค้าแม่ค้าในชุมชน ขายอาหารและของทำมือ มีดนตรีสด · Food and crafts by the bridge, live music.",
+   "lang": "th",
+   "cc": "TH",
+   "lat": 18.7961,
+   "lng": 99.0042,
+   "addr": "ใต้สะพานนวรัฐ เชียงใหม่",
+   "hours": {
+    "on": false,
+    "always": false,
+    "tz": "Asia/Bangkok",
+    "week": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ]
+   },
+   "phone": "",
+   "line": "@example-market",
+   "web": "",
+   "facebook": "",
+   "instagram": "",
+   "items": [],
+   "currency": "THB",
+   "cover": "https://sites.motdang.net/img/example-market-cover.webp",
+   "photos": [],
+   "event": {
+    "start": "2026-10-20T18:00",
+    "end": "2026-10-20T22:00",
+    "tz": "Asia/Bangkok"
+   },
+   "scene": "market",
+   "published": "2026-10-08T03:00:00Z",
+   "updated": "2026-10-12T09:00:00Z"
+  },
+  {
+   "name": "example-bangkok-shop",
+   "url": "https://sites.motdang.net/example-bangkok-shop",
+   "kind": "shop",
+   "tier": "gold",
+   "title": "ร้านหนังสือ กรุงเทพ ตัวอย่าง",
+   "tagline": "หนังสือมือสองย่านอารีย์",
+   "about": "หนังสือมือสองและนิตยสารเก่า · Second-hand books in Ari.",
+   "lang": "th",
+   "cc": "TH",
+   "lat": 13.7796,
+   "lng": 100.5449,
+   "addr": "อารีย์ กรุงเทพ",
+   "hours": {
+    "on": true,
+    "always": true,
+    "tz": "Asia/Bangkok",
+    "week": [
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ]
+   },
+   "phone": "081-000-0006",
+   "line": "",
+   "web": "",
+   "facebook": "",
+   "instagram": "",
+   "items": [
+    {
+     "n": "นิตยสารเก่า",
+     "p": "",
+     "note": "ราคาตามฉบับ"
+    }
+   ],
+   "currency": "THB",
+   "cover": "",
+   "photos": [],
+   "event": null,
+   "scene": "",
+   "published": "2026-10-03T03:00:00Z",
+   "updated": "2026-10-03T03:00:00Z"
+  }
+ ]
+}

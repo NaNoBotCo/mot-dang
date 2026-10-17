@@ -12,10 +12,12 @@ cached under cache/linkhealth/, so a rerun only touches what is missing or stale
     python3 importers/check_links.py            # check what isn't cached yet
     python3 importers/check_links.py --recheck  # ignore cache, check everything
     python3 importers/check_links.py --max 50   # stop after 50 live checks
+    python3 importers/check_links.py --max 0    # no live checks: the file from the cache alone
     python3 importers/check_links.py --wayback-max 150  # and 150 archive lookups
 
 Both bounds leave the rest for the next run: a verdict or an archive lookup,
-once made, is cached and never asked again.
+once made, is cached and never asked again. A link left for the next run keeps
+its last verdict in the file meanwhile.
 """
 
 import concurrent.futures
@@ -306,8 +308,8 @@ def cache_path(url):
     return os.path.join(CACHE, hashlib.sha1(url.encode()).hexdigest() + ".json")
 
 
-def cached(url, recheck):
-    if recheck:
+def cached(url, recheck, stale_ok=False):
+    if recheck and not stale_ok:
         return None
     p = cache_path(url)
     if not os.path.exists(p):
@@ -321,7 +323,7 @@ def cached(url, recheck):
         age = (date.today() - date.fromisoformat(v.get("checkedAt", "1970-01-01"))).days
     except ValueError:
         return None
-    return v if age < STALE_DAYS else None
+    return v if stale_ok or age < STALE_DAYS else None
 
 
 def save(v):
@@ -376,9 +378,20 @@ def main():
             verdicts[u] = hit
         else:
             todo.append(u)
-    if limit:
+    # A link past the --max bound keeps its last verdict, stale and dated as it
+    # is, until a later run gets to it. Before 2026-10-17 it was left out of the
+    # file instead: --max 800 each morning took linkhealth.json from 13,433
+    # links (10-08) to 5,908 (10-17), and a link missing from the file reads as
+    # never checked.
+    kept = 0
+    if limit is not None:
+        for u in todo[limit:]:
+            hit = cached(u, recheck, stale_ok=True)
+            if hit:
+                verdicts[u] = hit
+                kept += 1
         todo = todo[:limit]
-    print(f"   {len(verdicts)} cached · {len(todo)} to check")
+    print(f"   {len(verdicts) - kept} cached · {kept} kept from an older check · {len(todo)} to check")
 
     done = 0
     with concurrent.futures.ThreadPoolExecutor(max_workers=WORKERS) as pool:

@@ -24,7 +24,7 @@ if (!existsSync(INDEX)) {
 }
 
 const { queryPlaces, findPlace, slugCandidates, RESULT_KEYS, distanceM,
-        parseOpenAt, isOpenAt } = await import(join(ROOT, "publish/api.js"));
+        parseOpenAt, isOpenAt, buildGrid, queryPlacesGrid } = await import(join(ROOT, "publish/api.js"));
 
 const ix = JSON.parse(readFileSync(INDEX, "utf8"));
 const q = (s, now) => queryPlaces(ix, new URLSearchParams(s), now);
@@ -266,6 +266,73 @@ t("haversine agrees with a known city distance", () => {
   const d = distanceM(18.7883, 98.9930, 18.7889, 98.9817);
   ok(d > 1100 && d < 1400, `${Math.round(d)}m`);
 });
+
+/* ------------------------------------------------------------ the grid */
+
+/* The box path must answer what the index walk answers, byte for byte: the
+ * same total, the same rows in the same order, the same envelope. */
+{
+  const { meta, chunks } = buildGrid(ix);
+  let reads = 0;
+  const viaGrid = (s) => queryPlacesGrid(meta, async (c) => { reads++; return chunks[c]; },
+                                         new URLSearchParams(s));
+  const boxes = [
+    "bbox=98.95,18.77,99.02,18.80&limit=120",           // the box measured slow 2026-10-11
+    "bbox=98.9800,18.7850,98.9950,18.7950&limit=23",    // one ninth of an old-city view
+    "bbox=98.95,18.77,99.02,18.80&limit=200&offset=150",
+    "bbox=98.95,18.77,99.02,18.80&min_ants=3&limit=50",
+    "bbox=98.95,18.77,99.02,18.80&province=cm",
+    "bbox=98.95,18.77,99.02,18.80&province=cr",
+    "bbox=98.95,18.77,99.02,18.80&province=zz",
+    "bbox=99.70,19.80,99.95,20.05&limit=200",            // Chiang Rai town
+    "bbox=97.0,17.0,101.0,21.0&limit=200",               // both provinces
+    "bbox=97.0,17.0,101.0,21.0&offset=84000&limit=200",  // past the end
+    "bbox=100.5,13.7,100.6,13.8",                        // Bangkok: nothing here
+    "bbox=98.95,18.77,99.02,18.80&sort=relevance&limit=40",
+    "bbox=98.95,18.77,99.02,18.80&q=chiang mai&limit=40",
+  ];
+  for (const s of boxes) {
+    const want = JSON.stringify(q(s));
+    const got = JSON.stringify(await viaGrid(s));
+    t("grid = index walk: " + s, () => eq(got, want, `${got.length} vs ${want.length} bytes`));
+  }
+  /* 2026-10-13: the grid put ground truth first and the index walk did not, so
+   * a Chiang Mai box gave different rows on each path. The built index above
+   * only catches that when it carries groundTruth, so this one is made to:
+   * ground truth against ant rank, ties on both, Thai names that sort
+   * differently from their code points, and a row with no groundTruth. */
+  {
+    const names = ["ไก่ย่าง", "กาแฟ", "เกาะ", "ข้าวซอย", "ก้อน", "Zebra", "กา", "ฃ", "ไข่", "ก"];
+    const places = names.map((name, k) => ({
+      id: "cm-t-" + k, province: "cm", slug: "t-" + k, name, cat: [], sub: [],
+      lat: 18.79 + k * 1e-4, lng: 98.99 + k * 1e-4, antRank: [7, 3, 3, 6, 3, 9, 3, 6, 3, 5][k],
+      ...(k === 9 ? {} : { groundTruth: [1, 22, 22, 21, 0, 1, 22, 21, 22, 0][k] }),
+    }));
+    const tix = { ...ix, places };
+    const { meta: tm, chunks: tc } = buildGrid(tix);
+    for (const s of ["bbox=98.98,18.78,99.01,18.80", "bbox=98.98,18.78,99.01,18.80&limit=3&offset=2"]) {
+      const want = queryPlaces(tix, new URLSearchParams(s));
+      const got = await queryPlacesGrid(tm, async (c) => tc[c], new URLSearchParams(s));
+      const ids = (r) => r.results.map((x) => x.id).join(" ");
+      t("grid = index walk with ground truth and Thai ties: " + s, () => {
+        eq(ids(got), ids(want), "rows:");
+        eq(JSON.stringify(got), JSON.stringify(want), "envelope:");
+      });
+    }
+    t("the default order is ground truth, then ant rank, then Thai name", () => eq(
+      queryPlaces(tix, new URLSearchParams("bbox=98.98,18.78,99.01,18.80")).results.map((r) => r.name).join(" "),
+      "กา กาแฟ เกาะ ไข่ ข้าวซอย ฃ Zebra ไก่ย่าง ก ก้อน"));
+  }
+  reads = 0;
+  await viaGrid("bbox=98.9800,18.7850,98.9950,18.7950&limit=23");
+  t(`one ninth of a view reads ${reads} of ${chunks.length} chunks`, () => ok(reads <= 23 && reads < chunks.length / 10));
+  for (const s of ["bbox=98.95,18.77,99.02,18.80&cat=food", "bbox=98.95,18.77,99.02,18.80&q=coffee",
+                   "bbox=98.95,18.77,99.02,18.80&near=18.79,98.99", "bbox=98.95,18.77,99.02,18.80&open_now=1",
+                   "bbox=98.95,18.77,99.02,18.80&sort=name", "q=coffee", "bbox=1,2"]) {
+    const got = await viaGrid(s);
+    t("not a grid question, left to the index: " + s, () => eq(got, null));
+  }
+}
 
 console.log(failures ? `\n${failures} FAILED` : "\nall green");
 process.exit(failures ? 1 : 0);

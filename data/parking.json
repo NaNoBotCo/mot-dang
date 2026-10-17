@@ -1,0 +1,455 @@
+{
+ "_note": [
+  "Parking model for /parking/ (Nan 2026-10-13: where all the parking is, covered, 24 hours, fee,",
+  "are bikes ticketed, off-street, how full usually, full right now, other parking nearby, guerrilla,",
+  "big bikes; cars and bikes). tools/parking_bake.py reads this with data/canonical/*.json.",
+  "Four kinds of knowledge, each shown with its own word: mapped (OpenStreetMap or a directory),",
+  "seen (bikes seen parked on one of Nan's rides), usual (a habit of a kind of place, worded as one,",
+  "unchecked until a report or a visit says otherwise), reported (a reader's tap, newest first).",
+  "A report beats a sighting, a sighting beats a map tag, a map tag beats a habit."
+ ],
+ "classes": [
+  {
+   "key": "mall",
+   "th": "ห้าง",
+   "en": "mall",
+   "veh": "cm",
+   "covered": "part",
+   "off": true,
+   "h24": false,
+   "hours": "10:00-22:00",
+   "fee": "varies",
+   "line_th": "ห้างแบบนี้มักมีลานจอดรถยนต์ (มักมีหลังคา) และที่จอดมอเตอร์ไซค์แยก จอดฟรีหรือฟรีช่วงแรก ปิดตามเวลาห้าง",
+   "line_en": "Malls like this usually have a car park, often covered, and a separate motorbike area; free, or free for the first hours. Closes with the mall.",
+   "busy": [
+    {
+     "d": "06",
+     "h": [
+      11,
+      20
+     ]
+    },
+    {
+     "d": "0123456",
+     "h": [
+      17,
+      20
+     ]
+    }
+   ],
+   "name_any": [
+    "central",
+    "เซ็นทรัล",
+    "maya",
+    "มายา",
+    "promenada",
+    "พรอมเมนาดา",
+    "kad suan kaew",
+    "กาดสวนแก้ว",
+    "one nimman",
+    "วันนิมมาน",
+    "think park",
+    "airport plaza",
+    "แอร์พอร์ตพลาซ่า",
+    "festival",
+    "เฟสติวัล",
+    "meechok",
+    "มีโชค",
+    "star avenue",
+    "สตาร์อเวนิว",
+    "shopping center",
+    "shopping centre",
+    "ศูนย์การค้า",
+    "ห้างสรรพสินค้า",
+    "department store",
+    "plaza",
+    "พลาซ่า",
+    "the mall",
+    "เดอะมอลล์",
+    "robinson",
+    "โรบินสัน",
+    "future park",
+    "ฟิวเจอร์พาร์ค",
+    "zeer",
+    "เซียร์"
+   ],
+   "sub_any": [
+    "mall"
+   ],
+   "not_name": [
+    " - ",
+    "มือถือ",
+    "phone",
+    "l'occitane",
+    "toys",
+    "bike",
+    "group",
+    "camera",
+    "roti"
+   ],
+   "cat_any": [
+    "shopping"
+   ]
+  },
+  {
+   "key": "bigbox",
+   "name_prefix": [
+    "big c",
+    "บิ๊กซี",
+    "lotus",
+    "โลตัส",
+    "makro",
+    "แม็คโคร",
+    "แมคโคร",
+    "rimping",
+    "ริมปิง",
+    "tops",
+    "ท็อปส์"
+   ],
+   "not_sub": [
+    "convenience"
+   ],
+   "th": "ซูเปอร์สโตร์",
+   "en": "superstore",
+   "veh": "cm",
+   "covered": "part",
+   "off": true,
+   "h24": false,
+   "hours": "08:00-22:00",
+   "fee": "free",
+   "line_th": "ซูเปอร์สโตร์แบบนี้มักมีลานจอดกว้าง จอดฟรีสำหรับลูกค้า มีที่จอดมอเตอร์ไซค์ใกล้ทางเข้า",
+   "line_en": "Superstores like this usually have a big free car park for shoppers, with motorbikes near the door.",
+   "busy": [
+    {
+     "d": "06",
+     "h": [
+      10,
+      19
+     ]
+    },
+    {
+     "d": "0123456",
+     "h": [
+      17,
+      19
+     ]
+    }
+   ],
+   "cat_any": [
+    "market",
+    "shopping",
+    "business"
+   ],
+   "not_name": [
+    "go fresh",
+    "mini",
+    "express",
+    "daily",
+    "camera",
+    "roti",
+    "wine",
+    "guest",
+    "hotel",
+    "massage",
+    "villa"
+   ]
+  },
+  {
+   "key": "hospital",
+   "toilet_tier": "hospital",
+   "th": "โรงพยาบาล",
+   "en": "hospital",
+   "veh": "cm",
+   "covered": "part",
+   "off": true,
+   "h24": true,
+   "fee": "paid",
+   "line_th": "โรงพยาบาลแบบนี้มักเปิดลานจอด ๒๔ ชั่วโมง เก็บค่าจอด และเต็มเร็วช่วงเช้าวันธรรมดา",
+   "line_en": "Hospitals like this usually keep the car park open 24 hours, charge for it, and fill early on weekday mornings.",
+   "busy": [
+    {
+     "d": "12345",
+     "h": [
+      7,
+      12
+     ]
+    }
+   ],
+   "not_name": [
+    "ส่งเสริมสุขภาพ",
+    "รพ.สต",
+    "health promoting",
+    "clinic",
+    "คลินิก",
+    "สัตว์",
+    "animal",
+    "vet",
+    "pet"
+   ]
+  },
+  {
+   "key": "market",
+   "th": "ตลาด",
+   "en": "market",
+   "veh": "cm",
+   "covered": "no",
+   "off": true,
+   "h24": false,
+   "fee": "paid",
+   "line_th": "ตลาดแบบนี้มักมีคนเก็บค่าจอดหน้าตลาด มอเตอร์ไซค์ ๑๐–๒๐ บาท และแน่นช่วงเช้า",
+   "line_en": "Markets like this usually have an attendant who takes a small fee, often 10–20 baht for a motorbike, and fill in the morning.",
+   "busy": [
+    {
+     "d": "0123456",
+     "h": [
+      6,
+      10
+     ]
+    }
+   ],
+   "cat_any": [
+    "market"
+   ],
+   "name_any": [
+    "ตลาด",
+    "market",
+    "กาด",
+    "kad "
+   ],
+   "not_name": [
+    "ตลาดหมู",
+    "market organization"
+   ]
+  },
+  {
+   "key": "wat",
+   "toilet_tier": "wat",
+   "th": "วัด",
+   "en": "temple",
+   "veh": "cm",
+   "covered": "no",
+   "off": true,
+   "h24": false,
+   "hours": "06:00-18:00",
+   "fee": "free",
+   "line_th": "วัดแบบนี้มักให้จอดในลานวัดได้ฟรีตอนกลางวัน วันพระและงานวัดจะแน่น",
+   "line_en": "Temples like this usually let you park in the grounds for free in daylight; full on holy days and temple fairs.",
+   "busy": []
+  },
+  {
+   "key": "airport",
+   "toilet_tier": "airport",
+   "th": "สนามบิน",
+   "en": "airport",
+   "veh": "cm",
+   "covered": "part",
+   "off": true,
+   "h24": true,
+   "fee": "paid",
+   "line_th": "สนามบินแบบนี้มักมีอาคารจอดรถ เปิด ๒๔ ชั่วโมง เก็บค่าจอดตามเวลา",
+   "line_en": "Airports like this usually have a parking building, open 24 hours, charged by the hour.",
+   "busy": []
+  },
+  {
+   "key": "terminal",
+   "toilet_tier": "terminal",
+   "th": "สถานีขนส่ง",
+   "en": "bus or train station",
+   "veh": "cm",
+   "covered": "no",
+   "off": true,
+   "h24": true,
+   "fee": "paid",
+   "line_th": "สถานีแบบนี้มักมีลานจอดเก็บเงิน เปิดทั้งวันทั้งคืน",
+   "line_en": "Stations like this usually have a paid car park that stays open day and night.",
+   "busy": []
+  },
+  {
+   "key": "seven",
+   "name_prefix": [
+    "7-eleven",
+    "7-11",
+    "เซเว่น",
+    "เซเว่นอีเลฟเว่น"
+   ],
+   "sub": [
+    "convenience"
+   ],
+   "th": "เซเว่น",
+   "en": "7-Eleven",
+   "veh": "m",
+   "covered": "no",
+   "off": false,
+   "h24": true,
+   "fee": "free",
+   "short": true,
+   "line_th": "หน้าเซเว่นมักจอดมอเตอร์ไซค์ได้สั้น ๆ ระหว่างซื้อของ ไม่ใช่ที่จอดทั้งวัน",
+   "line_en": "7-Elevens usually have room out front for a motorbike while you shop; short stops, not all day.",
+   "busy": []
+  }
+ ],
+ "zones": [
+  {
+   "key": "sunday-walking-street",
+   "prov": "cm",
+   "lat": 18.7882,
+   "lng": 98.988,
+   "r": 650,
+   "th": "ถนนคนเดินวันอาทิตย์",
+   "en": "Sunday Walking Street",
+   "d": "0",
+   "h": [
+    15,
+    23
+   ]
+  },
+  {
+   "key": "wualai",
+   "prov": "cm",
+   "lat": 18.7795,
+   "lng": 98.9856,
+   "r": 450,
+   "th": "ถนนคนเดินวัวลาย",
+   "en": "Wualai Saturday Walking Street",
+   "d": "6",
+   "h": [
+    15,
+    23
+   ]
+  },
+  {
+   "key": "night-bazaar",
+   "prov": "cm",
+   "lat": 18.7853,
+   "lng": 99.0003,
+   "r": 450,
+   "th": "ไนท์บาซาร์",
+   "en": "Night Bazaar",
+   "d": "0123456",
+   "h": [
+    17,
+    23
+   ]
+  },
+  {
+   "key": "warorot",
+   "prov": "cm",
+   "lat": 18.7905,
+   "lng": 99.0007,
+   "r": 350,
+   "th": "กาดหลวง",
+   "en": "Warorot Market",
+   "d": "0123456",
+   "h": [
+    6,
+    18
+   ]
+  },
+  {
+   "key": "nimman",
+   "prov": "cm",
+   "lat": 18.799,
+   "lng": 98.968,
+   "r": 500,
+   "th": "นิมมาน",
+   "en": "Nimman",
+   "d": "0123456",
+   "h": [
+    17,
+    23
+   ]
+  },
+  {
+   "key": "cr-night-bazaar",
+   "prov": "cr",
+   "lat": 19.905,
+   "lng": 99.834,
+   "r": 350,
+   "th": "ไนท์บาซาร์เชียงราย",
+   "en": "Chiang Rai Night Bazaar",
+   "d": "0123456",
+   "h": [
+    18,
+    23
+   ]
+  },
+  {
+   "key": "cr-saturday",
+   "prov": "cr",
+   "lat": 19.9095,
+   "lng": 99.831,
+   "r": 450,
+   "th": "ถนนคนเดินเชียงราย (เสาร์)",
+   "en": "Chiang Rai Saturday Walking Street",
+   "d": "6",
+   "h": [
+    16,
+    22
+   ]
+  }
+ ],
+ "kerb": [
+  {
+   "key": "red-white",
+   "th": "ขอบทาสีแดงขาว: ห้ามจอดและห้ามหยุด",
+   "en": "Red and white kerb: no stopping, no parking."
+  },
+  {
+   "key": "yellow-white",
+   "th": "ขอบทาสีเหลืองขาว: หยุดรับส่งได้ ห้ามจอดทิ้ง",
+   "en": "Yellow and white kerb: stop to drop off, do not leave the vehicle."
+  },
+  {
+   "key": "odd-even",
+   "th": "ป้าย \"จอดวันคี่\" / \"จอดวันคู่\": จอดได้ตามวันที่ของเดือน",
+   "en": "Signs saying จอดวันคี่ (odd days) or จอดวันคู่ (even days): park on that side by the date of the month."
+  },
+  {
+   "key": "clamp",
+   "th": "จอดผิดที่ อาจถูกล็อกล้อหรือยกรถ ต้องไปเสียค่าปรับที่สถานีตำรวจ",
+   "en": "Parked in the wrong place, a bike can be wheel-clamped or towed; the fine is paid at the police station."
+  }
+ ],
+ "reports": {
+  "full": {
+   "th": "เต็ม",
+   "en": "Full"
+  },
+  "space": {
+   "th": "ยังมีที่",
+   "en": "Space"
+  },
+  "fined": {
+   "th": "มีล็อกล้อ/ใบสั่ง",
+   "en": "Bikes fined here"
+  },
+  "free": {
+   "th": "ฟรี",
+   "en": "Free"
+  },
+  "paid": {
+   "th": "เสียเงิน",
+   "en": "Paid"
+  },
+  "covered": {
+   "th": "มีหลังคา",
+   "en": "Covered"
+  },
+  "open24": {
+   "th": "เปิด ๒๔ ชม.",
+   "en": "Open 24 h"
+  },
+  "bigbike": {
+   "th": "บิ๊กไบค์จอดได้",
+   "en": "Big bikes OK"
+  },
+  "nobigbike": {
+   "th": "บิ๊กไบค์ห้ามจอด",
+   "en": "No big bikes"
+  },
+  "gone": {
+   "th": "ไม่มีที่จอดตรงนี้",
+   "en": "No parking here"
+  }
+ }
+}

@@ -1,6 +1,7 @@
 {
  "_note": "Nan 2026-09-29: coverage is all of northern Thailand; we crawl CM and CR only, and accept everything that arrives on its own from anywhere in the north. 'crawl' is what the harvesters ask for; 'accept' is what the intake doors (worker, suggestions, claims, readers' pins, curated additions, geocoder) let in. The first two digits of a Thai postcode name the province. The 17 are the four-region ภาคเหนือ (9 upper north + 8 lower north).",
- "crawl": ["cm", "cr"],
+ "_note_pth": "Nan 2026-10-12: \"expand motdang to pathum thani. Wireframe, then build slowly from assets, then release when adequate.\" Pathum Thani is crawled like Chiang Rai, by area (TH-13). Until its entry carries release: true, importers/import_all.py writes it to cache/staging/pth.json and the site does not draw it.",
+ "crawl": ["cm", "cr", "pth"],
  "bbox": {"south": 14.8, "north": 20.5, "west": 97.3, "east": 101.8},
  "provinces": [
   {"key": "cm",  "iso": "TH-50", "post": "50", "th": "เชียงใหม่",    "en": "Chiang Mai"},
@@ -19,6 +20,7 @@
   {"key": "sti", "iso": "TH-64", "post": "64", "th": "สุโขทัย",       "en": "Sukhothai"},
   {"key": "plk", "iso": "TH-65", "post": "65", "th": "พิษณุโลก",     "en": "Phitsanulok"},
   {"key": "pct", "iso": "TH-66", "post": "66", "th": "พิจิตร",        "en": "Phichit"},
-  {"key": "pnb", "iso": "TH-67", "post": "67", "th": "เพชรบูรณ์",     "en": "Phetchabun"}
+  {"key": "pnb", "iso": "TH-67", "post": "67", "th": "เพชรบูรณ์",     "en": "Phetchabun"},
+  {"key": "pth", "iso": "TH-13", "post": "12", "th": "ปทุมธานี",     "en": "Pathum Thani", "region": "central", "release": true}
  ]
 }

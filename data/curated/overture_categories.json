@@ -151,7 +151,7 @@
    "sub": "gym"
   },
   {
-   "match": "^stadium|^soccer_field|^sports_and_recreation|^sports_field|^tennis|^badminton|^basketball|^futsal|^bowling|^skate",
+   "match": "^stadium|^soccer_field|^sports_and_recreation|^sports_field|^tennis|^badminton|^basketball|^futsal|^bowling|^skate|^football_stadium|^soccer_stadium|^pool_billiards|^pool_hall|^snooker",
    "cat": "sport",
    "sub": "sport"
   },

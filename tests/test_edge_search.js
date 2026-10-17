@@ -37,6 +37,7 @@ await edge.init();
 
 const Q = ["river tavern", "khao soi", "ข้าวซอย", "coffe nimman", "rajavej hospital", "guitar", "zzzzqqq", "ตอกเส้น", "kow soi",
            "wat phra singh", "วัดพระสิงห์", "ร้านกาแฟนิมมาน", "massage old city", "ราชเวส", "7 eleven", "cheap dentist", "pizza", "โรงพยาบาลราชเวช"];
+const pos = new Map(rows.map((r, i) => [r.id, i]));
 let failures = 0, totalMs = 0;
 for (const q of Q) {
   // The whole ranking from each engine, compared id by id: same ids, same
@@ -51,6 +52,9 @@ for (const q of Q) {
   if (a.size !== b.size) why.push(`n mem=${a.size} edge=${b.size}`);
   for (const [id, v] of a) { const w = b.get(id); if (!w) { why.push(`edge lacks ${id}`); break; } if (w[0] !== v[0] || w[1] !== v[1]) { why.push(`${id}: mem ${v} edge ${w}`); break; } }
   for (const id of b.keys()) if (!a.has(id)) { why.push(`mem lacks ${id}`); break; }
+  // Equal scores keep index.json order (layout 2 carries it in rank.json).
+  if (!why.length) for (let i = 1; i < bl.length; i++)
+    if (bl[i].score === bl[i - 1].score && pos.get(bl[i].id) < pos.get(bl[i - 1].id)) { why.push(`tie order broken at ${i}: ${bl[i - 1].id} before ${bl[i].id}`); break; }
   const top = bl[0] ? `${bl[0].id} ${bl[0].tier}` : "-";
   if (why.length) failures++;
   console.log(`  ${why.length ? "FAIL" : "ok  "} ${q.padEnd(22)} n=${b.size} top=${top} ${ms} ms ${why.join("; ")}`);

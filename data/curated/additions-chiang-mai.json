@@ -157447,5 +157447,615 @@
   ],
   "confidence": "curated",
   "updatedAt": "2026-10-07"
+ },
+ {
+  "id": "cm-curated-gatones-teashop",
+  "province": "cm",
+  "cat": [
+   "food"
+  ],
+  "sub": [
+   "cafe",
+   "myanmar"
+  ],
+  "name": "Gatone's Burmese Food and Teashop",
+  "nameTh": null,
+  "nameEn": "Gatone's Burmese Food and Teashop",
+  "lat": 18.794159,
+  "lng": 98.972099,
+  "geoPrecision": "approx",
+  "address": "10 Siri Mangkalajarn Rd Lane 9, Tambon Su Thep, Mueang Chiang Mai District, Chiang Mai 50200",
+  "phone": "098 746 6400",
+  "website": null,
+  "hours": "Mon-Sat 09:00-17:00; closed Sunday",
+  "attrs": {
+   "kind": "Burmese tea shop and breakfast: mohinga, nan gyi thoke, laphet thoke, Burmese milk tea, free green tea.",
+   "kindTh": "ร้านชาและอาหารเช้าพม่า: โมฮิงกา น่านจีทโอะ ยำใบชา ชานมพม่า",
+   "amphoe": "เมืองเชียงใหม่",
+   "pinNote": "Wanderlog place page (Google Maps data)"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://wanderlog.com/place/details/12336770/gatones-teashop",
+    "fetched": "2026-10-11",
+    "note": "Wanderlog: address, coordinates, hours, 4.8 Google rating"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.google.com/search?q=Gatone's+Burmese+Food+and+Teashop+Chiang+Mai+Siri+Mangkalajarn",
+    "fetched": "2026-10-11",
+    "note": "Google panel: phone, Facebook 'Burmese breakfast and tea for the community away from home', 4.8 (204) (a Google results page; the listing behind it was read as a snippet)"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-10-11"
+ },
+ {
+  "id": "cm-curated-rangoon-food-house",
+  "province": "cm",
+  "cat": [
+   "food"
+  ],
+  "sub": [
+   "international",
+   "myanmar"
+  ],
+  "name": "แรนกูล Rangoon Food House",
+  "nameTh": "แรนกูล Rangoon Food House",
+  "nameEn": "Rangoon Food House",
+  "lat": 18.7455067,
+  "lng": 98.9542558,
+  "geoPrecision": "approx",
+  "address": "44/21 Mae Hia Sub-District, Mueang Chiang Mai, Chiang Mai 50100",
+  "phone": "082 556 6000",
+  "website": null,
+  "hours": "08:00-21:00 daily except Thursday (Wongnai; Wanderlog agrees)",
+  "attrs": {
+   "kind": "Small Burmese rice-and-curry restaurant: mohinga, kauk swe noodles, kyar zan chat, chicken prata; weekend specials.",
+   "kindTh": "ร้านอาหารพม่าเล็ก ๆ: โมฮิงกา ข้าวซอยพม่า ไก่ทอดโรตี มีเมนูพิเศษวันหยุด",
+   "amphoe": "เมืองเชียงใหม่",
+   "pinNote": "Wongnai page"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.wongnai.com/restaurants/2288990Bm-rangoon-food-house",
+    "fetched": "2026-10-11",
+    "note": "Wongnai: address, phone, coordinates, hours"
+   },
+   {
+    "type": "web",
+    "ref": "https://wanderlog.com/place/details/9609756",
+    "fetched": "2026-10-11",
+    "note": "Wanderlog: Burmese menu, English-speaking owners; lists phone +66 65 546 0093"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.google.com/search?q=Saung+Kitchen+Hang+Dong+Burmese+restaurant",
+    "fetched": "2026-10-11",
+    "note": "Google local pack: 'Rangoon Food House' 4.1 (78), Burmese (a Google results page; the listing behind it was read as a snippet)"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-10-11"
+ },
+ {
+  "id": "cm-curated-thai-yai-kitchen",
+  "province": "cm",
+  "cat": [
+   "food"
+  ],
+  "sub": [
+   "northern",
+   "myanmar"
+  ],
+  "name": "ครัวไทยใหญ่ Thai Yai Kitchen Bar & Restaurant",
+  "nameTh": "ครัวไทยใหญ่ Thai Yai Kitchen Bar & Restaurant",
+  "nameEn": "Thai Yai Kitchen Bar & Restaurant",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin",
+  "address": "185/3 Wualai Road, Tambon Hai Ya, Mueang Chiang Mai, Chiang Mai 50100",
+  "phone": "099 428 1619",
+  "website": null,
+  "hours": "Daily, about 08:00-15:00 and 17:00-23:00 (Old Chiangmai Cultural Center post says 07:00 start; The Cloud, 13 Nov 2025, says 08:00)",
+  "attrs": {
+   "kind": "Tai Yai (Kengtung) and Burmese food, Burmese tea and coffee; inside the Old Chiang Mai Cultural Center.",
+   "kindTh": "อาหารไทใหญ่แบบเชียงตุงและอาหารพม่า ชา-กาแฟพม่า ในศูนย์วัฒนธรรมเชียงใหม่",
+   "amphoe": "เมืองเชียงใหม่"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.google.com/search?q=Thai+Yai+Kitchen+Bar+&+Restaurant+Chiang+Mai+เมิงไต",
+    "fetched": "2026-10-11",
+    "note": "Google panel: address, phone, 4.5 (103); Facebook 1.6K; Wongnai menu lists Burmese Tea 35 baht (a Google results page; the listing behind it was read as a snippet)"
+   },
+   {
+    "type": "web",
+    "ref": "https://readthecloud.com/travel/thai-yai-kitchen",
+    "fetched": "2026-10-11",
+    "note": "The Cloud article, 13 Nov 2025 (read in search result)"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-10-11"
+ },
+ {
+  "id": "cm-curated-tai-yai-food-warorot",
+  "province": "cm",
+  "cat": [
+   "food"
+  ],
+  "sub": [
+   "street-food",
+   "myanmar"
+  ],
+  "name": "อาหารไทใหญ่ Tai Yai Food (Warorot food court)",
+  "nameTh": "อาหารไทใหญ่ Tai Yai Food (Warorot food court)",
+  "nameEn": "Tai Yai Food, Warorot Market food court",
+  "lat": 18.790537,
+  "lng": 99.000609,
+  "geoPrecision": "approx",
+  "address": "Warorot Market (Kad Luang) food court, Wichayanon Rd, Tambon Chang Moi, Mueang Chiang Mai 50300 (plus code Q2R2+669)",
+  "phone": null,
+  "website": null,
+  "hours": "Open until 16:00 (day pattern not read)",
+  "attrs": {
+   "kind": "Burmese and Shan food stall in the food court of Warorot Market (Kad Luang); vegetarian options.",
+   "kindTh": "ร้านอาหารไทใหญ่-พม่าในศูนย์อาหารตลาดวโรรส (กาดหลวง) มีเมนูมังสวิรัติ",
+   "amphoe": "เมืองเชียงใหม่",
+   "pinNote": "Google plus code Q2R2+669 from the Google panel, decoded to about 14 m"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.google.com/search?q=อาหารไทใหญ่+Tai+Yai+Food+ตลาดวโรรส+วิชยานนท์",
+    "fetched": "2026-10-11",
+    "note": "Google panel: 4.9 (26), 'ภัตตาคารอาหารพม่า', plus code; HappyCow 20 Mar 2025 'Burmese food stall in the food court' (a Google results page; the listing behind it was read as a snippet)"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-10-11"
+ },
+ {
+  "id": "cm-curated-cherry-burmese-2",
+  "province": "cm",
+  "cat": [
+   "food"
+  ],
+  "sub": [
+   "international",
+   "myanmar"
+  ],
+  "name": "Cherry Burmese 2",
+  "nameTh": null,
+  "nameEn": "Cherry Burmese 2",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin",
+  "address": "106 Rat Chiang Saen Road, Tambon Phra Sing, Mueang Chiang Mai, Chiang Mai 50100",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "kind": "Second branch of Cherry Burmese: Burmese, Indian and Thai menus.",
+   "kindTh": "สาขา 2 ของ Cherry Burmese: อาหารพม่า อินเดีย และไทย",
+   "amphoe": "เมืองเชียงใหม่"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.google.com/search?q=Cherry+Burmese+2+Rat+Chiang+Saen+Road+Chiang+Mai",
+    "fetched": "2026-10-11",
+    "note": "Google: Cherry Burmese 2, 4.9 (200); Facebook 'Cherry Burmese 2' and TripAdvisor give the same address (a Google results page; the listing behind it was read as a snippet)"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-10-11"
+ },
+ {
+  "id": "cm-curated-the-90s-burmese-tea-noodles",
+  "province": "cm",
+  "cat": [
+   "food"
+  ],
+  "sub": [
+   "international",
+   "myanmar"
+  ],
+  "name": "The 90's - Burmese Tea & Noodles Shop",
+  "nameTh": null,
+  "nameEn": "The 90's - Burmese Tea & Noodles Shop",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin",
+  "address": "1 Nimmanhaemin Road Soi 9, Tambon Su Thep, Mueang Chiang Mai 50200 (Google shows '5 1')",
+  "phone": "066 130 0995",
+  "website": null,
+  "hours": "Open until 18:30 (full week not read)",
+  "attrs": {
+   "kind": "Burmese tea and noodle shop with Shan dishes and beef tripe noodle soup.",
+   "kindTh": "ร้านชาและก๋วยเตี๋ยวพม่า มีอาหารไทใหญ่",
+   "amphoe": "เมืองเชียงใหม่"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.google.com/search?q=\"The+90's\"+Burmese+Tea+&+Noodles+Shop+Nimmanhaemin+Soi+9",
+    "fetched": "2026-10-11",
+    "note": "Google panel: address, phone, 4.7 (96) (a Google results page; the listing behind it was read as a snippet)"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.tripadvisor.com/Restaurant_Review-g293917-d32710586-Reviews-The_90s_Burmese_Eatery-Chiang_Mai.html",
+    "fetched": "2026-10-11",
+    "note": "TripAdvisor entry seen in search results (the page returned 403): 1 Nimmana Haeminda Rd Lane 9"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-10-11"
+ },
+ {
+  "id": "cm-curated-zinme-tea-house-umong",
+  "province": "cm",
+  "cat": [
+   "food"
+  ],
+  "sub": [
+   "cafe",
+   "myanmar"
+  ],
+  "name": "Zinme' Tea House, Umong (ဇင်းမယ် တီးဟောက်စ် အူမွန်)",
+  "nameTh": null,
+  "nameEn": "Zinme' Tea House, Umong",
+  "lat": 18.784112,
+  "lng": 98.953828,
+  "geoPrecision": "approx",
+  "address": "Plus code QXM3+JGW, Tambon Su Thep, Mueang Chiang Mai 50200",
+  "phone": "061 382 9976",
+  "website": null,
+  "hours": "Open until 19:00 (Zinme main shop posts 07:00-16:00)",
+  "attrs": {
+   "kind": "Second Zinme tea house, near Wat Umong: Burmese tea and food.",
+   "kindTh": "สาขาที่สองของร้านชาซินเม่ ใกล้วัดอุโมงค์",
+   "amphoe": "เมืองเชียงใหม่",
+   "altNames": [
+    "ဇင်းမယ် တီးဟောက်စ် အူမွန်"
+   ],
+   "pinNote": "Google plus code QXM3+JGW from the Google panel, decoded"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.google.com/search?q=ร้านชาพม่า+เชียงใหม่+Burmese+tea+shop+โรตี+ชานม",
+    "fetched": "2026-10-11",
+    "note": "Google local pack: 'Zinme' Tea House, Umong' 4.5 (73), phone, plus code (a Google results page; the listing behind it was read as a snippet)"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.google.com/search?q=Zinme+Tea+House+Umong+Chiang+Mai+ဇင်းမယ်+အုမွန်",
+    "fetched": "2026-10-11",
+    "note": "Pulled Coffee listing and zinmeteahouse.com (a Google results page; the listing behind it was read as a snippet)"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-10-11"
+ },
+ {
+  "id": "cm-curated-khao-gaeng-mandalay-hang-dong",
+  "province": "cm",
+  "cat": [
+   "food"
+  ],
+  "sub": [
+   "international",
+   "myanmar"
+  ],
+  "name": "ข้าวแกงมัณฑะเลย์ Khao Gaeng Mandalay",
+  "nameTh": "ข้าวแกงมัณฑะเลย์ Khao Gaeng Mandalay",
+  "nameEn": "Khao Gaeng Mandalay (Mandalay rice and curry)",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin",
+  "address": "410 Moo 12, Amphoe Hang Dong, Chiang Mai 50230 (before the Shell station on Ratchaphruek Rd)",
+  "phone": "093 939 8424",
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "kind": "Burmese curry-and-rice shop; free tea leaf salad and tea after the meal.",
+   "kindTh": "ร้านข้าวแกงพม่าสไตล์มัณฑะเลย์ มียำใบชาและชาให้ฟรีหลังอาหาร",
+   "amphoe": "หางดง"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.eatingoutmap.com/read/kawgangmuntala",
+    "fetched": "2026-10-11",
+    "note": "Eating Out Map article: address, phone, free laphet thoke"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.google.com/search?q=ร้านข้าวแกงมัณฑะเลย์+หางดง+เชียงใหม่",
+    "fetched": "2026-10-11",
+    "note": "Google panel: 410 Moo 12, 093 939 8424, 4.5 (19); Facebook and TikTok reviews about 5 months old (a Google results page; the listing behind it was read as a snippet)"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-10-11"
+ },
+ {
+  "id": "cm-curated-may-kha-burmese",
+  "province": "cm",
+  "cat": [
+   "food"
+  ],
+  "sub": [
+   "international",
+   "myanmar"
+  ],
+  "name": "เมย์ค่ะ May Kha",
+  "nameTh": "เมย์ค่ะ May Kha",
+  "nameEn": "May Kha (Burmese restaurant)",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin",
+  "address": "Chiang Mai-Doi Saket Road 31/7, Tambon San Phranet, Chiang Mai 50210",
+  "phone": "082 572 7820",
+  "website": null,
+  "hours": "Opens Monday 08:00 (rest of week not read)",
+  "attrs": {
+   "kind": "Burmese restaurant on the Chiang Mai-Doi Saket road.",
+   "kindTh": "ร้านอาหารพม่า ถนนเชียงใหม่-ดอยสะเก็ด",
+   "amphoe": "สันทราย"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.google.com/search?q=เมย์ค่ะ+ร้านอาหารพม่า+เชียงใหม่",
+    "fetched": "2026-10-11",
+    "note": "Google panel: 'ภัตตาคารอาหารพม่า', 4.8 (51), address, phone (a Google results page; the listing behind it was read as a snippet)"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-10-11"
+ },
+ {
+  "id": "cm-curated-shan-noodle-shop-nong-pa-khrang",
+  "province": "cm",
+  "cat": [
+   "food"
+  ],
+  "sub": [
+   "noodle",
+   "myanmar"
+  ],
+  "name": "Shan Noodle Shop",
+  "nameTh": null,
+  "nameEn": "Shan Noodle Shop",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin",
+  "address": "81 Moo 1, Thanutphong Soi 1, Tambon Nong Pa Khrang, Mueang Chiang Mai 50000",
+  "phone": null,
+  "website": null,
+  "hours": "Open until 19:30 (full week not read)",
+  "attrs": {
+   "kind": "Small family shop for Shan noodle soup, near Makro on the Lampang-Chiang Mai superhighway.",
+   "kindTh": "ร้านก๋วยเตี๋ยวไทใหญ่เล็ก ๆ ใกล้แม็คโคร ถนนซุปเปอร์ไฮเวย์เชียงใหม่-ลำปาง",
+   "amphoe": "เมืองเชียงใหม่"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.google.com/search?q=Shan+Noodle+Shop+81+Thanutphong+Soi+1+Chiang+Mai",
+    "fetched": "2026-10-11",
+    "note": "Google panel: 4.7 (81), address; Facebook post 'Shan food near Makro' (a Google results page; the listing behind it was read as a snippet)"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-10-11"
+ },
+ {
+  "id": "cm-curated-khao-foen-lung-nui-fang",
+  "province": "cm",
+  "cat": [
+   "food"
+  ],
+  "sub": [
+   "northern",
+   "myanmar"
+  ],
+  "name": "ข้าวฟืนลุงหนุ่ย",
+  "nameTh": "ข้าวฟืนลุงหนุ่ย",
+  "nameEn": "Khao Foen Lung Nui",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin",
+  "address": "Opposite Tam Som Pi Ae, at the traffic-light junction by Wat Pa Phaeng, Amphoe Fang, Chiang Mai",
+  "phone": null,
+  "website": null,
+  "hours": "Closed Sundays",
+  "attrs": {
+   "kind": "Tai Yai food shop in Fang: fried and mixed khao foen, khao foen un, yam khao soi.",
+   "kindTh": "ร้านของกินไทใหญ่ต้นหนุน อำเภอฝาง: ข้าวฟืนทอด ข้าวฟืนยำ ข้าวฟืนอุ่น",
+   "amphoe": "ฝาง"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.google.com/search?q=ข้าวฟืนลุงหนุ่ย+ฝาง+พิกัด",
+    "fetched": "2026-10-11",
+    "note": "Facebook Fang Inside (post 3 days old) and ฝาง107 (1 month); TikTok @fang1073 (a Google results page; the listing behind it was read as a snippet)"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-10-11"
+ },
+ {
+  "id": "cm-curated-masjid-al-jamiah-chang-khlan",
+  "province": "cm",
+  "cat": [
+   "community"
+  ],
+  "sub": [
+   "centre"
+  ],
+  "name": "มัสยิดอัลยาเมี๊ยฮ์ ช้างคลาน",
+  "nameTh": "มัสยิดอัลยาเมี๊ยฮ์ ช้างคลาน",
+  "nameEn": "Masjid Al Jamiah (Chang Khlan)",
+  "lat": 18.769211,
+  "lng": 98.999802,
+  "geoPrecision": "approx",
+  "address": "ซอยเจริญประเทศ 13 ถนนเจริญประเทศ ต.ช้างคลาน อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50100",
+  "phone": null,
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "kind": "Mosque on Charoen Prathet Soi 13 in Chang Khlan. Sources describe its congregation as descended from families from India, Burma and Malay lands.",
+   "kindTh": "มัสยิดในซอยเจริญประเทศ 13 ย่านช้างคลาน ผู้ละหมาดสืบเชื้อสายจากครอบครัวที่มาจากอินเดีย พม่า และมลายู",
+   "pinNote": "masjidmap.com listing (18.769211, 98.999802); halallifemag.com gives 18.76910, 99.00010, about 30 m away"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.masjidmap.com/mosque/info/5387162904",
+    "fetched": "2026-10-11",
+    "note": "MasjidMap: mosque entry, address, coordinates, congregation of about 2,000 people from India, Burma and Malay backgrounds"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.halallifemag.com/localhalal/chiang-mai-halal-trip/",
+    "fetched": "2026-10-11",
+    "note": "Halal Life: Chiang Mai mosques; lists Yunnanese, Burmese and Malay members"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.chiangmai-alacarte.com/blog/the-muslim-community-in-chiang-mai/",
+    "fetched": "2026-10-11",
+    "note": "Chiang Mai a la Carte: Masjid Al Jamiah, Chang Khlan, between Chang Khlan and Charoenprathet roads"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-10-11"
+ },
+ {
+  "id": "cm-curated-map-foundation",
+  "province": "cm",
+  "cat": [
+   "community"
+  ],
+  "sub": [
+   "centre"
+  ],
+  "name": "MAP Foundation",
+  "nameTh": null,
+  "nameEn": "MAP Foundation (Migrant Assistance Programme)",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin",
+  "address": "9/34 Moo 1, Ing Doi Village, Liab Klong Chonprathan Road, Chang Phueak, Mueang, Chiang Mai 50300",
+  "phone": "+66 53 328 134",
+  "website": "https://www.mapfoundationcm.org/",
+  "hours": null,
+  "attrs": {
+   "kind": "Foundation for migrant workers from Myanmar: labour rights information, health and education programmes; materials in Burmese, Shan, Karen and Thai.",
+   "kindTh": "มูลนิธิช่วยเหลือแรงงานข้ามชาติจากเมียนมา ให้ข้อมูลสิทธิแรงงาน มีงานด้านสุขภาพและการศึกษา เอกสารเป็นภาษาพม่า ไทใหญ่ กะเหรี่ยง และไทย",
+   "pinNote": "none published on a page I read; needs a pin by hand"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.mapfoundationcm.org/contact",
+    "fetched": "2026-10-11",
+    "note": "MAP Foundation contact page (address, phone, email map@mapfoundationcm.org)"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.mapfoundationcm.org/",
+    "fetched": "2026-10-11",
+    "note": "MAP Foundation home page (programmes; materials in Burmese, Shan, Thai, Karen)"
+   },
+   {
+    "type": "web",
+    "ref": "https://humantraffickinghotline.org/es/node/13497",
+    "fetched": "2026-10-11",
+    "note": "Directory listing: English, Thai, Burmese"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-10-11"
+ },
+ {
+  "id": "cm-web-cdb0aeff-sub-zero-ice-skate-club",
+  "province": "cm",
+  "cat": [
+   "sport"
+  ],
+  "sub": [],
+  "name": "Sub-Zero Ice Skate Club",
+  "nameTh": null,
+  "nameEn": "Sub-Zero Ice Skate Club",
+  "lat": 18.806145,
+  "lng": 99.018307,
+  "geoPrecision": "approx",
+  "address": "99/3 Lampang - Chiang Mai Superhighway, Fa Ham, Mueang Chiang Mai District, Chiang Mai 50000",
+  "phone": "082 659 2239",
+  "website": null,
+  "hours": null,
+  "attrs": {
+   "kind": "An ice skating rink at Central Chiangmai (Central Festival), level 3.",
+   "kindTh": "ลานสเก็ตน้ำแข็งในศูนย์การค้าเซ็นทรัล เชียงใหม่ (เซ็นทรัลเฟสติวัล) ชั้น 3",
+   "pinNote": "two sources agree (21 m apart): openstreetmap.org and google.com, read 2026-10-14"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.openstreetmap.org/node/2598509616",
+    "fetched": "2026-10-14",
+    "via": "gap-closer",
+    "credit": "from the web, 2026-10-14",
+    "note": "OSM node: leisure=ice_rink, sport=ice_skating, level 3"
+   },
+   {
+    "type": "web",
+    "ref": "https://www.google.com/maps/search/Sub+Zero+Ice+Skating+Club+Chiang+Mai",
+    "fetched": "2026-10-14",
+    "via": "gap-closer",
+    "credit": "from the web, 2026-10-14",
+    "note": "Google Maps listing: address, phone 082 659 2239"
+   }
+  ],
+  "confidence": "third-party",
+  "updatedAt": "2026-10-14"
  }
 ]

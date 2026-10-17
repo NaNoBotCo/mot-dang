@@ -33,6 +33,10 @@ RETRY_PAUSE = 45
 BBOX = {
     "cm": "18.60,98.80,19.05,99.15",   # Mueang Chiang Mai and the near ring
     "cr": "19.80,99.70,20.00,99.95",   # Mueang Chiang Rai and the near ring
+    # Nan 2026-10-12: "expand motdang to pathum thani". Asked by area only
+    # (WIDE_PROVINCES): a rectangle round it takes in Don Mueang, which is
+    # Bangkok, and the edges of Nonthaburi and Ayutthaya.
+    "pth": "13.90,100.33,14.29,100.96",
 }
 
 # Some things are too few, and too far apart, to be found in a ring round the
@@ -54,6 +58,7 @@ BBOX = {
 PROVINCE_AREA = {
     "cm": "TH-50",   # เชียงใหม่ Chiang Mai
     "cr": "TH-57",   # เชียงราย Chiang Rai
+    "pth": "TH-13",  # ปทุมธานี Pathum Thani
 }
 # province-wide in every province, Chiang Mai's near ring included.
 # `schools` joined them on 2026-08-18: the OBEC register names schools in
@@ -109,7 +114,10 @@ WIDE_GROUPS = {"stations", "cannabis", "medical", "schools", "reading", "making"
                # hot springs, a trailhead. A near ring here would answer the
                # moat, which is the one part of town where everybody already
                # knows.
-               "parking"}
+               "parking",
+               # The courts are where the schools and the tambon grounds are,
+               # in every amphoe.
+               "courts"}
 
 # Provinces crawled province-wide for every group. Chiang Rai is here on Nan's
 # instruction: a directory that only knows Mueang is not a directory for
@@ -120,7 +128,7 @@ WIDE_GROUPS = {"stations", "cannabis", "medical", "schools", "reading", "making"
 # Chiang Mai stays on its near ring for now: it is far denser, the ring already
 # holds 9,075 records, and widening it is a much larger crawl that deserves its
 # own decision rather than being carried in on Chiang Rai's coat-tails.
-WIDE_PROVINCES = {"cr"}
+WIDE_PROVINCES = {"cr", "pth"}
 
 
 def is_wide(province, group):
@@ -237,6 +245,14 @@ QUERIES = {
     "pets":       ['nwr["amenity"="veterinary"]', 'nwr["shop"="pet"]',
                    'nwr["shop"="pet_grooming"]'],
     "fitness":    ['nwr["leisure"="fitness_centre"]'],
+    # 2026-10-17, Nan's pick from the Pantip read (shelf 4a): the games'
+    # shelves. Named pitches and sports halls only — the census holds 493
+    # leisure=pitch in TH-50 and most are unnamed dots in a school yard — plus
+    # every bowling alley, which is rare enough to want even bare. The import
+    # files only those whose sport tag names a game with a shelf.
+    "courts":     ['nwr["leisure"="pitch"]["name"]',
+                   'nwr["leisure"="sports_hall"]["name"]',
+                   'nwr["leisure"="bowling_alley"]'],
     "essentials": ['nwr["amenity"="bank"]', 'nwr["amenity"="post_office"]',
                    'nwr["shop"="convenience"]', 'nwr["amenity"="townhall"]'],
     # WO-27 door 2. The government offices, and the reason is one of them:

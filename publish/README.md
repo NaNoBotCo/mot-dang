@@ -176,6 +176,45 @@ because `build.py` wipes `docs/` at the start of every run. A build that dies
 halfway leaves a real directory holding a handful of files, and syncing that is
 indistinguishable from meaning to delete 27,000 pages.
 
+### Announced cuts
+
+A change that retires live files says how many in `publish/expected.json`,
+committed with it:
+
+```json
+{"announced": [{"id": "tag-geojson-2026-10-11", "until": "2026-10-25",
+                "why": "per-tag GeoJSON cut",
+                "remove": {"data/c[mr]-tag-*.geojson": 2950},
+                "add": {"data/": 2}}]}
+```
+
+A pattern is a prefix, or a glob when it holds `*`, `?` or `[`. At publish,
+the deletions under each pattern are counted: more than 10% (or 5 files) over
+the announced number refuses; fewer is logged and publishes. Deletions no
+pattern covers still meet the fixed ceiling (500 on the server walk, 2,000 in
+`deploy.py`). `add` is logged, never refused. A cut that landed within its
+band is used up (`/srv/state/expected-done.txt` on the server,
+`cache/expected-done.txt` here); one past `until` never applies. An
+announcement cannot cover `vendor/`, `glyphs/` or `api/`.
+
+### Deferred deletions
+
+When either check refuses, the standing walk still publishes: `deploy.py
+--defer-deletions` (or `--no-delete`, when the server walk's own check refused)
+uploads new and changed files with `rclone copy` and deletes nothing. The keys
+it kept are in `/srv/state/deferred.txt` on the server (`cache/deferred-deletions.txt`
+here), the walk ledger gets a `deletions-deferred` line, and STATE.txt says so
+until a publish deletes them. A tree that fails the whole-site check, a gate,
+or the bucket listing still publishes nothing.
+
+## Pictures: mot-dang-media
+
+`streetphotos/`, `photos/`, `inat/` and `og/` (47,468 files, 5.3 GB on 2026-10-13) are served from the bucket `mot-dang-media` by the Worker in `worker-media/` (routes `motdang.net/{streetphotos,photos,inat,og}/*`, www too). The page URLs are the same. A key the bucket lacks goes on to the site Worker.
+
+With `MD_MEDIA_BUCKET=1` the build copies none of the four into `docs/`; `media_layer.py` writes the list to `cache/media-manifest.txt`, `publish/media_sync.py sync` uploads what the bucket lacks or holds changed (copy only), and `deploy.py` and the deletion preview leave the four prefixes alone. `importers/publish_steps.sh` sets the variable when `media_sync.py probe` can write the bucket, and publishes the old way when it cannot. The copies already in `mot-dang-site` stay.
+
+Off in one command: `cd worker-media && npx wrangler delete motdang-media --force`. This Worker goes, its routes with it, and the site Worker serves the four prefixes from `mot-dang-site` as before.
+
 ## Still worth doing
 
 `docs/` is committed, which is why `.git` is 2.8 GB and why every rebuild is a

@@ -46,9 +46,11 @@
 
 import { SCHEMA_VERSION, queryPlaces, findPlace, slugCandidates, minuteOfWeek,
          present, liftProvince, norm, parseQuery, rowMatches,
+         gridEligible, queryPlacesGrid, cmpPlaceName, cmpPlaceDefault,
          LIMIT_DEFAULT, LIMIT_MAX } from "./api.js";
 import SEARCHCORE from "./searchcore.js";
 import { fleetSearch } from "./fleetsearch.js";
+import { translateApi } from "./quickanswer.js";
 import { cachedGet } from "./r2cache.js";
 
 /* The fleet search (publish/fleetsearch.js) answers /find, and it answers
@@ -68,11 +70,13 @@ function fleetOwns(url) {
 import { EdgeIndex } from "./edgesearch.js";
 import { classify } from "./classify.js";
 import { subscribe } from "./subscribe.js";
+import { newsletter, ownsNewsletter } from "./newsletter.js";
 import { lister, ownsLister } from "./lister.js";
 import { live, ownsLive, resolve } from "./live.js";
-import { shareSense, shareLand } from "./sharesense.js";
+import { shareSense } from "./sharesense.js";
+import { toHttps, sendToRules, askCrawler, record } from "./edge_gate.js";
+export { toHttps };
 import { findSense } from "./findlearn.js";
-import { crawlAsk, crawlListen } from "./crawlpay.js";
 
 const TYPES = {
   html: "text/html; charset=utf-8",
@@ -121,9 +125,7 @@ function cacheFor(ext) {
    * filling the cache cost a second full read of the same 9.4 MB object.
    * Taking a body away from the CDN to hand-cache it is a losing trade.
    *
-   * Stylesheet, scripts and the icon sprite carry no ?v= fingerprint any
-   * more (Nan, 2026-09-10): a fingerprint written into 96,000 pages made
-   * every CSS edit a full re-upload. Instead the browser shows the copy it
+   * Stylesheet, scripts and the icon sprite: the browser shows the copy it
    * holds and asks in the background whether it changed; a returning reader
    * is at most one page view behind after an edit, never a week. */
   if (ext === "css" || ext === "js" || ext === "svg")
@@ -689,9 +691,8 @@ export async function searchHandler(env, ix, sp, now = new Date()) {
       if (d === false) continue;
       rows.push([row, d, null, null]);
     }
-    const cmpName = (a, b) => String(a[0].name).localeCompare(String(b[0].name), "th");
-    if (p.near) rows.sort((a, b) => a[1] - b[1] || cmpName(a, b));
-    else rows.sort((a, b) => b[0].antRank - a[0].antRank || cmpName(a, b));
+    if (p.near) rows.sort((a, b) => a[1] - b[1] || cmpPlaceName(a[0], b[0]));
+    else rows.sort((a, b) => cmpPlaceDefault(a[0], b[0]));
   }
 
   const page = rows.slice(offset, offset + limit);
@@ -739,6 +740,111 @@ function loadIndex(env) {
     })().catch((e) => { INDEX_P = null; INDEX_ETAG = null; throw e; });
   }
   return INDEX_P;
+}
+
+/* THE BOX INDEX (2026-10-11). api/v1/grid/, written by publish/emit_grid.mjs:
+ * meta.json (3.6 MB, held per isolate) answers a bbox query's filter and
+ * count, and the page's rows come from a few of the chunk files. See "the
+ * grid" in api.js. meta is re-checked against the bucket once a minute, as
+ * the index is. A chunk is kept only when it carries meta's v; any other
+ * fault drops meta and the request walks the index instead. */
+let GRID_P = null;
+let GRID_ETAG = null;
+let GRID_CHECKED = 0;
+const GRID_ROWS = new Map();         // `${v}/${c}` -> rows, newest last
+const GRID_KEEP = 24;
+
+async function revalidateGrid(env) {
+  const now = Date.now();
+  if (!GRID_P || now - GRID_CHECKED < REVALIDATE_MS) return;
+  GRID_CHECKED = now;
+  try {
+    const head = await env.SITE.head("api/v1/grid/meta.json");
+    if ((head ? head.httpEtag : null) !== GRID_ETAG) { GRID_P = null; GRID_ETAG = null; }
+  } catch { /* keep what we have; try again next window */ }
+}
+
+function loadGrid(env) {
+  if (!GRID_P) {
+    GRID_CHECKED = Date.now();
+    GRID_P = (async () => {
+      /* a cold isolate takes meta from the colo cache, keyed by its etag */
+      const head = await env.SITE.head("api/v1/grid/meta.json");
+      if (!head) return null;                      // not deployed: the index answers
+      const key = (etag) => new Request("https://motdang.net/__grid/meta/" + encodeURIComponent(etag));
+      let cache = null;
+      try {
+        cache = caches.default;
+        const hit = await cache.match(key(head.httpEtag));
+        if (hit) { GRID_ETAG = head.httpEtag; return JSON.parse(await hit.text()); }
+      } catch { cache = null; }
+      const obj = await env.SITE.get("api/v1/grid/meta.json");
+      if (!obj) return null;
+      GRID_ETAG = obj.httpEtag;
+      const text = await obj.text();
+      if (cache) {
+        try { await cache.put(key(obj.httpEtag), new Response(text, { headers: { "cache-control": "public, max-age=86400" } })); }
+        catch { /* the answer stands without the copy */ }
+      }
+      return JSON.parse(text);
+    })().catch((e) => { GRID_P = null; GRID_ETAG = null; throw e; });
+  }
+  return GRID_P;
+}
+
+/* Two layouts, told apart by meta. Layout 2 (2026-10-13): meta.cn names each
+ * chunk file and meta.cv holds its own hash, so a publish rewrites only the
+ * chunks whose rows changed. Layout 1: c0000.json … all stamped with meta.v. */
+async function gridChunk(env, meta, c) {
+  const file = meta.cn ? meta.cn[c] + ".json" : "c" + String(c).padStart(4, "0") + ".json";
+  const want = meta.cv ? meta.cv[c] : meta.v;
+  const k = meta.cn ? meta.cn[c] + "/" + want : meta.v + "/" + c;
+  const held = GRID_ROWS.get(k);
+  if (held) { GRID_ROWS.delete(k); GRID_ROWS.set(k, held); return held; }
+  let cache = null, req = null, text = null;
+  try {
+    cache = caches.default;
+    req = new Request("https://motdang.net/__grid/" + k);
+    const hit = await cache.match(req);
+    if (hit) text = await hit.text();
+  } catch { cache = null; }
+  const fresh = text == null;
+  if (fresh) {
+    const obj = await env.SITE.get("api/v1/grid/" + file);
+    if (!obj) throw new Error("grid chunk missing");
+    text = await obj.text();
+  }
+  const body = JSON.parse(text);
+  if (body.v !== want) throw new Error("grid chunk out of step");
+  if (fresh && cache) {
+    try { await cache.put(req, new Response(text, { headers: { "cache-control": "public, max-age=86400" } })); }
+    catch { /* the answer stands without the copy */ }
+  }
+  GRID_ROWS.set(k, body.rows);
+  while (GRID_ROWS.size > GRID_KEEP) GRID_ROWS.delete(GRID_ROWS.keys().next().value);
+  return body.rows;
+}
+
+/* The /places answer from the grid, or null when the index has to walk. */
+async function placesFromGrid(env, sp, timing) {
+  if (!gridEligible(parseQuery(sp))) return null;
+  try {
+    const t0 = Date.now();
+    const cold = !GRID_P;
+    await revalidateGrid(env);
+    const meta = await loadGrid(env);
+    if (!meta) return null;
+    const t1 = Date.now();
+    let reads = 0;
+    const body = await queryPlacesGrid(meta, (c) => { reads++; return gridChunk(env, meta, c); }, sp);
+    timing.push(`meta;dur=${t1 - t0};desc=${cold ? "cold" : "held"}`,
+                `rows;dur=${Date.now() - t1};desc=${reads}chunks`);
+    return body;
+  } catch (e) {
+    console.error("/api/v1/places grid fault, walking the index", e && e.message);
+    GRID_P = null; GRID_ETAG = null;
+    return null;
+  }
 }
 
 /* Discovery the standard way (RFC 8631), so a client that lands on any
@@ -870,6 +976,22 @@ async function api(request, env, url, path, ctx) {
     }
   }
 
+  if (path === "/places") {
+    const timing = [];
+    const body = await placesFromGrid(env, url.searchParams, timing);
+    if (body) {
+      const res = apiJson(body);
+      res.headers.set("server-timing", timing.join(", "));
+      if (cache && ckey) {
+        try { ctx.waitUntil(cache.put(ckey, res.clone()).catch(() => {})); }
+        catch { /* unfilled: the next asker computes it */ }
+        res.headers.set("x-md-edge", "miss");
+      }
+      res.headers.set("x-md-grid", "1");
+      return res;
+    }
+  }
+
   let ix;
   try {
     ix = await loadIndex(env);
@@ -981,6 +1103,10 @@ async function serve(request, env, ctx) {
       url.pathname === "/subscribe/confirm")
     return subscribe(request, env, url);
 
+  /* The weekly issue (newsletter.js): the token-gated send, and unsubscribe. */
+  if (ownsNewsletter(url.pathname))
+    return newsletter(request, env, url);
+
   /* The listing-agent gate (lister.js): join, confirm, Nan's invite and
    * decline taps, sign-in, and /lister/me for the add form. */
   if (ownsLister(url.pathname))
@@ -999,6 +1125,9 @@ async function serve(request, env, ctx) {
   /* What gets shared, and who comes back (sharesense.js). A POST from sendBeacon. */
   if (url.pathname === "/api/share")
     return shareSense(request, env, classify);
+  /* The translator in the search box (quickanswer.js). */
+  if (url.pathname === "/api/translate")
+    return translateApi(url, env);
   /* What people tap on /find, and whether they come back (findlearn.js). */
   if (url.pathname === "/api/find")
     return findSense(request, env, classify);
@@ -1164,85 +1293,6 @@ async function serve(request, env, ctx) {
 
 /* ------------------------------------------------- who asked for the page */
 
-/* THE COUNT AT THE EDGE
- * --------------------
- * Nan's decision, 2026-09-05 (notes/arrivals-2026-09-05.txt, A1): count
- * arrivals first-party — referrer host and landing path, no cookie, no third
- * party, aggregated. Until this the site had 626,640 requests in 28 days and
- * no way to say how many were people, because Worker analytics carries no
- * User-Agent and zone analytics is a permission this account's token does not
- * hold.
- *
- * WHAT IT WRITES, AND WHAT IT DELIBERATELY DOES NOT
- * ------------------------------------------------
- * One row per request into Analytics Engine: host, category, agent name,
- * path, country, status, referrer HOST, method. No IP address. No cookie. No
- * identifier of any kind, so two requests by the same person are two rows
- * that cannot be joined — this counts arrivals, it cannot follow anybody.
- *
- * The referring URL is cut down to its host on purpose: a full referrer from
- * a search engine carries the words somebody typed, which are their business
- * and not ours. Query strings are dropped from the path for the same reason.
- *
- * IT MUST NOT BE ABLE TO BREAK THE SITE
- * -------------------------------------
- * serve() runs first and its result is returned no matter what happens next.
- * The write is handed to waitUntil inside a try/catch whose failure path is to
- * do nothing at all — a missing binding, an Analytics Engine outage, or a
- * User-Agent the classifier has never seen still ends with the reader getting
- * their page. The response body is never touched, so caching, ranges and
- * streaming behave exactly as they did before.
- *
- * ONE DATASET, NOT TWO. The rows go to `traffic_eye`, the fleet dataset
- * traffic-eye already writes and its dashboard already reads, in that Worker's
- * blob order. Keep the order below in step with traffic-eye/src/collector.js:
- * position IS the schema, and a row written out of order is a silently wrong
- * number rather than an error.
- */
-function record(request, response, env, ms) {
-  if (!env.TRAFFIC) return; // not bound — nothing to do, and nothing to say
-
-  const url = new URL(request.url);
-  /* A map beacon is not an arrival: mapSense writes its own rows. Nor is a
-   * live share's position, sent every few seconds for an hour. */
-  if (url.pathname === "/api/map" || url.pathname === "/api/share" || url.pathname === "/api/find" || url.pathname.startsWith("/api/live")) return;
-  const { category, agent } = classify(request.headers.get("user-agent") || "",
-    { asn: request.cf?.asn, headers: request.headers });
-
-  let refHost = "";
-  const ref = request.headers.get("referer");
-  if (ref) {
-    try {
-      const r = new URL(ref);
-      refHost = r.host === url.host ? "(same site)" : r.host;
-    } catch {
-      refHost = "(unparseable)";
-    }
-  }
-
-  env.TRAFFIC.writeDataPoint({
-    blobs: [
-      url.host,                       // 1 site
-      category,                       // 2 human|ai|search|social|seo|monitor|tool|other|none
-      agent,                          // 3 ClaudeBot, Chrome, …
-      trimPath(url.pathname),         // 4 path, no query string
-      request.cf?.country || "XX",    // 5 country
-      String(response.status),        // 6 status
-      refHost,                        // 7 referrer host only
-      request.method,                 // 8 method
-      ...searchSense(url, response),  // 9–11 search: the view, and words that found nothing
-    ],
-    /* double1 is a literal 1 so SUM(double1) survives sampling; COUNT(*) would
-     * quietly under-report if this site ever gets busy enough to be sampled. */
-    doubles: [1, response.status, ms, ...searchCount(url, response)],
-    indexes: [url.host],              // sampling key, per-site
-  });
-  /* opened from a shared link (?s=<code>.<channel>): one more row, sharesense.js */
-  shareLand(env, url, request, response, category, agent, refHost);
-  /* a crawler that says it can pay, or signs itself: one more row, crawlpay.js */
-  crawlListen(request, response, env, category, agent, ms);
-}
-
 /* ---- WHERE READERS LOOK: THE MAPS (Nan, 2026-09-29, "everything") --------
  * Two sources, both in traffic_eye beside the arrival rows:
  *
@@ -1259,31 +1309,6 @@ function record(request, response, env, ms) {
  *   counts arrivals exactly as before; a map event counts in double5.
  *
  * A cell is latitude and longitude to two decimals, about 1.1 km. */
-const CELL = (lat, lng) => `${(+lat).toFixed(2)},${(+lng).toFixed(2)}`;
-
-function bboxOf(url) {
-  const b = (url.searchParams.get("bbox") || "").split(",").map(Number);
-  return b.length === 4 && b.every(Number.isFinite) ? b : null;
-}
-
-function searchSense(url, response) {
-  if (url.pathname !== "/api/v1/search") return [];
-  const b = bboxOf(url);
-  const h = response.headers.get("x-md-n");
-  const n = h === null ? -1 : Number(h);
-  const q = (url.searchParams.get("q") || "").trim().replace(/\s+/g, " ");
-  return ["search", b ? CELL((b[1] + b[3]) / 2, (b[0] + b[2]) / 2) : "",
-          n === 0 ? q.slice(0, 48) : ""];
-}
-
-function searchCount(url, response) {
-  if (url.pathname !== "/api/v1/search") return [];
-  const b = bboxOf(url);
-  const w = b ? Math.abs(b[2] - b[0]) : 0;
-  const h = response.headers.get("x-md-n");
-  return [w > 0 ? Math.round(Math.log2(360 / w)) : -1, h === null ? -1 : Number(h)];
-}
-
 const MAP_EVENTS = new Set(["view", "open", "saved", "unsave", "pin", "share",
                             "code", "coord", "near"]);
 
@@ -1319,65 +1344,6 @@ async function mapSense(request, env) {
     }
   } catch { /* counting is never worth an error */ }
   return done;
-}
-
-/* Paths here are high-cardinality by design — 93,577 of them — which Analytics
- * Engine handles. The cap is only so an absurd URL cannot write an unbounded
- * string. */
-function trimPath(pathname) {
-  return pathname.length > 96 ? pathname.slice(0, 96) + "…" : pathname;
-}
-
-/* GO READ THE RULES (Nan, 2026-09-29) — a courtesy, not a block.
- * A browser string from a cloud network (the counter's "data centre · …"
- * rows; 36,400 on 29 Sep from Alibaba Cloud in Singapore alone) gets a 302 to
- * the precepts at the ho trai instead of the page. robots.txt and llms.txt
- * still answer, so this site's own rules stay readable from anywhere.
- *
- * Left alone: Meta and Azure, whose link-preview fetchers wear browser
- * strings (Facebook is where readers come from); and "Chrome string, no
- * Chrome", which on 29 Sep included Thai requests loading fonts and icons
- * like an in-app browser. Both stay counted as machines.
- *
- * The counter still writes the row, with status 302. */
-const RULES = "https://wichaa.net/hotrai/t/sin-yon.txt";
-const RULES_SPARED = new Set(["Meta", "Microsoft Azure"]);
-const RULES_OPEN = new Set(["/robots.txt", "/llms.txt"]);
-
-function sendToRules(request) {
-  if (RULES_OPEN.has(new URL(request.url).pathname)) return null;
-  const { category, agent } = classify(request.headers.get("user-agent") || "",
-    { asn: request.cf?.asn, headers: request.headers });
-  if (category !== "other" || !agent.startsWith("data centre · ")) return null;
-  if (RULES_SPARED.has(agent.slice("data centre · ".length))) return null;
-  return new Response(`Go read the rules: ${RULES}\n`, {
-    status: 302,
-    headers: {
-      location: RULES,
-      "content-type": "text/plain; charset=utf-8",
-      "cache-control": "no-store",
-    },
-  });
-}
-
-/* WHICH ROBOTS PAY (Nan, 2026-10-04) — crawlpay.js. Off unless CRAWLPAY_ASK
- * is "on"; even then only training crawlers on one page in ten get a 402. */
-function askCrawler(request, env) {
-  if (env.CRAWLPAY_ASK !== "on") return null;
-  if (env.CRAWLPAY_UNTIL && Date.now() > Date.parse(env.CRAWLPAY_UNTIL)) return null;
-  const { category, agent } = classify(request.headers.get("user-agent") || "",
-    { asn: request.cf?.asn, headers: request.headers });
-  return crawlAsk(request, env, category, agent);
-}
-
-/* Plain http:// answers with a 301 to the same path and query on https://.
- * A local wrangler dev on http://localhost is left alone. */
-export function toHttps(request) {
-  const u = new URL(request.url);
-  if (u.protocol !== "http:") return null;
-  if (/^(localhost|127\.0\.0\.1|\[::1\])$/.test(u.hostname) || u.hostname.endsWith(".localhost")) return null;
-  u.protocol = "https:";
-  return new Response(null, { status: 301, headers: { location: u.toString(), "cache-control": "public, max-age=86400" } });
 }
 
 export default {

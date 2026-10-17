@@ -4,7 +4,9 @@
    Roads: the Department of Highways' counted sections, traffic flowing at each one's vehicles a day.
    Films: today's screenings in the reader's province on one strip, the playhead at now.
    Lottery: the last draw, the drum turning and the first prize falling out ball by ball.
-   Each tile wakes when it scrolls into view and sleeps when it leaves. */
+   Each tile wakes when it scrolls into view and sleeps when it leaves.
+   Since 2026-10-11 (Nan: not on the map, too many words, too much room) they live in the calendar tab, folded:
+   a row of cards (MDNOW below) gives each a number, one line and a small chart; a card opens its full view. */
 (function () {
 'use strict';
 var H = document.documentElement, LIVE = '/', DPR = Math.min(2, window.devicePixelRatio || 1);
@@ -47,9 +49,60 @@ function tile(id, draw, onTap) {
   }, { rootMargin: '80px' }).observe(cv);
   else { on = true; requestAnimationFrame(loop); }
   if (onTap) cv.addEventListener('click', function (ev) { var r = cv.getBoundingClientRect(); onTap(ev.clientX - r.left, ev.clientY - r.top, T); });
-  return { paint: function () { paint(performance.now()); }, T: T, cv: cv };
+  return { paint: function () { paint(performance.now()); }, fit: function () { size(); paint(performance.now()); }, T: T, cv: cv };
 }
 function cap(id, h) { var c = $(id) && $(id).querySelector('.tcap'); if (c) c.innerHTML = h; }
+
+/* ======================================================================== THE CITY NOW: the cards
+   Each section hands MDNOW.card(key, {l: label, v: number, s: one line, g: chart}); wx.js gives sky and air. A tap
+   opens that section's full view in #cnx; the sources wait behind the i. */
+var CN = { order: ['sky', 'air', 'flights', 'roads', 'films', 'lotto'], c: {}, open: null };
+var MORE = { flights: ['flights.html', 'ใครบินมาที่นี่', 'Who flies here'], roads: ['traffic.html', 'รถติด ทุกชั่วโมง ทุกถนน', 'Traffic by hour and road'],
+  films: ['films.html', 'ทุกโรง ทุกรอบ สามวัน', 'Every cinema, three days'], lotto: ['lottery.html', 'ทุกรางวัล และตรวจสลาก', 'Every prize, and check a ticket'] };
+/* a small bar chart, 100 × 22: o.hi the lit bar, o.col(v, i) a colour per bar, o.line a second series as a line */
+function spark(vals, o) {
+  o = o || {}; var n = vals.length; if (!n) return '';
+  var mx = o.max || Math.max.apply(null, vals.map(function (v) { return v || 0; }).concat([1e-9])), w = 100 / n, g = '';
+  vals.forEach(function (v, i) {
+    if (v == null) return; var h = Math.max(1.2, v / mx * 20), c = o.col ? o.col(v, i) : i === o.hi ? '#b0442e' : 'currentColor';
+    g += '<rect x="' + (i * w + w * 0.12).toFixed(2) + '" y="' + (22 - h).toFixed(2) + '" width="' + (w * 0.76).toFixed(2) + '" height="' + h.toFixed(2) + '" fill="' + c + '"' + (c === 'currentColor' ? ' fill-opacity=".35"' : '') + '/>';
+  });
+  if (o.line) {
+    var L = o.line.filter(function (v) { return v != null; }), lo = Math.min.apply(null, L), rg = Math.max(1, Math.max.apply(null, L) - lo);
+    g += '<polyline fill="none" stroke="#b0442e" stroke-width="1.8" vector-effect="non-scaling-stroke" points="' + o.line.map(function (v, i) { return v == null ? '' : (i * w + w / 2).toFixed(2) + ',' + (19 - (v - lo) / rg * 15).toFixed(2); }).join(' ') + '"/>';
+  }
+  return '<svg viewBox="0 0 100 22" preserveAspectRatio="none" aria-hidden="true">' + g + '</svg>';
+}
+function cnDraw() {
+  var box = document.querySelector('#cnow .cnc'); if (!box) return;
+  box.innerHTML = CN.order.filter(function (k) { return CN.c[k]; }).map(function (k) {
+    var o = CN.c[k];
+    return '<button type="button" class="cn" data-cn="' + k + '" aria-pressed="' + (CN.open === k) + '" aria-controls="cnx"><span class="cnl">' + bi(o.l[0], o.l[1]) + '</span>' +
+      '<span class="cnv">' + o.v + '</span>' + (o.s ? '<span class="cns">' + bi(o.s[0], o.s[1]) + '</span>' : '') + (o.g || '') + '</button>';
+  }).join('');
+}
+var TILE = {};
+function cnOpen(k) {
+  var x = $('cnx'); if (!x) return;
+  CN.open = CN.open === k ? null : k; x.hidden = !CN.open;
+  x.querySelectorAll('[data-k]').forEach(function (el) { el.hidden = el.dataset.k !== CN.open; });
+  var m = x.querySelector('.cnxmore'), M = MORE[CN.open];
+  m.hidden = !M; if (M) { m.href = LIVE + M[0]; m.innerHTML = bi(M[1], M[2]) + ' →'; }
+  cnDraw();
+  if (CN.open) {
+    if (TILE[k]) TILE[k].fit();
+    if ((k === 'sky' || k === 'air') && window.MDWX && MDWX.draw) MDWX.draw();
+  }
+  var b = document.querySelector('.cn[data-cn="' + k + '"]');
+  if (b) { b.focus(); if (!REDUCED) { b.classList.add('go'); setTimeout(function () { b.classList.remove('go'); }, 500); } }
+}
+window.MDNOW = { card: function (k, o) { if (o) CN.c[k] = o; else delete CN.c[k]; cnDraw(); }, spark: spark };
+document.addEventListener('click', function (ev) {
+  var t = ev.target.closest && ev.target.closest('.cn[data-cn], #cnx .cnxx, #cnx .cnxi'); if (!t) return;
+  if (t.dataset.cn) cnOpen(t.dataset.cn);
+  else if (t.classList.contains('cnxx')) { if (CN.open) cnOpen(CN.open); }
+  else { var on = $('cnx').classList.toggle('info'); t.setAttribute('aria-pressed', String(on)); }
+});
 
 /* ======================================================================== FLIGHTS
    Azimuthal equidistant, centred on Chiang Mai's runway: every straight line out of the centre is a great
@@ -172,8 +225,36 @@ function drawFlights(k, T, t) {
   k.strokeStyle = '#ffc266'; k.lineWidth = 2.5; k.beginPath(); k.arc(ccx, ccy, cr, -Math.PI / 2, -Math.PI / 2 + now * 6.2832); k.stroke();
   k.fillStyle = '#fff'; k.font = '800 11px ' + MONO; k.textAlign = 'center'; k.fillText(live ? hhmm(Date.now()) : String(Math.floor(hr)).padStart(2, '0') + ':00', ccx, ccy + 0.5);
 }
+/* today at CNX and CEI by the board: arrivals and departures by the hour, and how those already due ran */
+function fDay() {
+  var td = ymd(Date.now()), n = Date.now(), per = [], seen = {}, r = { all: 0, due: 0, late: 0, cx: 0, per: per }, i;
+  for (i = 0; i < 24; i++) per.push(0);
+  FB.flights.forEach(function (f) {
+    ['dep', 'arr'].forEach(function (side) {
+      var ap = f[side + '_iata'], t = f[side + '_time'], key = f.flight_iata + side;
+      if ((ap !== 'CNX' && ap !== 'CEI') || !t || t.slice(0, 10) !== td || seen[key]) return;
+      seen[key] = 1; r.all++; per[+t.slice(11, 13)]++;
+      if ((f[side + '_time_ts'] || 0) * 1000 > n) return;
+      r.due++;
+      var dl = f[side + '_delayed'] != null ? f[side + '_delayed'] : f.delayed || 0;
+      if (f.status === 'cancelled') r.cx++; else if (dl >= 15) r.late++;
+    });
+  });
+  r.busy = per.indexOf(Math.max.apply(null, per));
+  r.ok = r.due ? Math.round((r.due - r.late - r.cx) / r.due * 100) : null;
+  return r;
+}
+function flightsCard() {
+  if (!FL) return;
+  var hr = bkk(Date.now()).getUTCHours(), fb = FB && FB.flights && FB.flights.length ? fDay() : null, live = boardOn();
+  MDNOW.card('flights', { l: ['เครื่องบิน', 'Flights'],
+    v: live ? inAir().length + '<small>' + bi('ลำบินอยู่', 'aloft') + '</small>' : n0(FL.perDay) + '<small>' + bi('/วัน', '/day') + '</small>',
+    s: fb && fb.ok != null ? ['ตรงเวลา ' + fb.ok + '%', fb.ok + '% on time'] : fb ? ['วันนี้ ' + fb.all + ' เที่ยว', fb.all + ' today'] : [Object.keys(FL.lines).length + ' สายการบิน', Object.keys(FL.lines).length + ' airlines'],
+    g: fb ? spark(fb.per, { hi: hr }) : '' });
+}
 function flightsCap(pick) {
   var F = FL; if (!F) return;
+  flightsCard();
   var dests = {}; F.rs.forEach(function (x) { dests[x.r.iata] = 1; });
   var nRoutes = F.rs.filter(function (x) { return x.live; }).length, asof = dayStr(F.d.as_of);
   var live = boardOn(), h = '';
@@ -195,9 +276,8 @@ function flightsCap(pick) {
   var al = Object.keys(F.lines).sort(function (a, b) { return F.lines[b].n - F.lines[a].n; }), chip = function (a) {
     var A = F.d.airlines[a] || { th: a, en: a };
     return '<button type="button" class="tchip" data-air="' + a + '" aria-pressed="' + (FSEL === a) + '"><i style="background:' + F.lines[a].col + '"></i>' + bi(esc(A.th), esc(A.en)) + ' <small>' + F.lines[a].n + '</small></button>';
-  }, open = FSEL && al.indexOf(FSEL) >= 8;
-  h += '<div class="tchips" role="group" aria-label="สายการบิน · airlines">' + al.slice(0, 8).map(chip).join('') + '</div>' +
-    '<details class="tmore"' + (open ? ' open' : '') + '><summary>' + bi('สายการบินอื่น ' + (al.length - 8), (al.length - 8) + ' more airlines') + '</summary><div class="tchips">' + al.slice(8).map(chip).join('') + '</div></details>';
+  };
+  h += '<details class="tmore"' + (FSEL ? ' open' : '') + '><summary>' + bi('สายการบิน ' + al.length, al.length + ' airlines') + '</summary><div class="tchips" role="group" aria-label="สายการบิน · airlines">' + al.map(chip).join('') + '</div></details>';
   h += '<p class="tsrc">' + (live ? bi('สถานะเที่ยวบินจาก AirLabs อัปเดต ' + FB.generated.slice(11, 16) + ' · เส้นทางจากตารางบิน ' + asof[0], 'flight status from AirLabs, updated ' + FB.generated.slice(11, 16) + ' · routes from the timetable of ' + asof[1]) + ' · ' + bi('แตะเครื่องบินเพื่อดูเที่ยวบิน', 'tap a plane for its flight')
     : bi('ตารางบิน ณ ' + asof[0] + ' · เครื่องบินเว้นระยะเท่ากันตามจำนวนเที่ยว ไม่ใช่เวลาจริงของวันนี้', 'timetable as of ' + asof[1] + ' · planes are spaced evenly by each route\'s count, not at today\'s times')) +
     ' · <a href="' + LIVE + 'flights.html">' + bi('ใครบินมาที่นี่', 'Who flies here') + ' →</a></p>';
@@ -222,7 +302,9 @@ function boardHtml() {
   var next = function (side) { return FB.flights.filter(function (f) { return f[side + '_iata'] === 'CNX' || f[side + '_iata'] === 'CEI'; })
     .filter(function (f) { return tsOf(f, side) > n - 10 * 60e3 && !(side === 'dep' && (f.status === 'active' || f.status === 'landed')) && f.status !== 'landed'; })
     .sort(function (a, b) { return tsOf(a, side) - tsOf(b, side); }).slice(0, 4); };
-  h += '<p class="tline">' + bi('ในอากาศตอนนี้ ' + air.length + ' เที่ยว ขึ้นจากหรือลงที่เชียงใหม่และเชียงราย', 'In the air now: ' + air.length + ' flights to or from Chiang Mai and Chiang Rai') + '</p>';
+  var fd = fDay();
+  h += '<p class="tline">' + bi('ในอากาศ ' + air.length + ' ลำ · วันนี้ ' + fd.all + ' เที่ยวขึ้นลง' + (fd.due ? ' · ตรงเวลา ' + fd.ok + '% ช้า ' + fd.late + (fd.cx ? ' ยกเลิก ' + fd.cx : '') : '') + ' · คึกสุด ' + String(fd.busy).padStart(2, '0') + ':00',
+    air.length + ' in the air · ' + fd.all + ' in and out today' + (fd.due ? ' · ' + fd.ok + '% on time, ' + fd.late + ' late' + (fd.cx ? ', ' + fd.cx + ' cancelled' : '') : '') + ' · busiest ' + String(fd.busy).padStart(2, '0') + ':00') + '</p>';
   if (FPLANE) {
     var f = FPLANE, al = alName(f.airline_iata), A = placeOf(f.dep_iata), B = placeOf(f.arr_iata), st = stat(f);
     h += '<p class="tpick"><b>' + esc(f.flight_iata) + ' ' + bi(esc(al[0]), esc(al[1])) + '</b><br>' + bi(esc(A[0]) + ' → ' + esc(B[0]), esc(A[1]) + ' → ' + esc(B[1])) + ' · ' +
@@ -346,8 +428,26 @@ function drawRoads(k, T, t) {
     if (i % 6 === 0) { k.fillStyle = '#e6ecf5'; k.fillText(String(i).padStart(2, '0'), bx + bw / 2, T.H - 2); }
   });
 }
+/* the usual worst hour of today's waking hours, and the clearest, from TomTom's week */
+function roadsWorst() {
+  var w = null, b = null;
+  for (var hh = 6; hh <= 21; hh++) { var c = cong(Date.now(), hh); if (!c) return null; if (!w || c.c > w.c) w = c; if (!b || c.c < b.c) b = c; }
+  return { w: w, b: b };
+}
+function roadsCard() {
+  if (!RD) return;
+  var nw = cong(Date.now()), cs = [], wb = roadsWorst(), hh;
+  if (nw) for (hh = 0; hh < 24; hh++) cs.push(cong(Date.now(), hh).min - 9);
+  var ms = rnFresh() ? RN.roads.filter(function (x) { return x.ratio != null; }) : [], avg = ms.length ? ms.reduce(function (s2, x) { return s2 + x.ratio; }, 0) / ms.length : null;
+  var slow = ms.slice().sort(function (a, b) { return a.ratio - b.ratio; })[0];
+  MDNOW.card('roads', { l: ['ถนน', 'Roads'],
+    v: avg != null ? Math.round(avg * 100) + '<small>%</small>' : nw ? Math.round(nw.min) + '<small>' + bi('นาที', 'min') + '</small>' : n0(RD.roads[RD.roads.length - 1].motor),
+    s: wb ? ['ติดสุดราว ' + String(wb.w.h).padStart(2, '0') + ':00', 'worst ~' + String(wb.w.h).padStart(2, '0') + ':00'] : slow ? ['ช้าสุด ' + slow.cur + ' กม./ชม.', 'slowest ' + slow.cur + ' km/h'] : null,
+    g: cs.length ? spark(cs, { col: function (v, i) { var c = cong(Date.now(), i); return i === nw.h ? '#b0442e' : c.c >= 60 ? '#c2453a' : c.c >= 35 ? '#d98a2b' : '#4f9a5c'; } }) : '' });
+}
 function roadsCap() {
   if (!RD) return;
+  roadsCard();
   var top = RD.roads[RD.roads.length - 1], r = RPICK || top, yr = RD.year_be;
   var h = '<div class="tchips" role="group" aria-label="มุมมอง · view">' + [['city', 'ในเมือง', 'City'], ['prov', 'ทั้งจังหวัด', 'Province']].map(function (v) {
     return '<button type="button" class="tchip" data-rview="' + v[0] + '" aria-pressed="' + (RVIEW === v[0]) + '">' + bi(v[1], v[2]) + '</button>'; }).join('') +
@@ -370,8 +470,9 @@ function roadsCap() {
   }
   var nw = cong(Date.now());
   if (nw) {
-    h += '<p class="tline">' + bi('ปกติวัน' + DTH[nw.dow] + ' ' + String(nw.h).padStart(2, '0') + ':00 · ขับ 10 นาทีในเมืองใช้ราว ' + Math.round(nw.min) + ' นาที',
-      'Usually on ' + DEN[nw.dow] + ' at ' + String(nw.h).padStart(2, '0') + ':00 · a 10-minute drive in town takes about ' + Math.round(nw.min)) + '</p>';
+    var wb = roadsWorst(), hs = function (x) { return String(x.h).padStart(2, '0') + ':00'; };
+    h += '<p class="tline">' + bi('ขับ 10 นาทีในเมือง ปกติตอนนี้ใช้ ' + Math.round(nw.min) + ' นาที' + (wb ? ' · ติดสุด ' + hs(wb.w) + ' (' + Math.round(wb.w.min) + ') · โล่งสุด ' + hs(wb.b) + ' (' + Math.round(wb.b.min) + ')' : ''),
+      'A 10-minute drive in town: usually ' + Math.round(nw.min) + ' now' + (wb ? ' · worst ' + hs(wb.w) + ' (' + Math.round(wb.w.min) + ') · clearest ' + hs(wb.b) + ' (' + Math.round(wb.b.min) + ')' : '')) + '</p>';
     /* worth waiting? the next four waking hours, when one saves two minutes in ten */
     var best = null;
     for (var a = 1; a <= 4; a++) { var c2 = cong(Date.now() + a * 3600e3); if (c2.h >= 6 && c2.h <= 21 && (!best || c2.min < best.min)) best = c2; }
@@ -383,11 +484,12 @@ function roadsCap() {
         DEN[rh.dow] + ' ' + String(RHOUR).padStart(2, '0') + ':00 usually: a 10-minute drive takes about ' + Math.round(rh.min) + ' minutes (' + Math.round(rh.c) + '% over free flow)') + '</p>';
     }
   }
-  h += '<p class="tpick"><b>' + bi('ทางหลวง ' + esc(r.route), 'Route ' + esc(r.route)) + ' ' + esc(r.name) + '</b><br>' +
+  if (RPICK) h += '<p class="tpick"><b>' + bi('ทางหลวง ' + esc(r.route), 'Route ' + esc(r.route)) + ' ' + esc(r.name) + '</b><br>' +
     bi(n0(r.motor) + ' คันต่อวัน และรถจักรยานยนต์ ' + n0(r.moto) + ' คัน · รถหนัก ' + r.heavy + '% · ระดับ ' + (r.grade || '–'),
        n0(r.motor) + ' vehicles a day and ' + n0(r.moto) + ' motorcycles · ' + r.heavy + '% heavy · grade ' + (r.grade || '–')) +
     (RPICK ? '' : ' · ' + bi('ถนนที่รถมากที่สุด', 'the busiest')) +
-    (rnOf(r) ? '<br>' + bi('วัดเมื่อ ' + RN.generated.slice(11, 16) + ': ' + rnOf(r).cur + ' กม./ชม. (ถนนโล่ง ' + rnOf(r).free + ')', 'measured at ' + RN.generated.slice(11, 16) + ': ' + rnOf(r).cur + ' km/h (free flow ' + rnOf(r).free + ')') : '') + '</p>' + list;
+    (rnOf(r) ? '<br>' + bi('วัดเมื่อ ' + RN.generated.slice(11, 16) + ': ' + rnOf(r).cur + ' กม./ชม. (ถนนโล่ง ' + rnOf(r).free + ')', 'measured at ' + RN.generated.slice(11, 16) + ': ' + rnOf(r).cur + ' km/h (free flow ' + rnOf(r).free + ')') : '') + '</p>';
+  h += list;
   h += '<p class="tsrc">' + bi('จุดสี่เหลี่ยม = รถราว 2,000 คันต่อวัน จุดขาว = รถจักรยานยนต์ 2,000 คัน · ระดับ A คล่องตัวถึง F ติดขัด · วันเฉลี่ยของปี ' + yr + ' กรมทางหลวง',
     'square = about 2,000 vehicles a day, white dot = 2,000 motorcycles · grade A free-flowing to F jammed · an average day, ' + (yr - 543) + ', Department of Highways') + ' · ' + bi('เส้นสีหนา = ความเร็วที่ TomTom วัดได้ทุกครึ่งชั่วโมง เขียวโล่ง ส้มช้า แดงติด · แถบชั่วโมงจาก TomTom Traffic Index 2025', 'thick coloured lines = speed TomTom measures every half hour, green clear, orange slow, red jammed · hour bars from the TomTom Traffic Index 2025') + ' · ' + bi('แตะถนนเพื่อดูตัวเลข แตะแถบชั่วโมงเพื่อดูชั่วโมงนั้น', 'tap a road for its count, an hour bar for that hour') +
     ' · <a href="' + LIVE + 'traffic.html">' + bi('รถติด ทุกชั่วโมง ทุกถนน', 'Traffic by hour and road') + ' →</a></p>';
@@ -462,11 +564,17 @@ function drawFilms(k, T, t) {
 }
 function filmsCap() {
   if (!FM) return;
-  var nowS = hhmm(Date.now()), next = null, playing = 0;
-  FM.films.forEach(function (f) { f.shows.forEach(function (s) { var a = mins(s.tm); if (s.tm > nowS && (!next || s.tm < next.s.tm)) next = { f: f, s: s }; if (a <= mins(nowS) && mins(nowS) < a + f.min) playing++; }); });
+  var nowS = hhmm(Date.now()), next = null, playing = 0, left = 0, last = '', per = [], hr = +nowS.slice(0, 2), i;
+  for (i = 10; i <= 24; i++) per.push(0);
+  FM.films.forEach(function (f) { f.shows.forEach(function (s) {
+    var a = mins(s.tm); per[Math.max(0, Math.min(14, Math.floor(a / 60) - 10))]++;
+    if (s.tm > nowS) { left++; if (s.tm > last) last = s.tm; if (!next || s.tm < next.s.tm) next = { f: f, s: s }; }
+    if (a <= mins(nowS) && mins(nowS) < a + f.min) playing++; }); });
+  MDNOW.card('films', { l: ['หนัง', 'Films'], v: next ? next.s.tm : FM.films.length + '<small>' + bi('เรื่อง', 'films') + '</small>',
+    s: ['ฉายอยู่ ' + playing + ' · เหลือ ' + left + ' รอบ', playing + ' on · ' + left + ' left'], g: spark(per, { hi: hr - 10 }) });
   var pk = FPICK || next, P = PROV === 'cr' ? ['เชียงราย', 'Chiang Rai'] : ['เชียงใหม่', 'Chiang Mai'];
-  var h = '<p class="tline">' + bi(FM.films.length + ' เรื่อง ' + FM.cines.length + ' โรงใน' + P[0] + ' วันนี้ · กำลังฉาย ' + playing + ' รอบ',
-    FM.films.length + ' films at ' + FM.cines.length + ' cinemas in ' + P[1] + ' today · ' + playing + ' showing now') + '</p>';
+  var h = '<p class="tline">' + bi(FM.films.length + ' เรื่อง ' + FM.cines.length + ' โรงใน' + P[0] + ' · ฉายอยู่ ' + playing + ' · เหลือ ' + left + ' รอบ' + (last ? ' รอบสุดท้าย ' + last : ''),
+    FM.films.length + ' films, ' + FM.cines.length + ' cinemas in ' + P[1] + ' · ' + playing + ' on now · ' + left + ' left' + (last ? ', last at ' + last : '')) + '</p>';
   if (pk) h += '<p class="tpick"><b>' + (FPICK ? '' : bi('รอบต่อไป ', 'Next: ')) + pk.s.tm + ' ' + (pk.f.en ? bi(esc(pk.f.title), esc(pk.f.en)) : esc(pk.f.title)) + '</b><br>' +
     bi(pk.f.min + ' นาที · ' + esc(pk.s.c.th), pk.f.min + ' min · ' + esc(pk.s.c.en)) + ' · <a href="' + esc(pk.s.c.url) + '" rel="noopener">' + bi('ดูรอบที่เมเจอร์', 'times at Major') + ' →</a></p>';
   else h += '<p class="tpick">' + bi('วันนี้ไม่มีรอบเหลือแล้ว', 'No more shows today') + '</p>';
@@ -517,10 +625,28 @@ function lottoPrep(d) {
   LT = { d: D, first: P.first.numbers[0], rows: ['front3', 'back3', 'last2'].filter(function (k) { return P[k]; }).map(function (k) {
     var p = P[k]; return { th: p.th, en: p.en, numbers: p.numbers, baht: p.amount_baht }; }) };
 }
+/* the next draw after the one held: the 1st and the 16th, with the GLO's standing moves (the 1 January draw on
+   30 December, 16 January on the 17th, 1 May on the 2nd); a one-off move shows when lottery.json next updates */
+function nextDraw(after) {
+  var y = +after.slice(0, 4), m = +after.slice(5, 7) - 1, c = [], k;
+  for (k = 0; k < 3; k++) {
+    var yy = y + Math.floor((m + k) / 12), mm = (m + k) % 12;
+    c.push(mm === 0 ? [yy - 1, 11, 30] : mm === 4 ? [yy, 4, 2] : [yy, mm, 1], mm === 0 ? [yy, 0, 17] : [yy, mm, 16]);
+  }
+  return c.map(function (x) { return x[0] + '-' + String(x[1] + 1).padStart(2, '0') + '-' + String(x[2]).padStart(2, '0'); }).sort().filter(function (d) { return d > after; })[0];
+}
+function lottoCard() {
+  var nd = nextDraw(LT.d.date), days = Math.round((Date.parse(nd + 'T12:00:00Z') - Date.parse(ymd(Date.now()) + 'T12:00:00Z')) / 864e5), ds = dayStr(nd);
+  var g = '<svg viewBox="0 0 100 22" aria-hidden="true">' + LT.first.split('').map(function (dg, i) { return '<circle cx="' + (9 + i * 16.4) + '" cy="11" r="7.5" fill="' + BALL[+dg] + '"/><text x="' + (9 + i * 16.4) + '" y="14.5" font-size="10" font-weight="800" text-anchor="middle" fill="#2b2116">' + dg + '</text>'; }).join('') + '</svg>';
+  MDNOW.card('lotto', { l: ['สลาก', 'Lottery'], v: LT.first.slice(-2) + '<small>' + bi('2 ตัว', 'last 2') + '</small>',
+    s: days >= 0 ? ['งวดหน้า ' + ds[0] + (days ? ' อีก ' + days + ' วัน' : ' วันนี้'), 'next ' + ds[1] + (days ? ' · ' + days + ' d' : ' · today')] : null, g: g });
+  return [nd, ds, days];
+}
 function lottoCap() {
   if (!LT) return;
+  var nx = lottoCard();
   var d = dayStr(LT.d.date), f = LT.d.prizes.filter(function (p) { return p.id === 'first'; })[0];
-  var h = '<p class="tline">' + bi('สลากกินแบ่งรัฐบาล งวด ' + d[0] + ' ' + LT.d.be_year, 'Thai government lottery, ' + d[1] + ' draw') + '</p>' +
+  var h = '<p class="tline">' + bi('สลากกินแบ่งรัฐบาล งวด ' + d[0] + ' ' + LT.d.be_year + ' · งวดหน้า ' + nx[1][0], 'Thai government lottery, ' + d[1] + ' draw · next ' + nx[1][1]) + '</p>' +
     '<p class="tpick"><b>' + bi('รางวัลที่ 1 ' + LT.first, 'First prize ' + LT.first) + '</b> · ' + bi(n0(f.amount_baht) + ' บาท', '฿' + n0(f.amount_baht)) + '<br>' +
     LT.rows.map(function (r) { return bi(esc(r.th) + ' ' + r.numbers.join(' '), esc(r.en) + ' ' + r.numbers.join(' ')); }).join(' · ') + '</p>' +
     '<p class="tsrc">' + bi('ผลตามประกาศของสำนักงานสลากกินแบ่งรัฐบาล', 'as announced by the Government Lottery Office') + ' · <a href="' + LIVE + 'lottery.html">' + bi('ทุกรางวัล และตรวจสลากของคุณ', 'Every prize, and check your ticket') + ' →</a></p>';
@@ -530,7 +656,8 @@ function lottoCap() {
 /* ======================================================================== wiring */
 var FLIGHTS = tile('t-flights', drawFlights, flightsTap), ROADS = tile('t-roads', drawRoads, roadsTap),
     FILMS = tile('t-films', drawFilms, filmsTap), LOTTO = tile('t-lotto', drawLotto);
-function hide(id) { var b = $(id); if (b) b.hidden = true; }
+TILE = { flights: FLIGHTS, roads: ROADS, films: FILMS, lotto: LOTTO };
+function hide(id) { var b = $(id); if (b) b.hidden = true; var k = b && b.dataset.k; if (k) MDNOW.card(k, null); }
 j(LIVE + 'front/flights.json').then(function (d) {
   flightsPrep(d); flightsCap(); if (FLIGHTS) FLIGHTS.paint();
   j(LIVE + 'data/flightboard.json').then(function (b) { FB = b; flightsCap(); if (FLIGHTS) FLIGHTS.paint(); }, function () { });

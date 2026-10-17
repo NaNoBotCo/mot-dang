@@ -36,6 +36,8 @@ REPO = HERE.parent
 PROJECTS = REPO.parent
 SEARCHCORE = PROJECTS / "search-core"
 SEGDICT = REPO / "docs" / "data" / "search_segdict.txt"
+if not SEGDICT.exists():            # docs/ is wiped for a build; the file build.py copies there lives in data/
+    SEGDICT = REPO / "data" / "search_segdict.txt"
 OUT_DIR = REPO / "cache" / "fleetsearch"
 OUT = OUT_DIR / "pages.jsonl"
 
@@ -1109,6 +1111,93 @@ def extra_rows(fetch: bool = True):
     return rows
 
 
+# What a person's own page is called in the index, Thai first. A page found by
+# "ร้านอาหาร" or by "restaurant" is a page of kind food whether or not it uses
+# either word.
+OWN_KINDS = {
+    "shop": ("ร้านค้า", "Shop", "ร้านค้า ร้าน ขายของ", "shop store"),
+    "food": ("ร้านอาหาร", "Food", "ร้านอาหาร อาหาร ของกิน", "food restaurant eatery"),
+    "service": ("บริการ", "Service", "บริการ ช่าง รับงาน", "service"),
+    "stay": ("ที่พัก", "Stay", "ที่พัก โรงแรม เกสต์เฮาส์ โฮสเทล", "stay hotel guesthouse hostel"),
+    "homes": ("บ้านและที่ดิน", "Homes", "บ้าน ที่ดิน ขาย เช่า นายหน้า", "homes house land sale rent agent"),
+    "me": ("หน้าส่วนตัว", "Personal page", "หน้าส่วนตัว เกี่ยวกับฉัน", "personal page about me"),
+    "event": ("งาน", "Event", "งาน กิจกรรม", "event"),
+    "group": ("กลุ่ม", "Group", "กลุ่ม ชุมชน", "group community"),
+}
+OWN_SITE = "sites"
+OWN_FEED_CACHE = OUT_DIR / "own_pages_feed.json"
+
+
+def own_row(p: dict):
+    """One page of the page maker (sites.motdang.net) as an index row, or None.
+
+    Everything textual goes into the body - tagline, about, address, each menu
+    item with its price, the kind in both languages - so a word on the page
+    finds the page. The pin goes in lat/lon, the cover (small copy) is the
+    picture, the ways to reach it are counted, and hours and an event date are
+    kept in the shapes the Worker reads."""
+    import own_pages as op
+    url = p.get("url") or ""
+    title = clean(str(p.get("title") or ""))
+    if not (url.startswith(op.PAGES_HOST) and title):
+        return None
+    kind = p.get("kind") if p.get("kind") in OWN_KINDS else "shop"
+    kth, ken, wth, wen = OWN_KINDS[kind]
+    tag, about, addr = (clean(str(p.get(k) or "")) for k in ("tagline", "about", "addr"))
+    facts = op.facts_of(p)
+    items = " ".join(" ".join(x for x in (i.get("n"), i.get("p"), i.get("note")) if x)
+                     for i in facts.get("items", []))
+    abstract = tag or about
+    if len(abstract) > ABSTRACT_CAP:
+        abstract = abstract[:ABSTRACT_CAP].rsplit(" ", 1)[0] + "…"
+    body = " ".join(x for x in (title, tag, about, addr, items, wth, wen,
+                                "หน้าของร้านเอง own page", p.get("cc") or "") if x)[:BODY_CAP]
+    ways = [w for w, k in (("phone", "phone"), ("line", "line"), ("facebook", "facebook"),
+                           ("instagram", "instagram"), ("web", "web")) if facts.get(k)]
+    ways.sort(key=WAYS.index)
+    rich: dict = {}
+    if ways:
+        rich["ways"] = ways
+    sched = op.sched_of(p.get("hours"))
+    if sched:
+        rich["sched"] = sched
+    ev = p.get("event")
+    if isinstance(ev, dict) and re.match(r"\d{4}-\d{2}-\d{2}", str(ev.get("start") or "")):
+        rich["ev"] = [{"d": ev["start"][:10], "t": title[:80]}]
+    lat, lon = p.get("lat"), p.get("lng")
+    pin = isinstance(lat, (int, float)) and isinstance(lon, (int, float))
+    cover = str(p.get("cover") or "")
+    img = next((ph.get("small") for ph in facts.get("photos", []) if ph.get("url") == cover and ph.get("small")), cover)
+    return {
+        "site": OWN_SITE, "host": url.split("/")[2], "url": url,
+        "title": title[:300], "abstract": abstract,
+        "lang": str(p.get("lang") or "th")[:5],
+        "lat": float(lat) if pin else None, "lon": float(lon) if pin else None,
+        "lastmod": (str(p.get("updated") or p.get("published") or "")[:10]
+                    or datetime.now(timezone.utc).strftime("%Y-%m-%d")),
+        "kb": 4, "kind": "place" if kind in ("shop", "food", "service", "stay", "homes") else "page", "items": 0,
+        "crumbs": [[kth, None, ken]], "img": img if img.startswith("https://") else "",
+        "rich": rich, "title_s": tokenise(title)[:300], "body_s": tokenise(body),
+        "url_s": url.split("//", 1)[-1],
+    }
+
+
+def own_rows(fetch: bool = True, fixture=None):
+    """Rows for the pages made with the page maker, from its public feed
+    (sites.motdang.net/feed.json). A feed that does not answer falls back to
+    the last good copy in cache/fleetsearch/; with neither, no rows."""
+    sys.path.insert(0, str(REPO / "importers"))
+    import own_pages as op
+    doc, via = op.fetch_feed(cache=OWN_FEED_CACHE, fixture=fixture, offline=not fetch, timeout=FETCH_TIMEOUT)
+    if doc is None:
+        print("  own pages: the feed did not answer and no copy is cached; none indexed", file=sys.stderr)
+        return []
+    if via == "cache":
+        print("  own pages: the feed did not answer; the cached copy stands in", file=sys.stderr)
+    rows = [r for r in (own_row(p) for p in op._pages_of(doc)) if r]
+    return rows
+
+
 def _same_name(a: str, b: str) -> bool:
     """Two titles that name the same page: equal once the shared tail after
     the last " — " is set aside, or sharing most of their words."""
@@ -1171,6 +1260,7 @@ def main(argv=None):
     ap.add_argument("--out", default=str(OUT))
     ap.add_argument("--jobs", type=int, default=max(2, (os.cpu_count() or 4) - 2))
     ap.add_argument("--no-fetch", action="store_true", help="extra pages from their listed text only")
+    ap.add_argument("--own-fixture", help="read the own-pages feed from this file")
     a = ap.parse_args(argv)
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -1214,6 +1304,15 @@ def main(argv=None):
                 n += 1
             totals["extra"] = (kept, kept)
             print(f"  {'extra':20} {kept:7} rows", file=sys.stderr)
+        # PEOPLE'S OWN PAGES - sites.motdang.net, the page maker's public feed.
+        if not a.site or OWN_SITE in a.site:
+            kept = 0
+            for row in own_rows(fetch=not a.no_fetch, fixture=a.own_fixture):
+                out.write(json.dumps(row, ensure_ascii=False) + "\n")
+                kept += 1
+                n += 1
+            totals[OWN_SITE] = (kept, kept)
+            print(f"  {OWN_SITE:20} {kept:7} rows", file=sys.stderr)
     dd = dedupe(raw_out, Path(a.out))
     raw_out.unlink()
     n = dd["rows"]

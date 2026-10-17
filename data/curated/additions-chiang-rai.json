@@ -4582,5 +4582,197 @@
   ],
   "confidence": "field",
   "updatedAt": "2026-10-09"
+ },
+ {
+  "id": "cr-curated-khao-raem-foen-pa-nang",
+  "province": "cr",
+  "cat": [
+   "food"
+  ],
+  "sub": [
+   "northern",
+   "myanmar"
+  ],
+  "name": "ข้าวแรมฟืนป้านาง",
+  "nameTh": "ข้าวแรมฟืนป้านาง",
+  "nameEn": "Khao Raem Foen Pa Nang",
+  "lat": 20.429487,
+  "lng": 99.887578,
+  "geoPrecision": "approx",
+  "address": "Ban Phet Yon, Tambon Wiang Phang Kham, Amphoe Mae Sai, Chiang Rai 57130 (plus code CVHQ+Q2W)",
+  "phone": "053 642 681",
+  "website": null,
+  "hours": "Daily 08:00-16:00 (Facebook)",
+  "attrs": {
+   "kind": "Shan khao raem foen (rice-bean cake) and khao soi, 30+ years in Mae Sai.",
+   "kindTh": "ข้าวแรมฟืนและข้าวซอยมะเขือเทศแบบไทใหญ่ ขายมากว่า 30 ปี ในแม่สาย",
+   "amphoe": "แม่สาย",
+   "pinNote": "Google plus code CVHQ+Q2W from the Google panel, decoded"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.google.com/search?q=ข้าวแรมฟืนป้านาง+แม่สาย",
+    "fetched": "2026-10-11",
+    "note": "Google panel: 4.5 (130), phone; Facebook page: daily 8-4, 053-642-681; Wongnai 3.7 (12); OpenRice 2013 (a Google results page; the listing behind it was read as a snippet)"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-10-11"
+ },
+ {
+  "id": "cr-curated-phuen-khao-mae-sai",
+  "province": "cr",
+  "cat": [
+   "food"
+  ],
+  "sub": [
+   "northern",
+   "myanmar"
+  ],
+  "name": "เผินข้าว แม่สาย",
+  "nameTh": "เผินข้าว แม่สาย",
+  "nameEn": "Phuen Khao Mae Sai",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin",
+  "address": "Mae Sai, Chiang Rai (street address not read)",
+  "phone": "080 632 5755",
+  "website": null,
+  "hours": "Opens 10:00 (per Wongnai)",
+  "attrs": {
+   "kind": "Shan (eastern Shan State) restaurant: moo oop, tea leaf salad, stir-fried long beans, mixed vegetable curry.",
+   "kindTh": "ร้านอาหารไทใหญ่จากรัฐฉานตะวันออก: หมูอุ๊บ ยำใบชา แกงผักรวม",
+   "amphoe": "แม่สาย"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.google.com/search?q=เผินข้าว+แม่สาย+ร้านอาหารไทใหญ่+รัฐฉาน",
+    "fetched": "2026-10-11",
+    "note": "Facebook page (2.4K followers, posts from June 2025), Wongnai, Trip.com post 29 Oct 2025 (a Google results page; the listing behind it was read as a snippet)"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-10-11"
+ },
+ {
+  "id": "cr-curated-khao-soi-noi-pa-pang-doi-tung",
+  "province": "cr",
+  "cat": [
+   "food"
+  ],
+  "sub": [
+   "northern",
+   "myanmar"
+  ],
+  "name": "ข้าวซอยน้อยพิซซ่าไทยใหญ่ By.ป้าแปง (เจ้าเก่า)",
+  "nameTh": "ข้าวซอยน้อยพิซซ่าไทยใหญ่ By.ป้าแปง (เจ้าเก่า)",
+  "nameEn": "Khao Soi Noi 'Tai Yai pizza' Pa Pang (original)",
+  "lat": 20.267512,
+  "lng": 99.833734,
+  "geoPrecision": "approx",
+  "address": "Plus code 7R9M+2F5, Tambon Mae Fah Luang, Amphoe Mae Fah Luang, Chiang Rai 57240",
+  "phone": "063 756 0285",
+  "website": null,
+  "hours": "Daily 08:00-16:00 (some sources 07:00-17:00)",
+  "attrs": {
+   "kind": "Khao soi noi (steamed rice-flour sheet with filling) on the old road toward Doi Tung.",
+   "kindTh": "ข้าวซอยน้อย (พิซซ่าไทยใหญ่) ทางก่อนขึ้นพระธาตุดอยตุง",
+   "amphoe": "แม่ฟ้าหลวง",
+   "pinNote": "Google plus code 7R9M+2F5 from a Google overview, decoded"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.google.com/search?q=ข้าวซอยน้อยพิซซ่าไทยใหญ่+ป้าแปง+แม่ฟ้าหลวง",
+    "fetched": "2026-10-11",
+    "note": "Google overview with address/phone/hours; Wongnai 'ข้าวซอยป้าแปง' 4.2 (4); Facebook post (a Google results page; the listing behind it was read as a snippet)"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-10-11"
+ },
+ {
+  "id": "cr-curated-thai-yai-restaurant-wat-huai-kiang",
+  "province": "cr",
+  "cat": [
+   "food"
+  ],
+  "sub": [
+   "northern",
+   "myanmar"
+  ],
+  "name": "ร้านอาหารไทใหญ่ หน้าวัดห้วยเกี๋ยง",
+  "nameTh": "ร้านอาหารไทใหญ่ หน้าวัดห้วยเกี๋ยง",
+  "nameEn": "Tai Yai restaurant in front of Wat Huai Kiang",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin",
+  "address": "1290 Tambon Wiang, Amphoe Chiang Saen, Chiang Rai 57150",
+  "phone": "080 033 9794",
+  "website": null,
+  "hours": "Open until 18:30 (full week not read)",
+  "attrs": {
+   "kind": "Tai Yai restaurant in front of Wat Huai Kiang, Chiang Saen.",
+   "kindTh": "ร้านอาหารไทใหญ่หน้าวัดห้วยเกี๋ยง เชียงแสน",
+   "amphoe": "เชียงแสน"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.google.com/search?q=ร้านอาหารไทใหญ่+เชียงราย",
+    "fetched": "2026-10-11",
+    "note": "Google panel: 4.5 (15), address, phone (a Google results page; the listing behind it was read as a snippet)"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-10-11"
+ },
+ {
+  "id": "cr-curated-papa-joe-chiang-rai",
+  "province": "cr",
+  "cat": [
+   "food"
+  ],
+  "sub": [
+   "international",
+   "myanmar"
+  ],
+  "name": "PAPA JOE - Food & Drinks",
+  "nameTh": null,
+  "nameEn": "PAPA JOE - Food & Drinks",
+  "lat": null,
+  "lng": null,
+  "geoPrecision": "needs-pin",
+  "address": "643 Moo 1, road beside Mae Fah Luang University, Mueang Chiang Rai 57100",
+  "phone": null,
+  "website": null,
+  "hours": "10:00-21:00, closed Monday (ZoftConnect article)",
+  "attrs": {
+   "kind": "Myanmar restaurant near Mae Fah Luang University, Chiang Rai city.",
+   "kindTh": "ร้านอาหารพม่า ใกล้มหาวิทยาลัยแม่ฟ้าหลวง ตัวเมืองเชียงราย",
+   "amphoe": "เมืองเชียงราย"
+  },
+  "featured": false,
+  "landmark": false,
+  "sources": [
+   {
+    "type": "web",
+    "ref": "https://www.google.com/search?q=PaPa+Joe+Food+&+Drink+Chiang+Rai+Burmese+restaurant+Mae+Fah+Luang",
+    "fetched": "2026-10-11",
+    "note": "Facebook PAPA JOE - Food & Drinks (516 followers: 'Myanmar Restaurant near Mae Fah Luang Uni'); ZoftConnect POS blog: address and hours (a Google results page; the listing behind it was read as a snippet)"
+   }
+  ],
+  "confidence": "curated",
+  "updatedAt": "2026-10-11"
  }
 ]

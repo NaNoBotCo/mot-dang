@@ -665,6 +665,123 @@ def apply_parking_locators(records, prov):
     return done
 
 
+# Provinces crawled beyond the first two: Pathum Thani (Nan 2026-10-12). Each
+# is merged by finish_crawled() and written to data/canonical/ only once its
+# data/coverage.json entry carries "release": true; until then to
+# cache/staging/, where nothing the build reads will find it.
+CRAWLED = {"pth"}
+
+
+def extract_records(prov):
+    """A province answered from a Geofabrik extract (importers/osm_extract.py):
+    the crawl groups through import_overpass, restamped with the extract's
+    date, and the wats from wats.extra — CM and CR take their wats from
+    mueang-map, which has no Pathum Thani."""
+    import import_overpass
+    cache = ROOT / "cache" / "overpass" / prov
+    meta = cache / "EXTRACT"
+    if not meta.exists():
+        return import_overpass.records(prov)
+    fname, stamp, _ = (meta.read_text().strip().split("\t") + ["", ""])[:3]
+    day = stamp[:10] or __import__("datetime").date.today().isoformat()
+    out = import_overpass.records(prov)
+    for r in out:
+        for src in r.get("sources") or []:
+            if src.get("via") == "mot-dang overpass":
+                src["fetched"] = day
+                src["via"] = f"geofabrik {fname}"
+    wats = cache / "wats.extra"
+    if wats.exists():
+        for el in json.loads(wats.read_text()).get("elements", []):
+            t = el.get("tags", {})
+            name = t.get("name") or t.get("name:th")
+            if not name:
+                continue
+            c = el.get("center") or el
+            ref = f"{el['type']}/{el['id']}"
+            out.append(rec(
+                id=f"{prov}-osm-{el['type']}-{el['id']}", province=prov, cat=["wat"],
+                name=name, name_th=t.get("name:th"), name_en=t.get("name:en"),
+                lat=c.get("lat"), lng=c.get("lon"),
+                address=" ".join(x for x in (t.get("addr:housenumber"), t.get("addr:street"),
+                                             t.get("addr:subdistrict"), t.get("addr:district"))
+                                 if x) or None,
+                phone=t.get("phone") or t.get("contact:phone"),
+                website=t.get("website") or t.get("contact:website"),
+                attrs={"lens": ["wat"]},
+                sources=[{"type": "osm", "ref": ref, "fetched": day,
+                          "via": f"geofabrik {fname}"}]))
+    return out
+
+
+def finish_crawled(prov, records, outdir, entry):
+    """A crawled province that has no registers yet: the tier merge, facets,
+    the hand-kept passes and derive. The cm/cr registers (schools, condos,
+    Overture, open data) are keyed to those two and are not run."""
+    import sys as _sys
+    if str(ROOT) not in _sys.path:
+        _sys.path.insert(0, str(ROOT))
+    import facts as _facts
+    import import_fixtures
+    tier = {"third-party": -1, "crawled": 0, "official": 1, "curated": 2, "field": 3}
+    by_id = {}
+    for r in sorted(records, key=lambda r: tier[r.get("confidence", "curated")]):
+        r.setdefault("sub", [])
+        r.setdefault("attrs", {})
+        ex = by_id.get(r["id"])
+        if ex:
+            r["cat"] = sorted(set(ex["cat"]) | set(r["cat"]))
+            r["sub"] = sorted(set(ex.get("sub", [])) | set(r.get("sub", [])))
+            for k in ("phone", "website", "hours", "address"):
+                r[k] = r.get(k) or ex.get(k)
+            r["attrs"] = {**ex.get("attrs", {}), **r.get("attrs", {})}
+        by_id[r["id"]] = r
+    final = sorted(by_id.values(), key=lambda r: r["id"])
+    # A shelf the site does not have (the extract answers groups CM and CR
+    # never asked, `reading` → "read") is taken off; a record left with none
+    # is not written. build.py has no page for either.
+    shelves = {c["key"] for c in json.loads(
+        (ROOT / "data" / "categories.json").read_text())["categories"]}
+    dropped = {}
+    for r in final:
+        for c in r["cat"]:
+            if c not in shelves:
+                dropped[c] = dropped.get(c, 0) + 1
+        r["cat"] = [c for c in r["cat"] if c in shelves]
+    final = [r for r in final if r["cat"]]
+    if dropped:
+        print(f"{prov}: shelves the site does not have, taken off: "
+              + ", ".join(f"{k} {v}" for k, v in sorted(dropped.items())))
+    import_fixtures.apply(final, prov)
+    apply_curated_names(final)
+    apply_curated_story_hooks(final)
+    _facts.apply(final, _facts.load_all(ROOT / "data" / "curated"))
+    apply_curated_pins(final)
+    apply_curated_shelves(final)
+    apply_curated_retags(final)
+    apply_curated_status(final)
+    final, _ = apply_curated_merges(final)
+    import derive as _derive
+    _derive.TODAY = __import__("datetime").date.today().isoformat()
+    counts = {}
+    for name, fn in _derive.PASSES:
+        try:
+            fn(final, prov, counts)
+        except Exception as e:  # a pass keyed to cm/cr; the record keeps its field empty
+            print(f"{prov}: derive {name} skipped ({type(e).__name__}: {e})")
+    if entry.get("release"):
+        f = outdir / f"{prov}.json"
+    else:
+        f = ROOT / "cache" / "staging" / f"{prov}.json"
+        f.parent.mkdir(parents=True, exist_ok=True)
+        stale = outdir / f"{prov}.json"
+        if stale.exists():
+            stale.unlink()
+    f.write_text(json.dumps(final, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"{prov}: {len(final)} records → {f.relative_to(ROOT)}"
+          f"{'' if entry.get('release') else ' (staged, not released)'}")
+
+
 def write_passive(outdir, passive, coverage):
     """The provinces we do not crawl, one canonical file each, only while it
     holds a record: build.py gives a province its pages when its file is
@@ -674,7 +791,7 @@ def write_passive(outdir, passive, coverage):
     if str(ROOT) not in _sys.path:
         _sys.path.insert(0, str(ROOT))
     import facts as _facts
-    for pk in sorted(coverage - {"cm", "cr"}):
+    for pk in sorted(coverage - {"cm", "cr"} - CRAWLED):
         f = outdir / f"{pk}.json"
         records = passive.get(pk)
         if not records:
@@ -766,12 +883,19 @@ def main():
     north_file = ROOT / "data" / "curated" / "additions-north.json"
     north = json.loads(north_file.read_text()) if north_file.exists() else []
     passive = {}
+    crawled = {pk: [] for pk in CRAWLED}
+    for pk in CRAWLED:
+        crawled[pk] += extract_records(pk)
+        # the state's health facilities and schools, as for cm/cr above
+        crawled[pk] += [r for r in moph + obec if r["province"] == pk]
     for r in north:
         pk = r.get("province")
         if pk == "cm":
             cm.append(r)
         elif pk == "cr":
             cr.append(r)
+        elif pk in crawled:
+            crawled[pk].append(r)
         elif pk in coverage and r.get("id", "").startswith(pk + "-"):
             passive.setdefault(pk, []).append(r)
         else:
@@ -781,6 +905,10 @@ def main():
     outdir = ROOT / "data" / "canonical"
     outdir.mkdir(parents=True, exist_ok=True)
     write_passive(outdir, passive, coverage)
+    entries = {p["key"]: p for p in json.loads(
+        (ROOT / "data" / "coverage.json").read_text())["provinces"]}
+    for pk, records in sorted(crawled.items()):
+        finish_crawled(pk, records, outdir, entries.get(pk, {}))
     for prov, records in (("cm", cm), ("cr", cr)):
         # field/curated truth wins over crawled truth; same place from two
         # sources keeps the stronger record and unions its shelves
@@ -832,6 +960,17 @@ def main():
             print(f"{prov}: {c_stamped} condo(s) stamped from the Treasury "
                   f"register, {len(c_unmapped)} registered but not held")
             final = sorted(final + c_unmapped, key=lambda r: r["id"])
+        # People's own pages (sites.motdang.net, importers/own_pages.py), before
+        # Overture because a place's own words are the first witness: the facts
+        # a page states fill what the record lacks, never over a value it has,
+        # each with its receipt. A page with a pin and no record is only a
+        # proposal in data/curated/own_pages.json until its entry says admit.
+        import own_pages
+        op_filled, op_new = own_pages.apply(final, prov)
+        if op_filled or op_new:
+            print(f"{prov}: {op_filled} record(s) gained facts from their own page, "
+                  f"{len(op_new)} page(s) admitted as a place")
+            final = sorted(final + op_new, key=lambda r: r["id"])
         # Overture Places, on the merged list and for the same reason the two
         # registers above are: it joins by name and proximity, so it has to see
         # everything we hold before it decides a place is missing. Two jobs in

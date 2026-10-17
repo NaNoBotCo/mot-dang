@@ -160,6 +160,8 @@ def remote_small(url: str) -> str:
         return (f"https://upload.wikimedia.org/wikipedia/commons/thumb/{m.group(1)}/{m.group(2)}/{f}/330px-{f}")
     if url.startswith("https://upload.wikimedia.org/wikipedia/commons/thumb/"):
         return url
+    if url.startswith("https://sites.motdang.net/img/"):     # the page maker's own pictures: ours, already small
+        return url
     return ""
 
 

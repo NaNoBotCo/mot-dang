@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="th" data-root="../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ที่จอดรถ · Parking — มดแดง</title>
+<meta name="description" content="ที่จอดรถในเชียงใหม่ เชียงราย ปทุมธานี: มีหลังคาไหม เปิด ๒๔ ชม.ไหม เสียเงินไหม เต็มไหมตอนนี้ และจำที่จอดรถของคุณ · Parking in Chiang Mai, Chiang Rai and Pathum Thani: covered, 24 hours, fee, full now, and where you left your bike.">
+<link rel="canonical" href="https://motdang.net/parking/">
+<link rel="icon" href="icon.svg">
+<meta property="og:title" content="ที่จอดรถ · Parking — มดแดง">
+<meta property="og:description" content="Where to park, whether it is full, and where you left your bike.">
+<meta property="og:url" content="https://motdang.net/parking/">
+<meta property="og:image" content="https://motdang.net/parking/card.jpg">
+<meta property="og:image:alt" content="A yellow P on red: ที่จอดรถ · Parking — full now, covered, where did I leave my bike">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#B3261E">
+<link rel="stylesheet" href="parking.css">
+<link rel="stylesheet" href="../vendor/maplibre-gl.css">
+<script src="../vendor/pmtiles.js" defer></script>
+<script src="../vendor/maplibre-gl.js" defer></script>
+<script src="../map.js" defer></script>
+<script src="parking.js" defer></script>
+</head>
+<body>
+<header class="pk-top">
+  <a class="pk-home" href="../" aria-label="มดแดง motdang.net"><svg class="ic" viewBox="0 0 24 24"><use href="../icons.svg#i-ant-solid"/></svg></a>
+  <h1><span class="th">ที่จอดรถ</span><span class="en">Parking</span></h1>
+  <button class="pk-lang" id="lang" type="button">EN</button>
+</header>
+
+<main>
+  <section class="pk-mine" id="mine" aria-live="polite"></section>
+
+  <section class="pk-map-wrap">
+    <div id="pkmap" class="mdmap pk-map" data-mdmap="1" data-mdfull="1" data-lat="18.78760" data-lng="98.99310" data-zoom="15"><div class="mdmap-draw"></div></div>
+    <button class="pk-near" id="near" type="button"><svg class="ic" viewBox="0 0 24 24"><use href="../icons.svg#i-here"/></svg><span data-th="ใกล้ฉัน" data-en="Near me">ใกล้ฉัน</span></button>
+  </section>
+
+  <nav class="pk-veh" id="veh" aria-label="vehicle">
+    <button type="button" data-v="m" aria-pressed="true"><svg class="ic" viewBox="0 0 24 24"><use href="../icons.svg#i-scooter"/></svg><span data-th="มอเตอร์ไซค์" data-en="Motorbike">มอเตอร์ไซค์</span></button>
+    <button type="button" data-v="b" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24"><use href="../icons.svg#i-scooter"/></svg><span data-th="บิ๊กไบค์" data-en="Big bike">บิ๊กไบค์</span></button>
+    <button type="button" data-v="c" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24"><use href="../icons.svg#i-ride"/></svg><span data-th="รถยนต์" data-en="Car">รถยนต์</span></button>
+  </nav>
+  <nav class="pk-chips" id="chips" aria-label="filters">
+    <button type="button" data-f="space" aria-pressed="false" data-th="ยังมีที่" data-en="Space now">ยังมีที่</button>
+    <button type="button" data-f="cov" aria-pressed="false" data-th="มีหลังคา" data-en="Covered">มีหลังคา</button>
+    <button type="button" data-f="h24" aria-pressed="false" data-th="๒๔ ชม." data-en="24 h">๒๔ ชม.</button>
+    <button type="button" data-f="free" aria-pressed="false" data-th="ฟรี" data-en="Free">ฟรี</button>
+    <button type="button" data-f="off" aria-pressed="false" data-th="นอกถนน" data-en="Off-street">นอกถนน</button>
+    <button type="button" data-f="gue" aria-pressed="false" data-th="ไม่มีป้าย" data-en="No sign">ไม่มีป้าย</button>
+  </nav>
+
+  <p class="pk-from" id="from"></p>
+  <ol class="pk-list" id="list"></ol>
+  <button class="pk-more" id="more" type="button" hidden data-th="ดูเพิ่ม" data-en="More">ดูเพิ่ม</button>
+
+  <section class="pk-kerb" id="kerb">
+    <h2><span class="th">อ่านขอบถนน</span><span class="en">Read the kerb</span></h2>
+    <ul id="kerblist"></ul>
+  </section>
+
+  <section class="pk-hist" id="hist" hidden>
+    <h2><span class="th">จอดไว้ที่ไหนบ้าง</span><span class="en">Where you parked</span></h2>
+    <ol id="histlist"></ol>
+  </section>
+
+  <footer class="pk-foot">
+    <p><span class="th">ข้อมูลจาก OpenStreetMap (ODbL), สมุดรายชื่อมดแดง, รถที่เห็นจอดระหว่างขี่ และคนที่กดบอก "เต็ม" "ยังมีที่" คำว่า "มักจะ" คือนิสัยของสถานที่ประเภทนั้น ไม่ใช่ของที่นี่</span><span class="en">From OpenStreetMap (ODbL), the motdang directory, bikes seen parked on rides, and readers' taps. "Usually" is the habit of that kind of place, not this one.</span></p>
+  </footer>
+</main>
+
+<dialog class="pk-lot" id="lot"><div id="lotbody"></div></dialog>
+
+<section class="pk-back" id="back" hidden aria-live="polite">
+  <button class="pk-x" id="backx" type="button" aria-label="close"><svg class="ic" viewBox="0 0 24 24"><use href="../icons.svg#i-x"/></svg></button>
+  <div class="pk-dist" id="bdist"></div>
+  <div class="pk-steps" id="bsteps"></div>
+  <svg class="pk-arrow" id="barrow" viewBox="-100 -100 200 200" aria-hidden="true">
+    <circle r="92" class="ring"/>
+    <g id="barrowg"><path d="M0,-78 L44,10 L14,2 L14,70 L-14,70 L-14,2 L-44,10 Z" class="arrow"/></g>
+  </svg>
+  <div class="pk-say" id="bsay"></div>
+  <div class="pk-hint" id="bhint"></div>
+  <div class="pk-look" id="blook"></div>
+  <div class="pk-back-btns">
+    <button type="button" class="pk-gold" id="bfound" data-th="เจอแล้ว" data-en="Found it">เจอแล้ว</button>
+    <button type="button" id="bcompass" hidden data-th="เปิดเข็มทิศ" data-en="Use the compass">เปิดเข็มทิศ</button>
+  </div>
+</section>
+
+<input type="file" id="photo" accept="image/*" capture="environment" hidden>
+</body>
+</html>

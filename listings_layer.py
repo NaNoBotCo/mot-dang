@@ -145,6 +145,14 @@ def _fact_value(v, bi, esc):
     return esc(str(v))
 
 
+def _join_live():
+    """data/config.json listerJoin: the Worker's join door is live (realestate_layer reads the same flag)."""
+    try:
+        return bool(json.loads((ROOT / "data" / "config.json").read_text(encoding="utf-8")).get("listerJoin"))
+    except (OSError, ValueError):
+        return False
+
+
 def place_row(r, bi, esc, base=""):
     """The real-estate rows for a place page, or "" if there are none.
 
@@ -180,6 +188,13 @@ def place_row(r, bi, esc, base=""):
         when = f" <small>{bi('ณ', 'as of')} {esc(asof)}</small>" if asof else ""
         out.append(f"<dt>{bi('ประกาศ', 'Listings')}</dt>"
                    f"<dd><a href=\"{href}\">{' · '.join(parts)}</a>{when}</dd>")
+    elif "realestate" in (r.get("cat") or []):
+        # A housing page with nothing on the sheet: the way to the sheet, and the
+        # way onto it for whoever has a unit here (Nan 2026-10-12, "B").
+        out.append(f"<dt>{bi('ประกาศ', 'Listings')}</dt>"
+                   f"<dd><a href=\"{base}listings/\">{bi('กระดานประกาศเช่า-ขาย', 'the Listing Sheet')}</a>"
+                   + (f" · <a href=\"{base}listings/join\">{bi('ลงประกาศห้องในตึกนี้', 'list a unit here')}</a>"
+                      if _join_live() else "") + "</dd>")
 
     facts = gl.get("facts") or {}
     seen = set()

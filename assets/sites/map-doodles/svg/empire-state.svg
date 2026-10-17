@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" stroke-linejoin="round" stroke-linecap="round"><title>Empire State Building · ตึกเอ็มไพร์สเตต</title>
+<ellipse cx="32" cy="58.6" rx="26" ry="3.4" fill="#cdbfa6" stroke="#2b2118" stroke-width="1.4"/>
+<path d="M13.5 58.4V45H19V37.4H23V22.4H26V15.4H29V10.4H30.6V6.6H33.4V10.4H35V15.4H38V22.4H41V37.4H45V45H50.5V58.4Z" fill="#d8c8a8" stroke="#2b2118" stroke-width="1.9"/>
+<path d="M32 10.4H35V15.4H38V22.4H41V37.4H45V45H50.5V58.4H32Z" fill="#8a6a4a" opacity=".28"/>
+<path d="M27.6 25V35.4M32 25V35.4M36.4 25V35.4M32 17.6V21M16.8 48V51.6M23 48V51.6M41 48V51.6M47.2 48V51.6M28 40V43M36 40V43" fill="none" stroke="#8a6a4a" stroke-width="1.1"/>
+<path d="M29 58.4V53.4C29 50.8 35 50.8 35 53.4V58.4Z" fill="#5b6670" stroke="#2b2118" stroke-width="1.1"/>
+<path d="M30.6 6.6H33.4V10.4H30.6Z" fill="#e9b52f" stroke="#2b2118" stroke-width="1.1"/>
+<path d="M32 6.6V3M30.8 4.8H33.2" fill="none" stroke="#2b2118" stroke-width="1.5"/>
+<path d="M15.8 46.6V57M24.4 24V35.6" fill="none" stroke="#fbf3e2" stroke-width=".9" opacity=".8"/>
+</svg>

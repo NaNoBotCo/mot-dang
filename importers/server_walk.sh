@@ -23,7 +23,13 @@ export MD_JOBS=${MD_JOBS:-1}
 export MD_BUILD_TIMEOUT=${MD_BUILD_TIMEOUT:-360m}
 export MD_PROFILE=${MD_PROFILE:-$SSTATE/build-profile.json}   # build_sampler.py
 export MD_LAYER_STATE=${MD_LAYER_STATE:-$SSTATE/layers.json}   # layers.py: each layer's time, outputs, failures
+export MD_HOLD_BACK=${MD_HOLD_BACK:-$SSTATE/held-back.txt}     # tools/holdback.py: pages held at their live version
 MISSING_CEILING=500   # 2026-10-05: an 11-hour-old source would have deleted 1,977 live files
+export MD_DEFERRED=$SSTATE/deferred.txt   # deploy.py: deletions a publish put off
+export MD_PLACE_PUBLISHED=$SSTATE/place-published.json   # publish/placeround.py: the weekly place round
+export MD_PLACE_FULL_NOW=$SSTATE/place-full-now          # touch it for a full place round next publish
+# Announced cuts that landed (publish/safety.py, 2b) stay used up across hand-offs.
+export MD_EXPECT_DONE=$SSTATE/expected-done.txt
 
 mkdir -p "$SSTATE"
 if [[ -f "$LOG" ]] && (( $(stat -c %s "$LOG") > 5242880 )); then mv -f "$LOG" "$LOG.1"; fi
@@ -43,6 +49,21 @@ stand_down() { say "standing down — $1"; note "stood-down" "$1"; exit 0 }
 layer_note() {
   local f; f=$(python3 -c 'import json,sys; print(", ".join(json.load(open(sys.argv[1])).get("failed", [])))' "$MD_LAYER_STATE" 2>/dev/null)
   [[ -n "$f" ]] && { say "⚠️  layers that failed, their last good pages kept: $f"; note "layers-failed" "$f" }
+  return 0
+}
+# A page or site a gate failed on was held at its live version (tools/holdback.py).
+# Deletions this publish put off (publish/deploy.py --defer-deletions, --no-delete).
+deferred_note() {
+  local n why
+  [[ -s "$MD_DEFERRED" ]] || return 0
+  n=$(wc -l < "$MD_DEFERRED")
+  why=$(cat "$SSTATE/.deferred-why" 2>/dev/null)
+  say "$n deletion(s) deferred${why:+ — $why}; the list is $MD_DEFERRED"
+  note "deletions-deferred" "$n live files kept${why:+: $why}"
+}
+held_note() {
+  local h; h=$(python3 tools/holdback.py line 2>/dev/null)
+  [[ -n "$h" ]] && { say "⚠️  held back at their live version: $h"; note "held-back" "$h" }
   return 0
 }
 remember_gate_fail() { say "the gate failed on hand-off $HAND; the next hand-off builds again" }
@@ -69,6 +90,10 @@ fi
 
 exec 8>"$SSTATE/docs.lock"; flock 8
 say "== hand-off $HAND"
+# A Mapillary harvest (~/mly_tiles.py), when one is running, waits while the round
+# builds: 2026-10-11 the build and the harvest together had 2 GB of the 4 GB box in swap.
+pkill -STOP -u "$(id -un)" -f mly_tiles.py 2>/dev/null
+trap 'pkill -CONT -u "$(id -un)" -f mly_tiles.py 2>/dev/null' EXIT
 # A data file the laptop sent while something was still writing it does not
 # parse; the working tree keeps last round's copy of it (tools/datacheck.py).
 HELD=()
@@ -78,10 +103,7 @@ done
 (( ${#HELD} )) && note "data-held-back" "$(( ${#HELD} / 2 )) file(s) that do not parse"
 flock "$SSTATE/stage.lock" rsync -a --delete --exclude /docs/ --exclude /docs.next/ \
   --exclude /docs.prev/ --exclude /cache/build.lock --exclude /.handoff --exclude /.handoff-at \
-<<<<<<< origin/main
-=======
   --exclude /cache/place-pages-kept.json \
->>>>>>> HEAD
   "${HELD[@]}" "$STAGE/" "$REPO/" \
   || { say "copy from staging FAILED"; note "failed" "staging copy"; exit 1 }
 print -- "$HAND" > "$SSTATE/attempted"
@@ -109,99 +131,107 @@ if [[ -f cache/build-code.tar ]]; then
 fi
 TODAY=$(date +%F)
 
+# A cut Nan has said yes to can delete more live files than the two ceilings
+# allow, once: $SSTATE/prune-once holds "<bound> <last day> <why>". It raises
+# MISSING_CEILING and passes --prune-up-to for the next publish of new code,
+# and goes when that publish succeeds. First use 2026-10-11, the per-tag GeoJSON.
+PRUNE_ARGS=()
+if [[ -r "$SSTATE/prune-once" ]]; then
+  read -r PRUNE_N PRUNE_UNTIL PRUNE_WHY < "$SSTATE/prune-once" || true
+  if [[ "${PRUNE_N:-}" == <-> && -n "${PRUNE_UNTIL:-}" && ! "$TODAY" > "$PRUNE_UNTIL" ]]; then
+    MISSING_CEILING=$PRUNE_N
+    PRUNE_ARGS=(--prune-up-to "$PRUNE_N")
+    say "one-time deletion bound $PRUNE_N until $PRUNE_UNTIL: ${PRUNE_WHY:-}"
+  fi
+fi
+
 # Live is what the bucket holds, listed at publish time by the same call
 # deploy.py's deletion preview makes (publish/safety.py). Until 2026-10-10 the
 # list came from the laptop's own docs/, which stops matching the bucket once
 # the laptop no longer builds: that day it carried 1,340 place pages the live
 # site answers 404 for, enough to refuse any build.
 pre_deploy() {
-  local n rc
-  python3 - "$SSTATE/missing.txt" <<'PY'
+  local rc out why
+  # Deletions an announcement covers (publish/expected.json) are held to its
+  # number, ±10%; MISSING_CEILING counts the rest (publish/safety.py, 2b).
+  out=$(python3 - "$SSTATE/missing.txt" "$MISSING_CEILING" <<'PY'
 import sys
+from collections import Counter
 sys.path.insert(0, "publish")
+sys.path.insert(0, "tools")
 try:
-    import deploy, safety
-    gone = safety.deletions_preview("R2:%s" % deploy.BUCKET,
-                                    deploy.rclone_env(deploy.creds()), deploy.run)
+    import deploy, safety, holdback, placeround
+    gone, added = safety.diff_preview("R2:%s" % deploy.BUCKET,
+                                      deploy.rclone_env(deploy.creds()), deploy.run)
+    gone = [k for k in gone if not holdback.held(k)]   # held: left as it is
+    if placeround.plan():                               # place deletions wait for the weekly round
+        gone = [k for k in gone if not placeround.covered(k)]
 except BaseException as e:
     print("bucket listing failed: %r" % (e,))
     sys.exit(2)
 with open(sys.argv[1], "w") as fh:
     fh.write("".join(k + "\n" for k in gone))
+ceiling = int(sys.argv[2])
+announced, said = safety.load_expected()
+rest, groups = safety.expected_split(gone, announced)
+for line in said + safety.additions_lines(added, announced):
+    print(line.strip())
+print("%d live file(s) not in this build, %d of them announced"
+      % (len(gone), len(gone) - len(rest)))
+for line in safety.expected_lines(groups):
+    print(line.strip())
+over = [g for g in groups if g["found"] > g["hi"]]
+if over:
+    print("FAIL more than announced went: %s"
+          % ", ".join("%s %d of %d" % (g["pattern"], g["found"], g["expected"]) for g in over))
+    sys.exit(3)
+if len(rest) > ceiling:
+    for d, n in Counter("/".join(k.split("/")[:2]) for k in rest).most_common(8):
+        print("  %6d %s" % (n, d))
+    print("FAIL %d unannounced live files missing from the build, over %d" % (len(rest), ceiling))
+    sys.exit(3)
 PY
+)
   rc=$?
-  if (( rc != 0 )); then
+  print -r -- "$out" | grep -v '^FAIL ' | while IFS= read -r l; do say "$l"; done
+  if (( rc == 2 )); then
     say "REFUSING — could not list the live bucket to compare against"
     note "failed" "bucket listing"
     return 1
-  fi
-  n=$(wc -l < "$SSTATE/missing.txt")
-  say "$n live file(s) not in this build"
-  if (( n > MISSING_CEILING )); then
-    awk -F/ '{print $1"/"$2}' "$SSTATE/missing.txt" | sort | uniq -c | sort -rn | head -8
-    say "REFUSING — over $MISSING_CEILING; the list is $SSTATE/missing.txt"
-    note "failed" "$n live files missing from the build"
-    return 1
+  elif (( rc != 0 )); then
+    # The deletions wait; new and changed files still go up (Nan, 2026-10-11).
+    why=$(print -r -- "$out" | sed -n 's/^FAIL //p' | tail -1)
+    say "DELETIONS DEFERRED — ${why:-the missing-files check failed}; the list is $SSTATE/missing.txt"
+    print -r -- "${why:-missing-files check}" > "$SSTATE/.deferred-why"
+    PRUNE_ARGS+=(--no-delete)
   fi
 }
 
-# --- the last good code ----------------------------------------------------
-# A session can leave build.py or a layer half-edited when the walk sends the
-# tree; the build or a gate then fails and the site stops updating until
-# someone notices (58 failures that way, 2026-09-20 to 10-05). So every
-# publish keeps a copy of the code it was built from, and a hand-off whose code
-# fails is built once more with that code and the hand-off's own data. Code:
-# the Python, shell and JS that build, gate and publish, and data/curated.
-LAST_GOOD="$SSTATE/last-good"
-CODE_FILTER=(--exclude __pycache__/ --exclude node_modules/ --exclude .wrangler/
-  --exclude hf-dataset/ --include '/*.py' --include /assets/ --include '/assets/*.js'
-  --include /data/ --include '/data/curated/***' --include '/importers/***'
-  --include '/publish/***' --include '/tests/***' --include '/tools/***'
-  --include '/fleetsearch/***' --include '/worker/***' --include '/worker-tt/***'
-  --exclude '*')
+# --- one try per hand-off ----------------------------------------------------
+# Until 2026-10-11 a failed hand-off was built a second time with the code of
+# the last publish and its own data. That second build published 0 times in 14
+# (the old code met the new assets and failed its own gates) and held the server
+# for another hour each time. A failed hand-off now ends the round, and the
+# next hand-off starts sooner.
 
 # The publish runs in a subshell: publish_steps.sh exits on any failure, and
-# this side has to see it to try the last good code.
+# this side has to see it to write the verdict.
 publish_once() {
-  rm -f "$SSTATE/.publish-ok"
+  rm -f "$SSTATE/.publish-ok" "$SSTATE/.deferred-why"
   ( source importers/publish_steps.sh && print -- "$COUNT" > "$SSTATE/.publish-ok" )
   [[ -s "$SSTATE/.publish-ok" ]]
 }
 
 if publish_once; then
   COUNT=$(cat "$SSTATE/.publish-ok")
-  rsync -a --delete "${CODE_FILTER[@]}" "$REPO/" "$LAST_GOOD/" \
-    && print -- "$HAND" > "$LAST_GOOD/.handoff" \
-    || say "⚠️  could not keep this publish's code as the last good copy"
   print -- "$HAND" > "$SSTATE/published"
+  (( ${#PRUNE_ARGS} )) && rm -f "$SSTATE/prune-once"
   say "== published $HAND — $COUNT files"
   note "published" "$HAND $COUNT files"
+  deferred_note
   layer_note
+  held_note
   exit 0
 fi
 
-VERDICT=$(tail -1 "$SSTATE/walk.jsonl" | python3 -c 'import json,sys; print(json.loads(sys.stdin.read()).get("verdict",""))' 2>/dev/null)
-WHY=$(tail -1 "$SSTATE/walk.jsonl" | python3 -c 'import json,sys; print(json.loads(sys.stdin.read()).get("detail",""))' 2>/dev/null)
-[[ "$VERDICT" == "failed" ]] || exit 0      # stood down, not failed
-# The upload and the bucket listing fail for reasons code does not cause.
-case "$WHY" in
-  deploy.py*|"bucket listing") exit 1 ;;
-esac
-GOOD=$(cat "$LAST_GOOD/.handoff" 2>/dev/null)
-if [[ -z "$GOOD" || "$GOOD" == "$HAND" ]]; then
-  say "no earlier good code to fall back on — nothing published"
-  exit 1
-fi
-say "the code of $HAND failed ($WHY); building again with the code of $GOOD and the data of $HAND"
-rsync -a --exclude /.handoff "$LAST_GOOD/" "$REPO/" \
-  || { say "could not restore the last good code"; note "failed" "restore last good code"; exit 1 }
-if publish_once; then
-  COUNT=$(cat "$SSTATE/.publish-ok")
-  print -- "$HAND" > "$SSTATE/published"
-  say "== published $HAND with the code of $GOOD — $COUNT files; the newer code failed: $WHY"
-  note "published-last-good-code" "$HAND data, $GOOD code, $COUNT files; newer code failed: $WHY"
-  layer_note
-  exit 0
-fi
-note "failed" "the last good code failed too ($WHY)"
 exit 1

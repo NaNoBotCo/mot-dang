@@ -8,12 +8,13 @@ class .cpics), each a link to the sighting on iNaturalist, with the
 photographer and licence in the credit line.
 
     block(r, h)        -> html, or "" when the record has no pick
-    copy_assets(docs)  -> photos copied into docs/inat/
+    copy_assets(docs)  -> photos copied into docs/inat/, or listed for mot-dang-media (media_layer)
     counts()           -> (pages, photos)
 """
 import json
-import shutil
 from pathlib import Path
+
+import media_layer
 
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "data" / "inat.json"
@@ -93,13 +94,11 @@ def copy_assets(docs):
     used = {oid for v in _data()["near"].values() for oid, _ in v}
     if not used:
         return 0
-    out = Path(docs) / "inat"
-    out.mkdir(exist_ok=True)
     n = 0
     for oid in used:
         f = PICS / ("%s.jpg" % oid)
         if f.exists():
-            shutil.copy(f, out / f.name)
+            media_layer.put(f, docs, "inat/%s" % f.name)   # mot-dang-media when it is on
             n += 1
     return n
 

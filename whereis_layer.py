@@ -90,8 +90,8 @@ def build(data):
     levels = doc.get("levels") or {}
     post = _postcodes(data)
     amph, amph_ix = [], {}
-    provs = [["เชียงใหม่", "Chiang Mai"], ["เชียงราย", "Chiang Rai"]]
-    pix = {"cm": 0, "cr": 1}
+    provs = [["เชียงใหม่", "Chiang Mai"], ["เชียงราย", "Chiang Rai"], ["ปทุมธานี", "Pathum Thani"]]
+    pix = {"cm": 0, "cr": 1, "pth": 2}
     for f in (levels.get("amphoe") or {}).get("features") or []:
         p = f.get("properties") or {}
         key = (p.get("province"), _norm(p.get("name")))

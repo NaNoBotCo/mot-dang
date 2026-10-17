@@ -132,6 +132,7 @@ def gather(eng, day):
     places = {f.name.rsplit("-", 1)[0] for f in gd.glob("*-*.json")}
     lines = chrome(eng, "var D=MDDOODLER;D.sets().forEach(function(s){OUT.push(s)});"
                         "(window.MDDOODLER_FOOD||{cuisines:[]}).cuisines.forEach(function(k){OUT.push('food:'+k)});"
+                        "(window.MDDOODLER_DANCE||{kinds:[]}).kinds.forEach(function(k){OUT.push('dance:'+k)});"
                         "((window.MDDOODLER_MOAT||{places:[]}).places).forEach(function(p){OUT.push('moat:'+p.k)});")
     for s in lines:
         st, _, va = s.partition(":")
@@ -139,8 +140,9 @@ def gather(eng, day):
             continue
         n = K.get(st, {"th": st, "en": st})
         i = "s-" + st + ("-" + va if va else "")
-        out[i] = {"c": "scene", "sub": st, "d": day, "th": n["th"] + (" · " + va.replace("-", " ") if va else ""),
-                  "en": n["en"] + (" · " + va.replace("-", " ") if va else ""), "href": "", "p": {"set": st, "variant": va}}
+        own = K.get(st + ":" + va) if va else None   # a variant named in doodle_kinds.json ("dance:club" → Disco)
+        out[i] = {"c": "scene", "sub": st, "d": day, "th": own["th"] if own else n["th"] + (" · " + va.replace("-", " ") if va else ""),
+                  "en": own["en"] if own else n["en"] + (" · " + va.replace("-", " ") if va else ""), "href": "", "p": {"set": st, "variant": va}}
     return out
 
 

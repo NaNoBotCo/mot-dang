@@ -56,6 +56,8 @@ import time
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
+sys.path.insert(0, str(ROOT / "tools"))
+import holdback  # noqa: E402  a page or site held back this round is not checked
 
 # "ok" answers. "social" is a walled garden — unverifiable, not dead, and
 # "walled" is any other door shut to the checker (403/406/429) for the
@@ -181,7 +183,8 @@ def main():
     # down rather than telling the truth about who owns a page.
     FOREIGN = ("get/", "loop/")
     pages = [p for p in DOCS.rglob("*.html")
-             if not p.relative_to(DOCS).as_posix().startswith(FOREIGN)]
+             if not p.relative_to(DOCS).as_posix().startswith(FOREIGN)
+             and not holdback.held(p.relative_to(DOCS).as_posix())]
     hits, leaks = [], []
     for p in pages:
         text = p.read_text(errors="ignore")
@@ -206,7 +209,8 @@ def main():
     print(f"front page domain     {domain or '(no canonical link)'}")
     sys.path.insert(0, str(DOCS.parent))
     import sites_layer
-    uncarded = sites_layer.unregistered(DOCS) if not thin else []
+    uncarded = [m for m in (sites_layer.unregistered(DOCS) if not thin else [])
+                if not holdback.held(m)]
     print(f"sites without a card  {len(uncarded)}")
 
     for where, href in hits[:10]:
@@ -238,6 +242,16 @@ def main():
         print(sites_layer.refusal(uncarded))
 
     ok = not hits and not leaks and not thin and not uncarded and domain == DOMAIN
+    # A page or site that failed is named for tools/holdback.py, which holds it
+    # back and runs this gate again; the rest publishes (Nan, 2026-10-11).
+    if not ok:
+        holdback.propose({w for w, _ in hits}, "broken link")
+        holdback.propose(leaks, "path leak")
+        holdback.propose(uncarded, "no card")
+        if thin:
+            holdback.cannot("essential files missing or thin")
+        if domain != DOMAIN:
+            holdback.cannot("front page domain %r" % domain)
     print("PASS" if ok else "FAIL")
     return 0 if ok else 1
 

@@ -1,0 +1,51 @@
+FORTUNE TOYS · minisite plan (her C146 (a), 2026-10-13: "keep and enrich much further, as a future minisite")
+Plan only. Nothing built.
+
+TODAY
+- Horoscope: assets/horo.js + data/horo.json. 180 days (2026-10-13 to 2027-04-10), three
+  systems (Thai Mahathaksa, Chinese day branch, Western transits), computed in the browser.
+  Page: motdang.net/horoscope.html.
+- Siamsi: 28 sticks in data/curated/siamsi.json, each Thai + English + a verdict colour.
+  Tile #w-siamsi on the widgets page.
+- 8-ball: 20 answers in build.py (EIGHTBALL), 8 good / 7 middle / 5 careful. Tile #w-eightball.
+- All three sit in the widgets page and the home door row. The advice voice is allow-marked.
+
+SHAPE
+motdang.net/sites/fortune/ , EN + TH, in the style of Warp and Weft and Golden Gate.
+One front room with three doors, a shared "ask" box (a question in the reader's own words)
+and a small shelf of the readings the reader kept.
+
+ENRICH, by toy
+Siamsi
+- 28 sticks to the full 100 of the temple sets, one set per tradition (Chinese temple,
+  Thai wat). Each stick: verse, plain reading, five asks (work, money, love, health,
+  travel), a verdict.
+- The cylinder: shake on the phone's motion sensor, a stick rises, a shaken sound.
+- Place pairing: each set links to the wats and shrines on the map that keep that tradition.
+- Print: a stick as a paper slip, Thai on one side, English on the other.
+Horoscope
+- Birth date once, kept in the browser; the day page opens to that sign.
+- Week and month ahead, from the same arithmetic.
+- Auspicious days: wan phra, lucky hours by day-of-week colour, the Thai calendar.
+- Compatibility: two birth dates, three systems side by side.
+8-ball
+- Answers grouped by kind of question (yes/no, when, which road), 60+ lines.
+- The ask box reads the question and picks from the kind.
+- Shake on motion; the face rises in the water. Each answer cites a Chiang Mai place when it fits.
+All
+- Every graphic answers a tap. Gold buttons black text. Feedback.js thumbs + note per toy.
+- Share card: today's reading as a 1200x630 image.
+- Reading log (plain tsv): toy, answer id, thumbs. Counts which answers people keep.
+
+BUILD ORDER
+1. Siamsi to 100 (the slowest: verses by hand, check each against a temple set). Two sessions.
+2. Front room + ask box + shelf. One session.
+3. Horoscope personal page + week/month. One session.
+4. 8-ball kinds + motion. One session.
+5. Share cards, EN/TH pass, publish_now.py fortune, sharecard.py until the tick.
+
+FORKS, hers
+- Name: Fortune · โชคลาภ, or Siamsi and Stars · เซียมซีกับดวงดาว.
+- Sticks from a temple set are a temple's text: write our own verses to the same 100 slots
+  (default), or quote one set with its credit.
+- Place on the roster once live: the same question as C121.

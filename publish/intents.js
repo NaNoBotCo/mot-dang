@@ -89,7 +89,38 @@ export const INTENTS = [
     unless: /\b(stock|share|shares|store|shop|tree)\b|หุ้น/i },
   { id: "rent", kind: "lead", keep: true,
     pats: [["for rent", "rent"], ["to rent", "rent"], ["for lease", "rent"], ["monthly rent", "rent"],
-           "rental", "rentals", "lease", "ให้เช่า", "เช่ารายเดือน", "รายเดือน", "เซ้ง"] },
+           ["to let", "rent"], ["for sale", "sale"], ["to buy", "buy"],
+           "rent", "rental", "rentals", "renting", "lease", "leasing", "leasehold", "freehold", "sublet", "sublease",
+           "sale", "sell", "selling", "buy", "buying", "purchase", "takeover", "take over",
+           "real estate", "realestate", "realtor", "realty", "estate agent", "property", "properties",
+           "long term", "long-term", "long stay", "monthly", "per month", "a month",
+           "move to", "moving to", "relocate", "relocating", "where to live", "place to live", "places to live",
+           "somewhere to live",
+           "ให้เช่า", "เช่า", "เช่ารายเดือน", "รายเดือน", "เซ้ง", "ขาย", "ซื้อ", "อสังหา", "นายหน้า",
+           "ระยะยาว", "ย้ายมา",
+           /* a home named on its own is asked for too */
+           "condo", "condos", "condominium", "condominiums", "apartment", "apartments", "townhouse", "townhome",
+           "dorm", "dorms", "dormitory", "moobaan", "mooban", "chanote", "title deed", "land plot", "shophouse",
+           "คอนโด", "คอนโดมิเนียม", "อพาร์ทเมนท์", "อพาร์ตเมนต์", "อพาร์ทเม้นท์", "หอพัก", "ห้องเช่า", "บ้านเช่า",
+           "ทาวน์เฮาส์", "ทาวน์เฮ้าส์", "ทาวน์โฮม", "ที่ดิน", "โฉนด", "บ้านเดี่ยว", "บ้านจัดสรร", "หมู่บ้านจัดสรร",
+           "ตึกแถว", "อาคารพาณิชย์"],
+    bad: ["ร้านขาย", "ขายส่ง", "ขายปลีก", "รับซื้อ", "สั่งซื้อ", "ซื้อกลับบ้าน", "หาซื้อ", "ซื้อของ", "ขายของ"] },
+  { id: "homehelp", kind: "lead", keep: true,
+    pats: ["maid", "maids", "housekeeper", "housekeepers", "housekeeping", "house keeper", "cleaner", "cleaners",
+           "cleaning", "cleaning lady", "house cleaning", "home cleaning", "deep clean", "deep cleaning",
+           "domestic help", "domestic helper", "home help", "household help", "helper", "live-in", "live in",
+           "gardener", "gardeners", "gardening", "landscaper", "landscaping", "lawn", "grass cutting", "mow",
+           "mowing", "yard work", "tree trimming", "pool cleaning", "pool cleaner",
+           "laundry", "laundry pickup", "laundry delivery", "laundry service", "wash and fold", "ironing",
+           "handyman", "handymen", "handy man", "odd jobs", "plumber", "plumbing", "electrician", "leak",
+           "leaking", "aircon cleaning", "air con cleaning", "ac cleaning", "aircon service", "painter",
+           "carpenter", "water pump", "drain", "blocked drain",
+           "แม่บ้าน", "ทำความสะอาด", "คนทำความสะอาด", "แม่บ้านรายวัน", "แม่บ้านประจำ", "คนสวน", "จัดสวน",
+           "ตัดหญ้า", "ตัดต้นไม้", "ซักรีด", "ซักผ้า", "รีดผ้า", "รับส่งผ้า", "ช่างซ่อมบ้าน", "ซ่อมบ้าน",
+           "ช่างประปา", "ช่างไฟ", "ช่างแอร์", "ล้างแอร์", "ช่างทาสี", "ช่างไม้", "ปั๊มน้ำ", "ท่อตัน", "รั่ว",
+           "คนช่วยงานบ้าน", "งานบ้าน"],
+    unless: /\bmaid ?caf|\bdry cleaning\b|\bteeth cleaning\b|\bcleaning (supplies|products)\b|\bhelper (app|tool)\b/i,
+    bad: ["ซักแห้ง", "รั่วไหล"] },
 
   /* ---- shelves: the word stays, in the form the thesaurus knows */
   { id: "fix", kind: "shelf", shelf: "repair",
@@ -191,8 +222,10 @@ export const INTENTS = [
     words: ["class", "course", "lesson", "school", "workshop", "เรียน", "คอร์ส", "สอน", "คลาส", "โรงเรียน"],
     th: "เรียน — ที่สอนขึ้นก่อน", en: "learn — classes and courses first" },
   { id: "work", kind: "lead", keep: true,
-    pats: ["jobs", "job", "hiring", "vacancy", "vacancies", "employment",
-           "รับสมัครงาน", "รับสมัคร", "หางาน", "สมัครงาน", "ตำแหน่งว่าง"] },
+    pats: ["jobs", "job", "hiring", "vacancy", "vacancies", "employment", "work", "looking for work",
+           "find work", "part time", "part-time",
+           "รับสมัครงาน", "รับสมัคร", "หางาน", "สมัครงาน", "ตำแหน่งว่าง", "รับจ้าง", "รับงาน", "งานพาร์ทไทม์"],
+    unless: /\b(work ?out|workshop|network|homework|artwork|framework|does it work|how .* work)\b/i },
   { id: "hours", kind: "prefer", has: "hours",
     pats: ["what time does", "when does", "opening hours", "opening times", "open until", "closing time",
            "hours", "เปิดกี่โมง", "ปิดกี่โมง", "เวลาเปิด", "เวลาเปิดปิด", "เวลาทำการ"],
@@ -223,12 +256,19 @@ export const LEADS = {
             [SAFETY + "#river", "ระดับน้ำปิง · Ping river level"]],
   },
   rent: {
-    th: "เช่า", en: "rent",
-    links: [["/listings/", "ประกาศเช่า-ขาย · listings"]],
+    th: "ประกาศขาย-เช่า", en: "property listings",
+    links: [["/listings/", "ประกาศเช่า-ขาย · listings"], ["/listings/register/", "ทะเบียนตึก · building register"],
+            ["/listings/join", "ลงประกาศ · list a property"]],
+  },
+  homehelp: {
+    th: "งานบ้าน", en: "home help",
+    links: [["/home-help/?near=1", "แม่บ้าน คนสวน ซักรีด ช่าง ใกล้ฉัน · housekeepers, gardeners, laundry, handymen near you"],
+            ["/home-help/join", "ลงชื่อรับงาน · list yourself"]],
   },
   work: {
     th: "งาน", en: "work",
-    links: [["/home-help/", "แม่บ้านและช่างลงชื่อ · home help board"]],
+    links: [["/home-help/join", "ลงชื่อรับงานบ้าน · list yourself for home work"],
+            ["/home-help/", "แม่บ้านและช่างลงชื่อ · home help board"]],
   },
   transit: {
     th: "เดินทาง", en: "getting around",
@@ -260,8 +300,12 @@ export function grabUrl(place) {
   }
   return GRAB + encodeURIComponent(dp) + GRAB_WEB;
 }
-/* rent's listings line shows when the reader named a home, or nothing else. */
-const HOME_WORDS = /(^|\s)(house|home|condo|condominium|room|rooms|apartment|flat|studio|villa|land|townhouse|shophouse|office|บ้าน|คอนโด|ห้อง|ห้องพัก|อพาร์ทเมนท์|อพาร์ตเมนต์|ที่ดิน|ทาวน์เฮาส์|ตึกแถว|อาคาร|หอพัก)(\s|$)/;
+/* rent's listings line shows when the reader named a home, or nothing else
+ * but the rent words. A Thai home word counts anywhere in a run (บ้านให้เช่า). */
+const HOME_WORDS = /(^|\s)(house|houses|home|homes|condo|condos|condominium|room|rooms|apartment|apartments|flat|flats|studio|villa|villas|bungalow|land|plot|rai|townhouse|townhome|shophouse|office|space|property|properties|real estate|realestate|dorm|dorms|dormitory|mansion|moobaan|mooban|guesthouse|hostel|business|warehouse|chanote|freehold|leasehold|long term|long-term|long stay|monthly|place to live|places to live|where to live|somewhere to live)(\s|$)|บ้าน|คอนโด|ห้อง|อพาร์ท|อพาร์ต|ที่ดิน|ทาวน์|ตึกแถว|อาคาร|หอพัก|แมนชั่น|โฉนด|อสังหา|เกสต์เฮ้าส์|เกสต์เฮาส์|โฮสเทล|กิจการ|โกดัง|ไร่|รายเดือน|ระยะยาว/;
+const RENT_ONLY = new RegExp("^(" + ["for", "to", "a", "rent", "rental", "rentals", "renting", "lease", "leasing",
+  "sale", "sell", "selling", "sublet", "sublease", "let", "takeover", "take", "over", "ให้เช่า", "เช่า", "เซ้ง", "ขาย"]
+  .join("|") + "|\\s)+$", "i");
 
 const reEsc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 const THAI = /[฀-๿]/;
@@ -368,7 +412,7 @@ export function saidOf(heard, ranked) {
 const PLACE = /^https:\/\/motdang\.net\/(cm|cr)\/p\/([^/]+)\.html$/;
 export function leadOf(h, { top, q, today }) {
   const name = top ? String(top.title || "").split(/ · | — /)[0] : "";
-  if (h.id === "rent") return !q || namesHome(q) ? LEADS.rent : null;
+  if (h.id === "rent") return !q || namesHome(q) || RENT_ONLY.test(q) ? LEADS.rent : null;
   if (h.id === "events") {
     return { ...LEADS.events, links: LEADS.events.links.map(([u, t]) => [u === "/#day=" ? u + (today || "") : u, t]) };
   }

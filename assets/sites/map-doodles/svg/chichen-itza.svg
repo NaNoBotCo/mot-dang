@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" stroke-linejoin="round" stroke-linecap="round"><title>Chichén Itzá, El Castillo · ชิเชนอิตซา</title>
+<ellipse cx="32" cy="58.6" rx="26" ry="3.4" fill="#9cc77a" stroke="#2b2118" stroke-width="1.4"/>
+<path d="M5 58.6V53.8H8.4V49H11.8V44.2H15.2V39.4H18.6V34.6H22V29.8H42V34.6H45.4V39.4H48.8V44.2H52.2V49H55.6V53.8H59V58.6Z" fill="#d8c8a8" stroke="#2b2118" stroke-width="1.9"/>
+<path d="M27 58.6 28.8 29.8H35.2L37 58.6Z" fill="#fbf3e2" stroke="#2b2118" stroke-width="1.2"/>
+<path d="M27.3 53.8H36.7M27.6 49H36.4M27.9 44.2H36.1M28.2 39.4H35.8M28.5 34.6H35.5" fill="none" stroke="#b8936a" stroke-width="1"/>
+<path d="M27 58.6 28.8 29.8M37 58.6 35.2 29.8" fill="none" stroke="#2b2118" stroke-width="1.9"/>
+<ellipse cx="26" cy="57.2" rx="2.4" ry="1.7" fill="#8a6a4a" stroke="#2b2118" stroke-width="1"/>
+<ellipse cx="38" cy="57.2" rx="2.4" ry="1.7" fill="#8a6a4a" stroke="#2b2118" stroke-width="1"/>
+<path d="M24 29.8V19.6H40V29.8Z" fill="#d8c8a8" stroke="#2b2118" stroke-width="1.8"/>
+<rect x="22.4" y="16.8" width="19.2" height="3.2" rx=".6" fill="#b8936a" stroke="#2b2118" stroke-width="1.5"/>
+<path d="M28.8 29.8V23.6H35.2V29.8Z" fill="#2a3a5a" stroke="#2b2118" stroke-width="1.1"/>
+<path d="M32 23.6V29.8" fill="none" stroke="#b8936a" stroke-width="1.2"/>
+<path d="M7 57V54.6M10.4 52V50M24 38V36" fill="none" stroke="#fbf3e2" stroke-width=".9" opacity=".8"/>
+</svg>

@@ -64,6 +64,9 @@
     '.mdfb-s,.mdfb-x{appearance:none;-webkit-appearance:none;min-height:36px;margin:0;padding:0 .8rem;font:inherit;color:var(--ink,inherit);background:none;border:1px solid var(--rule,currentColor);border-radius:999px;cursor:pointer}' +
     '.mdfb-x{padding:0 .6rem;border-color:transparent;opacity:.6;font-size:1.3rem;line-height:1}' +
     '.mdfb-x:hover{opacity:1}' +
+    '.mdfb-cr{flex:1 1 100%;display:flex;flex-wrap:wrap;gap:.3rem .5rem;align-items:center;font-size:.85rem}' +
+    '.mdfb-cr[hidden],.mdfb-cn[hidden]{display:none}' +
+    '.mdfb-cn{flex:1 1 12rem;min-width:0;min-height:2.2rem;margin:0;padding:.3rem .5rem;font:inherit;font-size:16px;color:var(--ink,inherit);background:var(--card,transparent);border:1px solid var(--rule,currentColor);border-radius:8px}' +
     '.mdfb-t{flex:1 1 100%;min-height:0}' +
     '.mdfb-t:empty{display:none}' +
     '@media(max-width:640px){.mdfb-b{min-width:44px;height:44px}.mdfb-s,.mdfb-x{min-height:44px}}';
@@ -87,6 +90,8 @@
       '<textarea rows="1" maxlength="2000" aria-label="เล่าเพิ่มได้ (ไม่บังคับ) · Add a note (optional)" placeholder="ไม่บังคับ · Optional note"></textarea>' +
       '<button type="submit" class="mdfb-s">' + bi('ส่ง', 'Send') + '</button>' +
       '<button type="button" class="mdfb-x" data-fbclose aria-label="ปิด · Close">×</button>' +
+      '<label class="mdfb-cr"><input type="checkbox" class="mdfb-ck"> ' + bi('ใส่ชื่อฉันในหน้าเครดิต (ไม่บังคับ)', 'Name me on the credits page (optional)') +
+      '<input type="text" class="mdfb-cn" maxlength="60" hidden aria-label="ชื่อที่จะแสดง · Name to show" placeholder="ชื่อหรือชื่อเล่น · a name or nickname"></label>' +
       '</form><span class="mdfb-t" role="status" aria-live="polite"></span></div>';
   }
 
@@ -108,6 +113,7 @@
     var body = { item: item, who: me(), page: location.pathname.slice(0, 300), lang: lang() };
     if (o.x === 1 || o.x === -1 || o.x === 0) body.x = o.x;
     if (o.note) body.note = o.note;
+    if (o.note && o.credit) body.credit = o.credit;
     return fetch(API + '/feedback', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) })
       .then(function (r) { return r.json().then(function (j) { j.status = r.status; return j; }); });
   }
@@ -166,17 +172,39 @@
     }).catch(function () { keep(item, was); paint(item); if (f) f.hidden = true; failed(root, null); });
   });
 
+  /* CREDITS (WO-110): a name travels only with a ticked box and a typed name; the tick resets after each send.
+     The name is not kept in this browser. The Worker applies the same test to it. */
+  function creditBad(n) {
+    return n.length < 2 || n.length > 60 || /@|:\/\/|www\./i.test(n) || /(?:\d[\s().+-]*){6,}/.test(n);
+  }
+  document.addEventListener('change', function (ev) {
+    var ck = ev.target;
+    if (!ck || !ck.classList || !ck.classList.contains('mdfb-ck')) return;
+    var nm = ck.closest('.mdfb-cr').querySelector('.mdfb-cn');
+    nm.hidden = !ck.checked;
+    if (ck.checked) nm.focus(); else nm.value = '';
+  });
   document.addEventListener('submit', function (ev) {
     var f = ev.target;
     if (!f || !f.classList || !f.classList.contains('mdfb-f')) return;
     ev.preventDefault();
     var root = f.closest('.mdfb'), item = root.getAttribute('data-fb'), ta = f.querySelector('textarea'), note = ta.value.trim();
     if (!note) { f.hidden = true; return; }
+    var ck = f.querySelector('.mdfb-ck'), nm = f.querySelector('.mdfb-cn'), credit = null;
+    if (ck && ck.checked) {
+      var cn = (nm.value || '').replace(/\s+/g, ' ').trim();
+      if (creditBad(cn)) { say(root, 'ใส่ชื่อที่จะแสดง (ไม่มีอีเมลหรือเบอร์)', 'Type a name to show (no email or phone number)'); return; }
+      credit = { consent: true, name: cn };
+    }
     var s = state(item), btn = f.querySelector('.mdfb-s');
     btn.disabled = true;
-    send(item, { x: s.x, note: note }).then(function (j) {
+    send(item, { x: s.x, note: note, credit: credit }).then(function (j) {
       btn.disabled = false;
-      if (j && j.ok) { ta.value = ''; ta.style.height = ''; f.hidden = true; keep(item, { x: s.x, n: true }); say(root, 'ขอบคุณ', 'Thanks'); }
+      if (j && j.ok) {
+        ta.value = ''; ta.style.height = ''; f.hidden = true; keep(item, { x: s.x, n: true });
+        if (ck) { ck.checked = false; nm.value = ''; nm.hidden = true; }
+        say(root, 'ขอบคุณ' + (credit && j.ref ? ' · รหัสอ้างอิง ' + j.ref : ''), 'Thanks' + (credit && j.ref ? ' · reference ' + j.ref : ''));
+      }
       else failed(root, j);
     }).catch(function () { btn.disabled = false; failed(root, null); });
   });

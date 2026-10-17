@@ -418,7 +418,7 @@ def earn_by_name(records, defs, by_id, spec, shelf_of):
                 continue
             vocab.append((w, slug, bool(_THAI.search(w))))
     vocab.sort(key=lambda x: -len(x[0]))
-    latin = [(re.compile(r"\b" + re.escape(w) + r"\b"), slug) for w, slug, th in vocab if not th]
+    latin = [(re.compile(r"\b" + re.escape(w) + r"\b"), slug, w) for w, slug, th in vocab if not th]
     thai = [(w, slug) for w, slug, th in vocab if th]
 
     out = collections.defaultdict(list)
@@ -440,10 +440,12 @@ def earn_by_name(records, defs, by_id, spec, shelf_of):
             have.add(slug)
             out[r["id"]].append((slug, w))
             got += 1
-        for rx, slug in latin:
+        for rx, slug, w in latin:
             if got >= cap:
                 break
-            if slug in have or not rx.search(name_lat):
+            # the substring test first: the word must be in the name for its regex to match,
+            # and it is ~30x cheaper (74 s of tags.assign on motdang-build, 2026-10-11)
+            if slug in have or w not in name_lat or not rx.search(name_lat):
                 continue
             if not (mine_shelves & set(shelves[slug])):
                 continue

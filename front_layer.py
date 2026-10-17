@@ -971,8 +971,10 @@ def bake_events(docs, ix, counts):
         row = {"k": _slug(e["title"]), "t": re.sub(r"<[^>]+>", "", e["title"]).strip(), "s": s, "e": e.get("end"), "ad": bool(e.get("all_day")),
                "v": e.get("venue_name") or "", "cost": e.get("cost") or "", "url": url,
                "rec": bool(e.get("recurring")), "src": e.get("source") or "", "c": cat[0],
-               # the calendar has two cities; a venue in a neighbouring province (Lamphun's) goes with Chiang Mai
-               "city": "cr" if ((v or {}).get("province") or e.get("city")) == "cr" else "cm"}
+               # a venue in a neighbouring province (Lamphun's) goes with Chiang Mai; Pathum Thani and Phnom Penh
+               # (Nan 2026-10-13) are their own, named by the row
+               "city": e["city"] if e.get("city") in ("pth", "pp") else
+                       "cr" if ((v or {}).get("province") or e.get("city")) == "cr" else "cm"}
         if got and (got.get("kind") == "host" or got["rung"] == "venue"):
             row["lk"] = "host"              # the page of whoever runs or hosts it, not of this event
         desc = re.sub(r"\s*·?\s*booking: \S+", "", e.get("description") or "").strip(" ·")
@@ -1239,6 +1241,23 @@ def bake_fires(docs):
     return sum(f.get("per_day", []))
 
 
+def bake_ping(docs):
+    """docs/front/ping.json: the city gauge's level and its own alert level, 300 bytes. The doodle draws the river
+    on its gauge when the level passes 75% of that alert level (Nan 2026-10-13, C123 (b)); data/ping.json holds
+    ten stations and a week of hours and is 50 kB."""
+    src = ROOT / "data" / "ping.json"
+    if not src.exists():
+        return 0
+    p = _j(src)
+    cid = p.get("city_station") or "P.1"
+    keep = ("id", "th", "en", "level", "limit", "dischg", "dischg_limit", "observed")
+    st = [{k: s[k] for k in keep if k in s} for s in p.get("stations", []) if s.get("id") == cid]
+    (docs / "front").mkdir(parents=True, exist_ok=True)
+    (docs / "front" / "ping.json").write_text(json.dumps(
+        {"generated": p.get("generated"), "city_station": cid, "stations": st}, ensure_ascii=False, separators=(",", ":")))
+    return len(st)
+
+
 AIRPORTS_CSV = ROOT / "cache" / "ourairports.csv"   # OurAirports, public domain: davidmegginson.github.io/ourairports-data
 
 
@@ -1296,12 +1315,13 @@ def bake(docs=None, thumbs=True, ask=True):
     ix = _index(docs)
     counts = (interest() if ask else (_j(INTEREST) if INTEREST.exists() else {})).get("counts", {})
     parts = {"map": bake_map(docs, ix), "near": bake_near(docs, ix, thumbs), "sites": bake_sites(docs),
-             "events": bake_events(docs, ix, counts), "when": _when_or_none(docs), "ahead": bake_ahead(docs), "fires": bake_fires(docs),
+             "events": bake_events(docs, ix, counts), "when": _when_or_none(docs), "ahead": bake_ahead(docs), "fires": bake_fires(docs), "ping": bake_ping(docs),
              "flights": bake_flights(docs), "roads": bake_roads(docs)}
     shutil.copy(ASSETS / "when.js", docs / "front/when.js")
     shutil.copy(ASSETS / "tiles.js", docs / "front/tiles.js")
     shutil.copy(ASSETS / "front.js", docs / "front/front.js")
     shutil.copy(ASSETS / "wx.js", docs / "front/wx.js")
+    shutil.copy(ASSETS / "lunation.js", docs / "front/lunation.js")
     doodles_layer.copy(docs)
     return ("front: %d lamps, %d specks · %d near photos (%d new thumbs) · %d minisites with pictures · "
             "%d events, %d at a known venue · %d with reader interest") % (
@@ -1310,7 +1330,12 @@ def bake(docs=None, thumbs=True, ask=True):
 
 def render(home_ld="", lang_head="", lang_css="", lang_switch="", lang_js="", built=""):
     t = (ASSETS / "index.html").read_text()
-    for k, v in {"HOME_LD": home_ld, "LANG_HEAD": lang_head, "LANG_CSS": lang_css, "LANG_SWITCH": lang_switch,
+    # the rest of the site's ant (build.py LOGO_MARK, the same file) and its faces (assets/fonts/_faces.css)
+    logo = (ROOT / "assets/logo/motdang-mark.svg").read_text().replace(
+        '<svg ', '<svg class="logoant" aria-hidden="true" focusable="false" ', 1).replace(' role="img" aria-label="มดแดง Mot Dang"', '')
+    faces = ROOT / "assets/fonts/_faces.css"
+    faces = faces.read_text().strip().replace("url(fonts/", "url(/fonts/") if faces.exists() else ""
+    for k, v in {"LOGO": logo, "FACES": faces, "HOME_LD": home_ld, "LANG_HEAD": lang_head, "LANG_CSS": lang_css, "LANG_SWITCH": lang_switch,
                  "LANG_JS": lang_js, "BUILT": html.escape(built)}.items():
         t = t.replace("{{%s}}" % k, v)
     return stamp(t)
@@ -1320,7 +1345,7 @@ def stamp(t):
     """Each front-page script's own hash in its address. sw.js answers a script from its cache first, so an
     unstamped address hands a returning phone yesterday's script beside today's page (Nan's phone, 2026-10-03:
     the doodle and tiles blank until a second visit). One page carries these; the rest of the site does not."""
-    for js in ("skyline.js", "doodler.js", "doodles.js", "when.js", "tiles.js", "wx.js", "front.js"):
+    for js in ("skyline.js", "doodler.js", "doodles.js", "when.js", "tiles.js", "wx.js", "lunation.js", "front.js"):
         f = ASSETS / js
         if f.exists():
             v = hashlib.md5(f.read_bytes()).hexdigest()[:8]

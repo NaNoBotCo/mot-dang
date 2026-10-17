@@ -72,7 +72,8 @@ const SUGGEST_KINDS = new Set([
 const SUGGEST_DETAIL_MAX = 300
 // Nan 2026-09-29: coverage is all of northern Thailand (data/coverage.json —
 // the 17 provinces; we crawl CM and CR, and take what arrives from the rest).
-const PROVINCE_KEYS = 'cm|cr|lpn|lpg|utt|pre|nan|pyo|mhs|nsn|uti|kpt|tak|sti|plk|pct|pnb'
+// Pathum Thani (pth), crawled since 2026-10-12, her word.
+const PROVINCE_KEYS = 'cm|cr|pth|lpn|lpg|utt|pre|nan|pyo|mhs|nsn|uti|kpt|tak|sti|plk|pct|pnb'
 const NORTH = { south: 14.8, north: 20.5, west: 97.3, east: 101.8 }
 const PLACE_ID_RE = new RegExp(`^(${PROVINCE_KEYS})-[a-z0-9-]+$`)
 const SESSION_TTL = 900 // 15 minutes between LINE messages before the flow resets
@@ -274,6 +275,40 @@ async function putToiletReport(env, placeId, report, source) {
   return { ok: true, ...rec }
 }
 
+// ---- parking reports ---------------------------------------------------------
+// Nan 2026-10-13, /parking/: is it full right now, how full usually, are bikes
+// fined. One word per tap, at one place, no name.
+//   pk:<placeId>:<at>:<rand>   kept 180 days: the place's own history ("usually")
+//   pkn:<at>:<placeId>:<rand>  kept 6 hours: what is being said right now
+const PARKING_ANSWERS = ['full', 'space', 'fined', 'free', 'paid', 'covered', 'open24',
+  'bigbike', 'nobigbike', 'gone']
+const PARKING_PER_HOUR = 30
+
+async function putParkingReport(env, placeId, answer, vehicle) {
+  if (!PARKING_ANSWERS.includes(answer)) return { error: 'unknown answer', status: 400 }
+  if (!PLACE_ID_RE.test(placeId)) return { error: 'bad place id', status: 400 }
+  const at = new Date().toISOString()
+  const rand = crypto.randomUUID().slice(0, 8)
+  const rec = { placeId, answer, vehicle: ['m', 'c'].includes(vehicle) ? vehicle : '', at }
+  const v = JSON.stringify(rec)
+  await env.KV.put(`pk:${placeId}:${at}:${rand}`, v, { expirationTtl: 180 * 86400 })
+  await env.KV.put(`pkn:${at}:${placeId}:${rand}`, v, { expirationTtl: 6 * 3600 })
+  return { ok: true, ...rec }
+}
+
+async function listParking(env, prefix, keep) {
+  const out = []
+  let cursor
+  do {
+    const page = await env.KV.list({ prefix, cursor, limit: 1000 })
+    const names = page.keys.map(k => k.name).filter(keep)
+    const vals = await Promise.all(names.map(n => env.KV.get(n)))
+    for (const v of vals) if (v) try { out.push(JSON.parse(v)) } catch {}
+    cursor = page.list_complete ? null : page.cursor
+  } while (cursor && out.length < 5000)
+  return out
+}
+
 // ---- doodle votes ------------------------------------------------------------
 // A thumb up or down on one version of one doodle (/doodles/), on accuracy and
 // on aesthetics, with a note. Nan, 2026-10-05: "humans and bots …
@@ -354,6 +389,19 @@ async function putDoodleVote(env, request, body) {
 //   fbt:<item>            the tally {up, down, at}
 //   fb-vote:<iso>:<rand>  one event per change of vote
 //   fb-note:<iso>:<rand>  a paragraph, with the vote it came with; private, read with the key only
+// CREDITS (WO-110) — a name on /credits.html. A reader is named when the form sent
+// credit: {consent: true, name} and the name passes this test; the Worker stamps the wording version
+// the form carried. Anything else returns null and the record holds no credit. The name is public once
+// a person accepts the report; the note, the contact address and the voter id are not part of it.
+const CREDIT_V = '2026-10-11'
+function cleanCredit(raw) {
+  if (!raw || raw.consent !== true) return null
+  const name = cap(raw.name, 60).replace(/\s+/g, ' ')
+  if (name.length < 2 || /[\u0000-\u001f\u007f<>]/.test(name)) return null
+  if (/@|:\/\/|www\./i.test(name) || /(?:\d[\s().+-]*){6,}/.test(name)) return null
+  return { name, v: CREDIT_V }
+}
+
 const FB_ITEM_RE = /^[A-Za-z0-9:_\-./]{1,120}$/
 const FB_WHO_RE = /^[A-Za-z0-9_-]{8,64}$/
 const FB_PER_HOUR = 120
@@ -384,9 +432,11 @@ async function putFeedback(env, request, body) {
     await env.KV.put(`fb-vote:${at}:${crypto.randomUUID().slice(0, 8)}`,
       JSON.stringify({ item, x, old, who, page, lang, at }))
   }
-  if (note) await env.KV.put(`fb-note:${at}:${crypto.randomUUID().slice(0, 8)}`,
-    JSON.stringify({ item, x, note, who, page, lang, at }))
-  return { ok: true, item, mine: x, tally }
+  const credit = note ? cleanCredit(body?.credit) : null
+  const ref = crypto.randomUUID().slice(0, 8)
+  if (note) await env.KV.put(`fb-note:${at}:${ref}`,
+    JSON.stringify({ item, x, note, who, page, lang, at, ...(credit ? { credit, ref } : {}) }))
+  return { ok: true, item, mine: x, tally, ...(credit ? { ref } : {}) }
 }
 
 async function feedbackEvents(env, since) {
@@ -1380,6 +1430,39 @@ export default {
       return json(result)
     }
 
+    // POST /parking {placeId, answer, vehicle?} — one tap on /parking/.
+    // GET /parking?hours=N (≤6) — every report in the last N hours, all places.
+    // GET /parking?id=<placeId> — that place's reports, up to 180 days.
+    if (url.pathname === '/parking' && request.method === 'POST') {
+      const ip = request.headers.get('cf-connecting-ip') || 'unknown'
+      const bucket = `rlpk:${ip}:${Math.floor(Date.now() / 3600_000)}`
+      const count = Number((await env.KV.get(bucket)) || 0)
+      if (count >= PARKING_PER_HOUR) return json({ error: 'rate limit — try again later' }, 429)
+      const text = await request.text()
+      if (text.length > 400) return json({ error: 'body too large' }, 400)
+      let body
+      try { body = JSON.parse(text) } catch { return json({ error: 'invalid json' }, 400) }
+      const result = await putParkingReport(env, cap(body?.placeId, 80), cap(body?.answer, 12),
+        cap(body?.vehicle, 2))
+      if (result.error) return json({ error: result.error }, result.status)
+      await env.KV.put(bucket, String(count + 1), { expirationTtl: 3600 })
+      return json(result)
+    }
+    if (url.pathname === '/parking' && request.method === 'GET') {
+      const id = url.searchParams.get('id')
+      let reports
+      if (id) {
+        if (!PLACE_ID_RE.test(id)) return json({ error: 'bad place id' }, 400)
+        reports = await listParking(env, `pk:${id}:`, () => true)
+      } else {
+        const hours = Math.min(Math.max(Number(url.searchParams.get('hours')) || 2, 1), 6)
+        const since = new Date(Date.now() - hours * 3600_000).toISOString()
+        reports = await listParking(env, 'pkn:', n => n.slice(4, 28) >= since)
+      }
+      return new Response(JSON.stringify({ ok: true, count: reports.length, reports }),
+        { headers: { 'content-type': 'application/json', 'cache-control': 'public, max-age=30', ...CORS } })
+    }
+
     // POST /rain · POST /flood — Nan 2026-09-28: "an 'is it raining now'
     // button to feed the weather machine, a 'how deep is your flooding'
     // question for emergencies". One answer and one point per tap. The
@@ -1666,6 +1749,7 @@ export default {
         return json({ error: 'placeId not a recognized Mot Dang id' }, 400)
 
       const id = crypto.randomUUID()
+      const credit = cleanCredit(body?.credit)   // null unless the box was ticked and the name passes
       await env.KV.put(`sug:${id}`, JSON.stringify({
         id,
         kind,
@@ -1678,11 +1762,12 @@ export default {
         from: cap(body?.from, 200) || null,
         page: cap(body?.page, 300) || null,   // where they were standing when they told us
         lang: body?.lang === 'th' ? 'th' : 'en',
+        credit,
         status: 'new',
         createdAt: new Date().toISOString(),
       }))
       await env.KV.put(bucket, String(count + 1), { expirationTtl: 3600 })
-      return json({ ok: true, id })
+      return json({ ok: true, id, ...(credit ? { ref: id.slice(0, 8) } : {}) })
     }
 
     // There is deliberately NO public GET for the suggestion queue.

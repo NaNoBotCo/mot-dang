@@ -1,0 +1,33 @@
+# Pictures served from their own bucket (Nan, 2026-10-13, "B"): streetphotos/, photos/, inat/ and og/
+# left the site build and live in mot-dang-media. The page URLs are the same. A key the bucket does not
+# hold goes to the site Worker (service binding SITE_WORKER), so nothing that was served before 404s.
+# Fed by publish/media_sync.py from the build's media manifest; this Worker only reads.
+#
+# ROLLBACK, one command: npx wrangler delete motdang-media --force
+# (the routes go with the Worker; the four prefixes are still in mot-dang-site, so the site Worker serves them as before)
+name = "motdang-media"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+workers_dev = false
+
+# The first line is the route the Worker was tried on before the real ones: the same keys under /media-check/.
+routes = [
+  { pattern = "motdang.net/media-check/*", zone_name = "motdang.net" },
+  { pattern = "motdang.net/streetphotos/*", zone_name = "motdang.net" },
+  { pattern = "motdang.net/photos/*", zone_name = "motdang.net" },
+  { pattern = "motdang.net/inat/*", zone_name = "motdang.net" },
+  { pattern = "motdang.net/og/*", zone_name = "motdang.net" },
+  { pattern = "www.motdang.net/streetphotos/*", zone_name = "motdang.net" },
+  { pattern = "www.motdang.net/photos/*", zone_name = "motdang.net" },
+  { pattern = "www.motdang.net/inat/*", zone_name = "motdang.net" },
+  { pattern = "www.motdang.net/og/*", zone_name = "motdang.net" },
+]
+
+# Binding names must stay MEDIA and SITE_WORKER; src/index.js reads them.
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "mot-dang-media"
+
+[[services]]
+binding = "SITE_WORKER"
+service = "mot-dang-site"

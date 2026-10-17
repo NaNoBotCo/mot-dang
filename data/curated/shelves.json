@@ -3559,6 +3559,511 @@
    },
    "source": "https://www.riderscorner.net/",
    "fetched": "2026-10-04"
+  },
+  "cm-curated-fb-shanlayfood": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Shan); the Burmese & Shan shelf matches sub myanmar. Shan noodles and Shan/Burmese dishes from 35 baht; small eatery",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://www.google.com/search?q=Shan+Lay+shan+noodle+Chiang+Mai",
+   "fetched": "2026-10-11"
+  },
+  "cm-osm-node-12778850501": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Shan); the Burmese & Shan shelf matches sub myanmar. Vegetarian Shan food: khao raem foen (rice-bean cake), tofu dishes, tea leaf salad, noodles in tofu gravy",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://wanderlog.com/place/details/5844076/payod-shan-foodveganvegetarian",
+   "fetched": "2026-10-11"
+  },
+  "cm-ovt-1193a50c-41e7-44a1-a2b0-e0acf4221edb": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Shan); the Burmese & Shan shelf matches sub myanmar. Shan vegan food plus Shan clothing (per Facebook)",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://www.google.com/search?q=Shan+Vegan+Food+34+Chomdoi+Soi+1+Chiang+Mai",
+   "fetched": "2026-10-11"
+  },
+  "cm-ovt-233fd7c0-0e57-43d1-972d-275da5881a13": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Shan); the Burmese & Shan shelf matches sub myanmar. Shan noodles and Shan/Burmese dishes",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://www.google.com/search?q=Shan+Yoeyar+Kitchen+Kaew+Nawarat+Chiang+Mai",
+   "fetched": "2026-10-11"
+  },
+  "cm-ovt-4d52ad25-a546-429c-bdc4-73c6d742df2c": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Shan (Kengtung)); the Burmese & Shan shelf matches sub myanmar. Tai Yai restaurant: khao soi noi, khao raem foen, noodles",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://www.google.com/search?q=บัวเกี๋ยง+ร้านอาหารไทใหญ่+เชียงใหม่",
+   "fetched": "2026-10-11"
+  },
+  "cm-ovt-64193c4c-9f34-4bbd-9559-915acb6b9ab6": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Shan); the Burmese & Shan shelf matches sub myanmar. Shan noodles (ก๋วยเตี๋ยวไทใหญ่) and khao foen un",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://www.google.com/search?q=ร้านอาหารไทใหญ่+ข่วงเมรุ+เชียงใหม่+ก๋วยเตี๋ยวไทใหญ่+ข้าวฟืนอุ่น",
+   "fetched": "2026-10-11"
+  },
+  "cm-ovt-99c6331d-c3b8-417e-8a95-7c7677ef1d13": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Shan); the Burmese & Shan shelf matches sub myanmar. Small family eatery: mostly vegan Shan/Burmese food, 40-50 baht a dish",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://www.google.com/search?q=อาหารไทยใหญ่+สองพี่น้อง+สวนดอก",
+   "fetched": "2026-10-11"
+  },
+  "cm-ovt-b68e9ded-665a-4e21-aad8-be64d55d6e49": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Shan); the Burmese & Shan shelf matches sub myanmar. Tai Yai restaurant (พี่อ้อย)",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://www.google.com/search?q=Thai+Yai+Restaurant+Chiang+Mai+พี่อ้อย+อาหารไทยใหญ่",
+   "fetched": "2026-10-11"
+  },
+  "cm-ovt-e22e7968-2526-4225-9684-4d59852286df": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Shan); the Burmese & Shan shelf matches sub myanmar. Tai Yai food with delivery inside the city",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://www.google.com/search?q=ครัวตุงคบุรี+อาหารไทใหญ่+ป่าแดด",
+   "fetched": "2026-10-11"
+  },
+  "cr-ovt-5b7a3037-c21a-4cc7-ab0a-20440701feea": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Shan); the Burmese & Shan shelf matches sub myanmar. Khao soi noi (Shan 'pizza' rice-flour sheet), open daily",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://www.google.com/search?q=ข้าวซอยน้อยป้าป่าง+แม่สาย+อาหารไทใหญ่",
+   "fetched": "2026-10-11"
+  },
+  "cr-ovt-f3236023-9fca-4206-9dea-62865e2142b5": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Shan); the Burmese & Shan shelf matches sub myanmar. Nam ngiao noodles, Shan recipe",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://www.google.com/search?q=บ้านน้ำเงี้ยว+สูตรไทใหญ่+เชียงราย+เวียงชัย",
+   "fetched": "2026-10-11"
+  },
+  "cm-osm-way-650706594": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Burmese); the Burmese & Shan shelf matches sub myanmar. Burmese restaurant: tea leaf salad, hin lay curry, fish soup",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://wanderlog.com/place/details/1394519/the-swan-burmese-cuisine",
+   "fetched": "2026-10-11"
+  },
+  "cm-osm-node-3057318301": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Shan / Burmese); the Burmese & Shan shelf matches sub myanmar. Burmese and Shan dishes, Shan noodles, salads, curries; has a Burmese-language library",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://wanderlog.com/place/details/828899/nong-bees-burmese-restaurant",
+   "fetched": "2026-10-11"
+  },
+  "cm-osm-node-13580268501": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Burmese); the Burmese & Shan shelf matches sub myanmar. Burmese, Indian and Thai dishes; tea leaf salad with free hot tea",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://www.google.com/search?q=Cherry+Burmese+Chiang+Mai+Ragang+Road",
+   "fetched": "2026-10-11"
+  },
+  "cm-osm-node-13981970601": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Burmese (Sagaing)); the Burmese & Shan shelf matches sub myanmar. Sagaing-style Burmese salads and sweets; family-run tea shop",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://www.google.com/search?q=Sagaing+Thu+Burmese+restaurant+Chiang+Mai",
+   "fetched": "2026-10-11"
+  },
+  "cm-osm-node-3117930572": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Burmese); the Burmese & Shan shelf matches sub myanmar. Kyay-oh (Burmese noodle soup) shop",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://www.google.com/search?q=Aung+Myint+Mo+CNX+Burmese+Kyay-Oh+Chiang+Mai",
+   "fetched": "2026-10-11"
+  },
+  "cm-osm-node-12608747501": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Burmese); the Burmese & Shan shelf matches sub myanmar. Burmese rice and curry, noodles",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://www.google.com/search?q=Burma+Kitchen+Mae+Hia+Chiang+Mai",
+   "fetched": "2026-10-11"
+  },
+  "cm-ovt-0f514025-e13e-4ed8-889b-eae9256fed88": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Burmese); the Burmese & Shan shelf matches sub myanmar. Myanmar food kitchen; delivery",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://www.google.com/search?q=Kha+Bistro+CNX+Myanmar+Food+Kitchen+Chiang+Mai",
+   "fetched": "2026-10-11"
+  },
+  "cm-ovt-4ce2b609-bd73-4143-ac6d-2b02ec7b7d47": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Burmese); the Burmese & Shan shelf matches sub myanmar. Burmese restaurant; Facebook says Mon-Sat 08:00-18:00, closed Sunday",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://www.google.com/search?q=The+Best+Burmese+Restaurant+Chiang+Mai+Facebook",
+   "fetched": "2026-10-11"
+  },
+  "cm-ovt-5631d069-9061-4fc2-a420-28c01ee421b0": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Burmese); the Burmese & Shan shelf matches sub myanmar. Burmese-language restaurant/bar page; Korean dishes and dim sum",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://www.google.com/search?q=Windy+Hill+Restaurant+လေထန်ကုန်း+Chiang+Mai",
+   "fetched": "2026-10-11"
+  },
+  "cm-ovt-662d6d1f-e425-4f1e-9f72-af13c2365b59": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Burmese); the Burmese & Shan shelf matches sub myanmar. Burmese cuisine",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://www.google.com/search?q=Khittayar+Restaurant+Tom+Kam+2+Road+Chiang+Mai+Burmese",
+   "fetched": "2026-10-11"
+  },
+  "cm-ovt-7e0f4cf3-d6d8-41be-a484-630d71b9f000": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Burmese); the Burmese & Shan shelf matches sub myanmar. Burmese and vegetarian restaurant",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://www.google.com/search?q=Home+Burmese+and+Vegetarian+Restaurant+Chiang+Mai",
+   "fetched": "2026-10-11"
+  },
+  "cm-ovt-9297231a-5773-4050-bcfb-3d2971a7db3f": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Burmese); the Burmese & Shan shelf matches sub myanmar. Myanmar traditional food (Mandalay-area dishes)",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://www.google.com/search?q=Ah+Nyar+House+Burmese+Restaurant+Chiang+Mai",
+   "fetched": "2026-10-11"
+  },
+  "cm-ovt-c9088da5-ca33-4ec2-a1fa-6bc12551689c": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Burmese (Muslim)); the Burmese & Shan shelf matches sub myanmar. Halal Burmese breakfast and dishes: rice noodle curry, roti with beans, Burmese milk tea",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://www.google.com/search?q=Kitchen+Mandalay+Chiang+Mai+Burmese+halal",
+   "fetched": "2026-10-11"
+  },
+  "cm-ovt-c89718d4-b97e-4aca-9267-58742c3b19a9": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Burmese); the Burmese & Shan shelf matches sub myanmar. Burmese tea house: Burmese teas, mohinga, nan gyi thoke, sticky rice green tea",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://wanderlog.com/place/details/6926888/zinmè-tea-house",
+   "fetched": "2026-10-11"
+  },
+  "cm-ovt-e0ee53c4-c43a-4ef6-a016-47d925280be5": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Burmese); the Burmese & Shan shelf matches sub myanmar. Burmese milk tea, breakfast, roti",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://www.google.com/search?q=Ah+Lwan+Pyay+Tea+House+CNX+Chang+Khlan",
+   "fetched": "2026-10-11"
+  },
+  "cm-ovt-ba5ebcc2-d27c-4224-8eb7-4dac93add274": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Kachin); the Burmese & Shan shelf matches sub myanmar. Kachin traditional food (shat jam, sahpye set)",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://www.google.com/search?q=NAM+CHYIM+Kachin+Kitchen+in+Chiang+Mai",
+   "fetched": "2026-10-11"
+  },
+  "cm-ovt-d16cdaeb-ffc9-4eae-ac32-4214af99d3b5": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Shan / Burmese (name in Shan and Burmese script)); the Burmese & Shan shelf matches sub myanmar. Small coffee shop, Hang Dong",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://www.google.com/search?q=Morning+Olive+มอร์นิ่งโอลิฟฟ์+เชียงใหม่",
+   "fetched": "2026-10-11"
+  },
+  "cm-osm-node-6041336985": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Mixed (supports Burmese refugees)); the Burmese & Shan shelf matches sub myanmar. Vegan cafe with Shan and Burmese dishes beside Western breakfast; donation centre and thrift shop",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://www.google.com/search?q=Free+Bird+Cafe+Chiang+Mai+Burmese+refugees+Shan+menu",
+   "fetched": "2026-10-11"
+  },
+  "cr-ovt-6d3708b4-8728-49c3-ad11-e4180f87572c": {
+   "note": "Burmese or Shan food stated by a page read on 2026-10-11 (Mixed (halal)); the Burmese & Shan shelf matches sub myanmar. Coffee, tea, cakes and food near the border gate",
+   "add_sub": [
+    "myanmar"
+   ],
+   "source": "https://www.google.com/search?q=Mandalay+Coffee+House+Mae+Sai",
+   "fetched": "2026-10-11"
+  },
+  "cm-osm-node-1617076514": {
+   "note": "WEED HOUSE CNX: listed by weed.th as a cannabis shop; its exact name and province matched this record, so import_weedth folded it here (rule 1) and the record stayed off the cannabis shelf.",
+   "add_cat": [
+    "cannabis"
+   ],
+   "add_sub": [
+    "dispensary"
+   ],
+   "source": "https://weed.th/shop/0588b215-806f-4b64-a47c-f8fb3fd6da33/chiang-mai/weed-house-cnx",
+   "fetched": "2026-09-21"
+  },
+  "cm-ovt-25d100f6-6764-4023-80ef-4400b2584701": {
+   "note": "Green Lab Cnx cannabis dispensary: listed by weed.th as a cannabis shop; its exact name and province matched this record, so import_weedth folded it here (rule 1) and the record stayed off the cannabis shelf.",
+   "add_cat": [
+    "cannabis"
+   ],
+   "add_sub": [
+    "dispensary"
+   ],
+   "source": "https://weed.th/shop/0acca266-3591-49a5-bb3c-4531656381c6/chiang-mai/green-lab-cnx-cannabis-dispensary",
+   "fetched": "2026-09-21"
+  },
+  "cm-osm-node-11726454425": {
+   "note": "Cannabis cafe: listed by weed.th as a cannabis shop; its exact name and province matched this record, so import_weedth folded it here (rule 1) and the record stayed off the cannabis shelf.",
+   "add_cat": [
+    "cannabis"
+   ],
+   "add_sub": [
+    "cannabis-cafe"
+   ],
+   "source": "https://weed.th/shop/0bf99660-07e5-4e45-8e57-941fb06978c6/chiang-mai/cannabis-cafe",
+   "fetched": "2026-09-21"
+  },
+  "cm-osm-node-9444123418": {
+   "note": "Treehouse Dispensary Chiang Mai: listed by weed.th as a cannabis shop; its exact name and province matched this record, so import_weedth folded it here (rule 1) and the record stayed off the cannabis shelf.",
+   "add_cat": [
+    "cannabis"
+   ],
+   "add_sub": [
+    "dispensary"
+   ],
+   "source": "https://weed.th/shop/0c70c9be-e609-4c7d-9ec9-7fffbd8a8fc3/chiang-mai/treehouse-dispensary-chiang-mai",
+   "fetched": "2026-09-21"
+  },
+  "cm-osm-node-3815039058": {
+   "note": "Weed buffet cnx: listed by weed.th as a cannabis shop; its exact name and province matched this record, so import_weedth folded it here (rule 1) and the record stayed off the cannabis shelf.",
+   "add_cat": [
+    "cannabis"
+   ],
+   "add_sub": [
+    "cannabis-cafe"
+   ],
+   "source": "https://weed.th/shop/0e284e55-e072-4108-8dd6-ea6bcfaa79e5/chiang-mai/weed-buffet-cnx",
+   "fetched": "2026-09-21"
+  },
+  "cm-osm-node-3420998758": {
+   "note": "Chillax Cannabis​ Shop: listed by weed.th as a cannabis shop; its exact name and province matched this record, so import_weedth folded it here (rule 1) and the record stayed off the cannabis shelf.",
+   "add_cat": [
+    "cannabis"
+   ],
+   "add_sub": [
+    "dispensary"
+   ],
+   "source": "https://weed.th/shop/1c930d45-f74e-4632-8cb5-fceaf60c26e5/chiang-mai/chillax-cannabis-shop",
+   "fetched": "2026-09-21"
+  },
+  "cm-osm-node-6611326687": {
+   "note": "Cannabis​ home: listed by weed.th as a cannabis shop; its exact name and province matched this record, so import_weedth folded it here (rule 1) and the record stayed off the cannabis shelf.",
+   "add_cat": [
+    "cannabis"
+   ],
+   "add_sub": [
+    "cannabis-cafe"
+   ],
+   "source": "https://weed.th/shop/3c607d55-cdf5-497d-98bc-5524fe8c2cd4/chiang-mai/cannabis-home",
+   "fetched": "2026-09-21"
+  },
+  "cm-ovt-2e7fc408-f878-4c30-84cf-96b0fefd7005": {
+   "note": "WEED GANG: listed by weed.th as a cannabis shop; its exact name and province matched this record, so import_weedth folded it here (rule 1) and the record stayed off the cannabis shelf.",
+   "add_cat": [
+    "cannabis"
+   ],
+   "add_sub": [
+    "dispensary"
+   ],
+   "source": "https://weed.th/shop/3e10bd20-dd84-4e6a-8d87-672628460e1b/chiang-mai/weed-gang",
+   "fetched": "2026-09-21"
+  },
+  "cm-ovt-f08f821f-404c-4b91-9db2-3affd23df77a": {
+   "note": "BC Green Grower Cafe: listed by weed.th as a cannabis shop; its exact name and province matched this record, so import_weedth folded it here (rule 1) and the record stayed off the cannabis shelf.",
+   "add_cat": [
+    "cannabis"
+   ],
+   "add_sub": [
+    "cannabis-cafe"
+   ],
+   "source": "https://weed.th/shop/43d27988-d390-4ab7-9d73-beaaf1dd9b5a/chiang-mai/bc-green-grower-cafe",
+   "fetched": "2026-09-21"
+  },
+  "cm-osm-node-6964120285": {
+   "note": "Pineapple Express — Nan 2026-10-12: a dispensary and bar, open 24 hours (the record's OSM hours already read 24/7). weed.th lists it at 18 Mun Mueang Rd; restaurantguru puts it 7 m from this pin. Filed by OSM as a guesthouse only.",
+   "add_cat": [
+    "cannabis"
+   ],
+   "add_sub": [
+    "dispensary",
+    "cannabis-cafe"
+   ],
+   "source": "https://weed.th/shop/51f2775d-3c2c-405f-a938-e8cfa08f3ec0/chiang-mai/pineapple-express",
+   "fetched": "2026-09-21"
+  },
+  "cm-osm-node-1777087576": {
+   "note": "Scorpion Bar: listed by weed.th as a cannabis shop; its exact name and province matched this record, so import_weedth folded it here (rule 1) and the record stayed off the cannabis shelf.",
+   "add_cat": [
+    "cannabis"
+   ],
+   "add_sub": [
+    "cannabis-cafe"
+   ],
+   "source": "https://weed.th/shop/5f83d259-d83a-4c20-9fa5-353509a2589b/chiang-mai/scorpion-bar",
+   "fetched": "2026-09-21"
+  },
+  "cr-ovt-2d944b7e-b491-49d0-b29e-35cf705e1a21": {
+   "note": "Area42 Dispensary & Cafe: listed by weed.th as a cannabis shop; its exact name and province matched this record, so import_weedth folded it here (rule 1) and the record stayed off the cannabis shelf.",
+   "add_cat": [
+    "cannabis"
+   ],
+   "add_sub": [
+    "dispensary"
+   ],
+   "source": "https://weed.th/shop/66e86c1e-e1ea-4dcf-8cfe-f4957c5afe06/chiang-rai/area42-dispensary-cafe",
+   "fetched": "2026-09-21"
+  },
+  "cm-ovt-c0059e77-1bc2-4ac4-b14b-a22f3c82e724": {
+   "note": "Green Dog Cannabis Dispensary: listed by weed.th as a cannabis shop; its exact name and province matched this record, so import_weedth folded it here (rule 1) and the record stayed off the cannabis shelf.",
+   "add_cat": [
+    "cannabis"
+   ],
+   "add_sub": [
+    "dispensary"
+   ],
+   "source": "https://weed.th/shop/72fb8795-dbeb-4273-a3f7-c9e94c2824f9/chiang-mai/green-dog-cannabis-dispensary",
+   "fetched": "2026-09-21"
+  },
+  "cm-osm-way-492846700": {
+   "note": "Giant Cannabis shop: listed by weed.th as a cannabis shop; its exact name and province matched this record, so import_weedth folded it here (rule 1) and the record stayed off the cannabis shelf.",
+   "add_cat": [
+    "cannabis"
+   ],
+   "add_sub": [
+    "dispensary"
+   ],
+   "source": "https://weed.th/shop/9071d81b-4804-4218-802c-2c2a1598a7e1/chiang-mai/giant-cannabis-shop",
+   "fetched": "2026-09-21"
+  },
+  "cr-osm-node-4559979989": {
+   "note": "Reggae Home & Bar: listed by weed.th as a cannabis shop; its exact name and province matched this record, so import_weedth folded it here (rule 1) and the record stayed off the cannabis shelf.",
+   "add_cat": [
+    "cannabis"
+   ],
+   "add_sub": [
+    "cannabis-cafe"
+   ],
+   "source": "https://weed.th/shop/a65d1bd9-8e72-4f77-9bb7-c29c0280fbcb/chiang-rai/reggae-home-bar",
+   "fetched": "2026-09-21"
+  },
+  "cm-ovt-7d6a741f-ffcc-4bb4-bfc3-02fe95290c78": {
+   "note": "The God Flower: listed by weed.th as a cannabis shop; its exact name and province matched this record, so import_weedth folded it here (rule 1) and the record stayed off the cannabis shelf.",
+   "add_cat": [
+    "cannabis"
+   ],
+   "add_sub": [
+    "dispensary"
+   ],
+   "source": "https://weed.th/shop/b8af01bd-3389-421d-90dc-e43c53ead89c/chiang-mai/the-god-flower",
+   "fetched": "2026-09-21"
+  },
+  "cm-ovt-65850b77-0e22-4b3c-972d-f3ddbbd90891": {
+   "note": "Green Wave - Organic Cannabis Farm: listed by weed.th as a cannabis shop; its exact name and province matched this record, so import_weedth folded it here (rule 1) and the record stayed off the cannabis shelf.",
+   "add_cat": [
+    "cannabis"
+   ],
+   "add_sub": [
+    "farm"
+   ],
+   "source": "https://weed.th/shop/bb093628-87f7-4f80-b742-b65ddfb7f9e0/chiang-mai/green-wave-organic-cannabis-farm",
+   "fetched": "2026-09-21"
+  },
+  "cm-osm-node-2682488385": {
+   "note": "WEED ME Cannabis shop cnx: listed by weed.th as a cannabis shop; its exact name and province matched this record, so import_weedth folded it here (rule 1) and the record stayed off the cannabis shelf.",
+   "add_cat": [
+    "cannabis"
+   ],
+   "add_sub": [
+    "dispensary"
+   ],
+   "source": "https://weed.th/shop/c8385a13-77b4-4a31-ae4a-6a18234f2947/chiang-mai/weed-me-cannabis-shop-cnx",
+   "fetched": "2026-09-21"
+  },
+  "cm-ovt-51eb9362-51e6-4903-a0c5-86667cc46f35": {
+   "note": "PSYSQUARE: listed by weed.th as a cannabis shop; its exact name and province matched this record, so import_weedth folded it here (rule 1) and the record stayed off the cannabis shelf.",
+   "add_cat": [
+    "cannabis"
+   ],
+   "add_sub": [
+    "dispensary"
+   ],
+   "source": "https://weed.th/shop/cb71fd9d-6d8a-450a-b773-0a90f2ddc0a2/chiang-mai/psysquare",
+   "fetched": "2026-09-21"
+  },
+  "cm-ovt-88811d8c-9ce3-419b-943d-1459e1bf1f66": {
+   "note": "Get Rock Chill: listed by weed.th as a cannabis shop; its exact name and province matched this record, so import_weedth folded it here (rule 1) and the record stayed off the cannabis shelf.",
+   "add_cat": [
+    "cannabis"
+   ],
+   "add_sub": [
+    "cannabis-cafe"
+   ],
+   "source": "https://weed.th/shop/d120569d-2346-4bb7-be54-b6ab5eb428d0/chiang-mai/get-rock-chill",
+   "fetched": "2026-09-21"
+  },
+  "cr-ovt-076c4f85-c8a6-4502-acd7-4ad5e19d2576": {
+   "note": "ร้านแม่จันสปอร์ต: listed by weed.th as a cannabis shop; its exact name and province matched this record, so import_weedth folded it here (rule 1) and the record stayed off the cannabis shelf.",
+   "add_cat": [
+    "cannabis"
+   ],
+   "add_sub": [
+    "cannabis-cafe"
+   ],
+   "source": "https://weed.th/shop/d98e1033-e4ff-4aee-896f-57729309a3ec/chiang-rai/%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B9%81%E0%B8%A1%E0%B9%88%E0%B8%88%E0%B8%B1%E0%B8%99%E0%B8%AA%E0%B8%9B%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%95",
+   "fetched": "2026-09-21"
+  },
+  "cr-ovt-1581a002-e4e0-4f21-a6b4-fa64492e64e9": {
+   "note": "จุด-พัก-เติม: listed by weed.th as a cannabis shop; its exact name and province matched this record, so import_weedth folded it here (rule 1) and the record stayed off the cannabis shelf.",
+   "add_cat": [
+    "cannabis"
+   ],
+   "add_sub": [
+    "cannabis-cafe"
+   ],
+   "source": "https://weed.th/shop/def5eb22-c7a0-4683-aa45-7c6b9edf3465/chiang-rai/%E0%B8%88%E0%B8%B8%E0%B8%94-%E0%B8%9E%E0%B8%B1%E0%B8%81-%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1",
+   "fetched": "2026-09-21"
+  },
+  "cm-osm-node-3416948044": {
+   "note": "Alice's Restaurant: listed by weed.th as a cannabis shop; its exact name and province matched this record, so import_weedth folded it here (rule 1) and the record stayed off the cannabis shelf.",
+   "add_cat": [
+    "cannabis"
+   ],
+   "add_sub": [
+    "cannabis-cafe"
+   ],
+   "source": "https://weed.th/shop/ed2bcca1-161e-424c-b95f-a9c4bb586c84/chiang-mai/alices-restaurant",
+   "fetched": "2026-09-21"
+  },
+  "cr-ovt-e35a616a-7986-46cd-9a66-910667ee6ce2": {
+   "note": "Sweet And High Co: listed by weed.th as a cannabis shop; its exact name and province matched this record, so import_weedth folded it here (rule 1) and the record stayed off the cannabis shelf.",
+   "add_cat": [
+    "cannabis"
+   ],
+   "add_sub": [
+    "dispensary"
+   ],
+   "source": "https://weed.th/shop/fb8cd9e2-ec40-4200-9793-a2ca589ca93b/chiang-rai/sweet-and-high-co",
+   "fetched": "2026-09-21"
   }
  }
 }
